@@ -3,10 +3,9 @@
 | ---------- | ––––––––---- | --------- |
 | content 1  |   content 2  | content3  |
 
-| First Header  | Second Header |
-| ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
+|               |               |              |                |
+| ------------- | ------------- |------------- | -------------  |
+| [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)| ![GitHub issues](https://img.shields.io/github/issues/ARTbio/startbio?color=purple)| ![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/ARTbio/startbio?color=blue)| ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/artbio/startbio?color=darkgreen)  |
 
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)|
