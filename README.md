@@ -3,16 +3,12 @@
 ![Twitter URL](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2FARTbio_IBPS)
 
 
-
+[![Release Documentation](https://img.shields.io/badge/release-documentation-blue.svg)](https://artbio.github.io/startbio/)
 [![Build Status](https://travis-ci.org/ARTbio/tools-artbio.svg?branch=master)](https://travis-ci.org/ARTbio/startbio)
 ![GitHub issues](https://img.shields.io/github/issues/ARTbio/startbio?color=purple)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/ARTbio/startbio?color=blue)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/artbio/startbio?color=darkgreen)
 [![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/ARTbio/Lobby)
-
-[![Release Documentation](https://img.shields.io/badge/release-documentation-blue.svg)](https://artbio.github.io/startbio/)
-
-
 
 # startbio
 Training Material of the STARTbio program
