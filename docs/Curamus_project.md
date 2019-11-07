@@ -30,8 +30,6 @@ Les nouvelles technologies de séquençage génèrent d’énormes quantités de
 STARTbio est ainsi une opportunité pour le SIRIC Curamus de mettre en place un programme de diffusion des connaissances et des nouvelles pratiques nécessaires à la bioinformatique des données de cancérologie.
 
 
-
-
 ## Projet de recherche (5 pages max)
 
 
@@ -153,15 +151,15 @@ Finalement, nous allons prendre contact avec [CAPSULE](http://capsule.sorbonne-u
 ## Résultats attendus
 
 
-## Le projet STARTbio est une opportunité pour le SIRIC Curamus de mettre en place un programme de diffusion des connaissances et des nouvelles pratiques nécessaires au traitement bioinformatique des donnée de cancérologie.
+#### Le projet STARTbio est une opportunité pour le SIRIC Curamus de mettre en place un programme de diffusion des connaissances et des nouvelles pratiques nécessaires au traitement bioinformatique des donnée de cancérologie.
 
 
-## Axé sur une volume d’enseignement important et doté d’outils pédagogiques innovant, de former en profondeur les participants aux analyses dont ils ont besoins, tout en les sensibilisant aux principes FAIR adoptés à l’échelle européenne.
+#### Axé sur une volume d’enseignement important et doté d’outils pédagogiques innovant, de former en profondeur les participants aux analyses dont ils ont besoins, tout en les sensibilisant aux principes FAIR adoptés à l’échelle européenne.
 
 
-## Les matériaux pédagogiques générés et accessibles en ligne et la mise en place d’un réseau d'entraide faciliteront à moyen terme l’autoformation des personnels
+#### Les matériaux pédagogiques générés et accessibles en ligne et la mise en place d’un réseau d'entraide faciliteront à moyen terme l’autoformation des personnels
 
-Les évaluations des connaissances et les enquêtes effectuées auprès des participants permettront également de dresser un typologie plus précise des besoins en bioinformatique générés par les programme de recherche du SIRIC Curamus.
+#### Les évaluations des connaissances et les enquêtes effectuées auprès des participants permettront également de dresser un typologie plus précise des besoins en bioinformatique générés par les programme de recherche du SIRIC Curamus.
 
 
 ## Bibliographie
