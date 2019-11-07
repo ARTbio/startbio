@@ -23,7 +23,7 @@ Conversion notes:
 ## STARTbio, un programme de formation à l’analyse bioinformatique des données de cancérologie pour les chercheurs du SIRIC CURAMUS
 
 
-## Résumé scientifique (15 lignes max)
+### Résumé scientifique (15 lignes max)
 
 Les nouvelles technologies de séquençage génèrent d’énormes quantités de données qui nécessitent un traitement informatique complexe pour leur analyse. Ainsi, les équipes de biologistes et de médecins qui n’ont pas de compétences solides en bioinformatique se trouvent aujourd’hui limitées dans leurs recherches. Pour aider à dépasser cette limitation, la plateforme de bioinformatique ARTbio propose aux chercheurs du SIRIC Curamus le programme de formation STARTbio, <span style="text-decoration:underline;">S</span>erial <span style="text-decoration:underline;">T</span>raining with <span style="text-decoration:underline;">ARTbio</span>. STARTbio établira les bases méthodologiques de l’analyse informatique et couvrira, graduellement, les principales approches analytiques en cancérologie: analyse des variants génétiques, profilage du transcriptome et des ARN non codants, profilage de cellules uniques et détection/assemblage des génomes viraux. La formation alliera étroitement théories et pratiques et s’appuiera sur des méthodes pédagogiques innovantes: cahiers numériques versionnés, environnements d'entraînement Galaxy, Rstudio et Jupyter, pratique quotidienne “flash”, documentation exécutable et réseau d’entraide en ligne.
 
@@ -35,7 +35,7 @@ STARTbio est ainsi une opportunité pour le SIRIC Curamus de mettre en place un 
 ## Projet de recherche (5 pages max)
 
 
-## État de la question
+### État de la question
 
 La recherche en biologie est entrée assez brusquement dans l’ère du “Big Data” avec l’avènement des nouvelles technologies telles que le séquençage à haut débit, les approches “multi-omics” ou l’imagerie haute-résolution ou en continu. Le séquençage de cellules uniques qui était par exemple une approche confidentielle il y a seulement 5 ans, impacte aujourd’hui très fortement la biologie comme la médecine, et notamment la cancérologie. On peut citer aussi le séquençage haut-débit de très longues molécules d’ADN qui permet aujourd’hui d’assembler des génomes ou d’identifier des liaisons génétiques à une vitesse et avec une précision décuplées. On peut anticiper enfin qu’à brève échéance, les méthodes d’intelligence artificielles s’imposeront aux biologistes et médecins car elles permettent d’extraire des informations de données de grandes dimensions avec des performances inégalées. Ainsi, l’informatique et les statistiques deviennent des domaines de compétence clés en biologie, simplement parce que cette science, comme d’autres avant (Physique, Astronomie, etc.), devient une “science de données”. Or, les biologistes et les médecins n’ont généralement pas eu le temps d’acquérir ces compétences durant leurs formations initiales et ces manques tendent à se creuser avec l’évolution rapide des méthodes et des technologies.
 
@@ -53,9 +53,6 @@ Pour acquérir des compétences solides en bioinformatique, les chercheurs peuve
 *   des formations avancées à des méthodologies pointues (par exemple “DNA methylation and bisulfite treatment”, “Phylogénie moléculaire”, etc),  qui s’adressent à des chercheurs ayant déjà des bases solides en bioinformatique, bases que les formations généralistes évoquées ci-dessus peinent à délivrer.
 
 Ainsi, bien que les formations de qualité soient nombreuses, elles sont morcelées thématiquement et géographiquement. Pour doter les biologistes et les médecins d’une expertise de fond, de nature à les rendre autonome dans la fouille de leurs données, il nous semble important d’**intégrer** les différentes étapes nécessaire à l’apprentissage de la bioinformatique, en partant des notions de bases jusqu’au méthodes spécifiques appropriées à leurs recherches, et de construire un **savoir-faire durable** en favorisant la pratique et les situations de recherche réelles de façon récurrente et sur une durée significative.
-
-
-## 
 
 
 ## Justification de la demande
@@ -83,10 +80,10 @@ Finalement, la plateforme ARTbio vient d’être labellisée par l’Institut Fr
 ## Objectifs et méthodologie développée
 
 
-## L’essentiel du programme
+### L’essentiel du programme
 
 
-## La formation couvrira 5 domaines de l’analyse des données en cancérologie :
+#### La formation couvrira 5 domaines de l’analyse des données en cancérologie :
 
 
 
@@ -184,10 +181,7 @@ Les évaluations des connaissances et les enquêtes effectuées auprès des part
 6. Carissimo,G., Eiglmeier,K., Reveillaud,J., Holm,I., Diallo,M., Diallo,D., Vantaux,A., Kim,S., Ménard,D., Siv,S., et al. (2016) Identification and Characterization of Two Novel RNA Viruses from Anopheles gambiae Species Complex Mosquitoes. PLoS One, 11, e0153881.
 
 
-## 
-
-
-## Équipes participantes
+### Équipes participantes
 
 **Personnes impliquées, statut, et pourcentage de temps consacré à la recherche - Équipes participantes - Principales publications des 5 dernières années**
 
@@ -303,9 +297,7 @@ IE, Inserm
 2. **Toutes les équipes intéressées de Curamus.**
 
 
-## Principales publications des 5 dernières années
-
-
+### Principales publications des 5 dernières années
 
 1. Mirca S. Saurty-Seerunghen, <span style="text-decoration:underline;">Léa Bellenger</span>, Elias A. El-Habr, Virgile Delaunay, Delphine Garnier, Hervé Chneiweiss, <span style="text-decoration:underline;">Christophe Antoniewski</span>, Ghislaine Morvan-Dubois, Marie-Pierre Junier. 2019. “Capture at the single cell level of metabolic modules distinguishing aggressive and indolent glioblastoma cells”, Acta Neuropathologica Communications.
 2. van den Beek M, da Silva B, Pouch J, Ali Chaouche MEA, Carré C, <span style="text-decoration:underline;">Antoniewski C</span>. 2018. "Dual-layer transposon repression in heads of Drosophila melanogaster." RNA (12):1749-1760
@@ -315,10 +307,7 @@ IE, Inserm
 6. Carissimo, Guillaume, Karin Eiglmeier, Julie Reveillaud, Inge Holm, Mawlouth Diallo, Diawo Diallo, Amélie Vantaux, <span style="text-decoration:underline;">Christophe Antoniewski</span> and Kenneth Vernick. 2016. “Identification and Characterization of Two Novel RNA Viruses from Anopheles Gambiae Species Complex Mosquitoes.” PloS One 11 (5): e0153881.
 
 
-## 
-
-
-## Budget
+### Budget
 
 **pour le programme STARTbio limité à 16 participants par édition:**
 
@@ -342,100 +331,7 @@ IE, Inserm
     Nous proposons que les coûts de la formation soit pris en charge en partie par les participants,  soit **920 €** pour une participation au programme, et en partie par le SIRIC, soit un financement de **40 000 €** versés à ARTbio.
 
 
-
-
-**Propositions de 3 rapporteurs francophones du domaine ne présentant pas de conflit d’intérêts avec  vos  travaux (absence  de  publication  en  commun  depuis  au  moins  3  ans). Informations  ci-dessous :**
-
-
-<table>
-  <tr>
-   <td><strong>Marie-Agnes Dillies</strong>
-   </td>
-  </tr>
-  <tr>
-   <td>Hub Bioinformatique et Biostatistique du C3BI de l’Institut Pasteur
-   </td>
-  </tr>
-  <tr>
-   <td>Hub Bioinformatique et Biostatistique, C3BI, USR 3756 IP CNRS
-<p>
-& Plate-forme Transcriptome et Epigénome, Biomics Pole, CITECH
-<p>
-Institut Pasteur,  28 rue Dr Roux,  75724 Paris cedex 15
-   </td>
-  </tr>
-  <tr>
-   <td>Institut Pasteur
-   </td>
-  </tr>
-  <tr>
-   <td>Statisticienne, Directrice du Hub de bioinformatique de l’Institut Pasteur
-   </td>
-  </tr>
-</table>
-
-
-
-<table>
-  <tr>
-   <td><strong>Dr. Catherine Nguyen</strong>
-   </td>
-  </tr>
-  <tr>
-   <td>ITMO GGB Genomique-Génétique-Bioinformatique
-   </td>
-  </tr>
-  <tr>
-   <td><a href="mailto:catherine.nguyen@inserm.fr">catherine.nguyen@inserm.fr</a>
-<p>
-tel  Marseille: 33 (0)4 91 82 87 02
-<p>
-tel Paris : 33 (0)1 8253 33 33
-   </td>
-  </tr>
-  <tr>
-   <td>AVIESAN - Biopark - Bâtiment A - 1er étage - Bureau 118
-<p>
- 8, rue de la croix Jarry, 75013 PARIS 
-   </td>
-  </tr>
-  <tr>
-   <td>Directrice ITMO GGB Genomique-Génétique-Bioinformatique
-   </td>
-  </tr>
-</table>
-
-
-
-<table>
-  <tr>
-   <td><strong>Jacques Van Helden</strong>
-   </td>
-  </tr>
-  <tr>
-   <td>Lab. Technological Advances for Genomics and Clinics (TAGC)
-   </td>
-  </tr>
-  <tr>
-   <td><a href="mailto:Jacques.van-Helden@france-bioinformatique.fr">Jacques.van-Helden@france-bioinformatique.fr</a>
-<p>
-Tél: +33 4 91 82 87 49
-   </td>
-  </tr>
-  <tr>
-   <td>INSERM Unit U1090, 163, Avenue de Luminy, 13288 MARSEILLE cedex 09. France.
-   </td>
-  </tr>
-  <tr>
-   <td>Professeur, Co-Directeur IFB
-   </td>
-  </tr>
-</table>
-
-
-
-
-Table 1. Programme détaillé de la formation
+### Table 1. Programme détaillé de la formation
 
 
 <table>
