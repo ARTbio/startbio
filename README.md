@@ -10,6 +10,9 @@
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/artbio/startbio?color=darkgreen)
 [![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/ARTbio/Lobby)
 
+[![Release Documentation](https://img.shields.io/badge/release-documentation-blue.svg)](https://artbio.github.io/startbio/)
+
+
 
 # startbio
 Training Material of the STARTbio program
