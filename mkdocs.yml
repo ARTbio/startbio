@@ -7,4 +7,4 @@ nav:
     - Curamus Project: Curamus_project.md
 site_url: https://artbio.github.io/startbio/
 repo_url: https://github.com/ARTbio/startbio
-theme: readthedocs
+theme: 'material'

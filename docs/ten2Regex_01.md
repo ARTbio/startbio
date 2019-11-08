@@ -19,7 +19,7 @@ Let’s start by looking at some examples and explanations.
   <tr>
    <td><strong><code>^The</code></strong>
    </td>
-   <td>matches any string that <strong>starts with</strong> <strong>The </strong>-><strong><a href="https://regex101.com/r/cO8lqs/2"> Try it!</a></strong>
+   <td>matches any string that <strong>starts with</strong> <strong>The </strong>-><strong><a target="_blank" href="https://regex101.com/r/cO8lqs/2"> Try it! </a></strong>
    </td>
   </tr>
   <tr>
@@ -51,7 +51,7 @@ Let’s start by looking at some examples and explanations.
   <tr>
    <td><code>abc<strong>*</strong></code>
    </td>
-   <td>matches a string that has <strong>ab followed by zero or more c </strong>-><strong><a href="https://regex101.com/r/cO8lqs/1"> Try it!</a></strong>
+   <td>matches a string that has <strong>ab followed by zero or more c </strong>-><strong><a target="_blank" href="https://regex101.com/r/cO8lqs/1"> Try it!</a></strong>
    </td>
   </tr>
   <tr>
@@ -107,7 +107,7 @@ Let’s start by looking at some examples and explanations.
   <tr>
    <td><strong><code>a(b|c)</code></strong>
    </td>
-   <td>matches a string that has <strong>a followed by b or c -><a href="https://regex101.com/r/cO8lqs/3"> Try it!</a></strong>
+   <td>matches a string that has <strong>a followed by b or c -><a target="_blank" href="https://regex101.com/r/cO8lqs/3"> Try it!</a></strong>
    </td>
   </tr>
   <tr>
@@ -127,13 +127,13 @@ Let’s start by looking at some examples and explanations.
   <tr>
    <td><strong><code>\d</code></strong>
    </td>
-   <td>matches a <strong>single character</strong> that is a <strong>digit </strong>-><strong><a href="https://regex101.com/r/cO8lqs/4"> Try it!</a></strong>
+   <td>matches a <strong>single character</strong> that is a <strong>digit </strong>-><strong><a target="_blank" href="https://regex101.com/r/cO8lqs/4"> Try it!</a></strong>
    </td>
   </tr>
   <tr>
    <td><strong><code>\w</code></strong>
    </td>
-   <td>matches a <strong>word character</strong> (alphanumeric character plus underscore) -><a href="https://regex101.com/r/cO8lqs/4"> Try it!</a>
+   <td>matches a <strong>word character</strong> (alphanumeric character plus underscore) -><a target="_blank" href="https://regex101.com/r/cO8lqs/4"> Try it!</a>
    </td>
   </tr>
   <tr>
@@ -145,7 +145,7 @@ Let’s start by looking at some examples and explanations.
   <tr>
    <td><strong><code>.</code></strong>
    </td>
-   <td>matches <strong>any character </strong>-><strong><a href="https://regex101.com/r/cO8lqs/5"> Try it!</a></strong>
+   <td>matches <strong>any character </strong>-><strong><a target="_blank" href="https://regex101.com/r/cO8lqs/5"> Try it!</a></strong>
    </td>
   </tr>
 </table>
@@ -162,7 +162,7 @@ For example, `\D` will perform the inverse match with respect to that obtained w
   <tr>
    <td><strong><code>\D</code></strong>
    </td>
-   <td>matches a <strong>single non-digit character </strong>-><strong><a href="https://regex101.com/r/cO8lqs/6"> Try it!</a></strong>
+   <td>matches a <strong>single non-digit character </strong>-><strong><a target="_blank" href="https://regex101.com/r/cO8lqs/6"> Try it!</a></strong>
    </td>
   </tr>
 </table>
@@ -175,7 +175,7 @@ In order to be taken literally, you must escape the characters `^.[$()|*+?{\`wit
   <tr>
    <td><strong><code>\$\d</code></strong>
    </td>
-   <td>matches a string that has a <strong>$ before one digit </strong>-><strong><a href="https://regex101.com/r/cO8lqs/9"> Try it!</a></strong>
+   <td>matches a string that has a <strong>$ before one digit </strong>-><strong><a target="_blank" href="https://regex101.com/r/cO8lqs/9"> Try it!</a></strong>
    </td>
   </tr>
   <tr>
@@ -222,19 +222,19 @@ A regex usually comes within this form **<code>/abc/</code></strong>, where the 
   <tr>
    <td><code>a<strong>(</strong>bc<strong>)</strong></code>
    </td>
-   <td>parentheses create a <strong>capturing group with value bc </strong>-><strong><a href="https://regex101.com/r/cO8lqs/11"> Try it!</a></strong>
+   <td>parentheses create a <strong>capturing group with value bc </strong>-><strong><a target="_blank" href="https://regex101.com/r/cO8lqs/11"> Try it!</a></strong>
    </td>
   </tr>
   <tr>
    <td><code>a<strong>(?:</strong>bc<strong>)</strong>*</code>
    </td>
-   <td>using <strong>?:</strong> we <strong>disable the capturing group </strong>-><strong><a href="https://regex101.com/r/cO8lqs/12"> Try it!</a></strong>
+   <td>using <strong>?:</strong> we <strong>disable the capturing group </strong>-><strong><a target="_blank" href="https://regex101.com/r/cO8lqs/12"> Try it!</a></strong>
    </td>
   </tr>
   <tr>
    <td><code>a<strong>(?<foo></strong>bc<strong>)</strong></code>
    </td>
-   <td>using <strong>?<foo></strong> we put a name to the group -><a href="https://regex101.com/r/cO8lqs/17"> Try it!</a>
+   <td>using <strong>?<foo></strong> we put a name to the group -><a target="_blank" href="https://regex101.com/r/cO8lqs/17"> Try it!</a>
    </td>
   </tr>
 </table>
@@ -245,14 +245,14 @@ This operator is very useful when we need to extract information from strings or
 If we choose to put a name to the groups (using <code>(<strong>?<foo></strong>...)</code>) we will be able to retrieve the group values using the match result like a dictionary where the keys will be the name of each group.
 
 
-### Bracket expressions — []
+### Bracket expressions — [ ]
 
 
 <table>
   <tr>
    <td><strong><code>[abc]</code></strong>
    </td>
-   <td>matches a string that has <strong>either an a or a b or a c </strong>-><strong> </strong>is the <strong>same as a|b|c </strong>-><strong><a href="https://regex101.com/r/cO8lqs/7"> Try it!</a></strong>
+   <td>matches a string that has <strong>either an a or a b or a c </strong>-><strong> </strong>is the <strong>same as a|b|c </strong>-><strong><a target="_blank" href="https://regex101.com/r/cO8lqs/7"> Try it!</a></strong>
    </td>
   </tr>
   <tr>
@@ -264,7 +264,7 @@ If we choose to put a name to the groups (using <code>(<strong>?<foo></strong>..
   <tr>
    <td><strong><code>[a-fA-F0-9]</code></strong>
    </td>
-   <td>a string that represents <strong>a single hexadecimal digit, case insensitively </strong>-><strong><a href="https://regex101.com/r/cO8lqs/22"> Try it!</a></strong>
+   <td>a string that represents <strong>a single hexadecimal digit, case insensitively </strong>-><strong><a target="_blank" href="https://regex101.com/r/cO8lqs/22"> Try it!</a></strong>
    </td>
   </tr>
   <tr>
@@ -276,17 +276,10 @@ If we choose to put a name to the groups (using <code>(<strong>?<foo></strong>..
   <tr>
    <td><strong><code>[^a-zA-Z]</code></strong>
    </td>
-   <td>a string that has <strong>not a letter from a to z or from A to Z. </strong>In this case the <strong>^</strong> is used as <strong>negation of the expression </strong>-><strong><a href="https://regex101.com/r/cO8lqs/10"> Try it!</a></strong>
+   <td>a string that has <strong>not a letter from a to z or from A to Z. </strong>In this case the <strong>^</strong> is used as <strong>negation of the expression </strong>-><strong><a target="_blank" href="https://regex101.com/r/cO8lqs/10"> Try it!</a></strong>
    </td>
   </tr>
 </table>
-
-
-
-```
-
-
-```
 
 
 Remember that inside bracket expressions all special characters (including the backslash `\`) lose their special powers: thus we will not apply the “escape rule”.
@@ -302,11 +295,11 @@ For example, `<.+>` matches `<div>simple div</div>` in `This is a <strong><div> 
 
 In order to catch only the <code>div</code> tag we can use a <code>?</code> to make it lazy:
 
-`<.+?>` matches **any character one or more** times included **inside <** and **>**, expanding as needed [Try it!](https://regex101.com/r/cO8lqs/24)
+`<.+?>` matches **any character one or more** times included **inside <** and **>**, expanding as needed --> <a href="https://regex101.com/r/cO8lqs/24" target="_blank">Try it!</a>
 
 Notice that a better solution should avoid the usage of `.` in favor of a more strict regex:
 
-`<[^<>]+>` matches **any character except < or > one or more** times included **inside < and >** -> [Try it!](https://regex101.com/r/cO8lqs/23)
+`<[^<>]+>` matches **any character except < or > one or more** times included **inside < and >** -> <a href="https://regex101.com/r/cO8lqs/23" target="_blank">Try it!</a>
 
 ---
 
@@ -322,7 +315,7 @@ Notice that a better solution should avoid the usage of `.` in favor of a more s
   <tr>
    <td><strong><code>\babc\b</code></strong>
    </td>
-   <td>performs a <strong>"whole words only" search </strong>-><strong><a href="https://regex101.com/r/cO8lqs/25"> Try it!</a></strong>
+   <td>performs a <strong>"whole words only" search </strong>-><strong><a target="_blank" href="https://regex101.com/r/cO8lqs/25"> Try it!</a></strong>
    </td>
   </tr>
 </table>
@@ -337,7 +330,7 @@ It comes with its **negation**, `\B`. This matches all positions where `\b` does
   <tr>
    <td><strong><code>\Babc\B </code></strong>
    </td>
-   <td>matches only if the pattern is <strong>fully surrounded by word</strong> characters -><a href="https://regex101.com/r/cO8lqs/26"> Try it!</a>
+   <td>matches only if the pattern is <strong>fully surrounded by word</strong> characters -><a target="_blank" href="https://regex101.com/r/cO8lqs/26"> Try it!</a>
    </td>
   </tr>
 </table>
@@ -347,9 +340,9 @@ It comes with its **negation**, `\B`. This matches all positions where `\b` does
 
 |    expression         |                           effect                                                                                                            |      Try                                      
 |-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------
-|`([abc])\1`            | using **\1** it matches the **same** text that was matched by the **first capturing group**                                                 | [Try it!](https://regex101.com/r/cO8lqs/14) 
-|`([abc])([de])\2\1`    | we can use **\2** (\3, \4, etc.) to identify **the same** text that **was matched by the second** (third, fourth, etc.) **capturing group** | [Try it!](https://regex101.com/r/cO8lqs/15) 
-|`(?<foo>[abc])\k<foo>` | we put the name **foo** to the group and we reference it later (**\k<foo>**). The result is the same of the first regex                     | [Try it!](https://regex101.com/r/cO8lqs/16) 
+|`([abc])\1`            | using **\1** it matches the **same** text that was matched by the **first capturing group**                                                 | <a href="https://regex101.com/r/cO8lqs/14" target="_blank">Try it!</a> 
+|`([abc])([de])\2\1`    | we can use **\2** (\3, \4, etc.) to identify **the same** text that **was matched by the second** (third, fourth, etc.) **capturing group** | <a href="https://regex101.com/r/cO8lqs/15" target="_blank">Try it!</a> 
+|`(?<foo>[abc])\k<foo>` | we put the name **foo** to the group and we reference it later (**\k<foo>**). The result is the same of the first regex                     | <a href="https://regex101.com/r/cO8lqs/16" target="_blank">Try it!</a> 
 
 ### Look-ahead and Look-behind — (?=) and (?<=)
 
@@ -357,13 +350,13 @@ It comes with its **negation**, `\B`. This matches all positions where `\b` does
   <tr>
    <td><code>d<strong>(?=</strong>r<strong>)</strong></code>
    </td>
-   <td>matches a <strong>d </strong>only if is<strong> followed by r</strong>, <strong>but r will not be</strong> part of the overall regex <strong>match </strong>-><strong><a href="https://regex101.com/r/cO8lqs/18"> Try it!</a></strong>
+   <td>matches a <strong>d </strong>only if is<strong> followed by r</strong>, <strong>but r will not be</strong> part of the overall regex <strong>match </strong>-><strong><a target="_blank" href="https://regex101.com/r/cO8lqs/18"> Try it!</a></strong>
    </td>
   </tr>
   <tr>
    <td><strong><code>(?<=r)d</code></strong>
    </td>
-   <td>matches a <strong>d </strong>only if is<strong> preceded by an r</strong>, <strong>but r will not be</strong> part of the overall regex <strong>match </strong>-><strong><a href="https://regex101.com/r/cO8lqs/19"> Try it!</a></strong>
+   <td>matches a <strong>d </strong>only if is<strong> preceded by an r</strong>, <strong>but r will not be</strong> part of the overall regex <strong>match </strong>-><strong><a target="_blank" href="https://regex101.com/r/cO8lqs/19"> Try it!</a></strong>
    </td>
   </tr>
 </table>
@@ -374,8 +367,8 @@ You can use also the negation operator!
 
 |    expression         |                           effect                                                                                                            |      Try                                      
 |-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------
-|`d(?=r)`               | matches a **d** only if is **not followed by r**, **but r will not be** part of the overall regex **match**                                 | [Try it!](https://regex101.com/r/cO8lqs/20) 
-|`(?<!r)d`              | matches a **d** **only if is not preceded by an r, but r will not be** part of the overall regex **match**                                  | [Try it!](https://regex101.com/r/cO8lqs/21) 
+|`d(?=r)`               | matches a **d** only if is **not followed by r**, **but r will not be** part of the overall regex **match**                                 | <a href="https://regex101.com/r/cO8lqs/20" target="_blank">Try it!</a> 
+|`(?<!r)d`              | matches a **d** **only if is not preceded by an r, but r will not be** part of the overall regex **match**                                  | <a href="https://regex101.com/r/cO8lqs/21" target="_blank">Try it!</a> 
 
 ## Summary
 

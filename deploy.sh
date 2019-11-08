@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-pip install mkdocs
+pip install mkdocs mkdocs-material
 mkdir mkdocs_build
 cd mkdocs_build
 # Initialize gh-pages checkout
