@@ -1,9 +1,77 @@
 site_name: STARTbio
 nav:
   - Home: index.md
-  - 1OminToLearn:
+  - 1Omin2:
     - Grep and Regex (1): ten2Regex_01.md
+  - Galaxy Trainings:
+    -  Run your Galaxy server:
+        - "Introduction: Why Running Galaxy as an administrator?": Run-Galaxy/index.md
+        - Training Menu: Run-Galaxy/Training_menu.md
+        - Install a minimal standalone galaxy server: Run-Galaxy/bare-galaxy.md
+        - After deployment use case: Run-Galaxy/Run_workflow.md
+        - Install a Galaxy server with Ansible and GalaxyKickStart: Run-Galaxy/GalaxyKickStart.md
+        - Install a Galaxy server with Docker: Run-Galaxy/Docker_GalaxyKickStart.md
+        - "Appendix 1: Getting a Google Cloud Engine Account": Run-Galaxy/Google_cloud_Account.md
+        - "Appendix 1: Spin off a Virtual Machine": Run-Galaxy/spin_off_VM.md
+        - "Appendix 2: Run your personal TP Galaxy server": Run-Galaxy/GCE_TP_Galaxy.md
+        - "Appendix 3: Galaxy software architecture" : Run-Galaxy/Galaxy_architecture.md
+    -  Search for chomosome translocations:
+        - Introduction: translocations/index.md
+        - Sequencing Protocol: translocations/seq.md
+        - Lumpy approach: translocations/lumpy_approach.md
+        - Trainee connection: translocations/connection.md
+        - Import datasets: translocations/import.md
+        - BWA mem tool: translocations/BWA.md
+        - lumpy analysis: translocations/lumpy.md
+        - Filter VCF file for visualization: translocations/filter_vcf.md
+        - Compute genome coverage: translocations/coverage.md
+        - Generate workflow from history: translocations/workflow.md
+        - Run the workflow: translocations/run_workflow.md
+        - Visualisation in UCSC Genome Browser: translocations/visualisation.md
+    -  Reference-based RNAseq analysis:
+        - Introduction: reference_based_RNAseq/index.md
+        - Pretreatments:
+          - Data upload: reference_based_RNAseq/uploads.md
+          - Quality control: reference_based_RNAseq/QC.md
+        - Outline and general concepts for the RNAseq analysis:
+          - RNAseq librairies - cDNA synthesis: reference_based_RNAseq/cDNAs.md
+          - RNAseq librairies - Inserts and sequencing strategies: reference_based_RNAseq/sequencing_strategies.md
+          - The key idea in Reference-base Expression analysis: reference_based_RNAseq/readcounts.md
+          - Reflecting on quality control & “filtering” in RNAseq analysis: reference_based_RNAseq/read_filtering.md
+          - Transcript Quantification: reference_based_RNAseq/transcript_quant.md
+          - Statistical Analysis of Differential expression: reference_based_RNAseq/RNAseq_DE.md
+          - Experimental procedures affect downstream analyses: reference_based_RNAseq/outline_conclusion.md
+        - Quality filtering:
+          - Optional filtering of reads on sequence quality: reference_based_RNAseq/Cutadapt.md
+        - Mapping:
+          - Mapping: reference_based_RNAseq/mapping.md
+          - RNA STAR: reference_based_RNAseq/star.md
+          - HiSAT2: reference_based_RNAseq/hisat2.md
+          - BAM inspection: reference_based_RNAseq/bam.md
+          - Visualisation of read mapping: reference_based_RNAseq/visu_map.md
+        - Analysis of the differential gene expression:
+          - Introduction to read counting: reference_based_RNAseq/intro_counting.md
+          - Estimation of the strandness: reference_based_RNAseq/strandness.md
+          - Count the number of reads per annotated gene: reference_based_RNAseq/count.md
+          - Identification of the differentially expressed features - DESeq2: reference_based_RNAseq/DE_intro.md
+          - DESeq2 use: reference_based_RNAseq/DEDESeq2.md
+          - Volcano Plot: reference_based_RNAseq/volcano.md
+          - Visualization of the differentially expressed genes: reference_based_RNAseq/DEseq2visu.md
+          - Analysis of functional enrichment among the differentially expressed genes:
+            - Introduction: reference_based_RNAseq/GO-intro.md
+            - GO: reference_based_RNAseq/GO-tool.md
+        - Galaxy Workflows:
+          - Introduction: reference_based_RNAseq/workflow_intro.md
+          - Example: reference_based_RNAseq/workflow_use.md
+
+
+
+
+
   - Annexes:
+    - Links: links.md
+    - Code Snippets:
+      - Terminal Bash: bash_snippets.md
     - Curamus Project: Curamus_project.md
 site_url: https://artbio.github.io/startbio/
 repo_url: https://github.com/ARTbio/startbio
