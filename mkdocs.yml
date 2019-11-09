@@ -1,9 +1,24 @@
 site_name: STARTbio
 nav:
   - Home: index.md
-  - 1OminToLearn:
+  - 1Omin2:
     - Grep and Regex (1): ten2Regex_01.md
+  - Galaxy Trainings:
+    -  Run your Galaxy server:
+        - "Introduction: Why Running Galaxy as an administrator?": Run-Galaxy/index.md
+        - Training Menu: Run-Galaxy/Training_menu.md
+        - Install a minimal standalone galaxy server: Run-Galaxy/bare-galaxy.md
+        - After deployment use case: Run-Galaxy/Run_workflow.md
+        - Install a Galaxy server with Ansible and GalaxyKickStart: Run-Galaxy/GalaxyKickStart.md
+        - Install a Galaxy server with Docker: Run-Galaxy/Docker_GalaxyKickStart.md
+        - "Appendix 1: Getting a Google Cloud Engine Account": Run-Galaxy/Google_cloud_Account.md
+        - "Appendix 1: Spin off a Virtual Machine": Run-Galaxy/spin_off_VM.md
+        - "Appendix 2: Run your personal TP Galaxy server": Run-Galaxy/GCE_TP_Galaxy.md
+        - "Appendix 3: Galaxy software architecture" : Run-Galaxy/Galaxy_architecture.md
   - Annexes:
+    - Links: links.md
+    - Code Snippets:
+      - Terminal Bash: bash_snippets.md
     - Curamus Project: Curamus_project.md
 site_url: https://artbio.github.io/startbio/
 repo_url: https://github.com/ARTbio/startbio
