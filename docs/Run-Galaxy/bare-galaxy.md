@@ -76,7 +76,7 @@ You should see an abundant log scrolling down. Don't worry !
 - The Galaxy database is automatically upgraded to the latest structure
 - Various tools are upgraded.
 
-After 8 minute or so, you should see the log freezing with
+After 9 minute or so, you should see the log freezing with:
 
 ```
 Starting server in PID 3813.
