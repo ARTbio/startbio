@@ -30,6 +30,8 @@ Les nouvelles technologies de séquençage génèrent d’énormes quantités de
 STARTbio est ainsi une opportunité pour le SIRIC Curamus de mettre en place un programme de diffusion des connaissances et des nouvelles pratiques nécessaires à la bioinformatique des données de cancérologie.
 
 
+
+
 ## Projet de recherche (5 pages max)
 
 
@@ -63,7 +65,11 @@ ARTbio s’est impliquée dans le SIRIC Curamus depuis sa candidature à l’INC
 
 Finalement, ARTbio a déjà une expérience importante en matière de formation que ce soit dans le cadre de Masters de Sorbonne-Université (Biologie des Génomes et Génétique de la souris), celui du réseau Elixir (analyse génomique sous Galaxy, Ljubljana 2018) ou à l’occasion de la journée “Galaxy Spring Day” [(3)](https://paperpile.com/c/5WeZgm/dkr1) consacrée à l’analyse RNAseq et financée par le SIRIC. De plus, la plateforme propose depuis 2019, une programme de compagnonnage, qui est un accompagnement didactique des chercheurs dans un projet de recherche, ayant pour but de réaliser leurs analyses tout en leur apprenant les méthodologies et procédures mises en oeuvre.
 
-**L’ensemble de ces points motive la proposition de la plateforme ARTbio pour le projet “<span style="text-decoration:underline;">S</span>erial <span style="text-decoration:underline;">T</span>raining with <span style="text-decoration:underline;">ARTbio</span>” (STARTbio), qui vise à mettre en oeuvre un programme de formation à la bioinformatique des chercheurs du SIRIC CURAMUS (i) adapté à leurs besoins d’analyse, (ii) basé sur l’enseignement de notions théoriques comme sur la pratique, et (iii) construit sur la longueur et la récurrence des cours pour un meilleurs ancrage de l’apprentissage.**
+#### L’ensemble de ces points motive la proposition de la plateforme ARTbio pour le projet “<span style="text-decoration:underline;">S</span>erial <span style="text-decoration:underline;">T</span>raining with <span style="text-decoration:underline;">ARTbio</span>” (STARTbio), qui vise à mettre en oeuvre un programme de formation à la bioinformatique des chercheurs du SIRIC CURAMUS
+
+* adapté à leurs besoins d’analyse,
+* basé sur l’enseignement de notions théoriques comme sur la pratique
+* construit sur la longueur et la récurrence des cours pour un meilleurs ancrage de l’apprentissage.
 
 
 ## Positionnement des équipes postulantes par rapport à la compétition internationale
@@ -151,15 +157,15 @@ Finalement, nous allons prendre contact avec [CAPSULE](http://capsule.sorbonne-u
 ## Résultats attendus
 
 
-#### Le projet STARTbio est une opportunité pour le SIRIC Curamus de mettre en place un programme de diffusion des connaissances et des nouvelles pratiques nécessaires au traitement bioinformatique des donnée de cancérologie.
+* Le projet STARTbio est une opportunité pour le SIRIC Curamus de mettre en place un programme de diffusion des connaissances et des nouvelles pratiques nécessaires au traitement bioinformatique des donnée de cancérologie.
 
 
-#### Axé sur une volume d’enseignement important et doté d’outils pédagogiques innovant, de former en profondeur les participants aux analyses dont ils ont besoins, tout en les sensibilisant aux principes FAIR adoptés à l’échelle européenne.
+* Axé sur une volume d’enseignement important et doté d’outils pédagogiques innovant, de former en profondeur les participants aux analyses dont ils ont besoins, tout en les sensibilisant aux principes FAIR adoptés à l’échelle européenne.
 
 
-#### Les matériaux pédagogiques générés et accessibles en ligne et la mise en place d’un réseau d'entraide faciliteront à moyen terme l’autoformation des personnels
+* Les matériaux pédagogiques générés et accessibles en ligne et la mise en place d’un réseau d'entraide faciliteront à moyen terme l’autoformation des personnels
 
-#### Les évaluations des connaissances et les enquêtes effectuées auprès des participants permettront également de dresser un typologie plus précise des besoins en bioinformatique générés par les programme de recherche du SIRIC Curamus.
+* Les évaluations des connaissances et les enquêtes effectuées auprès des participants permettront également de dresser un typologie plus précise des besoins en bioinformatique générés par les programme de recherche du SIRIC Curamus.
 
 
 ## Bibliographie
@@ -616,8 +622,7 @@ Janvier
 *   Profilage du transcriptome* (20h)
 *   Profilage du transcriptome en cellule unique* (20h)
 
-
-## _* enseignements en autonomie sous format “tutoriel exécutable” ou “exercice flash”_
+ _* enseignements en autonomie sous format “tutoriel exécutable” ou “exercice flash”_
 
 
 <!-- Docs to Markdown version 1.0β17 -->
