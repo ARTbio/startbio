@@ -9,7 +9,7 @@
 5. Choose a Zone (suggestion: `europe-west1-c`)
 6. Type de machine: choose 2 vCPU with 7.5 Memory
 7. Disque de Démarrage: Click on `Modifier`
-    - Select `Ubuntu 14.04 LTS`
+    - Select `Ubuntu 16.04 LTS`
     - At the bottom of the form, put 100 Go for the Disk Size (Taille)
     - Leave the selection `Disque persistant standard` / `Standard persistant drive`
     - Click `Select` / `Sélectionner`
