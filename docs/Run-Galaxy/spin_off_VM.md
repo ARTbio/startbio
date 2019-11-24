@@ -31,8 +31,8 @@
 
     ![OpenningSSH](images/SSHConsole.png)
 
-12. Try to enter the drosofff@bare-galaxy:~$ `sudo -i` command and hit the return key.
-13. The unix prompt become `root@bare-galaxy:~# `, you are mastering your VM as root administrator !
+12. Enter the `sudo -i` command at the prompt `yourlogin@bare-galaxy:~$` and hit the return key.
+13. The unix prompt become `root@bare-galaxy:~# `: you are now controling your VM as a root administrator.
 14. [Optional] Here, if you do not have to work with the VM, you can turn off the VM and even trash it:
     - in one shot, go back to your VM control panel in the web browser, ensure that the running VM is checked, and press the Trash button in the top menu.
     - Confirm that you want to trash the VM and loose everything.
