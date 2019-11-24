@@ -55,9 +55,6 @@ wget https://raw.githubusercontent.com/ARTbio/Run-Galaxy/master/deployment_scrip
 sh run_galaxykickstart.sh analyseGenomes_2019
 ```
 
-
-The installation is expected to take about ~40 min.
-
 - When the deployment is finished, connect to your ansible-deployed "GalaxyKickStart" instance:
     
     Just click on the url displayed in your Google Cloud Engine Console.
@@ -74,36 +71,18 @@ The installation is expected to take about ~40 min.
 - Click on the small wheel at the top right of your Galaxy interface (history menu)
 - select the `importer depuis un fichier` menu (or `import from a file` if you have the English interface)
 - copy this url :
-  - [https://galaxy.pasteur.fr/history/export_archive?id=4c5da5ad7355ff42](https://galaxy.pasteur.fr/history/export_archive?id=4c5da5ad7355ff42)
+```
+https://galaxy.pasteur.fr/history/export_archive?id=4c5da5ad7355ff42](https://galaxy.pasteur.fr/history/export_archive?id=4c5da5ad7355ff42)
+```
+    
 - repeat the same operation with: 
-  - [https://galaxy.pasteur.fr/history/export_archive?id=eb4c1d5564c9f78c](https://galaxy.pasteur.fr/history/export_archive?id=eb4c1d5564c9f78c)
-  - [https://galaxy.pasteur.fr/history/export_archive?id=69a1b70d1c4a6bdb](https://galaxy.pasteur.fr/history/export_archive?id=69a1b70d1c4a6bdb)
+[https://galaxy.pasteur.fr/history/export_archive?id=eb4c1d5564c9f78c](https://galaxy.pasteur.fr/history/export_archive?id=eb4c1d5564c9f78c)
+    - [https://galaxy.pasteur.fr/history/export_archive?id=69a1b70d1c4a6bdb](https://galaxy.pasteur.fr/history/export_archive?id=69a1b70d1c4a6bdb)
 
 
 #### the run_galaxykickstart.sh script explained
 
-NB: in the following code, numbers in line heads should be removed to run the script.
-
-.. code-block:: bash
-   :linenos:
-
-   #!/usr/bin/env bash
-   set -e
-   apt update -y
-   apt install -y python-pip python-dev python-setuptools git htop
-   echo "Upgrading pip"
-   pip install -U pip
-   pip --version
-   pip install ansible==2.4
-   ansible --version
-   git clone https://github.com/ARTbio/GalaxyKickStart.git -b $1
-   cd GalaxyKickStart/
-   ansible-galaxy install -r requirements_roles.yml -p roles/ -f
-   ansible-playbook -i inventory_files/galaxy-kickstart galaxy.yml
-   echo "end of deployment\n"
-
-
-```
+``` bash
 #!/usr/bin/env bash
 set -e
 apt update -y
@@ -119,6 +98,8 @@ ansible-galaxy install -r requirements_roles.yml -p roles/ -f
 ansible-playbook -i inventory_files/galaxy-kickstart galaxy.yml
 echo "end of deployment\n"
 ```
+
+
 
 0. The shebang line (`#!`) says that it is a script code that has to be executed
 by the shell bash which can be found in the /usr/bin/env environment
