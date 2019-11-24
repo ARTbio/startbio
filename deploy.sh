@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-pip install mkdocs mkdocs-material
+pip install mkdocs mkdocs-material pygments pymdown-extensions
 mkdir mkdocs_build
 cd mkdocs_build
 # Initialize gh-pages checkout

@@ -87,3 +87,28 @@ nav:
 site_url: https://artbio.github.io/startbio/
 repo_url: https://github.com/ARTbio/startbio
 theme: 'material'
+markdown_extensions:
+  - codehilite:
+      linenums: true
+  - admonition
+  - footnotes
+  - toc:
+      permalink: true
+#  - pymdownx.betterem:
+#      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+#  - pymdownx.inlinehilite # compete with codehilite
+  - pymdownx.keys
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+
