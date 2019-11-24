@@ -4,7 +4,7 @@ Three methods of Galaxy server deployment will be explained in this tutorial, wh
 used with personal computers, clusters of machines or virtual machines in cloud computing
 environment.
 
-All you need is an ssh access and the control of tcp/ip ports of the target machine.
+All you need is **an ssh access** and **the control of tcp/ip ports** of the target machine.
 These two conditions are far more easily fulfilled with virtual machines in clouds. This is
 the reason why we are going to use
 [virtual machines in the Google Cloud Engine](spin_off_VM.md). 
