@@ -79,8 +79,8 @@ https://galaxy.pasteur.fr/history/export_archive?id=4c5da5ad7355ff42](https://ga
 [https://galaxy.pasteur.fr/history/export_archive?id=eb4c1d5564c9f78c](https://galaxy.pasteur.fr/history/export_archive?id=eb4c1d5564c9f78c)
     - [https://galaxy.pasteur.fr/history/export_archive?id=69a1b70d1c4a6bdb](https://galaxy.pasteur.fr/history/export_archive?id=69a1b70d1c4a6bdb)
 
-
-#### the run_galaxykickstart.sh script explained
+---
+#### Conternt of the `run_galaxykickstart.sh` script
 
 ``` bash
 #!/usr/bin/env bash
@@ -103,39 +103,39 @@ echo "end of deployment\n"
 ```
 
 
-
-1. The shebang line (`#!`) says that it is a script code that has to be executed
-by the shell bash which can be found in the /usr/bin/env environment
-2. `set -e` says to the bash interpreter to exit the run at first error (to avoid catastrophes)
-3. update apt package database
-4. installs `python-pip`, `python-dev`, `python-setuptools` (these 3 packages are required to
-install pip), `git` (to clone and manage GitHub repositories) and `htop` (a monitoring tool)
-using the package installer `apt`
-5. Is just a command to inform the user about run state. This will prompt
-"Upgrading pip version" in the console
-6. does what is echoed before by the previous line : this is the command to upgrade the pip program that was
-installed with installation of `python-pip`.
-`pip` is a recursive acronym that can stand for either "Pip Installs Packages" or
-"Pip Installs Python".
-7. will prompt the version of pip in the console
-8. install `ansible`, version 2.7.4, using `pip`
-8. will prompt the version of ansible in the console
-10. clone the GalaxyKickStart Repository available at https://github.com/ARTbio/GalaxyKickStart.git,
-creating locally the `GalaxyKickStart` folder. The repository `branch` that is cloned is indicated
-as a parameter in the command line (the `$1`).
-11. Changes directory, i.e. goes to /root/GalaxyKickStart
-12. Says to ansible to install additional roles (collection of files to control ansible)
-which are not the the GalaxyKickStart repository but whose address is stated in the file
-`requirements_roles.yml`. These roles will be installed in the subdirectory
-`/root/GalaxyKickStart/roles/`. NB: `ansible-galaxy` has *nothing* to do with Galaxy,
-the name of this ansible command is serendipitous.
-13. triggers the play of the playbook `galaxy.yml` by ansible. The target host of the playbook
-is defined in the file `inventory_files/galaxy-kickstart`, as well as how ansible will interact with the target.
-Here, we play the playbook on the same computer (localhost).
-14. A commented line (start with `#`) --> will not operate in the script
-15. Prompts the end of the deployment
-16. A commented line (start with `#`) --> will not operate in the script
-17. A commented line (start with `#`) --> will not operate in the script
+!!! info "the `run_galaxykickstart.sh` script explained"
+    1. The shebang line (`#!`) says that it is a script code that has to be executed
+    by the shell bash which can be found in the /usr/bin/env environment
+    2. `set -e` says to the bash interpreter to exit the run at first error (to avoid catastrophes)
+    3. update apt package database
+    4. installs `python-pip`, `python-dev`, `python-setuptools` (these 3 packages are required to
+    install pip), `git` (to clone and manage GitHub repositories) and `htop` (a monitoring tool)
+    using the package installer `apt`
+    5. Is just a command to inform the user about run state. This will prompt
+    "Upgrading pip version" in the console
+    6. does what is echoed before by the previous line : this is the command to upgrade the pip program that was
+    installed with installation of `python-pip`.
+    `pip` is a recursive acronym that can stand for either "Pip Installs Packages" or
+    "Pip Installs Python".
+    7. will prompt the version of pip in the console
+    8. install `ansible`, version 2.7.4, using `pip`
+    8. will prompt the version of ansible in the console
+    10. clone the GalaxyKickStart Repository available at https://github.com/ARTbio/GalaxyKickStart.git,
+    creating locally the `GalaxyKickStart` folder. The repository `branch` that is cloned is indicated
+    as a parameter in the command line (the `$1`).
+    11. Changes directory, i.e. goes to /root/GalaxyKickStart
+    12. Says to ansible to install additional roles (collection of files to control ansible)
+    which are not the the GalaxyKickStart repository but whose address is stated in the file
+    `requirements_roles.yml`. These roles will be installed in the subdirectory
+    `/root/GalaxyKickStart/roles/`. NB: `ansible-galaxy` has *nothing* to do with Galaxy,
+    the name of this ansible command is serendipitous.
+    13. triggers the play of the playbook `galaxy.yml` by ansible. The target host of the playbook
+    is defined in the file `inventory_files/galaxy-kickstart`, as well as how ansible will interact with the target.
+    Here, we play the playbook on the same computer (localhost).
+    14. A commented line (start with `#`) --> will not operate in the script
+    15. Prompts the end of the deployment
+    16. A commented line (start with `#`) --> will not operate in the script
+    17. A commented line (start with `#`) --> will not operate in the script
 
 
 
