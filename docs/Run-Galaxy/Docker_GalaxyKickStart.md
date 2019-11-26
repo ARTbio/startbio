@@ -38,8 +38,9 @@ Instead, you are going to
 - There is actually no need for a new VM, the ansible already installed the docker service
 in the VM used to deploy GalaxyKickStart.
 - If not already, be connected to you VM as root user using the Google ssh console (`sudo -i`)
-- download the script `docker_galaxy.sh` using the command `wget https://raw.githubusercontent.com/ARTbio/Run-Galaxy/master/deployment_scripts/docker_galaxy.sh`
-- run the script using the command `sh docker_galaxy.sh artbio/rna-biologie-genome` or `sh docker_galaxy.sh artbio/rna-biologie-genome artbio/biologiegenome`
+- download the script `run_docker_analyse_genomes_2019.sh` using the command
+`wget https://raw.githubusercontent.com/ARTbio/Run-Galaxy/master/deployment_scripts/run_docker_analyse_genomes_2019.sh`
+- run the script using the command `sh run_docker_analyse_genomes_2019.sh`
 - Connect to your docker-deployed "GalaxyKickStart" instance:
     
     Just click on the url displayed in your Google Cloud Engine Console
