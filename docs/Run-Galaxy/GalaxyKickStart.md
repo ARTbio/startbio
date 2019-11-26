@@ -45,9 +45,9 @@ Repository [https://github.com/ARTbio/GalaxyKickStart](https://github.com/ARTbio
 - start a GCE VM `2 procs, 7.5Gb RAM, Ubuntu 16.04, 50 Go disk, http enabled`
 - connect to you VM using the Google ssh console
 - start an interactive session as root using the command `sudo -i`
-- download the script `run_galaxykickstart.sh` using the command
+- download the script `run_ansible_analyse_genomes_2019.sh` using the command
 ```
-wget https://raw.githubusercontent.com/ARTbio/Run-Galaxy/master/deployment_scripts/run_galaxykickstart.sh
+wget https://raw.githubusercontent.com/ARTbio/Run-Galaxy/master/deployment_scripts/run_ansible_analyse_genomes_2019.sh
 ```
 
 - run the script using the command
@@ -95,15 +95,14 @@ ansible --version
 git clone https://github.com/ARTbio/GalaxyKickStart.git -b $1
 cd GalaxyKickStart/
 ansible-galaxy install -r requirements_roles.yml -p roles/ -f
-ansible-playbook -i inventory_files/galaxy-kickstart galaxy.yml
-# su galaxy -c 'cd ~/galaxy/config && wget https://raw.githubusercontent.com/ARTbio/Run-Galaxy/master/deployment_scripts/sanitize_whitelist.txt'
+cp scripts/8cpu_job_conf.xml roles/galaxyprojectdotorg.galaxy-extras/templates/job_conf.xml.j2
+cp scripts/configure_slurm.py.j2 roles/galaxyprojectdotorg.galaxy-extras/templates/configure_slurm.py.j2
+ansible-playbook -i inventory_files/analyseGenomes galaxy.yml
 echo "end of deployment\n"
-# echo "Galaxy will restart to take into account last settings\n"
-# supervisorctl restart galaxy:
 ```
 
 
-!!! info "the `run_galaxykickstart.sh` script explained"
+!!! info "the `run_ansible_analyse_genomes_2019.sh` script explained"
     1. The shebang line (`#!`) says that it is a script code that has to be executed
     by the shell bash which can be found in the /usr/bin/env environment
     2. `set -e` says to the bash interpreter to exit the run at first error (to avoid catastrophes)
@@ -132,14 +131,4 @@ echo "end of deployment\n"
     13. triggers the play of the playbook `galaxy.yml` by ansible. The target host of the playbook
     is defined in the file `inventory_files/galaxy-kickstart`, as well as how ansible will interact with the target.
     Here, we play the playbook on the same computer (localhost).
-    14. A commented line (start with `#`) --> will not operate in the script
-    15. Prompts the end of the deployment
-    16. A commented line (start with `#`) --> will not operate in the script
-    17. A commented line (start with `#`) --> will not operate in the script
-
-
-
-
-
-
-
+    14. Prompts the end of the deployment
