@@ -52,7 +52,7 @@ wget https://raw.githubusercontent.com/ARTbio/Run-Galaxy/master/deployment_scrip
 
 - run the script using the command
 ```
-sh run_ansible_analyse_genomes_2019 analyseGenomes_2019
+sh run_ansible_analyse_genomes_2019.sh analyseGenomes_2019
 ```
 
 - When the deployment is finished, connect to your ansible-deployed "GalaxyKickStart" instance:
