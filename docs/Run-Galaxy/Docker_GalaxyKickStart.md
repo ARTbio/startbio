@@ -53,9 +53,8 @@ sh run_docker_analyse_genomes_2019.sh
     and connect using the login:password `admin@galaxy.org:admin`
 
 ### Shutdown on the docker container and clear disk space
-
 - go back to your console
-- type
+- type:
 ```
 docker ps
 ```
@@ -72,6 +71,7 @@ docker rmi artbio/analyse_genome:2019
 ```
 rm -rf /galaxy_export /galaxy_tmp
 ```
+
 !!! info
     Following this procedure you will recover about 50 Go of free disk space
     This is significant !
