@@ -40,6 +40,7 @@ GalaxyKickStart is an Ansible playbook that will
 The code of the GalaxyKickStart playbook is freely available at the ARTbio GitHub
 Repository [https://github.com/ARTbio/GalaxyKickStart](https://github.com/ARTbio/GalaxyKickStart).
 
+----
 ### Deployment
 
 - start a GCE VM `Série N2` --> `n2-standard-16 (16 processeurs virtuels, 64 Go de mémoire)`, **Disque de démarrage**  --> `Ubuntu 16.04 LTS`, **Taille (Go)** --> `200`, **Pare-feu** --> `Autoriser le trafic HTTP`
@@ -66,7 +67,13 @@ sh run_ansible_analyse_genomes_2019.sh analyseGenomes_2019
     
     When logged in, see that required tools as well as workflows are already installed !
     
-### Transfert input data to you newly deployed Galaxy instance (for you incoming analyses)
+----
+## As a Galaxy admin
+### Transfert the input data to you newly deployed Galaxy instance
+that is :
+    - a data set with reference sequences
+    - a data set with small RNAseq files
+    - a data set with RNAseq files
 
 - Click the main menu `User` --> `Saved Histories`
 - Press the top right button (above history list) `Import from file`
