@@ -70,7 +70,12 @@ sh run_ansible_analyse_genomes_2019.sh analyseGenomes_2019
     an admin user. Just use the `admin@galaxy.org:admin` as credentials (user:password)
     
     When logged in, see that required tools as well as workflows are already installed !
-    
+
+!!! warning
+    admin is not really a decent password,
+    please c h a n g e   y o u r   p a s s w o r d
+    to avoid you Galaxy server getting hacked by the end of the course.
+
 ----
 ## As a Galaxy admin
 ### Transfert the input data to you newly deployed Galaxy instance
