@@ -72,15 +72,20 @@ sh run_ansible_analyse_genomes_2019.sh analyseGenomes_2019
 - select the `importer depuis un fichier` menu (or `import from a file` if you have the English interface)
 - copy this url :
 ```
-https://galaxy.pasteur.fr/history/export_archive?id=4c5da5ad7355ff42](https://galaxy.pasteur.fr/history/export_archive?id=4c5da5ad7355ff42)
+https://galaxy.pasteur.fr/history/export_archive?id=4c5da5ad7355ff42
 ```
     
 - repeat the same operation with: 
-[https://galaxy.pasteur.fr/history/export_archive?id=eb4c1d5564c9f78c](https://galaxy.pasteur.fr/history/export_archive?id=eb4c1d5564c9f78c)
-    - [https://galaxy.pasteur.fr/history/export_archive?id=69a1b70d1c4a6bdb](https://galaxy.pasteur.fr/history/export_archive?id=69a1b70d1c4a6bdb)
+```
+https://galaxy.pasteur.fr/history/export_archive?id=eb4c1d5564c9f78c
+```
+and
+```
+https://galaxy.pasteur.fr/history/export_archive?id=69a1b70d1c4a6bdb
+```
 
 ---
-#### Conternt of the `run_galaxykickstart.sh` script
+#### Content of the `run_galaxykickstart.sh` script
 
 ``` bash
 #!/usr/bin/env bash
