@@ -52,22 +52,29 @@ sh run_docker_analyse_genomes_2019.sh
     Just click on the url displayed in your Google Cloud Engine Console
     and connect using the login:password `admin@galaxy.org:admin`
 
+----
+
 ### Shutdown on the docker container and clear disk space
 - go back to your console
 - type:
+
 ```
 docker ps
 ```
 - copy the docker id or the docker container name
 - type the following command while replacing <id or name> with the copied content
+
 ```
 docker stop <id or name> && docker rm <id or name>
 ```
+
 - remove the docker image with the command
+
 ```
 docker rmi artbio/analyse_genome:2019
 ```
 - remove the exported folders by typing
+
 ```
 rm -rf /galaxy_export /galaxy_tmp
 ```
