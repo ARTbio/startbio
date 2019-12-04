@@ -150,6 +150,6 @@ echo "end of deployment\n"
     `/root/GalaxyKickStart/roles/`. NB: `ansible-galaxy` has *nothing* to do with Galaxy,
     the name of this ansible command is serendipitous.
     13. triggers the play of the playbook `galaxy.yml` by ansible. The target host of the playbook
-    is defined in the file `inventory_files/galaxy-kickstart`, as well as how ansible will interact with the target.
+    is defined in the file `inventory_files/analyseGenomes`, as well as how ansible will interact with the target.
     Here, we play the playbook on the same computer (localhost).
     14. Prompts the end of the deployment
