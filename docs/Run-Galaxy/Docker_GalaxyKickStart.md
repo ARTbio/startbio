@@ -4,14 +4,14 @@
 
 ![Docker](images/docker.png)
 
-#### Virtual machines
+### Virtual machines
 
 Virtual machines (VMs) are an abstraction of physical hardware turning one server into
 many servers. The hypervisor allows multiple VMs to run on a single machine.
 Each VM includes a full copy of an operating system, one or more apps, necessary binaries
 and libraries - taking up tens of GBs. VMs can also be slow to boot.
 
-#### Containers
+### Containers
 
 Containers are an abstraction at the app layer that packages code and dependencies
 together. Multiple containers can run on the same machine and share the OS kernel with
@@ -19,7 +19,7 @@ other containers, each running as isolated processes in user space. Containers t
 less space than VMs (container images are typically tens of MBs in size), and start
 almost instantly.
 
-###  GalaxyKickStart Docker **Container**
+###  A GalaxyKickStart Docker **Container** for the *Analyse des génomes*
 
 Instead of using the GalaxyKickStart playbook in a VM, the playbook can be used to build
 a Docker container image that will be an almost exact mirror of the GalaxyKickStart VM
@@ -33,60 +33,86 @@ Instead, you are going to
 - pull the GalaxyKickStart docker container that is deposited in the [`Docker Hub`](https://hub.docker.com/u/artbio/)
 - run this docker container and connect to the deployed GalaxyKickStart server instance
 
+----
 ### Deployment
 
 - There is actually no need for a new VM, the ansible already installed the docker service
 in the VM used to deploy GalaxyKickStart.
 - If not already, be connected to you VM as root user using the Google ssh console (`sudo -i`)
 - download the script `run_docker_analyse_genomes_2019.sh` using the command
-`wget https://raw.githubusercontent.com/ARTbio/Run-Galaxy/master/deployment_scripts/run_docker_analyse_genomes_2019.sh`
-- run the script using the command `sh run_docker_analyse_genomes_2019.sh`
+```
+wget https://raw.githubusercontent.com/ARTbio/Run-Galaxy/master/deployment_scripts/run_docker_analyse_genomes_2019.sh
+```
+- run the script using the command
+```
+sh run_docker_analyse_genomes_2019.sh
+```
 - Connect to your docker-deployed "GalaxyKickStart" instance:
     
     Just click on the url displayed in your Google Cloud Engine Console
     and connect using the login:password `admin@galaxy.org:admin`
-    
-    
-#### The docker_galaxy.sh script explained
+
+### Shutdown on the docker container and clear disk space
+
+- go back to your console
+- type
+```
+docker ps
+```
+- copy the docker id or the docker container name
+- type the following command while replacing <id or name> with the copied content
+```
+docker stop <id or name> && docker rm <id or name>
+```
+- remove the docker image with the command
+```
+docker rmi artbio/analyse_genome:2019
+```
+- remove the exported folders by typing
+```
+rm -rf /galaxy_export /galaxy_tmp
+```
+!!! info
+    Following this procedure you will recover about 50 Go of free disk space
+    This is significant !
+
+----
+### The docker_galaxy.sh script explained
 
 NB: in the following code, numbers in line heads should be removed to run the script.
 
-```
- 1 #!/usr/bin/env sh
- 2 set -e
- 3 echo "Now pulling the galaxykickstart docker image from DockerHub\n"
- 4 supervisorctl stop all
- 5 docker pull $1
- 6 echo "Running galaxykickstart docker container\n"
- 7 export DOCKER_INSTANCE=`docker run -d -p 80:80 -p 21:21 -p 8800:8800 \
- 8           --privileged=true \
- 9           -e GALAXY_CONFIG_ALLOW_USER_DATASET_PURGE=True \
-10           -e GALAXY_CONFIG_ALLOW_LIBRARY_PATH_PASTE=True \
-11           -e GALAXY_CONFIG_ENABLE_USER_DELETION=True \
-12           -e GALAXY_CONFIG_ENABLE_BETA_WORKFLOW_MODULES=True \
-13           -v /tmp/:/tmp/ \
-14           -v /export/:/export \
-15           $1`
-16 echo "The $1 docker container is deploying...\n"
-17 sleep 90
-18 echo "The $1 docker container is up and running\n"
-19 docker logs  $DOCKER_INSTANCE
-20 docker exec $DOCKER_INSTANCE sudo su galaxy -c '/home/galaxy/galaxy/.venv/bin/pip install cryptography==2.2.2'
-21 docker exec $DOCKER_INSTANCE sudo su galaxy -c 'cd ~/galaxy/config && wget https://raw.githubusercontent.com/ARTbio/Run-Galaxy/master/deployment_scripts/sanitize_whitelist.txt'
-22 echo "Galaxy in container will restart to take into account new settings\n"
-23 sleep 120
-24 docker exec $DOCKER_INSTANCE sudo supervisorctl restart galaxy:
+```bash
+#!/usr/bin/env bash
+# run `bash run_docker_analyse_genomes_2019`
+set -e
+echo "Now pulling the artbio/analyse_genomes:2019 docker image from DockerHub\n"
+supervisorctl stop all
+docker pull artbio/analyse_genomes:2019
+echo "Running artbio/analyse_genomes:2019 docker container\n"
+mkdir /galaxy_export /galaxy_tmp && chown 1450:1450 /galaxy_export /galaxy_tmp
+export DOCKER_INSTANCE=`docker run -d -p 80:80 -p 21:21 -p 8800:8800 \
+          --privileged=true \
+          -e GALAXY_CONFIG_ALLOW_USER_DATASET_PURGE=True \
+          -e GALAXY_CONFIG_ALLOW_LIBRARY_PATH_PASTE=True \
+          -e GALAXY_CONFIG_ENABLE_USER_DELETION=True \
+          -e GALAXY_CONFIG_ENABLE_BETA_WORKFLOW_MODULES=True \
+          -v /galaxy_tmp:/tmp \
+          -v /galaxy_export:/export \
+          artbio/analyse_genomes:2019`
+echo "The analyse_genomes:2019 docker container is deploying...\n"
+echo "Press Ctrl-C to interrupt this log and start using the container...\n"
+docker logs -f  $DOCKER_INSTANCE
 ```
 
 1. The shebang line. Says that it is a script code and that the interpreter to execute the
 code is sh and can be found in the /usr/bin/env environment
-2. set -e says to the sh interpreter to exit the run at first error (to avoid catastrophes)
-3. prompts "Now pulling the galaxykickstart docker image from DockerHub"
-4. stop the galaxy services (galaxy, postgresql, slurm, nginx,...) that were deployed before with ansible (to liberate ports)
-5. Pulls (Downloads) the Docker Image specified as parameter to the script (either`artbio/biologiegenome`
-or `artbio/rna-biologie-genome`) from the [DockerHub repository](https://hub.docker.com/r/artbio/biologiegenome/)
-6. reports this action to the terminal
-7. Lines 7 to 15 are actually a single command to run an instance of the galaxykickstart
+2. a commented line to explain the script usage
+- `set -e` says to the bash interpreter to exit the run at first error (to avoid catastrophes)
+- prompts "Now pulling the galaxykickstart docker image from DockerHub"
+- stop the galaxy services (galaxy, postgresql, slurm, nginx,...) that were deployed before with ansible (to liberate ports)
+- Pulls (Downloads) the Docker Image specified as parameter to the `docker pull` statement (*artbio/analyse_genomes:2019*)
+- reports this action to the terminal
+- creates the /galaxy_export and /galaxy_tmp directory to export automatically data produced by the docker container
 docker image. Note the `\` at ends of lines 7 to 14: this character `\` specify that the
 code line is continued without line break for the bash interpreter.
 
@@ -124,11 +150,11 @@ the docker container with the value `True`
 13. Now the -v is important, better to understand it !
 
     -v stands for "volume". the `-v` option says to export the /tmp directory of the docker container
-    to the /tmp directory of the host.
+    to the /galaxy_tmp directory of the host.
 14. we also export the /export directory of the container (any docker container has or
-should have by default an /export directory) to an /export directory of the host (your VM here).
+should have by default an /export directory) to an /galaxy_export directory of the host (your VM here).
 
-    Note that if the /export directory does not exists at docker run runtime, it will be created.
+    Note that if the /galaxy_export directory does not exists at docker run runtime, it will be created.
 
     So it is important to understand the -v magics: every directory specified by the -v option will be shared
     between the docker container filesystem and the host filesystem. It is a mapping operation, so that
@@ -147,10 +173,3 @@ the parameter passed to the script at runtime.
 We have put this ID in the variable `DOCKER_INSTANCE`
 and we access to the content of this variable by prefixing the variable with a `$ `:
 `docker logs $DOCKER_INSTANCE`
-20. This is just an update of the python package `cryptography` required for the galaxy server. You see
-here an example of how a user can interact with the docker container to adjust the services it
-is providing.
-21. another update of a configuration file for galaxy (job_conf.xml)
-24. Restart Galaxy inside the container to take the setting changes into consideration
-
-
