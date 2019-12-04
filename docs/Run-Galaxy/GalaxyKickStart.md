@@ -43,7 +43,11 @@ Repository [https://github.com/ARTbio/GalaxyKickStart](https://github.com/ARTbio
 ----
 ### Deployment
 
-- start a GCE VM `Série N2` --> `n2-standard-16 (16 processeurs virtuels, 64 Go de mémoire)`, **Disque de démarrage**  --> `Ubuntu 16.04 LTS`, **Taille (Go)** --> `200`, **Pare-feu** --> `Autoriser le trafic HTTP`
+- start a GCE VM
+    - `Série N2` --> `n2-standard-16 (16 processeurs virtuels, 64 Go de mémoire)`
+    - **Disque de démarrage**  --> `Ubuntu 16.04 LTS`
+    - **Taille (Go)** --> `200`
+    - **Pare-feu** --> `Autoriser le trafic HTTP`
 - connect to you VM using the Google ssh console
 - start an interactive session as root using the command `sudo -i`
 - download the script `run_ansible_analyse_genomes_2019.sh` using the command
