@@ -68,8 +68,8 @@ sh run_ansible_analyse_genomes_2019.sh analyseGenomes_2019
     
 ### Transfert input data to you newly deployed Galaxy instance (for you incoming analyses)
 
-- Click on the small wheel at the top right of your Galaxy interface (history menu)
-- select the `importer depuis un fichier` menu (or `import from a file` if you have the English interface)
+- Click the main menu `User` --> `Saved Histories`
+- Press the top right button (above history list) `Import from file`
 - copy this url :
 ```
 https://galaxy.pasteur.fr/history/export_archive?id=4c5da5ad7355ff42
