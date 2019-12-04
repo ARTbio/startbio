@@ -49,7 +49,10 @@ Repository [https://github.com/ARTbio/GalaxyKickStart](https://github.com/ARTbio
     - **Taille (Go)** --> `200`
     - **Pare-feu** --> `Autoriser le trafic HTTP`
 - connect to you VM using the Google ssh console
-- start an interactive session as root using the command `sudo -i`
+- start an interactive session as root using the command
+```
+sudo -i
+```
 - download the script `run_ansible_analyse_genomes_2019.sh` using the command
 ```
 wget https://raw.githubusercontent.com/ARTbio/Run-Galaxy/master/deployment_scripts/run_ansible_analyse_genomes_2019.sh
