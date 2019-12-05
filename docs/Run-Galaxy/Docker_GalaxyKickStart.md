@@ -123,7 +123,7 @@ code is sh and can be found in the /usr/bin/env environment
 docker image, and gives write rights to the container for these folders (`chown 1450:1450`)
 - the command invocation to run the docker container from the docker image `artbio/analyse_genomes:2019`. Note the `\` at ends of lines 9 to 17: this character `\` specifies that the code line is continued without line break for the bash interpreter.
     
-    The line 9 starts with an `export DOCKER_INSTANCE=` instruction. This means that the result
+    - line 9 starts with an `export DOCKER_INSTANCE=` instruction. This means that the result
     of the command between \` after the sign `=` will be put in the environmental variable
     `DOCKER_INSTANCE`, available system-wide.
 
@@ -137,41 +137,30 @@ docker image, and gives write rights to the container for these folders (`chown 
     the host port is specified to the left of the `:` and the docker port is specified to the right
     of the `:`.
     
-    in line 10 we specify that the docker container acquires the root privileges
-    in line 11 `-e GALAXY_CONFIG_ALLOW_USER_DATASET_PURGE=True` specifies an environmental variable
-    `GALAXY_CONFIG_ALLOW_USER_DATASET_PURGE` passed (`e`xported) to the docker container with the value `True`
+    - line 10 specifies that the docker container acquires the root privileges
+    - line 11 sets the environmental variable `GALAXY_CONFIG_ALLOW_USER_DATASET_PURGE` passed (`-e`xported) to the docker container to the value `True`
     
-    `galaxy_manage_trackster: true` with the string `galaxy_manage_trackster: false`
-    in the ansible configuration file `groups/all`.
-
-10. The environmental variable `GALAXY_CONFIG_ALLOW_LIBRARY_PATH_PASTE` is exported to
-the docker container with the value `True`
-11. The environmental variable `GALAXY_CONFIG_ENABLE_USER_DELETION` is exported to
-the docker container with the value `True`
-12. The environmental variable `GALAXY_CONFIG_ENABLE_BETA_WORKFLOW_MODULES` is exported to
-the docker container with the value `True`
-
+    - line 12 sets the environmental variable `GALAXY_CONFIG_ALLOW_LIBRARY_PATH_PASTE` to `True`
+    - line 13 sets the environmental variable `GALAXY_CONFIG_ENABLE_USER_DELETION` to `True`
+    - line 14 sets the environmental variable `GALAXY_CONFIG_ENABLE_BETA_WORKFLOW_MODULES` to `True`
+    
     Note that all these exports in the docker command correspond to advanced boiling/tuning of the docker container.
     You are not obliged to understand the details to get the container properly running.
-13. Now the -v is important, better to understand it !
-
-    -v stands for "volume". the `-v` option says to export the /tmp directory of the docker container
+    - line 15. -v stands for "volume". the `-v` option says to export the /tmp directory of the docker container
     to the /galaxy_tmp directory of the host.
-14. we also export the /export directory of the container (any docker container has or
-should have by default an /export directory) to an /galaxy_export directory of the host (your VM here).
-
+    - line 16. we also export the /export directory of the container (any docker container has or should have by default an /export directory) to an /galaxy_export directory of the host (your VM here).
+    
     Note that if the /galaxy_export directory does not exists at docker run runtime, it will be created.
-
+    
     So it is important to understand the -v magics: every directory specified by the -v option will be shared
     between the docker container filesystem and the host filesystem. It is a mapping operation, so that
     the same directory is accessible either from inside the docker container or from inside the host.
-
+    
     Now, if you stop and remove the docker container, all exported directory will persist in the host.
     If you don't do that, all operations performed with a container are lost when you stop this container !
-
-15. This is the end of the docker run command. The docker image to be instantiated is specified by $1 variable,
+    - line 17. This is the end of the docker run command. The docker image to be instantiated is specified by $1 variable,
 the parameter passed to the script at runtime.
-16. reports to the terminal user
+18. reports to the terminal user
 17. wait 90 sec during the docker container deployment
 18. reports to the terminal user
 19. Now that the docker container is launched, you can access its logs with the command
