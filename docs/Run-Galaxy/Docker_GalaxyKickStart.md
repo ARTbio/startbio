@@ -146,20 +146,24 @@ docker image, and gives write rights to the container for these folders (`chown 
     
     Note that all these exports in the docker command correspond to advanced boiling/tuning of the docker container.
     You are not obliged to understand the details to get the container properly running.
+    
     - line 15. -v stands for "volume". the `-v` option says to export the /tmp directory of the docker container
     to the /galaxy_tmp directory of the host.
+    
     - line 16. we also export the /export directory of the container (any docker container has or should have by default an /export directory) to an /galaxy_export directory of the host (your VM here).
     
     Note that if the /galaxy_export directory does not exists at docker run runtime, it will be created.
     
     So it is important to understand the -v magics: every directory specified by the -v option will be shared
     between the docker container filesystem and the host filesystem. It is a mapping operation, so that
-    the same directory is accessible either from inside the docker container or from inside the host.
+    the same directory is accessible either from inside the docker container or from the host.
     
-    Now, if you stop and remove the docker container, all exported directory will persist in the host.
-    If you don't do that, all operations performed with a container are lost when you stop this container !
+    If you stop and remove the docker container, all exported directory will persist in the host.
+    If you don't do that, all operations performed with a container are lost when you stop this container.
+    
     - line 17. This is the end of the docker run command. The docker image to be instantiated is specified by $1 variable,
 the parameter passed to the script at runtime.
+
 18. reports to the terminal user
 17. wait 90 sec during the docker container deployment
 18. reports to the terminal user
