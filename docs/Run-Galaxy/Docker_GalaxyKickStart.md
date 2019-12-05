@@ -59,6 +59,7 @@ Just click on the url displayed in your Google Cloud Engine Console and connect 
 ```
 docker ps
 ```
+
 - copy the docker id or the docker container name
 - type the following command while replacing <id or name> with the copied content
 
@@ -70,6 +71,7 @@ docker stop <id or name> && docker rm <id or name>
 
 ```
 docker rmi artbio/analyse_genome:2019
+
 ```
 - remove the exported folders by typing
 
