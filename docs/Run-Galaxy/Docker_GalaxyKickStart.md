@@ -120,28 +120,27 @@ code is sh and can be found in the /usr/bin/env environment
 - Pulls (Downloads) the Docker Image specified as parameter to the `docker pull` statement (*artbio/analyse_genomes:2019*)
 - reports this action to the terminal
 - creates the /galaxy_export and /galaxy_tmp directory to export automatically data produced by the docker container
-docker image. Note the `\` at ends of lines 7 to 14: this character `\` specify that the
-code line is continued without line break for the bash interpreter.
-
-    The line 7 starts with an `export DOCKER_INSTANCE=` instruction. This means that the result
+docker image, and gives write rights to the container for these folders (`chown 1450:1450`)
+- the command invocation to run the docker container from the docker image `artbio/analyse_genomes:2019`. Note the `\` at ends of lines 9 to 17: this character `\` specifies that the code line is continued without line break for the bash interpreter.
+    
+    The line 9 starts with an `export DOCKER_INSTANCE=` instruction. This means that the result
     of the command between \` after the sign `=` will be put in the environmental variable
     `DOCKER_INSTANCE`, available system-wide.
 
     Now, the docker command (between \`) itself:
-
-    Still in line 7, we have `docker run -d -p 80:80 -p 21:21 -p 8800:8800`.
-
+    
+    Still in line 9, we have `docker run -d -p 80:80 -p 21:21 -p 8800:8800`.
+    
     This means that a container will be run as a deamon (`-d ` option) and that the internal
     TCP/IP ports 80 (web interface) and 21 (ftp interface) of the docker instance will be mapped
     to the ports 80 and 21 of your machin (The VM in this case). Note that in the syntax `-p 80:80`,
     the host port is specified to the left of the `:` and the docker port is specified to the right
     of the `:`.
     
-8. docker command continued: here we specify that the docker container acquires the root privileges
-9. docker command continued: `-e GALAXY_CONFIG_ALLOW_USER_DATASET_PURGE=True`.
-
-    The -e option specifies an environmental variable `GALAXY_CONFIG_ALLOW_USER_DATASET_PURGE`
-    passed (`e`xported) to the docker container with the value `True`
+    in line 10 we specify that the docker container acquires the root privileges
+    in line 11 `-e GALAXY_CONFIG_ALLOW_USER_DATASET_PURGE=True` specifies an environmental variable
+    `GALAXY_CONFIG_ALLOW_USER_DATASET_PURGE` passed (`e`xported) to the docker container with the value `True`
+    
     `galaxy_manage_trackster: true` with the string `galaxy_manage_trackster: false`
     in the ansible configuration file `groups/all`.
 
