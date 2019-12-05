@@ -48,9 +48,7 @@ wget https://raw.githubusercontent.com/ARTbio/Run-Galaxy/master/deployment_scrip
 sh run_docker_analyse_genomes_2019.sh
 ```
 - Connect to your docker-deployed "GalaxyKickStart" instance:
-    
-    Just click on the url displayed in your Google Cloud Engine Console
-    and connect using the login:password `admin@galaxy.org:admin`
+Just click on the url displayed in your Google Cloud Engine Console and connect using the login:password `admin@galaxy.org:admin`
 
 ----
 
