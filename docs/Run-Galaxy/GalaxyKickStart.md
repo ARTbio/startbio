@@ -58,10 +58,22 @@ sudo -i
 wget https://raw.githubusercontent.com/ARTbio/Run-Galaxy/master/deployment_scripts/run_ansible_analyse_genomes_2019.sh
 ```
 
-- run the script using the command
+- We are now ready to run this script. However this year there is bonus ! All trainees will participate to Pasteur 2019
+**Ansible Racing**. In order to participate, you'll just have get the `time` command just before the script invokation. Thus, run the following command.
+
 ```
-sh run_ansible_analyse_genomes_2019.sh analyseGenomes_2019
+time sh run_ansible_analyse_genomes_2019.sh analyseGenomes_2019
 ```
+
+!!! info "The Ultimate Pasteur 2019 Ansible Racing"
+    Please copy the time info returned by your console at the end of the deploymment.
+    It shoud look like this:
+    ```
+    real	10m27.142s
+    user	8m22.941s
+    sys	1m16.409s
+    ```
+    Then Paste this time as a comment in this [GitHub issue](https://github.com/ARTbio/Run-Galaxy/issues/25)
 
 - When the deployment is finished, connect to your ansible-deployed "GalaxyKickStart" instance:
     
