@@ -70,7 +70,7 @@ docker stop <id or name> && docker rm <id or name>
 - remove the docker image with the command
 
 ```
-docker rmi artbio/analyse_genome:2019
+docker rmi artbio/analyse_genomes:2019
 
 ```
 - remove the exported folders by typing
