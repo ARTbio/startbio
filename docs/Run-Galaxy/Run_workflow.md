@@ -94,7 +94,7 @@ file in yaml format in the Run-Galaxy repository, as well as just bellow.
     Thus, we have to install the following three tools in our Galaxy instance:
     
     tools:
-    ```
+    ```yaml
     - name: regex_replace
       owner: kellrott
       revisions:
