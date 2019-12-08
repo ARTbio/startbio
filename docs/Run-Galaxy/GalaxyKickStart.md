@@ -44,10 +44,13 @@ Repository [https://github.com/ARTbio/GalaxyKickStart](https://github.com/ARTbio
 ### Deployment
 
 - start a GCE VM
-    - `Série N2` --> `n2-standard-16 (16 processeurs virtuels, 64 Go de mémoire)`
+
+!!! question "Google Instance"
+    - **Série N2** --> `n2-standard-16 (16 processeurs virtuels, 64 Go de mémoire)`
     - **Disque de démarrage**  --> `Ubuntu 16.04 LTS`
     - **Taille (Go)** --> `200`
     - **Pare-feu** --> `Autoriser le trafic HTTP`
+
 - connect to you VM using the Google ssh console
 - start an interactive session as root using the command
 ```
@@ -58,14 +61,15 @@ sudo -i
 wget https://raw.githubusercontent.com/ARTbio/Run-Galaxy/master/deployment_scripts/run_ansible_analyse_genomes_2019.sh
 ```
 
-- We are now ready to run this script. However this year there is bonus ! All trainees will participate to Pasteur 2019
-**Ansible Racing**. In order to participate, you'll just have get the `time` command just before the script invokation. Thus, run the following command.
+- We are now ready to run this script. However this year there is bonus ! All trainees will participate to ==Pasteur 2019
+Ansible Racing==.
+In order to participate, you'll just have to put the `time` command just before the script invokation, as follows:
 
 ```
 time sh run_ansible_analyse_genomes_2019.sh analyseGenomes_2019
 ```
 
-!!! info "The Ultimate Pasteur 2019 Ansible Racing"
+!!! danger "The Ultimate Pasteur 2019 Ansible Racing"
     Please copy the time info returned by your console at the end of the deploymment.
     It shoud look like this:
     ```
@@ -92,8 +96,8 @@ time sh run_ansible_analyse_genomes_2019.sh analyseGenomes_2019
     to avoid you Galaxy server getting hacked by the end of the course.
 
 ----
-## As a Galaxy admin
-### Transfert the input data to you newly deployed Galaxy instance
+### Galaxy administration tasks
+#### Transfert input data to you newly deployed Galaxy instance
 that is :
     - a data set with reference sequences
     - a data set with small RNAseq files
@@ -116,7 +120,7 @@ https://galaxy.pasteur.fr/history/export_archive?id=69a1b70d1c4a6bdb
 ```
 
 ---
-#### Content of the `run_galaxykickstart.sh` script
+#### Content of the `run_ansible_analyse_genomes_2019.sh` script
 
 ``` bash
 #!/usr/bin/env bash
@@ -137,8 +141,7 @@ ansible-playbook -i inventory_files/analyseGenomes galaxy.yml
 echo "end of deployment\n"
 ```
 
-
-!!! info "the `run_ansible_analyse_genomes_2019.sh` script explained"
+??? info "the `run_ansible_analyse_genomes_2019.sh` script explained"
     1. The shebang line (`#!`) says that it is a script code that has to be executed
     by the shell bash which can be found in the /usr/bin/env environment
     2. `set -e` says to the bash interpreter to exit the run at first error (to avoid catastrophes)
