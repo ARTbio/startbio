@@ -163,11 +163,10 @@ docker image, and gives write rights to the container for these folders (`chown 
     
     - line 17. This is the end of the docker run command. The docker image to be instantiated is specified by $1 variable,
 the parameter passed to the script at runtime.
-
-18. reports to the terminal user
-17. wait 90 sec during the docker container deployment
-18. reports to the terminal user
-19. Now that the docker container is launched, you can access its logs with the command
+- reports to the terminal user
+- wait 90 sec during the docker container deployment
+- reports to the terminal user
+- Now that the docker container is launched, you can access its logs with the command
 `docker logs ` followed by the identification number of the docker container.
 We have put this ID in the variable `DOCKER_INSTANCE`
 and we access to the content of this variable by prefixing the variable with a `$ `:
