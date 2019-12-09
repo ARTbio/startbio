@@ -92,8 +92,8 @@ time sh run_ansible_analyse_genomes_2019.sh analyseGenomes_2019
 
 !!! warning
     admin is not really a decent password,
-    please c h a n g e   y o u r   p a s s w o r d
-    to avoid you Galaxy server getting hacked by the end of the course.
+    please ==c h a n g e  .  y o u r  .  p a s s w o r d==
+    to avoid your Galaxy server getting hacked before the end of the course.
 
 ----
 ### Galaxy administration tasks
