@@ -120,6 +120,8 @@ https://galaxy.pasteur.fr/history/export_archive?id=69a1b70d1c4a6bdb
 ```
 
 ??? bug "In case of emergency"
+    
+    Google Bucket
     ```
     https://00e9e64bacc86f2151a14558fe5cde860787db0c2c54b36c1a-apidata.googleusercontent.com/download/storage/v1/b/artbio_genomic_analysis/o/export_archive%3Fid=4c5da5ad7355ff42?qk=AD5uMEtvNjCQjALPCHx2V2xEEgOELrj8N7H0HMXCrsm1eeKXAkG8UIO61njE8WdWHo7XzcDTL3vCm0buCY9AUa4rIF-a4Sc4FlWVafXUjLoHiJj1YGmWoRFPdaf-p3R0pCF_VROCXjKV7ymBlPJsfZFA8LVxriefgb2-2l9221SXmzBD2lUsgOM5hZ2peTXHGg3DPTFYJGg7eEAIaVJJ4EjjIMsbXXAh6g0gSQuw5qqO36HnZUE2hLnrajHhyVrT4JqXOobUYEZ1oeC2DD3Jv_1eaW3C58lTdtQPv9EZn5boJMzjL41Q0pKkOvIYRPWb6ymoKz5INAWExtWcAKD4hmy00MhQMha0paPbmtIxxwh4lJWrkBgbg51r5AZhpJeQBVES8QXxboUlongYUO8VsNr4rsZLtcG6q4jduyRG2VmzoYkXRoPVZYKnZPp9ZUk8xjk8BhnKP0hBsO9MM8LKtqM4ds-4xF58q734nd1zQl4jKeRYk2ERwnC61Z4G5Rc-WQpgQ7NdsJqjC0tA5evX4eMonQH3xW1Ij2M-o05miErydA7dy8XzDu_tcvjFGxVNk-2JeDdp5UK7FqnZ271ojL_H_tfN40NtDAxX1yDyZ3RIAGM9Z937qssTqCjjj0OFLJK9LSntR_fImQCSAeRk1YKnVJKMs01gMIf_6Gz8tfj9tS6qjdD9H1HQ3_tGTE1cj_egeSKnVE36BqB4Nj54Hb27VIj0-EvZhx4yNGnXVhHGLNqOH5UbyAA2INr44i7nRUMSkaRFQwnBfdn7_fLPJdWgN-_b3wE3eBDG_CUN3oAV7Mjx0P6xxUeBsqAD4ugVUERHh-McR98_-0FBezzEE3EIJSLWUp5GOg
     ```
@@ -128,6 +130,28 @@ https://galaxy.pasteur.fr/history/export_archive?id=69a1b70d1c4a6bdb
     ```
     ```
     https://00e9e64bac1f24fd127c07b2755b873390c106ba537ea32aed-apidata.googleusercontent.com/download/storage/v1/b/artbio_genomic_analysis/o/export_archive%3Fid=69a1b70d1c4a6bdb?qk=AD5uMEvpKg6l79WadDI7pXbIp7WoH3Sh8LVqu1s7IAhvofa5sf2M_Ab5XXO2zb1eyiXREekqHvIJnnhjPmkbos1HespE82fUoJlBND5192zO_nXVtNTKIa_QxcVh4R9fdAVp-wq8jGffS-rYSiFU1qtqJJnAabXZqJw3jmENXDSo-h4LUckbFVUQPypSDt7P8U1V4bLHozaiiJGrEo88Y5LHXykoMWsouMGch-bUBJb-AsU_2u215VALH0qFIG3VByfljeF-FyVGkoeBCYgHk1VX0CR9AlwIm9pvhZ6Jq70nQNUHPmNH5lKC3Lu3VCWly4rjyIeEtPU1mbyaz-US0GrHVOr7twI0bCL9gH-PleKCTSrbciqOyD6zxa42TcnZakmPGdaRwB6JjqHw1ZwLakVrerLkupAaB6He1_R_RvWQkgZYY51EKMgFraobdNC5mTpzCblq2NuxGjzCwhhWZBbJrbt1OltXE5sS2B5wU93fX9VTnuYLS9L02fcoTrMP_YVfM2opW1l23A0vu8QnlkV0zndjk0cYDFrKxTMTM6ziCmzNbbcnwKCWiJJYVMTQNGn6dyCiE4T5y5ZmsqvEoARJ8-77BLd6-Nc2_cVSv0FYszDP4AK3lencR5fkuP185lxv2MuAXeI4gZDJlUbdKNS6RYAAJ06bZ-hHyJvcT_Oh-c6-SNceDQmYh4Ugx_VhTiYYrodUPQ2Or9ldWIdzUW2v-ICF4Qc28joHZpz6vYNsEQsRertuQiHSD7yhV-XstmkE6sA2eL8LpziLQ-QXgl5N1CtepqOdf6ARKm8O4botzX3IO4HPZAtWFvFe3usqss-ccrn_Bh3Xb7hdPnBcZ6A0Vt3ZVLwh0Q
+    ```
+    Mississippi
+
+    ```
+    https://mississippi.snv.jussieu.fr/history/export_archive?id=a407203305eb0400
+    ```
+    ```
+    https://mississippi.snv.jussieu.fr/history/export_archive?id=8916e356920c765e
+    ```
+    ```
+    https://mississippi.snv.jussieu.fr/history/export_archive?id=e6cf496eef19f5b8
+    ```
+    ARTbio
+    
+    ```
+    https://artbio.snv.jussieu.fr/history/export_archive?id=b1d0a8de1661cd49
+    ```
+    ```
+    https://artbio.snv.jussieu.fr/history/export_archive?id=d1ad3dbae5fee6ca
+    ```
+    ```
+    https://artbio.snv.jussieu.fr/history/export_archive?id=b4076b0ca537f521
     ```
 
 ---
