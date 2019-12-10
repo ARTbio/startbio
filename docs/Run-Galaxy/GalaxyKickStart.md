@@ -133,7 +133,7 @@ https://galaxy.pasteur.fr/history/export_archive?id=69a1b70d1c4a6bdb
     ```
     RNAseq
     ```
-    encours
+    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/4FWrWxZf72KDNji/download
     ```
     
     Google Bucket
