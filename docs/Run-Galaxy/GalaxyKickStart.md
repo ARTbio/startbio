@@ -136,44 +136,20 @@ https://galaxy.pasteur.fr/history/export_archive?id=69a1b70d1c4a6bdb
     https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/4FWrWxZf72KDNji/download
     ```
     
-    ### Google Bucket
+    ### Amazon S3
     RNAseq
     ```
-    https://00e9e64bacea836fa47259198b2eab01124b904383636ff0aa-apidata.googleusercontent.com/download/storage/v1/b/artbio_genomic_analysis/o/export_archive%3Fid=4c5da5ad7355ff42?qk=AD5uMEsXTlqAydH0E_PKot_OEqkjwXrHZ8YtHLY3VQEYKtvaCNI65E8TwgKqD7r3IyGsuCsGYv0eY5i2tLrsA3UBUjLcj9anAslkSK7VTBKd0-_sDFsnv6cCdn2-ayIRtZLSVmMZHrLhaO0fUJLLx-FTb6VrdoUAXTcUSSZ5tw81ZV7XyWUvZatF68LRq_ysKLT8DC-H7JrT5FTsxUMLGojAmw1S0cMon9YgKh6-mOJIiSSPd1nFbgZHJmWG_4BZbARI_i_OgyDuwOvY9mAjJkP4z2vGST9kXhssCNHic7l1CzAtAtdBOWlnuCFhoSRJh-7UBtEJR-mzV0MxZJMApjwzgr6rZyUH7dyS5CQoxQ9bvAD7ht_nSPpaZyso9upXip3E9gLzlS58RntFFCWXZwC8GGZAZsBRPbrHVe5gpjTEPqOOG-E9x53D9Z81iXIg8VG19FXJoC0f6ckERtVLKcYcZqwX9M0Q7N9Pa915bHjU5XfWTIvX1_ZM7C2xtBsr-U92-PndloBe0RxSyrm-SEZPJNWDoQuCi50rSllyPxhx34m8NrCvYb3ybtwYAPDPqLajJHOifn-Noyd-j4D1pdBC71knirlSDZGPiye-xoiHjla41kclx_au_yHa5xylKGKVk7zS5ej8HrY4eVs6RrBD3UtJm_EltN7ryxeiGk4EeyS3ukneVjPZ60PvAN-7ETXYuEWNMir8ahMb-61v0MRkrLPGdz6ulze2d0sps9iz-iE0weDwsTYPaRpP-ZagBLBbhKMJHYHYAwAEEEgPqJQlCi6xAtLAohhqZsBvDrEOgAwqaUp3MV97oNuwDWq5FDogxSmg6uW32HC71U6x6BUQNqG0a6iQ_A
+    https://mydeepseqbucket.s3.amazonaws.com/RNAseq
     ```
     small RNAseq
     ```
-    https://00e9e64bac97b3729b9bfd29fb4f1ccf9f00fd36c006db080d-apidata.googleusercontent.com/download/storage/v1/b/artbio_genomic_analysis/o/export_archive%3Fid=eb4c1d5564c9f78c?qk=AD5uMEuLpiyeaRoOVUKn8Z9U7Bl-4EIywzZiqJikUmtRGzcccvax_2y4UFjj58AePA8Ti9bmlSC5zNxZgst-eo9eBiRD0FgtDOt04EZR9CBuVi2DGNH5uKsshZon4FZmj6_eSK-m-sVWHD4ADOOHOL_abOml2Y3BovzcIHM-rpAyXOmJl01xKDS9SgiwzU_y490EiWKN8Fx4Dld7JKGPtaUu_u0yqbYlIq3-pEKXlpNqaIDUHPdZsfWAzebA5Vin2D3WKkyq8a-Ikf6RBXr7wlh60LRna-lBK6o3wE-CQlFp9_t7MFgh1MAJ2_tFhNeozScOm60ICoFCWendWVBfo_BZBEg1gyodA1gBj-vmn9hV_DzRpqe0ZtGscBIgZszvx2PRuPNnmyyJ6SyR3IPwBME_K4wy7eG7OCCcP124eu48Kpx-xTsU0d9L3AfaS1WAm2h7G2UuHcmIWYq5npx_7Rh2ZZgy1z8JVyjSifzkPj9oeQUhEFrBtlSGw3yvKJytovj7c04pPDVIlWHslXUxKP4ndNbHUkt-IfGanAtXgGpDKGjLw5ultm1RR_n1NfvJ2CogpcIaH1vXlh_6z3Err6v83B2b9sc-goxjXIqF8kdT2-7I96f2T89R4lhz2mppkk7ag6vhf_UjMS-uhkCvnO1NHRFAL8T-PWy0ZCSC4OwdzoLUDrkXHrk3oba83g6MGLhWcgz075qL5KwDL9oY0ATILwU6VfOFV9lV65OcelhwFQ_TKOKmy95oTKqRWvX0cWlpAEUd_wHURsHGm403Sz9dvfMtYa2nsH97HEJ7u_k2BXr6Mb-UtluaGXF9KSh6nPUS7MB7Jm4XIfGAtB3VftpcLN3af9egxw
+    https://mydeepseqbucket.s3.amazonaws.com/smallrnaseqs
     ```
     references
     ```
-    https://00e9e64bac20148f28e34cd40b4ae13615baaa028616851e2f-apidata.googleusercontent.com/download/storage/v1/b/artbio_genomic_analysis/o/export_archive%3Fid=69a1b70d1c4a6bdb?qk=AD5uMEubfUik_l0Qbfnp3EeO7ZW_kp7vUwVv_9grqwUl-c2AEU5BdftnS7n01EzwapUYDIjplZmOekyD16E5jYWIHYMczwZh-kytmVFmdV4pXzaEji2enWAFhhNQIX6t77Ixfu26ZtD8nfOT8JD4aQL02VyDHvpYb79pv7xLBFKWmPBigOP1Al0JDgEbhUgKvxeKBHtY62prehQAtzocv3Dctl_t5-hReT_ZySrNAU7rKirEvw1r4p7HZLxevno558zhms3hvGoldqfYNyQhPwtoPzvkYf4qHQFkgKpFE6PkOzrbph8UUEpTJg0O8IhVT2XRL-jPUiHiWae-JOgZdjWhduTEDncDINH8zOK7XXPN0nfh-qisau2zOdOlAK_evRP_X7ZrNob64th1hyoEJLPKY0MVcmKctjlEAU6SjT4KA3Xn3XriU38WyJUjQGLqJ9cU0pBug8n4Arfd4nmni9kerS1mcuzsmBS2m18QhG-KJ2NBcnhl79Dae9h1OrHw2C6n-_LkhqGfuj-Ms62FG1btMRp0FepmrhnG16mrxLWWApOzdb9phFS-MsaHU92ij_IZ3Q72AoLEGfMcnrUloPfutWSBI4TxroCXtjVjqZBviwSv3WnN53KnVWAXrpT4XH8re_A_NoeIr0OxYeakCx23UH5WXpd3vKHlRxfiL5LYW6YK329S4rvIS2bLU_tR5_RJbeSWG8-eWH5_h-hEWZT-0T3lAP_8CM3tNmcqcGa7AfrHOgxToskaX2Y7OCnZ7ohOPQDgsQHakuR8uq5M9RO3W-rCt77lYEXyqVxl7FuGxN8hqsnbaPxSnf4r8_3r--pujo3VI93Yu44ebGPhEBS35jyQg3-p1w
+    https://mydeepseqbucket.s3.amazonaws.com/references
     ```
     
-    Mississippi
-    
-    ```
-    https://mississippi.snv.jussieu.fr/history/export_archive?id=a407203305eb0400
-    ```
-    ```
-    https://mississippi.snv.jussieu.fr/history/export_archive?id=8916e356920c765e
-    ```
-    ```
-    https://mississippi.snv.jussieu.fr/history/export_archive?id=e6cf496eef19f5b8
-    ```
-    
-    ARTbio
-    
-    ```
-    https://artbio.snv.jussieu.fr/history/export_archive?id=b1d0a8de1661cd49
-    ```
-    ```
-    https://artbio.snv.jussieu.fr/history/export_archive?id=d1ad3dbae5fee6ca
-    ```
-    ```
-    https://artbio.snv.jussieu.fr/history/export_archive?id=b4076b0ca537f521
-    ```
-
 ---
 #### Content of the `run_ansible_analyse_genomes_2019.sh` script
 
