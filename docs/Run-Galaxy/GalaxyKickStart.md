@@ -35,7 +35,7 @@ GalaxyKickStart is an Ansible playbook that will
     - slurm (job manager)
     - supervisor (service manager)
 - Configure Galaxy for using these services
-- Install tools and workflows using the bioblend API.
+- Install tools and workflows using the [bioblend API](https://github.com/galaxyproject/bioblend).
 
 The code of the GalaxyKickStart playbook is freely available at the ARTbio GitHub
 Repository [https://github.com/ARTbio/GalaxyKickStart](https://github.com/ARTbio/GalaxyKickStart).
