@@ -28,12 +28,12 @@ GalaxyKickStart is an Ansible playbook that will
 - install basic dependencies needed for Galaxy
 - Create and manage all the linux users involved in the deployment of Galaxy
 - Install and configure the services required for Galaxy:
-  - postgresql (database engine)
-  - nginx (web server)
-  - docker (containers)
-  - proftpd (ftp server)
-  - slurm (job manager)
-  - supervisor (service manager)
+    - postgresql (database engine)
+    - nginx (web server)
+    - docker (containers)
+    - proftpd (ftp server)
+    - slurm (job manager)
+    - supervisor (service manager)
 - Configure Galaxy for using these services
 - Install tools and workflows using the bioblend API.
 
