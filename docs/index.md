@@ -1,7 +1,7 @@
 ![startbio_logo](images/startbio.png)
 ## News Formations
 
-!!! info "MOOC BIG \"BioInformatique pour la Génétique Médicale\""
+!!! info "MOOC BIG "BioInformatique pour la Génétique Médicale""
     Le MOOC BIG "BioInformatique pour la Génétique Médicale" a été réalisé à l'initiative de Julien Thevenon, Kevin Yauy et Evan Gouy avec, entre autres, le soutien du CNEPGM.
     Ce MOOC traite de la bio-informatique dans le domaine de la génétique médicale. Il peut vous intéresser ou intéresser des membres de vos équipes.
     
@@ -13,8 +13,8 @@
     
     Il est accessible ici :
     
-    [](https://www.fun-mooc.fr/courses/course-v1:USPC+37028+session01/about)
+    [https://www.fun-mooc.fr/courses/course-v1:USPC+37028+session01/about](https://www.fun-mooc.fr/courses/course-v1:USPC+37028+session01/about)
 
     La “bande annonce” est également accessible via Youtube :
     
-    [](https://www.youtube.com/watch?v=UvQcNjuBW88)
+    [https://www.youtube.com/watch?v=UvQcNjuBW88](https://www.youtube.com/watch?v=UvQcNjuBW88)
