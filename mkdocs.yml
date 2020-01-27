@@ -88,6 +88,7 @@ site_url: https://artbio.github.io/startbio/
 repo_url: https://github.com/ARTbio/startbio
 theme: 'material'
 markdown_extensions:
+  - attr_list
   - codehilite:
       linenums: true
   - admonition
