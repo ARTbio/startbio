@@ -21,19 +21,13 @@
     
     1. Prepare two `collections` from your raw input datasets.
         1. Toggle the "checkbox" mode by clicking the small checkbox icon at the top of the history bar
-        
-        ![](images/checkbox_mode.png)
-        
+            ![](images/checkbox_mode.png)
         2. Select the 2 A fastq files OR the 2 B fasq files (not all 4 files, choose as you feel it!)
         3. Select `Build List of Dataset Pairs` from the tab `Pour toute la sélection`
-        
-        ![](images/build_paired-dataset-collection.png)
-        
+            ![](images/build_paired-dataset-collection.png)
         4. in the pop up window, replace `_1` by `_R1` and `_2` by `_R2`
         5. Click the `Pair these datasets` tab
-        
-        ![](images/pair_datasets.png)
-        
+            ![](images/pair_datasets.png)
         6. Name your new "paired dataset" collection with a single element `A_fastq` (or `B_fastq`if you chose the B fastq file at the previous step) and click on `Create list`
         7. Back to your history, that is still in "checkbox" mode, select the 4 fastq files, and repeat the operation to produce this time a collection of 2 paired-sequences element, which you will name this time `patient sequences`
 
