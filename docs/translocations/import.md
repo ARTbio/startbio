@@ -1,5 +1,3 @@
-## Prepare your input data history
-
 ??? example "Step-1: Transfer datasets from the Data library to a new history"
     1. Rename your `Unnamed history` to
     ```
