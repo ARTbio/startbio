@@ -1,7 +1,10 @@
 ## Prepare your input data history
 
 !!! note "Transfer datasets from the Data library to a new history"
-    1. Rename your `Unnamed history` to `Input Dataset and collections`
+    1. Rename your `Unnamed history` to
+    ```
+    Input Dataset and collections
+    ```
     2. Go to menu `Shared Data`--> `Data Libraries` (`Données Partagées` --> `Bibliothèque de Données`)
        ![](images/import_data.png)
     
