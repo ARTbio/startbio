@@ -1,17 +1,19 @@
 ## Prepare your input data history
 
-1. Rename your `Unnamed history` to `Input Dataset and collections`
-2. Go to menu `Shared Data`--> `Data Libraries` (`Données Partagées` --> `Bibliothèque de Données`)
-   ![](images/import_data.png)
+!!! note "Transfer datasets from the Data library to a new history"
+    1. Rename your `Unnamed history` to `Input Dataset and collections`
+    2. Go to menu `Shared Data`--> `Data Libraries` (`Données Partagées` --> `Bibliothèque de Données`)
+       ![](images/import_data.png)
+    
+    3. Choose `Mouse Genetics` library
+    4. Select the 4 fastq files (A_R1.fastq, A_R2.fastq, B_R1.fastq and B_R2.fastq)
+    5. Select the `To History` tab --> `as datasets`
+       ![](images/import_library_datasets.png)
+    
+    6. Select your freshly renamed `Input Dataset and collections` in the `select history` menu
+    7. Click `Import` button
+    8. After the import, navigate directly to this history by clicking the `green warning`
 
-3. Choose `Mouse Genetics` library
-4. Select the 4 fastq files (A_R1.fastq, A_R2.fastq, B_R1.fastq and B_R2.fastq)
-5. Select the `To History` tab --> `as datasets`
-   ![](images/import_library_datasets.png)
-
-6. Select your freshly renamed `Input Dataset and collections` in the `select history` menu
-7. Click `Import` button
-8. After the import, navigate directly to this history by clicking the `green warning`
 9. Prepare two `collections` from your raw input datasets.
     - Toggle the "checkbox" mode by clicking the small checkbox icon at the top of the history bar
     
