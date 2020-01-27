@@ -14,6 +14,7 @@
 8. After the import, navigate directly to this history by clicking the `green warning`
 9. Prepare two `collections` from your raw input datasets.
     - Toggle the "checkbox" mode by clicking the small checkbox icon at the top of the history bar
+    
     ![](images/checkbox_mode.png)
     - Select the 2 A fastq files OR the 2 B fasq files (not all 4 files, choose as you feel it!)
     - Select `Build List of Dataset Pairs` from the tab `Pour toute la sélection`
