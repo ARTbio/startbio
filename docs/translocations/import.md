@@ -34,10 +34,11 @@
 !!! note "Step-3: Send dataset collections in a new history"
     1. Select the `Copy datasets`in the history "wheel" menu 
         ![](images/copy_datasets.png){: style="width:250px"}
+        
     - Select the first collection with a single element (A or B) that you first prepared
     - in the `destination history` area, fill the `New history named` field with
       ```
-      Single sequence dataset analysis` and click the `Copy History Items
+      Single sequence dataset analysis
       ```
-    - Click the "Copy" button
+    - Click the `Copy History Items`
     - Click the link that shows up to navigate directely to this new history !
