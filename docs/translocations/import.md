@@ -11,7 +11,7 @@
     3. Choose `Mouse Genetics` library
     4. Select the 4 fastq files (A_R1.fastq, A_R2.fastq, B_R1.fastq and B_R2.fastq)
     5. Select the `To History` tab --> `as datasets`
-       ![](images/import_library_datasets.png)
+       ![](images/import_library_datasets.png){: style="width:600px"}
     
     6. Select your freshly renamed `Input Dataset and collections` in the `select history` menu
     7. Click `Import` button
@@ -21,7 +21,7 @@
     
     1. Prepare two `collections` from your raw input datasets.
         1. Toggle the "checkbox" mode by clicking the small checkbox icon at the top of the history bar
-            ![](images/checkbox_mode.png)
+            ![](images/checkbox_mode.png){: style="width:250px"}
         2. Select the 2 A fastq files OR the 2 B fasq files (not all 4 files, choose as you feel it!)
         3. Select `Build List of Dataset Pairs` from the tab `Pour toute la sélection`
             ![](images/build_paired-dataset-collection.png)
