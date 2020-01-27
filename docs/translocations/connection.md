@@ -1,19 +1,30 @@
 ## Connect to your Galaxy server account
 
-You are going to work as student pairs, each of these pairs having its own Galaxy account.
+Everyone is going to create its own Galaxy Account on either of the two Galaxy servers, http://server1.artbio.fr and http://server2.artbio.fr.
 
-##### Account | server
+In order to do so, connect to the indicated server, and register, indicating an email address, a personal password, and a login pseudo (in small letters).
 
-###### mg-1 | [http://lbcd41.snv.jussieu.fr](http://lbcd41.snv.jussieu.fr)
-###### mg-2 | [http://lbcd41.snv.jussieu.fr](http://lbcd41.snv.jussieu.fr)
-###### mg-3 | [http://artbio.snv.jussieu.fr](http://artbio.snv.jussieu.fr)
-###### mg-4 | [http://artbio.snv.jussieu.fr](http://artbio.snv.jussieu.fr)
-###### mg-5 | [http://artbio.snv.jussieu.fr](http://artbio.snv.jussieu.fr)
-###### mg-6 | [http://artbio.snv.jussieu.fr](http://artbio.snv.jussieu.fr)
-###### mg-7 | [http://artbio.snv.jussieu.fr](http://artbio.snv.jussieu.fr)
+| Name         | Server url               |
+|--------------|--------------------------|
+| BAYANAA      | http://server1.artbio.fr |
+| BLANC-DURAND | http://server1.artbio.fr |
+| BOURDON      | http://server1.artbio.fr |
+| CARRE SIMON  | http://server1.artbio.fr |
+| DAVIAUD      | http://server1.artbio.fr |
+| EL DAWRA     | http://server1.artbio.fr |
+| EL MARJOU    | http://server1.artbio.fr |
+| FORTIN-NOUEL | http://server1.artbio.fr |
+| HRAYBI       | http://server1.artbio.fr |
+| KNOERR       | http://server2.artbio.fr |
+| MANCHON      | http://server2.artbio.fr |
+| SALIOU       | http://server2.artbio.fr |
+| SALLOUM      | http://server2.artbio.fr |
+| TALA-IGHIL   | http://server2.artbio.fr |
+| UBBIALI      | http://server2.artbio.fr |
+| VERMARE      | http://server2.artbio.fr |
+| VESSELY      | http://server2.artbio.fr |
+| ZEINOUN      | http://server2.artbio.fr |
 
-
-Your password will be communicated during the training session
 
 ### At login, and before entering into the analysis, let's do the "Galaxy tour" !
 
