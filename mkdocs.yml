@@ -20,7 +20,7 @@ nav:
         - Sequencing Protocol: translocations/seq.md
         - Lumpy approach: translocations/lumpy_approach.md
         - Trainee connection: translocations/connection.md
-        - Import datasets: translocations/import.md
+        - Prepare your input data history: translocations/import.md
         - BWA mem tool: translocations/BWA.md
         - lumpy analysis: translocations/lumpy.md
         - Filter VCF file for visualization: translocations/filter_vcf.md
