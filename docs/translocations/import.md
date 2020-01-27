@@ -6,7 +6,7 @@
     Input Dataset and collections
     ```
     2. Go to menu `Shared Data`--> `Data Libraries` (`Données Partagées` --> `Bibliothèque de Données`)
-       ![](images/import_data.png =300px)
+       ![](images/import_data.png){: style="width:150px"}
     
     3. Choose `Mouse Genetics` library
     4. Select the 4 fastq files (A_R1.fastq, A_R2.fastq, B_R1.fastq and B_R2.fastq)
