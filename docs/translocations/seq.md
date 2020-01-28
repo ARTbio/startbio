@@ -3,7 +3,7 @@
 - Bone marrow samples from patients with Acute Lymphoid Leukemia (ALL)
 - Genomic DNA from bone marrow cells
 - DNA fragmentation (expected ~200-500nt long)
-- Selection of DNA fragments :
+- Selection of DNA fragments with Agilent capture probes:
     2 regions of several dozens of kb centered on BCR and ABL1
 - Library preparation
 - Sequencing of both ends of fragments: Paired-End sequencing (see figure below)
