@@ -7,7 +7,7 @@
 
 ![](images/trigger_workflow.png){: style="width:250px" align="top"}
 
-## 3  Launch the workflow
+## 3.  Launch the workflow
 
 - Select `Yes` for **Send results to a new history**
 - Edit the **History name** to something that makes sense to you (`Translocation Re-Analysis`, for instance)
