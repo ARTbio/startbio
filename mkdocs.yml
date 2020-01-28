@@ -20,14 +20,14 @@ nav:
         - Sequencing Protocol: translocations/seq.md
         - Lumpy approach: translocations/lumpy_approach.md
         - Trainee connection: translocations/connection.md
-        - Prepare your input data history: translocations/import.md
-        - BWA mem tool: translocations/BWA.md
+        - Prepare the input data history: translocations/import.md
+        - Align reads to the human genome: translocations/BWA.md
         - lumpy analysis: translocations/lumpy.md
-        - Filter VCF file for visualization: translocations/filter_vcf.md
-        - Compute genome coverage: translocations/coverage.md
-        - Generate workflow from history: translocations/workflow.md
-        - Run the workflow: translocations/run_workflow.md
-        - Visualisation in UCSC Genome Browser: translocations/visualisation.md
+        - Reformat VCF files for visualization in the UCSC genome browser: translocations/filter_vcf.md
+        - Compute the genome read coverage: translocations/coverage.md
+        - Data Visualisation in UCSC Genome Browser: translocations/visualisation.md
+        - Generate workflow from an history: translocations/workflow.md
+        - Run the Lumpy workflow: translocations/run_workflow.md
     -  Reference-based RNAseq analysis:
         - Introduction: reference_based_RNAseq/index.md
         - Pretreatments:
