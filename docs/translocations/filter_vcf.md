@@ -9,7 +9,7 @@ variations we are not interested in.
 ---
 ### 1. Save the headers of the vcf files using the tool:
 
-!!! example "Select lines that match an expression (Galaxy Version 1.0.1)"
+??? example "Select lines that match an expression (Galaxy Version 1.0.1)"
     - **Select lines from**: `9: Variant Lumpy Calling` (be careful to toggle the `Dataset collection` mode)
     - **that**: `matching`
     - **the pattern**: `^#`
@@ -21,7 +21,7 @@ variations we are not interested in.
 ---
 ### 2. Save the rest of the vcf files in another Dataset Collection using the same tool:
 
-!!! example "Select lines that match an expression (Galaxy Version 1.0.1)"
+??? example "Select lines that match an expression (Galaxy Version 1.0.1)"
     - **Select lines from**: `9: Variant Lumpy Calling` (be careful to toggle the `Dataset collection` mode)
     - **that**: `matching`
     - **the pattern**: `SVTYPE=BND`
@@ -44,7 +44,7 @@ This step allows to kill two birds with the same stone (tool):
 ---
 ### 3. Reorder the vcf lines describing the genetic variations using the tool:
 
-!!! example "Sort data in ascending or descending order (Galaxy Version 1.1.1)"
+??? example "Sort data in ascending or descending order (Galaxy Version 1.1.1)"
     - **Sort Query****: `16: Select on collection 9` (be careful to toggle the `Dataset collection` mode)
     - **Number of header lines**: `0`
     - **1: Column selections**
@@ -63,7 +63,7 @@ This step allows to kill two birds with the same stone (tool):
 ---
 ### 4. Reassemble the saved headers with the sorted/filtered vcf parts using
 
-!!! example "Concatenate multiple datasets tail-to-head by specifying how (Galaxy Version 1.4.1)"
+??? example "Concatenate multiple datasets tail-to-head by specifying how (Galaxy Version 1.4.1)"
     Pay extra attention to the *name* and the *version* of the tool, because there is a number of concatenation tools with the same name
     
     - **What type of data do you wish to concatenate?**: `2 Collections`
