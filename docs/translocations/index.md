@@ -1,3 +1,6 @@
+## Mouse Genetics - Training session - Finding translocation breakpoints with `lumpy-sv`
+### January 30th
+
 In this training session, we are going to analyse 2 datasets from two patients using Galaxy
 in order to find translocations between BCR (chr22) and ABL1 (chr9).
 
