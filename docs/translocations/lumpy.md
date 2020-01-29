@@ -29,6 +29,7 @@ in a vcf file (vcf stands for variant calling format), with statistical signific
           You need to toggle the dataset collection mode (folder icon) to see the collection
           (arrow in the screen shot below).
         
+        - **read length**: `151`
         - **Sequencing method**: `Paired-end sequencing`
         - **variant** calling format: `vcf`
         ![](images/lumpy.png)
