@@ -77,6 +77,8 @@ nav:
           - GalaxyKickStart: metavisitor/metavisitor_ansible.md
           - Docker: metavisitor/metavisitor_docker.md
           - Access and Control Metavisitor Galaxy instance: metavisitor/metavisitor_access_control.md
+    -  Download TARGET-AML Data in Galaxy:
+        - Introduction: TARGET_download/intro.md
 
 
   - Annexes:
