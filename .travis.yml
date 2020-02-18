@@ -1,9 +1,9 @@
 language: python
-python: '2.7'
+python: '3.6'
 sudo: required
 env:
   global:
-  - TOX_ENV=py27
+#  - TOX_ENV=py27
   - SITE_URL="https://artbio.github.io/startbio/"
   - GH_USER_NAME="Christophe Antoniewski"
   - GH_USER_EMAIL="drosofff@gmail.com"
