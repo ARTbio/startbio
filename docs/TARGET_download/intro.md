@@ -7,6 +7,11 @@ TARGET data are available from different, overlapping public repositories/databa
 is  to provide the cancer research community with a unified data repository that enables data
 sharing across cancer genomic studies in support of precision medicine.
 
+TARGET data, and more specifically for this use case TARGET-AML data, can be [accessed directly from the GDC](https://portal.gdc.cancer.gov/projects/TARGET-AML), since it is hosting the OCG and its TARGET project (see bellow).
+There is also access to publication pages related to the projects, for instance here
+[https://gdc.cancer.gov/about-data/publications/TARGET-AML-2017](https://gdc.cancer.gov/about-data/publications/TARGET-AML-2017)
+where some instructions and paths to data are available.
+
 ### The [Office of Cancer Genomics (OCG)](https://ocg.cancer.gov/about-ocg)
 
 is a **program** of the GDC aimed at supporting research
