@@ -96,7 +96,7 @@ https://api.gdc.cancer.gov/data/a0f31602-503b-4964-b68c-1ef996536a74	b5514b40-5b
 the original file being backed up in gdc_sample_sheet.2020-02-19.tsv.bak
 
 
-Et Voilà... We can now use this metada file to upload all expression data file we have selected in Galaxy.
+Et Voilà... We can now use this metada file to upload all expression data files we have selected in Galaxy.
 
 
 
