@@ -80,6 +80,7 @@ nav:
     -  Download TARGET-AML Data in Galaxy:
         - Introduction: TARGET_download/intro.md
         - Fill your GDC cart: TARGET_download/GDC_cart.md
+        - Edit files metadata: TARGET_download/metadata_manipulation.md
 
 
   - Annexes:
