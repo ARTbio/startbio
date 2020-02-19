@@ -79,6 +79,7 @@ nav:
           - Access and Control Metavisitor Galaxy instance: metavisitor/metavisitor_access_control.md
     -  Download TARGET-AML Data in Galaxy:
         - Introduction: TARGET_download/intro.md
+        - Fill your GDC cart: TARGET_download/GDC_cart.md
 
 
   - Annexes:
