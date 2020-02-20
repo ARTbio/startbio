@@ -81,6 +81,7 @@ nav:
         - Introduction: TARGET_download/intro.md
         - Fill your GDC cart: TARGET_download/GDC_cart.md
         - Edit files metadata: TARGET_download/metadata_manipulation.md
+        - import files in Galaxy using the edited files metadata: TARGET_download/galaxy_import.md
 
 
   - Annexes:
