@@ -2,7 +2,7 @@
 
 ![startbio_logo](images/startbio_punchline.png){: style="width:900px"}
 
-### [Detailed information on the STARTbio project](../Curamus_project/)
+### [Detailed information on the STARTbio project](Curamus_project/Curamus_project.md)
 
 ## News Formations
 
