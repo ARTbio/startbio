@@ -1,6 +1,6 @@
 ![startbio_logo](images/startbio.png)
 
-![startbio_logo](images/startbio_punchline.png){: style="width:600px"}
+![startbio_logo](images/startbio_punchline.png){: style="width:900px"}
 
 ## News Formations
 
