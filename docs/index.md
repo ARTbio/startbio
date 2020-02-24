@@ -2,6 +2,8 @@
 
 ![startbio_logo](images/startbio_punchline.png){: style="width:900px"}
 
+### [Detailed information on the STARTbio project](../Curamus_project/)
+
 ## News Formations
 
 !!! info "MOOC BIG "BioInformatique pour la Génétique Médicale""
