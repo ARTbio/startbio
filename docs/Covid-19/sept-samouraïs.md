@@ -19,6 +19,10 @@ mais seulement insister sur ceux qui me paraissent faciles à améliorer et effi
     on peut utiliser le temps dégagé pour se détendre ensemble ou échanger à baton
     rompu sur ce qui nous intéresse. En période épidémique, mieux vaux évidemment privilégier
     les vidéos conf ou les réseaux sociaux...
+    En toute occasion, rappelez-vous qu'un document *bien* partagé avec des gens formés et acquis
+    aux méthodes de travail collectif,
+    est une réunion permanente et très productive, dont les "minutes" sont les *versions* successives
+    du document, ainsi que les éléments objectifs des contributions de chacun.
     - Utilisez les **mails** avec discernement.
         - Répondez de façon aussi précise et claire que possible
         de façon à éviter les fils de conversation "d'explicitation" à 10, voire 20 messages.
