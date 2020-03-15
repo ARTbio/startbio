@@ -25,15 +25,25 @@ mais seulement insister sur ceux qui me paraissent faciles à améliorer et effi
     du document, ainsi que les éléments objectifs des contributions de chacun.
     - Utilisez les ==**mails**== avec discernement.
         - Répondez de façon aussi précise et claire que possible
-        de façon à éviter les fils de conversation "d'explicitation" à 10, voire 20 messages.
-        - Le mail n'est pas un chat. Répondez si vous êtes sollicités, ne répondez pas si vous ne l'êtes pas
-        (par exemple si vous n'êtes qu'en "cc").
+        de façon à éviter les fils de conversation "d'explicitation" à 10, voire 20 messages:
+        Le mail n'est *pas* un chat.
+        - Répondez aux messages mails si vous êtes sollicités, ne répondez pas si vous ne l'êtes pas
+        (par exemple si vous n'êtes qu'en "cc"). Les "Merci" et "Bien reçu" sont certes polis et agréables
+        Mais rendent les boites emails moins facilent à fouiller.
+        - Accordez un minimum de soin aux citations. Dans certains cas, cela peut s'avérer très utile,
+        dans d'autres cela peut alourdir l'échange. Si vous citez vos correspondant, faites le avec discernement:
+        extrayez le point que vous citez, ne "quotez" pas tout le message, c'est comme le stabilo boss, cela revient
+        à ne rien "quoter".
         - Ne renvoyez pas des mails à des gens qui les ont déjà eu,
         c'est inutile et contre-productif. Dans le doute (rare si vous y pensez) abstenez vous...
         - Attachez le minimum de documents à vos mails. Il n'est pas nécessaire de recopier un document
         dans un mail, document qui va changer et qui est de toutes façons accessible ailleurs.
         - Utilisez le "reply to all" avec discernement: Dans certains cas c'est indispensable,
-        dans d'autres c'est insupportable. Ne faites pas le contraire ;-) 
+        dans d'autres c'est insupportable. Ne faites pas le contraire ;-)
+        - Sauf pour vos correspondants habituels et proches, proscrivez systématiquement les points de suspensions,
+        les parenthèses, les bouts de phrases sans verbe, les fautes d'orthographe. Rappelez vous toujours: ce n'est
+        *pas* à votre correspondant de déchiffer votre propos, il est probablement aussi occupé que vous.
+        Soyez concis et précis.
     - Soyez à tout moment pendant les horaires de travail joignable sur ==**[Gitter](https://gitter.im/)**==
     et si possible
     préférez notre "salle" commune aux conversations privées. Avant d'écrire un mail, demandez-vous
