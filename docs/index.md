@@ -1,6 +1,7 @@
 ![startbio_logo](images/startbio.png)
 
-# [Informations et boites à outils pendant la pandémie Covid-19](Covid-19/)
+# [Information et outils en pandémie Covid-19](Covid-19/)
+## Les Septs Samourais du télé-travail
 
 
 
