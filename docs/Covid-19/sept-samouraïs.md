@@ -13,7 +13,7 @@ En retour, je vous demande d'apporter un soin particulier à télé-travailler d
 avec l'équipe. Vous savez le faire, je ne vais donc pas reprendre tous les points,
 mais seulement insister sur ceux qui me paraissent faciles à améliorer et efficaces.
 
-!!! note "Les 7 samouraïs du télé-travail"
+!!! tips "Les 7 samouraïs du télé-travail"
     1. Travaillez dans des documents qui peuvent être **partagés et publiés**, au moins pour l'équipe.
     Cela est plus efficace que - et permet d'éviter - 80... non 90% des réunions. En temps normal,
     on peut utiliser le temps dégagé pour se détendre ensemble ou échanger à baton
