@@ -1,6 +1,8 @@
 site_name: STARTbio
 nav:
   - Home: index.md
+  - Covid-19:
+    - Les 7 samouraïs du télé-travail: sept-samouraïs.md
   - 1Omin2:
     - Grep and Regex (1): ten2Regex_01.md
   - Galaxy Trainings:
