@@ -1,16 +1,7 @@
 ![startbio_logo](images/startbio.png)
 
-# [Information et outils en pandémie Covid-19](Covid-19/)
-## Les Septs Samourais du télé-travail
-
-
-
-
-
-
-
-
-
+# [Information et outils en pandémie Covid-19]
+## [Les Septs Samouraïs du télé-travail](Covid-19/sept-samouraïs.md)
 
 -------
 
