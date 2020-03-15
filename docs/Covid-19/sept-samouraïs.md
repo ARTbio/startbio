@@ -54,6 +54,5 @@ mais seulement insister sur ceux qui me paraissent faciles à améliorer et effi
     un agenda, et une date de réunion se décrète dans un agenda, pas dans un mail qui terminera dans l'agenda.
     
     ### D'une façon générale, nous en avons déjà discuté, soyez FAIR pendant les heures de travail:
-      Facilement trouvables, Accessibles, Inter-opérables et Reproductibles. Cela peut sembler une plaisanterie,
-      mais les principes FAIR s'appliquent bien, voire mieux, aux membres d'une équipe.
+    #### Facilement trouvables, Accessibles, Inter-opérables et Reproductibles. Cela peut sembler une plaisanterie, mais les principes FAIR s'appliquent bien, voire mieux, aux membres d'une équipe.
     
