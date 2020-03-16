@@ -34,6 +34,18 @@ Dans ce cas, l'ensemble des personnes qui se connecteront à votre document sero
 Il est donc préférable de faire des partages en utilisant des mails google. Cela permet de suivre les commentaires de chaque personne nommément.
 
 
+Vous avez 2 modes d'édition : 
+* édition standard qui change directement le document
+* suggestion qui permet aux autres d'approuver ou non vos suggestions avant qu'elles ne soient validées dans le document
+
+![editing_mode](../images/editing_mode.png)
+
+Vous pouvez aussi faire des commentaires sur certaines parties du texte, en sélectionnant ledit texte et en cliquant sur :
+
+![comment](../images/comment.png)
+
+
+
 ### [La suite Framasofts](https://framasoft.org/fr/)
 
 Framasofts est un ensemble de logiciels libres.
