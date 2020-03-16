@@ -42,7 +42,7 @@ Vous avez 2 modes d'édition :
 
 Vous pouvez aussi faire des commentaires sur certaines parties du texte, en sélectionnant ledit texte et en cliquant sur :
 
-![comment](../images/comment.png)
+![comment](../images/add_comment.png)
 
 
 
