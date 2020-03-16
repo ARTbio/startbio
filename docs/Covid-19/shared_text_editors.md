@@ -1,14 +1,19 @@
-## Les solutions de partage de documents
+## [La Suite Google](https://gsuite.google.com/features/)
 
+Pour pouvoir utiliser les outils Google, il faut un créer un compte utilisateur Gmail qui
+vous attribuera une adresse e-mail gmail et surtout vous permettra de vous identifier afin
+d'utiliser de façon sécurisée les "Google apps":
 
-### [La Suite Google](https://gsuite.google.com/features/)
-
-Pour pouvoir utiliser les outils Google, il faut un créer un compte utilisateur qui vous permettra d'utiliser 
 l'ensemble des outils développés par Google.
-* [Documents](https://gsuite.google.com/products/docs/)
-* [Sheets](https://gsuite.google.com/products/sheets/)
-* [Slides](https://gsuite.google.com/products/slides/)
-* [Forms](https://gsuite.google.com/products/forms/) 
+* [Google Docs](https://gsuite.google.com/products/docs/): un équivalent de Microsoft Word
+* [Google Sheets](https://gsuite.google.com/products/sheets/): un équivalent de Microsoft Excel
+* [Google Slides](https://gsuite.google.com/products/slides/): un équivalent de Microsoft Powerpoint
+* [Forms](https://gsuite.google.com/products/forms/): un générateur de sondages en ligne
+
+### Pourquoi utiliser le traitement de texte partagé Google Docs ?
+
+
+
 
 Le partage des documents est ensuite possible en cliquant sur ![Share](../images/share_button.png) en haut à droite de chaque document.
 
