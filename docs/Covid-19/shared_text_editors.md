@@ -16,9 +16,9 @@ Le partage des documents est ensuite possible en cliquant sur ![Share](../images
 
 
 Vous pouvez entrer les emails des personnes avec qui vous souhaitez partager le document et préciser si ces utilisateurs peuvent :
-* Voir (View) 
-* Commenter (Comment)
-* Editer (Edit)
+* **Voir** (View) 
+* **Commenter** (Comment)
+* **Editer** (Edit)
 
 
 Un mode avancé vous permet de gérer chaque partage ![individuellement](../images/share_advanced.png).
@@ -35,8 +35,8 @@ Il est donc préférable de faire des partages en utilisant des mails google. Ce
 
 
 Vous avez 2 modes d'édition : 
-* édition standard qui change directement le document
-* suggestion qui permet aux autres d'approuver ou non vos suggestions avant qu'elles ne soient validées dans le document
+* **édition standard** qui change directement le document
+* **suggestion** qui permet aux autres d'approuver ou non vos suggestions avant qu'elles ne soient validées dans le document
 
 ![editing_mode](../images/editing_mode.png)
 
@@ -48,7 +48,17 @@ Vous pouvez aussi faire des commentaires sur certaines parties du texte, en sél
 
 ### [La suite Framasofts](https://framasoft.org/fr/)
 
-Framasofts est un ensemble de logiciels libres.
+Framasoft, c’est une association d’éducation populaire, un groupe d’ami·es convaincu·es qu’un monde numérique émancipateur est possible, persuadé·es qu’il adviendra grâce à des actions concrètes sur le terrain et en ligne avec vous et pour vous !
 
+Framasofts propose un ensemble de logiciels et de services libres.
+
+* [Framapad](https://framapad.org/fr/) pour éditer collaborativement.
+*Écrivons tous ensemble sur le même document dans une interface de rédaction collective en ligne. Aucune inscription requise, on se donne un pseudo, une couleur et on se lance !*
+* [Framacalc](https://accueil.framacalc.org/fr/), un tableur collaboratif.
+*Framacalc est au tableur ce que Framapad est au traitement de texte, autrement dit la possibilité d’éditer simplement et collectivement en ligne sur un même document.*
+* [Framaslides](https://framaslides.org/login), créer et partager des diaporamas.
+*Framaslides vous permet de créer directement en ligne un diaporama ou une présentation, d’y accéder avec une simple connexion internet, et de la partager.*
+* [Framaforms](https://framaforms.org/), Création de questionnaires.
+*Framaforms vous permet de créer les questionaires dont vous avez besoin, que ce soit dans un cadre scolaire, familial ou associatif. Créez vos questions en fonction de vos besoins, des formulaires à choix multiples aux champs de texte libre.*
 
 
