@@ -10,7 +10,7 @@ l'ensemble des outils développés par Google.
 * [Slides](https://gsuite.google.com/products/slides/)
 * [Forms](https://gsuite.google.com/products/forms/) 
 
-Le partage des documents est ensuite possible en cliquant sur l'onglet ![Share](../images/share_button.png) en haut à droite de chaque document.
+Le partage des documents est ensuite possible en cliquant sur ![Share](../images/share_button.png) en haut à droite de chaque document.
 
 ![Share](../images/share_menu.png) 
 
