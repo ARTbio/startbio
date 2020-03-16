@@ -40,7 +40,7 @@ Vous avez 2 modes d'édition :
 
 ![editing_mode](../images/editing_mode.png)
 
-Vous pouvez aussi faire des commentaires sur certaines parties du texte, en sélectionnant ledit texte et en cliquant sur :
+Vous pouvez aussi faire des commentaires sur certaines parties du texte, en sélectionnant ledit texte et en cliquant sur 
 
 ![comment](../images/add_comment.png)
 
