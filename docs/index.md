@@ -1,7 +1,10 @@
 ![startbio_logo](images/startbio.png)
 
-# [Information et outils en pandémie Covid-19]
-## [Les Septs Samouraïs du télé-travail](Covid-19/sept-samouraïs.md)
+------
+
+# ==Information et outils en pandémie Covid-19==
+### [Les Septs Samouraïs du télé-travail](Covid-19/sept-samouraïs.md)
+### [Les solutions de visio-conférences](https://docs.google.com/document/d/1tKPEK71cIgny70yEWkH7HDHRwykgo_zq9iVaHUAt6YE/edit?usp=sharing)
 
 -------
 
