@@ -29,7 +29,7 @@ mais seulement insister sur ceux qui me paraissent faciles à améliorer et effi
         Le mail n'est *pas* un chat.
         - Répondez aux messages mails si vous êtes sollicités, ne répondez pas si vous ne l'êtes pas
         (par exemple si vous n'êtes qu'en "cc"). Les "Merci" et "Bien reçu" sont certes polis et agréables
-        Mais rendent les boites emails moins facilent à fouiller.
+        Mais rendent les boites emails moins faciles à fouiller.
         - Accordez un minimum de soin aux citations. Dans certains cas, cela peut s'avérer très utile,
         dans d'autres cela peut alourdir l'échange. Si vous citez vos correspondant, faites le avec discernement:
         extrayez le point que vous citez, ne "quotez" pas tout le message, c'est comme le stabilo boss, cela revient
