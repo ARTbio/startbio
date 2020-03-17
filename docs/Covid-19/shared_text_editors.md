@@ -1,4 +1,4 @@
-## [Google Docs](https://gsuite.google.com/features/)
+## [Google Docs](https://gsuite.google.com/products/docs)
 
 Pour utiliser les [Google Apps](https://gsuite.google.com/features/) de façon sécurisée,
 et en particulier Google Docs, il vous
@@ -7,44 +7,55 @@ fournira accès à un
 identifiant et compte Google, et vous permettra de vous **authentifier**.
 
 Il est important de noter qu'un compte google, associé à une adresse Gmail, est automatiquement
-associé à un *espace de stockage de fichier  `Cloud` d'environ 15 Go*, le
+associé à un ==espace de stockage de fichier  `Cloud` d'environ 15 Go==, le
 [Google Drive](https://www.google.com/intl/fr_ALL/drive/).
 C'est dans cet espace que vos fichiers Google Docs seront stockés, partagés ou non, et accessibles depuis
 n'importe quel ordinateur par l'interface web de [Google Drive](https://drive.google.com/),
-ou en synchronisation avec vos ordinateurs avec le *client Desktop* `Sauvegarde et
-synchronisation` de Google Drive.
+ou en synchronisation avec vos ordinateurs avec le *client Desktop* [`Sauvegarde et
+synchronisation`](https://www.google.com/intl/fr_ALL/drive/download/backup-and-sync/)
+de Google Drive.
 
-### Les Google Apps
+### Les [Google Apps](https://gsuite.google.com/features/)
 
-* [Google Docs](https://gsuite.google.com/products/docs/): un équivalent de Microsoft Word
-* [Google Sheets](https://gsuite.google.com/products/sheets/): un équivalent de Microsoft Excel
-* [Google Slides](https://gsuite.google.com/products/slides/): un équivalent de Microsoft Powerpoint
-* [Forms](https://gsuite.google.com/products/forms/): un générateur de sondages en ligne
+Ici, nous nous intéressons au logiciel de traitement de textes
+[Google Docs](https://gsuite.google.com/products/docs/), équivalent collaboratif de Microsoft Word.
+
+Mais il y a de nombreuses autres Google "Apps", dont les plus connues sont:
+
+- [Google Sheets](https://gsuite.google.com/products/sheets/): un équivalent de Microsoft Excel
+- [Google Slides](https://gsuite.google.com/products/slides/): un équivalent de Microsoft Powerpoint
+- [Forms](https://gsuite.google.com/products/forms/): un générateur de sondages en ligne
 
 
-!!! info "Pourquoi utiliser le traitement de texte partagé Google Docs ?""
-    - Il est gratuit, associé à un espace de stockage cloud gratuit, et toujours à jour sans mises à jour.
-    - Son interface est simple, très similaire à celle de Word, et propose la plupart des fonctionnalités
-    disponibles sur Microsoft Word (Tables des matières, styles, tableaux intégrés, images intégrées,
-    graphiques intégrés, etc)
-    - Il possède en plus de puissantes fonctionnalité de partage et publication en ligne, et permet
-    à plusieurs dizaines d'utilisateurs de  travailler simultanément sans risque de corruption sur le même
-    document.
-    - Il est entièrement "journalisé": Chaque micro-version du texte créé est mémorisée et peut être
-    réactivée, en partie ou entièrement, en cas de problème ou de mauvaise manipulation.
-    - Tout comme word il gère le mode "révisions" à plusieurs (évidemment sur un seul et même document),
+!!! info "10 raisons pour utiliser le traitement de textes partagés Google Docs"
+    1. Il possède de puissantes fonctionnalités de partage et de publication en ligne, et permet
+    à plusieurs dizaines d'utilisateurs de travailler simultanément et sans risque de
+    corruption sur le même document.
+    - Il permet donc d'en finir avec le processus d'échange e-mail de versions
+    asynchrones d'un texte, qui s'avère très chronophage pour les éditeurs, inutile et fastidieux.
+    - Il est gratuit, toujours à jour et associé à un espace de stockage cloud accessible partout et tout le temps.
+    - Son interface est simple, similaire à celle de Word, et propose la plupart des fonctionnalités
+    disponibles sur Microsoft Word (tables des matières, styles, tableaux intégrés, insertion d'images,
+    de graphiques, etc)
+    - Il est entièrement "journalisé": Chaque micro-version du texte créé est mémorisée et
+    réactivable, en partie ou entièrement, en cas de changement d'avis ou de mauvaise manipulation.
+    - Tout comme Word il gère le mode "révisions" à plusieurs (évidemment, sur un seul et même document),
     ainsi que les notes avec un système d'alerte par mail des collaborateurs.
-    - Il possède de nombreux plugins de traductions, formattage, etc.
+    - Il possède de nombreux plugins de traductions, formattage, etc. Il possède en particulier
+    d'excellents plugins pour la gestion des références bibliographiques. En particulier
+    [Paperpile](https://paperpile.com/welcome)
     - Les fichiers créés bénéficient des fonctionnalités de recherche de Google dans votre Google Drive.
+    Google a une certaine compétence dans ce domaine.
     - Il est très bien intégré avec les autres Google Apps (Sheets, Slides, Forms, Sites, etc)
-    - Surtout, il permet d'en finir avec le processus d'échange (généralement par mail) de versions
-    asynchrones d'un texte, qui s'avère très chronophage pour l'éditeur principal, inutile et fastidieux.
+    - Il possède un base d'utilisateurs importante. Nombre de documentations très bien faites
+    sont accessibles en lignes et la résolution de problèmes est relativement simple en
+    recherchant dans Google 
 
-??? bug "Pourquoi utiliser Google Docs quand les autres solutions sont bien meilleures ?"
-    - Microsoft est plus respectueux de ses clients
-    - Des logiciels libres ont les mêmes fonctionnalités et la même fiabilité
+??? bug "Coin détente: 10 bonnes et moins bonnes raisons de ne *pas* utiliser Google Docs"
+    1. C'est Google. Microsoft est plus respectueux de ses clients
+    - Des logiciels libres ont les mêmes fonctionnalités et la même [fiabilité](https://framapad.org/fr/)
     - Les autres me voit écrire, c'est gênant.
-    - C'est bien de pouvoir compiler des versions avec des dates exotiques et des initiales de collaborateurs,
+    - C'est bien de pouvoir compiler des versions avec des dates exotiques et des initiales de collaborateurs.
     Après tout, c'est moi le boss, et je suis imbattable au jeu des 7 erreurs !
     - J'ai peur de faire une bêtise et de détériorer le texte de mes collaborateurs
     - Google m'espionne, me vole mes idées et les revends à mes compétiteurs.
