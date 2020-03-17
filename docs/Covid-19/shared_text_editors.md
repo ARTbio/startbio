@@ -22,7 +22,7 @@ synchronisation` de Google Drive.
 * [Forms](https://gsuite.google.com/products/forms/): un générateur de sondages en ligne
 
 
-!!! info "Pourquoi utiliser le traitement de texte partagé Google Docs ?""
+!!! info "Pourquoi utiliser le traitement de textes partagé Google Docs ?""
     - Il est gratuit, associé à un espace de stockage cloud gratuit, et toujours à jour sans mises à jour.
     - Son interface est simple, très similaire à celle de Word, et propose la plupart des fonctionnalités
     disponibles sur Microsoft Word (Tables des matières, styles, tableaux intégrés, images intégrées,
