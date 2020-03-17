@@ -60,6 +60,7 @@ synchronisation` de Google Drive.
     - Je n'aime pas l'interface de Google Docs, elle est moche et ce n'est pas comme d'habitude.
 
 Mais sans plus tarder, commençons ce bref tutorial pratique.
+*N'hésitez pas à consulter cette ![vidéo](https://www.youtube.com/watch?v=I0OqnItA-zA) très didactique en anglais*
 
 ### Création d'un document Google Docs "ab initio"
 
