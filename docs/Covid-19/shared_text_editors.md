@@ -72,6 +72,8 @@ Mais il y a de nombreuses autres Google "Apps", dont les plus connues sont:
 
 Mais sans plus tarder, commençons ce bref tutorial pratique.
 
+*N'hésitez pas à consulter cette [vidéo](https://www.youtube.com/watch?v=I0OqnItA-zA) très didactique en anglais*
+
 ### Création d'un document Google Docs "ab initio"
 
 ### Ouverture et édition d'un document Word
@@ -86,9 +88,9 @@ Le partage des documents est ensuite possible en cliquant sur ![Share](../images
 
 
 Vous pouvez entrer les emails des personnes avec qui vous souhaitez partager le document et préciser si ces utilisateurs peuvent :
-* Voir (View) 
-* Commenter (Comment)
-* Editer (Edit)
+* **Voir** (View) 
+* **Commenter** (Comment)
+* **Editer** (Edit)
 
 
 Un mode avancé vous permet de gérer chaque partage ![individuellement](../images/share_advanced.png).
@@ -106,13 +108,13 @@ Il est donc préférable de faire des partages en utilisant des mails google. Ce
 
 ### Bonnes pratiques de collaboration à un document Google Docs
 
-Vous avez 2 modes d'édition : 
-* édition standard qui change directement le document
-* suggestion qui permet aux autres d'approuver ou non vos suggestions avant qu'elles ne soient validées dans le document
-
+Vous avez 3 modes d'édition : 
+* **Edition** activé par défaut
+* **suggestion** qui permet d'introduire des corrections et de garder leur suivi. Equivalent du mode "correction" de Microsoft Word
+* **Affichage** qui montre le texte tel qui apparaitra lors d'une impression ou dans un export pdf du document.
 ![editing_mode](../images/editing_mode.png)
 
-Vous pouvez aussi faire des commentaires sur certaines parties du texte, en sélectionnant ledit texte et en cliquant sur :
+Vous pouvez aussi faire des commentaires sur certaines parties du texte, en les sélectionnant et en cliquant sur 
 
 ![comment](../images/add_comment.png)
 
@@ -120,7 +122,12 @@ Vous pouvez aussi faire des commentaires sur certaines parties du texte, en sél
 
 ### [La suite Framasofts](https://framasoft.org/fr/)
 
-Framasofts est un ensemble de logiciels libres.
+Framasofts propose un ensemble de logiciels et de services libres.
 
+* [Framapad](https://framapad.org/fr/) pour éditer collaborativement.
+* Aucune inscription requise, on se donne un pseudo, une couleur et on se lance !*
+* [Framacalc](https://accueil.framacalc.org/fr/), un tableur collaboratif.
+* [Framaslides](https://framaslides.org/login), créer et partager des diaporamas.
+* [Framaforms](https://framaforms.org/), Création de questionnaires.
 
 
