@@ -61,6 +61,8 @@ synchronisation` de Google Drive.
 
 Mais sans plus tarder, commençons ce bref tutorial pratique.
 
+*N'hésitez pas à consulter cette [vidéo](https://www.youtube.com/watch?v=I0OqnItA-zA) très didactique en anglais*
+
 ### Création d'un document Google Docs "ab initio"
 
 ### Ouverture et édition d'un document Word
