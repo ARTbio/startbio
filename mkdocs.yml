@@ -87,8 +87,9 @@ nav:
         - Fill your GDC cart: TARGET_download/GDC_cart.md
         - Edit files metadata: TARGET_download/metadata_manipulation.md
         - import files in Galaxy using the edited files metadata: TARGET_download/galaxy_import.md
-
-
+  - Tutorials:
+    -  scRNAseq analysis: docs/scRNAseq_tutorials.md
+    
   - Annexes:
     - Links: links.md
     - Code Snippets:
