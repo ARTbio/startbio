@@ -1,6 +1,6 @@
 ## Become more familiar with scRNAseq analysis thanks to these tutorials
 
-Here is some recommandations to learn how to perform scRNAseq analysis. You can find some tutorials in Galaxy or in R.
+Here are some recommandations on learning how to perform scRNAseq analysis. You can find some tutorials on Galaxy or on R.
 
 ### Galaxy Environment
 If you want to use the Galaxy environment but you don't know how to use it, we recommend [the following tutorials](https://training.galaxyproject.org/training-material/topics/introduction/)
