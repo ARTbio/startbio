@@ -40,6 +40,7 @@ mais seulement insister sur ceux qui me paraissent faciles à améliorer et effi
         dans un mail, document qui va changer et qui est de toutes façons accessible ailleurs.
         - Utilisez le "reply to all" avec discernement: Dans certains cas c'est indispensable,
         dans d'autres c'est insupportable. Ne faites pas le contraire ;-)
+        - Ne créez pas de réponse automatique inutile. Rappelez vous, au moment de décider de l'opportunité d'en mettre une en place, que très peu de personnes ont vraiment besoin de donner des instructions en cas de non réponse immédiate... et que le SAMU fonctionne avec le téléphone, pas avec le mail électronique.
         - Sauf pour vos correspondants habituels et proches, proscrivez systématiquement les points de suspensions,
         les parenthèses, les bouts de phrases sans verbe, les fautes d'orthographe. Rappelez vous toujours: ce n'est
         *pas* à votre correspondant de déchiffer votre propos, il est probablement aussi occupé que vous.
