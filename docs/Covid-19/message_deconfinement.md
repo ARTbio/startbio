@@ -53,6 +53,7 @@ pendant la période à venir.
 
 ??? info "Télé-Compagnonnage **Outils Numériques**"
     Nous inaugurons une nouvelle thématique de compagnonnage pour partager notre expérience des outils numériques de travail.
+    
     - Email
     - Document partagés
     - Silos versionnés
