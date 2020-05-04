@@ -13,19 +13,19 @@ nous vous rappelons que la plateforme de bioinformatique ARTbio est opérationn
   - lea.bellenger@sorbonne-universite.fr
   - leonardo.panunzi@sorbonne-universite.fr
 ### Par téléphone
-Mon portable: **06 68 60 51 50**. N'hésitez pas, il est fait pour cela. Je ne répond pas nécessairement tout de suite, mais j'écoute mes messages.
+Tel Mobile **06 68 60 51 50**. N'hésitez pas à laisser un message !
 
 ### Par chat [Gitter](https://gitter.im/ARTbio/Hotline)
 Notre mode de communication préféré: il permet un dialogue immédiat et capture l'information de façon plus efficace que par email
-
-Possibilité d'interagir de façon privée (par exemple avec moi https://gitter.im/drosofff) ou collective avec les membres d'ARTbio,
+- Possibilité d'interagir de façon privée (par exemple avec moi https://gitter.im/drosofff) ou collective avec les membres d'ARTbio,
 et une large communauté de bioinformaticiens.
+- Création d'une "room" spécifique par question ou projet.
 
-Création d'une "room" spécifique par question ou projet.
-
-Seule contrainte, qui est peut-être une opportunité, le chat par Gitter demande une authentification via, au choix,
-un compte twitter, GitLab ou GitHub. Pour ces trois systèmes, l'inscription ne prend que 2 ou 3 minutes. Nous vous recommandons
-un compte GitHub.
+??? info "Authentification dans Gitter"
+    Seule contrainte, qui est peut-être une opportunité, le chat par Gitter demande une authentification via, au choix,
+    un compte twitter, GitLab ou GitHub. Pour ces trois systèmes, l'inscription ne prend que 2 ou 3 minutes. Nous vous recommandons
+    un compte GitHub.
+    
 ### Par visio-conférence
 Nous possédons un compte Zoom que nous avons sélectionné après évaluation technique d'un grand nombre de solutions.
 Mais nous sommes ouvert à d'autres systèmes, incluant Whereby, GoToMeeting, Skype, Google Hangout, WhatsApp, Teams, et d'autres.
@@ -51,12 +51,18 @@ en main à distance du poste informatique du compagnon, enregistrement vidéo de
 Ces particularités font du "Télé-Compagnonnage" une expérience très pédagogique que nous vous conseillons d'essayer
 pendant la période à venir.
 
-Nous inaugurons une nouvelle thématique de compagnonnage pour partager notre expérience des outils numériques de travail.
-Email, Document partagés, silos versionnés, Stockage dans toutes ses formes, publication web, Manifeste FAIR.
+??? info "Télé-Compagnonnage **Outils Numériques**"
+    Nous inaugurons une nouvelle thématique de compagnonnage pour partager notre expérience des outils numériques de travail.
+    - Email
+    - Document partagés
+    - Silos versionnés
+    - Stockage dans toutes ses formes
+    - Gestionnaires de projets
+    - Publication web
+    - Manifeste FAIR (Findable, Accessible, Interoperable, Reproducible)
 
 ### Projets de recherche
-Nous restons ouvert à tout projets de recherche sur financement (pour lesquels nous sommes partenaires financés),
-dans la limite de nos possibilités horaires.
+Nous poursuivons normalement nos projets de recherches et restons ouverts à tout projet financement (pour lesquels nous serions partenaires), **dans la limite de nos possibilités**.
 
 ### Formation
 Nous continuons de travailler au projet STARTbio et nous allons mettre en particulier l'accent sur un type
@@ -67,11 +73,12 @@ Nous vous tiendront au courant quand les premiers pilotes de cette formule sero
 ## Un point rapide sur les actions Covid-19
 ARTbio s'est engagé aux cotés de l'IFB pour participer aux efforts de recherche contre le Covid-19.
 Il n'est pas facile de comprendre l'organisation nationale des actions entreprises.
-Certains d'entre-vous m'avaient demandé il y a deux mois "comment faire". Maintenant que nous avons un
-peu mieux structuré notre cellule "IFB vs COVID-19 Task Force" je les engage à la contacter
-si vous avez une idée concrète de recherche dans le domaine.
-Par ailleurs, je vous livre un document de travail sur la structuration de l'effort contre le Covid-19.
-Il peut vous être utile, mais il n'est pas terminé. Il n'a donc pas vocation à être distribué.
+Certains d'entre-vous avaient demandé il y a deux mois "comment faire". Maintenant que nous avons
+structuré notre cellule [IFB vs COVID-19 Task Force](https://www.france-bioinformatique.fr/fr/action-covid-19)
+je les engage à [la contacter](contact@groupes.france-bioinformatique.fr)
+si ils ont une idée concrète de recherche dans le domaine.
+
+A bientôt,
 
 
-Christophe Antoniewski et l'équipe ARTbio
+L'équipe [ARTbio@IPBS](http://artbio.fr)
