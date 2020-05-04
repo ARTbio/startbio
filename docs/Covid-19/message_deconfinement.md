@@ -75,7 +75,7 @@ ARTbio s'est engagé aux cotés de l'IFB pour participer aux efforts de recherch
 Il n'est pas facile de comprendre l'organisation nationale des actions entreprises.
 Certains d'entre-vous avaient demandé il y a deux mois "comment faire". Maintenant que nous avons
 structuré notre cellule [IFB vs COVID-19 Task Force](https://www.france-bioinformatique.fr/fr/action-covid-19)
-je les engage à [la contacter](contact@groupes.france-bioinformatique.fr)
+je les engage à [la contacter](mailto:contact@groupes.france-bioinformatique.fr)
 si ils ont une idée concrète de recherche dans le domaine.
 
 A bientôt,
