@@ -30,12 +30,13 @@ un compte GitHub.
 Nous possédons un compte Zoom que nous avons sélectionné après évaluation technique d'un grand nombre de solutions.
 Mais nous sommes ouvert à d'autres systèmes, incluant Whereby, GoToMeeting, Skype, Google Hangout, WhatsApp, Teams, et d'autres.
 
-NB: Nous n'avons pas plus de réserves en terme de sécurité à l'égard de Zoom qu'à l'égard des autres systèmes,
-y compris les systèmes institutionnels de type Renavisio ou Tixeo. En effet, nous n'avons pas nous même testé
-la sécurité de ces systèmes de visio, mais les revues et notes que nous avons lues avec attention sur cette
-question ne nous semblent pas être basées sur une méthodologie permettant une évaluation discriminante sérieuse.
-En tout état de cause, il s'agit d'une question complexe dont les enjeux sont eux-mêmes complexes, et souvent
-déconnectés de notre réalité professionnelle. Affaire à suivre calmement et sans excès de confiance, donc.
+??? info "Sécurité du système de visioconférence"
+    Nous n'avons pas plus de réserves en terme de sécurité à l'égard de Zoom qu'à l'égard des autres systèmes,
+    y compris les systèmes institutionnels de type Renavisio ou Tixeo. En effet, nous n'avons pas nous même testé
+    la sécurité de ces systèmes de visio, mais les revues et notes que nous avons lues avec attention sur cette
+    question ne nous semblent pas être basées sur une méthodologie permettant une évaluation discriminante sérieuse.
+    En tout état de cause, il s'agit d'une question complexe dont les enjeux sont eux-mêmes complexes, et souvent
+    déconnectés de notre réalité professionnelle. Affaire à suivre calmement et sans excès de confiance, donc.
 
 ## Travailler avec la plateforme ARTbio
 
