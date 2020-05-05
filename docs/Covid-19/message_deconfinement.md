@@ -16,9 +16,9 @@ nous vous rappelons que la plateforme de bioinformatique ARTbio est opérationn
 Tel Mobile **06 68 60 51 50**. N'hésitez pas à laisser un message !
 
 ### Par chat [Gitter](https://gitter.im/ARTbio/Hotline)
-Notre mode de communication préféré: il permet un dialogue immédiat et capture l'information de façon plus efficace que par email
-- Possibilité d'interagir de façon privée (par exemple avec moi https://gitter.im/drosofff) ou collective avec les membres d'ARTbio,
-et une large communauté de bioinformaticiens.
+Notre mode de communication préféré: il permet un dialogue immédiat et capture l'information de façon plus efficace que par email.
+- Possibilité d'interagir de façon privée (par exemple https://gitter.im/drosofff) ou collective avec
+les [membres d'ARTbio](https://gitter.im/ARTbio/Hotline), et une large communauté de bioinformaticiens.
 - Création d'une "room" spécifique par question ou projet.
 
 ??? info "Authentification dans Gitter"
