@@ -33,10 +33,17 @@ Mais nous sommes ouvert à d'autres systèmes, incluant Whereby, GoToMeeting, Sk
 ??? info "Sécurité du système de visioconférence"
     Nous n'avons pas plus de réserves en terme de sécurité à l'égard de Zoom qu'à l'égard des autres systèmes,
     y compris les systèmes institutionnels de type Renavisio ou Tixeo. En effet, nous n'avons pas nous même testé
-    la sécurité de ces systèmes de visio, mais les revues et notes que nous avons lues avec attention sur cette
-    question ne nous semblent pas être basées sur une méthodologie permettant une évaluation discriminante sérieuse.
-    En tout état de cause, il s'agit d'une question complexe dont les enjeux sont eux-mêmes complexes, et souvent
-    déconnectés de notre réalité professionnelle. Affaire à suivre calmement et sans excès de confiance, donc.
+    la sécurité de ces systèmes de visio, mais les revues et notes des différentes DSI que nous avons lues avec attention sur cette
+    question ne nous semblent pas être basées sur une méthodologie permettant une évaluation discriminante sérieuse, et ainsi
+    ne nous paraissent pas impartiales.
+    En tout état de cause, puisque comme les DSI nous suivons "l'actualité" des magazines informatiques on line, nous avons noté que
+    bon nombre des reproches adressés à Zoom font l'objet d'une correction extrêment active (qu'on aimerait voir pour
+    d'autres logiciels) qui est communiquée sur
+    le [blog de la société](https://blog.zoom.us/wordpress/2020/05/07/90-day-security-plan-progress-report-may-6/). Voir également
+    ce [billet de synthèse](https://www.blogdumoderateur.com/zoom-actions-problemes-confidentialite-securite/) qui date cependant
+    de plus d'un mois. Encore, une fois, aucune de ces sources n'est suffisamment sérieuse pour donner accès à des données de test,
+    elles sont donc à prendre avec reserve et calme. En l'état, nous réitérons notre position *qu'au 10 mai 2020*, il n'y a pas
+    d'argument sérieux pour disqualifier la sécurité de zoom au profit de telle ou telle autre application.
 
 ## Travailler avec la plateforme ARTbio
 
