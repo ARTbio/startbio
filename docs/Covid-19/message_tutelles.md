@@ -4,7 +4,7 @@
   Horaires d’ouverture :
   De 8h30 à 10h00 et de 12h00 à 14h00
 
-!!! info "Message d'Antoine Petit aux agents du CNRS - 04 Sept 2020"
+??? info "Message d'Antoine Petit aux agents du CNRS - 04 Sept 2020"
     
     Chères et chers collègues,
     
