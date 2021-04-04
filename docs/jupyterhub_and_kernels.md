@@ -23,6 +23,7 @@ Create a user kernel for jupyterhub:
 6. Check that the new kernel is there
 
     `jupyter kernelspec list`
+    
 7. In case you wish to remove and dereference your kernel:
     
     `jupyter kernelspec uninstall chris-myconda`
