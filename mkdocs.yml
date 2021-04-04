@@ -1,18 +1,16 @@
 site_name: STARTbio
+site_url: https://artbio.github.io/startbio/
+repo_url: https://github.com/ARTbio/startbio
+theme: 'material'
+
 nav:
   - Home: index.md
-  - Confinement Covid-19:
-    - Messages Tutelles (SU, CNRS, ...): Covid-19/message_tutelles.md
-    - Message de dé-confinement: Covid-19/message_deconfinement.md
-    - Les 7 Samouraïs du Télé-Travail: Covid-19/sept-samouraïs.md
-    - Répertoire des solutions de visio-conférence: https://docs.google.com/document/d/1tKPEK71cIgny70yEWkH7HDHRwykgo_zq9iVaHUAt6YE/edit?usp=sharing
-    - Le traitement de textes collaboratif: Covid-19/shared_text_editors.md
-    - Blog Post - R or Python ?: Covid-19/RorPython.md
-    - A starter to single-cell RNAseq analysis: Covid-19/scRNAseq_tutorials.md
-    - Youtube: Covid-19/youtube.md
+
   - 1Omin2:
     - Grep and Regex (1): ten2Regex_01.md
+
   - Galaxy Trainings:
+
     -  Run your Galaxy server:
         - "Introduction: Why Running Galaxy as an administrator?": Run-Galaxy/index.md
         - Training Menu: Run-Galaxy/Training_menu.md
@@ -24,6 +22,7 @@ nav:
         - "Appendix 1: Spin off a Virtual Machine": Run-Galaxy/spin_off_VM.md
         - "Appendix 2: Run your personal TP Galaxy server": Run-Galaxy/GCE_TP_Galaxy.md
         - "Appendix 3: Galaxy software architecture" : Run-Galaxy/Galaxy_architecture.md
+
     -  Search for chomosome translocations:
         - Introduction: translocations/index.md
         - Sequencing Protocol: translocations/seq.md
@@ -37,6 +36,7 @@ nav:
         - Data Visualisation in UCSC Genome Browser: translocations/visualisation.md
         - Generate workflow from an history: translocations/workflow.md
         - Run the Lumpy workflow: translocations/run_workflow.md
+
     -  Reference-based RNAseq analysis:
         - Introduction: reference_based_RNAseq/index.md
         - Pretreatments:
@@ -72,6 +72,7 @@ nav:
         - Galaxy Workflows:
           - Introduction: reference_based_RNAseq/workflow_intro.md
           - Example: reference_based_RNAseq/workflow_use.md
+
     -  Viruses Metagenomics:
         - Metavisitor: metavisitor/index.md
         - Prepare Metavisitor Galaxy instance for analyses: metavisitor/metavisitor_configure_references.md
@@ -86,22 +87,34 @@ nav:
           - GalaxyKickStart: metavisitor/metavisitor_ansible.md
           - Docker: metavisitor/metavisitor_docker.md
           - Access and Control Metavisitor Galaxy instance: metavisitor/metavisitor_access_control.md
+
     -  Download TARGET-AML Data in Galaxy:
         - Introduction: TARGET_download/intro.md
         - Fill your GDC cart: TARGET_download/GDC_cart.md
         - Edit files metadata: TARGET_download/metadata_manipulation.md
         - import files in Galaxy using the edited files metadata: TARGET_download/galaxy_import.md
+
   - Tutorials:
-    -  scRNAseq analysis: docs/scRNAseq_tutorials.md
+    -  Starters to single-cell RNAseq analysis: scRNAseq_tutorials.md
+
+  - Code Snippets:
+    - Terminal Bash: bash_snippets.md
+    - Buid your JupyterHub and user kernel: jupyterhub_and_kernels.md
+
+  - IBPS:
+    - intro_ibps.md
+    - Messages Tutelles (SU, CNRS, ...): IBPS/message_tutelles.md
+    - Message de dé-confinement: IBPS/message_deconfinement.md
+    - Les 7 Samouraïs du Télé-Travail: IBPS/sept-samouraïs.md
+    - Répertoire des solutions de visio-conférence: https://docs.google.com/document/d/1tKPEK71cIgny70yEWkH7HDHRwykgo_zq9iVaHUAt6YE/edit?usp=sharing
+    - Le traitement de textes collaboratif: IBPS/shared_text_editors.md
+    - Blog Post - R or Python ?: IBPS/RorPython.md
+    - Youtube: IBPS/youtube.md
     
-  - Annexes:
-    - Links: links.md
-    - Code Snippets:
-      - Terminal Bash: bash_snippets.md
-    - Curamus Project: Curamus_project.md
-site_url: https://artbio.github.io/startbio/
-repo_url: https://github.com/ARTbio/startbio
-theme: 'material'
+  - Links: links.md
+
+  - STARTbio Project: startbio_project.md
+
 markdown_extensions:
   - attr_list
   - codehilite:
