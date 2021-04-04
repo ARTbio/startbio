@@ -17,4 +17,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CONFIG_FILE: folder/mkdocs.yml
-          EXTRA_PACKAGES: pygments==2.8.1 pymdown-extensions==8.1.1
+          EXTRA_PACKAGES: pygments@2.8.1 pymdown-extensions@8.1.1
