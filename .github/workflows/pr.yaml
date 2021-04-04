@@ -20,5 +20,5 @@ jobs:
           shuf docs/Covid-19/youtube.md -o shuffle.txt
           mv shuffle.txt docs/Covid-19/youtube.md
           git config credential.helper "store --file=.git/credentials"
-          echo "https://${{ secrets.GH_CRED }}:@github.com" > .git/credentials
+          echo "https://drosofff:${{ secrets.GH_CRED }}@github.com" > .git/credentials
           mkdocs gh-deploy --clean -m "gh-deployed by travis $DATE"
