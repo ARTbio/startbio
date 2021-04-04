@@ -1,5 +1,5 @@
 [![Release Documentation](https://img.shields.io/badge/release-documentation-blue.svg)](https://artbio.github.io/startbio/)
-![Readthedocs build](https://github.com/artbio/startbio/actions/workflows/pr.yml/badge.svg)
+[![Readthedocs Building](https://github.com/artbio/startbio/workflows/Publish/badge.svg)](https://github.com/artbio/startbio/actions?query=workflow%3A%22Publish%22)
 ![GitHub issues](https://img.shields.io/github/issues/ARTbio/startbio?color=purple)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/ARTbio/startbio?color=blue)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/artbio/startbio?color=darkgreen)
