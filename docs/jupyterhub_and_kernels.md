@@ -11,6 +11,7 @@ Create a user kernel for jupyterhub:
 3. check your envs:
     
     `conda info -e`
+    
 4. upgrade your conda env as you like:
     
     `conda install python=3.8.5 # for instance`
