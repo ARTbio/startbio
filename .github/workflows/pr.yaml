@@ -5,24 +5,18 @@ on: [push, pull_request]
 
 jobs:
   build:
-    name: Build readthedocs
+    name: Deploy docs
     runs-on: ubuntu-latest
     steps:
-    - name: mkdocs
-      run: |
-        python -m pip install -U pip mkdocs mkdocs-material pygments pymdown-extensions
-    - uses: fusion-engineering/setup-git-credentials@v2
-      with:
-        credentials: ${{secrets.GH_CRED}}
-    - uses: actions/checkout@v1
-    - name: Build
-      run: |
-        mkdir mkdocs_build
-        cd mkdocs_build
-        # Initialize gh-pages checkout
-        DATE=`date`
-        git clone https://github.com/ARTbio/startbio.git
-        cd startbio
-        shuf docs/Covid-19/youtube.md -o shuffle.txt
-        mv shuffle.txt docs/Covid-19/youtube.md
-        mkdocs gh-deploy --clean -m "gh-deployed by travis $DATE"
+      - name: Checkout main
+        uses: actions/checkout@v2
+
+      - name: Deploy docs
+        uses: mhausenblas/mkdocs-deploy-gh-pages@master
+        # Or use mhausenblas/mkdocs-deploy-gh-pages@nomaterial to build without the mkdocs-material theme
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CONFIG_FILE: folder/mkdocs.yml
+          EXTRA_PACKAGES:
+            - pygments
+            - pymdown-extensions
