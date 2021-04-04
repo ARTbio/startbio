@@ -1,6 +1,4 @@
 name: Publish
-env:
-  secure: 0XB4cBHOEV7L5Yz9OELPsO4T4F7NqT6HovivMaQRkyJYX6NPr74FVMrEpZEYUYlNeh7wEUF7rvK2u+3RuHthZaeGIMLD7hgflNjbiYCojW3TegJS2ks77mJ8agT2KfaHWWVCw9EOW0Zc4j4CCwBl1WfU4Zi12lkT4CS6KP/LWsHUGrPkLPOh/bSzl7dWjs6gMksh+Gzd+7XvKlP9rTM8cDXh3idMCeThQu8bo55QK+PpEkxoPGOKZqb1ZEaGgupnxXyZJfbStKBW9yUhISmyK0Nw169+7stZ+YbhOnQmIMStljD/ogAeaOAnVccSUiBqat6VmgoDb7+DyOBtmLGm96/Pe2Os5YgIhsZgiO1fJTR5m0w/FR7rouywPJNJPbvIrHLY1pB/ArrYYTISHrKiXq+cQmFtMNgOoZ7/IBiy7jVi/0UboFyMPZTyktnaoxSE9WzUrVg+y+q0LGc3+o9mQZJbO1fZDgh7WZ7fGAwsUpUZdujN7T/xw5IrdatM7VIyfywwi6U+5y/P7Qu3k4L3OkbIpN6D9HRPRksC0dA7YAaRqrfV3DbxxO72UjFajidol3lD9NRTFZjAVC3SqtD+aMG1W4u3JfjMw9ZCQdT8sKfXOhF+BX6eryaauTRJ/aN5/kOugRMwIWwXq7l1XsA6DrTCcJl9S+51fuWaU7ZQNVQ=
 on: [push, pull_request]
 
 jobs:
@@ -16,5 +14,5 @@ jobs:
         # Or use mhausenblas/mkdocs-deploy-gh-pages@nomaterial to build without the mkdocs-material theme
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CONFIG_FILE: folder/mkdocs.yml
+          CONFIG_FILE: startbio/mkdocs.yml
           # EXTRA_PACKAGES:
