@@ -8,21 +8,21 @@ Create a user kernel for jupyterhub:
 
 1. Navigate in your conda environment
 2. `conda create -n myconda python=3.7.5 ipykernel`
-3. check your envs:
-    
+3. Check your envs
+
     `conda info -e`
     
-4. upgrade your conda env as you like:
+4. Upgrade your conda env as you like
     
     `conda install python=3.8.5 # for instance`
 
-5. inform jupyterhub of new potential kernel
+5. Inform jupyterhub of new potential kernel
     ```
     .conda/envs/myconda/bin/python -m ipykernel install --user --name 'chris-myconda' --display-name "Chris myconda Env"
     ```
-6. check that the new kernel is there:
-      
+6. Check that the new kernel is there
+
     `jupyter kernelspec list`
-7. in case you wish to remove and dereference your kernel:
+7. In case you wish to remove and dereference your kernel:
     
     `jupyter kernelspec uninstall chris-myconda`
