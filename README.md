@@ -1,5 +1,5 @@
 [![Release Documentation](https://img.shields.io/badge/release-documentation-blue.svg)](https://artbio.github.io/startbio/)
-[![Build Status](https://travis-ci.org/ARTbio/tools-artbio.svg?branch=master)](https://travis-ci.org/ARTbio/startbio)
+![Readthedocs build](https://github.com/artbio/startbio/actions/workflows/pr.yml/badge.svg)
 ![GitHub issues](https://img.shields.io/github/issues/ARTbio/startbio?color=purple)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/ARTbio/startbio?color=blue)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/artbio/startbio?color=darkgreen)
