@@ -15,6 +15,9 @@ jobs:
       run: |
         python -m pip install -U pip mkdocs mkdocs-material pygments pymdown-extensions
     - name: Build
+      uses: fusion-engineering/setup-git-credentials@v2
+      with:
+        credentials: ${{secrets.GH_CRED}}
       run: |
         mkdir mkdocs_build
         cd mkdocs_build
