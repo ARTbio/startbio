@@ -99,6 +99,7 @@ nav:
 
   - Code Snippets:
     - Terminal Bash: bash_snippets.md
+    - Buid your JupyterHub and user kernel: jupyterhub_and_kernels.md
 
   - IBPS:
     - intro_ibps.md
