@@ -19,9 +19,10 @@ nav:
         - Install a Galaxy server with Ansible and GalaxyKickStart: Run-Galaxy/GalaxyKickStart.md
         - Install a Galaxy server with Docker: Run-Galaxy/Docker_GalaxyKickStart.md
         - "Appendix 1: Getting a Google Cloud Engine Account": Run-Galaxy/Google_cloud_Account.md
-        - "Appendix 1: Spin off a Virtual Machine": Run-Galaxy/spin_off_VM.md
-        - "Appendix 2: Run your personal TP Galaxy server": Run-Galaxy/GCE_TP_Galaxy.md
-        - "Appendix 3: Galaxy software architecture" : Run-Galaxy/Galaxy_architecture.md
+        - "Appendix 2: Spin off a Virtual Machine": Run-Galaxy/spin_off_VM.md
+        - "Appendix 3: Run your personal TP Galaxy server": Run-Galaxy/GCE_TP_Galaxy.md
+        - "Appendix 4: Galaxy software architecture" : Run-Galaxy/Galaxy_architecture.md
+        - "Appendix 5: http access to the IFB cloud" : Run-Galaxy/SocksProxy.md
 
     -  Search for chomosome translocations:
         - Introduction: translocations/index.md
