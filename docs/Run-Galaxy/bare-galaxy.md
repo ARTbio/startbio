@@ -1,22 +1,33 @@
-## Install a minimal galaxy server with git
-
-### Spin off a virtual Machine `bare-galaxy`
+### 1. Spin off a virtual Machine `bare-galaxy`
 You may have already done this in the [previous section](spin_off_VM.md). If not, refer to this [section](spin_off_VM.md)
 
 We are going to use a GCE Virtual Machine with:
  
 
-!!! question "Google Instance"
-    - `Ubuntu 16.04 LTS` as OS
-    - `2` processors
-    - `7.5` Gb RAM
-    - a `50 Gb` Volume 
+!!! question "a Google Instance"
+    - Usage: "optimized for computing"
+    - `4` processors
+    - `16` Gb RAM
+    - a `50 Gb` Volume
+    - `Ubuntu 20.04 LTS` as OS
+    - Autoriser le traffic http
+    
+    ![](images/GCE_spin.png){: style="width:450px"}
+    ![](images/GCE_OS.png){: style="width:450px"}
+    ![](images/GCE_firewall.png){: style="width:450px"}
 
+### 2. Connect to the VM using the ssh web console
 
-### Connect to the VM as explained in [this section](spin_off_VM.md) using the ssh web console
-### Installation of dependencies
+!!! question "ssh connection"
+    Roll down the `ssh` menu in the control pannel and select the first option
+    `Ouvrir dans une fenêtre du navigateur`
 
-To install Galaxy, we only need a few dependencies (i.e. pre-installed programs which Galaxy needs) and a limited number of command lines.
+    ![Select ssh session in browser](images/select_ssh.png)
+
+### 2. Installation of dependencies
+
+To install Galaxy in the running virtual machine, we only need a few dependencies
+(i.e. pre-installed programs which Galaxy needs) and a limited number of command lines.
 
 We are going to execute these instruction as the `root` unix user. This is easier because installation
 of new programs as well as manipulations of network interfaces is generally permitted only
@@ -42,7 +53,7 @@ This command will just trigger an update of the installed programs database in t
 
 #### 3.
 ```
-apt install -y python-dev python-pip nano git
+apt install -y python3-pip
 ```
 
 This command install some python programs (python-dev and python-pip) that are intensively used by Galaxy,
@@ -52,11 +63,11 @@ package installer that no manual confirmation is needed for this command.
 
 #### 4.
 ```
-git clone https://github.com/galaxyproject/galaxy.git -b release_19.05
+git clone https://github.com/galaxyproject/galaxy.git -b release_21.05
 ```
 
 This command says to use `git` to `clone` the code repository located at `https://github.com/galaxyproject/galaxy.git`.
-In addition the `-b release_19.05` option specifies that only the version `release_19.05` will be cloned locally in your virtual machine.
+In addition the `-b release_21.05` option specifies that only the version `release_21.05` will be cloned locally in your virtual machine.
 You may try to visualize the URL [https://github.com/galaxyproject/galaxy.git](https://github.com/galaxyproject/galaxy.git)
 in your web browser. You will, literally, see the code of Galaxy. It is Open Source, as you can notice.
 
@@ -118,8 +129,8 @@ You should see an abundant log scrolling down. Don't worry !
 
 - All Galaxy dependencies required for the Galaxy server instance are being downloaded and installed
 - The Galaxy computing environment is automatically set up
-- the Galaxy web server is installed and static pages are built
-- The Galaxy database is automatically upgraded to its latest structure/model
+- the Galaxy web server is installed and static pages are built (this step specifically takes more and more time)
+- The Galaxy database (sqlight) is automatically upgraded to its latest structure/model
 - Various tools are upgraded.
 
 After 5-10 minutes, you should see the log stopping with:
