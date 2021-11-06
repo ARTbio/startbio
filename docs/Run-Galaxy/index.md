@@ -4,11 +4,11 @@ This training documentation is coded in this GitHub
 # Why Running Galaxy as an administrator ?
 
 You may be wondering: "Why doing all this geeky IT stuff when I have access to Galaxy
-servers administrated by professional ?"
+servers administrated by professionals ?"
 
 It is true that there is a lot of powerful Galaxy instances, and at first, 
 the [main Galaxy instance](https://usegalaxy.org/). The expanding list of
-public galaxy servers is available [here](https://galaxyproject.org/public-galaxy-servers/).
+public galaxy servers is available [here](https://galaxyproject.org/use/).
 
 However, a number of issues can be successfully addressed
 if you are able to administrate your own Galaxy server, including:
@@ -20,12 +20,12 @@ if you are able to administrate your own Galaxy server, including:
     numerous samples require 1 Tera-bytes or more.
     
     When you administrate your Galaxy server, you control your storage space. Of course,
-    since nothing in free in this world, keep in mind that you will have to support for the
+    since nothing in free in this world, keep in mind that you will have to assume the
     cost of this storage.
     
 2. **Isolation.**
     
-    If you control a Galaxy server for a given analysis project and only for this project,
+    If you administer a Galaxy server dedicated to a single analysis project,
     you can argue that you benefit from an analysis environment that is isolated.
     
 3. **Accessibility and Reproducibility**
@@ -34,9 +34,9 @@ if you are able to administrate your own Galaxy server, including:
     to your Galaxy server is enough to provide high-quality transparency and reproducibility.
     This is far better than just sharing public histories, since when you are not administrator,
     you do not have access to all computational details that are logged for Galaxy admins.
-    Moreover, if you deploy you Galaxy server in a virtual environment (VM or docker containers)
+    Moreover, if you deploy your Galaxy server in a virtual environment (VM or docker containers)
     you can preserve the whole environment in an archive and redeploy this environment latter
-    on in another infrastructure.
+    and/or in another infrastructure.
     
 4. **Computational Resources.**
     
@@ -49,7 +49,9 @@ if you are able to administrate your own Galaxy server, including:
     Trinity, etc.) may exceed 5 or 6 hours.
     
     Likewise, some metagenomic or *de novo* assembly approaches may require a substantial
-    amount of memory that is not necessarily provided by public Galaxy server.
+    amount of memory that is not necessarily provided to users of public Galaxy servers.
+    Administering your own Galaxy server will allow you to access large amounts of RAM for
+    these tasks, provided that, as for storage, you can support the cost of this RAM.
     
 - **Full control on installed tools**
     

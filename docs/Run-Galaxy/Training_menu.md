@@ -4,10 +4,11 @@ Three methods of Galaxy server deployment will be explained in this tutorial, wh
 used with personal computers, clusters of machines or virtual machines in cloud computing
 environment.
 
-All you need is **an ssh access** and **the control of tcp/ip ports** of the target machine.
+All you need is **an ssh access** and **the root control** of the target machine.
 These two conditions are far more easily fulfilled with virtual machines in clouds. This is
 the reason why we are going to use
-[virtual machines in the Google Cloud Engine](spin_off_VM.md). 
+[virtual machines in the Google Cloud Engine](spin_off_VM.md) and/or [virtual machines in
+the IFB core Cloud (Biosphere)](https://biosphere.france-bioinformatique.fr/cloud/). 
 
 ### Outline of the training session
 -----
@@ -19,4 +20,3 @@ the reason why we are going to use
   - Install tools for its proper execution
   - Running the workflow.
 ##### 4. Deployment of a Galaxy server using `Docker`
-##### 5. Packaging and distribution of a virtual machine.
