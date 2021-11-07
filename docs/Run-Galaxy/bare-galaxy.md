@@ -128,6 +128,36 @@ So let's do this, step by step:
     - save your changes by pressing the key combination ++ctrl+o++
     - quit nano by pressing the key combination ++ctrl+x++
 
+??? tip "OPTIONAL but SAVING US 20 min of deployment !"
+    Before starting the deployment of Galaxy, we are going to use a little trick to
+    bypass the step of compilation of html and javascript codes which are used to
+    render the Galaxy graphic interface.
+    
+    Indeed, modern web application use a lot of cached codes that speed up
+    the user experience. However, this implies that this code cache is built during the
+    deployment of the application.
+    
+    For Galaxy, building/caching the client codes for the web server takes about 20 min
+    and this is increasing with newer galaxy versions.
+    
+    To save us these 20 min, we are going to remove the web client folders and replace them
+    by already built client folders, prepared by your trainer...
+    
+    1. Remove the web client folders
+    ```
+    rm -rf ~/galaxy/client ~/galaxy/static
+    ```
+    2. Download the cached web client folders
+    ```
+    cd ~/galaxy && wget https://mydeepseqbucket.s3.amazonaws.com/client.tar.gz https://mydeepseqbucket.s3.amazonaws.com/static.tar.gz
+    ```
+    3. Uncompress the cached client folders
+    ```
+    cd ~/galaxy && tar -xvf static.tar.gz && tar -xvf client.tar.gz
+    ```
+    
+    Last note: this tip is TOTALLY optional, if you run the next command without doint it,
+    everything will go the same, but it will take more time...
   7.
   Ready for deploying Galaxy ?
   
