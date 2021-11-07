@@ -46,33 +46,24 @@ https://raw.githubusercontent.com/ARTbio/Run-Galaxy/master/workflows/Galaxy-Work
 ??? bug "Issues loading this workflow"
     Please review the following issues, possibly resulting from tool upgrades or changes.
       
-      - Step 3: toolshed.g2.bx.psu.edu/repos/kellrott/regex_replace/regex_replace/1.0.0
+      - Step 3: toolshed.g2.bx.psu.edu/repos/galaxyp/regex_find_replace/regex1/1.0.1
         - Tool is not installed
-      - Step 4: toolshed.g2.bx.psu.edu/repos/kellrott/regex_replace/regex_replace/1.0.0
+      - Step 4: toolshed.g2.bx.psu.edu/repos/galaxyp/regex_find_replace/regexColumn1/1.0.1
         - Tool is not installed
-      - Step 5: toolshed.g2.bx.psu.edu/repos/blankenberg/column_regex_substitution/column_regex_substitution/0.0.1
+      - Step 5: toolshed.g2.bx.psu.edu/repos/galaxyp/regex_find_replace/regexColumn1/1.0.1
         - Tool is not installed
-      - Step 6: toolshed.g2.bx.psu.edu/repos/blankenberg/column_regex_substitution/column_regex_substitution/0.0.1
+      - Step 6: toolshed.g2.bx.psu.edu/repos/galaxyp/regex_find_replace/regexColumn1/1.0.1
         - Tool is not installed
-      - Step 7: toolshed.g2.bx.psu.edu/repos/blankenberg/column_regex_substitution/column_regex_substitution/0.0.1
+      - Step 7: toolshed.g2.bx.psu.edu/repos/galaxyp/regex_find_replace/regexColumn1/1.0.1
         - Tool is not installed
-      - Step 8: toolshed.g2.bx.psu.edu/repos/blankenberg/column_regex_substitution/column_regex_substitution/0.0.1
-        - Tool is not installed
-      - Step 9: toolshed.g2.bx.psu.edu/repos/blankenberg/column_regex_substitution/column_regex_substitution/0.0.1
-        - Tool is not installed
-      - Step 10: toolshed.g2.bx.psu.edu/repos/blankenberg/column_regex_substitution/column_regex_substitution/0.0.1
-        - Tool is not installed
-      - Step 12: toolshed.g2.bx.psu.edu/repos/kellrott/regex_replace/regex_replace/1.0.0
-        - Tool is not installed
-      - Step 13: toolshed.g2.bx.psu.edu/repos/kellrott/regex_replace/regex_replace/1.0.0
+      - Step 9: toolshed.g2.bx.psu.edu/repos/galaxyp/regex_find_replace/regex1/1.0.1
         - Tool is not installed
   
 When you read the warnings, you will see that the workflow was indeed successfully imported.
 However, some tools are missing, namely:
 ```
-toolshed.g2.bx.psu.edu/repos/kellrott/regex_replace/regex_replace/1.0.0, version 1.0.0
-toolshed.g2.bx.psu.edu/repos/blankenberg/column_regex_substitution/column_regex_substitution/0.1.0, version 0.1.0
-toolshed.g2.bx.psu.edu/repos/jjohnson/regex_find_replace/regex_find_replace/0.1.0, version 0.1.0
+toolshed.g2.bx.psu.edu/repos/galaxyp/regex_find_replace/regex1/1.0.1
+toolshed.g2.bx.psu.edu/repos/galaxyp/regex_find_replace/regexColumn1/1.0.1
 ```
 The other lines are redundant, because the workflow is using the same tools at different steps.
 
@@ -91,28 +82,12 @@ The missing tools are reported in the [tools.yml](https://github.com/ARTbio/Run-
 file in yaml format in the Run-Galaxy repository, as well as just bellow.
 
 !!! note "Details of missing tools"
-    Thus, we have to install the following three tools in our Galaxy instance:
+    Thus, we have to install the following missing tool in our Galaxy instance:
     
     tools:
     ```yaml
-    - name: regex_replace
-      owner: kellrott
-      revisions:
-      - 9a77d5fca67c
-      tool_panel_section_label: Analyse des genomes
-      tool_shed_url: https://toolshed.g2.bx.psu.edu
-    
-    - name: column_regex_substitution
-      owner: blankenberg
-      revisions:
-      - 12b740c4cbc1
-      tool_panel_section_label: Analyse des genomes
-      tool_shed_url: https://toolshed.g2.bx.psu.edu
-    
     - name: regex_find_replace
-      owner: jjohnson
-      revisions:
-      - 9ea374bb0350
+      owner: galaxyp
       tool_panel_section_label: Analyse des genomes
       tool_shed_url: https://toolshed.g2.bx.psu.edu
     ```
@@ -127,56 +102,21 @@ Check that there is actually no installed tools !
 - Press the `Galaxy Main Tool Shed` button
 - In the search field, copy and paste
 ```
-regex_replace
-```
-and press the ++enter++ key.
-- One tool will show up, owned by `kellrott`.
-    Click this tool, and select `preview and install` (No other solution anyway)
-- Click the `Install to Galaxy` button at the top of the screen
-- In the `Select existing tool panel section:` menu, select `Text Manipulation`.
-Thus, the tools will appears in the section `Text Manipulation` of the Galaxy tools.
-- Click `Install`
-- After a few seconds, you will notice the `Monitor installing tools...` in the screen.
-- And rapidly enough, the Installation status should turn to green.
-- Click again the `Manage tools` menu in the left bar, and look at the newly
-installed tool `regex_find_replace` in the list.
----
-- Repeat the same operations for the tool
-```
 regex_find_replace
 ```
-owned by `jjohnson` (version `1.1.0`).
-
-==_Do not take the tool with the same name but owned by `galaxyp`_==
-
+and press the ++enter++ key.
+- Two tools will show up, one owned by `jjohnson` and the other owned by `galaxyp`.
+    We want to install the latter one, click on it and select `install` button of the lattest
+    revision (2, version 1.0.1)
+- In the `Target Section:` menu, select `Text Manipulation`.
+    Thus, the tool will appears in the section `Text Manipulation` of the Galaxy tools.
+- Click `OK`
+- After a few seconds, you will notice the `Cloning...` the `Installing dependencies`
+  displayed by the install button.
+- And rapidly enough, the `Install` button should turn to a red `Uninstall` button.
+- You can now check the `Installed only` circle at the top, and look at the newly
+  installed tool `regex_find_replace` in the list.
 ---
-- Repeat the same operations for the tool
-```
-column_regex_substitution
-```
-owned by `blankenberg` (version `0.0.1`)
-
-   For this last installation, you will see a different panel after clicking `Install to Galaxy`:
-   If you scroll down a little bit, you should see a list of uninstalled tool dependencies like this:
-   ![uninstalled dependencies](images/uninstalled_dependencies.png)
-   
-   This is a software package required to get the tool `column_regex_substitution` working properly.
-   The required package (python 2.7) will be installed by the package manager `conda`.
-   You can further check this by clicking the `Display Details` button bellow the Dependency list.
-   
-   Do not forget to select the tool panel section
-   `Text Manipulation`, and finally click the `Install` button.
-   
-   This time, the `Monitor installing tool shed repositories` will display new steps (in yellow/orange),
-   including the `Installing tool dependencies` step. The whole process may take longer,
-   but not too long in this specific case.
-
-- Finally go back for a last time to the `Manage tools` panel:
-    
-    
-![Installed tools](images/installed_tools.png)
-    
-There you'll see all three tools needed to properly run the imported workflow.
     
 ### 3. Check that the imported workflows now display correctly
 
