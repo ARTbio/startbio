@@ -1,9 +1,12 @@
-### 1. Spin off a virtual Machine `bare-galaxy`
-You may have already done this in the [previous section](spin_off_VM.md). If not, refer to this [section](spin_off_VM.md)
+### 1A. Spin off a virtual Machine `bare-galaxy` with ![](images/google-padok.png){: style="width:30px"} Google Cloud Engine
 
-Connect to your Google Compute Instances [dashboard](https://console.cloud.google.com/compute/instances)
+??? tip "Tip"
+    Start and stop of Google Virtual Machines is also described in [Annex 2](spin_off_VM.md)
 
-Create a Virtual Machine Instance
+- Connect to your Google Compute Instances
+  [dashboard](https://console.cloud.google.com/compute/instances)
+
+- Create a Virtual Machine Instance
  
 
 !!! question "with the following settings"
@@ -30,7 +33,28 @@ This settings should look like:
 ![](images/GCE_OS.png){: style="width:450px"}
 ![](images/GCE_firewall.png){: style="width:450px"}
 
-### 2. Connect to the VM using the ssh web console
+### 1B. Spin off a virtual Machine `bare-galaxy` with the ![](images/biosphere.png){: style="width:70px"} core-IFB cloud
+
+??? tip "Tip"
+    Start and stop of IFB-Cloud Machines is also described in [Annex 3](spin_off_IFB-VM.md)
+
+- Connect to your the [biosphere](https://biosphere.france-bioinformatique.fr/), and click
+  on **RAINBio** menu.
+
+- Choose the ![](images/ubuntu_rainbio.png){: style="width:200px"} virtual image.
+- Choose "Déploiement Avancé" in the menu "Lancer"
+
+![](images/deploiement_avance.png){: style="width:200px"}
+
+- Give a name to your VM, choose `IFB-core` as a cloud region, `ifb.m4.2xlarge
+  (8 vcpu, 32Go GB RAM, 470Go GB local disk)` for the machine, and press `Lancer`.
+  
+  ![](images/appliance_IFB.png)
+ 
+- Follow the deployment of your VM in the `myVM` menu. In contrast to the Google Cloud platform,
+  this may take more that 10 min.
+
+### 2A. Connect to the VM using the ssh web console
 
 !!! question "ssh connection"
     Roll down the `ssh` menu in the control pannel and select the first option
@@ -40,7 +64,58 @@ This settings should look like:
     Here is your web ssh console to control your VM
     ![](images/web_ssh_console.png)
 
-### 2. Installation of the Galaxy server
+### 2B. SSH connect to the IFB VM using your terminal
+
+- Be sure that your `private` key (`mykey`) is in your ~/.ssh/folder.
+- The corresponding `public`key (`mykey.pub`) _should have been deposited/uploaded to biosphere_,
+  otherwise, it cannot work.
+- Type the following command
+```
+ssh -A ubuntu@134.158.247.168 # replace by the IP of your deployed VM
+```
+- If this command does not work (it happens...), type instead:
+```
+ssh -i ~/.ssh/mykey ubuntu@134.158.247.168 # ! mykey, NOT mykey.pub. And replace by your IP
+```
+- You should see a shell in your connected VM, which looks like:
+??? info "Terminal"
+    ```
+    imac-chris:~ aligre$ ssh -A ubuntu@134.158.247.168
+    The authenticity of host '134.158.247.168 (134.158.247.168)' can't be established.
+    ECDSA key fingerprint is SHA256:WdN9NuYfDgj0DM0r78fH5rUkSwuQK3IIH+H4FmkGpOM.
+    Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+    Warning: Permanently added '134.158.247.168' (ECDSA) to the list of known hosts.
+    Welcome to Ubuntu 20.04.3 LTS (GNU/Linux 5.4.0-88-generic x86_64)
+    
+     * Documentation:  https://help.ubuntu.com
+     * Management:     https://landscape.canonical.com
+     * Support:        https://ubuntu.com/advantage
+    
+      System information as of Mon Nov  8 18:29:33 UTC 2021
+    
+      System load:  0.07               Processes:                153
+      Usage of /:   17.0% of 19.21GB   Users logged in:          0
+      Memory usage: 3%                 IPv4 address for docker0: 172.17.0.1
+      Swap usage:   0%                 IPv4 address for ens3:    10.158.16.9
+    
+    0 updates can be applied immediately.
+    
+    
+    *** System restart required ***
+    
+    The programs included with the Ubuntu system are free software;
+    the exact distribution terms for each program are described in the
+    individual files in /usr/share/doc/*/copyright.
+    
+    Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+    applicable law.
+    ```
+
+
+
+**==From there, the procedure is the same, whether with the Google VM or the IFB VM==**
+
+### 3. Installation of the Galaxy server
 
 In this first approach "==bare-galaxy==", everything is made super simple:
 
@@ -177,7 +252,7 @@ So let's do this, step by step:
 Starting server in PID 3813.
 serving on http://127.0.0.1:80
 ```
-### 3. Connect to your living Galaxy instance
+### 4. Connect to your living Galaxy instance
 
 You should now be able to access to you Galaxy instance in a your web browser window.
 
