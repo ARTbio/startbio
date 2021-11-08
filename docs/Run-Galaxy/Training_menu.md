@@ -13,10 +13,10 @@ the IFB core Cloud (Biosphere)](https://biosphere.france-bioinformatique.fr/clou
 ### Outline of the training session
 -----
 
-##### 1. Deployment of a Galaxy server in a VM using `git`
-##### 2. Deployment of a Galaxy server using `Ansible`
+##### 1. Install a minimal standalone galaxy server in the `Google Cloud Platform`
+##### 2. Install a Galaxy server with `Ansible` and the `GalaxyKickStart playbook`
 ##### 3. Use case of Galaxy administration:
   - Install a computational workflow
-  - Install tools for its proper execution
+  - Install tools for proper execution of the workflow
   - Running the workflow.
 ##### 4. Deployment of a Galaxy server using `Docker`
