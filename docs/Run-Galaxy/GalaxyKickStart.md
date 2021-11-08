@@ -43,13 +43,25 @@ Repository [https://github.com/ARTbio/GalaxyKickStart](https://github.com/ARTbio
 ----
 ### Deployment
 
-- start a GCE VM
+- start a GCE VM with the following characteristics
 
-!!! question "Google Instance"
-    - **Série N2** --> `n2-standard-16 (16 processeurs virtuels, 64 Go de mémoire)`
-    - **Disque de démarrage**  --> `Ubuntu 16.04 LTS`
-    - **Taille (Go)** --> `200`
-    - **Pare-feu** --> `Autoriser le trafic HTTP`
+!!! info "Google Instance for Ansible deployment"
+    - Name: `ansible-galaxy`
+    - Region `europe-west6 (Zurich)` (or any region available with you Google coupon)
+    - Zone: `europe-west6-a` (or `-b` or `-c`)
+    - **Configuration de la machine**
+        - `OPTIMISEE POUR LE CALCUL`
+        - Série: `C2`
+        - Type de machine: `c2-standard-16 (16 processeurs virtuels, 64 Go de mémoire)`
+    - **Disque de démarrage (Modifier)**
+        - `IMAGES PUBLIQUES`
+        - Système d'exploitation: `Ubuntu`
+        - Version*: `Ubuntu 20.04 LTS`
+        - Type de disque de démarrage: `Disque persistant avec équilibrage`
+        - Taille (Go): `200`
+        - ==SELECTONNER==
+    - **Pare-feu**
+        - Check `Autoriser le trafic HTTP`
 
 - connect to you VM using the Google ssh console
 - start an interactive session as root using the command

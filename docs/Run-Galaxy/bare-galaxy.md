@@ -1,3 +1,10 @@
+!!! info "Differences between Google Cloud Engine and IFB Cloud"
+    The procedure to start a VM is not the same whether you are using Google Cloud Engine
+    or the IFB Cloud.
+    If you are working with GCE, follow 1-option A and 2-option A.
+    Whereas if you are working with the IFB Cloud, follow 1-option B and 2-optionB
+
+
 ### 1A. Spin off a virtual Machine `bare-galaxy` with ![](images/google-padok.png){: style="width:30px"} Google Cloud Engine
 
 ??? tip "Tip"
@@ -236,6 +243,20 @@ So let's do this, step by step:
   7.
   Ready for deploying Galaxy ?
   
+??? bug "One more thing if you are using an IFB VM"
+    In IFB cloud, VM instances have a very small system volume, and we have installed
+    the galaxy git repository on this volume.
+    You can check this using the command
+    ```
+    df -h
+    ```
+    Since the deployment of Galaxy will increase the size of the galaxy folder, it is
+    safer to move this folder on a larger volume that is mounted at /mnt
+    To do so, just type:
+    ```
+    mv /root/galaxy /mnt/mydatalocal/ && cd /mnt/mydatalocal/galaxy
+    ```
+  
   Then type `sh run.sh` and press the `enter` key !
   
   You should see an abundant log scrolling down. Don't worry !
@@ -244,7 +265,7 @@ So let's do this, step by step:
   - The Galaxy computing environment is automatically set up
   - the Galaxy web server is installed and static pages are built (this step specifically takes more and more time)
   - The Galaxy database (sqlight) is automatically upgraded to its latest structure/model
-  - Various tools are upgraded.
+  - The package manager Conda, which is heavily used by Galaxy to install its tools is installed.
   
   After 5-10 minutes, you should see the log stopping with:
 
