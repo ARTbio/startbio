@@ -68,17 +68,17 @@ Repository [https://github.com/ARTbio/GalaxyKickStart](https://github.com/ARTbio
 ```
 sudo -i
 ```
-- download the script `run_ansible_analyse_genomes_2019.sh` using the command
+- download the script `run_ansible_analyse_genomes_2021.sh` using the command
 ```
-wget https://raw.githubusercontent.com/ARTbio/Run-Galaxy/master/deployment_scripts/run_ansible_analyse_genomes_2019.sh
+wget https://raw.githubusercontent.com/ARTbio/Run-Galaxy/master/deployment_scripts/run_ansible_analyse_genomes_2021.sh
 ```
 
-- We are now ready to run this script. However this year there is bonus ! All trainees will participate to ==Pasteur 2019
+- We are now ready to run this script. In addition, all trainees may participate to the ==Pasteur 2021
 Ansible Racing==.
 In order to participate, you'll just have to put the `time` command just before the script invokation, as follows:
 
 ```
-time sh run_ansible_analyse_genomes_2019.sh analyseGenomes_2019
+time sh run_ansible_analyse_genomes_2021.sh
 ```
 
 !!! danger "The Ultimate Pasteur 2019 Ansible Racing"
@@ -162,55 +162,3 @@ https://galaxy.pasteur.fr/history/export_archive?id=69a1b70d1c4a6bdb
     https://mydeepseqbucket.s3.amazonaws.com/references
     ```
     
----
-#### Content of the `run_ansible_analyse_genomes_2019.sh` script
-
-``` bash
-#!/usr/bin/env bash
-set -e
-apt update -y
-apt install -y python-pip python-dev python-setuptools git htop
-echo "Upgrading pip"
-pip install -U pip
-/usr/local/bin/pip --version
-/usr/local/bin/pip install ansible==2.7.4
-ansible --version
-git clone https://github.com/ARTbio/GalaxyKickStart.git -b $1
-cd GalaxyKickStart/
-ansible-galaxy install -r requirements_roles.yml -p roles/ -f
-cp scripts/8cpu_job_conf.xml roles/galaxyprojectdotorg.galaxy-extras/templates/job_conf.xml.j2
-cp scripts/configure_slurm.py.j2 roles/galaxyprojectdotorg.galaxy-extras/templates/configure_slurm.py.j2
-ansible-playbook -i inventory_files/analyseGenomes galaxy.yml
-echo "end of deployment\n"
-```
-
-??? info "the `run_ansible_analyse_genomes_2019.sh` script explained"
-    1. The shebang line (`#!`) says that it is a script code that has to be executed
-    by the shell bash which can be found in the /usr/bin/env environment
-    2. `set -e` says to the bash interpreter to exit the run at first error (to avoid catastrophes)
-    3. update apt package database
-    4. installs `python-pip`, `python-dev`, `python-setuptools` (these 3 packages are required to
-    install pip), `git` (to clone and manage GitHub repositories) and `htop` (a monitoring tool)
-    using the package installer `apt`
-    5. Is just a command to inform the user about run state. This will prompt
-    "Upgrading pip version" in the console
-    6. does what is echoed before by the previous line : this is the command to upgrade the pip program that was
-    installed with installation of `python-pip`.
-    `pip` is a recursive acronym that can stand for either "Pip Installs Packages" or
-    "Pip Installs Python".
-    7. will prompt the version of pip in the console
-    8. install `ansible`, version 2.7.4, using `pip`
-    8. will prompt the version of ansible in the console
-    10. clone the GalaxyKickStart Repository available at https://github.com/ARTbio/GalaxyKickStart.git,
-    creating locally the `GalaxyKickStart` folder. The repository `branch` that is cloned is indicated
-    as a parameter in the command line (the `$1`).
-    11. Changes directory, i.e. goes to /root/GalaxyKickStart
-    12. Says to ansible to install additional roles (collection of files to control ansible)
-    which are not the the GalaxyKickStart repository but whose address is stated in the file
-    `requirements_roles.yml`. These roles will be installed in the subdirectory
-    `/root/GalaxyKickStart/roles/`. NB: `ansible-galaxy` has *nothing* to do with Galaxy,
-    the name of this ansible command is serendipitous.
-    13. triggers the play of the playbook `galaxy.yml` by ansible. The target host of the playbook
-    is defined in the file `inventory_files/analyseGenomes`, as well as how ansible will interact with the target.
-    Here, we play the playbook on the same computer (localhost).
-    14. Prompts the end of the deployment
