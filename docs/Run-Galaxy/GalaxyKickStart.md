@@ -85,9 +85,9 @@ time sh run_ansible_analyse_genomes_2021.sh
     Please copy the time info returned by your console at the end of the deploymment.
     It shoud look like this:
     ```
-    real	10m27.142s
-    user	8m22.941s
-    sys	1m16.409s
+    real    37m23.924s
+    user    17m26.569s
+    sys     2m33.091s
     ```
     Then Paste this time as a comment in this [GitHub issue](https://github.com/ARTbio/Run-Galaxy/issues/25)
 
