@@ -1,28 +1,17 @@
-## Upload input data to you newly deployed Galaxy instance
-For the training, we need three types of datasets
+The last thing we can do for the incoming analyses is to prepare an index of your
+drosophila genome, which will be available Galaxy-wide.
 
-- The reference sequences that will be used to align sequencing reads (full genome, miRNA, transposons, etc.)
-- libraries of sequencing reads from small RNAs (for analysis of piRNAs)
-- Librairies of sequencing reads from mRNA (for Gene differential expression analysis)
+Each alignment program uses its own, specific index, to speed up the alignment tasks. Thus,
+if you plan for instance to align reads using bowtie and bowtie2, you should prepare a bowtie
+genome index and a bowtie2 genome index.
 
-All these data have been deposited in 2 differents repositories. A first one is a so-called
-S3 Amazon bucket. The second one is a
-[Nextcloud server](https://usegalaxy.sorbonne-universite.fr/nextcloud) located at
-Sorbonne-Université. You may get your input data from one or the other repositories.
+In Galaxy, in addition, these indexations are preceded by a "fetch and dbkey" task, whose
+purpose is to implement the Galaxy database and inform it of the existence of this genome and
+of possible derived indexes.
 
-### Get data "by URL"
-We are going to focus on one method to upload data in galaxy, which is applicable when these
-data _**are available through a URL**_ (Universal Resource Location).
+<center>![](images/galaxy_indexing.svg){ width="600" }</center>
 
-??? info "The other methods to upload data in Galaxy are:"
-    * transfering data from your local machine (the one that is running your web browser)
-      to Galaxy
-    * uploading data to your Galaxy FTP account and then transfering these data from your
-    Galaxy FTP directory to one of your Galaxy histories. We are not going to use them in
-    this training, and invite you to look at one of the "Galaxy tours" available
-    in the menu `Help` :arrow_forward: `Interactive tours`
-
-#### 1. Single URL
+## :wrench: :milky_way: Prepare the drosophila fasta dataset
 
 - Click the `Upload Data` button at the top-left corner of the Galaxy interface:
 
