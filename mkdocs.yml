@@ -17,6 +17,8 @@ nav:
         - Install a minimal standalone galaxy server in the Google Cloud Platform: Run-Galaxy/bare-galaxy.md
         - After deployment use case: Run-Galaxy/Run_workflow.md
         - Install a Galaxy server with Ansible and the GalaxyKickStart playbook: Run-Galaxy/GalaxyKickStart.md
+        - Loading input data in your Galaxy server: Run-Galaxy/Loading_data_in_galaxy.md
+        - Preparing a reference genome in your Galaxy server: Run-Galaxy/Preparing_reference.md
         - Install a Galaxy server with Docker: Run-Galaxy/Docker_GalaxyKickStart.md
         - "Appendix 1: Getting a Google Cloud Engine Account": Run-Galaxy/Google_cloud_Account.md
         - "Appendix 2: Start and stop a Google virtual machine": Run-Galaxy/spin_off_VM.md
@@ -131,12 +133,18 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.emoji:
       emoji_generator: !!python/name:pymdownx.emoji.to_svg
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
 #  - pymdownx.inlinehilite # compete with codehilite
   - pymdownx.keys
   - pymdownx.magiclink
   - pymdownx.mark
   - pymdownx.smartsymbols
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde

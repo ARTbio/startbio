@@ -111,7 +111,7 @@ and press the ++enter++ key.
 - In the `Target Section:` menu, select `Text Manipulation`.
     Thus, the tool will appears in the section `Text Manipulation` of the Galaxy tools.
 - Click `OK`
-- After a few seconds, you will notice the `Cloning...` the `Installing dependencies`
+- After a few seconds, you will notice the `Cloning...` then soon `Installing dependencies`
   displayed by the install button.
 - And rapidly enough, the `Install` button should turn to a red `Uninstall` button.
 - You can now check the `Installed only` circle at the top, and look at the newly
