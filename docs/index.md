@@ -3,15 +3,11 @@
 ------
 
 
-### STARTbio training project
-
-![startbio_logo](images/startbio_punchline.png){: style="width:900px"}
-
-### [Detailed information on the STARTbio project](startbio_project.md)
 
 ## News
 
-!!! info "STARTbio is upgrading"
-    2021-04-05
+!!! info "The Galaxy Training [Run Galaxy](Run-Galaxy/index.md) is upgraded"
+    2021-11-14
     
-    We are restructuring the site to improve user experience
+    In preparation of the training "Analyse des Génomes" which will be held during the
+    week of November 29th, 2021

@@ -103,6 +103,7 @@ nav:
   - Code Snippets:
     - Terminal Bash: bash_snippets.md
     - Buid your JupyterHub and user kernel: jupyterhub_and_kernels.md
+    - The markdown emoji resource: markdown_emoji.md
 
   - IBPS:
     - intro_ibps.md
@@ -116,7 +117,7 @@ nav:
     
   - Links: links.md
 
-  - STARTbio Project: startbio_project.md
+  - STARTbio Training Project: startbio_project.md
 
 markdown_extensions:
   - attr_list
