@@ -81,7 +81,7 @@ In order to participate, you'll just have to put the `time` command just before 
 time sh run_ansible_analyse_genomes_2021.sh
 ```
 
-!!! danger "The Ultimate Pasteur 2019 Ansible Racing"
+!!! danger "The Ultimate Pasteur 2021 Ansible Racing"
     Please copy the time info returned by your console at the end of the deploymment.
     It shoud look like this:
     ```
@@ -89,7 +89,7 @@ time sh run_ansible_analyse_genomes_2021.sh
     user    17m26.569s
     sys     2m33.091s
     ```
-    Then Paste this time as a comment in this [GitHub issue](https://github.com/ARTbio/Run-Galaxy/issues/25)
+    Then Paste this time as a comment in this [GitHub issue](https://github.com/ARTbio/Run-Galaxy/issues/30)
 
 - When the deployment is finished, connect to your ansible-deployed "GalaxyKickStart" instance:
     
@@ -98,67 +98,11 @@ time sh run_ansible_analyse_genomes_2021.sh
 - Connect to your server as an admin:
 
     This time, ansible and the GalaxyKickStart playbook already programmatically registered
-    an admin user. Just use the `admin@galaxy.org:admin` as credentials (user:password)
+    an admin user. Just use the `admin@galaxy.org:artbio2020` as credentials (user:password)
     
     When logged in, see that required tools as well as workflows are already installed !
 
 !!! warning
-    admin is not really a decent password,
+    artbio2020 is not really a decent password,
     please ==c h a n g e  .  y o u r  .  p a s s w o r d==
-    to avoid your Galaxy server getting hacked before the end of the course.
-
-----
-### Galaxy administration tasks
-#### Transfert input data to you newly deployed Galaxy instance
-that is :
-    - a data set with reference sequences
-    - a data set with small RNAseq files
-    - a data set with RNAseq files
-
-- Click the main menu `User` --> `Saved Histories`
-- Press the top right button (above history list) `Import from file`
-- copy this url :
-```
-https://galaxy.pasteur.fr/history/export_archive?id=4c5da5ad7355ff42
-```
-    
-- repeat the same operation with: 
-```
-https://galaxy.pasteur.fr/history/export_archive?id=eb4c1d5564c9f78c
-```
-and
-```
-https://galaxy.pasteur.fr/history/export_archive?id=69a1b70d1c4a6bdb
-```
-
-??? bug "In case of emergency"
-    
-    ### NEXTCLOUD
-    
-    Small RNAseq
-    ```
-    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/wC4DrxHN3gLtx4c/download
-    ```
-    Reférences
-    ```
-    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/Sri6HKiwCn4RbSq/download
-    ```
-    RNAseq
-    ```
-    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/4FWrWxZf72KDNji/download
-    ```
-    
-    ### Amazon S3
-    RNAseq
-    ```
-    https://mydeepseqbucket.s3.amazonaws.com/RNAseq
-    ```
-    small RNAseq
-    ```
-    https://mydeepseqbucket.s3.amazonaws.com/smallrnaseqs
-    ```
-    references
-    ```
-    https://mydeepseqbucket.s3.amazonaws.com/references
-    ```
-    
+    to avoid your Galaxy server getting hacked before the end of the course 😉
