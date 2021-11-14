@@ -15,7 +15,7 @@ Accessing a web server running on a virtual instance through https (443) require
 that each machine has declared its own SSL certificate and most preferably owns a unique
 domain name, in the form of `mymachine.ifb.fr`.
 Although there are turnarounds for generating self-signed SSL certificate for cloud instances,
-this implies manipulations which are far beyond the scope on this training for beginners.
+this implies manipulations which are beyond the scope on this training for beginners.
 
 There is a least 2 ways for circumventing the https limitation for this training.
 
@@ -91,7 +91,7 @@ sudo ssh -i .ssh/<your_ifb_private_ssh_key> -N -L 80:<your.ifb.cloud.ip>:80 ubun
 
 Access your cloud Galaxy server by typing in your browser `http://localhost:80`
 
-**Note** that is access address is different from the one used when setting a SOCKS proxy.
+**Note** that this address is different from the one used when setting a SOCKS proxy.
 
 
 

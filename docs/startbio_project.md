@@ -15,9 +15,9 @@ Conversion notes:
 * Source doc: https://docs.google.com/open?id=13C5ipC5idLvKngxr8SyUOI_7GaaUptB41JBbedD8Foc
 ----->
 
+![startbio_logo](images/startbio_punchline.png){: style="width:900px"}
 
-
-## Titre du projet
+**Titre du projet**
 
 
 ## STARTbio, un programme de formation à l’analyse bioinformatique des données de cancérologie pour les chercheurs du SIRIC CURAMUS
@@ -32,10 +32,10 @@ STARTbio est ainsi une opportunité pour le SIRIC Curamus de mettre en place un 
 
 
 
-## Projet de recherche (5 pages max)
+### Projet de recherche (5 pages max)
 
 
-### État de la question
+#### État de la question
 
 La recherche en biologie est entrée assez brusquement dans l’ère du “Big Data” avec l’avènement des nouvelles technologies telles que le séquençage à haut débit, les approches “multi-omics” ou l’imagerie haute-résolution ou en continu. Le séquençage de cellules uniques qui était par exemple une approche confidentielle il y a seulement 5 ans, impacte aujourd’hui très fortement la biologie comme la médecine, et notamment la cancérologie. On peut citer aussi le séquençage haut-débit de très longues molécules d’ADN qui permet aujourd’hui d’assembler des génomes ou d’identifier des liaisons génétiques à une vitesse et avec une précision décuplées. On peut anticiper enfin qu’à brève échéance, les méthodes d’intelligence artificielles s’imposeront aux biologistes et médecins car elles permettent d’extraire des informations de données de grandes dimensions avec des performances inégalées. Ainsi, l’informatique et les statistiques deviennent des domaines de compétence clés en biologie, simplement parce que cette science, comme d’autres avant (Physique, Astronomie, etc.), devient une “science de données”. Or, les biologistes et les médecins n’ont généralement pas eu le temps d’acquérir ces compétences durant leurs formations initiales et ces manques tendent à se creuser avec l’évolution rapide des méthodes et des technologies.
 
@@ -55,7 +55,7 @@ Pour acquérir des compétences solides en bioinformatique, les chercheurs peuve
 Ainsi, bien que les formations de qualité soient nombreuses, elles sont morcelées thématiquement et géographiquement. Pour doter les biologistes et les médecins d’une expertise de fond, de nature à les rendre autonome dans la fouille de leurs données, il nous semble important d’**intégrer** les différentes étapes nécessaire à l’apprentissage de la bioinformatique, en partant des notions de bases jusqu’au méthodes spécifiques appropriées à leurs recherches, et de construire un **savoir-faire durable** en favorisant la pratique et les situations de recherche réelles de façon récurrente et sur une durée significative.
 
 
-## Justification de la demande
+#### Justification de la demande
 
 Bien que les Siric aient pour mission de mettre en place des programmes de diffusion des connaissances et des nouvelles pratiques, et ce dans le but d’améliorer la recherche translationnelle en cancérologie, les biologistes et médecins du SIRIC Curamus n’ont pas à leur disposition de programme de formations dédié pour se former à l’analyse bioinformatique des données biologiques. 
 
@@ -65,7 +65,11 @@ ARTbio s’est impliquée dans le SIRIC Curamus depuis sa candidature à l’INC
 
 Finalement, ARTbio a déjà une expérience importante en matière de formation que ce soit dans le cadre de Masters de Sorbonne-Université (Biologie des Génomes et Génétique de la souris), celui du réseau Elixir (analyse génomique sous Galaxy, Ljubljana 2018) ou à l’occasion de la journée “Galaxy Spring Day” [(3)](https://paperpile.com/c/5WeZgm/dkr1) consacrée à l’analyse RNAseq et financée par le SIRIC. De plus, la plateforme propose depuis 2019, une programme de compagnonnage, qui est un accompagnement didactique des chercheurs dans un projet de recherche, ayant pour but de réaliser leurs analyses tout en leur apprenant les méthodologies et procédures mises en oeuvre.
 
-#### L’ensemble de ces points motive la proposition de la plateforme ARTbio pour le projet “<span style="text-decoration:underline;">S</span>erial <span style="text-decoration:underline;">T</span>raining with <span style="text-decoration:underline;">ARTbio</span>” (STARTbio), qui vise à mettre en oeuvre un programme de formation à la bioinformatique des chercheurs du SIRIC CURAMUS
+
+**L’ensemble de ces points motive la proposition de la plateforme ARTbio pour le projet
+“<span style="text-decoration:underline;">S</span>erial <span style="text-decoration:underline;">
+T</span>raining with <span style="text-decoration:underline;">ARTbio</span>” (STARTbio),
+qui vise à mettre en oeuvre un programme de formation à la bioinformatique des chercheurs du SIRIC CURAMUS**
 
 * adapté à leurs besoins d’analyse,
 * basé sur l’enseignement de notions théoriques comme sur la pratique
