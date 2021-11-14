@@ -14,7 +14,8 @@ nav:
     -  Run your Galaxy server:
         - "Introduction: Why Running Galaxy as an administrator?": Run-Galaxy/index.md
         - Training Menu: Run-Galaxy/Training_menu.md
-        - Install a minimal standalone galaxy server in the Google Cloud Platform: Run-Galaxy/bare-galaxy.md
+        - Install a minimal standalone galaxy server in the Google Cloud Platform: Run-Galaxy/bare-galaxy-google.md
+        - Install a minimal standalone galaxy server in the IFB Cloud: Run-Galaxy/bare-galaxy-IFB.md
         - After deployment use case: Run-Galaxy/Run_workflow.md
         - Install a Galaxy server with Ansible and the GalaxyKickStart playbook: Run-Galaxy/GalaxyKickStart.md
         - Loading input data in your Galaxy server: Run-Galaxy/Loading_data_in_galaxy.md
@@ -22,9 +23,8 @@ nav:
         - Install a Galaxy server with Docker: Run-Galaxy/Docker_GalaxyKickStart.md
         - "Appendix 1: Getting a Google Cloud Engine Account": Run-Galaxy/Google_cloud_Account.md
         - "Appendix 2: Start and stop a Google virtual machine": Run-Galaxy/spin_off_VM.md
-        - "Appendix 3: Run your personal TP Galaxy server": Run-Galaxy/GCE_TP_Galaxy.md
+        - "Appendix 3: http access to the IFB cloud" : Run-Galaxy/SocksProxy.md
         - "Appendix 4: Galaxy software architecture" : Run-Galaxy/Galaxy_architecture.md
-        - "Appendix 5: http access to the IFB cloud" : Run-Galaxy/SocksProxy.md
 
     -  Search for chomosome translocations:
         - Introduction: translocations/index.md

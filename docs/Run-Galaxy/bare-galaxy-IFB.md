@@ -1,49 +1,4 @@
-!!! info "Differences between Google Cloud Engine and IFB Cloud"
-    The procedure to start a VM is not the same whether you are using Google Cloud Engine
-    or the IFB Cloud.
-    If you are working with GCE, follow 1-option A and 2-option A.
-    Whereas if you are working with the IFB Cloud, follow 1-option B and 2-optionB
-
-
-### 1A. Spin off a virtual Machine `bare-galaxy` with ![](images/google-padok.png){: style="width:30px"} Google Cloud Engine
-
-??? tip "Tip"
-    Start and stop of Google Virtual Machines is also described in [Annex 2](spin_off_VM.md)
-
-- Connect to your Google Compute Instances
-  [dashboard](https://console.cloud.google.com/compute/instances)
-
-- Create a Virtual Machine Instance
- 
-
-!!! question "with the following settings"
-    - Name: `bare-galaxy`
-    - Region `europe-west6 (Zurich)` (or any region available with you Google coupon)
-    - Zone: `europe-west6-a` (or `-b` or `-c`)
-    - **Configuration de la machine**
-        - `OPTIMISEE POUR LE CALCUL`
-        - Série: `C2`
-        - Type de machine: `c2-standard-8 (8 processeurs virtuels, 32 Go de mémoire)`
-    - **Disque de démarrage (Modifier)**
-        - `IMAGES PUBLIQUES`
-        - Système d'exploitation: `Ubuntu`
-        - Version*: `Ubuntu 20.04 LTS`
-        - Type de disque de démarrage: `Disque persistant avec équilibrage`
-        - Taille (Go): `100`
-        - ==SELECTONNER==
-    - **Pare-feu**
-        - Check `Autoriser le trafic HTTP`
-
-This settings should look like:
-    
-![](images/GCE_spin.png){: style="width:450px"}
-![](images/GCE_OS.png){: style="width:450px"}
-![](images/GCE_firewall.png){: style="width:450px"}
-
-### 1B. Spin off a virtual Machine `bare-galaxy` with the ![](images/biosphere.png){: style="width:70px"} core-IFB cloud
-
-??? tip "Tip"
-    Start and stop of IFB-Cloud Machines is also described in [Annex 3](spin_off_IFB-VM.md)
+### 1. Spin off a virtual Machine `bare-galaxy` with the ![](images/biosphere.png){: style="width:70px"} core-IFB cloud
 
 - Connect to your the [biosphere](https://biosphere.france-bioinformatique.fr/), and click
   on **RAINBio** menu.
@@ -61,17 +16,7 @@ This settings should look like:
 - Follow the deployment of your VM in the `myVM` menu. In contrast to the Google Cloud platform,
   this may take more that 10 min.
 
-### 2A. Connect to the VM using the ssh web console
-
-!!! question "ssh connection"
-    Roll down the `ssh` menu in the control pannel and select the first option
-    `Ouvrir dans une fenêtre du navigateur`
-
-    ![Select ssh session in browser](images/select_ssh.png)
-    Here is your web ssh console to control your VM
-    ![](images/web_ssh_console.png)
-
-### 2B. SSH connect to the IFB VM using your terminal
+### 2. SSH connect to the IFB VM using your terminal
 
 - Be sure that your `private` key (`mykey`) is in your ~/.ssh/folder.
 - The corresponding `public`key (`mykey.pub`) _should have been deposited/uploaded to biosphere_,
@@ -117,11 +62,6 @@ ssh -i ~/.ssh/mykey ubuntu@134.158.247.168 # ! mykey, NOT mykey.pub. And replace
     Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
     applicable law.
     ```
-
-
-
-**==From there, the procedure is the same, whether with the Google VM or the IFB VM==**
-
 ### 3. Installation of the Galaxy server
 
 In this first approach "==bare-galaxy==", everything is made super simple:
@@ -231,19 +171,19 @@ So let's do this, step by step:
     ```
     2. Download the cached web client folders
     ```
-    cd ~/galaxy && wget https://mydeepseqbucket.s3.amazonaws.com/client.tar.gz https://mydeepseqbucket.s3.amazonaws.com/static.tar.gz
+    cd ~/galaxy && wget https://mydeepseqbucket.s3.amazonaws.com/bare.client.tar.gz https://mydeepseqbucket.s3.amazonaws.com/bare.static.tar.gz
     ```
     3. Uncompress the cached client folders
     ```
-    cd ~/galaxy && tar -xvf static.tar.gz && tar -xvf client.tar.gz
+    cd ~/galaxy && tar -xvf bare.static.tar.gz && tar -xvf bare.client.tar.gz
     ```
     
-    Last note: this tip is TOTALLY optional, if you run the next command without doint it,
-    everything will go the same, but it will take more time...
-  7.
-  Ready for deploying Galaxy ?
-  
-??? bug "One more thing if you are using an IFB VM"
+    Last note: this tip is **optional**, if you run the next command without doing it,
+    everything will go the same, but the `run.sh` script which we are goin to execute will
+    detect that the galaxy web page are not built and it will do it. This takes about 10-15
+    minutes...
+
+!!! bug "One more thing specifically related to the IFB VMs"
     In IFB cloud, VM instances have a very small system volume, and we have installed
     the galaxy git repository on this volume.
     You can check this using the command
@@ -256,6 +196,10 @@ So let's do this, step by step:
     ```
     mv /root/galaxy /mnt/mydatalocal/ && cd /mnt/mydatalocal/galaxy
     ```
+
+  7.
+  Ready for deploying Galaxy ?
+  
   
   Then type `sh run.sh` and press the `enter` key !
   
@@ -275,18 +219,108 @@ serving on http://127.0.0.1:80
 ```
 ### 4. Connect to your living Galaxy instance
 
-You should now be able to access to you Galaxy instance in a your web browser window.
+All virtual machines deployed in the IFB core are located in a subnetwork whose access is
+limited to
 
-  - Go back to your Google Cloud Engine control panel.
-  - Find the `External IP address` / `Adresse IP externe` in the 7th column of the dashboard
-  (to the left of the ssh menu that you used before).
-  - Click on the hyperlink.
+- the port 22, for ssh connections
+- the port 443, for https (web) connections. Accessing a web server running on a virtual
+  instance through https (443) requires that each machine has declared its own SSL
+  certificate and most preferably owns a unique domain name, in the form of `mymachine.ifb.fr`.
+  Although there are turnarounds for generating self-signed SSL certificate for cloud instances,
+  this implies manipulations which are beyond the scope on this training for beginners.
 
-!!! tip "In the new browser window, connect as an admin to your Galaxy server instance"
-    - Register to your instance using the email address you put in the galaxy.yml at step 7
-    (menu "Authentification et enregistrement --> Enregistrement)
-    - Now that you are registered, you can log in using the same login and password you
-    have chosen.
-    - After login, you will see the admin tab in the top menu of the Galaxy interface.
+Unfortunately, the port 80 is blocked by the IFB firewall, precluding connection through
+the "insecure" http port your web Galaxy server is listening to.
+
+
+
+There is a least 2 ways for circumventing this limitation and "tunnelling" http requests
+from your local browser through the open secured ssh port 22.
+
+#### 1 - option 1. Running a SOCKS proxy on your VM
+
+First of all, get the IP address of your VM from the [IFB biosphere interface](https://biosphere.france-bioinformatique.fr/cloud/deployment/)
+
+![](images/Biosphere_deployments.png)
+
+![](images/Biosphere_IP.png)
+
+
+Now, in a terminal :computer: session, type this command:
+    
+  ```bash
+  ssh -A -D 9900 ubuntu@134.158.247.85  # replace the IP address with your IP which you will find in you IFB control board
+  ```
+
+??? bug "If you receive an error from the previous command, it is most likely the option `-A` which failed. Then, try the following command instead:"
+    
+    ```bash
+    ssh -i .ssh/<your_ifb_private_ssh_key> -D 9900 ubuntu@134.158.247.85  # replace the IP address with your IP
+    ```
+    :warning: `<your_ifb_private_ssh_key>` is a file located in the ~/.ssh folder, which you
+    should have generated at your IFB cloud registration
+    
+    :warning: this is *_not_* the corresponding public key which has the extension `.pub`
+    (`your_ifb_private_ssh_key.pub`)
+**It is important that you leave this terminal session alive.**
+
+**THEN**
+
+- open your system network settings
+- go to your system proxy settings
+- Check the box for SOCKS Proxy (v4 or v5)
+- in the field for the Server Proxy SOCKS address, enter `localhost`
+- in the field for the Server Proxy SOCKS port, enter `9900`
+
+??? tip "you can also set your socks proxy settings directly in Firefox (but not in Chrome)"
+    Go to `about:preferences#general` in Firefox and click "Parameters at the very bottom of the page":
+    
+    ![](images/Firefox_socks.png)
+
+**From this point**
+
+You should be able to access directly to your cloud Galaxy server by typing 
+
+`http://<IFB.IP.your.server>`
+
+
+
+#### 1 - option 2. Tunnelling the unaccessible port 80 through an accessible ssh (22) port
+
+Using this method, no need to set network parameters for your system or in your browser.
+
+Type the following command in a terminal window, and leave it alive:
+
+```
+sudo ssh -A -N -L 80:<your.ifb.cloud.ip>:80 ubuntu@<your.ifb.cloud.ip> # replace <your.ifb.cloud.ip> by a real ip address
+```
+:warning: the asked password is the one for the sudo command, ie, your admin password for your **local** machine.
+
+??? bug "OR, if the previous command returned an error"
+    ```
+    sudo ssh -i .ssh/<your_ifb_private_ssh_key> -N -L 80:<your.ifb.cloud.ip>:80 ubuntu@<your.ifb.cloud.ip> # replace <your.ifb.cloud.ip> by a real ip address
+    
+    ```
+    :warning: the asked password in the one for the sudo command, ie, your admin password for
+    your local machine.
+    
+    :warning: `<your_ifb_private_ssh_key>` is a file located in the ~/.ssh folder, which you
+    should have generated at your IFB cloud registration, this is not the corresponding public
+    key which has the extension `.pub` (`your_ifb_private_ssh_key.pub`)
+
+**THEN**
+
+Access your cloud Galaxy server by typing in your browser `http://localhost:80`
+
+:warning: Note that this address is different from the one used when setting a SOCKS proxy.
+
+----
+
+#### 2. Register as an admin to your Galaxy server instance
+
+  - In the new browser window, follow the menu `Authentification et enregistrement`
+    --> `Enregistrement` and  **register** to your instance using the email address you
+    put in the galaxy.yml at step 3.6
+  - After login, you should see the admin tab in the top menu of the Galaxy interface.
     
     ==You are connected to Galaxy as an admin !==

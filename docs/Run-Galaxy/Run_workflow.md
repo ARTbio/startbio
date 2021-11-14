@@ -1,5 +1,5 @@
 # Running a workflow in Galaxy
-## In this use case, we are going to 
+**In this use case, we are going to** 
 
 - Upload 3 workflow description files in the Galaxy server instance
 - Visualise these workflows and see that tools to execute the workflows are missing
@@ -36,7 +36,7 @@ https://raw.githubusercontent.com/ARTbio/Run-Galaxy/master/workflows/Galaxy-Work
     Alternatively, you could upload the workflow files from you computer instead of uploading them by URL
 
 
-- the 'Workflow` menu is now a list of 3 workflows that should look like :
+- the `Workflow` menu is now a list of 3 workflows that should look like :
 
 ![imported workflow](images/imported_workflows.png)
 
@@ -140,7 +140,7 @@ The third workflow is a workflow of the two previous workflows !
 We will come back to all these steps after the workflows execution. However, we need to
 retrieve the input data set before running the workflows on these data.
 
-#### Retrieve the `transposon_set_embl.txt` dataset
+### 4. Retrieve the `transposon_set_embl.txt` dataset
 
 - Create a new history and name it `transposon_set_embl.txt manipulation`
 - import the dataset using the `Paste/Fetch data` mode of the upload manager (the small
@@ -149,9 +149,10 @@ bottom-top arrow icone at the top left of the Galaxy interface). Copy the URL
 https://github.com/bergmanlab/transposons/raw/2018c2e848cec2aefc4a87187d5ed5927d04c9a4/current/transposon_sequence_set.embl.txt
 ```
 in the open field and click the `Start` button.
+
 - have a close look at the file
 
-#### Run the workflow
+### 5. Run the workflow
 
 - Click on the workflow menu
 - Click on the first workflow and select the Run option
@@ -164,9 +165,15 @@ icon of the local history menu.
 `Extract canonical transposons fasta (imported from uploaded file)`
 
 #### Discussion on workflows and on workflow of workflows
-    
-    
-    
+
+### 6. Stop and destroy your `bare-galaxy` instance
+Since we are now at the end of the first use case, we can destroy the VM instance.
+
+- Go to you Google Cloud Platform management web page.
+- Select your bare-galaxy VM
+- roll-down the top menu with the 3 vertical dots, and select `Supprimer`
+
+![](images/destroy.png){width="300"} 
 
 
 

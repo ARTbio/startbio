@@ -1,4 +1,3 @@
-## Upload input data to you newly deployed Galaxy instance
 For the training, we need three types of datasets
 
 - The reference sequences that will be used to align sequencing reads (full genome, miRNA, transposons, etc.)
@@ -84,6 +83,7 @@ and choose `Add/Modify Column Definitions`
 - Click a second time on `Add Definition`, select `Name` and choose the column `B` for `Name`
 - Now, click the `Apply` button
 - And to finish the job, click on the dark-blue button `Upload`
+- After the upload is complete, rename the history "References"
 
 <center>:tada:	:confetti_ball:	:balloon:</center>
 
@@ -104,7 +104,11 @@ here, we are going to create collections directly at the upload step.
 
 ##### A. small RNA sequencing datasets.
 
-These datasets can be processed as a single collection. Let's do it:
+Before all, create a new history by clicking the **+** icon in the history header
+![](images/history_header.png){ width="300"} and immediately renaming the new history as
+**"Small RNA sequence datasets"**.
+
+We are going to import these datasets as a single collection:
 
 - Click the `Upload Data` button at the top-left corner of the Galaxy interface.
 - Click the `Rule-based`tab as we just did with the reference datasets
