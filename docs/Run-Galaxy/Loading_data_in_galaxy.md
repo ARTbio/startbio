@@ -172,6 +172,7 @@ and a collection `SF`.
 
 So let's go! 
 
+- **Create a new history `RNAseq data`(you know how to do it now)**
 - Click the `Upload Data` button at the top-left corner of the Galaxy interface.
 - Click the `Rule-based`tab as we just did with the reference datasets
 - Select **Upload data as** `Collection(s)` and **Load tabular data from** `Pasted Table`
