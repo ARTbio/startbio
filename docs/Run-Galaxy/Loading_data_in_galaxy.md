@@ -122,8 +122,6 @@ paste the following Tabular source data:
     https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/LqKb3Qmy8m9RXtk/download?path=%2F&files=GRH-104_R1.fastq.gz	GRH-104
     https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/LqKb3Qmy8m9RXtk/download?path=%2F&files=GRH-105_R1.fastq.gz	GRH-105
     https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/LqKb3Qmy8m9RXtk/download?path=%2F&files=GRH-106_R1.fastq.gz	GRH-106
-    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/LqKb3Qmy8m9RXtk/download?path=%2F&files=GRH-111_R1.fastq.gz	GRH-111
-    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/LqKb3Qmy8m9RXtk/download?path=%2F&files=GRH-112_R1.fastq.gz	GRH-112
     ```
 Or
 ??? info "from the S3 Amazon bucket"
@@ -132,8 +130,6 @@ Or
     https://mydeepseqbucket.s3.amazonaws.com/smRNAseq/GRH-104_R1.fastq.gz	GRH-104
     https://mydeepseqbucket.s3.amazonaws.com/smRNAseq/GRH-105_R1.fastq.gz	GRH-105
     https://mydeepseqbucket.s3.amazonaws.com/smRNAseq/GRH-106_R1.fastq.gz	GRH-106
-    https://mydeepseqbucket.s3.amazonaws.com/smRNAseq/GRH-111_R1.fastq.gz	GRH-111
-    https://mydeepseqbucket.s3.amazonaws.com/smRNAseq/GRH-112_R1.fastq.gz	GRH-112
     ```
 - Click the `Build` button
 - In the `Build Rules ...` pannel that opened, click the ![](images/plus_rules.png){ width="80"}
