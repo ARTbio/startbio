@@ -86,7 +86,7 @@ Ansible Racing==.
 In order to participate, you'll just have to put the `time` command just before the script invokation, as follows:
 
 ```
-time sh run_ansible_analyse_genomes_2021.sh
+time sh run_ansible_analyse_genomes_2021*.sh
 ```
 
 !!! danger "The Ultimate Pasteur 2021 Ansible Racing"
