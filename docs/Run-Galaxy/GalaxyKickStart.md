@@ -68,10 +68,18 @@ Repository [https://github.com/ARTbio/GalaxyKickStart](https://github.com/ARTbio
 ```
 sudo -i
 ```
-- download the script `run_ansible_analyse_genomes_2021.sh` using the command
-```
-wget https://raw.githubusercontent.com/ARTbio/Run-Galaxy/master/deployment_scripts/run_ansible_analyse_genomes_2021.sh
-```
+- download the script `run_ansible_analyse_genomes_2021.sh` using the command:
+
+??? warning "for Girls :woman:"
+    ## Only for :woman:
+    ```
+    wget https://raw.githubusercontent.com/ARTbio/Run-Galaxy/master/deployment_scripts/run_ansible_analyse_genomes_2021-F.sh
+    ```
+??? warning "for Boys :man:"
+    ## Only for :man:
+    ```
+    wget https://raw.githubusercontent.com/ARTbio/Run-Galaxy/master/deployment_scripts/run_ansible_analyse_genomes_2021-M.sh
+    ```
 
 - We are now ready to run this script. In addition, all trainees may participate to the ==Pasteur 2021
 Ansible Racing==.
