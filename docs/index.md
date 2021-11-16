@@ -11,6 +11,8 @@
     
     In preparation of the training "Analyse des Génomes" which will be held during the
     week of November 29th, 2021
+    
+    <center>![](images/analyse_genomes_logo.svg){ width=400 }<center>
 
 !!! info "2021-11-15"
     ## FIDLE - Formation d'Introduction au Deep Learning
