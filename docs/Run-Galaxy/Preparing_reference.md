@@ -119,7 +119,7 @@ genome.
 ## 2. :wrench: Index `dmel-r6.18` for Bowtie and Bowtie2.
 
 Now that dmel-r6.18 is an "official" Galaxy genome, it is easy to prepare corresponding
-indexes for the aligners Bowtie and Bowtie2.
+indexes for the aligner Bowtie.
 
 - Go back to the local data manager board
 - Click on the data manager **Bowtie index** _builder_
@@ -133,20 +133,7 @@ indexes for the aligners Bowtie and Bowtie2.
 --> A new dataset `Bowtie index` is created and the orange color and running wheel indicate
 that the job is ongoing to create the bowtie index.
 
-It will take several minutes. In the meantime, we can generate the bowtie2 index.
-
-- Go back to the local data manager board
-- Click on the data manager **Bowtie2 index** _builder_
-
-!!! note "Fill the form of :wrench: **Bowtie index** _builder_"
-    - **Source FASTA Sequence**: `dmel-r6.18` (no other choice !)
-    - **Name of Sequence**: _Leave this field empty_
-    - **ID for sequence**: _Leave this field empty_
-    - **Also make available for TopHat**: Leave it to `Yes`
-    - **Click :heavy_check_mark:`Execute`**
-
---> A new dataset `Bowtie2 index` is created and the orange color and running wheel indicate
-that the job is ongoing to create the bowtie2 index.
+It will take several minutes.
 
 **==Your Cloud Galaxy is now ready for analyses with the other trainers==**
 
