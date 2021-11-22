@@ -119,6 +119,10 @@ and choose `Add/Modify Column Definitions`
 - Click a first time on `Add Definition` and Select `URL`. Leave the URL column to `A`
 - Click a second time on `Add Definition`, select `Name` and choose the column `B` for `Name`
 - Now, click the `Apply` button
+- select the Type "fastqsanger.gz" at the bottom of the panel
+
+    ![](images/type_fastqsanger_gz.png){ width="200"}
+
 - And to finish the job, click on the dark-blue button `Upload`
 <center>:tada:	:confetti_ball:	:balloon: :tada:	:confetti_ball:	:balloon:</center>
 
@@ -155,6 +159,10 @@ and choose `Add/Modify Column Definitions`
 - Click a first time on `Add Definition` and Select `URL`. Leave the URL column to `A`
 - Click a second time on `Add Definition`, select `Name` and choose the column `B` for `Name`
 - Click the `Apply` button
+- select the Type "fastqsanger.gz" at the bottom of the panel
+
+    ![](images/type_fastqsanger_gz.png){ width="200"}
+
 - And to finish the job, click on the dark-blue button `Upload`
 
 <center>:tada:	:confetti_ball:	:balloon: :tada:	:confetti_ball:	:balloon:
@@ -162,6 +170,37 @@ and choose `Add/Modify Column Definitions`
 
 
 #### 5. Uncompress datasets
+
+At this stage, we have uploaded small RNA and RNA sequencing datasets as `fastqsanger.gz`.
+To simplify the subsequent analyzes we are going to uncompress all these datasets, whose
+datatype will therefore become `fastqsanger`.
+
+##### Procedure for a single dataset
+
+  1. Go to your `small RNA input datasets` history (or whatever you named it).
+  2. Click on the pencil icon ![](images/pencil.png){ width="70"} of the first dataset.
+  3. Click on the tab `Convert` ![](images/convert.png){ width="100"}, NOT on the tab `datatype`
+  ![](images/datatypes.png){ width="100"}(see the note bellow)
+  4. Select `Convert compressed file to uncompressed`
+  5. Click on ![](images/convert_datatype.png){ width="120"}
+  
+  ==**-->**== A new dataset is created. During the decompression job, its name look like
+  `5: Convert compressed file to uncompressed. on data 1`. But when the job finishes, the
+  name of the dataset change to more self-explanatory: `5: GRH-103 uncompressed`.
+
+##### Repeat the same procedure for every small RNAseq dataset.
+
+##### Repeat the same procedure for every RNAseq dataset.
+==_Naturally, you can launch as many jobs as you need in the same time_==
+
+##### When all datasets are decompressed
+
+- Delete the compressed datasets (by clicking on the cross icon of datasets).
+- Rename the uncompressed datasets by removing the `uncompressed` suffix.
+- Purge the deleted datasets. This is done by clicking the wheel icon of the **top**
+history menu, and selecting `Purge Deleted Datasets` in the **Datasets Actions** section.
+    - :warning: If you do not perform this last action, the deleted datasets remains on your
+      instance disk !
 
 #### 6. Dataset collections
 
