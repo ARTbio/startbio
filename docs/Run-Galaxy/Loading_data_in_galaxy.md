@@ -21,7 +21,7 @@ data _**are available through a URL**_ (Universal Resource Location).
     this training, and invite you to look at one of the "Galaxy tours" available
     in the menu `Help` :arrow_forward: `Interactive tours`
 
-#### 1. Single URL
+#### 1. Single URL, simple trial.
 
 - Click the `Upload Data` button at the top-left corner of the Galaxy interface:
 
@@ -41,9 +41,9 @@ https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/B433xtdmdQqdFYd/d
 ==-->== a dataset should appear soon in your current history and turn green when the upload is
 complete.
     
-#### 2. Multiple URLs :heavy_plus_sign: Programmatic file naming
+#### 2. Upload of reference files as a batch of multiple URLs :heavy_plus_sign: Programmatic file naming
 
-Delete the uploaded dataset, we are going to re-upload it in batch.
+Delete the previously uploaded dataset, we are going to re-upload it in a batch.
 
 - Click the `Upload Data` button at the top-left corner of the Galaxy interface.
 - This time, Click the `Rule-based`tab !
@@ -87,35 +87,17 @@ and choose `Add/Modify Column Definitions`
 
 <center>:tada:	:confetti_ball:	:balloon:</center>
 
-#### 3. Multiple URLs :heavy_plus_sign: Programmatic file naming :heavy_plus_sign: dataset collection
-
-For the rest of the data, we are going to organize them using an additional structure layer:
-the **Galaxy Collection**.
-
-A Galaxy Collection is just a container object which is convenient to treat multiple equivalent
-datasets, such as a list of sequencing dataset, of text labels, of fasta sequences, etc.
-For those of you who are a bit familiar with Python language, a Galaxy Collection is actually
-just a dictionary, whose `keys` are the names of the datasets in the collection (in Galaxy
-these names are referred to as `element identifiers`), and `values` are the paths to the
-corresponding datasets. Well, a dictionary as I said :stuck_out_tongue_winking_eye:
-
-There is a way to create a Collection from pre-existing datasets in a history. However,
-here, we are going to create collections directly at the upload step.
-
-##### A. small RNA sequencing datasets.
+#### 3. Upload of small RNA sequencing datasets :heavy_plus_sign: Programmatic dataset naming.
 
 Before all, create a new history by clicking the **+** icon in the history header
 ![](images/history_header.png){ width="300"} and immediately renaming the new history as
 **"Small RNA sequence datasets"**.
 
-We are going to import these datasets as a single collection:
-
 - Click the `Upload Data` button at the top-left corner of the Galaxy interface.
 - Click the `Rule-based`tab as we just did with the reference datasets
-- This time however, select **Upload data as** `Collection(s)` and **Load tabular data from** `Pasted Table`
+- Leave **Upload data as** `Datasets` and **Load tabular data from** `Pasted Table`
 - In the text field `Tabular source data to extract collection files and metadata from`,
 paste the following Tabular source data:
-
 ??? info "from the Nextcloud server"
     ```
     https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/LqKb3Qmy8m9RXtk/download?path=%2F&files=GRH-103_R1.fastq.gz	GRH-103
@@ -135,13 +117,66 @@ Or
 - In the `Build Rules ...` pannel that opened, click the ![](images/plus_rules.png){ width="80"}
 and choose `Add/Modify Column Definitions`
 - Click a first time on `Add Definition` and Select `URL`. Leave the URL column to `A`
-- Click a second time on `Add Definition`, select `List Identifier(s)` (note that it was
-`Name` when we uploaded before as datasets) to upload as Collection and choose the column `B`
-for the `List Identifier(s)`
+- Click a second time on `Add Definition`, select `Name` and choose the column `B` for `Name`
 - Now, click the `Apply` button
-- Give a (simple) name to your collection (remember that the collection is just the container)
 - And to finish the job, click on the dark-blue button `Upload`
 <center>:tada:	:confetti_ball:	:balloon: :tada:	:confetti_ball:	:balloon:</center>
+
+#### 4. RNAseq datasets (for gene differential expression analysis)
+
+- Create a new history in Galaxy and rename it `RNA sequence datasets`
+- Click the `Upload Data` button at the top-left corner of the Galaxy interface.
+- Click the `Rule-based`tab as we just did with the reference datasets
+- Leave **Upload data as** `Datasets` and **Load tabular data from** `Pasted Table`
+- In the text field `Tabular source data to extract collection files and metadata from`,
+paste the following Tabular source data:
+??? info "from the Nextcloud server"
+    ```
+    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/LqKb3Qmy8m9RXtk/download?path=%2F&files=WT1_R1.fastq.gz	WT1
+    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/LqKb3Qmy8m9RXtk/download?path=%2F&files=WT2_R1.fastq.gz	WT2
+    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/LqKb3Qmy8m9RXtk/download?path=%2F&files=WT3_R1.fastq.gz	WT3
+    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/LqKb3Qmy8m9RXtk/download?path=%2F&files=SF1_R1.fastq.gz	SF1
+    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/LqKb3Qmy8m9RXtk/download?path=%2F&files=SF2_R1.fastq.gz	SF2
+    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/LqKb3Qmy8m9RXtk/download?path=%2F&files=SF3_R1.fastq.gz	SF3
+    ```
+Or
+??? info "from the S3 Amazon bucket"
+    ```
+    https://mydeepseqbucket.s3.amazonaws.com/RNAseq/WT1_R1.fastq.gz	WT1
+    https://mydeepseqbucket.s3.amazonaws.com/RNAseq/WT2_R1.fastq.gz	WT2
+    https://mydeepseqbucket.s3.amazonaws.com/RNAseq/WT3_R1.fastq.gz	WT3
+    https://mydeepseqbucket.s3.amazonaws.com/RNAseq/SF1_R1.fastq.gz	SF1
+    https://mydeepseqbucket.s3.amazonaws.com/RNAseq/SF2_R1.fastq.gz	SF2
+    https://mydeepseqbucket.s3.amazonaws.com/RNAseq/SF3_R1.fastq.gz	SF3
+    ```
+- Click the `Build` button
+- In the `Build Rules ...` pannel that opened, click the ![](images/plus_rules.png){ width="80"}
+and choose `Add/Modify Column Definitions`
+- Click a first time on `Add Definition` and Select `URL`. Leave the URL column to `A`
+- Click a second time on `Add Definition`, select `Name` and choose the column `B` for `Name`
+- Click the `Apply` button
+- And to finish the job, click on the dark-blue button `Upload`
+
+<center>:tada:	:confetti_ball:	:balloon: :tada:	:confetti_ball:	:balloon:
+:tada:	:confetti_ball:	:balloon: :tada:	:confetti_ball:	:balloon:</center>
+
+
+#### 5. Uncompress datasets
+
+#### 6. Dataset collections
+
+If we have enough time, we are going to organize our various datasets using an additional
+structure layer: the **Galaxy Collection**.
+
+A Galaxy Collection is just a container object which is convenient to treat multiple equivalent
+datasets, such as a list of sequencing dataset, of text labels, of fasta sequences, etc.
+For those of you who are a bit familiar with Python language, a Galaxy Collection is actually
+just a dictionary, whose `keys` are the names of the datasets in the collection (in Galaxy
+these names are referred to as `element identifiers`), and `values` are the paths to the
+corresponding datasets. Well, a dictionary as I said :stuck_out_tongue_winking_eye:
+
+`to-do` ==procedure for creating a dataset collection==
+
 
 ??? question "What do you see when you click on the dataset collection ?"
     You see the content of the collection, with datasets identified with names called
@@ -156,75 +191,12 @@ for the `List Identifier(s)`
     each of these datasets, you will actually see both the container and the contained
     datasets !
 
-##### B. RNAseq datasets (for gene differential expression analysis)
-
 For RNAseq datasets, collections are also very convenient. However, it is even better to
-anticipate at the upload, the type of analysis that you are going to perform with the
-datasets. Indeed, you are going to compare 3 "test" (mutant, treated, whatever...) datasets
-with 3 control datasets.
+anticipate the type of analysis that you are going to perform. Indeed, you are going to
+compare 3 "test" (mutant, treated, whatever...) datasets with 3 control datasets.
 
-Therefore, we are going to upload the RNAseq datasets as 2 collections: a collection `WT`
+Therefore, we are going to organise the RNAseq datasets as 2 collections: a collection `WT`
 and a collection `SF`.
-
-So let's go! 
-
-- **Create a new history `RNAseq data`(you know how to do it now)**
-- Click the `Upload Data` button at the top-left corner of the Galaxy interface.
-- Click the `Rule-based`tab as we just did with the reference datasets
-- Select **Upload data as** `Collection(s)` and **Load tabular data from** `Pasted Table`
-- In the text field `Tabular source data to extract collection files and metadata from`,
-paste the following Tabular source data:
-
-??? info "from the Nextcloud server"
-    ```
-    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/LqKb3Qmy8m9RXtk/download?path=%2F&files=WT1_R1.fastq.gz	WT1
-    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/LqKb3Qmy8m9RXtk/download?path=%2F&files=WT2_R1.fastq.gz	WT2
-    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/LqKb3Qmy8m9RXtk/download?path=%2F&files=WT3_R1.fastq.gz	WT3
-    ```
-Or
-??? info "from the S3 Amazon bucket"
-    ```
-    https://mydeepseqbucket.s3.amazonaws.com/RNAseq/WT1_R1.fastq.gz	WT1
-    https://mydeepseqbucket.s3.amazonaws.com/RNAseq/WT2_R1.fastq.gz	WT2
-    https://mydeepseqbucket.s3.amazonaws.com/RNAseq/WT3_R1.fastq.gz	WT3
-
-    ```
-- Click the `Build` button
-- In the `Build Rules ...` pannel that opened, click the ![](images/plus_rules.png){ width="80"}
-and choose `Add/Modify Column Definitions`
-- Click a first time on `Add Definition` and Select `URL`. Leave the URL column to `A`
-- Click a second time on `Add Definition`, select `List Identifier(s)` to upload as
-Collection and choose the column `B` for the `List Identifier(s)`
-- Click the `Apply` button
-- Give the name `WT` to this collection (sounds reasonable...)
-- And to finish the job, click on the dark-blue button `Upload`
-
-
-**Repeat the same operation with:**
-
-??? info "from the Nextcloud server"
-    ```
-    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/LqKb3Qmy8m9RXtk/download?path=%2F&files=SF1_R1.fastq.gz	SF1
-    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/LqKb3Qmy8m9RXtk/download?path=%2F&files=SF2_R1.fastq.gz	SF2
-    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/LqKb3Qmy8m9RXtk/download?path=%2F&files=SF3_R1.fastq.gz	SF3
-    ```
-Or
-??? info "from the S3 Amazon bucket"
-    ```
-    https://mydeepseqbucket.s3.amazonaws.com/RNAseq/SF1_R1.fastq.gz	SF1
-    https://mydeepseqbucket.s3.amazonaws.com/RNAseq/SF2_R1.fastq.gz	SF2
-    https://mydeepseqbucket.s3.amazonaws.com/RNAseq/SF3_R1.fastq.gz	SF3
-    ```
-**Except that you should choose the name `SF` for this last collection (sounds reasonable
-too...)**
-
-
-<center>:tada:	:confetti_ball:	:balloon: :tada:	:confetti_ball:	:balloon:
-:tada:	:confetti_ball:	:balloon: :tada:	:confetti_ball:	:balloon:</center>
-
-
-
-
 
 
 
