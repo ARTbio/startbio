@@ -179,14 +179,70 @@ datatype will therefore become `fastqsanger`.
 
   1. Go to your `small RNA input datasets` history (or whatever you named it).
   2. Click on the pencil icon ![](images/pencil.png){ width="70"} of the first dataset.
-  3. Click on the tab `Convert` ![](images/convert.png){ width="100"}, NOT on the tab `datatype`
-  ![](images/datatypes.png){ width="100"}(see the note bellow)
+  3. Click on the tab `Convert` ![](images/convert.png){ width="100"}, _**NOT**_ on the tab `datatype`
+  ![](images/datatypes.png){ width="100"}.
+  
+    ??? warning "Why 'Convert file' is different from 'Change Datatype' ?"
+        - Let's imagine a Galaxy dataset whose name is `Hamlet`
+        - the _content_ of this dataset is:
+        ```
+        To be, or not to be, that is the question:
+        ```
+        - Would you agree that the `datatype` of this dataset is ==`english`==? I think so.
+        - Let's put it all together in the form of:
+        ```
+        @name: Hamlet
+        @datatype: english
+        @content:
+        To be, or not to be, that is the question:
+        ```
+        
+        **Now, what if you change the `Datatype` of this dataset from `english` to `french`
+        using the `edit attribute` panel? ==This -->==**
+        ```
+        @name: Hamlet
+        @datatype: french
+        @content:
+        To be, or not to be, that is the question:
+        ```
+        **This does not seem correct ! Do you aggree ?**
+        
+        **If you `Convert` instead this dataset from `english` to `french`, you will have
+        ==This -->==**
+        ```
+        @name: Hamlet
+        @datatype: french
+        @content:
+        Être ou ne pas être, telle est la question
+        ```
+        **It is looking better, isn't it ?**
+        
+        **In contrast, if your starting dataset was as this:**
+        ```
+        @name: Hamlet
+        @datatype: english
+        @content:
+        Être ou ne pas être, telle est la question
+        ```
+        **There, you would "just" change the Datatype of the dataset from `english` to `french` and
+        get**:
+        ```
+        @name: Hamlet
+        @datatype: english
+        @content:
+        Être ou ne pas être, telle est la question
+        ```
+  
   4. Select `Convert compressed file to uncompressed`
   5. Click on ![](images/convert_datatype.png){ width="120"}
   
-  ==**-->**== A new dataset is created. During the decompression job, its name look like
+  ==**-->**== A new dataset is created. During the decompression job, its name looks like
   `5: Convert compressed file to uncompressed. on data 1`. But when the job finishes, the
-  name of the dataset change to more self-explanatory: `5: GRH-103 uncompressed`.
+  name of the dataset changes to more self-explanatory: `5: GRH-103 uncompressed`.
+
+    
+    
+
 
 ##### Repeat the same procedure for every small RNAseq dataset.
 
@@ -199,37 +255,76 @@ datatype will therefore become `fastqsanger`.
 - Rename the uncompressed datasets by removing the `uncompressed` suffix.
 - Purge the deleted datasets. This is done by clicking the wheel icon of the **top**
 history menu, and selecting `Purge Deleted Datasets` in the **Datasets Actions** section.
-    - :warning: If you do not perform this last action, the deleted datasets remains on your
+    
+    ![](images/wheel.png){ width="250" }
+    
+    - :warning: If you do not perform this last action, the deleted datasets remain on your
       instance disk !
 
-#### 6. Dataset collections
+#### 6. Dataset collections :milky_way: :alien:
 
 If we have enough time, we are going to organize our various datasets using an additional
 structure layer: the **Galaxy Collection**.
 
-A Galaxy Collection is just a container object which is convenient to treat multiple equivalent
-datasets, such as a list of sequencing dataset, of text labels, of fasta sequences, etc.
+A Galaxy Collection is a container object which is very convenient to treat together multiple
+equivalent datasets, such as a list of sequencing dataset, of text labels, of fasta sequences,
+etc.
+
 For those of you who are a bit familiar with Python language, a Galaxy Collection is actually
 just a dictionary, whose `keys` are the names of the datasets in the collection (in Galaxy
 these names are referred to as `element identifiers`), and `values` are the paths to the
 corresponding datasets. Well, a dictionary as I said :stuck_out_tongue_winking_eye:
 
-`to-do` ==procedure for creating a dataset collection==
+##### A. Making a collection of the small RNA sequence datasets.
 
+For clarity, we are going first to _copy_ the small RNA sequence dataset from their initial
+history to a **new** history.
 
-??? question "What do you see when you click on the dataset collection ?"
+- Go to your small RNAseq sequence datasets.
+- Click on the wheel icon of the history top menu
+    
+    ![](images/wheel.png){ width="200" }
+
+- Select the submenu `Copy Datasets` in the section `Dataset Actions`
+- In the pop-up panel, `Source History:`, check-in the 4 small RNA sequencing datasets
+- In the same pop-up panel, `Destination History:`, field `New history named`, write
+  ```
+  small RNAs in collection
+  ```
+- Click the `Copy History Items` button.
+- Still on the same pop-up panel, at the top in a green area, you have now a :link: to the
+  new history that was created and where the datasets were copied. Click on that link !
+    
+    ??? info "When you copy datasets in that way..."
+        The new datasets actually do not take any space on your disk. New symbolic links to
+        the actual files are only created.
+
+- Now, that your are in the new history, click on the checkbox icon in the top area of the
+  history.
+    ![](images/history_checkbox.png){ width="250" }
+- Check-in the 4 small RNA datasets
+- In the menu `Pour toute la sélection` (also in the top area of the history), select
+  `Build Dataset List`
+- In the pop-up panel, just write a meaningful name in the field `Name`, something like
+  ```
+  Small RNA collection
+  ```
+- Press the button `Create Collection`
+
+??? question "What do you see when you click on name of the new dataset collection? (please not the :heavy_multiplication_x:...)"
     You see the content of the collection, with datasets identified with names called
     `element_identifiers.
     
-    Click on the `recycling` icon ![](images/recycle.png){ width="20"} to come back to the
-    normal history view.
+    Click on the `recycling` icon ![](images/recycle.png){ width="20"}, or, the `< back to
+    the Small RNA Collection` link, to come back to the normal history view.
 
 
-??? question "what do you see if you click the `deleted` hyperlink at the top right corner ![](images/hidden.png){ width="150"} ? "
+??? question "what do you see if you click the `hidden` hyperlink at the top right corner ![](images/hidden.png){ width="150"} ? "
     You see the actual dataset contained in the Collection. If you click on `unhide` for
-    each of these datasets, you will actually see both the container and the contained
+    each of these datasets, you will actually see both the container collection and the contained
     datasets !
 
+##### B. Making 2 collections RNA sequence datasets.
 For RNAseq datasets, collections are also very convenient. However, it is even better to
 anticipate the type of analysis that you are going to perform. Indeed, you are going to
 compare 3 "test" (mutant, treated, whatever...) datasets with 3 control datasets.
@@ -237,6 +332,21 @@ compare 3 "test" (mutant, treated, whatever...) datasets with 3 control datasets
 Therefore, we are going to organise the RNAseq datasets as 2 collections: a collection `WT`
 and a collection `SF`.
 
+- Go back to your RNAseq input datasets history
+- As before, _copy_ the 6 RNAseq dataset to a new history which you will name
+  `RNAseq dataset Collections`
+- This time, create first a collection by only checking the three datasets `WT1`, `WT2`
+  and `WT3`, which you will name:
+  ```
+  WT
+  ```
+- Create also a second collection by only checking the three datasets `SF1`, `SF2`
+  and `SF3`, which you will name:
+  ```
+  SF
+  ```
+
+#### This is the end of this training session, you deserve :coffee: or :beer: ! 
 
 
 
