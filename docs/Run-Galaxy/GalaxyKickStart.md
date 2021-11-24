@@ -93,7 +93,7 @@ sudo -i
     wget https://raw.githubusercontent.com/ARTbio/Run-Galaxy/master/deployment_scripts/run_ansible_analyse_genomes_2021-IEL.sh
     ```
 
-- We are now ready to run this script. In addition, all trainees may participate to the ==Pasteur 2021
+- We are now ready to run these scripts using the same command. In addition, all trainees may participate to the ==Pasteur 2021
 Ansible Racing==.
 In order to participate, you'll just have to put the `time` command just before the script invokation, as follows:
 
