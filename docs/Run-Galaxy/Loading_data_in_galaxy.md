@@ -61,6 +61,8 @@ https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/B433xtdmdQqdFYd/d
 https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/B433xtdmdQqdFYd/download?path=%2F&files=Dmel_piRNA_clusters.fasta	piRNA_clusters
 https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/B433xtdmdQqdFYd/download?path=%2F&files=Dmel_all-transposon_merge.fasta	all-transposons
 https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/B433xtdmdQqdFYd/download?path=%2F&files=dmel-all-chromosome-r6.18.fasta	dmel-all-chromosome-r6.18
+https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/B433xtdmdQqdFYd/download?path=%2F&files=dmel-all-transcript-r6.18.fasta	transcripts
+https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/B433xtdmdQqdFYd/download?path=%2F&files=dmel-all-tRNA-r6.18.fasta	tRNA
 ```
 
 ??? info "To balance the load of the data servers, a half of the trainees may also use the S3 Amazon bucket"
@@ -75,6 +77,8 @@ https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/B433xtdmdQqdFYd/d
     https://analyse-genomes.s3.eu-west-3.amazonaws.com/References/Dmel_piRNA_clusters.fasta	piRNA_clusters
     https://analyse-genomes.s3.eu-west-3.amazonaws.com/References/Dmel_all-transposon_merge.fasta	transposons
     https://analyse-genomes.s3.eu-west-3.amazonaws.com/References/dmel-all-r6.18.gtf	dmel-all-r6.18.gtf
+    https://analyse-genomes.s3.eu-west-3.amazonaws.com/References/dmel-all-transcript-r6.18.fasta	transcripts
+    https://analyse-genomes.s3.eu-west-3.amazonaws.com/References/dmel-all-tRNA-r6.18.fasta	tRNA
     ```
 - Click the `Build` button
 - In the `Build Rules ...` pannel that opened, click the ![](images/plus_rules.png){ width="80"}
