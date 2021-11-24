@@ -68,7 +68,14 @@ Repository [https://github.com/ARTbio/GalaxyKickStart](https://github.com/ARTbio
 ```
 sudo -i
 ```
-- download the script `run_ansible_analyse_genomes_2021.sh` using the command:
+- the GalaxyKickstart ansible playbook is downloading automatically several Gb of
+  cached resources in order to accelerate the deployment of the Galaxy server. Since you
+  are going to do this ~18 times, it is better to distribute the cache downloads on several
+  servers. Thus, we are going to divide the class in 3 groups, :doughnut:, :ice_cream: and
+  :candy:, which will use each a deployment script obtaining the cached resources from 3
+  different servers located in Sorbonne-Université, AWS-Paris and Google-Europe,
+  respectively. 
+- Get the deployment script on your VM using the command:
 
 ??? warning "for the team :doughnut:"
     ## Only for the team :doughnut:
