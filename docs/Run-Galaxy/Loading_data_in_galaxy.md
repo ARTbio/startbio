@@ -65,16 +65,16 @@ https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/B433xtdmdQqdFYd/d
 
 ??? info "To balance the load of the data servers, a half of the trainees may also use the S3 Amazon bucket"
     ```
-    https://mydeepseqbucket.s3.amazonaws.com/References/PlacW.fasta	PlacW
-    https://mydeepseqbucket.s3.amazonaws.com/References/dmel-all-ncRNA-r6.18.fasta	ncRNA
-    https://mydeepseqbucket.s3.amazonaws.com/References/dmel-all-miscRNA-r6.18.fasta	miscRNA
-    https://mydeepseqbucket.s3.amazonaws.com/References/dmel-all-miRNA-r6.18.fasta	miRNA
-    https://mydeepseqbucket.s3.amazonaws.com/References/dmel-all-intron-r6.18.fasta	introns
-    https://mydeepseqbucket.s3.amazonaws.com/References/dmel-all-gene-r6.18.fasta	genes
-    https://mydeepseqbucket.s3.amazonaws.com/References/dmel-all-chromosome-r6.18.fasta	dmel-r6.18
-    https://mydeepseqbucket.s3.amazonaws.com/References/Dmel_piRNA_clusters.fasta	piRNA_clusters
-    https://mydeepseqbucket.s3.amazonaws.com/References/Dmel_all-transposon_merge.fasta	transposons
-    https://mydeepseqbucket.s3.amazonaws.com/References/dmel-all-r6.18.gtf	dmel-all-r6.18.gtf
+    https://analyse-genomes.s3.eu-west-3.amazonaws.com/References/PlacW.fasta	PlacW
+    https://analyse-genomes.s3.eu-west-3.amazonaws.com/References/dmel-all-ncRNA-r6.18.fasta	ncRNA
+    https://analyse-genomes.s3.eu-west-3.amazonaws.com/References/dmel-all-miscRNA-r6.18.fasta	miscRNA
+    https://analyse-genomes.s3.eu-west-3.amazonaws.com/References/dmel-all-miRNA-r6.18.fasta	miRNA
+    https://analyse-genomes.s3.eu-west-3.amazonaws.com/References/dmel-all-intron-r6.18.fasta	introns
+    https://analyse-genomes.s3.eu-west-3.amazonaws.com/References/dmel-all-gene-r6.18.fasta	genes
+    https://analyse-genomes.s3.eu-west-3.amazonaws.com/References/dmel-all-chromosome-r6.18.fasta	dmel-r6.18
+    https://analyse-genomes.s3.eu-west-3.amazonaws.com/References/Dmel_piRNA_clusters.fasta	piRNA_clusters
+    https://analyse-genomes.s3.eu-west-3.amazonaws.com/References/Dmel_all-transposon_merge.fasta	transposons
+    https://analyse-genomes.s3.eu-west-3.amazonaws.com/References/dmel-all-r6.18.gtf	dmel-all-r6.18.gtf
     ```
 - Click the `Build` button
 - In the `Build Rules ...` pannel that opened, click the ![](images/plus_rules.png){ width="80"}
@@ -108,10 +108,10 @@ paste the following Tabular source data:
 Or
 ??? info "from the S3 Amazon bucket"
     ```
-    https://mydeepseqbucket.s3.amazonaws.com/smRNAseq/GRH-103_R1.fastq.gz	GRH-103
-    https://mydeepseqbucket.s3.amazonaws.com/smRNAseq/GRH-104_R1.fastq.gz	GRH-104
-    https://mydeepseqbucket.s3.amazonaws.com/smRNAseq/GRH-105_R1.fastq.gz	GRH-105
-    https://mydeepseqbucket.s3.amazonaws.com/smRNAseq/GRH-106_R1.fastq.gz	GRH-106
+    https://analyse-genomes.s3.eu-west-3.amazonaws.com/smRNAseq/GRH-103_R1.fastq.gz	GRH-103
+    https://analyse-genomes.s3.eu-west-3.amazonaws.com/smRNAseq/GRH-104_R1.fastq.gz	GRH-104
+    https://analyse-genomes.s3.eu-west-3.amazonaws.com/smRNAseq/GRH-105_R1.fastq.gz	GRH-105
+    https://analyse-genomes.s3.eu-west-3.amazonaws.com/smRNAseq/GRH-106_R1.fastq.gz	GRH-106
     ```
 - Click the `Build` button
 - In the `Build Rules ...` pannel that opened, click the ![](images/plus_rules.png){ width="80"}
@@ -146,12 +146,12 @@ paste the following Tabular source data:
 Or
 ??? info "from the S3 Amazon bucket"
     ```
-    https://mydeepseqbucket.s3.amazonaws.com/RNAseq/WT1_R1.fastq.gz	WT1
-    https://mydeepseqbucket.s3.amazonaws.com/RNAseq/WT2_R1.fastq.gz	WT2
-    https://mydeepseqbucket.s3.amazonaws.com/RNAseq/WT3_R1.fastq.gz	WT3
-    https://mydeepseqbucket.s3.amazonaws.com/RNAseq/SF1_R1.fastq.gz	SF1
-    https://mydeepseqbucket.s3.amazonaws.com/RNAseq/SF2_R1.fastq.gz	SF2
-    https://mydeepseqbucket.s3.amazonaws.com/RNAseq/SF3_R1.fastq.gz	SF3
+    https://analyse-genomes.s3.eu-west-3.amazonaws.com/RNAseq/WT1_R1.fastq.gz	WT1
+    https://analyse-genomes.s3.eu-west-3.amazonaws.com/RNAseq/WT2_R1.fastq.gz	WT2
+    https://analyse-genomes.s3.eu-west-3.amazonaws.com/RNAseq/WT3_R1.fastq.gz	WT3
+    https://analyse-genomes.s3.eu-west-3.amazonaws.com/RNAseq/SF1_R1.fastq.gz	SF1
+    https://analyse-genomes.s3.eu-west-3.amazonaws.com/RNAseq/SF2_R1.fastq.gz	SF2
+    https://analyse-genomes.s3.eu-west-3.amazonaws.com/RNAseq/SF3_R1.fastq.gz	SF3
     ```
 - Click the `Build` button
 - In the `Build Rules ...` pannel that opened, click the ![](images/plus_rules.png){ width="80"}
