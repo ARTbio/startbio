@@ -70,15 +70,20 @@ sudo -i
 ```
 - download the script `run_ansible_analyse_genomes_2021.sh` using the command:
 
-??? warning "for Girls :woman:"
-    ## Only for :woman:
+??? warning "for the team :doughnut:"
+    ## Only for the team :doughnut:
     ```
     wget https://raw.githubusercontent.com/ARTbio/Run-Galaxy/master/deployment_scripts/run_ansible_analyse_genomes_2021-F.sh
     ```
-??? warning "for Boys :man:"
-    ## Only for :man:
+??? warning "for the team :ice_cream:"
+    ## Only for the team :ice_cream:
     ```
     wget https://raw.githubusercontent.com/ARTbio/Run-Galaxy/master/deployment_scripts/run_ansible_analyse_genomes_2021-M.sh
+    ```
+??? warning "for the team :candy:"
+    ## Only for the team :candy:
+    ```
+    wget https://raw.githubusercontent.com/ARTbio/Run-Galaxy/master/deployment_scripts/run_ansible_analyse_genomes_2021-IEL.sh
     ```
 
 - We are now ready to run this script. In addition, all trainees may participate to the ==Pasteur 2021
