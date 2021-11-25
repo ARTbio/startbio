@@ -1,7 +1,25 @@
 site_name: STARTbio
 site_url: https://artbio.github.io/startbio/
 repo_url: https://github.com/ARTbio/startbio
-theme: 'material'
+repo_name: ARTbio/startbio
+theme:
+  name: 'material'
+  font:
+    text: Noto Sans Display  # Confortaa, Open Sans, Shippori Antique, 
+  palette:
+    scheme: default
+    primary: black
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - header.autohide
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+#    - navigation.sections
+    - toc.integrate
+    - navigation.top
 
 nav:
   - Home: index.md
@@ -122,6 +140,7 @@ nav:
   - STARTbio Training Project: startbio_project.md
 
 markdown_extensions:
+  - meta
   - attr_list
   - codehilite:
       linenums: true
