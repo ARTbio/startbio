@@ -50,20 +50,26 @@ Delete the previously uploaded dataset, we are going to re-upload it in a batch.
 - Leave **Upload data as** `Datasets` and **Load tabular data from** `Pasted Table`
 - In the text field `Tabular source data to extract collection files and metadata from`,
 paste the following Tabular source data:
-```
-https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/B433xtdmdQqdFYd/download?path=%2F&files=dmel-all-r6.18.gtf	dmel-all-r6.18.gtf
-https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/B433xtdmdQqdFYd/download?path=%2F&files=dmel-all-miscRNA-r6.18.fasta	miscRNA
-https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/B433xtdmdQqdFYd/download?path=%2F&files=PlacW.fasta	PlacW
-https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/B433xtdmdQqdFYd/download?path=%2F&files=dmel-all-ncRNA-r6.18.fasta	ncRNA
-https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/B433xtdmdQqdFYd/download?path=%2F&files=dmel-all-miRNA-r6.18.fasta	miRNA
-https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/B433xtdmdQqdFYd/download?path=%2F&files=dmel-all-intron-r6.18.fasta	introns
-https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/B433xtdmdQqdFYd/download?path=%2F&files=dmel-all-gene-r6.18.fasta	genes
-https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/B433xtdmdQqdFYd/download?path=%2F&files=Dmel_piRNA_clusters.fasta	piRNA_clusters
-https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/B433xtdmdQqdFYd/download?path=%2F&files=Dmel_all-transposon_merge.fasta	all-transposons
-https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/B433xtdmdQqdFYd/download?path=%2F&files=dmel-all-chromosome-r6.18.fasta	dmel-all-chromosome-r6.18
-```
 
-??? info "To balance the load of the data servers, a half of the trainees may also use the S3 Amazon bucket"
+:doughnut:, :ice_cream: and :candy:
+
+??? info "Reference URLs for :candy: team"
+    ```
+    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/B433xtdmdQqdFYd/download?path=%2F&files=dmel-all-r6.18.gtf	dmel-all-r6.18.gtf
+    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/B433xtdmdQqdFYd/download?path=%2F&files=dmel-all-miscRNA-r6.18.fasta	miscRNA
+    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/B433xtdmdQqdFYd/download?path=%2F&files=PlacW.fasta	PlacW
+    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/B433xtdmdQqdFYd/download?path=%2F&files=dmel-all-ncRNA-r6.18.fasta	ncRNA
+    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/B433xtdmdQqdFYd/download?path=%2F&files=dmel-all-miRNA-r6.18.fasta	miRNA
+    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/B433xtdmdQqdFYd/download?path=%2F&files=dmel-all-intron-r6.18.fasta	introns
+    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/B433xtdmdQqdFYd/download?path=%2F&files=dmel-all-gene-r6.18.fasta	genes
+    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/B433xtdmdQqdFYd/download?path=%2F&files=Dmel_piRNA_clusters.fasta	piRNA_clusters
+    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/B433xtdmdQqdFYd/download?path=%2F&files=Dmel_all-transposon_merge.fasta	all-transposons
+    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/B433xtdmdQqdFYd/download?path=%2F&files=dmel-all-chromosome-r6.18.fasta	dmel-all-chromosome-r6.18
+    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/B433xtdmdQqdFYd/download?path=%2F&files=dmel-all-transcript-r6.18.fasta	transcripts
+    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/B433xtdmdQqdFYd/download?path=%2F&files=dmel-all-tRNA-r6.18.fasta	tRNA
+    ```
+
+??? info "Reference URLs for :ice_cream: team"
     ```
     https://analyse-genomes.s3.eu-west-3.amazonaws.com/References/PlacW.fasta	PlacW
     https://analyse-genomes.s3.eu-west-3.amazonaws.com/References/dmel-all-ncRNA-r6.18.fasta	ncRNA
@@ -75,6 +81,23 @@ https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/B433xtdmdQqdFYd/d
     https://analyse-genomes.s3.eu-west-3.amazonaws.com/References/Dmel_piRNA_clusters.fasta	piRNA_clusters
     https://analyse-genomes.s3.eu-west-3.amazonaws.com/References/Dmel_all-transposon_merge.fasta	transposons
     https://analyse-genomes.s3.eu-west-3.amazonaws.com/References/dmel-all-r6.18.gtf	dmel-all-r6.18.gtf
+    https://analyse-genomes.s3.eu-west-3.amazonaws.com/References/dmel-all-transcript-r6.18.fasta	transcripts
+    https://analyse-genomes.s3.eu-west-3.amazonaws.com/References/dmel-all-tRNA-r6.18.fasta	tRNA
+    ```
+??? info "Reference URLs for :doughnut: team"
+    ```
+    https://storage.googleapis.com/analyse-genome-coupon-1/References/PlacW.fasta	PlacW
+    https://storage.googleapis.com/analyse-genome-coupon-1/References/dmel-all-ncRNA-r6.18.fasta	ncRNA
+    https://storage.googleapis.com/analyse-genome-coupon-1/References/dmel-all-miscRNA-r6.18.fasta	miscRNA
+    https://storage.googleapis.com/analyse-genome-coupon-1/References/dmel-all-miRNA-r6.18.fasta	miRNA
+    https://storage.googleapis.com/analyse-genome-coupon-1/References/dmel-all-intron-r6.18.fasta	introns
+    https://storage.googleapis.com/analyse-genome-coupon-1/References/dmel-all-gene-r6.18.fasta	genes
+    https://storage.googleapis.com/analyse-genome-coupon-1/References/dmel-all-chromosome-r6.18.fasta	dmel-r6.18
+    https://storage.googleapis.com/analyse-genome-coupon-1/References/Dmel_piRNA_clusters.fasta	piRNA_clusters
+    https://storage.googleapis.com/analyse-genome-coupon-1/References/Dmel_all-transposon_merge.fasta	transposons
+    https://storage.googleapis.com/analyse-genome-coupon-1/References/dmel-all-r6.18.gtf	dmel-all-r6.18.gtf
+    https://storage.googleapis.com/analyse-genome-coupon-1/References/dmel-all-transcript-r6.18.fasta	transcripts
+    https://storage.googleapis.com/analyse-genome-coupon-1/References/dmel-all-tRNA-r6.18.fasta	tRNA
     ```
 - Click the `Build` button
 - In the `Build Rules ...` pannel that opened, click the ![](images/plus_rules.png){ width="80"}
@@ -98,7 +121,7 @@ Before all, create a new history by clicking the **+** icon in the history heade
 - Leave **Upload data as** `Datasets` and **Load tabular data from** `Pasted Table`
 - In the text field `Tabular source data to extract collection files and metadata from`,
 paste the following Tabular source data:
-??? info "from the Nextcloud server"
+??? info "small RNAseq datasets for :ice_cream:"
     ```
     https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/LqKb3Qmy8m9RXtk/download?path=%2F&files=GRH-103_R1.fastq.gz	GRH-103
     https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/LqKb3Qmy8m9RXtk/download?path=%2F&files=GRH-104_R1.fastq.gz	GRH-104
@@ -106,12 +129,19 @@ paste the following Tabular source data:
     https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/LqKb3Qmy8m9RXtk/download?path=%2F&files=GRH-106_R1.fastq.gz	GRH-106
     ```
 Or
-??? info "from the S3 Amazon bucket"
+??? info "small RNAseq datasets for :doughnut:"
     ```
     https://analyse-genomes.s3.eu-west-3.amazonaws.com/smRNAseq/GRH-103_R1.fastq.gz	GRH-103
     https://analyse-genomes.s3.eu-west-3.amazonaws.com/smRNAseq/GRH-104_R1.fastq.gz	GRH-104
     https://analyse-genomes.s3.eu-west-3.amazonaws.com/smRNAseq/GRH-105_R1.fastq.gz	GRH-105
     https://analyse-genomes.s3.eu-west-3.amazonaws.com/smRNAseq/GRH-106_R1.fastq.gz	GRH-106
+    ```
+??? info "small RNAseq datasets for :candy:"
+    ```
+    https://storage.googleapis.com/analyse-genome-coupon-1/smRNAseq/GRH-103_R1.fastq.gz	GRH-103
+    https://storage.googleapis.com/analyse-genome-coupon-1/smRNAseq/GRH-104_R1.fastq.gz	GRH-104
+    https://storage.googleapis.com/analyse-genome-coupon-1/smRNAseq/GRH-105_R1.fastq.gz	GRH-105
+    https://storage.googleapis.com/analyse-genome-coupon-1/smRNAseq/GRH-106_R1.fastq.gz	GRH-106
     ```
 - Click the `Build` button
 - In the `Build Rules ...` pannel that opened, click the ![](images/plus_rules.png){ width="80"}
@@ -134,7 +164,7 @@ and choose `Add/Modify Column Definitions`
 - Leave **Upload data as** `Datasets` and **Load tabular data from** `Pasted Table`
 - In the text field `Tabular source data to extract collection files and metadata from`,
 paste the following Tabular source data:
-??? info "from the Nextcloud server"
+??? info "RNAseq datasets for :candy:"
     ```
     https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/LqKb3Qmy8m9RXtk/download?path=%2F&files=WT1_R1.fastq.gz	WT1
     https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/LqKb3Qmy8m9RXtk/download?path=%2F&files=WT2_R1.fastq.gz	WT2
@@ -144,7 +174,7 @@ paste the following Tabular source data:
     https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/LqKb3Qmy8m9RXtk/download?path=%2F&files=SF3_R1.fastq.gz	SF3
     ```
 Or
-??? info "from the S3 Amazon bucket"
+??? info "RNAseq datasets for :doughnut:"
     ```
     https://analyse-genomes.s3.eu-west-3.amazonaws.com/RNAseq/WT1_R1.fastq.gz	WT1
     https://analyse-genomes.s3.eu-west-3.amazonaws.com/RNAseq/WT2_R1.fastq.gz	WT2
@@ -153,6 +183,18 @@ Or
     https://analyse-genomes.s3.eu-west-3.amazonaws.com/RNAseq/SF2_R1.fastq.gz	SF2
     https://analyse-genomes.s3.eu-west-3.amazonaws.com/RNAseq/SF3_R1.fastq.gz	SF3
     ```
+
+Or
+??? info "RNAseq datasets for :ice_cream:"
+    ```
+    https://storage.googleapis.com/analyse-genome-coupon-1/RNAseq/WT1_R1.fastq.gz	WT1
+    https://storage.googleapis.com/analyse-genome-coupon-1/RNAseq/WT2_R1.fastq.gz	WT2
+    https://storage.googleapis.com/analyse-genome-coupon-1/RNAseq/WT3_R1.fastq.gz	WT3
+    https://storage.googleapis.com/analyse-genome-coupon-1/RNAseq/SF1_R1.fastq.gz	SF1
+    https://storage.googleapis.com/analyse-genome-coupon-1/RNAseq/SF2_R1.fastq.gz	SF2
+    https://storage.googleapis.com/analyse-genome-coupon-1/RNAseq/SF3_R1.fastq.gz	SF3
+    ```
+
 - Click the `Build` button
 - In the `Build Rules ...` pannel that opened, click the ![](images/plus_rules.png){ width="80"}
 and choose `Add/Modify Column Definitions`
