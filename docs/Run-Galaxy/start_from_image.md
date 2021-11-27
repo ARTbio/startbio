@@ -14,14 +14,14 @@ was required to obtain you Google coupon).
 Remember: to see the VM `Image` which will be used here to deploy a Galaxy server, ==send
 me, or provide me by any mean (Slack, GitHub, etc.), your Gmail adress identifier==.
 
-# Starting a new VM instance from the image `analyse-genome-v2`
+# Starting a new VM instance from the image `analyse-genomes-v3`
 
 ## 1. open the form for creating an instance
 This will be mostly done as in [this section](../GalaxyKickStart/#deployment) which we
 are reproducing bellow, except that for the `Disque de démarrage` (`Boot disk`), we are
 not going to choose `IMAGES PUBLIQUES`/`PUBLIC IMAGES` :
 
-!!! info "Google Instance from the **Image** `analyse-genome-v2`"
+!!! info "Google Instance from the **Image** `analyse-genomes-v3`"
     - Name: `ansible-galaxy`
     - Region `europe-west6 (Zurich)` (or any region available with you Google coupon)
     - Zone: `europe-west6-a` (or `-b` or `-c`)
@@ -37,7 +37,7 @@ not going to choose `IMAGES PUBLIQUES`/`PUBLIC IMAGES` :
           address identifier of your project, and if he did not forget to record it :innocent:
         - Select `Analyse Genome coupon 1`
         - Now if you drop-down the menu `Image *`, you should immediately be able to select
-          `analyse-genome-v2 (Created on 24 Nov 2021, 00:23:00)` (or another version if I
+          `analyse-genome-v3 (Created on nov. 28, 2021, 12:08:27)` (or another version if I
           upgraded the image)
         - Automatically, the boot disk type should be `Balanced persistent disk` and the
           Size (GB) should be `200`. Leave it that way.
