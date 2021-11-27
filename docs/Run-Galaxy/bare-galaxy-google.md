@@ -178,7 +178,7 @@ So let's do this, step by step:
     ```
     2. Download the cached web client folders
     ```
-    cd ~/galaxy && wget https://analyse-genomes.s3.eu-west-3.amazonaws.com/bare.client.tar.gz https://analyse-genomes.s3.eu-west-3.amazonaws.com/bare.static.tar.gz
+    cd ~/galaxy && wget https://storage.googleapis.com/analyse-genome-coupon-1/bare.client.tar.gz https://storage.googleapis.com/analyse-genome-coupon-1/bare.static.tar.gz
     ```
     3. Uncompress the cached client folders
     ```
