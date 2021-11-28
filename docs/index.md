@@ -1,3 +1,9 @@
+---
+hide:
+  - navigation
+  - toc
+---
+
 ![startbio_logo](images/startbio.png)
 
 ------

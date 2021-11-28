@@ -1,17 +1,15 @@
-## Installation of a Galaxy server with Ansible and the GalaxyKickStart playbook
-
-### What is Ansible ?
+## Ansible
 
 ![Ansible](images/ansible.png)
 
-Ansible is an automation engine that automates configuration management and application
-deployment.
+[Ansible](https://docs.ansible.com/ansible/latest/) is an automation system that automates
+configuration management and application deployment.
 
-Ansible reads instructions (Tasks) from a playbook and performs the indicated tasks on
-target machines (Hosts), through an ssh connection.
+Ansible reads instructions (tasks) from a ==playbook== and performs the indicated ==tasks== on
+target machines (referred to as ==Hosts==), through an ssh connection.
 
-There is no magics: everything an "administrator" can do using command lines of a linux OS,
-can be automated with ansible that "wraps" these command lines.
+Basically, everything an "administrator" can do using command lines with linux OS (or Mac OS),
+can be automated with ansible commands that "wraps" these command lines.
 The power of Ansible (and similar orchestration software, ie Puppet, Chief, etc.) comes
 from the abstraction of complex suite of commands in the Ansible syntax.
 Moreover, automation allows to reproduce exactly the desired configuration.
@@ -78,17 +76,20 @@ sudo -i
 - Get the deployment script on your VM using the command:
 
 ??? warning "for the team :doughnut:"
-    ## Only for the team :doughnut:
+    
+    **Only for the team :doughnut:**
     ```
     wget https://raw.githubusercontent.com/ARTbio/Run-Galaxy/master/deployment_scripts/run_ansible_analyse_genomes_2021-F.sh
     ```
 ??? warning "for the team :ice_cream:"
-    ## Only for the team :ice_cream:
+    
+    **Only for the team :ice_cream:**
     ```
     wget https://raw.githubusercontent.com/ARTbio/Run-Galaxy/master/deployment_scripts/run_ansible_analyse_genomes_2021-M.sh
     ```
 ??? warning "for the team :candy:"
-    ## Only for the team :candy:
+    
+    **Only for the team :candy:**
     ```
     wget https://raw.githubusercontent.com/ARTbio/Run-Galaxy/master/deployment_scripts/run_ansible_analyse_genomes_2021-IEL.sh
     ```
