@@ -1,13 +1,14 @@
-The last thing we can do for the incoming analyses is to prepare an index of your
-drosophila genome, which will be available Galaxy-wide.
+The last thing we can do for the incoming analyses is to prepare several indexes of your
+Drosophila genome, which will be available Galaxy-wide.
 
-Each alignment program uses its own, specific index, to speed up the alignment tasks. Thus,
-if you plan for instance to align reads using bowtie and bowtie2, you should prepare a bowtie
-genome index and a bowtie2 genome index.
+Alignment programs and a number of tools use their own, specific index, to speed up their
+tasks. Thus, since you will align later reads using bowtie, you should prepare a bowtie
+genome index. Likewise, you will need to make a conversion of SAM to BAM format using a
+samtools tool. You also need to prepare a fasta index (.fai) of your genome for this tool.
 
-In Galaxy, in addition, these indexations are preceded by a "fetch and dbkey" task, whose
-purpose is to implement the Galaxy database and inform it of the existence of this genome and
-of possible derived indexes.
+In Galaxy, these indexing tasks are preceeded by a "fetch and dbkey" task, whose
+purpose is to implement the Galaxy database and inform it of the existence of this genome
+and of possible derived indexes.
 
 <center>![](images/galaxy_indexing.svg){ width="600" }</center>
 
@@ -116,7 +117,7 @@ you can now click on the Tool Data Tables `__dbkeys__ ` and `all_fasta` and see 
 Galaxy database now contains informations in these tables about the dmel-r6.18 reference
 genome.
 
-## 2. :wrench: Index `dmel-r6.18` for Bowtie and Bowtie2.
+## 2. :wrench: Index `dmel-r6.18` for **Bowtie**.
 
 Now that dmel-r6.18 is an "official" Galaxy genome, it is easy to prepare corresponding
 indexes for the aligner Bowtie.
@@ -134,6 +135,24 @@ indexes for the aligner Bowtie.
 that the job is ongoing to create the bowtie index.
 
 It will take several minutes.
+
+## 3. :wrench: Index `dmel-r6.18` for the **sam-to-bam** tool.
+
+This tool required a simple index of the fasta Drosophila genome. This index will be generated
+by the tool **SAM FASTA index _builder_**
+
+- Go back to the local data manager board
+- Click on the data manager **SAM FASTA index _builder_**
+
+!!! note "Fill the form of :wrench: **SAM FASTA index _builder_**"
+    - **Source FASTA Sequence**: `dmel-r6.18` (no other choice !)
+    - **Name of Sequence**: _Leave this field empty_
+    - **ID for sequence**: _Leave this field empty_
+    - **Click :heavy_check_mark:`Execute`**
+
+--> A new dataset `SAM FASTA index` is created and the orange color and running wheel indicate
+that the job is ongoing to create the index. In contrast to the bowtie index, this one
+should be created very rapidly (a few secondes)
 
 **==Your Cloud Galaxy is now ready for analyses with the other trainers==**
 
@@ -166,9 +185,13 @@ is not so nasty actually...)
 - Click on the **name** of your VM.
 - Click on the top menu :pencil2:`Modifier`
 - Deploy the menu **Interfaces réseau**, by clicking on the small :pencil2:pencil
+
   ![](images/interface_reseau.png){width="300"}
+  
 - In the menu **`Adresse IP externe`**, select `Créer une adresse IP`
+
   ![](images/deployed_interface_reseau.png){width="400"}
+  
 - In the floating window `Réserver une nouvelle adresse IP statique`, give a name to the
   adresse, and click `Réserver`
   
