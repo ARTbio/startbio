@@ -24,22 +24,22 @@ https://storage.googleapis.com/analyse-genome-coupon-1/%20Test-History-sampleRNA
 
 Wait for a dozen of secondes
 
-Go to the `your histories` link.
+### 2. Go to the `your histories` link.
 
 There, you will see a new history named `imported from archive: sample_RNAseq`.
 
-Go to that history
+### 3. Go to that history `imported from archive: sample_RNAseq`
 
-from the menu `Copy Datasets`, copy the `dmel-all-r6.18.gtf` from your history `References`
+### 4. from the menu `Copy Datasets`, copy the `dmel-all-r6.18.gtf` from your history `References`
 or whatever you named it).
 
-Go to the menu ++"Workflows"++ of Galaxy. Here, you will notice a workflow `Analyse RNAseq`
+### 5. Go to the menu ++"Workflows"++ of Galaxy. Here, you will notice a workflow `Analyse RNAseq`
 that the Ansible playbook `GalaxyKickStart` has preloaded for you !
 
 At the right side of this workflow name, there is an arrow to trigger the workflow execution.
 Trigger it !
 
-In the workflow form,
+### 6. In the workflow form,
 
 !!! note "Fill the form of :wrench: **Workflow: Analyse RNAseq**"
     - **Send results to a new history**: `Yes`
@@ -50,8 +50,10 @@ In the workflow form,
       from the reference history)
     - **Click the ++"Run Workflow"++ button**
     
-The workflow you take few minutes to run. You can follow the operation in the new history
+### 7. The workflow you take few minutes to run. You can follow the operation in the new history
 which was created.
+
+### 8. Test Results
 
 If all dataset are green at the end of the workflow run: The test is ok.
 If the workflow stops with some red datasets, look carefully at the error and bug icons of
