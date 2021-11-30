@@ -14,14 +14,14 @@ was required to obtain you Google coupon).
 Remember: to see the VM `Image` which will be used here to deploy a Galaxy server, ==send
 me, or provide me by any mean (Slack, GitHub, etc.), your Gmail adress identifier==.
 
-# Starting a new VM instance from the image `analyse-genomes-v3`
+# Starting a new VM instance from the image `analyse-genomes-v6`
 
 ## 1. open the form for creating an instance
 This will be mostly done as in [this section](../GalaxyKickStart/#deployment) which we
 are reproducing bellow, except that for the `Disque de démarrage` (`Boot disk`), we are
 not going to choose `IMAGES PUBLIQUES`/`PUBLIC IMAGES` :
 
-!!! info "Google Instance from the **Image** `analyse-genomes-v3`"
+!!! info "Google Instance from the **Image** `analyse-genomes-v6`"
     - Name: `ansible-galaxy`
     - Region `europe-west6 (Zurich)` (or any region available with you Google coupon)
     - Zone: `europe-west6-a` (or `-b` or `-c`)

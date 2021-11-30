@@ -38,6 +38,7 @@ nav:
         - INSTALL GALAXY WITH ANSIBLE: Run-Galaxy/GalaxyKickStart.md
         - LOAD INPUT DATA: Run-Galaxy/Loading_data_in_galaxy.md
         - PREPARE A REFERENCE GENOME: Run-Galaxy/Preparing_reference.md
+        - TEST YOUR GALAXY INSTANCE: Run-Galaxy/test_instance.md
         - IN CASE OF EMERGENCY: Run-Galaxy/start_from_image.md
         - ADMIN TOOL KIT: Run-Galaxy/admin_kit.md
         - "Appendix 1: Getting a Google Cloud Engine Account": Run-Galaxy/Google_cloud_Account.md
