@@ -270,7 +270,7 @@ datatype will therefore become `fastqsanger`.
         get**:
         ```
         @name: Hamlet
-        @datatype: english
+        @datatype: french
         @content:
         Être ou ne pas être, telle est la question
         ```
