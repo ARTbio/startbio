@@ -57,7 +57,7 @@ commande suivante dans votre programme client ssh, en entrant le mot de passe qu
 été communiqué par mail. (Vous devrez validez avant l'authentification de l'empreinte de ce
 serveur en entrant "yes" quand cela vous sera demandé).
 
-!!! tip "vous pouvez copier le contenu d'un champ de code, tout au long de ce document, en cliquant sur l'icone en haut à droite du champ"
+??? tip "vous pouvez copier le contenu d'un champ de code, tout au long de ce document, en cliquant sur l'icone en haut à droite du champ"
     ![](images/copy-paste.png)
     
 
