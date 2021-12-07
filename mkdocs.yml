@@ -132,6 +132,8 @@ nav:
         - ChIP-seq library: deepseq/chipseq_lib.md
         - Deep Sequencing Applications: deepseq/deepseq_applications.md
         - "Analysis Flowchart:": deepseq/flowchart.md
+        - Various aspects of sequence data mining: deepseq/mining.md
+        - Pratical Part 1
         
     -  Starters to single-cell RNAseq analysis: scRNAseq_tutorials.md
 
