@@ -5,6 +5,6 @@ hide:
 ---
 
 <center>
-![](images/Illumina_sequencing.png)
+![](images/pacbio.png)
 </center>
 

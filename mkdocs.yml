@@ -124,6 +124,8 @@ nav:
         - INTRODUCTION: deepseq/index.md
         - PRÉREQUIS TECHNIQUES: deepseq/prerequis.md
         - Illumina sequencing: deepseq/illumina.md
+        - Pacific Biosciences SMRT sequencing: deepseq/pacbio.md
+        - Nanopore Oxford Tech. sequencing: deepseq/nanopore.md 
     -  Starters to single-cell RNAseq analysis: scRNAseq_tutorials.md
 
   - Code Snippets:
