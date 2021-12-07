@@ -21,7 +21,7 @@ presentation.
 ## Presentation Plan
 
 1. [Technical requirements](prerequis.md)
-- Sequencing Technologies
+- [Sequencing Technologies](illumina.md)
 - DNA libraries
 - Applications
 - A framework for sequencing projects
