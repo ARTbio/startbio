@@ -19,7 +19,7 @@ presentation.
     
     :warning: **[there are technical requirements](prerequis.md)** to follow this training
     
-    for those who would like to extend this course with a manual dedicated to Shell Unix,
+    For those who would like to extend this course with a manual dedicated to Shell Unix,
     there are [the lessons of Software Carpentry](https://swcarpentry.github.io/shell-novice/)
 
 ## Presentation Plan
