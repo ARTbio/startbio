@@ -133,7 +133,7 @@ nav:
         - Deep Sequencing Applications: deepseq/deepseq_applications.md
         - "Analysis Flowchart:": deepseq/flowchart.md
         - Various aspects of sequence data mining: deepseq/mining.md
-        - Pratical Part 1
+        - "Pratical part: Command lines": deepseq/command_lines.md
         
     -  Starters to single-cell RNAseq analysis: scRNAseq_tutorials.md
 
