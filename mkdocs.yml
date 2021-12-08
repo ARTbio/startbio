@@ -134,6 +134,8 @@ nav:
         - "Analysis Flowchart:": deepseq/flowchart.md
         - Various aspects of sequence data mining: deepseq/mining.md
         - "Pratical part: Command lines": deepseq/command_lines.md
+        - Align reads with bowtie: deepseq/bowtie.md
+        - To be continued... with Galaxy: deepseq/galaxy.md
         
     -  Starters to single-cell RNAseq analysis: scRNAseq_tutorials.md
 

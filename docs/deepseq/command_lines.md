@@ -229,4 +229,102 @@ the lines that contain the string pattern `CTGTAGG`
 
 Check it out !
 
+### We need a negative control
+
+The implicit hypothesis in the previous computing was that the number of reads with 7-nucleotide string
+of the adapter sequence is closely reflecting the number of reads with the "real" adapter.
+
+This seems reasonable since le probability to find by chance this 7-nucleotide string in
+a read that _does not_ contain the adapter is approx. 1/ 4^7 = 6.103516e-05.
+
+However, it is preferable to experiment a negative control.
+
+To find the number of sequences containing the "random" 7-nucleotide sequence `ATCTCGT`, type:
+
+```
+grep -c "ATCTCGT" GKG-13.fastq
+```
+
+If everything goes well, you should find `308`.
+
+You see that 308 divided by 6425957 total reads in the fastq file is 4.79306e-05, which goes
+pretty well with our a priori assertion.
+
+### conclusion on the counting
+
+We found 6 355 061 out of 6 425 957 with the adapter sequence, which corresponds to 98.8 %
+sequences with adapters. The library seems to be OK.
+
+## 6. Advanced combinations of bash commands.
+
+In a first example we are going to compute the number of reads that :
+
+- are 22 nucleotides long
+- _and_ contain a 3' flanking adapter sequence `CTGTAGG`.
+
+To do so, type:
+```
+cat GKG-13.fastq | perl -ne 'print if /^[ATGCN]{22}CTGTAGG/' | wc -l
+```
+
+You should obtain **1 675 469** as a result.
+
+??? question "Why did we choose **22** in the previous example ?"
+    22 nt is the major length of miRNAs...
+
+And now, a figure to explain the complex above command:
+
+![](images/pipe_command_1.png){ width="800"}
+
+### Toward adapter soft clipping
+Before moving on in the analysis, we will have to remove the adapter sequences from the
+read sequences. Let's first execute this command:
+
+```
+cat GKG-13.fastq | perl -ne 'if (/^(.+CTGTAGG)/) {print "$1\n"}' | more
+```
+??? question "What is showing the output of this command ?"
+    The read sequences containing the adapter (in first approximation)
+
+And now, in a single command, let's generate a file, in fasta format, with the sequences
+which did contain the adapter sequence **but** whose this sequence was **removed** from
+the reads:
+
+```
+cat GKG-13.fastq | perl -ne \
+'if (/^([GATC]{18,})CTGTAGG/){$count++; print ">$count\n"; print "$1\n"}' \
+> clipped_GKG13.fasta
+```
+
+??? question "What is the character ++"\"++ in the command "block" ?"
+    It is a continuation mark: The shell is waiting for the command to be continued on the
+    next line.
+    If you don't get it, try to type and ++return++ the command:
+    ```
+    cat GKG-13.fastq | perl -ne \
+    ```
+    ... and if you are stuck, try ++ctrl+"C"++ ;-)
+
+To observe to result of the previous command, type and ++return++:
+```
+ll
+```
+
+??? question "What are you going to use as a command to look at the generated clipped_GKG13.fasta file ?"
+    Something like:
+    ```
+    cat clipped_GKG13.fasta | more
+    ```
+    or simply:
+    ```
+    less clipped_GKG13.fasta
+    ```
+    and type ++q++ to exit from the read mode !
+
+
+
+
+
+
+
 
