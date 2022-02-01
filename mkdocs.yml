@@ -118,7 +118,25 @@ nav:
         - Edit files metadata: TARGET_download/metadata_manipulation.md
         - import files in Galaxy using the edited files metadata: TARGET_download/galaxy_import.md
 
-  - Tutorials:
+  - Courses and Tutorials:
+
+    -  Introduction to Deep-seq Analysis:
+        - INTRODUCTION: deepseq/index.md
+        - PRÉREQUIS TECHNIQUES: deepseq/prerequis.md
+        - Illumina sequencing: deepseq/illumina.md
+        - Pacific Biosciences SMRT: deepseq/pacbio.md
+        - Oxford Nanopore MinION: deepseq/nanopore.md
+        - Sequencing facts: deepseq/seq_parameters.md
+        - Small RNA library: deepseq/smRNA_lib_prep.md
+        - RNA library: deepseq/RNA_lib_prep.md
+        - ChIP-seq library: deepseq/chipseq_lib.md
+        - Deep Sequencing Applications: deepseq/deepseq_applications.md
+        - "Analysis Flowchart:": deepseq/flowchart.md
+        - Various aspects of sequence data mining: deepseq/mining.md
+        - "Pratical part: Command lines": deepseq/command_lines.md
+        - Align reads with bowtie: deepseq/bowtie.md
+        - To be continued... with Galaxy: deepseq/galaxy.md
+        
     -  Starters to single-cell RNAseq analysis: scRNAseq_tutorials.md
 
   - Code Snippets:
@@ -168,6 +186,7 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
+  - def_list
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
