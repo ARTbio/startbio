@@ -23,7 +23,7 @@ def my_decorator(func):
  return wrapper
  ```
 
-This decorator simply prints some text before and after the function that it takes as an argument is called. Now, let’s see how we can use this decorator.
+This decorator simply prints some text before and after the function that it takes as an argument is called. Now, let's see how we can use this decorator.
 
 ```python
 @my_decorator
@@ -43,7 +43,7 @@ As you can see, we simply added the decorator @my_decorator before the definitio
 
 This is all that is needed to apply the decorator. When we call the print_hello() function, the code inside the wrapper function in the decorator is executed before and after the print_hello() function is called.
 
-Decorators can also take arguments. For example, let’s say we want a decorator that prints the time before and after the function it is decorating is called. We can do this as follows:
+Decorators can also take arguments. For example, let's say we want a decorator that prints the time before and after the function it is decorating is called. We can do this as follows:
 
 ```python
 import time
