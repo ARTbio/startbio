@@ -17,9 +17,9 @@ Here is a simple example of a decorator:
 ```python
 def my_decorator(func):
   def wrapper():
-    print(“Before the function is called.”)
+    print('Before the function is called.')
     func()
- print(“After the function is called.”)
+ print('After the function is called.')
  return wrapper
  ```
 
@@ -28,9 +28,10 @@ This decorator simply prints some text before and after the function that it tak
 ```python
 @my_decorator
 def print_hello():
- print(“Hello, world!”)
+ print('Hello, world!')
 print_hello()
 ```
+
 **Output:**
 
 ```
@@ -51,13 +52,13 @@ def timed(func):
  start = time.time()
  result = func(*args, **kwargs)
  end = time.time()
- print(“The function took {} seconds to complete.”.format(end — start))
+ print('The function took {} seconds to complete.'.format(end — start))
  return result
  return wrapper
 @timed
 def print_hello():
  time.sleep(1)
- print(“Hello, world!”)
+ print('Hello, world!')
 print_hello()
 ```
 
