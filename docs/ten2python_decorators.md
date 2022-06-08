@@ -22,8 +22,8 @@ def my_decorator(func):
     func()
  print('After the function is called.')
  return wrapper
- 
- ```
+
+```
 
 This decorator simply prints some text before and after the function that it takes as an argument is called. Now, let's see how we can use this decorator.
 
