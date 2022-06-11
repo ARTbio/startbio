@@ -120,3 +120,35 @@ Alain Saamego: Software engineer, writer and content strategist at SelfGrow.co.u
 
 Email:alain@selfgrow.co.uk
 
+---
+
+### Multiple Decorators to a Single Function
+When using Multiple Decorators to a single function, the decorators will be applied in the order they've been called.
+
+Code:
+
+```python
+def lowercase_decorator(function):
+    def wrapper():
+        func = function()
+        make_lowercase = func.lower()
+        return make_lowercase
+return wrapper
+def split_string(function):
+    def wrapper():
+        func = function()
+        split_string = func.split()
+        return split_string
+return wrapper
+@split_string
+@lowercase_decorator
+def test_func():
+    return 'MOTHER OF DRAGONS'
+test_func()
+```
+Output:
+```
+['mother', 'of', 'dragons']
+```
+You can also pass the arguments to the wrapper function.
+

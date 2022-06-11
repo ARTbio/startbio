@@ -1,4 +1,4 @@
-#### Credit: this tutorial is extracted from [Regex tutorial — A quick cheatsheet by examples](https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285)
+**Credit: this tutorial is extracted from [Regex tutorial — A quick cheatsheet by examples](https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285)**
 
 Regular expressions (regex or regexp) are extremely useful in **extracting information from any text** by searching for one or more matches of a specific search pattern (i.e. a specific sequence of ASCII or unicode characters).
 
@@ -7,10 +7,6 @@ Fields of application range from validation to parsing/replacing strings, passin
 One of the most interesting features is that once you’ve learned the syntax, you can actually use this tool in (almost) all programming languages ​​(JavaScript, Java, VB, C #, C / C++, Python, Perl, Ruby, Delphi, R, Tcl, and many others) with the slightest distinctions about the support of the most advanced features and syntax versions supported by the engines).
 
 Let’s start by looking at some examples and explanations.
-
-
-## Basic topics
-
 
 ### Anchors — ^ and $
 
@@ -42,10 +38,7 @@ Let’s start by looking at some examples and explanations.
   </tr>
 </table>
 
-
-
 ### Quantifiers — * + ? and {}
-
 
 <table>
   <tr>
@@ -98,10 +91,7 @@ Let’s start by looking at some examples and explanations.
   </tr>
 </table>
 
-
-
 ### OR operator — | or [ ]
-
 
 <table>
   <tr>
@@ -117,8 +107,6 @@ Let’s start by looking at some examples and explanations.
    </td>
   </tr>
 </table>
-
-
 
 ### ` `Character classes — \d \w \s and .
 
@@ -210,13 +198,7 @@ A regex usually comes within this form **<code>/abc/</code></strong>, where the 
 
 ---
 
-
-
-## Intermediate topics
-
-
 ### Grouping and capturing — ()
-
 
 <table>
   <tr>
@@ -244,9 +226,7 @@ This operator is very useful when we need to extract information from strings or
 
 If we choose to put a name to the groups (using <code>(<strong>?<foo></strong>...)</code>) we will be able to retrieve the group values using the match result like a dictionary where the keys will be the name of each group.
 
-
 ### Bracket expressions — [ ]
-
 
 <table>
   <tr>
@@ -303,9 +283,6 @@ Notice that a better solution should avoid the usage of `.` in favor of a more s
 
 ---
 
-
-
-## Advanced topics
 
 
 ### Boundaries — \b and \B
