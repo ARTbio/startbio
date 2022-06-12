@@ -26,8 +26,8 @@ nav:
   - Home: index.md
 
   - 1Omin2:
-    - Grep and Regex (1): ten2Regex_01.md
-    - Python Decorators: ten2python_decorators.md
+    - Grep and Regex (1): ten2/Regex_01.md
+    - Python Decorators: ten2/python_decorators.md
 
   - Galaxy Trainings:
 
