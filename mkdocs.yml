@@ -152,8 +152,8 @@ nav:
             - Presentation: scRNAseq_basics/marker_annot.md
             - Over-representation analysis: scRNAseq_basics/over.md
             - Gene Set Enrichment Analysis: scRNAseq_basics/gsea.md
-            - Cluster annotation: scRNAseq_basics/clusannot.md
-            - Comparison between 2 populations: scRNAseq_basics/comp.md
+          - Cluster annotation: scRNAseq_basics/clusannot.md
+          - Comparison between 2 populations: scRNAseq_basics/comp.md
         - Differents visualizations of Seurat: scRNAseq_basics/visualization.md
         - References: scRNAseq_basics/references.md
 
