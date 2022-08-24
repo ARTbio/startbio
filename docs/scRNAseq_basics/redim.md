@@ -17,7 +17,7 @@ provide it with a vector of variables to regress (most often we give
 it the names of the columns in the `meta.data` slot of the variables
 we want to regress).
 
-$scaled.data(x) = \\frac{x - mean(x)}{ standard.deviation(x)}$
+$$\scaled.data(x) = \\frac{x - mean(x)}{ standard.deviation(x)}$$
 
 ``` r
 pbmc_small <- ScaleData(pbmc_small)
@@ -104,14 +104,14 @@ of the most variable genes (default proportion, parameter `prop.freq`).
 `JackStraw` will mix the values of the slot `object@assays$RNA@scale.data`
 filter on these genes and then perform a PCA on this fake matrix.
 From these results and for each PC, it calculates the number of times the
-values of the fake loadings ($fakevals$) is greater than each value of the
-observed loading ($trueval$), such as :
+values of the fake loadings ($\fakevals$) is greater than each value of the
+observed loading ($\trueval$), such as :
 
-$Empirical.pval = \\frac{sum(fakevals > trueval)}{length(fakevals)}$
+$$\Empirical.pval = \\frac{sum(fakevals > trueval)}{length(fakevals)}$$
 
 The `ScoreJackStraw` function uses the reduced variance test also called
-$Z$ test (R function `prop.test`). It allows to test for each PC if the
-probability that $Empirical.pval$ is greater than the threshold (parameter
+$\Z$ test (R function `prop.test`). It allows to test for each PC if the
+probability that $\Empirical.pval$ is greater than the threshold (parameter
 `score.thresh`) is different from the expected proportion under a uniform
 distribution of p-values.
 
@@ -135,7 +135,7 @@ it's an S4 object of class `JackStrawData` with different informations :
 - `fake.reduction.scores` : dataframe of the loadings resulting from the
   PCA on the permuted data (2000 "genes" x 50 PCs)
 - `empirical.p.values.full` : logic `NA`.
-- `overall.p.values` : results of the p-values of the $Z$ test computed
+- `overall.p.values` : results of the p-values of the $\Z$ test computed
   by the `ScoreJackStraw` function, one value per PC
 
 ``` r

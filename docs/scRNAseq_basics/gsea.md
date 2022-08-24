@@ -5,9 +5,9 @@ based on *ranking* the genes. In order to take into account both the
 direction of the deregulation and its significance we order the genes
 according to : 
 
-$x = sign(avg.log2FC) * -log10(pval)$
+$$\x = sign(avg.log2FC) * -log10(pval)$$
 
-Knowing that the `sign` function in $R$ returns the sign of the average 
+Knowing that the `sign` function in $\R$ returns the sign of the average 
 log2(FC). That is, when the genes are under expressed the value returned 
 by the function is `-1`, `+1` when the FC is positive and `0` when the gene 
 is not deregulated. 
@@ -16,7 +16,7 @@ Taking into account the significance of the deregulation sometimes leads
 to complications. Indeed, it happens that the function `FindAllMarkers` 
 returns p-values so low that they become zero, which produces `Inf` values 
 that cannot be processed by GSEA. To overcome this problem and only for 
-this case, we replace $-log10(pval)$ by $-log10(1e-323)$ because `1e-323` 
+this case, we replace $\-log10(pval)$ by $\-log10(1e-323)$ because `1e-323` 
 would be the smallest value that could be represented by a computer.
 
 ``` r
@@ -48,7 +48,7 @@ following columns:
 - `EnrichmentScore` (ES): Enrichment score representing the degree of 
   presence of the gene set in the ordered list of genes
 - `NES` (Normalized Enrichment Score) : Normalized Enrichment Score such that :
-  $NES = `frac{actual ES}{mean(ESs Against All Permutations Of The Dataset)}$
+  $\NES = `frac{actual ES}{mean(ESs Against All Permutations Of The Dataset)}$
 - `p-value` : p-value of the enrichment test
 - `p.adjust` : adjusted p-value of the Benjamini Hochberg test
 - `qvalue` : q-value after FDR (False Discovery Rate) control
@@ -59,7 +59,7 @@ following columns:
     - `List` : Percentage of genes before or after the ES peak that are 
       positive or negative
     - `Signal` : Strength of the enrichment signal calculated:
-      $(Tag)(1 - List)(\displaystyle \frac{N}{N - Nh})$
+      $\(Tag)(1 - List)(\displaystyle \frac{N}{N - Nh})$
 - `cluster` : Name of the cluster for which the gene set has been 
   identified as significant
 

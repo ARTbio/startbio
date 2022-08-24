@@ -223,10 +223,10 @@ as enriched with the following columns :
 - `ID` : Unique identifier of the KEGG category
 - `Description` : Description of the KEGG category
 - `GeneRatio` : Fraction representing the number of marker genes present in 
-  the KEGG category $GeneRatio = {frac{nbrMarkerGeneInKEGGcat}{nbrMarkerGene}$
+  the KEGG category $\GeneRatio = {frac{nbrMarkerGeneInKEGGcat}{nbrMarkerGene}$
 - `BgRatio` : Fraction representing the number of genes of the reference 
   present in the KEGG category 
-  $BgRatio = \frac{nbrTotalGeneInKEGGcat}{nbrTotalGene}$
+  $\BgRatio = \frac{nbrTotalGeneInKEGGcat}{nbrTotalGene}$
 - `pvalue` : p-value of the enrichment test
 - `p.adjust` : adjusted p-value of the Benjamini Hochberg test
 - `qvalue` : q-value after FDR (False Discovery Rate) check
