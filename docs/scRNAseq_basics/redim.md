@@ -1,4 +1,4 @@
-# Dimension reduction
+# Reduction of dimensionality
 
 In order to identify groups of cells, we need to further reduce the
 dimensional space in which the cells evolve. There are different methods

@@ -239,6 +239,6 @@ The function `FindVariableFeatures` updates two slots:
     - `vst.variance` : expression variance
     - `vst.variance.expected` : expected variance
     - `vst.variance.standardized` : standardized variance
-    - `vst.variable` : logic, is the gene a variable gene TRUE / FALSE
+    - `vst.variable` : logical, is the gene a variable gene TRUE / FALSE
 
 > Tips : We can directly access to HGV via : `VariableFeatures(pbmc_small)`
