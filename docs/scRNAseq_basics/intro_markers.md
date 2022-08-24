@@ -36,7 +36,7 @@ FeaturePlot(pbmc_small,                     #SeuratObject
           "ENSG00000156738")
 ```
 
-<img src="./images/visualMarkers-1.png" style="display: block; margin: auto;" />
+<img src="../images/visualMarkers-1.png" style="display: block; margin: auto;" />
 
 ``` r
 VlnPlot(pbmc_small,                         #SeuratObject
@@ -45,7 +45,7 @@ VlnPlot(pbmc_small,                         #SeuratObject
           "ENSG00000156738")
 ```
 
-<img src="./images/visualMarkers-2.png" style="display: block; margin: auto;" />
+<img src="../images/visualMarkers-2.png" style="display: block; margin: auto;" />
 
 With these results we can consider cluster 3 as being composed of B cells.
 

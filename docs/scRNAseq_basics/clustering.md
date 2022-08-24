@@ -76,7 +76,7 @@ clustree(pbmc_small,               #SeuratObject
          prefix = "RNA_snn_res.")  #Prefix that retrieve all resolution to analyse in cell metadata slot
 ```
 
-<img src="./images/Clustree-1.png" style="display: block; margin: auto;" />
+<img src="../images/Clustree-1.png" style="display: block; margin: auto;" />
 
 Each point corresponds to a cluster whose size represents the number of
 cells that compose it and the color, the resolution of the clustering.
@@ -129,4 +129,4 @@ UMAPPlot(pbmc_small,          #SeuratObject
          label.size = 4)      #Change label size
 ```
 
-<img src="./images/SetIdents-1.png" style="display: block; margin: auto;" />
+<img src="../images/SetIdents-1.png" style="display: block; margin: auto;" />

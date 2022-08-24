@@ -53,7 +53,7 @@ VlnPlot(object = pbmc_small,
         pt.size = 0.01)                                             #Point size
 ```
 
-<img src="./images/MitoGenes-1.png" style="display: block; margin: auto;" />
+<img src="../images/MitoGenes-1.png" style="display: block; margin: auto;" />
 
 ``` r
 ## Graphical representation of QC
@@ -73,7 +73,7 @@ ggplot(pbmc_small@meta.data,
   labs(y = "Number of UMI per cell", x = "Number of detected genes by cell")
 ```
 
-<img src="./images/MitoGenes-2.png" style="display: block; margin: auto;" />
+<img src="../images/MitoGenes-2.png" style="display: block; margin: auto;" />
 
 Thanks to these quality control plots we can try to differentiate the good
 quality cells from the others. To do this, we look at the different
@@ -96,7 +96,7 @@ abline(v = 650, col = "red")
 abline(v = 10000, col = "red")
 ```
 
-<img src="./images/histQC-1.png" style="display: block; margin: auto;" />
+<img src="../images/histQC-1.png" style="display: block; margin: auto;" />
 
 ``` r
 hist(pbmc_small$nFeature_RNA,
@@ -107,7 +107,7 @@ abline(v = 300, col = "red")
 abline(v = 2300, col = "red")
 ```
 
-<img src="./images/histQC-2.png" style="display: block; margin: auto;" />
+<img src="../images/histQC-2.png" style="display: block; margin: auto;" />
 
 ### Filtering thresholds
 
@@ -152,7 +152,7 @@ ggplot(pbmc_small@meta.data,
   labs(y = "Number of UMI per cell", x = "Number of detected genes by cell")
 ```
 
-<img src="./images/QCFilter-1.png" style="display: block; margin: auto;" />
+<img src="../images/QCFilter-1.png" style="display: block; margin: auto;" />
 
 ``` r
 ## Update object in R console
@@ -227,7 +227,7 @@ pbmc_small
 VariableFeaturePlot(pbmc_small)
 ```
 
-<img src="./images/VariableFeature-1.png" style="display: block; margin: auto;" />
+<img src="../images/VariableFeature-1.png" style="display: block; margin: auto;" />
 
 The function `FindVariableFeatures` updates two slots:
 

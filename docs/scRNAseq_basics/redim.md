@@ -17,7 +17,9 @@ provide it with a vector of variables to regress (most often we give
 it the names of the columns in the `meta.data` slot of the variables
 we want to regress).
 
-$$\scaled.data(x) = \\frac{x - mean(x)}{ standard.deviation(x)}$$
+$$  
+ \scaled.data(x) = \\frac{x - mean(x)}{ standard.deviation(x)}   
+ $$
 
 ``` r
 pbmc_small <- ScaleData(pbmc_small)
@@ -56,7 +58,7 @@ PCAPlot(pbmc_small,                              #SeuratObject
         dims = c(1, 2))                          #Dimensions (PCs) to plot, default is the first two
 ```
 
-<img src="./images/PCA-1.png" style="display: block; margin: auto;" />
+<img src="../images/PCA-1.png" style="display: block; margin: auto;" />
 
 The slot `object@reductions$pca` is now created. It is an S4 object of
 class `DimReduc` composed of several sub slots :
@@ -144,7 +146,7 @@ JackStrawPlot(pbmc_small,                    #SeuratObject
               dims = 1:50)                   #Number of dimension to plot
 ```
 
-<img src="./images/plotJackStraw-1.png" style="display: block; margin: auto;" />
+<img src="../images/plotJackStraw-1.png" style="display: block; margin: auto;" />
 
 We look for a *"jump"* in the values of the PCs. We usually try to recover
 the PCs whose value is significant. Here we can stop at PC 10, because PC 11
@@ -170,7 +172,7 @@ ElbowPlot(pbmc_small,           #SeuratObject
           reduction = "pca")    #Reduction to analyse
 ```
 
-<img src="./images/ElbowPlot-1.png" style="display: block; margin: auto;" />
+<img src="../images/ElbowPlot-1.png" style="display: block; margin: auto;" />
 
 After visualizing the Elbow plot with 50 PCs, we reduced it to 20PCs because
 it was too complicated to observe a bend. Here we could see a small jump in
@@ -217,7 +219,7 @@ pbmc_small <- RunUMAP(pbmc_small,               #SeuratObject
 UMAPPlot(pbmc_small)
 ```
 
-<img src="./images/UMAP-1.png" style="display: block; margin: auto;" />
+<img src="../images/UMAP-1.png" style="display: block; margin: auto;" />
 
 The slot `object@reductions$umap` is now created. It is an S4 object of
 class `DimReduc`, it is composed of several sub slots :
@@ -236,4 +238,4 @@ class `DimReduc`, it is composed of several sub slots :
 
 The plot function represents our cells in the dimensional space of the first
 two dimensions of the UMAP. By default the colorization of the cells is based
-on the `active.ident` so the `orig.ident` column of the metadata. 
+on the `active.ident` so the `orig.ident` column of the metadata.

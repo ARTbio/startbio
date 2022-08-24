@@ -1,9 +1,9 @@
 # Cluster Annotation
 
-We start to have a more precise idea of the identity of our clusters! 
-We are going to use Seurat's tutorial which gives us directly the markers 
-of the cell populations that allow us to identify the clusters. This will 
-allow us to confirm or not the different results obtained previously and 
+We start to have a more precise idea of the identity of our clusters!
+We are going to use Seurat's tutorial which gives us directly the markers
+of the cell populations that allow us to identify the clusters. This will
+allow us to confirm or not the different results obtained previously and
 potentially help us to differentiate certain clusters between them:
 
 ``` r
@@ -60,14 +60,14 @@ vln_plots <- lapply(vln_plots, function(plot){
 grid.arrange(grobs = vln_plots)
 ```
 
-<img src="./images/unnamed-chunk-2-1.png" style="display: block; margin: auto;" />
+<img src="../images/unnamed-chunk-2-1.png" style="display: block; margin: auto;" />
 
-So we have managed to identify a large part of the clusters with the 
+So we have managed to identify a large part of the clusters with the
 enrichment analyses. Now that we know which cluster is which cell type
 we will rename the cell identities in the Seurat object.
 
-To do this we will use the `RenameIdents` function where it is provided 
-with a mapping from the old active identities (cluster number: 
+To do this we will use the `RenameIdents` function where it is provided
+with a mapping from the old active identities (cluster number:
 `0, 1, 2,...`) to the new identities (names of the different cell types)
 via a named vector.
 
@@ -95,4 +95,4 @@ UMAPPlot(pbmc_small,
          pt.size = 0.5)
 ```
 
-<img src="./images/RenameIdents-1.png" style="display: block; margin: auto;" />
+<img src="../images/RenameIdents-1.png" style="display: block; margin: auto;" />

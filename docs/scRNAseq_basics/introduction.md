@@ -1,73 +1,94 @@
-# Single Cell RNAseq via Seurat R package
+# Introduction to Single-Cell RNAseq analysis : From fastQ to identified populations
 
-A classical single-cell RNA seq analysis consists in identifying populations
-of cells and the associated marker genes. It can also look for the effect of
-a treatment or a condition using differential analysis methods.
+Single-cell RNAseq reveals tissue heterogeneity where bulk RNAseq can only demonstrate an average vision of a tissue transcriptome.
 
-The dataset used for the analysis is composed of peripheral blood mononuclear
-cells (PBMC). It is available on the 10X and Seurat website which can be found
-on the [Seurat tutorial](https://satijalab.org/seurat/articles/pbmc3k_tutorial.html).
+![](images/schematic_introduction.png)
 
-## Libraries
+## FastQ files
 
-Here is R packages needed for the analysis.
+The very first file format you can have is a fastQ file. It contains all sequences. For each sequence you will have the following four lines :
 
-``` r
-## Import des packages
-library(Seurat)
-library(ggraph)
-library(ggplot2)
-library(gridExtra)
-library(RColorBrewer)
-library(biomaRt)
-library(plyr)
-library(dplyr)
-library(magrittr)
-library(clustree)
-library(clusterProfiler)
-library(org.Hs.eg.db)
-library(enrichplot)
-library(knitr)
-library(rmarkdown)
-library(msigdbr)
-library(vroom)
-```
+- Identifier line (begins with @)
+- Sequence : contains different information based on the type of file :
+    - R1 (barcodes sequence), R2 (cDNA sequences), I1 (illumina lane info)
+- Quality score identifier line (consisting only of a +)
+- Quality score for each base of the sequences
 
-## Functions
+Here is an example of 10X library construction :
 
-In a R script, good programming practices encourage that at the beginning of
-each script we put the functions that we develop after the call of the
-libraries. In the next *chunk* of code, we will find the functions that will
-be useful during the analysis.
+![](images/10X_library_construction.png)
 
-Here it is a function that will allow to annotate the plots in order to have
-the name of the gene in addition to its identifier.
+UMI (Unique Molecular Identifier) is a barcode sequence to identify and differentiate each mRNA molecules.
 
-``` r
-add_title_gene_name <- function(plot,
-                                   gene_format,
-                                   from = "ensembl_gene_id",
-                                   to = "external_gene_name"){
-  ## Add gene name as title and leave gene ID as subtitle of a plot
-  ### Inputs
-  ## - plot (data) : ggplot to modify
-  ## - gene_format (data) : dataframe that contains at least the type of gene id present in the plot (from) and the gene label type to use instead (to)
-  ## - from (chr) : label gene type present in the plot (must be the column name of the annotated dataframe)
-  ## - to (chr) : label gene type to use
-  ### Output
-  ## - Plot with a new title + subtitle
+## Alignment and Counting
 
-  ##check if a modification is possible
-  ## check if one of the column data is a gene of the "from" column of gene_format
-  test_matching <- colnames(plot$data) %in% gene_format[, from]
-  if(sum(test_matching)){
-    gene_to_rename <- colnames(plot$data)[test_matching]
-    plot <- plot +
-      ggtitle(gene_format[gene_format[, from] == gene_to_rename, to],
-              gene_to_rename)
-  }else{
-    stop(paste("No matching between plot metadata and", from, "column of `gene_format` dataframe.\n", "Please check your parameters."))
-  }
-  return(plot)
-}
-```
+To obtain an expression matrix, you need to align the sequences to a reference genome and then count for each gene how many reads aligned on its sequence.
+
+For technologies based on UMI (like 10X), you need to filter UMI duplicates thus avoiding PCR duplicates which is not possible for technologies such as Smartseq2 (that is more like bulk RNAseq methods).
+
+There is a single-cell version of splice aware aligner STAR : RNAstarSolo. It need several inputs :
+
+- FastQ files Read1 and Read2
+- Reference genome (fasta file) and gene model (GTF)
+- Cell Barcode whitelist
+
+It will align the sequence to the reference genome going from fastQ file to Bam file (File format containing algined read). Then it will remove cell barcodes based on a list of known barcodes (the whitelist file provided by 10X for example) and filter UMI duplicates. Finally it will count producing an expression matrix.
+
+There is a wrapper galaxy tool of [RNAstarSolo](https://toolshed.g2.bx.psu.edu/view/iuc/rna_starsolo/eec9494fdafa) with presets of different versions of CellRanger.
+
+## Preprocessing
+
+Once you have your expression matrix you need to clean data in order to not skew downstream analysis results.
+
+- Remove low-quality cells :
+    - You can filter cell based on :
+        - Number of detected Genes
+        - Aligned reads count
+        - Percentage of mitochondrial genes
+- Remove genes that don’t contain much information for reliable statistical inference
+    - You can filter genes based on :
+        - Number of cells that detect the specific gene
+        - Select High variable genes
+- Remove cell-specific biases :
+    - Eliminate factors that prevent direct comparison of your cells :
+        - gene length and/or library-size
+- Remove batch effect :
+    - Eliminate technical variations :
+        - Different methods of integration, ex : Reciprocal PCA, Harmony
+
+## High dimensional space
+
+Cells can be represented in as many dimensions as there are genes in the expression matrix, but finding similarities in high dimensional space is difficult. This is why we must reduce the dimensions !
+
+There is multiples techniques such as :
+
+- PCA : Principal Component Analysis
+- t-SNE : t-Distributed Stochastic Neighbor Embedding
+- UMAP : Uniform Manifold Approximation and Projection
+
+![](images/classification.png)
+
+## Clustering
+
+We can represent the dataset in a reduced and pertinent dimensional space and we are able to graphically visualize cell populations. With the help of classification algorithms, cell populations will be programatically defined.
+
+1. Nearest Neighbors graphs (NN) based on the euclidean distance in PCA space. For each cell it find closest cells in their neighbouring. There is two kind of NN graphs :
+    - kNN : find the k closest cells
+    - SNN (Shared Nearest Neighbors) : find the k mutual closest cells
+2. Cut edges based on resolution to obtain your clusters
+
+![](images/knn.png)
+>Schema of kNN graph, for a SNN version retained only two-way arrows
+
+## Gene Markers
+
+To identify what cell population the clusters are, you need to identify which genes characterise your clusters.
+A gene marker is a gene whose expression is higher in a cluster than in the rest of the population.
+
+- Differential expression analyses
+    - Between a cluster vs the rest of the cells.
+    - Between two clusters
+- Gene annotation :
+    - Biomart, GO, KEGG, Human Atlas…
+
+![](images/markers.png)

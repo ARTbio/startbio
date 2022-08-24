@@ -1,13 +1,13 @@
 # Markers Annotation
 
-Each cluster is associated with a list of marker genes that we now need to 
+Each cluster is associated with a list of marker genes that we now need to
 annotate in order to biologically identify the cell clusters. We will start
-by annotating the gene identifiers with Biomart and then use functional 
+by annotating the gene identifiers with Biomart and then use functional
 enrichment methods to find the functions shared by the marker genes.
 
 ## Via Biomart
 
-We will use the dataframe we generated at the beginning of the analysis 
+We will use the dataframe we generated at the beginning of the analysis
 to allow us to add the gene name and a description for each gene ID set.
 
 ``` r
@@ -19,9 +19,9 @@ pbmc_markers_annotated <- merge(x = pbmc_markers,         #First df to merge
                                 all.x = TRUE)             #Keep all lines from first df even if there is no match with second df
 ```
 
-We will now remove all markers where the adjusted p-value is greater than 
-a 5% threshold and with the absolute value of the mean log(Fold Change) 
-less than 0.25 in order to obtain the list of markers with a significant 
+We will now remove all markers where the adjusted p-value is greater than
+a 5% threshold and with the absolute value of the mean log(Fold Change)
+less than 0.25 in order to obtain the list of markers with a significant
 expression differential.
 
 ``` r
@@ -73,7 +73,7 @@ plots <- lapply(plots,                                                          
 grid.arrange(grobs = plots)
 ```
 
-<img src="./images/FilterMarkers-1.png" style="display: block; margin: auto;" />
+<img src="../images/FilterMarkers-1.png" style="display: block; margin: auto;" />
 
 ``` r
 ## Generate violin plots and stock them into variable
@@ -96,26 +96,26 @@ vln_plots <- lapply(vln_plots, function(plot){
 grid.arrange(grobs = vln_plots)
 ```
 
-<img src="./images/FilterMarkers-2.png" style="display: block; margin: auto;" />
+<img src="../images/FilterMarkers-2.png" style="display: block; margin: auto;" />
 
-We now have each Ensembl gene ID set associated with a gene name and 
-a description to help us identify the gene lists. This is easy if you 
-know the theory of the biology of your system but if you don't know 
-enough about the genes identified as markers, the enrichment methods 
+We now have each Ensembl gene ID set associated with a gene name and
+a description to help us identify the gene lists. This is easy if you
+know the theory of the biology of your system but if you don't know
+enough about the genes identified as markers, the enrichment methods
 will help you.
 
 ## Via ClusterProfiler
 
-To understand the relationship between genes specific to our clusters 
-we can use functional enrichment methods. There are two types of 
-functional enrichment methods: 
+To understand the relationship between genes specific to our clusters
+we can use functional enrichment methods. There are two types of
+functional enrichment methods:
 
-- Over-Representation Analysis methods which are based on a ratio between 
-  the number of marker genes present in a functional gene set 
+- Over-Representation Analysis methods which are based on a ratio between
+  the number of marker genes present in a functional gene set
   and the total number of genes present in this gene set.
-- Gene Set Enrichment Analysis (GSEA) methods which calculate an enrichment 
+- Gene Set Enrichment Analysis (GSEA) methods which calculate an enrichment
   rate from a ranking of genes.
 
 An R package will allow us to perform these different analyses using several
-databases. It is quite complete and I advise you to take the time to look at 
+databases. It is quite complete and I advise you to take the time to look at
 the [documentation](https://yulab-smu.top/biomedical-knowledge-mining-book/index.html) because here we will only see a small overview.
