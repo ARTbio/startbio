@@ -6,7 +6,7 @@ theme:
   name: 'material'
   logo: assets/startbio_icon.png
   font:
-    text: Noto Sans Display  # Confortaa, Open Sans, Shippori Antique, 
+    text: Noto Sans Display  # Confortaa, Open Sans, Shippori Antique,
   palette:
     scheme: default
     primary: black
@@ -137,18 +137,19 @@ nav:
         - "Pratical part: Command lines": deepseq/command_lines.md
         - Align reads with bowtie: deepseq/bowtie.md
         - To be continued... with Galaxy: deepseq/galaxy.md
-        
+
     -  Starters to single-cell RNAseq analysis: scRNAseq_tutorials.md
-    
-    - Introduction to single-cell RNAseq analysis:
+
+    - single-cell RNAseq analysis:
         - Introduction: scRNAseq_basics/introduction.md
+        - single-cell Analysis via R: scRNAseq_basics/intro_seurat.md
         - Import data: scRNAseq_basics/import.md
         - Preprocessing: scRNAseq_basics/preprocessing.md
         - Reduction of dimensionality: scRNAseq_basics/redim.md
         - Clustering: scRNAseq_basics/clustering.md
         - Cell population identification:
           - Introduction and markers identification:  scRNAseq_basics/intro_markers.md
-          - Markers Annotation: 
+          - Markers Annotation:
             - Presentation of annotation methods: scRNAseq_basics/marker_annot.md
             - Over-representation analysis: scRNAseq_basics/over.md
             - Gene Set Enrichment Analysis: scRNAseq_basics/gsea.md
@@ -171,7 +172,7 @@ nav:
     - Le traitement de textes collaboratif: IBPS/shared_text_editors.md
     - Blog Post - R or Python ?: IBPS/RorPython.md
     - Youtube: IBPS/youtube.md
-    
+
   - Links: links.md
 
   - STARTbio Training Project: startbio_project.md
@@ -208,5 +209,3 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
-
-
