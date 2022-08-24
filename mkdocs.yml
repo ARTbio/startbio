@@ -148,7 +148,8 @@ nav:
         - Clustering: scRNAseq_basics/clustering.md
         - Cell population identification:
           - Introduction and markers identification:  scRNAseq_basics/intro_markers.md
-          - Markers Annotation: scRNAseq_basics/marker_annot.md
+          - Markers Annotation: 
+            - Presentation: scRNAseq_basics/marker_annot.md
             - Over-representation analysis: scRNAseq_basics/over.md
             - Gene Set Enrichment Analysis: scRNAseq_basics/gsea.md
             - Cluster annotation: scRNAseq_basics/clusannot.md
