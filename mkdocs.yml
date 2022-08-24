@@ -139,6 +139,22 @@ nav:
         - To be continued... with Galaxy: deepseq/galaxy.md
         
     -  Starters to single-cell RNAseq analysis: scRNAseq_tutorials.md
+    
+    - Introduction to single-cell RNAseq analysis:
+        - Introduction: scRNAseq_basics/introduction.md
+        - Import data: scRNAseq_basics/import.md
+        - Preprocessing: scRNAseq_basics/preprocessing.md
+        - Reduction of dimensionality: scRNAseq_basics/redim.md
+        - Clustering: scRNAseq_basics/clustering.md
+        - Cell population identification:
+          - Introduction and markers identification:  scRNAseq_basics/intro_markers.md
+          - Markers Annotation: scRNAseq_basics/marker_annot.md
+            - Over-representation analysis: scRNAseq_basics/over.md
+            - Gene Set Enrichment Analysis: scRNAseq_basics/gsea.md
+            - Cluster annotation: scRNAseq_basics/clusannot.md
+            - Comparison between 2 populations: scRNAseq_basics/comp.md
+        - Differents visualizations of Seurat: scRNAseq_basics/visualization.md
+        - References: scRNAseq_basics/references.md
 
   - Code Snippets:
     - Terminal Bash: bash_snippets.md
