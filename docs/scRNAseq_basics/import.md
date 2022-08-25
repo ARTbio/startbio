@@ -17,7 +17,7 @@ The `Read10X` function of Seurat allows to create from these files the
 expression matrix in `dgCMatrix` format. It is a sparse matrix used for
 efficient processing of large matrices.
 
-!!! warning
+!!! danger "Caution"
     A very important parameter of `Read10X` is `gene.column` which allows us
     to choose which column of the `genes.tsv` file to use. It is preferable
     to select the column composed only of gene ID during the analysis (column 1)
@@ -96,7 +96,7 @@ we can go directly to the next step.
 
 We will then import the biomart database which will be used to annotate the
 genes of our analysis. This will allow us to go from a gene ID set to a
-*gene name*. The data of Seurat being in hg19 we recover the database for
+gene name. The data of Seurat being in hg19 we recover the database for
 this annotation.  
 
 The biomaRt package allows us to retrieve the databases that are available
@@ -187,90 +187,102 @@ pbmc_small <- CreateSeuratObject(tenX_matrix,                    #Expression mat
                                  meta.data = NULL,               #We can add the metadata on the transcriptomes with a dataframe where the barcodes are in line and the different information in column
                                  min.cells = 0,                  #Filtering genes that are not detected in less than min.cells
                                  min.features = 1)               #Filtering cells that do not detect at least min.features, here we filter all barcodes that detect no gene
-
-pbmc_small #Small presentation of the Seurat object in R console
 ```
 
-    ## An object of class Seurat
-    ## 32738 features across 2700 samples within 1 assay
-    ## Active assay: RNA (32738 features, 0 variable features)
+#### Exploration of the SeuratObject
 
-``` r
-## Discovery of SeuratObject
-str(pbmc_small)
-```
+=== "SeuratObject Presentation"
 
-    ## Formal class 'Seurat' [package "SeuratObject"] with 13 slots
-    ##   ..@ assays      :List of 1
-    ##   .. ..$ RNA:Formal class 'Assay' [package "SeuratObject"] with 8 slots
-    ##   .. .. .. ..@ counts       :Formal class 'dgCMatrix' [package "Matrix"] with 6 slots
-    ##   .. .. .. .. .. ..@ i       : int [1:2286884] 70 166 178 326 363 410 412 492 494 495 ...
-    ##   .. .. .. .. .. ..@ p       : int [1:2701] 0 781 2133 3264 4224 4746 5528 6311 7101 7634 ...
-    ##   .. .. .. .. .. ..@ Dim     : int [1:2] 32738 2700
-    ##   .. .. .. .. .. ..@ Dimnames:List of 2
-    ##   .. .. .. .. .. .. ..$ : chr [1:32738] "ENSG00000243485" "ENSG00000237613" "ENSG00000186092" "ENSG00000238009" ...
-    ##   .. .. .. .. .. .. ..$ : chr [1:2700] "AAACATACAACCAC-1" "AAACATTGAGCTAC-1" "AAACATTGATCAGC-1" "AAACCGTGCTTCCG-1" ...
-    ##   .. .. .. .. .. ..@ x       : num [1:2286884] 1 1 2 1 1 1 1 41 1 1 ...
-    ##   .. .. .. .. .. ..@ factors : list()
-    ##   .. .. .. ..@ data         :Formal class 'dgCMatrix' [package "Matrix"] with 6 slots
-    ##   .. .. .. .. .. ..@ i       : int [1:2286884] 70 166 178 326 363 410 412 492 494 495 ...
-    ##   .. .. .. .. .. ..@ p       : int [1:2701] 0 781 2133 3264 4224 4746 5528 6311 7101 7634 ...
-    ##   .. .. .. .. .. ..@ Dim     : int [1:2] 32738 2700
-    ##   .. .. .. .. .. ..@ Dimnames:List of 2
-    ##   .. .. .. .. .. .. ..$ : chr [1:32738] "ENSG00000243485" "ENSG00000237613" "ENSG00000186092" "ENSG00000238009" ...
-    ##   .. .. .. .. .. .. ..$ : chr [1:2700] "AAACATACAACCAC-1" "AAACATTGAGCTAC-1" "AAACATTGATCAGC-1" "AAACCGTGCTTCCG-1" ...
-    ##   .. .. .. .. .. ..@ x       : num [1:2286884] 1 1 2 1 1 1 1 41 1 1 ...
-    ##   .. .. .. .. .. ..@ factors : list()
-    ##   .. .. .. ..@ scale.data   : num[0 , 0 ]
-    ##   .. .. .. ..@ key          : chr "rna_"
-    ##   .. .. .. ..@ assay.orig   : NULL
-    ##   .. .. .. ..@ var.features : logi(0)
-    ##   .. .. .. ..@ meta.features:'data.frame':   32738 obs. of  0 variables
-    ##   .. .. .. ..@ misc         : list()
-    ##   ..@ meta.data   :'data.frame': 2700 obs. of  3 variables:
-    ##   .. ..$ orig.ident  : Factor w/ 1 level "PBMC analysis": 1 1 1 1 1 1 1 1 1 1 ...
-    ##   .. ..$ nCount_RNA  : num [1:2700] 2421 4903 3149 2639 981 ...
-    ##   .. ..$ nFeature_RNA: int [1:2700] 781 1352 1131 960 522 782 783 790 533 550 ...
-    ##   ..@ active.assay: chr "RNA"
-    ##   ..@ active.ident: Factor w/ 1 level "PBMC analysis": 1 1 1 1 1 1 1 1 1 1 ...
-    ##   .. ..- attr(*, "names")= chr [1:2700] "AAACATACAACCAC-1" "AAACATTGAGCTAC-1" "AAACATTGATCAGC-1" "AAACCGTGCTTCCG-1" ...
-    ##   ..@ graphs      : list()
-    ##   ..@ neighbors   : list()
-    ##   ..@ reductions  : list()
-    ##   ..@ images      : list()
-    ##   ..@ project.name: chr "PBMC analysis"
-    ##   ..@ misc        : list()
-    ##   ..@ version     :Classes 'package_version', 'numeric_version'  hidden list of 1
-    ##   .. ..$ : int [1:3] 4 1 0
-    ##   ..@ commands    : list()
-    ##   ..@ tools       : list()
+    ``` r
+    pbmc_small #Small presentation of the Seurat object in R console
+    ```
 
-``` r
-dim(pbmc_small@assays$RNA@counts)
-```
+        ## An object of class Seurat
+        ## 32738 features across 2700 samples within 1 assay
+        ## Active assay: RNA (32738 features, 0 variable features)
 
-    ## [1] 32738  2700
+=== "Structure of the SeuratObject"
 
-``` r
-dim(pbmc_small@assays$RNA@data)
-```
+    ``` r
+    ## Discovery of SeuratObject
+    str(pbmc_small)
+    ```
 
-    ## [1] 32738  2700
+        ## Formal class 'Seurat' [package "SeuratObject"] with 13 slots
+        ##   ..@ assays      :List of 1
+        ##   .. ..$ RNA:Formal class 'Assay' [package "SeuratObject"] with 8 slots
+        ##   .. .. .. ..@ counts       :Formal class 'dgCMatrix' [package "Matrix"] with 6 slots
+        ##   .. .. .. .. .. ..@ i       : int [1:2286884] 70 166 178 326 363 410 412 492 494 495 ...
+        ##   .. .. .. .. .. ..@ p       : int [1:2701] 0 781 2133 3264 4224 4746 5528 6311 7101 7634 ...
+        ##   .. .. .. .. .. ..@ Dim     : int [1:2] 32738 2700
+        ##   .. .. .. .. .. ..@ Dimnames:List of 2
+        ##   .. .. .. .. .. .. ..$ : chr [1:32738] "ENSG00000243485" "ENSG00000237613" "ENSG00000186092" "ENSG00000238009" ...
+        ##   .. .. .. .. .. .. ..$ : chr [1:2700] "AAACATACAACCAC-1" "AAACATTGAGCTAC-1" "AAACATTGATCAGC-1" "AAACCGTGCTTCCG-1" ...
+        ##   .. .. .. .. .. ..@ x       : num [1:2286884] 1 1 2 1 1 1 1 41 1 1 ...
+        ##   .. .. .. .. .. ..@ factors : list()
+        ##   .. .. .. ..@ data         :Formal class 'dgCMatrix' [package "Matrix"] with 6 slots
+        ##   .. .. .. .. .. ..@ i       : int [1:2286884] 70 166 178 326 363 410 412 492 494 495 ...
+        ##   .. .. .. .. .. ..@ p       : int [1:2701] 0 781 2133 3264 4224 4746 5528 6311 7101 7634 ...
+        ##   .. .. .. .. .. ..@ Dim     : int [1:2] 32738 2700
+        ##   .. .. .. .. .. ..@ Dimnames:List of 2
+        ##   .. .. .. .. .. .. ..$ : chr [1:32738] "ENSG00000243485" "ENSG00000237613" "ENSG00000186092" "ENSG00000238009" ...
+        ##   .. .. .. .. .. .. ..$ : chr [1:2700] "AAACATACAACCAC-1" "AAACATTGAGCTAC-1" "AAACATTGATCAGC-1" "AAACCGTGCTTCCG-1" ...
+        ##   .. .. .. .. .. ..@ x       : num [1:2286884] 1 1 2 1 1 1 1 41 1 1 ...
+        ##   .. .. .. .. .. ..@ factors : list()
+        ##   .. .. .. ..@ scale.data   : num[0 , 0 ]
+        ##   .. .. .. ..@ key          : chr "rna_"
+        ##   .. .. .. ..@ assay.orig   : NULL
+        ##   .. .. .. ..@ var.features : logi(0)
+        ##   .. .. .. ..@ meta.features:'data.frame':   32738 obs. of  0 variables
+        ##   .. .. .. ..@ misc         : list()
+        ##   ..@ meta.data   :'data.frame': 2700 obs. of  3 variables:
+        ##   .. ..$ orig.ident  : Factor w/ 1 level "PBMC analysis": 1 1 1 1 1 1 1 1 1 1 ...
+        ##   .. ..$ nCount_RNA  : num [1:2700] 2421 4903 3149 2639 981 ...
+        ##   .. ..$ nFeature_RNA: int [1:2700] 781 1352 1131 960 522 782 783 790 533 550 ...
+        ##   ..@ active.assay: chr "RNA"
+        ##   ..@ active.ident: Factor w/ 1 level "PBMC analysis": 1 1 1 1 1 1 1 1 1 1 ...
+        ##   .. ..- attr(*, "names")= chr [1:2700] "AAACATACAACCAC-1" "AAACATTGAGCTAC-1" "AAACATTGATCAGC-1" "AAACCGTGCTTCCG-1" ...
+        ##   ..@ graphs      : list()
+        ##   ..@ neighbors   : list()
+        ##   ..@ reductions  : list()
+        ##   ..@ images      : list()
+        ##   ..@ project.name: chr "PBMC analysis"
+        ##   ..@ misc        : list()
+        ##   ..@ version     :Classes 'package_version', 'numeric_version'  hidden list of 1
+        ##   .. ..$ : int [1:3] 4 1 0
+        ##   ..@ commands    : list()
+        ##   ..@ tools       : list()
 
-``` r
-kable(head(pbmc_small@meta.data), "simple") #Preview of the cell metadata
-```
+=== "Dimension of expression matrices"
 
-|                  | orig.ident    | nCount_RNA | nFeature_RNA |
-|------------------|:--------------|-----------:|-------------:|
-| AAACATACAACCAC-1 | PBMC analysis |       2421 |          781 |
-| AAACATTGAGCTAC-1 | PBMC analysis |       4903 |         1352 |
-| AAACATTGATCAGC-1 | PBMC analysis |       3149 |         1131 |
-| AAACCGTGCTTCCG-1 | PBMC analysis |       2639 |          960 |
-| AAACCGTGTATGCG-1 | PBMC analysis |        981 |          522 |
-| AAACGCACTGGTAC-1 | PBMC analysis |       2164 |          782 |
+    ``` r
+    dim(pbmc_small@assays$RNA@counts)
+    ```
 
-Here we can see several slots:  
+        ## [1] 32738  2700
+
+    ``` r
+    dim(pbmc_small@assays$RNA@data)
+    ```
+
+        ## [1] 32738  2700
+
+=== "Cell Metadata"
+
+    ``` r
+    kable(head(pbmc_small@meta.data), "simple") #Preview of the cell metadata
+    ```
+
+    |                  | orig.ident    | nCount_RNA | nFeature_RNA |
+    |------------------|:--------------|-----------:|-------------:|
+    | AAACATACAACCAC-1 | PBMC analysis |       2421 |          781 |
+    | AAACATTGAGCTAC-1 | PBMC analysis |       4903 |         1352 |
+    | AAACATTGATCAGC-1 | PBMC analysis |       3149 |         1131 |
+    | AAACCGTGCTTCCG-1 | PBMC analysis |       2639 |          960 |
+    | AAACCGTGTATGCG-1 | PBMC analysis |        981 |          522 |
+    | AAACGCACTGGTAC-1 | PBMC analysis |       2164 |          782 |
+
+We can observe several slots via the `str` command:  
 
 - `assays`: general slot that will include the different information of each
   study. They are composed of several things:
@@ -296,8 +308,9 @@ Here we can see several slots:
 - `active.ident` : default cell identity, here the name of the given project,
   also stored under the column `orig.ident` in the metadata
 
-Navigation in the different slots is done via `@` or `$`. Each main slot is
-accessible via the `@`, i.e. `object name@main slot` to go further in the
-slots tree, most often complex objects are accessible with a `@` (dgCMatrix,
-dataframe) and lists, vectors are accessible via `$`. If in doubt, you can
-refer to the result of the `str` command.
+!!! note
+    Navigation in the different slots is done via `@` or `$`. Each main slot is
+    accessible via the `@`, *i.e.* `object@main slot` to go further in the
+    slots tree, most often complex objects are accessible with a `@` (dgCMatrix,
+    dataframe) and lists, vectors are accessible via `$`. If in doubt, you can
+    refer to the result of the `str` command.

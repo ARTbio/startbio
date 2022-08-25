@@ -61,6 +61,10 @@ in our cluster and the other cells. By default, it uses the non-parametric
 Wilcoxon Rank Sum test (also called Mann-Whitney). He then performs a
 Bonferroni multiple correction test.
 
+Here we have changed some parameters to not filter any gene which will be
+very useful for the enrichment analysis (GSEA) which is based on an ordered
+list of genes.
+
 ``` r
 pbmc_markers <- FindAllMarkers(pbmc_small,              #SeuratObject
                                only.pos = FALSE,        #Returns positive and negative gene markers
@@ -99,7 +103,3 @@ The result of this function is a dataframe with several columns:
     marker for several clusters which will duplicate the line names and thus
     add suffixes in the rows. We would be back to the same problem as if we
     were using gene names in `Read10X`.
-
-Here we have changed some parameters to not filter any gene which will be
-very useful for the enrichment analysis (GSEA) which is based on an ordered
-list of genes.

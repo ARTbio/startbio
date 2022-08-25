@@ -23,12 +23,12 @@ cell in apoptosis.
 
 With the function `PercentageFeatureSet`, we calculate for each cell the %
 of detection of mitochondrial genes among all expressed genes. If we use
-*gene names*, we can directly use the `pattern` parameter by entering
+gene names, we can directly use the `pattern` parameter by entering
 "*^MT-*" to capture all genes starting with "*MT-*". If there is no pattern
 in the gene names, thanks to the `features` parameter we can directly give
 it a vector containing the genes present on the MT genome. We can use the
 Biomart annotation to retrieve all the genes present on the MT chromosome
-if the IDs (or the *gene names*) have no prefix to differentiate them. The
+if the IDs (or the gene names) have no prefix to differentiate them. The
 function `PercentageFeatureSet` adds a column with the % values in the cell
 metadata (`object@meta.data`).
 
@@ -178,7 +178,7 @@ the libraries comparable. To do this, we will use the Seurat function,
 the same amount of RNA. With the `logNormalize` method, each IMU is
 normalized as follows, for each cell :
 
-$$ norm.UMI = log2(\\frac{UMI}{nCount.RNA} \* scale.factor +1) $$
+$$ norm.UMI = log2(\frac{UMI}{nCount.RNA} \* scale.factor +1) $$
 
 The `scale.factor` is set to 10 000 by default, most often we use the
 median of the library size (= total number of IMUs per cell, = `nCount_RNA`
@@ -206,7 +206,7 @@ We can represent each cell as the combinatorial expression of each gene.
 There are therefore many dimensions, which creates a lot of complexity.   
 
 A first step is to remove the genes that contain very little information,
-i.e. the genes that are not expressed or those that are expressed in an
+*i.e.* the genes that are not expressed or those that are expressed in an
 equivalent way for all cells. These genes will not be able to help
 differentiate between cells. Removing them will allow the improvement of
 dimension reduction and clustering methods for reliable statistical

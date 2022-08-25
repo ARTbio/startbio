@@ -12,6 +12,8 @@ theme:
     primary: black
   icon:
     repo: fontawesome/brands/github
+    admonition:
+      danger: octicons/alert-fill-12
   features:
     - header.autohide
     - navigation.instant
@@ -21,6 +23,7 @@ theme:
 #    - navigation.sections
     - toc.integrate
     - navigation.top
+    - content.tabs.link
 
 nav:
   - Home: index.md
@@ -140,9 +143,9 @@ nav:
 
     -  Starters to single-cell RNAseq analysis: scRNAseq_tutorials.md
 
-    - single-cell RNAseq analysis:
+    - Single-cell RNAseq analysis:
         - Introduction: scRNAseq_basics/introduction.md
-        - single-cell Analysis via R: scRNAseq_basics/intro_seurat.md
+        - Single-cell Analysis via R: scRNAseq_basics/intro_seurat.md
         - Import data: scRNAseq_basics/import.md
         - Preprocessing: scRNAseq_basics/preprocessing.md
         - Reduction of dimensionality: scRNAseq_basics/redim.md
@@ -205,6 +208,8 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
   - def_list
   - pymdownx.tasklist:
       custom_checkbox: true

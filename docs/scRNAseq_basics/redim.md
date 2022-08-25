@@ -107,7 +107,7 @@ From these results and for each PC, it calculates the number of times the
 values of the fake loadings ($fakevals$) is greater than each value of the
 observed loading ($trueval$), such as :
 
-$$ Empirical.pval = \\frac{sum(fakevals > trueval)}{length(fakevals)} $$
+$$ Empirical.pval = \frac{sum(fakevals > trueval)}{length(fakevals)} $$
 
 The `ScoreJackStraw` function uses the reduced variance test also called
 $Z$ test (R function `prop.test`). It allows to test for each PC if the
@@ -160,11 +160,6 @@ cells.
 This method consists in finding a *"bend"* in the distribution of the
 standard deviations of the different PCs.
 
-!!! info "Information"
-    I find this method much more complicated to decide how many PCs to keep.
-    But it allows to have a second opinion, at choice I prefer to base myself
-    on the Jack Straw result
-
 ``` r
 ElbowPlot(pbmc_small,           #SeuratObject
           ndims = 20,           #Number of dimension to analyse
@@ -179,6 +174,11 @@ the distribution between PCs 10 and 15 which would corroborate with the Jack
 Straw results.
 
 -> We can determine the choice of the number of PCs at **10**.
+
+!!! note
+    I find the Elbow Plot method much more complicated to decide how many PCs
+    to keep. But it allows to have a second opinion, at choice I prefer to
+    base myself on the Jack Straw result
 
 ### UMAP Inference
 

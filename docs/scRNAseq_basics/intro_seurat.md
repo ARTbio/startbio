@@ -13,7 +13,7 @@ on the [Seurat tutorial](https://satijalab.org/seurat/articles/pbmc3k_tutorial.h
 Here is R packages needed for the analysis.
 
 ``` r
-## Import des packages
+## Import packages
 library(Seurat)
 library(ggraph)
 library(ggplot2)

@@ -34,7 +34,8 @@ There is a single-cell version of splice aware aligner STAR : RNAstarSolo. It ne
 
 It will align the sequence to the reference genome going from fastQ file to Bam file (File format containing algined read). Then it will remove cell barcodes based on a list of known barcodes (the whitelist file provided by 10X for example) and filter UMI duplicates. Finally it will count producing an expression matrix.
 
-There is a wrapper galaxy tool of [RNAstarSolo](https://toolshed.g2.bx.psu.edu/view/iuc/rna_starsolo/eec9494fdafa) with presets of different versions of CellRanger.
+!!! note
+    There is a wrapper galaxy tool of [RNAstarSolo](https://toolshed.g2.bx.psu.edu/view/iuc/rna_starsolo/eec9494fdafa) with presets of different versions of CellRanger.
 
 ## Preprocessing
 
@@ -58,6 +59,9 @@ Once you have your expression matrix you need to clean data in order to not skew
 
 ## High dimensional space
 
+!!! example inline end "Schema of a dataset in 2 dimensional space"
+    ![](images/classification.png){ width="300" }
+
 Cells can be represented in as many dimensions as there are genes in the expression matrix, but finding similarities in high dimensional space is difficult. This is why we must reduce the dimensions !
 
 There is multiples techniques such as :
@@ -66,9 +70,10 @@ There is multiples techniques such as :
 - t-SNE : t-Distributed Stochastic Neighbor Embedding
 - UMAP : Uniform Manifold Approximation and Projection
 
-![](images/classification.png)
-
 ## Clustering
+
+!!! example inline end "Schema of kNN graph, for a SNN version retained only two-way arrows"
+    ![](./images/knn.png){ width="300" }
 
 We can represent the dataset in a reduced and pertinent dimensional space and we are able to graphically visualize cell populations. With the help of classification algorithms, cell populations will be programatically defined.
 
@@ -77,10 +82,11 @@ We can represent the dataset in a reduced and pertinent dimensional space and we
     - SNN (Shared Nearest Neighbors) : find the k mutual closest cells
 2. Cut edges based on resolution to obtain your clusters
 
-![](images/knn.png)
->Schema of kNN graph, for a SNN version retained only two-way arrows
 
 ## Gene Markers
+
+!!! example inline end "Schema of expression profil specific for each cell population"
+    ![](images/markers.png){ width="300" }
 
 To identify what cell population the clusters are, you need to identify which genes characterise your clusters.
 A gene marker is a gene whose expression is higher in a cluster than in the rest of the population.
@@ -90,5 +96,3 @@ A gene marker is a gene whose expression is higher in a cluster than in the rest
     - Between two clusters
 - Gene annotation :
     - Biomart, GO, KEGG, Human Atlas…
-
-![](images/markers.png)

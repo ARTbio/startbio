@@ -5,7 +5,9 @@ based on *ranking* the genes. In order to take into account both the
 direction of the deregulation and its significance we order the genes
 according to :
 
-$$ x = sign(avg.log2FC) * -log10(pval) $$
+$$
+x = sign(avg.log2FC) * -log10(pval)
+$$
 
 Knowing that the `sign` function in $R$ returns the sign of the average
 log2(FC). That is, when the genes are under expressed the value returned
