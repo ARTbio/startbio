@@ -178,7 +178,7 @@ the libraries comparable. To do this, we will use the Seurat function,
 the same amount of RNA. With the `logNormalize` method, each IMU is
 normalized as follows, for each cell :
 
-$$\norm.UMI = log2(\\frac{UMI}{nCount.RNA} \* scale.factor +1)$$
+$$ norm.UMI = log2(\\frac{UMI}{nCount.RNA} \* scale.factor +1) $$
 
 The `scale.factor` is set to 10 000 by default, most often we use the
 median of the library size (= total number of IMUs per cell, = `nCount_RNA`

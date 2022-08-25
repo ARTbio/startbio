@@ -223,9 +223,9 @@ The result is a dataframe where the GO terms have been considered as enriched:
 - `ID` : Unique identifier of the GO term
 - `Description` : Description of the GO term
 - `GeneRatio` : Fraction representing the number of marker genes present
-  in the GO term `nbr_marker_gene_in_GOterm / nbr_marker_gene`.
+  in the GO term, $GeneRatio = \frac{nbrMarkerGeneInKEGGcat}{nbrMarkerGene}$.
 - `BgRatio` : Fraction representing the number of reference genes present
-  in the GO term `nbr_total_gene_in_GOterm / nbr_total_gene`.
+  in the GO term, $BgRatio = \frac{nbrTotalGeneInKEGGcat}{nbrTotalGene}$.
 - `pvalue` : p-value of the enrichment test
 - `p.adjust` : adjusted p-value of the Benjamini Hochberg test
 - `qvalue` : q-value after FDR (False Discovery Rate) check
@@ -366,10 +366,10 @@ as enriched with the following columns :
 - `ID` : Unique identifier of the KEGG category
 - `Description` : Description of the KEGG category
 - `GeneRatio` : Fraction representing the number of marker genes present in
-  the KEGG category $\GeneRatio = {frac{nbrMarkerGeneInKEGGcat}{nbrMarkerGene}$
+  the KEGG category, $GeneRatio = \frac{nbrMarkerGeneInKEGGcat}{nbrMarkerGene}$
 - `BgRatio` : Fraction representing the number of genes of the reference
-  present in the KEGG category
-  $\BgRatio = \frac{nbrTotalGeneInKEGGcat}{nbrTotalGene}$
+  present in the KEGG category,
+  $BgRatio = \frac{nbrTotalGeneInKEGGcat}{nbrTotalGene}$
 - `pvalue` : p-value of the enrichment test
 - `p.adjust` : adjusted p-value of the Benjamini Hochberg test
 - `qvalue` : q-value after FDR (False Discovery Rate) check
