@@ -201,8 +201,40 @@ GSEA_res <- GSEA_res %>%
   group_by(cluster)
 
 ## Visualize first 3 signatures for each cluster (removing the vector of genes just for the visualization and the description that match ID column for this dataset MSigDB)
-paged_table(top_n(x= GSEA_res, n = 3, wt = NES)[, -c(2,11)])
+kable(top_n(x= GSEA_res, n = 3, wt = NES)[, -c(2,11)])
 ```
+
+??? abstract "First Enriched MSigDB gene sets for each cluster"
+    | ID                                                      | setSize | enrichmentScore |      NES |  pvalue |  p.adjust |   qvalues | rank | leading_edge                   | cluster |
+    |:--------------------------------------------------------|--------:|----------------:|---------:|--------:|----------:|----------:|-----:|:-------------------------------|:--------|
+    | HAY_BONE_MARROW_NAIVE_T\_CELL                           |     208 |       0.9209917 | 3.046758 | 0.0e+00 | 0.0000000 | 0.0000000 |  216 | tags=76%, list=17%, signal=75% | 0       |
+    | RUBENSTEIN_SKELETAL_MUSCLE_T\_CELLS                     |     153 |       0.8553262 | 2.739346 | 0.0e+00 | 0.0000000 | 0.0000000 |  146 | tags=67%, list=11%, signal=67% | 0       |
+    | TRAVAGLINI_LUNG_CD4_NAIVE_T\_CELL                       |     116 |       0.9155134 | 2.824719 | 0.0e+00 | 0.0000000 | 0.0000000 |  135 | tags=75%, list=11%, signal=74% | 0       |
+    | AIZARANI_LIVER_C23_KUPFFER_CELLS_3                      |     142 |       0.8455834 | 2.003393 | 0.0e+00 | 0.0000000 | 0.0000000 |  257 | tags=68%, list=16%, signal=62% | 1       |
+    | DURANTE_ADULT_OLFACTORY_NEUROEPITHELIUM_DENDRITIC_CELLS |     101 |       0.8823161 | 2.065142 | 0.0e+00 | 0.0000000 | 0.0000000 |  192 | tags=72%, list=12%, signal=68% | 1       |
+    | TRAVAGLINI_LUNG_CLASSICAL_MONOCYTE_CELL                 |     168 |       0.8365088 | 1.997979 | 0.0e+00 | 0.0000000 | 0.0000000 |  265 | tags=69%, list=16%, signal=64% | 1       |
+    | HAY_BONE_MARROW_NAIVE_T\_CELL                           |     230 |       0.7672855 | 3.015408 | 0.0e+00 | 0.0000000 | 0.0000000 |  260 | tags=67%, list=25%, signal=64% | 2       |
+    | RUBENSTEIN_SKELETAL_MUSCLE_T\_CELLS                     |     145 |       0.7263295 | 2.725064 | 0.0e+00 | 0.0000000 | 0.0000000 |  192 | tags=58%, list=19%, signal=55% | 2       |
+    | TRAVAGLINI_LUNG_CD4_NAIVE_T\_CELL                       |     107 |       0.7627843 | 2.748389 | 0.0e+00 | 0.0000000 | 0.0000000 |  180 | tags=64%, list=17%, signal=59% | 2       |
+    | AIZARANI_LIVER_C34_MHC_II_POS_B\_CELLS                  |      83 |       0.9034082 | 2.063760 | 0.0e+00 | 0.0000000 | 0.0000000 |  152 | tags=80%, list=13%, signal=75% | 3       |
+    | FAN_EMBRYONIC_CTX_BRAIN_B\_CELL                         |      70 |       0.9140261 | 2.070592 | 0.0e+00 | 0.0000000 | 0.0000000 |  103 | tags=66%, list=9%, signal=64%  | 3       |
+    | TRAVAGLINI_LUNG_B\_CELL                                 |     112 |       0.9092172 | 2.119503 | 0.0e+00 | 0.0000000 | 0.0000000 |  121 | tags=68%, list=10%, signal=67% | 3       |
+    | AIZARANI_LIVER_C1_NK_NKT_CELLS_1                        |      70 |       0.8838737 | 2.284841 | 0.0e+00 | 0.0000000 | 0.0000000 |   90 | tags=64%, list=13%, signal=62% | 4       |
+    | HAY_BONE_MARROW_NK_CELLS                                |     105 |       0.8450920 | 2.260853 | 0.0e+00 | 0.0000000 | 0.0000000 |  132 | tags=68%, list=18%, signal=65% | 4       |
+    | TRAVAGLINI_LUNG_CD8_NAIVE_T\_CELL                       |      92 |       0.8842939 | 2.338596 | 0.0e+00 | 0.0000000 | 0.0000000 |   90 | tags=62%, list=13%, signal=62% | 4       |
+    | AIZARANI_LIVER_C31_KUPFFER_CELLS_5                      |      53 |       0.8510682 | 1.948702 | 0.0e+00 | 0.0000000 | 0.0000000 |  191 | tags=68%, list=10%, signal=63% | 5       |
+    | HAY_BONE_MARROW_MONOCYTE                                |     191 |       0.8332887 | 2.001325 | 0.0e+00 | 0.0000000 | 0.0000000 |  295 | tags=73%, list=16%, signal=68% | 5       |
+    | TRAVAGLINI_LUNG_NONCLASSICAL_MONOCYTE_CELL              |     163 |       0.8581938 | 2.050371 | 0.0e+00 | 0.0000000 | 0.0000000 |  301 | tags=81%, list=16%, signal=75% | 5       |
+    | DURANTE_ADULT_OLFACTORY_NEUROEPITHELIUM_NK_CELLS        |      72 |       0.8853806 | 2.022495 | 0.0e+00 | 0.0000000 | 0.0000000 |  131 | tags=71%, list=13%, signal=66% | 6       |
+    | HAY_BONE_MARROW_NK_CELLS                                |     236 |       0.8420024 | 1.990762 | 0.0e+00 | 0.0000000 | 0.0000000 |  196 | tags=56%, list=19%, signal=59% | 6       |
+    | TRAVAGLINI_LUNG_NATURAL_KILLER_CELL                     |     108 |       0.8994932 | 2.104728 | 0.0e+00 | 0.0000000 | 0.0000000 |  124 | tags=69%, list=12%, signal=67% | 6       |
+    | HAY_BONE_MARROW_DENDRITIC_CELL                          |      96 |       0.8483908 | 2.413478 | 0.0e+00 | 0.0000000 | 0.0000000 |   99 | tags=49%, list=6%, signal=49%  | 7       |
+    | DESCARTES_FETAL_LUNG_MYELOID_CELLS                      |      62 |       0.8072714 | 2.240695 | 0.0e+00 | 0.0000000 | 0.0000000 |  145 | tags=55%, list=8%, signal=52%  | 7       |
+    | TRAVAGLINI_LUNG_PLASMACYTOID_DENDRITIC_CELL             |      41 |       0.8240860 | 2.252436 | 8.0e-07 | 0.0000107 | 0.0000073 |  128 | tags=51%, list=7%, signal=49%  | 7       |
+    | DESCARTES_FETAL_LIVER_MEGAKARYOCYTES                    |      55 |       0.8328324 | 1.392413 | 2.1e-06 | 0.0000795 | 0.0000704 |   83 | tags=56%, list=13%, signal=54% | 8       |
+    | DESCARTES_FETAL_ADRENAL_MEGAKARYOCYTES                  |      43 |       0.8505604 | 1.416959 | 4.6e-06 | 0.0001235 | 0.0001092 |   74 | tags=63%, list=11%, signal=60% | 8       |
+    | DESCARTES_FETAL_KIDNEY_MEGAKARYOCYTES                   |      32 |       0.8561275 | 1.417434 | 5.7e-05 | 0.0010710 | 0.0009475 |   69 | tags=66%, list=11%, signal=62% | 8       |
+
 
 ## CellMarkers
 
