@@ -6,7 +6,7 @@ direction of the deregulation and its significance we order the genes
 according to :
 
 $$
-x = sign(avg.log2FC) * -log10(pval)
+x = sign(avg.log2FC) \times -log10(pval)
 $$
 
 Knowing that the `sign` function in $R$ returns the sign of the average
