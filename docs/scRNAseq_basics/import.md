@@ -143,6 +143,16 @@ annotated_hg19 <- getBM(attributes = c("ensembl_gene_id",
 knitr::kable(head(annotated_hg19), "simple")
 ```
 
+| ensembl_gene_id | external_gene_name | description                                                                           | gene_biotype   | chromosome_name |
+|:----------------|:-------------------|:--------------------------------------------------------------------------------------|:---------------|:----------------|
+| ENSG00000000457 | SCYL3              | SCY1-like 3 (S. cerevisiae) \[Source:HGNC Symbol;Acc:19285\]                          | protein_coding | 1               |
+| ENSG00000000460 | C1orf112           | chromosome 1 open reading frame 112 \[Source:HGNC Symbol;Acc:25565\]                  | protein_coding | 1               |
+| ENSG00000000938 | FGR                | feline Gardner-Rasheed sarcoma viral oncogene homolog \[Source:HGNC Symbol;Acc:3697\] | protein_coding | 1               |
+| ENSG00000000971 | CFH                | complement factor H \[Source:HGNC Symbol;Acc:4883\]                                   | protein_coding | 1               |
+| ENSG00000001460 | STPG1              | sperm-tail PG-rich repeat containing 1 \[Source:HGNC Symbol;Acc:28070\]               | protein_coding | 1               |
+| ENSG00000001461 | NIPAL3             | NIPA-like domain containing 3 \[Source:HGNC Symbol;Acc:25233\]                        | protein_coding | 1               |
+
+
 We obtained a dataframe with the information about the genes present
 in our expression matrix.
 
@@ -247,7 +257,7 @@ dim(pbmc_small@assays$RNA@data)
     ## [1] 32738  2700
 
 ``` r
-knitr::kable(head(pbmc_small@meta.data), "simple") #Preview of the cell metadata
+kable(head(pbmc_small@meta.data), "simple") #Preview of the cell metadata
 ```
 
 |                  | orig.ident    | nCount_RNA | nFeature_RNA |
@@ -289,4 +299,4 @@ Navigation in the different slots is done via `@` or `$`. Each main slot is
 accessible via the `@`, i.e. `object name@main slot` to go further in the
 slots tree, most often complex objects are accessible with a `@` (dgCMatrix,
 dataframe) and lists, vectors are accessible via `$`. If in doubt, you can
-refer to the result of the `str` command. 
+refer to the result of the `str` command.

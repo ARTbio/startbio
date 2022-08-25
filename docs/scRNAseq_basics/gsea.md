@@ -48,7 +48,7 @@ following columns:
 - `EnrichmentScore` (ES): Enrichment score representing the degree of
   presence of the gene set in the ordered list of genes
 - `NES` (Normalized Enrichment Score) : Normalized Enrichment Score such that :
-  $\NES = `frac{actual ES}{mean(ESs Against All Permutations Of The Dataset)}$
+  $\NES = \frac{actual ES}{mean(ESs Against All Permutations Of The Dataset)}$
 - `p-value` : p-value of the enrichment test
 - `p.adjust` : adjusted p-value of the Benjamini Hochberg test
 - `qvalue` : q-value after FDR (False Discovery Rate) control
@@ -133,8 +133,23 @@ We will then apply the `GSEA` function to each cluster using a
 C8_t2g <- msigdbr(species = "Homo sapiens", category = "C8") %>%
   dplyr::select(gs_name, ensembl_gene)
 
-paged_table(head(C8_t2g, 30))
+  kable(head(C8_t2g, 10))
+  ```
 
+  | gs_name                          | ensembl_gene    |
+  |:---------------------------------|:----------------|
+  | AIZARANI_LIVER_C1_NK_NKT_CELLS_1 | ENSG00000123146 |
+  | AIZARANI_LIVER_C1_NK_NKT_CELLS_1 | ENSG00000205336 |
+  | AIZARANI_LIVER_C1_NK_NKT_CELLS_1 | ENSG00000106948 |
+  | AIZARANI_LIVER_C1_NK_NKT_CELLS_1 | ENSG00000132965 |
+  | AIZARANI_LIVER_C1_NK_NKT_CELLS_1 | ENSG00000244509 |
+  | AIZARANI_LIVER_C1_NK_NKT_CELLS_1 | ENSG00000239713 |
+  | AIZARANI_LIVER_C1_NK_NKT_CELLS_1 | ENSG00000163219 |
+  | AIZARANI_LIVER_C1_NK_NKT_CELLS_1 | ENSG00000186517 |
+  | AIZARANI_LIVER_C1_NK_NKT_CELLS_1 | ENSG00000180448 |
+  | AIZARANI_LIVER_C1_NK_NKT_CELLS_1 | ENSG00000123329 |
+
+``` r
 ## Apply GSEA for each cluster
 GSEA_list <- lapply(levels(pbmc_markers_annotated$cluster), function(cluster_name){
 

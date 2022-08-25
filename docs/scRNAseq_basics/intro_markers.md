@@ -70,8 +70,17 @@ pbmc_markers <- FindAllMarkers(pbmc_small,              #SeuratObject
                                verbose = FALSE)
 
 ## Preview of the resulting dataframe
-paged_table(head(pbmc_markers))
+kable(head(pbmc_markers))
 ```
+
+|                 | p_val | avg_log2FC | pct.1 | pct.2 | p_val_adj | cluster | gene            |
+|:----------------|------:|-----------:|------:|------:|----------:|:--------|:----------------|
+| ENSG00000137154 |     0 |  0.6674692 | 0.998 | 0.997 |         0 | 0       | ENSG00000137154 |
+| ENSG00000144713 |     0 |  0.6134636 | 0.998 | 0.997 |         0 | 0       | ENSG00000144713 |
+| ENSG00000112306 |     0 |  0.7002797 | 1.000 | 0.994 |         0 | 0       | ENSG00000112306 |
+| ENSG00000177954 |     0 |  0.7041791 | 0.998 | 0.994 |         0 | 0       | ENSG00000177954 |
+| ENSG00000164587 |     0 |  0.5988615 | 1.000 | 0.997 |         0 | 0       | ENSG00000164587 |
+| ENSG00000118181 |     0 |  0.7149172 | 1.000 | 0.978 |         0 | 0       | ENSG00000118181 |
 
 The result of this function is a dataframe with several columns:
 

@@ -45,16 +45,18 @@ according to their size (so cluster 0 will always be the one with the
 most cells, and so on).  
 
 ``` r
-paged_table(head(pbmc_small@meta.data)) #Preview of the cell metadata
+kable(head(pbmc_small@meta.data)) #Preview of the cell metadata
 ```
 
-<div data-pagedtable="false">
+|                  | orig.ident    | nCount_RNA | nFeature_RNA | percent_mito | RNA_snn_res.0.2 | RNA_snn_res.0.4 | RNA_snn_res.0.6 | RNA_snn_res.0.8 | RNA_snn_res.1 | RNA_snn_res.1.2 | seurat_clusters |
+|:-----------------|:--------------|-----------:|-------------:|-------------:|:----------------|:----------------|:----------------|:----------------|:--------------|:----------------|:----------------|
+| AAACATACAACCAC-1 | PBMC analysis |       2421 |          781 |    3.0152829 | 0               | 2               | 2               | 2               | 5             | 5               | 5               |
+| AAACATTGAGCTAC-1 | PBMC analysis |       4903 |         1352 |    3.7935958 | 3               | 3               | 3               | 3               | 2             | 2               | 2               |
+| AAACATTGATCAGC-1 | PBMC analysis |       3149 |         1131 |    0.8891712 | 0               | 2               | 2               | 2               | 0             | 0               | 0               |
+| AAACCGTGCTTCCG-1 | PBMC analysis |       2639 |          960 |    1.7430845 | 1               | 1               | 1               | 1               | 6             | 6               | 6               |
+| AAACCGTGTATGCG-1 | PBMC analysis |        981 |          522 |    1.2232416 | 2               | 6               | 6               | 6               | 8             | 8               | 8               |
+| AAACGCACTGGTAC-1 | PBMC analysis |       2164 |          782 |    1.6635860 | 0               | 2               | 2               | 2               | 0             | 0               | 0               |
 
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["orig.ident"],"name":[1],"type":["fct"],"align":["left"]},{"label":["nCount_RNA"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["nFeature_RNA"],"name":[3],"type":["int"],"align":["right"]},{"label":["percent_mito"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["RNA_snn_res.0.2"],"name":[5],"type":["fct"],"align":["left"]},{"label":["RNA_snn_res.0.4"],"name":[6],"type":["fct"],"align":["left"]},{"label":["RNA_snn_res.0.6"],"name":[7],"type":["fct"],"align":["left"]},{"label":["RNA_snn_res.0.8"],"name":[8],"type":["fct"],"align":["left"]},{"label":["RNA_snn_res.1"],"name":[9],"type":["fct"],"align":["left"]},{"label":["RNA_snn_res.1.2"],"name":[10],"type":["fct"],"align":["left"]},{"label":["seurat_clusters"],"name":[11],"type":["fct"],"align":["left"]}],"data":[{"1":"PBMC analysis","2":"2421","3":"781","4":"3.0152829","5":"0","6":"2","7":"2","8":"2","9":"5","10":"5","11":"5","_rn_":"AAACATACAACCAC-1"},{"1":"PBMC analysis","2":"4903","3":"1352","4":"3.7935958","5":"3","6":"3","7":"3","8":"3","9":"2","10":"2","11":"2","_rn_":"AAACATTGAGCTAC-1"},{"1":"PBMC analysis","2":"3149","3":"1131","4":"0.8891712","5":"0","6":"2","7":"2","8":"2","9":"0","10":"0","11":"0","_rn_":"AAACATTGATCAGC-1"},{"1":"PBMC analysis","2":"2639","3":"960","4":"1.7430845","5":"1","6":"1","7":"1","8":"1","9":"6","10":"6","11":"6","_rn_":"AAACCGTGCTTCCG-1"},{"1":"PBMC analysis","2":"981","3":"522","4":"1.2232416","5":"2","6":"6","7":"6","8":"6","9":"8","10":"8","11":"8","_rn_":"AAACCGTGTATGCG-1"},{"1":"PBMC analysis","2":"2164","3":"782","4":"1.6635860","5":"0","6":"2","7":"2","8":"2","9":"0","10":"0","11":"0","_rn_":"AAACGCACTGGTAC-1"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-
-</div>
 
 ### Which resolution to choose?
 
