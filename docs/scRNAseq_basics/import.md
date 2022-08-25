@@ -17,7 +17,7 @@ The `Read10X` function of Seurat allows to create from these files the
 expression matrix in `dgCMatrix` format. It is a sparse matrix used for
 efficient processing of large matrices.
 
-!!! bug "Warning"
+!!! warning
     A very important parameter of `Read10X` is `gene.column` which allows us
     to choose which column of the `genes.tsv` file to use. It is preferable
     to select the column composed only of gene ID during the analysis (column 1)

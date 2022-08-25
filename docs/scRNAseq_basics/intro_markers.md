@@ -93,7 +93,7 @@ The result of this function is a dataframe with several columns:
 - `cluster` : cluster considered
 - `gene` : name of the gene
 
-!!! bug "Warning"
+!!! warning
     Be careful not to take into account the names of the lines in this dataframe
     for reference. Indeed, it is quite frequent that a gene is defined as a
     marker for several clusters which will duplicate the line names and thus
