@@ -17,27 +17,28 @@ The `Read10X` function of Seurat allows to create from these files the
 expression matrix in `dgCMatrix` format. It is a sparse matrix used for
 efficient processing of large matrices.
 
-A very important parameter of `Read10X` is `gene.column` which allows us
-to choose which column of the `genes.tsv` file to use. It is preferable
-to select the column composed only of gene ID during the analysis (column 1)
-and to use the *gene names* only during the annotation of the marker genes.
-Indeed column 2 of `genes.tsv` is in fact composed of *gene name* and
-*gene ID* (because there is not necessarily a *gene name* assigned to each
-unique identifier). Moreover, several *gene ID* can correspond to a single
-*gene name* making the annotation step very complex.
-If we choose column 2, duplicates in *gene names* are handled with the
-`make.unique` function which detects duplicates and then adds
-`.1, .2, ..., .n` after each occurrence (knowing that the first occurrence
-is not modified). With these modified gene names, it will be very difficult
-to use the different databases that will not be able to recognize textually
-these new gene names.
+!!! bug "Warning"
+    A very important parameter of `Read10X` is `gene.column` which allows us
+    to choose which column of the `genes.tsv` file to use. It is preferable
+    to select the column composed only of gene ID during the analysis (column 1)
+    and to use the gene names only during the annotation of the marker genes.
+    Indeed column 2 of `genes.tsv` is in fact composed of gene name and
+    *gene ID* (because there is not necessarily a gene name assigned to each
+    unique identifier). Moreover, several *gene ID* can correspond to a single
+    gene name making the annotation step very complex.
+    If we choose column 2, duplicates in gene names are handled with the
+    `make.unique` function which detects duplicates and then adds
+    `.1, .2, ..., .n` after each occurrence (knowing that the first occurrence
+    is not modified). With these modified gene names, it will be very difficult
+    to use the different databases that will not be able to recognize textually
+    these new gene names.
 
-We could think that it would be easy to find the genes whose names have been
-modified afterwards by searching all the genes that would have a dot in their
-names, unfortunately some gene names already contain dots making the search
-for patterns even more complex. To get rid of all these problems, I
-**strongly recommend** to use the first column and to use only
-*gene names* afterwards.
+    We could think that it would be easy to find the genes whose names have
+    been modified afterwards by searching all the genes that would have a dot
+    in their names, unfortunately some gene names already contain dots making
+    the search for patterns even more complex. To get rid of all these
+    problems, I **strongly recommend** to use the first column and to use only
+    gene names afterwards.
 
 ``` r
 ## Import expression matrix
@@ -140,7 +141,7 @@ annotated_hg19 <- getBM(attributes = c("ensembl_gene_id",
 #listAttributes(mart = ensembl_hg19) #dataframe where the first column is the attribute' names needed for the attributes parameter of getBM
 
 ## Preview of the resulting dataframe
-knitr::kable(head(annotated_hg19), "simple")
+kable(head(annotated_hg19), "simple")
 ```
 
 | ensembl_gene_id | external_gene_name | description                                                                           | gene_biotype   | chromosome_name |

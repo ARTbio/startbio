@@ -93,11 +93,12 @@ The result of this function is a dataframe with several columns:
 - `cluster` : cluster considered
 - `gene` : name of the gene
 
-> Be careful not to take into account the names of the lines in this dataframe
-> for reference. Indeed, it is quite frequent that a gene is defined as a
-> marker for several clusters which will duplicate the line names and thus
-> add suffixes in the rows. We would be back to the same problem as if we
-> were using gene names in `Read10X`.
+!!! bug "Warning"
+    Be careful not to take into account the names of the lines in this dataframe
+    for reference. Indeed, it is quite frequent that a gene is defined as a
+    marker for several clusters which will duplicate the line names and thus
+    add suffixes in the rows. We would be back to the same problem as if we
+    were using gene names in `Read10X`.
 
 Here we have changed some parameters to not filter any gene which will be
 very useful for the enrichment analysis (GSEA) which is based on an ordered

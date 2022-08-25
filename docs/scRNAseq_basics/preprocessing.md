@@ -196,8 +196,9 @@ pbmc_small <- NormalizeData(pbmc_small,                                   #Seura
 
 The `@data` slot is been updated with normalized UMI.
 
-> Tips : there is a shortcut to access the metadata columns :
-> `object@meta.data$column == object$column`
+!!! tip
+    There is a shortcut to access the metadata columns :
+    `object@meta.data$column == object$column`
 
 ## Identification of highly variable genes
 
@@ -241,4 +242,5 @@ The function `FindVariableFeatures` updates two slots:
     - `vst.variance.standardized` : standardized variance
     - `vst.variable` : logical, is the gene a variable gene TRUE / FALSE
 
-> Tips : We can directly access to HGV via : `VariableFeatures(pbmc_small)`
+!!! tip
+    We can directly access to HGV via : `VariableFeatures(pbmc_small)`

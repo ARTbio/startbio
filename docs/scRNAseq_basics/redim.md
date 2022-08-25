@@ -162,9 +162,10 @@ cells.
 This method consists in finding a *"bend"* in the distribution of the
 standard deviations of the different PCs.
 
-> I find this method much more complicated to decide how many PCs to keep.
-> But it allows to have a second opinion, at choice I prefer to base myself
-> on the Jack Straw result
+!!! info "Information"
+    I find this method much more complicated to decide how many PCs to keep.
+    But it allows to have a second opinion, at choice I prefer to base myself
+    on the Jack Straw result
 
 ``` r
 ElbowPlot(pbmc_small,           #SeuratObject
