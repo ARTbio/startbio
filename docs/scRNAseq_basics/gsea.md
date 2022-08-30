@@ -136,7 +136,7 @@ C8_t2g <- msigdbr(species = "Homo sapiens", category = "C8") %>%
   dplyr::select(gs_name, ensembl_gene)
 
   kable(head(C8_t2g, 10))
-  ```
+```
 
   | gs_name                          | ensembl_gene    |
   |:---------------------------------|:----------------|
@@ -261,10 +261,10 @@ a `lapply`. For each cluster :
 
 ``` r
 ## Retrieve Cell Markers Database for human cell types signatures gene sets
-cell_marker_data <- vroom::vroom('http://bio-bigdata.hrbmu.edu.cn/CellMarker/download/Human_cell_markers.txt')
+cell_marker_data <- vroom::vroom('http://xteam.xbio.top/CellMarker/download/Human_cell_markers.txt')
 
 ## Instead of `cellName`, users can use other features (e.g. `cancerType`)
-cells <- cell_marker_data %>%
+cells <- cell_marker_data %>%                                           
     dplyr::select(cellName, geneSymbol) %>%                            #Select only the two columns
     dplyr::mutate(geneSymbol = strsplit(geneSymbol, ', ')) %>%         #Split gene names based on the comma
     tidyr::unnest()                                                    #Flatten gene vector in order to have a line for each gene in terme
@@ -275,57 +275,105 @@ cells$geneSymbol <- gsub("\\[|\\]",
                          cells$geneSymbol,
                          fixed = FALSE)
 
-paged_table(head(cell_marker_data, 30))
+kable(head(cell_marker_data, 10))
+```
 
+| speciesType | tissueType         | UberonOntologyID | cancerType                     | cellType    | cellName                           | CellOntologyID | cellMarker                                     | geneSymbol                                                                      | geneID                                                              | proteinName                                                                  | proteinID                                                                                      | markerResource | PMID     | Company |
+|:------------|:-------------------|:-----------------|:-------------------------------|:------------|:-----------------------------------|:---------------|:-----------------------------------------------|:--------------------------------------------------------------------------------|:--------------------------------------------------------------------|:-----------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------|:---------------|:---------|:--------|
+| Human       | Kidney             | UBERON_0002113   | Normal                         | Normal cell | Proximal tubular cell              | NA             | Intestinal Alkaline Phosphatase                | ALPI                                                                            | 248                                                                 | PPBI                                                                         | P09923                                                                                         | Experiment     | 9263997  | NA      |
+| Human       | Liver              | UBERON_0002107   | Normal                         | Normal cell | Ito cell (hepatic stellate cell)   | CL_0000632     | Synaptophysin                                  | SYP                                                                             | 6855                                                                | SYPH                                                                         | P08247                                                                                         | Experiment     | 10595912 | NA      |
+| Human       | Endometrium        | UBERON_0001295   | Normal                         | Normal cell | Trophoblast cell                   | CL_0000351     | CEACAM1                                        | CEACAM1                                                                         | 634                                                                 | CEAM1                                                                        | P13688                                                                                         | Experiment     | 10751340 | NA      |
+| Human       | Germ               | UBERON_0000923   | Normal                         | Normal cell | Primordial germ cell               | CL_0000670     | VASA                                           | DDX4                                                                            | 54514                                                               | DDX4                                                                         | Q9NQI0                                                                                         | Experiment     | 10920202 | NA      |
+| Human       | Corneal epithelium | UBERON_0001772   | Normal                         | Normal cell | Epithelial cell                    | CL_0000066     | KLF6                                           | KLF6                                                                            | 1316                                                                | KLF6                                                                         | Q99612                                                                                         | Experiment     | 12407152 | NA      |
+| Human       | Placenta           | UBERON_0001987   | Normal                         | Normal cell | Cytotrophoblast                    | CL_0000351     | FGF10                                          | FGF10                                                                           | 2255                                                                | FGF10                                                                        | O15520                                                                                         | Experiment     | 15950061 | NA      |
+| Human       | Periosteum         | UBERON_0002515   | Normal                         | Normal cell | Periosteum-derived progenitor cell | NA             | CD166, CD45, CD9, CD90                         | ALCAM, PTPRC, CD9, THY1                                                         | 214, 5788, 928, 7070                                                | CD166, PTPRC, CD9, THY1                                                      | Q13740, P08575, P21926, P04216                                                                 | Experiment     | 15977065 | NA      |
+| Human       | Amniotic membrane  | UBERON_0009742   | Normal                         | Normal cell | Amnion epithelial cell             | CL_0002536     | NANOG, OCT3/4                                  | NANOG, POU5F1                                                                   | 79923, 5460                                                         | NANOG, PO5F1                                                                 | Q9H9S0, Q01860                                                                                 | Experiment     | 16081662 | NA      |
+| Human       | Primitive streak   | UBERON_0004341   | Normal                         | Normal cell | Primitive streak cell              | NA             | LHX1, MIXL1                                    | LHX1, MIXL1                                                                     | 3975, 83881                                                         | LHX1, MIXL1                                                                  | P48742, Q9H2W2                                                                                 | Experiment     | 16258519 | NA      |
+| Human       | Adipose tissue     | UBERON_0001013   | Normal                         | Normal cell | Stromal vascular fraction cell     | CL_0000499     | CD34                                           | CD34                                                                            | 947                                                                 | CD34                                                                         | P28906                                                                                         | Experiment     | 16322640 | NA      |
+
+``` r
 ## Apply GSEA for each cluster
 GSEA_CM_list <- lapply(levels(pbmc_markers_annotated$cluster), function(cluster_name){
-
+  
   res_markers <- subset(pbmc_markers_annotated, cluster == cluster_name)                     #Filter markers dataframe by cluster
-
+  
   ## Generate named vector of ranked gene mandatory for GSEA analysis that take into account DE importance and significativity
   geneList_byclus <- sign(res_markers$avg_log2FC) * -log10(ifelse(res_markers$p_val == 0,    #Deal with pval = 0
                                                                   1e-323,                    #Smallest interpretable number
                                                                   res_markers$p_val))
   names(geneList_byclus) <- res_markers$external_gene_name
-
+  
   ## Order by avg log FC and significativity
   geneList_byclus <- sort(geneList_byclus, decreasing = TRUE)
-
+  
   ## Perform GSEA analysis
   gseaCM <- GSEA(geneList_byclus, TERM2GENE = cells)
   gseaCM@result$cluster <- cluster_name #add cluster name as column
-
+  
   ## Add plot
-  # print(ridgeplot(gseaCM,
-  #                 showCategory = 5,
+  # print(ridgeplot(gseaCM, 
+  #                 showCategory = 5, 
   #                 orderBy = "NES") +
   #         ggtitle(paste("Cluster", cluster_name)) +
   #         theme(axis.text.y = element_text(size = 10),
   #               legend.key.size = unit(0.2, 'cm')))
-
-  print(gseaplot2(gseaCM,
-                  geneSetID = rownames(gseaCM@result %>%
-                                         arrange(desc(NES)))[1:ifelse(nrow(gseaCM) < 3,
-                                                                      nrow(gseaCM),
+  
+  print(gseaplot2(gseaCM, 
+                  geneSetID = rownames(gseaCM@result %>% 
+                                         arrange(desc(NES)))[1:ifelse(nrow(gseaCM) < 3, 
+                                                                      nrow(gseaCM), 
                                                                       3)],
                   base_size = 8,
-                  pvalue_table = TRUE,
+                  pvalue_table = TRUE, 
                   subplots = 1:2,
                   title = paste("Cluster", cluster_name)))
-
+  
   return(gseaCM@result) #Return dataframe result
 })
+```
 
+<img src="../images/clusterGSEACM-1.png" style="display: block; margin: auto;" /><img src="../images/clusterGSEACM-2.png" style="display: block; margin: auto;" /><img src="../images/clusterGSEACM-3.png" style="display: block; margin: auto;" /><img src="../images/clusterGSEACM-4.png" style="display: block; margin: auto;" /><img src="../images/clusterGSEACM-5.png" style="display: block; margin: auto;" /><img src="../images/clusterGSEACM-6.png" style="display: block; margin: auto;" /><img src="../images/clusterGSEACM-7.png" style="display: block; margin: auto;" /><img src="../images/clusterGSEACM-8.png" style="display: block; margin: auto;" /><img src="../images/clusterGSEACM-9.png" style="display: block; margin: auto;" />
+
+``` r
 ## Concatenate all results in one dataframe
 GSEA_CM_res <- do.call("rbind", GSEA_CM_list)
 
 ## Group result by cluster (easier to manipulate with dplyr)
-GSEA_CM_res <- GSEA_CM_res %>%
+GSEA_CM_res <- GSEA_CM_res %>% 
   group_by(cluster)
 
 ## Visualise first 3 signatures for each cluster (removing the vector of genes just for the visualisation and the description that match ID column for this dataset MSigDB)
-paged_table(top_n(x= GSEA_CM_res, n = 3, wt = NES)[, -c(2,11)])
+kable(top_n(x= GSEA_CM_res, n = 3, wt = NES)[, -c(2,11)])
 ```
+
+??? abstract "First Enriched CellMarker gene sets for each cluster"
+    | ID                                 | setSize | enrichmentScore |       NES |    pvalue |  p.adjust |   qvalues | rank | leading_edge                   | cluster |
+    |:-----------------------------------|--------:|----------------:|----------:|----------:|----------:|----------:|-----:|:-------------------------------|:--------|
+    | Leydig precursor cell              |      44 |       0.8602093 |  2.256066 | 0.0000000 | 0.0000000 | 0.0000000 |  132 | tags=70%, list=10%, signal=65% | 0       |
+    | Mitotic fetal germ cell            |     164 |       0.6500399 |  2.095496 | 0.0000000 | 0.0000000 | 0.0000000 |  135 | tags=35%, list=11%, signal=36% | 0       |
+    | Naive CD8+ T cell                  |      45 |       0.8009130 |  2.108249 | 0.0000000 | 0.0000003 | 0.0000002 |  212 | tags=78%, list=17%, signal=67% | 0       |
+    | Monocyte                           |     423 |       0.8131596 |  1.974827 | 0.0000000 | 0.0000000 | 0.0000000 |  332 | tags=54%, list=21%, signal=58% | 1       |
+    | Paneth cell                        |     119 |       0.7580558 |  1.785342 | 0.0000000 | 0.0000000 | 0.0000000 |  327 | tags=61%, list=20%, signal=53% | 1       |
+    | Neutrophil                         |      41 |       0.8413770 |  1.817697 | 0.0000002 | 0.0000036 | 0.0000025 |  172 | tags=66%, list=11%, signal=60% | 1       |
+    | CD4+ T cell                        |      14 |       0.8825202 |  2.213082 | 0.0000002 | 0.0000023 | 0.0000013 |   52 | tags=64%, list=5%, signal=62%  | 2       |
+    | T helper cell                      |      12 |       0.8630525 |  2.103741 | 0.0000084 | 0.0000529 | 0.0000292 |  106 | tags=75%, list=10%, signal=68% | 2       |
+    | Activated T cell                   |      10 |       0.8687549 |  2.035541 | 0.0000261 | 0.0001498 | 0.0000826 |  101 | tags=70%, list=10%, signal=64% | 2       |
+    | B cell                             |     178 |       0.8779346 |  2.075372 | 0.0000000 | 0.0000000 | 0.0000000 |  167 | tags=61%, list=14%, signal=61% | 3       |
+    | Secretory cell                     |      18 |       0.9223015 |  1.811398 | 0.0000023 | 0.0000758 | 0.0000572 |   32 | tags=61%, list=3%, signal=60%  | 3       |
+    | Plasma cell                        |      15 |       0.8797950 |  1.678179 | 0.0012256 | 0.0117304 | 0.0088462 |   78 | tags=60%, list=7%, signal=57%  | 3       |
+    | CD4+ cytotoxic T cell              |      37 |       0.8900805 |  2.090355 | 0.0000000 | 0.0000000 | 0.0000000 |   55 | tags=59%, list=8%, signal=58%  | 4       |
+    | Natural killer cell                |      30 |       0.8370655 |  1.896569 | 0.0000201 | 0.0001404 | 0.0000871 |   72 | tags=60%, list=10%, signal=56% | 4       |
+    | CD8+ T cell                        |      13 |       0.9231380 |  1.880140 | 0.0000652 | 0.0004054 | 0.0002515 |   40 | tags=69%, list=6%, signal=67%  | 4       |
+    | CD1C-CD141- dendritic cell         |     234 |       0.8010932 |  1.915014 | 0.0000000 | 0.0000000 | 0.0000000 |  314 | tags=59%, list=17%, signal=56% | 5       |
+    | Monocyte                           |     452 |       0.7167580 |  1.731494 | 0.0000000 | 0.0000000 | 0.0000000 |  427 | tags=50%, list=23%, signal=51% | 5       |
+    | Paneth cell                        |     143 |       0.7375016 |  1.742889 | 0.0000000 | 0.0000000 | 0.0000000 |  204 | tags=41%, list=11%, signal=40% | 5       |
+    | CD4+ cytotoxic T cell              |      56 |       0.8789105 |  1.987043 | 0.0000000 | 0.0000000 | 0.0000000 |  116 | tags=66%, list=11%, signal=62% | 6       |
+    | Effector CD8+ memory T (Tem) cell  |      48 |       0.8512421 |  1.908905 | 0.0000000 | 0.0000002 | 0.0000002 |  116 | tags=54%, list=11%, signal=50% | 6       |
+    | Natural killer cell                |      41 |       0.8669408 |  1.918940 | 0.0000000 | 0.0000005 | 0.0000003 |   55 | tags=49%, list=5%, signal=48%  | 6       |
+    | CD1C+\_A dendritic cell            |      16 |       0.9085712 |  2.285287 | 0.0000043 | 0.0001444 | 0.0001021 |   36 | tags=44%, list=2%, signal=43%  | 7       |
+    | Secretory cell                     |      16 |       0.8755798 |  2.202305 | 0.0001511 | 0.0033737 | 0.0023852 |   79 | tags=69%, list=4%, signal=66%  | 7       |
+    | Specialist antigen presenting cell |      18 |       0.8389319 |  2.138434 | 0.0004965 | 0.0066529 | 0.0047035 |  144 | tags=50%, list=8%, signal=46%  | 7       |
+    | Morula cell (Blastomere)           |      10 |      -0.7380276 | -2.257087 | 0.0000162 | 0.0005186 | 0.0004606 |   76 | tags=80%, list=12%, signal=72% | 8       |
 
 ## Analyse des resultats d’enrichissement
 
