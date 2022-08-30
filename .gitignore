@@ -108,5 +108,8 @@ venv.bak/
 */.DS_Store
 docs/.DS_Store
 docs/.DS_Store
+
+# R - Rstudio
 *.Rproj
 .Rproj.user
+.Rhistory
