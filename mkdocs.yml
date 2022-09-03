@@ -48,6 +48,8 @@ nav:
         - "Appendix 4: Galaxy software architecture" : Run-Galaxy/Galaxy_architecture.md
         - "Appendix 5: Install a Galaxy server with Docker": Run-Galaxy/Docker_GalaxyKickStart.md
 
+    - Run a Galaxy workflow for somatic mutation detection in cancers:
+        - INTRODUCTION: Run-COH/index.md
     -  Search for chomosome translocations:
         - Introduction: translocations/index.md
         - Sequencing Protocol: translocations/seq.md
