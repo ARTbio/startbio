@@ -92,9 +92,9 @@ towards the clusters of a higher resolution. For example, the cells of
 cluster 0 of resolution 0.2 in red are distributed in clusters 0 and 2 of
 resolution 0.4 in khaki green. While cluster 3 of resolution 0.2 is composed
 of the same cells as cluster 3 of resolution 0.4. The color of the arrows
-corresponds to the number of cells of the *"parent "* cluster which feeds
-the *"child "* cluster. The opacity of the arrows represents the proportion
-of cells coming from the *"parent "* cluster. It is on this point that
+corresponds to the number of cells of the *"parent"* cluster which feeds
+the *"child"* cluster. The opacity of the arrows represents the proportion
+of cells coming from the *"parent"* cluster. It is on this point that
 clustree allows us to identify the resolution to choose. If a cluster has
 several origins, then we consider that we have clustered the cells too much
 and that we should choose a lower resolution.
