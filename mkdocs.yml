@@ -6,12 +6,14 @@ theme:
   name: 'material'
   logo: assets/startbio_icon.png
   font:
-    text: Noto Sans Display  # Confortaa, Open Sans, Shippori Antique, 
+    text: Noto Sans Display  # Confortaa, Open Sans, Shippori Antique,
   palette:
     scheme: default
     primary: black
   icon:
     repo: fontawesome/brands/github
+    admonition:
+      danger: octicons/alert-fill-12
   features:
     - header.autohide
     - navigation.instant
@@ -21,6 +23,7 @@ theme:
 #    - navigation.sections
     - toc.integrate
     - navigation.top
+    - content.tabs.link
 
 nav:
   - Home: index.md
@@ -139,8 +142,27 @@ nav:
         - "Pratical part: Command lines": deepseq/command_lines.md
         - Align reads with bowtie: deepseq/bowtie.md
         - To be continued... with Galaxy: deepseq/galaxy.md
-        
+
     -  Starters to single-cell RNAseq analysis: scRNAseq_tutorials.md
+
+    - Complete Single-cell RNAseq analysis tutorial in R via Seurat:
+        - Introduction: scRNAseq_basics/introduction.md
+        - Prerequisites: scRNAseq_basics/prerequisites.md
+        - Initialization of R analysis: scRNAseq_basics/intro_seurat.md
+        - Import data: scRNAseq_basics/import.md
+        - Preprocessing: scRNAseq_basics/preprocessing.md
+        - Reduction of dimensionality: scRNAseq_basics/redim.md
+        - Clustering: scRNAseq_basics/clustering.md
+        - Cell population identification:
+          - Introduction and markers identification:  scRNAseq_basics/intro_markers.md
+          - Markers Annotation:
+            - Presentation of annotation methods: scRNAseq_basics/marker_annot.md
+            - Over-representation analysis: scRNAseq_basics/over.md
+            - Gene Set Enrichment Analysis: scRNAseq_basics/gsea.md
+          - Cluster annotation: scRNAseq_basics/clusannot.md
+        - Comparison between 2 populations: scRNAseq_basics/comp.md
+        - Differents visualizations of Seurat: scRNAseq_basics/visualization.md
+        - References: scRNAseq_basics/references.md
 
   - Code Snippets:
     - Terminal Bash: bash_snippets.md
@@ -156,7 +178,7 @@ nav:
     - Le traitement de textes collaboratif: IBPS/shared_text_editors.md
     - Blog Post - R or Python ?: IBPS/RorPython.md
     - Youtube: IBPS/youtube.md
-    
+
   - Links: links.md
 
   - STARTbio Training Project: startbio_project.md
@@ -189,9 +211,16 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
   - def_list
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
+  - pymdownx.arithmatex:
+      generic: true
 
-
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
