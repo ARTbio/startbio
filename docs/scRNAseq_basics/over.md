@@ -1,6 +1,6 @@
 # Over-representation analysis
 
-## Gene Ontholgy
+## Gene Ontology
 
 We will start by analysing our gene lists with the [Gene Ontology annotation](http://geneontology.org/)
 which classifies genes into gene sets according to three main types of
@@ -15,13 +15,16 @@ Ontology terms (referred to here as GO terms). The GO terms are classified
 in a tree structure with general gene sets that become more specific as we
 go along. The relationships between GO terms can reflect different cases:
 
-- `is a` : A GO term is a subtype of the GO term B
+- `is a` : A GO term is a subtype of the GO term B. For example mitochondrion
+  `is a` organelle.
 - `part of` : the term GO A is part of the term GO B, so if the term GO A is
-  present then so is the term GO B
+  present then so is the term GO B. For example mitochondrion is a `part of`
+  cytoplasm.
 - `has part` : the term GO A necessarily contains the term GO B, but if there
-  is the term GO B there is not necessarily the term GO A
+  is the term GO B there is not necessarily the term GO A. For example, the
+  receptor tyrosine kinase activity `has part` ATP hydrolysis activity.
 - `regulates` : the term GO A necessarily impacts the term GO B, but the
-  latter is not necessarily impacted by A
+  latter is not necessarily impacted by A.
 
 In the `ClusterProfiler` package we will use the `enrichGO` function which
 calculates for each GO term the over-representation of the genes in the
@@ -237,9 +240,9 @@ The result is a dataframe where the GO terms have been considered as enriched:
 
 A GO term has been considered as enriched if :
 
-- the p-value \< 0.05
-- the adjusted p-value \< 0.05
-- the q-value \< 0.2
+- the p-value $\lt$ 0.05
+- the adjusted p-value $\lt$ 0.05
+- the q-value $\lt$ 0.2
 
 ## Kyoto Encyclopedia of Genes and Genomes (KEGG)
 
@@ -381,9 +384,9 @@ as enriched with the following columns :
 
 A KEGG category has been considered enriched if :
 
-- the p-value \< 0.05
-- the adjusted p-value \< 0.05
-- q-value \< 0.2
+- the p-value $\lt$ 0.05
+- the adjusted p-value $\lt$ 0.05
+- q-value $\lt$ 0.2
 
 
 These over-representation methods are highly dependent on the database
