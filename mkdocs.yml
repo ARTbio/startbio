@@ -143,9 +143,10 @@ nav:
 
     -  Starters to single-cell RNAseq analysis: scRNAseq_tutorials.md
 
-    - Single-cell RNAseq analysis:
+    - Complete Single-cell RNAseq analysis tutorial in R via Seurat:
         - Introduction: scRNAseq_basics/introduction.md
-        - Single-cell Analysis via R: scRNAseq_basics/intro_seurat.md
+        - Prerequisites: scRNAseq_basics/prerequisites.md
+        - Initialization of R analysis: scRNAseq_basics/intro_seurat.md
         - Import data: scRNAseq_basics/import.md
         - Preprocessing: scRNAseq_basics/preprocessing.md
         - Reduction of dimensionality: scRNAseq_basics/redim.md
