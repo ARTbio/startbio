@@ -180,6 +180,10 @@ normalized as follows, for each cell :
 
 $$ norm.UMI = log2(\frac{UMI}{nCount.RNA} \times scale.factor +1) $$
 
+??? question "Do you see \[ norm.UMI = log2(\frac{UMI}{nCount.RNA} \times scale.factor +1) \] ?"
+    If you see some weird code outside R chuncks, don't hesitate to refresh your
+    page in order to visualize correctly equations  
+
 The `scale.factor` is set to 10 000 by default, most often we use the
 median of the library size (= total number of IMUs per cell, = `nCount_RNA`
 in `meta.data`). If the scale factor is equal to 1e6 then we would get
