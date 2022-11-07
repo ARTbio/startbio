@@ -20,9 +20,10 @@ theme:
     - navigation.tracking
     - navigation.tabs
     - navigation.tabs.sticky
-#    - navigation.sections
-    - toc.integrate
+    - navigation.sections
     - navigation.top
+    - navigation.prune
+#    - toc.integrate
     - content.tabs.link
 
 nav:
@@ -33,6 +34,22 @@ nav:
     - Python Decorators: ten2/python_decorators.md
 
   - Galaxy Trainings:
+
+    -  Analyse des Génomes (2022):
+        - OUTLINE OF THE TRAINING: AnalyseGenomes_2022/outline.md
+        - APPLYING FAIR PRINCIPLES TO A SIMPLE BIOINFORMATICS TASK: AnalyseGenomes_2022/fair.md
+        - WHY ADMINSTERING GALAXY ?: AnalyseGenomes_2022/whyadmin.md
+        - STANDALONE GALAXY IN GOOGLE CLOUD ENGINE : AnalyseGenomes_2022/bare-galaxy-google.md
+        - AFTER DEPLOYMENT: AnalyseGenomes_2022/Run_workflow.md
+        - LOAD INPUT DATA: AnalyseGenomes_2022/Loading_data_in_galaxy.md
+        - PREPARE A REFERENCE GENOME: AnalyseGenomes_2022/Preparing_reference.md
+        - TEST YOUR GALAXY INSTANCE: AnalyseGenomes_2022/test_instance.md
+        - IN CASE OF EMERGENCY: AnalyseGenomes_2022/start_from_image.md
+        - ADMIN TOOL KIT: AnalyseGenomes_2022/admin_kit.md
+        - "Appendix 1: Getting a Google Cloud Engine Account": AnalyseGenomes_2022/Google_cloud_Account.md
+        - "Appendix 2: Start and stop a Google virtual machine": AnalyseGenomes_2022/spin_off_VM.md
+        - "Appendix 3: http access to the IFB cloud" : AnalyseGenomes_2022/SocksProxy.md
+        - "Appendix 4: Galaxy software architecture" : AnalyseGenomes_2022/Galaxy_architecture.md
 
     -  Run your Galaxy server:
         - INTRODUCTION: Run-Galaxy/index.md
@@ -197,13 +214,16 @@ markdown_extensions:
   - pymdownx.caret
   - pymdownx.critic
   - pymdownx.details
+  - pymdownx.highlight:
+      auto_title: true
   - pymdownx.emoji:
       emoji_generator: !!python/name:pymdownx.emoji.to_svg
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
 #  - pymdownx.inlinehilite # compete with codehilite
   - pymdownx.keys
-  - pymdownx.magiclink
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
   - pymdownx.mark
   - pymdownx.smartsymbols
   - pymdownx.superfences:
@@ -219,6 +239,8 @@ markdown_extensions:
   - pymdownx.tilde
   - pymdownx.arithmatex:
       generic: true
+
+      
 
 extra_javascript:
   - javascripts/mathjax.js
