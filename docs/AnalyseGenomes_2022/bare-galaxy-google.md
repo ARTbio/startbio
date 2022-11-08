@@ -22,7 +22,7 @@
         - Système d'exploitation: `Ubuntu`
         - Version*: `Ubuntu 20.04 LTS`
         - Type de disque de démarrage: `Disque persistant avec équilibrage`
-        - Taille (Go): `100`
+        - Taille (Go): ==`200`==
         - ==SELECTIONNER==
     - **Pare-feu**
         - Check `Autoriser le trafic HTTP`
@@ -33,11 +33,10 @@ This settings should look like:
 ![](images/GCE_OS.png){: style="width:450px"}
 ![](images/GCE_firewall.png){: style="width:450px"}
 
-#### Trouble shouting 
-**In some occasions, launching of your VM may fail** as illustrated bellow:
-![](images/instance_failing.png){: style="width:600px"}
-
-??? bug "Two possible fixes"
+??? bug "Trouble shouting"
+    **In some occasions, launching of your VM may fail** as illustrated bellow:
+    ![](images/instance_failing.png){: style="width:600px"}
+    
     1. Maybe you are not, indeed, using the billing account associated to your
     Google coupon, but instead using a billing account associated to a "Free Trial".
         
@@ -70,83 +69,75 @@ This settings should look like:
 
 ### 3. Installation of the Galaxy server
 
-In this first approach "==bare Galaxy==", everything is made as simple as possible:
-
-- We are going to become `root` unix user. This is required because installation
-of new programs as well as manipulations of network interfaces is permitted only
-to users with administration rights.
-
-- We are going to check that all software needed to deploy galaxy are there (they are with
-Ubuntu 20.04 !)
-
-- Finally, we will run the automated deployment of Galaxy
-
-So let's do this, step by step:
+So let's do this, step by step, using the ssh Terminal:
 
     
-  ```{.bash title="1."}
+  ```{.bash title="1. Terminal"}
   sudo -i
   ```
   This command open a new "shell" where you are root. You can check this by typing `pwd` that
   should return `/root/`, meaning that you are now working in the directory of the `root` user.
   
-  ```{.bash title="2."}
-  python3 --version && git --version && nano --version
+  This is required because installation of new programs as well as manipulations of network
+  interfaces is permitted only to users with administration rights.
+  ```{.bash title="2. Terminal"}
+  git clone https://github.com/ARTbio/AnalyseGenome.git
   ```
-  This command checks that the only 2 programs required for the deployment are already there
+  This command says to use `git` to `clone` the code repository @artbio/AnalyseGenome located at
+  `https://github.com/ARTbio/AnalyseGenome.git`. This repository contains a few files of 
+  code that will help us in the Galaxy server deployment
   
-  ```{.bash title="3."}
-  git clone https://github.com/galaxyproject/galaxy.git -b release_21.05
+  ```{.bash title="3. Terminal"}
+  git clone https://github.com/galaxyproject/galaxy.git -b release_22.05
   ```
-  This command says to use `git` to `clone` the code repository located at
+  This command says to use `git` to `clone` the code repository @galaxyproject/galaxy located at
   `https://github.com/galaxyproject/galaxy.git`.
   
-  In addition the `-b release_21.05` option specifies that only the version `release_21.05`
+  In addition the `-b release_22.05` option specifies that only the version `release_22.05`
   will be cloned locally in your virtual machine. You may try to visualize the URL
   [https://github.com/galaxyproject/galaxy.git](https://github.com/galaxyproject/galaxy.git)
-  in your web browser. You will, literally, see the code of Galaxy. It is Open Source, as
-  you can notice.
+  in your web browser. You will, literally, see the code of the Galaxy program.
   
-  ```{.bash title="4."}
+  As you can notice, it is Open Source as well as FAIR
+  
+  ```{.bash title="4. Terminal"}
   cd galaxy
   ```
   This command moves you in the `galaxy` directory that was created by git and the
   `git clone` command in 3.
   
-  ```{.bash title="5."}
+  ```{.bash title="5. Terminal"}
   cp config/galaxy.yml.sample config/galaxy.yml
   ```
   This command makes a copie of the `galaxy.yml.sample` file to `galaxy.yml` - in the
   directory `config` that is in the `galaxy` directory.
   
-  ```{.bash title="6."}
+  ```{.bash title="6. Terminal"}
   nano config/galaxy.yml
   ```
   Using this command, we are going to edit some important settings that are required to
   run our Galaxy fresh instance.
 !!! note ":computer:"
-    - Find the line
-    ```
-    http: 127.0.0.1:8080
+    - Find the line 53
+    ```{.bash title="nano editor"}
+        # bind: localhost:8080
     ```
     (you can use the editor command ++ctrl+w++, paste the previous line and press enter)
     
-    and edit it to
-    ```
-    http: 0.0.0.0:80
+    - and edit it to
+    ```{.bash title="nano editor"}
+        bind: 0.0.0.0:80
     ```
     By doing this, we ensure that we will be able to reach the galaxy web server on our
     virtual machine using the usual web port `80`.
 
-    - Find the line
+    - Find the line 1729
+    ```{.bash title="nano editor"}
+      #admin_users: null
     ```
-    #admin_users: ''
-    ```
-    delete the `#` character and type your email address between the two single quotes.
-    
-    <a id="admin-email"></a>
+    delete the `null` string and replace it with your email address.
     Any email address is ok (admin@galaxy.org for instance). It is just used here as
-    an admin identifier.
+    an account identifier with admin rights on the galaxy instance.
     
     - save your changes by pressing the key combination ++ctrl+o++
     - quit nano by pressing the key combination ++ctrl+x++
@@ -172,11 +163,11 @@ So let's do this, step by step:
     ```
     2. Download the cached web client folders
     ```
-    cd ~/galaxy && wget https://storage.googleapis.com/analyse-genome-coupon-1/bare.client.tar.gz https://storage.googleapis.com/analyse-genome-coupon-1/bare.static.tar.gz
+    cd ~/galaxy && wget https://psilo.sorbonne-universite.fr/index.php/s/Kw9y8LgYyXBq3pr/download/client.tar.gz https://psilo.sorbonne-universite.fr/index.php/s/crArbXEFZq9HB87/download/static.tar.gz
     ```
     3. Uncompress the cached client folders
     ```
-    cd ~/galaxy && tar -xvf bare.static.tar.gz && tar -xvf bare.client.tar.gz
+    cd ~/galaxy && tar -xvf static.tar.gz && tar -xvf client.tar.gz
     ```
     
     :warning: this tip is **optional**. If you run the next command without doing it,
@@ -202,9 +193,8 @@ So let's do this, step by step:
   
   After 5-10 minutes, you should see in the log:
 
-```console
-Starting server in PID 3813.
-serving on http://127.0.0.1:80
+```{.bash title="Terminal"}
+[2022-11-08 09:25:25 +0000] [1504] [INFO] Listening at: http://0.0.0.0:80 (1504)
 ```
 ### 4. Connect to your living Galaxy instance
 
