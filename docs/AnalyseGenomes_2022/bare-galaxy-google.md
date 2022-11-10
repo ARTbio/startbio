@@ -72,22 +72,22 @@ This settings should look like:
 So let's do this, step by step, using the ssh Terminal:
 
     
-  ```{.bash title="1. Terminal"}
+  ```Console
   sudo -i
   ```
   This command open a new "shell" where you are root. You can check this by typing `pwd` that
-  should return `/root/`, meaning that you are now working in the directory of the `root` user.
+  should return `/root`, meaning that you are now working in the directory of the `root` user.
   
   This is required because installation of new programs as well as manipulations of network
   interfaces is permitted only to users with administration rights.
-  ```{.bash title="2. Terminal"}
+  ```Console
   git clone https://github.com/ARTbio/AnalyseGenome.git
   ```
   This command says to use `git` to `clone` the code repository @artbio/AnalyseGenome located at
   `https://github.com/ARTbio/AnalyseGenome.git`. This repository contains a few files of 
   code that will help us in the Galaxy server deployment
   
-  ```{.bash title="3. Terminal"}
+  ```Console
   git clone https://github.com/galaxyproject/galaxy.git -b release_22.05
   ```
   This command says to use `git` to `clone` the code repository @galaxyproject/galaxy located at
@@ -100,87 +100,99 @@ So let's do this, step by step, using the ssh Terminal:
   
   As you can notice, it is Open Source as well as FAIR
   
-  ```{.bash title="4. Terminal"}
+  ```Console
   cd galaxy
   ```
   This command moves you in the `galaxy` directory that was created by git and the
   `git clone` command in 3.
   
-  ```{.bash title="5. Terminal"}
+  ```Console
   cp config/galaxy.yml.sample config/galaxy.yml
   ```
   This command makes a copie of the `galaxy.yml.sample` file to `galaxy.yml` - in the
   directory `config` that is in the `galaxy` directory.
   
-  ```{.bash title="6. Terminal"}
+  ```Console
   nano config/galaxy.yml
   ```
   Using this command, we are going to edit some important settings that are required to
   run our Galaxy fresh instance.
-!!! note ":computer:"
-    - Find the line 53
+!!! note "Within the opened nano editor window :computer:"
+    - Find the line 53 (you can use the editor search command ++ctrl+w++, paste
+    the previous line and press enter)
     ```{.bash title="nano editor"}
         # bind: localhost:8080
     ```
-    (you can use the editor command ++ctrl+w++, paste the previous line and press enter)
+    
     
     - and edit it to
     ```{.bash title="nano editor"}
         bind: 0.0.0.0:80
     ```
+    :warning: Be careful to leave a space between the `:` and `0.0.0.0:80`
+    
     By doing this, we ensure that we will be able to reach the galaxy web server on our
     virtual machine using the usual web port `80`.
 
-    - Find the line 1729
+    - Find the line 1729 (you can use the editor search command ++ctrl+w++, paste
+    the previous line and press enter)
     ```{.bash title="nano editor"}
       #admin_users: null
     ```
     delete the `null` string and replace it with your email address.
+    :warning: As before, be careful to leave a space between the `:`and the email address.
     Any email address is ok (admin@galaxy.org for instance). It is just used here as
     an account identifier with admin rights on the galaxy instance.
+    ```{.bash title="nano editor"}
+      admin_users: me@address.org
+    ```
     
     - save your changes by pressing the key combination ++ctrl+o++
     - quit nano by pressing the key combination ++ctrl+x++
 
-!!! note "This part is optional but will save us 20 min of deployment !"
-    Before starting the deployment of Galaxy, we are going to use a trick to
-    bypass the step of compilation of html and javascript codes which are used to
-    render the Galaxy graphic interface.
+!!! warning "bypass the compilation of html and javascript codes used to render the Galaxy web interface."
+    To speed up user experience, modern web applications are caching compiled codes used to
+    render their graphic interface. By default, this compilation is performed during
+    the deployment of the application (referred to as "the build").
     
-    This is because modern web applications use a lot of cached code, speeding up the user
-    experience. However, this implies that this code cache is built during the deployment
-    of the application.
-    
-    For Galaxy, building/caching the client codes for the web server takes about 20 min
-    and this is increasing with newer galaxy versions.
-    
-    To save us these 20 min, we are going to remove the web client folders and replace them
-    by already built client folders, prepared by your trainer...
+    In order to save this ~15 min step, we are going to remove the web client folders and
+    replace them by already built client folders, which are stored on a remote server.
     
     1. Remove the web client folders
-    ```
+    ```Console
     rm -rf ~/galaxy/client ~/galaxy/static
     ```
     2. Download the cached web client folders
-    ```
-    cd ~/galaxy && wget https://psilo.sorbonne-universite.fr/index.php/s/Kw9y8LgYyXBq3pr/download/client.tar.gz https://psilo.sorbonne-universite.fr/index.php/s/crArbXEFZq9HB87/download/static.tar.gz
+    ```Console
+    cd ~/galaxy && wget https://psilo.sorbonne-universite.fr/index.php/s/Kw9y8LgYyXBq3pr/download/client.tar.gz https://psilo.sorbonne-universite.fr/index.php/s/YCEe2XNbgLMf2Px/download/static.tar.gz
     ```
     3. Uncompress the cached client folders
-    ```
+    ```Console
     cd ~/galaxy && tar -xvf static.tar.gz && tar -xvf client.tar.gz
     ```
     
-    :warning: this tip is **optional**. If you run the next command without doing it,
-    everything will go OK, but the `run.sh` script will detect that the galaxy web page
-    are not built and it will do it. This takes about 10-15 minutes.
+    :warning: It is ok if you do not perform this task, but the `run.sh` script will detect
+    that the static galaxy web pages are not built and it will do it.
 
-  7.
-  Ready for deploying Galaxy ?
+**Ready for deploying Galaxy ?**
     
-  Then type
-   ```
-   sh run.sh
-   ```
+As we are going to launch Galaxy as a "daemon" server, we need a special session that we
+can leave or reattach without interrupting the running Galaxy server.
+
+Therefore, we are going to use the linux program `screen` to create, attach, detach or
+reattach a "virtual" session that ends only when you decide to kill it.
+
+In the terminal, type:
+  ```Console
+  screen -S galaxyscreen
+  ```
+  Your screen should be now cleared, indicating that a new shell session is created, in
+  which the Galaxy process will be run.
+  
+  Then type:
+  ```Console
+  sh run.sh
+  ```
    and press the ++return++ key !
   
   You should see an abundant log scrolling down. Don't worry !

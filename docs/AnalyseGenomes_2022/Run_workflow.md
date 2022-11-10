@@ -146,7 +146,7 @@ retrieve the input data set before running the workflows on these data.
 - import the dataset using the `Paste/Fetch data` mode of the upload manager (the small
 bottom-top arrow icone at the top left of the Galaxy interface). Copy the URL
 ```
-https://github.com/bergmanlab/transposons/raw/2018c2e848cec2aefc4a87187d5ed5927d04c9a4/current/transposon_sequence_set.embl.txt
+https://raw.githubusercontent.com/bergmanlab/drosophila-transposons/master/releases/transposon_sequence_set_v9.5.embl.txt
 ```
 in the open field and click the `Start` button.
 

@@ -39,7 +39,7 @@ nav:
         - OUTLINE OF THE TRAINING: AnalyseGenomes_2022/outline.md
         - APPLYING FAIR PRINCIPLES TO A SIMPLE BIOINFORMATICS TASK: AnalyseGenomes_2022/fair.md
         - WHY ADMINSTERING GALAXY ?: AnalyseGenomes_2022/whyadmin.md
-        - STANDALONE GALAXY IN GOOGLE CLOUD ENGINE : AnalyseGenomes_2022/bare-galaxy-google.md
+        - DEPLOY GALAXY IN GOOGLE CLOUD ENGINE : AnalyseGenomes_2022/bare-galaxy-google.md
         - AFTER DEPLOYMENT: AnalyseGenomes_2022/Run_workflow.md
         - LOAD INPUT DATA: AnalyseGenomes_2022/Loading_data_in_galaxy.md
         - PREPARE A REFERENCE GENOME: AnalyseGenomes_2022/Preparing_reference.md
