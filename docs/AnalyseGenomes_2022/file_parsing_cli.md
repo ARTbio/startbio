@@ -2,24 +2,6 @@
 hide:
   - toc
 ---
-## FAIR principles
-
-!!! info ""
-    **F**INDABLE
-    
-    **A**CCESSIBLE
-    
-    **I**NTEROPERABLE
-    
-    **R**EPRODUCIBLE
-
-### FINDABLE
-
-### ACCESSIBLE
-
-### INTEROPERABLE
-
-### REPRODUCIBLE
 
 ### Initial Format (EMBL flat file)
 ```
@@ -70,12 +52,51 @@ TTTTCTCATTTTATCTTTTATCTATCGATATCCCAGAAAAATTGTGCAATTTCGCATTCA
 CACTAGCTGAGTAACGGGTATCTGATAGTCGGGAAACTCGACTATAGCATTCTCTCTTTT
 TGAAATTGCGG
 ```
-## A simple use case in command lines
-   How is it FAIR ? Rate it
+## Import the dataset
+```
+mkdir ~/file_parsing && \
+cd ~/file_parsing && \
+wget https://raw.githubusercontent.com/bergmanlab/drosophila-transposons/9b28cdbe9d2b3ef895df37f8495b33104677e516/releases/transposon_sequence_set_v9.5.embl.txt
+```
+## Reformat the file using sequencial command lines:
+```
+grep -P "(^ID)|(^ +[GATCN ]+\d+)" transposon_sequence_set_v9.5.embl.txt > transposon_sequence_set_v9.5.fa
+```
+
+```
+sed -i.bak -E "s/^ID   />/" transposon_sequence_set_v9.5.fa
+```
+
+```
+sed -i.bak2 -E "s/(>[^ ]+) .+/\1/g" transposon_sequence_set_v9.5.fa
+```
+
+```
+sed -i.bak3 -E "s/([GATCN]+) /\1/g" transposon_sequence_set_v9.5.fa
+```
+
+```
+sed -i.bak4 -r "s/^ +//g" transposon_sequence_set_v9.5.fa
+```
+
+```
+sed -i.bak5 -r "s/ +[0-9]+//g" transposon_sequence_set_v9.5.fa
+```
+## Check the conversion
+
+- Download the file reference for the conversion (ie, a file that we know is correctly converted...)
+```
+wget https://raw.githubusercontent.com/ARTbio/AnalyseGenome/main/Exercises/transposon_sequence_set_v9.5.fa
+```
+- check the content, what do you see ?
+```
+ll -tr
+```
+- compute the difference between your conversion and the reference conversion
+```
+diff transposon_sequence_set_v9.5.fa transposon_sequence_set_v9.5.fa.1
+```
+
 ## The same use case in [Public Galaxy](https://usegalaxy.eu)
-   How is it FAIR ? Rate it
 
-Under construction
-
-@artbio/galaxykickstart
 

@@ -1,3 +1,15 @@
+# Install tools
+
+```
+wget https://raw.githubusercontent.com/ARTbio/AnalyseGenome/main/GalaxyServer/install_galaxy_tools.sh
+```
+
+and run it
+
+```
+sh install_galaxy_tools.sh
+```
+
 # Running a workflow in Galaxy
 **In this use case, we are going to** 
 
@@ -144,7 +156,7 @@ retrieve the input data set before running the workflows on these data.
 
 - Create a new history and name it `transposon_set_embl.txt manipulation`
 - import the dataset using the `Paste/Fetch data` mode of the upload manager (the small
-bottom-top arrow icone at the top left of the Galaxy interface). Copy the URL
+bottom-top arrow icon at the top left of the Galaxy interface). Copy the URL
 ```
 https://raw.githubusercontent.com/bergmanlab/drosophila-transposons/master/releases/transposon_sequence_set_v9.5.embl.txt
 ```

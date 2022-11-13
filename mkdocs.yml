@@ -36,10 +36,14 @@ nav:
   - Galaxy Trainings:
 
     -  Analyse des Génomes (2022):
-        - OUTLINE OF THE TRAINING: AnalyseGenomes_2022/outline.md
-        - APPLYING FAIR PRINCIPLES TO A SIMPLE BIOINFORMATICS TASK: AnalyseGenomes_2022/fair.md
-        - WHY ADMINSTERING GALAXY ?: AnalyseGenomes_2022/whyadmin.md
+        - PLAN: AnalyseGenomes_2022/outline.md
         - DEPLOY GALAXY IN GOOGLE CLOUD ENGINE : AnalyseGenomes_2022/bare-galaxy-google.md
+        - INSTALL GALAXY TOOLS: AnalyseGenomes_2022/Install_tools.md
+        - FORMAT CONVERSION USING COMMAND LINES: AnalyseGenomes_2022/file_parsing_cli.md
+        - FORMAT CONVERSION USING a GALAXY TOOL: AnalyseGenomes_2022/file_parsing_galaxy.md
+        - BOWTIE ALIGNMENT USING COMMAND LINES: AnalyseGenomes_2022/bowtie_cli.md
+        - BOWTIE ALIGNMENT USING galaxy: AnalyseGenomes_2022/bowtie_galaxy.md
+        - WHY ADMINSTERING GALAXY ?: AnalyseGenomes_2022/whyadmin.md
         - AFTER DEPLOYMENT: AnalyseGenomes_2022/Run_workflow.md
         - LOAD INPUT DATA: AnalyseGenomes_2022/Loading_data_in_galaxy.md
         - PREPARE A REFERENCE GENOME: AnalyseGenomes_2022/Preparing_reference.md
@@ -215,7 +219,7 @@ markdown_extensions:
   - pymdownx.critic
   - pymdownx.details
   - pymdownx.highlight:
-      auto_title: true
+      auto_title: false
   - pymdownx.emoji:
       emoji_generator: !!python/name:pymdownx.emoji.to_svg
       emoji_index: !!python/name:materialx.emoji.twemoji
