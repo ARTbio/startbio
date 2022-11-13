@@ -97,6 +97,3 @@ ll -tr
 diff transposon_sequence_set_v9.5.fa transposon_sequence_set_v9.5.fa.1
 ```
 
-## The same use case in [Public Galaxy](https://usegalaxy.eu)
-
-
