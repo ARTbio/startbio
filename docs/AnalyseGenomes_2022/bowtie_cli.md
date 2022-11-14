@@ -20,12 +20,18 @@ ll
 
 We also need to uncompress the fastq.gz file to a fasq file
 ```
-gzip GRH-103_R1.fastq.gz
+gunzip GRH-103_R1.fastq.gz
 ```
 you can check the result by
 ```
 ll -rt
 ```
+
+Finally, it is better working in a separate screen shell:
+```
+screen -S bowtie
+```
+
 ## Install required packages
 We will need the `bowtie` and `samtools` programs:
 ```

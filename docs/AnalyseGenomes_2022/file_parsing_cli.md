@@ -53,14 +53,20 @@ CACTAGCTGAGTAACGGGTATCTGATAGTCGGGAAACTCGACTATAGCATTCTCTCTTTT
 TGAAATTGCGG
 ```
 ## Import the dataset
+Create a dedicated screen session:
+```
+screen -S parsing
+```
+Then:
 ```
 mkdir ~/file_parsing && \
 cd ~/file_parsing && \
 wget https://raw.githubusercontent.com/bergmanlab/drosophila-transposons/9b28cdbe9d2b3ef895df37f8495b33104677e516/releases/transposon_sequence_set_v9.5.embl.txt
 ```
 ## Reformat the file using sequencial command lines:
+
 ```
-grep -P "(^ID)|(^ +[GATCN ]+\d+)" transposon_sequence_set_v9.5.embl.txt > transposon_sequence_set_v9.5.fa
+grep -P "(^ID)|(^ +[GATCNgatcn ]+\d+)" transposon_sequence_set_v9.5.embl.txt > transposon_sequence_set_v9.5.fa
 ```
 
 ```
@@ -72,7 +78,7 @@ sed -i.bak2 -E "s/(>[^ ]+) .+/\1/g" transposon_sequence_set_v9.5.fa
 ```
 
 ```
-sed -i.bak3 -E "s/([GATCN]+) /\1/g" transposon_sequence_set_v9.5.fa
+sed -i.bak3 -E "s/([GATCNgatcn]+) /\1/g" transposon_sequence_set_v9.5.fa
 ```
 
 ```

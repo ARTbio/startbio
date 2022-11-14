@@ -81,7 +81,7 @@ TGAAATTGCGG
 - Choose `Analyse des Génomes` for the **Target Section:**, then click the `OK` button
 - The tool installation should only take a few seconds (the button `Install` turns to a red `Uninstall`)
 - You can now go back to the analysis interface by clicking the `home` icon.
-- in the Galaxy search toolbar box, search for `embl2fa` and select the tool
+- in the Galaxy search toolbar box, search for `embl` and select the tool
   `Convert embl flat file to fasta`.
 - Select the imported dataset `transposon_sequence_set_v9.5.embl.txt` (should likely be the
   dataset #1) and click `Execute`
