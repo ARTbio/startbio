@@ -29,24 +29,26 @@ Thus, before indexing our Drosophila genome, we are going to clean it a little b
 ### A. :wrench: simplify fasta headers
 
 - Go to the `REFERENCE` history
-- Select the tool :wrench: **Regex Find And Replace** (Galaxy Version 1.0.1) in the tool
+- Select the tool :wrench: **Regex Find And Replace** (Galaxy Version 1.0.2) in the tool
 sub-menu `Analyse des Génomes`. To find easily the tool, you may also type `Regex Find And
 Replace` in the search box ![](images/search_box.png){ width="200" } at the top of the
 tool bar.
 !!! note "fill the form of :wrench: [Regex Find And Replace]"
-    - **Select lines from**: `10. dmel-all-chromosome-r6.18`
+    - **Select lines from**: `1. dmel-r6.18`
     - **Check**: Click `Insert Check`
     - **Find Regex**: ` .+` :warning: this is a _space_, followed by a dot, followed by a plus.
     - **Replacement**: _Nothing_ :warning: be sure that the remplacement box is _empty_
     - **Click :heavy_check_mark:`Execute`**
-After run, you can compare the new dataset with the initial genome dataset.
+- After run, change the datatype of the dataset `Regex Find And Replace on data 1`from
+  `data` to `fasta` using the `pencil` icon.
+- Now, you can use the `eye` icon to compare the new dataset with the initial genome dataset.
 ??? question "What can you say, at least for the chromosome 2L ?"
     The visible header is now `>2L`.
     It was `>2L type=golden_path_region; loc=2L:1..23513712; ID=2L; dbxref=GB:AE014134,GB:AE014134,REFSEQ:NT_033779;
     MD5=b6a98b7c676bdaa11ec9521ed15aff2b; length=23513712; release=r6.18; species=Dmel;`
     before !
-
-!!! note "Create a short list of string "on the fly" with :wrench: [Upload Data]"
+- Create a short list of string "on the fly" with :wrench: [Upload Data]
+!!! note ""
     - **Click the `Upload Data` menu**
     - **Click the `Paste/Fetch Data` button**
     - **Give a name to the dataset** (`chromosome_list` in replacement of `New File`)
@@ -63,7 +65,7 @@ After run, you can compare the new dataset with the initial genome dataset.
     - **Click the Start dark blue button**
     
 - Select the tool :wrench: **Pick Fasta sequences** with header satisfying a string query
-  (Galaxy Version 3.0.1) in the tool sub-menu `Analyse des Génomes`. You may also use The
+  (Galaxy Version 3.0.3) in the tool sub-menu `Analyse des Génomes`. You may also use The
   tool search box.
 !!! note "Fill the form of :wrench: Pick Fasta sequences"
     - **Source file**: `11. Regex Find And Replace on data 10`
@@ -157,9 +159,7 @@ should be created very rapidly (a few secondes)
 **==Your Cloud Galaxy is now ready for analyses with the other trainers==**
 
 
-## 3. Stop your ansible-galaxy instance
-Since we are now at the end of our first work session, we are going to stop the VM instance.
-
+## 3. Stop your bare-galaxy instance
 :warning: Indeed, keep in mind that a VM instance is charged by Google (on your coupon) when
 it is running. If you stop your instance, there is no more cost of computing (calculated
 in fonction of minutes of activity).
@@ -184,7 +184,7 @@ is not so nasty actually...)
 - Go back to the Google Cloud Platform management web page.
 - Click on the **name** of your VM.
 - Click on the top menu :pencil2:`Modifier`
-- Deploy the menu **Interfaces réseau**, by clicking on the small :pencil2:pencil
+- Deploy the menu **Interfaces réseau**
 
   ![](images/interface_reseau.png){width="300"}
   
@@ -208,10 +208,19 @@ is not so nasty actually...)
 
 ### B. Stop your Instance.
 
-You can now safely stop your instance.
+Since we are now at the end of our first work session, we can safely stop the VM instance.
 
-- Check your ansible-galaxy VM (if it is not already done)
-- Press the ![](images/arreter.png){width="80"} button
+- Go back to you ssh Google console
+- If you are not in the screen session `galaxyscreen` (the one with the scrolling galaxy logs),
+  reattach the session by
+  ```
+  screen -r galaxyscreen
+  ```
+- Within this session, stop the Galaxy server by doing ++ctrl+c++, and leave it a few seconds
+  for terminating the server process.
+- Go to your [Google cloud console (web interface)](https://console.cloud.google.com/compute/))
+- Click the 3 vertical dots in the line `bare-galaxy` and select `Arrêter` (or `Stop` with
+  the english interface)
 
 ??? warning "For those of you who have uncontrolled pulsions of self-destruction..."
     In some occasion, it is possible to be confused between `arrêter` and `détruire` an

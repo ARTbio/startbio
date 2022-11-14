@@ -1,49 +1,32 @@
-For the training, we need three types of datasets
+For the course "Analyse des Génomes", we need three types of datasets
 
 - The reference sequences that will be used to align sequencing reads (full genome, miRNA, transposons, etc.)
 - libraries of sequencing reads from small RNAs (for analysis of piRNAs)
 - Librairies of sequencing reads from mRNA (for Gene differential expression analysis)
 
-All these data have been deposited in 2 differents repositories. A first one is a so-called
-S3 Amazon bucket. The second one is a
-[Nextcloud server](https://usegalaxy.sorbonne-universite.fr/nextcloud) located at
-Sorbonne-Université. You may get your input data from one or the other repositories.
+All these data have been deposited in the storage server
+[Psilo](https://psilo.sorbonne-universite.fr/index.php/s/yHSoKGZKMeJkeXa) at
+Sorbonne-Université.
 
 ### Get data "by URL"
-We are going to focus on one method to upload data in galaxy, which is applicable when these
-data _**are available through a URL**_ (Universal Resource Location).
+As these data _**are available through a URL**_ (Universal Resource Location) we will use
+as before the menu `Paste/Fetch Data` of the `Upload Data` menu.
 
-??? info "The other methods to upload data in Galaxy are:"
-    * transfering data from your local machine (the one that is running your web browser)
+??? warning "There are other methods to upload data in Galaxy !"
+    * You can transfer data from your local machine (the one where your keyboard is plugged !)
       to Galaxy
-    * uploading data to your Galaxy FTP account and then transfering these data from your
-    Galaxy FTP directory to one of your Galaxy histories. We are not going to use them in
-    this training, and invite you to look at one of the "Galaxy tours" available
-    in the menu `Help` :arrow_forward: `Interactive tours`
+    * You can upload data to your Galaxy FTP account and then transfer these data from your
+    Galaxy FTP directory to one of your Galaxy histories.
 
-#### 1. Single URL, simple trial.
-
-- Click the `Upload Data` button at the top-left corner of the Galaxy interface:
-
-![](images/galaxy_upload_button.png){: style="width:200px"}
-
-- Stay with the regular tab and click the `Paste/Fetch data` button
-
-![](images/regular_upload.png){: style="width:600px"}
-
-- Paste the following url in the open text field,
-```
-https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/B433xtdmdQqdFYd/download?path=%2F&files=PlacW.fasta
-```
-- Paste `PlacW.fasta` in the name text field (instead of `New File`)
-- Finally, press the dark-blue `Start` button.
-
-==-->== a dataset should appear soon in your current history and turn green when the upload is
-complete.
     
-#### 2. Upload of reference files as a batch of multiple URLs :heavy_plus_sign: Programmatic file naming
+#### 1. Upload of reference files as a batch of multiple URLs :heavy_plus_sign: Programmatic file naming
 
-Delete the previously uploaded dataset, we are going to re-upload it in a batch.
+As you have already uploaded single files using their url, we are going to use a more
+powerful procedure which is appropriate when uploading numerous files.
+
+Before all, create a new history by clicking the :heavy_plus_sign: icon in the history header
+![](images/history_header.png){ width="300"} and immediately renaming the new history as
+`References`.
 
 - Click the `Upload Data` button at the top-left corner of the Galaxy interface.
 - This time, Click the `Rule-based`tab !
@@ -51,97 +34,47 @@ Delete the previously uploaded dataset, we are going to re-upload it in a batch.
 - In the text field `Tabular source data to extract collection files and metadata from`,
 paste the following Tabular source data:
 
-:doughnut:, :ice_cream: and :candy:
-
-??? info "Reference URLs for :candy: team"
+!!! info ":candy: URLs of references (genome and RNA classes)"
     ```
-    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/B433xtdmdQqdFYd/download?path=%2F&files=dmel-all-r6.18.gtf	dmel-all-r6.18.gtf
-    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/B433xtdmdQqdFYd/download?path=%2F&files=dmel-all-miscRNA-r6.18.fasta	miscRNA
-    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/B433xtdmdQqdFYd/download?path=%2F&files=PlacW.fasta	PlacW
-    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/B433xtdmdQqdFYd/download?path=%2F&files=dmel-all-ncRNA-r6.18.fasta	ncRNA
-    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/B433xtdmdQqdFYd/download?path=%2F&files=dmel-all-miRNA-r6.18.fasta	miRNA
-    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/B433xtdmdQqdFYd/download?path=%2F&files=dmel-all-intron-r6.18.fasta	introns
-    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/B433xtdmdQqdFYd/download?path=%2F&files=dmel-all-gene-r6.18.fasta	genes
-    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/B433xtdmdQqdFYd/download?path=%2F&files=Dmel_piRNA_clusters.fasta	piRNA_clusters
-    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/B433xtdmdQqdFYd/download?path=%2F&files=Dmel_all-transposon_merge.fasta	all-transposons
-    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/B433xtdmdQqdFYd/download?path=%2F&files=dmel-all-chromosome-r6.18.fasta	dmel-r6.18
-    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/B433xtdmdQqdFYd/download?path=%2F&files=dmel-all-transcript-r6.18.fasta	transcripts
-    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/B433xtdmdQqdFYd/download?path=%2F&files=dmel-all-tRNA-r6.18.fasta	tRNA
+    https://psilo.sorbonne-universite.fr/index.php/s/7YqGeFTxTgxtafy/download/dmel-all-chromosome-r6.18.fasta	dmel-r6.18
+    https://psilo.sorbonne-universite.fr/index.php/s/w3soG64bRcZd5CJ/download/Dmel_all-transposon_merge.fasta	transposons
+    https://psilo.sorbonne-universite.fr/index.php/s/2Y7BfGNZQokMDfT/download/Dmel_piRNA_clusters.fasta	piRNA_clusters
+    https://psilo.sorbonne-universite.fr/index.php/s/s9reeBC79Pw6jfN/download/dmel-all-gene-r6.18.fasta	genes
+    https://psilo.sorbonne-universite.fr/index.php/s/JndyRYqeWE9d8eb/download/dmel-all-intron-r6.18.fasta	introns
+    https://psilo.sorbonne-universite.fr/index.php/s/aZAPqW9PJ2ncnXD/download/dmel-all-miRNA-r6.18.fasta	miRNAs
+    https://psilo.sorbonne-universite.fr/index.php/s/dKKHKqHWLj45QWx/download/dmel-all-miscRNA-r6.18.fasta	miscRNAs
+    https://psilo.sorbonne-universite.fr/index.php/s/cDy6iqnzkomkPyd/download/dmel-all-ncRNA-r6.18.fasta	ncRNA
+    https://psilo.sorbonne-universite.fr/index.php/s/riKojdtpwB9xrKK/download/dmel-all-r6.18.gtf	dmel-all-r6.18.gtf
+    https://psilo.sorbonne-universite.fr/index.php/s/F46CrxzzZxcrESa/download/dmel-all-transcript-r6.18.fasta	transcripts
+    https://psilo.sorbonne-universite.fr/index.php/s/JM6aQkDMKF6YZRE/download/dmel-all-tRNA-r6.18.fasta	tRNAs
+    https://psilo.sorbonne-universite.fr/index.php/s/A8dB5qPW3KgxNey/download/PlacW.fasta	PlacW
     ```
 
-??? info "Reference URLs for :ice_cream: team"
-    ```
-    https://analyse-genomes.s3.eu-west-3.amazonaws.com/References/PlacW.fasta	PlacW
-    https://analyse-genomes.s3.eu-west-3.amazonaws.com/References/dmel-all-ncRNA-r6.18.fasta	ncRNA
-    https://analyse-genomes.s3.eu-west-3.amazonaws.com/References/dmel-all-miscRNA-r6.18.fasta	miscRNA
-    https://analyse-genomes.s3.eu-west-3.amazonaws.com/References/dmel-all-miRNA-r6.18.fasta	miRNA
-    https://analyse-genomes.s3.eu-west-3.amazonaws.com/References/dmel-all-intron-r6.18.fasta	introns
-    https://analyse-genomes.s3.eu-west-3.amazonaws.com/References/dmel-all-gene-r6.18.fasta	genes
-    https://analyse-genomes.s3.eu-west-3.amazonaws.com/References/dmel-all-chromosome-r6.18.fasta	dmel-r6.18
-    https://analyse-genomes.s3.eu-west-3.amazonaws.com/References/Dmel_piRNA_clusters.fasta	piRNA_clusters
-    https://analyse-genomes.s3.eu-west-3.amazonaws.com/References/Dmel_all-transposon_merge.fasta	transposons
-    https://analyse-genomes.s3.eu-west-3.amazonaws.com/References/dmel-all-r6.18.gtf	dmel-all-r6.18.gtf
-    https://analyse-genomes.s3.eu-west-3.amazonaws.com/References/dmel-all-transcript-r6.18.fasta	transcripts
-    https://analyse-genomes.s3.eu-west-3.amazonaws.com/References/dmel-all-tRNA-r6.18.fasta	tRNA
-    ```
-??? info "Reference URLs for :doughnut: team"
-    ```
-    https://storage.googleapis.com/analyse-genome-coupon-1/References/PlacW.fasta	PlacW
-    https://storage.googleapis.com/analyse-genome-coupon-1/References/dmel-all-ncRNA-r6.18.fasta	ncRNA
-    https://storage.googleapis.com/analyse-genome-coupon-1/References/dmel-all-miscRNA-r6.18.fasta	miscRNA
-    https://storage.googleapis.com/analyse-genome-coupon-1/References/dmel-all-miRNA-r6.18.fasta	miRNA
-    https://storage.googleapis.com/analyse-genome-coupon-1/References/dmel-all-intron-r6.18.fasta	introns
-    https://storage.googleapis.com/analyse-genome-coupon-1/References/dmel-all-gene-r6.18.fasta	genes
-    https://storage.googleapis.com/analyse-genome-coupon-1/References/dmel-all-chromosome-r6.18.fasta	dmel-r6.18
-    https://storage.googleapis.com/analyse-genome-coupon-1/References/Dmel_piRNA_clusters.fasta	piRNA_clusters
-    https://storage.googleapis.com/analyse-genome-coupon-1/References/Dmel_all-transposon_merge.fasta	transposons
-    https://storage.googleapis.com/analyse-genome-coupon-1/References/dmel-all-r6.18.gtf	dmel-all-r6.18.gtf
-    https://storage.googleapis.com/analyse-genome-coupon-1/References/dmel-all-transcript-r6.18.fasta	transcripts
-    https://storage.googleapis.com/analyse-genome-coupon-1/References/dmel-all-tRNA-r6.18.fasta	tRNA
-    ```
 - Click the `Build` button
-- In the `Build Rules ...` pannel that opened, click the ![](images/plus_rules.png){ width="80"}
+- In the `Build Rules ...` pannel that opens, click the ![](images/plus_rules.png){ width="80"}
 and choose `Add/Modify Column Definitions`
 - Click a first time on `Add Definition` and Select `URL`. Leave the URL column to `A`
 - Click a second time on `Add Definition`, select `Name` and choose the column `B` for `Name`
 - Now, click the `Apply` button
 - And to finish the job, click on the dark-blue button `Upload`
-- After the upload is complete, rename the history "References"
 
 <center>:tada:	:confetti_ball:	:balloon:</center>
 
-#### 3. Upload of small RNA sequencing datasets :heavy_plus_sign: Programmatic dataset naming.
+#### 2. Upload of small RNA sequencing datasets :heavy_plus_sign: Programmatic dataset naming.
 
-Before all, create a new history by clicking the **+** icon in the history header
-![](images/history_header.png){ width="300"} and immediately renaming the new history as
-**"Small RNA sequence datasets"**.
-
+- Create a new history using the :heavy_plus_sign: icon of the history menu, and rename it
+  `Small RNA sequence datasets`
 - Click the `Upload Data` button at the top-left corner of the Galaxy interface.
 - Click the `Rule-based`tab as we just did with the reference datasets
 - Leave **Upload data as** `Datasets` and **Load tabular data from** `Pasted Table`
 - In the text field `Tabular source data to extract collection files and metadata from`,
 paste the following Tabular source data:
-??? info "small RNAseq datasets for :ice_cream:"
+!!! info ":ice_cream: small RNAseq datasets"
     ```
-    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/LqKb3Qmy8m9RXtk/download?path=%2F&files=GRH-103_R1.fastq.gz	GRH-103
-    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/LqKb3Qmy8m9RXtk/download?path=%2F&files=GRH-104_R1.fastq.gz	GRH-104
-    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/LqKb3Qmy8m9RXtk/download?path=%2F&files=GRH-105_R1.fastq.gz	GRH-105
-    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/LqKb3Qmy8m9RXtk/download?path=%2F&files=GRH-106_R1.fastq.gz	GRH-106
-    ```
-Or
-??? info "small RNAseq datasets for :doughnut:"
-    ```
-    https://analyse-genomes.s3.eu-west-3.amazonaws.com/smRNAseq/GRH-103_R1.fastq.gz	GRH-103
-    https://analyse-genomes.s3.eu-west-3.amazonaws.com/smRNAseq/GRH-104_R1.fastq.gz	GRH-104
-    https://analyse-genomes.s3.eu-west-3.amazonaws.com/smRNAseq/GRH-105_R1.fastq.gz	GRH-105
-    https://analyse-genomes.s3.eu-west-3.amazonaws.com/smRNAseq/GRH-106_R1.fastq.gz	GRH-106
-    ```
-??? info "small RNAseq datasets for :candy:"
-    ```
-    https://storage.googleapis.com/analyse-genome-coupon-1/smRNAseq/GRH-103_R1.fastq.gz	GRH-103
-    https://storage.googleapis.com/analyse-genome-coupon-1/smRNAseq/GRH-104_R1.fastq.gz	GRH-104
-    https://storage.googleapis.com/analyse-genome-coupon-1/smRNAseq/GRH-105_R1.fastq.gz	GRH-105
-    https://storage.googleapis.com/analyse-genome-coupon-1/smRNAseq/GRH-106_R1.fastq.gz	GRH-106
+    https://psilo.sorbonne-universite.fr/index.php/s/HYLtfo9d2eD3Q2A/download/GRH-103_R1.fastq.gz	GRH-103
+    https://psilo.sorbonne-universite.fr/index.php/s/xgFNxA6fb7GgaLL/download/GRH-104_R1.fastq.gz	GRH-104
+    https://psilo.sorbonne-universite.fr/index.php/s/C3o48iyyaeYw9gk/download/GRH-105_R1.fastq.gz	GRH-105
+    https://psilo.sorbonne-universite.fr/index.php/s/Cp5ToXyj3X5jZxT/download/GRH-106_R1.fastq.gz	GRH-106
     ```
 - Click the `Build` button
 - In the `Build Rules ...` pannel that opened, click the ![](images/plus_rules.png){ width="80"}
@@ -153,10 +86,10 @@ and choose `Add/Modify Column Definitions`
 
     ![](images/type_fastqsanger_gz.png){ width="200"}
 
-- And to finish the job, click on the dark-blue button `Upload`
+- To finish the job, click on the dark-blue button `Upload`
 <center>:tada:	:confetti_ball:	:balloon: :tada:	:confetti_ball:	:balloon:</center>
 
-#### 4. RNAseq datasets (for gene differential expression analysis)
+#### 3. RNAseq datasets (for gene differential expression analysis)
 
 - Create a new history in Galaxy and rename it `RNA sequence datasets`
 - Click the `Upload Data` button at the top-left corner of the Galaxy interface.
@@ -164,35 +97,14 @@ and choose `Add/Modify Column Definitions`
 - Leave **Upload data as** `Datasets` and **Load tabular data from** `Pasted Table`
 - In the text field `Tabular source data to extract collection files and metadata from`,
 paste the following Tabular source data:
-??? info "RNAseq datasets for :candy:"
+!!! info ":doughnut: RNAseq datasets"
     ```
-    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/LqKb3Qmy8m9RXtk/download?path=%2F&files=WT1_R1.fastq.gz	WT1
-    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/LqKb3Qmy8m9RXtk/download?path=%2F&files=WT2_R1.fastq.gz	WT2
-    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/LqKb3Qmy8m9RXtk/download?path=%2F&files=WT3_R1.fastq.gz	WT3
-    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/LqKb3Qmy8m9RXtk/download?path=%2F&files=SF1_R1.fastq.gz	SF1
-    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/LqKb3Qmy8m9RXtk/download?path=%2F&files=SF2_R1.fastq.gz	SF2
-    https://usegalaxy.sorbonne-universite.fr/nextcloud/index.php/s/LqKb3Qmy8m9RXtk/download?path=%2F&files=SF3_R1.fastq.gz	SF3
-    ```
-Or
-??? info "RNAseq datasets for :doughnut:"
-    ```
-    https://analyse-genomes.s3.eu-west-3.amazonaws.com/RNAseq/WT1_R1.fastq.gz	WT1
-    https://analyse-genomes.s3.eu-west-3.amazonaws.com/RNAseq/WT2_R1.fastq.gz	WT2
-    https://analyse-genomes.s3.eu-west-3.amazonaws.com/RNAseq/WT3_R1.fastq.gz	WT3
-    https://analyse-genomes.s3.eu-west-3.amazonaws.com/RNAseq/SF1_R1.fastq.gz	SF1
-    https://analyse-genomes.s3.eu-west-3.amazonaws.com/RNAseq/SF2_R1.fastq.gz	SF2
-    https://analyse-genomes.s3.eu-west-3.amazonaws.com/RNAseq/SF3_R1.fastq.gz	SF3
-    ```
-
-Or
-??? info "RNAseq datasets for :ice_cream:"
-    ```
-    https://storage.googleapis.com/analyse-genome-coupon-1/RNAseq/WT1_R1.fastq.gz	WT1
-    https://storage.googleapis.com/analyse-genome-coupon-1/RNAseq/WT2_R1.fastq.gz	WT2
-    https://storage.googleapis.com/analyse-genome-coupon-1/RNAseq/WT3_R1.fastq.gz	WT3
-    https://storage.googleapis.com/analyse-genome-coupon-1/RNAseq/SF1_R1.fastq.gz	SF1
-    https://storage.googleapis.com/analyse-genome-coupon-1/RNAseq/SF2_R1.fastq.gz	SF2
-    https://storage.googleapis.com/analyse-genome-coupon-1/RNAseq/SF3_R1.fastq.gz	SF3
+    https://psilo.sorbonne-universite.fr/index.php/s/iaQxyLJzAXknCYp/download/SF1_R1.fastq.gz	SF1
+    https://psilo.sorbonne-universite.fr/index.php/s/7HTaFnwfdQPCkL3/download/SF2_R1.fastq.gz	SF2
+    https://psilo.sorbonne-universite.fr/index.php/s/ig6yZgEg9FPgRiw/download/SF3_R1.fastq.gz	SF3
+    https://psilo.sorbonne-universite.fr/index.php/s/gyDgrq8S98C6KyL/download/WT1_R1.fastq.gz	WT1
+    https://psilo.sorbonne-universite.fr/index.php/s/J9o73xmQWk43P6A/download/WT2_R1.fastq.gz	WT2
+    https://psilo.sorbonne-universite.fr/index.php/s/YFnT3KzPNLdH3N4/download/WT3_R1.fastq.gz	WT3
     ```
 
 - Click the `Build` button
@@ -211,7 +123,7 @@ and choose `Add/Modify Column Definitions`
 :tada:	:confetti_ball:	:balloon: :tada:	:confetti_ball:	:balloon:</center>
 
 
-#### 5. Uncompress datasets
+#### 4. Uncompress datasets [_Section 4 should be optionnal_]
 
 At this stage, we have uploaded small RNA and RNA sequencing datasets as `fastqsanger.gz`.
 To simplify the subsequent analyzes we are going to uncompress all these datasets, whose
@@ -282,10 +194,6 @@ datatype will therefore become `fastqsanger`.
   `5: Convert compressed file to uncompressed. on data 1`. But when the job finishes, the
   name of the dataset changes to more self-explanatory: `5: GRH-103 uncompressed`.
 
-    
-    
-
-
 ##### Repeat the same procedure for every small RNAseq dataset.
 
 ##### Repeat the same procedure for every RNAseq dataset.
@@ -303,7 +211,7 @@ history menu, and selecting `Purge Deleted Datasets` in the **Datasets Actions**
     - :warning: If you do not perform this last action, the deleted datasets remain on your
       instance disk !
 
-#### 6. Dataset collections :milky_way: :alien:
+#### 5. Dataset collections :milky_way: :alien:
 
 If we have enough time, we are going to organize our various datasets using an additional
 structure layer: the **Galaxy Collection**.
@@ -343,25 +251,32 @@ history to a **new** history.
 
 - Now, that your are in the new history, click on the checkbox icon in the top area of the
   history.
+    
     ![](images/history_checkbox.png){ width="250" }
+    
 - Check-in the 4 small RNA datasets
-- In the menu `Pour toute la sélection` (also in the top area of the history), select
+- In the menu `All 4 selected` (also in the top area of the history), select
   `Build Dataset List`
+  
+  ![build list](images/build_list.png){ width="250" }
+  
 - In the pop-up panel, just write a meaningful name in the field `Name`, something like
   ```
   Small RNA collection
   ```
+- Reorganize the datasets order by dragging the datasets in the list. For instance, you may
+  prefer here the order GRH-103 --> GRH-104 --> GRH-105 --> GRH-106, from top to botom.
+  In this specific use case, you can also use the `alphabetic sorting` icon.
 - Press the button `Create Collection`
 
-??? question "What do you see when you click on name of the new dataset collection? (please not the :heavy_multiplication_x:...)"
+??? question "What do you see when you click on name of the new dataset collection?"
     You see the content of the collection, with datasets identified with names called
     `element_identifiers.
     
-    Click on the `recycling` icon ![](images/recycle.png){ width="20"}, or, the `< back to
-    the Small RNA Collection` link, to come back to the normal history view.
+    Click on  the `<< History` link, to come back to the normal history view.
 
 
-??? question "what do you see if you click the `hidden` hyperlink at the top right corner ![](images/hidden.png){ width="150"} ? "
+??? question "what do you see if you click the `crossed eye` icon at the right corner ![](images/hidden.png){ width="150"} ? "
     You see the actual dataset contained in the Collection. If you click on `unhide` for
     each of these datasets, you will actually see both the container collection and the contained
     datasets !
@@ -387,8 +302,3 @@ and a collection `SF`.
   ```
   SF
   ```
-
-#### This is the end of this training session, you deserve :coffee: or :beer: ! 
-
-
-
