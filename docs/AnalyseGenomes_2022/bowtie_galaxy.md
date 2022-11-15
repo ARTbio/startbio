@@ -38,30 +38,8 @@ Check the result in the history:
 - How do the sequences look like ? --> click on the eye icon
 
 ## Prepare dmel_r6.18 bowtie index
-- click on `Admin` in the main menu
-- in the left menu, click on `Local Data` (upper submenu `Server`)
-- Click on the data manager `Create DBKey and Reference Genome`
-  
-  ![DBKey manager](images/createDB.png){width="250"}
 
-- Fill the manager tool as following, indicating that you create a `New` DBKey, that this
-  DBkey will be `dmel-r6.18`, the source of the reference genome is your history, namely
-  the dataset n°1 `dmel-all-chromosome-r6.18.fasta`. Leave the other settings are they are.
-  
-  ![DBKey manager tool](images/DBkeyManager.png){width="500"}
-  
-  And press the `Execute` button.
-
-- Go back to the `admin` --> `local data` menu
-- Click the data manager `Bowtie index builder` (:warning: not the `Bowtie color index builder` !)
-- Leave `dmel-r6.18` for `Source FASTA Sequence`, and the other settings as blank
-- Click `Execute`
-
-!!! note ""
-    The bowtie index creation will take about the same time as when you did it using
-    command lines
-
-
+==No need to prepare the bowtie index, the next tool will do it for us on the fly==
 
 ## Align the clipped fasta reads to dmel.r6.18 using `bowtie`
 
@@ -71,9 +49,10 @@ Check the result in the history:
   - `Clipped GRH-103_R1.fastq.gz-then-fasta` for **Input fasta or fastq file: reads clipped from their adapter**
   - `Match on DNA as fast as possible, ...` for **What kind of matching do you want to do?**
   - `0` for **Number of mismatches allowed**
+  - `Use one from the history` for **Will you select a reference genome from your history or use a built-in index?**
+  - `dmel-all-chromosome-r6.18.fasta` for **Select a fasta file, to serve as index reference**
   - `bam` for **Select output format**
   - `both aligned and unaligned` for **additional fasta output**
-  - ==Leave the other settings as is==
 
 Examine the output datasets (`Bowtie Output`, `Matched reads` and `Unmatched reads`)
 

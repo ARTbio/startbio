@@ -39,9 +39,9 @@ training is hosted
     - Tool is not installed  
 
 The workflow was indeed successfully imported. However, some tools are missing, namely:
-```
-toolshed.g2.bx.psu.edu/repos/galaxyp/regex_find_replace/regex1/1.0.2
-```
+
+`toolshed.g2.bx.psu.edu/repos/galaxyp/regex_find_replace/regex1/1.0.2`
+
 The warning lines are redundant, because the workflow is using the same tool at different steps.
 
 Click on the `Continue` button. You should now see missing tools in red and missing links
@@ -85,7 +85,7 @@ and press the ++enter++ key.
 - After a few seconds, you will notice the `Cloning...` then soon `Installing dependencies`
   displayed by the install button.
 - And rapidly enough, the `Install` button should turn to a red `Uninstall` button.
-- You can now check the `Installed only` circle at the top, and look at the newly
+- You can now check the `Installed Only` radio button at the top, and look at the newly
   installed tool `regex_find_replace` in the list.
 ---
     

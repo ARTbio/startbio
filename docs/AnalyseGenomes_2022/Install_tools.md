@@ -8,7 +8,7 @@
 ```
 sh /root/AnalyseGenome/GalaxyServer/install_galaxy_tools.sh
 ```
-You should now be asked for an API key, paste your API key and press ++enter++
+You should now be asked for an API key
 
 ## Go back to your Galaxy web window
 
@@ -22,14 +22,26 @@ Select `Manage API Key`, click `Create a new Key`, and copy the current API key
 
 and press the ++return++ key
 
-The script will install a set of 21 Galaxy tools which are needed for the rest of your
-training (in the `ephemeris` screen session).
-This may take more than 15 min, be patient...
-
-after pressing the ++return++ key, you can follow the tool installation by :
+:warning: Do not interrupt the programme until you see on the screen:
 
 ```
-tail -f tools.log
+To follow installation, you may use the 'screen -r ephemeris' command
+Alternatively, you can use the 'tail -f /root/tools.log' command and terminate by Ctrl-C
+Installation of the 21 galaxy tools may take a long time. Keep cool"
 ```
+Then the installation will continue in the background in the `ephemeris` screen session.
 
-Use ++ctrl+c++ to interrupt the log scrolling (it does not affect the tool installation)
+To follow the tool installation by you have 2 options:
+
+- type 
+  ```
+  tail -f tools.log
+  ```
+  and to exit from the log scrolling, type ++ctrl+c++
+- Or type:
+  ```
+  screen -r ephemeris
+  ```
+  and ++ctrl+a++ then ++d++ to detach from the ephemeris screen session
+
+None of these options is affecting the tool installation

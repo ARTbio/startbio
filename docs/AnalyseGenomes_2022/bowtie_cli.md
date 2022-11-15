@@ -58,22 +58,24 @@ The following command line is masked. Before unmasking it, you can try to find t
 appropriate command line using the `man` command or the `--help` argument
 ??? question "Bowtie indexing command line"
     ```
-    bowtie-build dmel-all-chromosome-r6.18.fasta dmel.r6.18
+    time bowtie-build --threads 7 dmel-all-chromosome-r6.18.fasta dmel.r6.18
     ```
+    Note the `time` here is to indicate the time consumed to index the genome, it is optional.
+
 ## Align the clipped fasta reads to dmel.r6.18 using `bowtie`
 ```
-bowtie dmel.r6.18 -f clipped_GRH-103.fa \
-                  -v 0 \
-                  -k 1 \
-                  -p 7 \
-                  --al dmel_matched_GRH-103.fa \
-                  --un unmatched_GRH-103.fa \
-                  -S \
-                  > GRH-103.sam
+time bowtie dmel.r6.18 -f clipped_GRH-103.fa \
+                       -v 0 \
+                       -k 1 \
+                       -p 7 \
+                       --al dmel_matched_GRH-103.fa \
+                       --un unmatched_GRH-103.fa \
+                       -S \
+                       > GRH-103.sam
 ```
 ## Convert SAM file to BAM file and sort the alignments by chromosome positions
 ```
-samtools view -Sb -@ 4 GRH-103.sam | samtools sort -@ 4 -o GRH-103.bam
+samtools view -Sb -@ 7 GRH-103.sam | samtools sort -@ 4 -o GRH-103.bam
 ```
 Check the result using
 ```
