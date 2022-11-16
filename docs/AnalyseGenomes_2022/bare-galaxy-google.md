@@ -98,17 +98,7 @@ sh deploy_galaxy.sh
 !!! info ""
     Finally, this command runs the sh script
     [deploy_galaxy.sh](https://raw.githubusercontent.com/ARTbio/AnalyseGenome/main/GalaxyServer/deploy_galaxy.sh)
-    
-    Note that this occurs inside a `screen` session, so that you can detach from this session
-    without killing the serving process.
-    
-    See bellow a few tips to navigate between `screen` sessions
 
-As prompted by the screen, you can now follow the deployment of Galaxy by entering the 
-command 
-```
-screen -r galaxyscreen
-```
 
   You should see an abundant log scrolling down. Don't worry !
 
@@ -118,31 +108,22 @@ screen -r galaxyscreen
   - The Galaxy database (sqlight) is automatically upgraded to its latest structure/model
   - The package manager Conda, which is heavily used by Galaxy to install its tools is installed.
   
-  After 5-10 minutes, you should see in galaxyscreen screen session the log:
-
+  After ~10 minutes, you should see in the ssh console the following log:
 
 ```{.bash title="Terminal"}
+Galaxy is now running as a daemon in the background
+```
+The log of the Galaxy server can be displayed using the command
+
+```
+tail -f /root/galaxy/galaxy.log
+```
+which should show :
+```
 Galaxy server instance 'main.1' is running
 serving on http://0.0.0.0:80
+
 ```
-
-??? info "The `screen` program"
-    As we are going to launch Galaxy as a "daemon" server, we need a special session that we
-    can leave or reattach without interrupting the running Galaxy server.
-    
-    Therefore, we are going to use the linux program `screen` which create, attach, detach or
-    reattach a "virtual" sessions that end only when you decide to kill them.
-    
-    A handful of screen commands you should know:
-    
-    - `screen -ls` lists all screen sessions available, attached (currently active) or
-      detached in the background
-    - `screen -r <session>` reattaches a detached screen session.
-    - _within an active screen session_ ++ctrl++++a++ then ++d++ detaches the active session
-    - _within an active screen session_ type `exit` to terminate the active session
-    - `screen -S <session>` creates a new session
-    - `screen -d -r <session>` detaches the current session and reattach another one
-
 
 ### 4. Connect to your living Galaxy instance
 
