@@ -1,8 +1,8 @@
 ## Go back to your Google ssh terminal
 
-- Run the following script:
+- Run the following script using the bash interpreter:
 ```
-sh /root/AnalyseGenome/GalaxyServer/install_galaxy_tools.sh
+bash /root/AnalyseGenome/GalaxyServer/install_galaxy_tools.sh
 ```
 You should now be asked for an API key
 
