@@ -2,6 +2,7 @@
 
 - Run the following script using the bash interpreter:
 ```
+source /root/.bashrc && \
 bash /root/AnalyseGenome/GalaxyServer/install_galaxy_tools.sh
 ```
 You should now be asked for an API key
