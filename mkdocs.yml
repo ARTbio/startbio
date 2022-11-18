@@ -37,7 +37,8 @@ nav:
 
     -  Analyse des Génomes (2022):
         - PLAN: AnalyseGenomes_2022/outline.md
-        - DEPLOY GALAXY IN GOOGLE CLOUD ENGINE : AnalyseGenomes_2022/bare-galaxy-google.md
+        - START A VIRTUAL MACHINE IN GOOGLE CLOUD ENGINE : AnalyseGenomes_2022/bare-galaxy-google.md
+        - DEPLOY A GALAXY SERVER IN THE VM: AnalyseGenomes_2022/deploy-galaxy-server.md
         - INSTALL GALAXY TOOLS: AnalyseGenomes_2022/Install_tools.md
         - BOWTIE ALIGNMENT USING COMMAND LINES: AnalyseGenomes_2022/bowtie_cli.md
         - BOWTIE ALIGNMENT USING galaxy: AnalyseGenomes_2022/bowtie_galaxy.md

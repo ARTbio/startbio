@@ -223,9 +223,9 @@ Since we are now at the end of our first work session, we can safely stop the VM
   the english interface)
 
 ??? warning "For those of you who have uncontrolled pulsions of self-destruction..."
-    In some occasion, it is possible to be confused between `arrêter` and `détruire` an
-    VM. The consequences of unwanted VM destruction (instead of just stopping it) are generally
-    bad.
+    In some occasion, it is possible to be confused between `arrêter` and `détruire` a
+    VM. The consequences of unwanted VM destruction (instead of just stopping it) are irreversible
+    (and annoying for your training).
     
     To prevent this kind of unrepairable mistakes, you can **protect** your instance against it.
     
