@@ -45,14 +45,11 @@ sh deploy_galaxy.sh
 Galaxy is now running as a daemon in the background
 ```
 The log of the Galaxy server can be displayed using the command
-```
-tail -f /root/galaxy/galaxy.log
-```
-which should show :
 
 ```
-Galaxy server instance main.1 is running
+Galaxy server instance 'main.1' is running
 serving on http://0.0.0.0:80
+
 ```
 
 ### 4. Connect to your living Galaxy instance

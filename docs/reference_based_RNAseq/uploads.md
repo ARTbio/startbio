@@ -55,7 +55,7 @@ server for this training session.
 
 1. Download from the Ensembl database the sample [Drosophila_melanogaster.BDGP6.95.gtf.gz](ftp://ftp.ensembl.org/pub/release-95/gtf/drosophila_melanogaster/Drosophila_melanogaster.BDGP6.95.gtf.gz) to your computer.
 2. Upload this local file Drosophila_melanogaster.BDGP6.95.gtf.gz to your Galaxy history using the upload/Download
-Galaxy interface that pops up if you click the upload icone  ![](images/upload_button.png)
+Galaxy interface that pops up if you click the upload icon  ![](images/upload_button.png)
 ----
 
 ### Importing data via links is more efficient and reliable !

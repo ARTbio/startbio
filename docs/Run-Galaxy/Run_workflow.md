@@ -144,7 +144,7 @@ retrieve the input data set before running the workflows on these data.
 
 - Create a new history and name it `transposon_set_embl.txt manipulation`
 - import the dataset using the `Paste/Fetch data` mode of the upload manager (the small
-bottom-top arrow icone at the top left of the Galaxy interface). Copy the URL
+bottom-top arrow icon at the top left of the Galaxy interface). Copy the URL
 ```
 https://github.com/bergmanlab/transposons/raw/2018c2e848cec2aefc4a87187d5ed5927d04c9a4/current/transposon_sequence_set.embl.txt
 ```
