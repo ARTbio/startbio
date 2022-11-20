@@ -1,4 +1,4 @@
-### 3. Installation of the Galaxy server
+### 1. Installation of the Galaxy server
 
 We have automated the installation of Galaxy on your Google Virtual Machine.
 All you need is to (i) taking the control of the machine as root and (ii) downloading a 
@@ -9,27 +9,29 @@ So let's do this, step by step, using the ssh Terminal:
   ```Console
   sudo -i
   ```
-!!! info ""
+??? info "What does `sudo -i` command ?"
     This command open a new `shell` where you are root. You can check this by typing `whoami`
     that should return `root`, meaning that you are now working as `root` user.
     
     This is required because installation of new programs as well as manipulations of network
     interfaces is permitted only to users with administration rights.
 
+____
 ```
 wget https://raw.githubusercontent.com/ARTbio/AnalyseGenome/main/GalaxyServer/deploy_galaxy.sh
 ```
-!!! info ""
+??? info "What does `wget` command"
     This command is downloading an installation script located in the GitHub repository
     @artbio/AnalyseGenome
 
+____
 ```
 sh deploy_galaxy.sh
 ```
-!!! info ""
-    Finally, this command runs the sh script
+??? info "What does `sh deploy_galaxy.sh` command ?"
+    This command runs the sh script
     [deploy_galaxy.sh](https://raw.githubusercontent.com/ARTbio/AnalyseGenome/main/GalaxyServer/deploy_galaxy.sh)
-
+____
 
   You should see an abundant log scrolling down. Don't worry !
 
@@ -42,17 +44,24 @@ sh deploy_galaxy.sh
   After ~10 minutes, you should see in the ssh console the following log:
 
 ```{.bash title="Terminal"}
+Executing: galaxyctl start
+Registered galaxy config: /root/galaxy/config/galaxy.yml
+Creating or updating service gunicorn
+Creating or updating service celery
+Creating or updating service celery-beat
+celery: added process group
+celery-beat: added process group
+gunicorn: added process group
+celery                           STARTING  
+celery-beat                      STARTING  
+gunicorn                         STARTING  
+Log files are in /root/galaxy/database/gravity/log
 Galaxy is now running as a daemon in the background
 ```
-The log of the Galaxy server can be displayed using the command
+We will review in a section apart how to display the server activity, stop, start or restart
+it.
 
-```
-Galaxy server instance 'main.1' is running
-serving on http://0.0.0.0:80
-
-```
-
-### 4. Connect to your living Galaxy instance
+### 2. Connect to your living Galaxy instance
 
 You should now be able to access to you Galaxy instance in a your web browser window.
 
