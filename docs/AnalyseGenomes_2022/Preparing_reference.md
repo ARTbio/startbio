@@ -141,83 +141,45 @@ It will take several minutes.
 **==Your Cloud Galaxy is now ready for analyses with the other trainers==**
 
 
-## 3. Stop your bare-galaxy instance
-:warning: Indeed, keep in mind that a VM instance is charged by Google (on your coupon) when
-it is running. If you stop your instance, there is no more cost of computing (calculated
-in fonction of minutes of activity).
+## 3. After Work Session
 
---> Therefore, ==**Do not forget to stop your galaxy VM when your work session is finished**==
+- [x] **Suspend your Google VM**
+??? note "Suspend VM instance"
+    - Go to your [Google cloud console (web interface)](https://console.cloud.google.com/compute/))
+    - Click the 3 vertical dots in the line `bare-galaxy` and select `Suspendre` (or `Suspend` with
+      the english interface)
+    
+    :warning: Keep in mind that a VM instance is charged by Google (on your coupon) when
+    it is running. If you **SUSPEND** your instance, there is no more cost of computing (calculated
+    in fonction of minutes of activity).
+    
+- [x] **At the end of the week (only), stop your VM instance**
 
-:warning: Yet, the cost of your storage device (100 Gb) is still recorded, whereas the
-disk is used by a VM or not. Fortunately, this cost is reduced and you can keep your 100 Gb
-disk for many weeks with your coupon.
+??? note "Stop your Google VM"
+    - Go to your [Google cloud console (web interface)](https://console.cloud.google.com/compute/))
+    - Click the 3 vertical dots in the line `bare-galaxy` and select `Arrêter` (or `Stop` with
+      the english interface)
+    
+    :warning: When all your instances are stopped, the cost of your storage devices (200 or 300 Gb)
+    is still recorded. Fortunately, this cost is reduced and you can keep your ~200 Gb
+    disk for many weeks with your coupon.
 
-Before to stop the instance, we are going to reserve a "static" IP address for your
-ansible-galaxy VM which you will use for the rest of the training.
+- [x] **Protect your instance from self-destruction pulsions**
 
-### A. Reserve a static IP address
-This is more convenient because you will be able to stop your instance and restart it for
-a next working session while **==keeping the same IP adress==**.
-
-If you do not do this, the IP address of your instance may change after each stop/restart,
-and you will have to reconnect to the Galaxy server with the new http://ip-address (which
-is not so nasty actually...)
-
-- Go back to the Google Cloud Platform management web page.
-- Click on the **name** of your VM.
-- Click on the top menu :pencil2:`Modifier`
-- Deploy the menu **Interfaces réseau**
-
-  ![](images/interface_reseau.png){width="300"}
-  
-- In the menu **`Adresse IP externe`**, select `Créer une adresse IP`
-
-  ![](images/deployed_interface_reseau.png){width="400"}
-  
-- In the floating window `Réserver une nouvelle adresse IP statique`, give a name to the
-  adresse, and click `Réserver`
-  
-  ![](images/floating_reserve_ip.png){width="400"}
-
-- :warning: Back to the menu **Interfaces réseau**, do not forget to click the `OK` button.
-- :warning::warning: Do not forget to click in addition, at the bottom of the page the
-  `Enregistrer` button.
-- Back to the (modified) detail page of your VM, you should now see something like:
-  
-  ![](images/changed_static_ip.png){width="800"}
-  
-- Go back to the general `Instance de VM` menu by clicking it in the left bar
-
-### B. Stop your Instance.
-
-Since we are now at the end of our first work session, we can safely stop the VM instance.
-
-- Go back to you ssh Google console
-- If you are not in the screen session `galaxyscreen` (the one with the scrolling galaxy logs),
-  reattach the session by
-  ```
-  screen -r galaxyscreen
-  ```
-- Within this session, stop the Galaxy server by doing ++ctrl+c++, and leave it a few seconds
-  for terminating the server process.
-- Go to your [Google cloud console (web interface)](https://console.cloud.google.com/compute/))
-- Click the 3 vertical dots in the line `bare-galaxy` and select `Arrêter` (or `Stop` with
-  the english interface)
-
-??? warning "For those of you who have uncontrolled pulsions of self-destruction..."
+??? note "Protect your instance from unwanted destruction."
     In some occasion, it is possible to be confused between `arrêter` and `détruire` a
-    VM. The consequences of unwanted VM destruction (instead of just stopping it) are irreversible
-    (and annoying for your training).
+    VM. The consequences of unwanted VM destruction are irreversible as well as annoying.
+    To prevent this, you can **protect** your instance from the destruction command.
     
-    To prevent this kind of unrepairable mistakes, you can **protect** your instance against it.
+    - Go to the Google Cloud Platform management web page.
+    - Click on the **name** of your VM.
+    - Click on the top menu :pencil2:`Modifier`
+    - Edit the `Protection contre la suppression` option as follows:
     
-    To do so, follow the procedure we have used to change our ephemeral IP to static IP.
-    But instead of editing the `Interfaces réseau` settings, edit the `Protection contre la
-    suppression` option as follows:
+    ![](images/self_destruction.png){width=600}
     
-    ![](images/self_destruction.png){width=300}
-    
-    an do not forget to save this new setting.
+    (just at the end of the section **Informations générales**) and do not forget to save
+    this new setting.
     
     From this point, you will need to uncheck the box to destroy the instance and your are
     protected against unwanted manifestations of bad karma :imp:!
@@ -226,10 +188,3 @@ Since we are now at the end of our first work session, we can safely stop the VM
 
 
 # <center>:coffee: :beer: :cocktail: :beers: :rainbow:</center>
-
-
-
-
-
-
-

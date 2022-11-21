@@ -72,10 +72,17 @@ paste the following Tabular source data:
 !!! info ":ice_cream: small RNAseq datasets"
     ```
     https://psilo.sorbonne-universite.fr/index.php/s/HYLtfo9d2eD3Q2A/download/GRH-103_R1.fastq.gz	GRH-103
-    https://psilo.sorbonne-universite.fr/index.php/s/xgFNxA6fb7GgaLL/download/GRH-104_R1.fastq.gz	GRH-104
     https://psilo.sorbonne-universite.fr/index.php/s/C3o48iyyaeYw9gk/download/GRH-105_R1.fastq.gz	GRH-105
+    ```
+??? note "supplementary smallRNAseq datasets"
+    You only need GRH-103 and GRH-105 datasets for the training.
+    However, you can also experiment with additional datasets if you wish, to be downloaded
+    as before using the following URL/name table:
+    ```
+    https://psilo.sorbonne-universite.fr/index.php/s/xgFNxA6fb7GgaLL/download/GRH-104_R1.fastq.gz	GRH-104
     https://psilo.sorbonne-universite.fr/index.php/s/Cp5ToXyj3X5jZxT/download/GRH-106_R1.fastq.gz	GRH-106
     ```
+
 - Click the `Build` button
 - In the `Build Rules ...` pannel that opened, click the ![](images/plus_rules.png){ width="80"}
 and choose `Add/Modify Column Definitions`

@@ -20,12 +20,20 @@ https://psilo.sorbonne-universite.fr/index.php/s/HYLtfo9d2eD3Q2A/download/GRH-10
 ==Required packages (`bowtie` and `samtools`) are already installed in your Galaxy server==
 
 ## Clip fastq reads from their sequence adapter and output clipped sequences in a fasta format
-- type "clip" in the search toolbar box
+- type "clip adapter" in the search toolbar box
 - select the `Clip adapter` Galaxy toolbar
 - Fill the tool form as following, indicating which file to clip, the min and max sizes of the
   reads you wish to keep in the processed dataset, that you want a fasta output, do no want
   N in the retrieved clipped reads, and that the adapter in the dataset is the Illumina
   TruSeq adapter.
+!!! info ":wrench: Clip adapter parameters"
+    - **Source file**: `2: GRH-103_R1.fastq.gz`
+    - **min size**: `18`
+    - **max size**: `36`
+    - **Select output format**: `fasta`
+    - **Accept reads containing N?**: `reject`
+    - **Source**: `Use a built-in adapter (select from the list below)`
+    - **Select Adapter to clip**: `Illumina TruSeq TGGAATTCTCGGGTGCCAAGTGGAAT`
 
 ![clip tool](images/clip.png){width="500"}
 
@@ -45,14 +53,14 @@ Check the result in the history:
 
 - In the search toolbar box, type `bowtie`
 - Select the tool `sR_bowtie for small RNA short reads`
-- in the form tool select:
-  - `Clipped GRH-103_R1.fastq.gz-then-fasta` for **Input fasta or fastq file: reads clipped from their adapter**
-  - `Match on DNA as fast as possible, ...` for **What kind of matching do you want to do?**
-  - `0` for **Number of mismatches allowed**
-  - `Use one from the history` for **Will you select a reference genome from your history or use a built-in index?**
-  - `dmel-all-chromosome-r6.18.fasta` for **Select a fasta file, to serve as index reference**
-  - `bam` for **Select output format**
-  - `both aligned and unaligned` for **additional fasta output**
+!!! info ":wrench: sR_bowtie for small RNA short reads parameters"
+    - **Input fasta or fastq file: reads clipped from their adapter**: `Clipped GRH-103_R1.fastq.gz-then-fasta` 
+    -  **What kind of matching do you want to do?**: `Match on DNA as fast as possible, ...`
+    - **Number of mismatches allowed**: `0`
+    - **Will you select a reference genome from your history or use a built-in index?**: `Use one from the history`
+    - **Select a fasta file, to serve as index reference**: `dmel-all-chromosome-r6.18.fasta`
+    -  **Select output format**: `bam`
+    - **additional fasta output**: `both aligned and unaligned`
 
 Examine the output datasets (`Bowtie Output`, `Matched reads` and `Unmatched reads`)
 

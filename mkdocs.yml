@@ -44,19 +44,15 @@ nav:
         - MANAGE YOUR GALAXY SERVER: AnalyseGenomes_2022/manage_galaxy.md
         - BOWTIE ALIGNMENT USING COMMAND LINES: AnalyseGenomes_2022/bowtie_cli.md
         - BOWTIE ALIGNMENT USING galaxy: AnalyseGenomes_2022/bowtie_galaxy.md
-        - FORMAT CONVERSION USING COMMAND LINES: AnalyseGenomes_2022/file_parsing_cli.md
-        - FORMAT CONVERSION USING a GALAXY TOOL: AnalyseGenomes_2022/file_parsing_galaxy.md
-        - RUNNING A GALAXY WORKFLOW: AnalyseGenomes_2022/Run_workflow.md
-        - WHY ADMINSTERING GALAXY ?: AnalyseGenomes_2022/whyadmin.md
         - LOAD TRAINING DATA: AnalyseGenomes_2022/Loading_data_in_galaxy.md
         - PREPARE A REFERENCE GENOME: AnalyseGenomes_2022/Preparing_reference.md
-        - TEST YOUR GALAXY INSTANCE: AnalyseGenomes_2022/test_instance.md
-        - IN CASE OF EMERGENCY: AnalyseGenomes_2022/start_from_image.md
-        - ADMIN TOOL KIT: AnalyseGenomes_2022/admin_kit.md
+        - Format conversion using command lines: AnalyseGenomes_2022/file_parsing_cli.md
+        - Format conversion using a galaxy tool: AnalyseGenomes_2022/file_parsing_galaxy.md
+        - Running a galaxy workflow: AnalyseGenomes_2022/Run_workflow.md
+        - Why administering galaxy ?: AnalyseGenomes_2022/whyadmin.md
         - "Appendix 1: Getting a Google Cloud Engine Account": AnalyseGenomes_2022/Google_cloud_Account.md
         - "Appendix 2: Start and stop a Google virtual machine": AnalyseGenomes_2022/spin_off_VM.md
-        - "Appendix 3: http access to the IFB cloud" : AnalyseGenomes_2022/SocksProxy.md
-        - "Appendix 4: Galaxy software architecture" : AnalyseGenomes_2022/Galaxy_architecture.md
+        - "Appendix 3: The ADMIN tool kit": AnalyseGenomes_2022/admin_kit.md
 
     -  Run your Galaxy server:
         - INTRODUCTION: Run-Galaxy/index.md
