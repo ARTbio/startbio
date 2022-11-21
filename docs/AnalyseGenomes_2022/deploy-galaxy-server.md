@@ -1,73 +1,4 @@
-### 1. Spin off a virtual Machine `bare-galaxy` with ![](images/google-padok.png){: style="width:30px"} Google Cloud Engine
-
-- Connect to your Google Compute Instances
-  [dashboard](https://console.cloud.google.com/compute/instances)
-
-- Create a Virtual Machine Instance
- 
-
-!!! info "with the following settings"
-    - Name: `bare-galaxy`
-    - Region `europe-west6 (Zurich)` (or any region available with you Google coupon). ==As
-    it is very unlikely that a single Google zone will be able to provide enough resources
-    to support 18 virtual machines at the same time, we will have to coordinate to
-    distribute our instances to different zones in Europe and USA==.
-    - Zone: `europe-west6-a` (or `-b` or `-c`)
-    - **Configuration de la machine**
-        - `OPTIMISEE POUR LE CALCUL` (or `COMPUTE-OPTIMISED`) ==:link:[in case of trouble](#trouble-shouting)==
-        - Série: `C2`
-        - Type de machine: `c2-standard-8 (8 processeurs virtuels, 32 Go de mémoire)`
-    - **Disque de démarrage (Modifier)**
-        - `IMAGES PUBLIQUES`
-        - Système d'exploitation: `Ubuntu`
-        - Version*: `Ubuntu 20.04 LTS`
-        - Type de disque de démarrage: `Disque persistant avec équilibrage`
-        - Taille (Go): ==`200`==
-        - ==SELECTIONNER==
-    - **Pare-feu**
-        - Check `Autoriser le trafic HTTP`
-
-This settings should look like:
-    
-![](images/GCE_spin.png){: style="width:450px"}
-![](images/GCE_OS.png){: style="width:450px"}
-![](images/GCE_firewall.png){: style="width:450px"}
-
-??? bug "Trouble shouting"
-    **In some occasions, launching of your VM may fail** as illustrated bellow:
-    ![](images/instance_failing.png){: style="width:600px"}
-    
-    1. Maybe you are not, indeed, using the billing account associated to your
-    Google coupon, but instead using a billing account associated to a "Free Trial".
-        
-        If this is the case, try either of the following solutions:
-        
-        - If it is not already done, activate your coupon by following the received
-        instructions, and be sure that you activate a project associated with the billing
-        account of the coupon.
-        - Instead a selecting `OPTIMISEE POUR LE CALCUL` (or `COMPUTE-OPTIMISED`), select
-        `USAGE GENERAL` (or `GENERAL-PURPOSE`) and scroll-down the **Machine-type** menu
-        to select `e2-standard-8 (8 vCPU, 32 GB memory)`
-    2. The Region and Zone which you have chosen (in the example, `europe-west6-a`) is
-    overloaded.
-        
-        In this case, try another `Zone` (-b or -c), and/or another `Region`, in Europe or
-        America.
-
-### 2. Connect to the VM using the ssh web console
-
-!!! info "ssh connection"
-    Roll down the `ssh` menu in the control pannel and select the first option
-    `Ouvrir dans une fenêtre du navigateur`
-
-    ![Select ssh session in browser](images/select_ssh.png)
-    
-    **This opens a web ssh shell session to control your VM:**
-    
-    ![](images/web_ssh_console.png)
-
-
-### 3. Installation of the Galaxy server
+### 1. Installation of the Galaxy server
 
 We have automated the installation of Galaxy on your Google Virtual Machine.
 All you need is to (i) taking the control of the machine as root and (ii) downloading a 
@@ -78,27 +9,29 @@ So let's do this, step by step, using the ssh Terminal:
   ```Console
   sudo -i
   ```
-!!! info ""
+??? info "What does `sudo -i` command ?"
     This command open a new `shell` where you are root. You can check this by typing `whoami`
     that should return `root`, meaning that you are now working as `root` user.
     
     This is required because installation of new programs as well as manipulations of network
     interfaces is permitted only to users with administration rights.
 
+____
 ```
 wget https://raw.githubusercontent.com/ARTbio/AnalyseGenome/main/GalaxyServer/deploy_galaxy.sh
 ```
-!!! info ""
+??? info "What does `wget` command"
     This command is downloading an installation script located in the GitHub repository
     @artbio/AnalyseGenome
 
+____
 ```
 sh deploy_galaxy.sh
 ```
-!!! info ""
-    Finally, this command runs the sh script
+??? info "What does `sh deploy_galaxy.sh` command ?"
+    This command runs the sh script
     [deploy_galaxy.sh](https://raw.githubusercontent.com/ARTbio/AnalyseGenome/main/GalaxyServer/deploy_galaxy.sh)
-
+____
 
   You should see an abundant log scrolling down. Don't worry !
 
@@ -108,24 +41,27 @@ sh deploy_galaxy.sh
   - The Galaxy database (sqlight) is automatically upgraded to its latest structure/model
   - The package manager Conda, which is heavily used by Galaxy to install its tools is installed.
   
-  After ~10 minutes, you should see in the ssh console the following log:
+  After ~10 minutes, you should see the following log in the ssh console:
 
 ```{.bash title="Terminal"}
+Executing: galaxyctl start
+Registered galaxy config: /root/galaxy/config/galaxy.yml
+Creating or updating service gunicorn
+Creating or updating service celery
+Creating or updating service celery-beat
+celery: added process group
+celery-beat: added process group
+gunicorn: added process group
+celery                           STARTING  
+celery-beat                      STARTING  
+gunicorn                         STARTING  
+Log files are in /root/galaxy/database/gravity/log
 Galaxy is now running as a daemon in the background
 ```
-The log of the Galaxy server can be displayed using the command
+We will review in a section apart how to display the server activity, stop, start or restart
+it.
 
-```
-tail -f /root/galaxy/galaxy.log
-```
-which should show :
-```
-Galaxy server instance 'main.1' is running
-serving on http://0.0.0.0:80
-
-```
-
-### 4. Connect to your living Galaxy instance
+### 2. Connect to your living Galaxy instance
 
 You should now be able to access to you Galaxy instance in a your web browser window.
 

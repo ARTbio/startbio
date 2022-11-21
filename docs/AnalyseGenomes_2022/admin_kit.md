@@ -1,22 +1,24 @@
-All commands below should be run as the admin user (`sudo -i`)
-
-!!! bug "see your slurm jobs triggered by Galaxy"
-    ```
-    watch "squeue --format '%.18i %.9P %.40j %.8u %.2t %.10M %.4C %.6D %R' && sinfo"
-    ```
-!!! bug "If your slurm cluster is stuck (the datasets stay in the "grey state" forever)"
-
-    - the previous command should show it
-    - then try this:
+??? info "The `screen` program"
+    `screen` is a useful linux program that creates, attach, detach or
+    reattach "virtual" shell sessions.
+    `screen` allows to run simultaneous linux processes in isolated environments which can
+    be put in the background while working with the console at other tasks
     
-    ```
-    scontrol update NodeName=<name of your instance> State=Resume
-    ```
+    A handful of screen commands you should know:
+    
+    - `screen -ls` lists all screen sessions available, attached (currently active) or
+      detached in the background
+    - `screen -r <session>` reattaches a detached screen session.
+    - _within an active screen session_ ++ctrl++++a++ then ++d++ detaches the active session
+    - _within an active screen session_ type `exit` to terminate the active session
+    - `screen -S <session>` creates a new session
+    - `screen -d -r <session>` detaches the current session and reattach another one
+
 
 !!! bug "See the Galaxy server logs"
     When some tools are failing, you may grab useful information.
     ```
-    tail -f /home/galaxy/galaxy/uwsgi.log
+    tail -f ./galaxy/database/gravity/log/gunicorn.log
     ```
 
 !!! bug "If tools fail with libssl / openssh issue in the bug report"
@@ -33,18 +35,21 @@ All commands below should be run as the admin user (`sudo -i`)
     conda install -c bioconda samtools=1.9 --force-reinstall
     conda install -c bioconda --force-reinstall ucsc-genepredtobed ucsc-gtftogenepred
     ```
+    after activating the proper conda environment 
+    
 !!! bug "To shrink you `_conda` dependencies folder"
     This folder is located at `/home/galaxy/tool_dependencies/_conda` and you must first
     activate the Galaxy conda base environment using the command (from anywhere):
     ```
-    source /home/galaxy/tool_dependencies/_conda/bin/activate
+    source /root/galaxy/database/dependencies/_conda/bin/activate
     ```
     Then
     ```
     conda clean --dry-run --all
     ```
 
-!!! bug "In case of many issues with many tools"
+:warning: the following content was not updated in 2022, do not use it, it is deprecated
+!!! bug "In case of many issues with many tools ==which are not experienced by most of other students=="
     There is a problem with your conda tool dependencies.
     
     You can use the :dizzy: ==**magic patch**== :dizzy:

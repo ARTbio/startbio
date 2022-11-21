@@ -56,12 +56,12 @@ This settings should look like:
 
 ### 2. Connect to the VM using the ssh web console
 
-!!! info "ssh connection"
-    Roll down the `ssh` menu in the control pannel and select the first option
-    `Ouvrir dans une fenêtre du navigateur`
+Roll down the `ssh` menu in the control pannel and select the first option
 
-    ![Select ssh session in browser](images/select_ssh.png)
+`Ouvrir dans une fenêtre du navigateur`
+
+![Select ssh session in browser](images/select_ssh.png)
     
-    **This opens a web ssh shell session to control your VM:**
-    
-    ![](images/web_ssh_console.png)
+**This opens a web ssh shell session to control your VM:**
+
+![](images/web_ssh_console.png)
