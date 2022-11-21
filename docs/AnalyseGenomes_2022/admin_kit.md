@@ -45,20 +45,5 @@
     ```
     Then
     ```
-    conda clean --dry-run --all
-    ```
-
-:warning: the following content was not updated in 2022, do not use it, it is deprecated
-!!! bug "In case of many issues with many tools ==which are not experienced by most of other students=="
-    There is a problem with your conda tool dependencies.
-    
-    You can use the :dizzy: ==**magic patch**== :dizzy:
-    
-    Copy and paste the code below in the (root) terminal. This will swap your _conda environment
-    with a clean, fresh one.
-    
-    ```
-    cd ~ && \
-    wget https://raw.githubusercontent.com/ARTbio/Run-Galaxy/master/deployment_scripts/patch_conda_env.sh && \
-    sh patch_conda_env.sh
+    conda clean --all
     ```
