@@ -55,8 +55,6 @@ nav:
         - ADMIN TOOL KIT: AnalyseGenomes_2022/admin_kit.md
         - "Appendix 1: Getting a Google Cloud Engine Account": AnalyseGenomes_2022/Google_cloud_Account.md
         - "Appendix 2: Start and stop a Google virtual machine": AnalyseGenomes_2022/spin_off_VM.md
-        - "Appendix 3: http access to the IFB cloud" : AnalyseGenomes_2022/SocksProxy.md
-        - "Appendix 4: Galaxy software architecture" : AnalyseGenomes_2022/Galaxy_architecture.md
 
     -  Run your Galaxy server:
         - INTRODUCTION: Run-Galaxy/index.md

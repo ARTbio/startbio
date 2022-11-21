@@ -1,15 +1,40 @@
-# Run-Galaxy
-## Run Galaxy training course
+# Get you Google Cloud coupon and activate it.
+![googleCloud logo](images/googlecloud.png)
+
+We will send you a URL which you will need to access in order to request a Google Cloud coupon.
+
+You will be asked to provide your University email address (which must belong to either
+sorbonne-university.fr or u-paris.fr domains) and your name. An email will be sent
+to you to confirm these details before a coupon is sent to you.
 
 
-### Google Cloud Engine
-1. Prerequisite: a Google account / Gmail account
-2. Connect to [Google Cloud Engine](https://cloud.google.com/)
-3. Click on `Essai Gratuit` / `Free Trial`
-4. Enter your Gmail mail address and password
-5. Review conditions and accept
-6. Inscription Form:
-  - `Entreprise` / `Company` : put anything like "Perso" or "foo/bar"
-  - `Ajouter une carte de paiement` / `Add credit Card` or optionally `Ajouter un compte bancaire` / `Bank account`
-7. You are in for a free trial of 12 months / 300 $
-8. go to your [Google Cloud Console](https://console.cloud.google.com/home/dashboard) to control your spin off / control your Virtual Machines
+
+Your coupon is valid through: 11/21/2023
+
+You can only request ONE coupon per unique email address.
+
+# Access to you Google Cloud dashboard
+
+The coupon is a link to your Google Cloud account (note that the Google Cloud account
+is different from your Gmail account if you have one).
+
+It is possible that the first thing you will be asked to do is to create a new "project",
+unless the coupon is automatically opening this project.
+
+Try immediately to access to your [Google Cloud dashboard](https://console.cloud.google.com/home/dashboard)
+Then to [Compute engine](https://console.cloud.google.com/compute/instances) and
+_CREATE AN INSTANCE_
+
+Use the [documentation here](../bare-galaxy-google/#1-spin-off-a-virtual-machine-bare-galaxy-with-google-cloud-engine)
+or [here](../spin_off_VM) to fill the instance form before start.
+
+As soon as you can see
+
+![running instance](images/instance_check.png)
+
+==Please report in the Slack of Analyse des Génomes 2022.==
+
+:warning: **If you have troubles to get a running instance with a green spot, please,
+do not wait for the 29/11/2022 at 13:30 to say it because it may be to late**
+
+
