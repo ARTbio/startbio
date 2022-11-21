@@ -41,7 +41,7 @@ ____
   - The Galaxy database (sqlight) is automatically upgraded to its latest structure/model
   - The package manager Conda, which is heavily used by Galaxy to install its tools is installed.
   
-  After ~10 minutes, you should see in the ssh console the following log:
+  After ~10 minutes, you should see the following log in the ssh console:
 
 ```{.bash title="Terminal"}
 Executing: galaxyctl start

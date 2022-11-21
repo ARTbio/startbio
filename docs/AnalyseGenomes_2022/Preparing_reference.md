@@ -138,24 +138,6 @@ that the job is ongoing to create the bowtie index.
 
 It will take several minutes.
 
-## 3. :wrench: Index `dmel-r6.18` for the **sam-to-bam** tool.
-
-This tool required a simple index of the fasta Drosophila genome. This index will be generated
-by the tool **SAM FASTA index _builder_**
-
-- Go back to the local data manager board
-- Click on the data manager **SAM FASTA index _builder_**
-
-!!! note "Fill the form of :wrench: **SAM FASTA index _builder_**"
-    - **Source FASTA Sequence**: `dmel-r6.18` (no other choice !)
-    - **Name of Sequence**: _Leave this field empty_
-    - **ID for sequence**: _Leave this field empty_
-    - **Click :heavy_check_mark:`Execute`**
-
---> A new dataset `SAM FASTA index` is created and the orange color and running wheel indicate
-that the job is ongoing to create the index. In contrast to the bowtie index, this one
-should be created very rapidly (a few secondes)
-
 **==Your Cloud Galaxy is now ready for analyses with the other trainers==**
 
 
