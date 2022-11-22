@@ -1,3 +1,10 @@
+### 0. Prerequisite
+
+- [x] You have obtained and activated your Google Coupon for this training as described in
+[Appendix 1](../Google_cloud_Account)
+- [x] You have accessed to the Google dashboard and tested Starting and Stopping a virtual
+machine (VM) instance as described in [Appendix 2](../spin_off_VM)
+
 ### 1. Spin off a virtual Machine `bare-galaxy` with ![](images/google-padok.png){: style="width:30px"} Google Cloud Engine
 
 - Connect to your Google Compute Instances
