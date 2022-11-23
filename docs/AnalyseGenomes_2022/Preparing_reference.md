@@ -1,12 +1,11 @@
-The last thing we can do for the incoming analyses is to prepare several indexes of your
+The last thing we can do for the incoming analyses is to prepare a bowtie index of your
 Drosophila genome, which will be available Galaxy-wide.
 
-Alignment programs and a number of tools use their own, specific index, to speed up their
+Alignment programs and a number of other tools use their own specific index, to speed up their
 tasks. Thus, since you will align later reads using bowtie, you should prepare a bowtie
-genome index. Likewise, you will need to make a conversion of SAM to BAM format using a
-samtools tool. You also need to prepare a fasta index (.fai) of your genome for this tool.
+genome index.
 
-In Galaxy, these indexing tasks are preceeded by a "fetch and dbkey" task, whose
+In Galaxy, indexing tasks are preceeded by a "fetch and dbkey" task, whose
 purpose is to implement the Galaxy database and inform it of the existence of this genome
 and of possible derived indexes.
 
@@ -23,24 +22,61 @@ and 4, but also many unmapped contig sequences and possibly some minor haplotype
 
 Thus, before indexing our Drosophila genome, we are going to clean it a little bit by,
 
-- simplifying the fasta headers (keeping only the characteres before the first space)
-- and explicitly picking the main chromosomes aforementioned.
+- simplifying the fasta headers (keeping only the characters before the first space)
+- and explicitly picking only the aforementioned chromosomes.
 
 ### A. :wrench: simplify fasta headers
 
+We will first need to use a Galaxy tool that is able to do advanced search/replacement
+using regular expressions. This tool is :wrench: `Regex Find And Replace`.
+
+However, if you search for "regex" in the search box of the tool panel, you will not be
+able to find this tool !
+
+This is on purpose, to show you how to install missing tools in your Galaxy server, by
+connecting to the Galaxy toolshed (a kind of app store for Galaxy) and fetch them from
+this tool shed.
+
+!!! info "Installing the :wrench: `Regex Find And Replace` tool"
+    
+    - Click on the `Admin` top menu
+    - In the left bar click on `Install and Uninstall`
+    - Now, click the `Install new tools` menu (again in the left bar)
+    - In the search field, copy and paste
+    ```
+    regex_find_replace
+    ```
+    and press the ++enter++ key.
+    - Select the tool owned by `galaxyp` (this is the one we want).
+        and click the `install` button of the lattest
+        revision (4, version 1.0.2)
+    - In the `Target Section:` menu, select `Analyse des Génomes`.
+        Thus, the tool will appears in the section `Analyse des Génomes` of your Galaxy tools.
+    - Click `OK`
+    - After a few seconds, you will notice the `Cloning...` then soon `Installing dependencies`
+      displayed by the install button.
+    - And rapidly enough, the `Install` button should turn to a red `Uninstall` button.
+    - You can now check the `Installed Only` radio button at the top, and look at the newly
+      installed tool `regex_find_replace` in the list.
+
 - Go to the `REFERENCE` history
 - Select the tool :wrench: **Regex Find And Replace** (Galaxy Version 1.0.2) in the tool
-sub-menu `Analyse des Génomes`. To find easily the tool, you may also type `Regex Find And
-Replace` in the search box ![](images/search_box.png){ width="200" } at the top of the
-tool bar.
+sub-menu `Analyse des Génomes`. Note that now that the tool is installed, you can find it
+by typing `Regex Find And Replace` in the search box at the top of the tool bar.
+
 !!! note "fill the form of :wrench: [Regex Find And Replace]"
     - **Select lines from**: `1. dmel-r6.18`
     - **Check**: Click `Insert Check`
-    - **Find Regex**: ` .+` :warning: this is a _space_, followed by a dot, followed by a plus.
+    - **Find Regex**: ` .+` :warning: this is a _space_, followed by a dot, followed by a sign plus.
     - **Replacement**: _Nothing_ :warning: be sure that the remplacement box is _empty_
     - **Click :heavy_check_mark:`Execute`**
-- After run, change the datatype of the dataset `Regex Find And Replace on data 1`from
+
+- After run, change the datatype of the dataset `Regex Find And Replace on data 1` from
   `data` to `fasta` using the `pencil` icon.
+      
+      :warning: This is necessary, because there is a bug with the tool which is referencing its outputs
+      with the wrong datatype `data`
+
 - Now, you can use the `eye` icon to compare the new dataset with the initial genome dataset.
 ??? question "What can you say, at least for the chromosome 2L ?"
     The visible header is now `>2L`.
