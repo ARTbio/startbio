@@ -25,7 +25,10 @@ As you have already uploaded single files using their url, we are going to use a
 powerful procedure which is appropriate when uploading numerous files.
 
 Before all, create a new history by clicking the :heavy_plus_sign: icon in the history header
-![](images/history_header.png){ width="300"} and immediately renaming the new history as
+
+![](images/history_header.png){ width="300"}
+
+and immediately renaming the new history as
 `References`.
 
 - Click the `Upload Data` button at the top-left corner of the Galaxy interface.
@@ -218,67 +221,42 @@ history menu, and selecting `Purge Deleted Datasets` in the **Datasets Actions**
     - :warning: If you do not perform this last action, the deleted datasets remain on your
       instance disk !
 
-#### 5. Dataset collections :milky_way: :alien:
+#### 5. Dataset collections :alien:
 
-If we have enough time, we are going to organize our various datasets using an additional
+We are going to organize our various datasets using an additional
 structure layer: the **Galaxy Collection**.
 
-A Galaxy Collection is a container object which is very convenient to treat together multiple
-equivalent datasets, such as a list of sequencing dataset, of text labels, of fasta sequences,
+A Galaxy Collection is a container object which is convenient to treat together multiple
+equivalent datasets, such as a list of sequencing datasets, of text labels, of fasta sequences,
 etc.
 
-For those of you who are a bit familiar with Python language, a Galaxy Collection is actually
-just a dictionary, whose `keys` are the names of the datasets in the collection (in Galaxy
-these names are referred to as `element identifiers`), and `values` are the paths to the
-corresponding datasets. Well, a dictionary as I said :stuck_out_tongue_winking_eye:
+##### A. Making collections of RNA sequence datasets.
 
-##### A. Making a collection of the small RNA sequence datasets.
+Collections are particularly useful for RNAseq datasets,since these datasets often come
+as replicates which can be grouped upon a label. Your training is indeed a good example of
+that, since you are provided with 3 `WT` datasets (1, 2 and 3) and 3 `SF` datasets (1, 2 and 3).
 
-For clarity, we are going first to _copy_ the small RNA sequence dataset from their initial
-history to a **new** history.
-
-- Go to your small RNAseq sequence datasets.
-- Click on the wheel icon of the history top menu
-    
-    ![](images/wheel.png){ width="200" }
-
-- Select the submenu `Copy Datasets` in the section `Dataset Actions`
-- In the pop-up panel, `Source History:`, check-in the 4 small RNA sequencing datasets
-- In the same pop-up panel, `Destination History:`, field `New history named`, write
-  ```
-  small RNAs in collection
-  ```
-- Click the `Copy History Items` button.
-- Still on the same pop-up panel, at the top in a green area, you have now a :link: to the
-  new history that was created and where the datasets were copied. Click on that link !
-    
-    ??? info "When you copy datasets in that way..."
-        The new datasets actually do not take any space on your disk. New symbolic links to
-        the actual files are only created.
-
-- Now, that your are in the new history, click on the checkbox icon in the top area of the
-  history.
-    
-    ![](images/history_checkbox.png){ width="250" }
-    
-- Check-in the 4 small RNA datasets
-- In the menu `All 4 selected` (also in the top area of the history), select
+- Navigate to you `RNAseq inputs` history (or whatever you named it) and click the upper left small check box
+  at the top of the green datasets
+  
+  ![](images/history_checkbox.png){ width="250" }
+  
+  You see that check boxes appear for each dataset of the history
+  
+- Check the 3 RNA datasets `WT1`, `WT2` and `WT3`
+- In the menu `3 of 6 selected` (also in the top area of the history), select
   `Build Dataset List`
   
   ![build list](images/build_list.png){ width="250" }
   
-- In the pop-up panel, just write a meaningful name in the field `Name`, something like
-  ```
-  Small RNA collection
-  ```
-- Reorganize the datasets order by dragging the datasets in the list. For instance, you may
-  prefer here the order GRH-103 --> GRH-104 --> GRH-105 --> GRH-106, from top to botom.
-  In this specific use case, you can also use the `alphabetic sorting` icon.
+- In the pop-up panel, just type `WT` in the field `Name: Enter a name for your new collection`
+- Reorganize the datasets order by clicking the `alphabetic sorting` icon.
 - Press the button `Create Collection`
 
-??? question "What do you see when you click on name of the new dataset collection?"
-    You see the content of the collection, with datasets identified with names called
-    `element_identifiers.
+- **Repeat exactly the same operations for the 3 remaining datasets `SF1`, `SF2` and `SF3`**
+
+??? question "What do you see when you click on name of the new dataset collections ?"
+    You see the content of the collection, with datasets identified with original names.
     
     Click on  the `<< History` link, to come back to the normal history view.
 
@@ -287,25 +265,3 @@ history to a **new** history.
     You see the actual dataset contained in the Collection. If you click on `unhide` for
     each of these datasets, you will actually see both the container collection and the contained
     datasets !
-
-##### B. Making 2 collections RNA sequence datasets.
-For RNAseq datasets, collections are also very convenient. However, it is even better to
-anticipate the type of analysis that you are going to perform. Indeed, you are going to
-compare 3 "test" (mutant, treated, whatever...) datasets with 3 control datasets.
-
-Therefore, we are going to organise the RNAseq datasets as 2 collections: a collection `WT`
-and a collection `SF`.
-
-- Go back to your RNAseq input datasets history
-- As before, _copy_ the 6 RNAseq dataset to a new history which you will name
-  `RNAseq dataset Collections`
-- This time, create first a collection by only checking the three datasets `WT1`, `WT2`
-  and `WT3`, which you will name:
-  ```
-  WT
-  ```
-- Create also a second collection by only checking the three datasets `SF1`, `SF2`
-  and `SF3`, which you will name:
-  ```
-  SF
-  ```
