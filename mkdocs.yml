@@ -53,6 +53,7 @@ nav:
         - "Appendix 1: Getting a Google Cloud Engine Account": AnalyseGenomes_2022/Google_cloud_Account.md
         - "Appendix 2: Start and stop a Google virtual machine": AnalyseGenomes_2022/spin_off_VM.md
         - "Appendix 3: The ADMIN tool kit": AnalyseGenomes_2022/admin_kit.md
+        - "Appendix 4: EMERGENCY image!": AnalyseGenomes_2022/emergency_image.md
 
     -  Run your Galaxy server:
         - INTRODUCTION: Run-Galaxy/index.md
