@@ -18,20 +18,15 @@ So let's do this, step by step, using the ssh Terminal:
 
 ____
 ```
-wget https://raw.githubusercontent.com/ARTbio/AnalyseGenome/main/GalaxyServer/deploy_galaxy.sh
+wget https://raw.githubusercontent.com/ARTbio/AnalyseGenome/main/GalaxyServer/deploy_galaxy.sh && \
+sh deploy_galaxy.sh
 ```
 ??? info "What does `wget` command"
     This command is downloading an installation script located in the GitHub repository
     @artbio/AnalyseGenome
-
-____
-```
-sh deploy_galaxy.sh
-```
 ??? info "What does `sh deploy_galaxy.sh` command ?"
     This command runs the sh script
     [deploy_galaxy.sh](https://raw.githubusercontent.com/ARTbio/AnalyseGenome/main/GalaxyServer/deploy_galaxy.sh)
-____
 
   You should see an abundant log scrolling down. Don't worry !
 
