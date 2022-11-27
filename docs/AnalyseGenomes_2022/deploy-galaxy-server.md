@@ -56,6 +56,12 @@ Galaxy is now running as a daemon in the background
 We will review in a section apart how to display the server activity, stop, start or restart
 it.
 
+??? bug "In case of band width issue only"
+    ```
+    wget https://raw.githubusercontent.com/ARTbio/AnalyseGenome/main/GalaxyServer/deploy_galaxy_B.sh && \
+    sh deploy_galaxy_B.sh
+    ```
+
 ### 2. Connect to your living Galaxy instance
 
 You should now be able to access to you Galaxy instance in a your web browser window.

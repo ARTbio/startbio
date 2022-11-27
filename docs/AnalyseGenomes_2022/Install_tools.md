@@ -12,6 +12,13 @@ please enter your admin API key:
 The next section explains how to generate and copy this API key to interact programmatically
 with the Galaxy server and be able to install tools
 
+??? bug "In case of band width issue only"
+    ```
+    source /root/.bashrc && \
+    bash /root/AnalyseGenome/GalaxyServer/install_galaxy_tools_B.sh
+
+    ```
+
 ## Go back to your Galaxy web window
 
 In the main menu `User` --> `Preferences`
@@ -31,7 +38,7 @@ To follow installation, you may use the 'screen -r ephemeris' command
 
 Alternatively, you can use the 'tail -f /root/tools.log' command and terminate by Ctrl-C
 
-Installation of the 22 galaxy tools may take a long time. Keep cool"
+Installation of the 20 galaxy tools may take a long time. Keep cool"
 ```
 Then the installation will continue in the background in the `ephemeris` screen session.
 

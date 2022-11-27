@@ -52,6 +52,22 @@ paste the following Tabular source data:
     https://psilo.sorbonne-universite.fr/index.php/s/JM6aQkDMKF6YZRE/download/dmel-all-tRNA-r6.18.fasta	tRNAs
     https://psilo.sorbonne-universite.fr/index.php/s/A8dB5qPW3KgxNey/download/PlacW.fasta	PlacW
     ```
+??? bug "URLs of references (genome and RNA classes) - :warning: only in case of band width issue"
+    ```
+    https://storage.googleapis.com/ag-2022/References/dmel-all-chromosome-r6.18.fasta	dmel-all-chromosome-r6.18.fasta
+    https://storage.googleapis.com/ag-2022/References/Dmel_all-transposon_merge.fasta	Dmel_all-transposon_merge.fasta
+    https://storage.googleapis.com/ag-2022/References/Dmel_piRNA_clusters.fasta	Dmel_piRNA_clusters.fasta
+    https://storage.googleapis.com/ag-2022/References/dmel-all-gene-r6.18.fasta	dmel-all-gene-r6.18.fasta
+    https://storage.googleapis.com/ag-2022/References/dmel-all-intron-r6.18.fasta	dmel-all-intron-r6.18.fasta
+    https://storage.googleapis.com/ag-2022/References/dmel-all-miRNA-r6.18.fasta	dmel-all-miRNA-r6.18.fasta
+    https://storage.googleapis.com/ag-2022/References/dmel-all-miscRNA-r6.18.fasta	dmel-all-miscRNA-r6.18.fasta
+    https://storage.googleapis.com/ag-2022/References/dmel-all-ncRNA-r6.18.fasta	dmel-all-ncRNA-r6.18.fasta
+    https://storage.googleapis.com/ag-2022/References/dmel-all-r6.18.gtf	dmel-all-r6.18.gtf
+    https://storage.googleapis.com/ag-2022/References/dmel-all-transcript-r6.18.fasta	dmel-all-transcript-r6.18.fasta
+    https://storage.googleapis.com/ag-2022/References/dmel-all-tRNA-r6.18.fasta	dmel-all-tRNA-r6.18.fasta
+    https://storage.googleapis.com/ag-2022/References/PlacW.fasta	PlacW.fasta
+    ```
+
 
 - Click the `Build` button
 - In the `Build Rules ...` pannel that opens, click the ![](images/plus_rules.png){ width="80"}
@@ -77,6 +93,13 @@ paste the following Tabular source data:
     https://psilo.sorbonne-universite.fr/index.php/s/HYLtfo9d2eD3Q2A/download/GRH-103_R1.fastq.gz	GRH-103
     https://psilo.sorbonne-universite.fr/index.php/s/C3o48iyyaeYw9gk/download/GRH-105_R1.fastq.gz	GRH-105
     ```
+
+??? bug ":ice_cream: small RNAseq datasets - :warning: only in case of band width issue"
+    ```
+    https://storage.googleapis.com/ag-2022/GRH-103_R1.fastq.gz	GRH-103_R1.fastq.gz
+    https://storage.googleapis.com/ag-2022/GRH-105_R1.fastq.gz	GRH-105_R1.fastq.gz
+    ```
+
 ??? note "supplementary smallRNAseq datasets"
     You only need GRH-103 and GRH-105 datasets for the training.
     However, you can also experiment with additional datasets if you wish, to be downloaded
@@ -115,6 +138,16 @@ paste the following Tabular source data:
     https://psilo.sorbonne-universite.fr/index.php/s/gyDgrq8S98C6KyL/download/WT1_R1.fastq.gz	WT1
     https://psilo.sorbonne-universite.fr/index.php/s/J9o73xmQWk43P6A/download/WT2_R1.fastq.gz	WT2
     https://psilo.sorbonne-universite.fr/index.php/s/YFnT3KzPNLdH3N4/download/WT3_R1.fastq.gz	WT3
+    ```
+
+??? bug ":doughnut: RNAseq datasets - :warning: only in case of band width issue"
+    ```
+    https://storage.googleapis.com/ag-2022/SF1_R1.fastq.gz	SF1_R1.fastq.gz
+    https://storage.googleapis.com/ag-2022/SF2_R1.fastq.gz	SF2_R1.fastq.gz
+    https://storage.googleapis.com/ag-2022/SF3_R1.fastq.gz	SF3_R1.fastq.gz
+    https://storage.googleapis.com/ag-2022/WT1_R1.fastq.gz	WT1_R1.fastq.gz
+    https://storage.googleapis.com/ag-2022/WT2_R1.fastq.gz	WT2_R1.fastq.gz
+    https://storage.googleapis.com/ag-2022/WT3_R1.fastq.gz	WT3_R1.fastq.gz
     ```
 
 - Click the `Build` button
