@@ -164,7 +164,8 @@ nav:
         - Align reads with bowtie: deepseq/bowtie.md
         - To be continued... with Galaxy: deepseq/galaxy.md
 
-    -  Starters to single-cell RNAseq analysis: scRNAseq_tutorials.md
+    -  Starters to single-cell RNAseq analysis:
+        - single-cell RNAseq tutorials: scRNAseq_tutorials.md
 
     - Complete Single-cell RNAseq analysis tutorial in R via Seurat:
         - Introduction: scRNAseq_basics/introduction.md
