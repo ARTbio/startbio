@@ -42,7 +42,8 @@ nav:
         - INSTALL GALAXY TOOLS: AnalyseGenomes_2022/Install_tools.md
         - MANAGE YOUR GOOGLE VM: AnalyseGenomes_2022/manage_VM.md
         - MANAGE YOUR GALAXY SERVER: AnalyseGenomes_2022/manage_galaxy.md
-        - BOWTIE ALIGNMENT USING galaxy: AnalyseGenomes_2022/bowtie_galaxy.md
+        - BOWTIE ALIGNMENT USING COMMAND LINES: AnalyseGenomes_2022/bowtie_cli.md
+        - BOWTIE ALIGNMENT USING GALAXY: AnalyseGenomes_2022/bowtie_galaxy.md
         - LOAD TRAINING DATA: AnalyseGenomes_2022/Loading_data_in_galaxy.md
         - PREPARE A REFERENCE GENOME: AnalyseGenomes_2022/Preparing_reference.md
         - Format conversion using command lines: AnalyseGenomes_2022/file_parsing_cli.md
