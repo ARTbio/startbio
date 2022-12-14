@@ -10,8 +10,11 @@ this is this interface that we are going to take advantage of !
 :warning: The students are split in two groups. One group will use a serveur deployed in the Google
 cloud, whereas the other group will use a serveur deployed in the Jussieu campus.
 
-- First of all, visit this [Page]() and reserve an account by putting you email adresse in the
-corresponding row. :warning: Please only one account for one student.
+- First of all, visit this [Page](https://docs.google.com/spreadsheets/d/14Urisfz_44Ax_BPccESKAfqGRiVlePUMsyQnE5P4U4c/edit?usp=sharing)
+and reserve an account by putting you email adresse in the
+corresponding row.
+
+:warning: Please only one account for one student.
 
 - Once this is done, copy the server address indicated for your account and paste it in your
 web browser (in a new tab).
@@ -62,12 +65,12 @@ ls -la
     you expect something very close to:
     ```
     total 24
-    drwxr-xr-x  3 carolina students 4096 Dec  7 23:58 .
-    drwxr-xr-x 45 root     root     4096 Dec  8 00:38 ..
-    -rw-r--r--  1 carolina students  220 Feb 25  2020 .bash_logout
-    -rw-r--r--  1 carolina students 3771 Feb 25  2020 .bashrc
-    drwx------  2 carolina students 4096 Dec  7 23:58 .cache
-    -rw-r--r--  1 carolina students  807 Feb 25  2020 .profile
+    drwxr-xr-x  3 limace   limace   4096 Dec  7 23:58 .
+    drwxr-xr-x 45 limace   limace   4096 Dec  8 00:38 ..
+    -rw-r--r--  1 limace   limace    220 Feb 25  2020 .bash_logout
+    -rw-r--r--  1 limace   limace   3771 Feb 25  2020 .bashrc
+    drwx------  2 limace   limace   4096 Dec  7 23:58 .cache
+    -rw-r--r--  1 limace   limace    807 Feb 25  2020 .profile
     ```
     Here, the options -la are formatting the output of `ls` in a certain way.
     
