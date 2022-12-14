@@ -1,47 +1,44 @@
 ![](images/toolbox.jpg){width="150"}
 
-## 1. ssh Connection to the Analysis Server
+## 1. SSH connection to a linux terminal in the analysis server
 
-- Open/Start your ssh terminal (PuTTY, MacOS terminal, Chrome “Secure Shell” extension, Firefox “sshGate” extension)
+We are going to use an Rstudio server. As its name indicates, the primary purpose of Rstudio
+is to provide an interactive R console for R coding.
+However, the Rstudio server also provides a graphical interface to a LINUX terminal and
+this is this interface we are going to take advantage of !
 
-- Type the command line in your terminal
+:warning: The students are split in two groups. One group will use a serveur deployed in the Google
+cloud, whereas the other group will use a serveur deployed in the Jussieu campus.
+
+- First of all, visit this [Page](https://docs.google.com/spreadsheets/d/14Urisfz_44Ax_BPccESKAfqGRiVlePUMsyQnE5P4U4c/edit?usp=sharing)
+and reserve an account by putting you email adresse in the
+corresponding row.
+
+:warning: Please only one account by student.
+
+- Once this is done, copy the server address indicated for your account and paste it in your
+web browser (in a new tab).
+
+- On the Rstudio login page, enter your login and your password
+
+- just click the `Terminal` tab as shown below.
+
+![Terminal tab](images/console_tab.png)
+
+- Pull the central separation toward the right handside of the screen to enlarge your terminal.
+
+Your are ready to work using command lines on your server !
+
+You are connected to your `home` directory, which is also symbolised by `~`.
+Your "prompt" - the text just before the command typing area - is constructed as follows:
 ```
-ssh <prenom en minuscule>@35.205.151.231
+abeille@mississippi:~$
 ```
-and press the ++enter++ key to run the command.
-
-For instance, Maëva is going to type: `ssh maëva@35.205.151.231` in her terminal, followed
-by ++enter++.
-
-:warning: Be careful, sometime your first name is written with accents and sometime not...
-To be sure you should open this [shared Google doc](https://docs.google.com/spreadsheets/d/
-1BYd5O-p94l6ToZPOwCAi7XcPtEdnq1FR/edit?usp=sharing&ouid=115530273158026068814&rtpof=true&sd=true)
-where you are going to find ==your== personalised command for ssh connection to the server
-with IP address `35.205.151.231`.
-
-If your first command is successful, you should be prompted with the following message:
-```
-The authenticity of host '35.205.151.231 (35.205.151.231)' can't be established.
-ECDSA key fingerprint is SHA256:T12UFAjo+DBgo5LT8CXoEMKI9MQCw57iPf+1SH+zPYI.
-Are you sure you want to continue connecting (yes/no/[fingerprint])?
-```
-You can trust this server and answer `yes`
-
-Then you will be asked for your password. Copy and paste this password from the Google sheets
-document and press the ++return++ key.
-
-:warning: your password typing is blind, this is normal.
-
-From there, you are connected to you `home` directory, which is also symbolised by `~`.
-Your `prompt` the text just before the command typing area, is constructed as follows:
-```
-carolina@instance-1:~$
-```
-where, for instance here, `carolina`is the login, `instance-1` is the name of the machine,
+where, for instance here, `abeille`is the login, `mississippi` is the name of the machine,
 and the path is `~`, ie your home directory.
 
 :warning: For the rest of the training, the commands will be always indicated in command
-fields (the grey box with a copy/paste icon in the upper right corner), without the `prompt`.
+fields (the grey box with a copy/paste icon in the upper right corner), *without* the `prompt`.
 
 ## 2. Basic "navigation"
 
@@ -68,12 +65,12 @@ ls -la
     you expect something very close to:
     ```
     total 24
-    drwxr-xr-x  3 carolina students 4096 Dec  7 23:58 .
-    drwxr-xr-x 45 root     root     4096 Dec  8 00:38 ..
-    -rw-r--r--  1 carolina students  220 Feb 25  2020 .bash_logout
-    -rw-r--r--  1 carolina students 3771 Feb 25  2020 .bashrc
-    drwx------  2 carolina students 4096 Dec  7 23:58 .cache
-    -rw-r--r--  1 carolina students  807 Feb 25  2020 .profile
+    drwxr-xr-x  3 limace   limace   4096 Dec  7 23:58 .
+    drwxr-xr-x 45 limace   limace   4096 Dec  8 00:38 ..
+    -rw-r--r--  1 limace   limace    220 Feb 25  2020 .bash_logout
+    -rw-r--r--  1 limace   limace   3771 Feb 25  2020 .bashrc
+    drwx------  2 limace   limace   4096 Dec  7 23:58 .cache
+    -rw-r--r--  1 limace   limace    807 Feb 25  2020 .profile
     ```
     Here, the options -la are formatting the output of `ls` in a certain way.
     
@@ -89,31 +86,34 @@ ls -la
 
 - Type (or Copy/Paste):
 ```
-cp ../GKG-13.fastq.gz .
+mkdir ~/bowtie_work && cd ~/bowtie_work
 ```
-++enter++
 ??? question "What have you done with this command ?"
-    You have copied the file `GKG-13.fastq.gz` which is located in the parent directory of
-    your current directory (ie `/home/`) to your current directory.
+    You have created a new directory `bowtie_work` in your home directory and, in the same
+    command (because of the `&&`) you have changed you directory to `~/bowtie_work`
     
-    Note that in POSIX commands, `..` stand for the directory "above" your current directory,
-    whereas `.` (a single dot) stands for the current directory.
+    You can try the command `pwd` and confirm that you are in the `/home/<yourlogin>/bowtie_work`
+    directory.
 
 - Type (or Copy/Paste):
 ```
-ls -la
+wget https://psilo.sorbonne-universite.fr/index.php/s/7YqGeFTxTgxtafy/download/dmel-all-chromosome-r6.18.fasta \
+     https://psilo.sorbonne-universite.fr/index.php/s/HYLtfo9d2eD3Q2A/download/GRH-103_R1.fastq.gz
 ```
-??? question "What do you read and what can you deduce from it?"
-    You now see a _copy_ of the GKG-13.fastq.gz file in your home directory !
+??? question "the `wget` command"
+    wget downloads files whose URL is indicated as argument.
+    
+    After wget, just check the presence of two new files, `dmel-all-chromosome-r6.18.fasta`
+    and `GRH-103_R1.fastq.gz` in your working directory, using the `ll` command.
 
-- Type (or Copy/Paste):
+- We need to uncompress the fastq.gz file to a fastq file:
 ```
-gunzip GKG-13.fastq.gz
+gunzip GRH-103_R1.fastq.gz
 ```
 ??? question "What is it doing ?"
-    the GKG-13.fastq.gz file is a compressed file (format gzip), as indicated by the `.gz`
+    the GRH-103_R1.fastq.gz file is a compressed file (format gzip), as indicated by the `.gz`
     extension.
-    The gunzip command has uncompressed the file to `GKG-13.fastq`
+    The gunzip command has uncompressed the file to `GRH-103_R1.fastq`
     
     You can verify it by typing
     ```
@@ -121,21 +121,19 @@ gunzip GKG-13.fastq.gz
     ```
     which should show:
     ```
-    drwxr-xr-x  3 carolina students       4096 Dec  8 01:26 ./
-    drwxr-xr-x 45 root     root           4096 Dec  8 00:38 ../
-    -rw-r--r--  1 carolina students        220 Feb 25  2020 .bash_logout
-    -rw-r--r--  1 carolina students       3771 Feb 25  2020 .bashrc
-    drwx------  2 carolina students       4096 Dec  7 23:58 .cache/
-    -rw-r--r--  1 carolina students        807 Feb 25  2020 .profile
-    -rwxr-xr-x  1 carolina students 1043785660 Dec  8 01:25 GKG-13.fastq*
+    total 1545908
+    drwxr-xr-x 2 limace limace       4096 Dec 13 21:51 ./
+    drwxr-xr-x 6 limace limace       4096 Dec 13 21:49 ../
+    -rw-r--r-- 1 limace limace 1437054065 Dec 13 21:49 GRH-103_R1.fastq
+    -rw-r--r-- 1 limace limace  145942238 Dec 13 21:49 dmel-all-chromosome-r6.18.fasta
     ```
-    :warning: as you can deduce, the `ll` command is an _alias_ to `ls -laF`
+    :warning: as you may have deduce, the `ll` command is an _alias_ to the `ls -laF` command.
 
 ## 3. What is this fastq file containing ?
 
 Type (or Copy/Paste):
 ```
-more GKG-13.fastq
+GRH-103_R1.fastq
 ```
 ??? question "What is doing the `more` command ?"
     It reads the file by chunks of your screen size. Each time you type the ++space++ bar,
@@ -144,73 +142,60 @@ more GKG-13.fastq
 
 ??? question "How is made a fastq file ?"
     ```
-    @HWIEAS210R_0028:2:1:3019:1114#AGAAGA/1 Header
-    TNGGAACTTCATACCGTGCTCTCTGTAGGCACCATCAA  Sequence
-    +HWIEAS210R_0028:2:1:3019:1114#AGAAGA/1 Header
-    bBb`bfffffhhhhhhhhhhhhhhhhhhhfhhhhhhgh  Sequence Quality (ASCII encoded)
-    @HWIEAS210R_0028:2:1:3925:1114#AGAAGA/1
-    TNCTTGGACTACATATGGTTGAGGGTTGTACTGTAGGC
-    +HWIEAS210R_0028:2:1:3925:1114#AGAAGA/1
-    ]B]VWaaaaaagggfggggggcggggegdgfgeggbab
-    @HWIEAS210R_0028:2:1:6220:1114#AGAAGA/1
-    TNGGAACTTCATACCGTGCTCTCTGTAGGCACCATCAA
-    +HWIEAS210R_0028:2:1:6220:1114#AGAAGA/1
-    aB^^afffffhhhhhhhhhhhhhhhhhhhhhhhchhhh
-    @HWIEAS210R_0028:2:1:6252:1115#AGAAGA/1
-    TNCTTGGACTACATATGGTTGAGGGTTGTACTGTAGGC
-    +HWIEAS210R_0028:2:1:6252:1115#AGAAGA/1
-    aBa^\ddeeehhhhhhhhhhhhhhhhghhhhhhhefff
-    @HWIEAS210R_0028:2:1:6534:1114#AGAAGA/1
-    TNAATGCACTATCTGGTACGACTGTAGGCACCATCAAT
-    +HWIEAS210R_0028:2:1:6534:1114#AGAAGA/1
-    aB\^^eeeeegcggfffffffcfffgcgcfffffR^^]
-    @HWIEAS210R_0028:2:1:8869:1114#AGAAGA/1
-    GNGGACTGAAGTGGAGCTGTAGGCACCATCAATAGATC
-    +HWIEAS210R_0028:2:1:8869:1114#AGAAGA/1
-    aBaaaeeeeehhhhhhhhhhhhfgfhhgfhhhhgga^^
+    @HWI-D00104:246:C5N47ANXX:8:1101:6009:2000 1:N:0:CATTTT <-- Header
+    NCTGATGTCGGTCACATGCTTGGTGGAATTCTCGGGTGCCAAGGAACTCC <-- Sequence
+    +                                                  <-- Quality header
+    #<<BBFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFBBFFFFFFFFFFFFF <-- Sequence Quality (ASCII encoded)
+    @HWI-D00104:246:C5N47ANXX:8:1101:1557:2014 1:N:0:CATTTT
+    NGCAAGATGAATACTCTAATGACATGGAATTCTCGGGTGCCAAGGAACTC
+    +
+    #</<</BBFB<<FFFFFFFFFFFF/BF//<FF/FFFFFF<FFFFFBFFFF
+    @HWI-D00104:246:C5N47ANXX:8:1101:1549:2052 1:N:0:CATTTT
+    NGCCGTGATCGTCTAGTGGTTAGGATGGAATTCTCGGGTGCCAAGGAACT
+    +
+    #<</B/</FFFBFFFFFFFFFFFFFBFF/FFFFFFFFFFBFFFFFFFFFF
     ```
     One sequence read is encoded by a block of ==**4**== lines, 1 for the header (the name
-    of the read), 1 for the nucleotide sequence, 1 starting with a `+` which is a copy of
-    the header, and the last line for the quality of the base calling at each position,
+    of the read), 1 for the nucleotide sequence, 1 starting with a `+` which may contain or not
+    a copy of the header, and the last line for the quality of the base calling at each position,
     encoded by an ASCII character.
 
 ## 4. How many sequence reads in my file ?
 Type (or Copy/Paste):
 ```
-wc -l GKG-13.fastq
+wc -l GRH-103_R1.fastq
 ```
 !!! info "the `wc` command"
     prints the number of newlines, words, and bytes for each file in argument (here,
-    GKG-13.fastq)
+    GRH-103_R1.fastq)
     
-    :warning: As you used the `-l` option, you only print the number of newlines in the
+    :warning: As you used the `-l` option, you only print the number of *newlines* in the
     file.
 
 ??? question "And then... How many _**sequences**_ in GKG-13.fastq ?"
     
-     **6425957**, NOT 25703828, because each sequence read is encoded by 4 lines !
+     **8 898 789**, NOT 35 595 156, because each sequence read is encoded by 4 lines !
 
 ## 5. Are my sequence reads containing the adapter ?
 
 This fastq file corresponds to the sequencing of a small RNA library, whose 3' adapter
-contains the sequence 5’-**CTGTAGG**CACCATCAAT-3’
+contains the sequence 5’-**TGGAATT**CTCGGGTGCCAAGTGGAAT-3’
 Type (or Copy/Paste):
 ```
-cat GKG-13.fastq | grep CTGTAGG | wc -l
+cat GRH-103_R1.fastq | grep TGGAATT | wc -l
 ```
 This should return:
 ```
-6355061
-carolina@instance-1:~$
+8 829 013
 ```
 
 ??? Question "A lot of things to comment in the previous command !"
     - `cat` print the _total_ content of the file in argument
     - the sign ++pipe++ is important, we call it the `pipe`. the `|` takes the ==output== of
-    the _upstream_ command (here `cat GKG-13.fastq`) and gives it as ==input== to the
-    downstream command (here `grep CTGTAGG`).
-    - `grep` prints the lines of the input (or the argument if used without pipe) _only_ if
-    these lines contains the string `CTGTAGG`.
+    the _upstream_ command (here `cat GRH-103_R1.fastq`) and gives it as ==input== to the
+    downstream command (here `grep TGGAATT`).
+    - `grep` prints the lines of the input (or of the argument if used without pipe) _only_ if
+    these lines contains the string `TGGAATT`.
     - the second pipe `|` sign sends the output of the grep command and counts the number
     of lines in _this_ output.
     
@@ -218,14 +203,14 @@ carolina@instance-1:~$
 
 ### Why doing it simple when you can do it complicated ?
 
-Yeah... As a matter of fact, you can obtain exactly the same information from `GKG-13.fastq`
+Yeah... As a matter of fact, you can obtain exactly the same information from `GRH-103_R1.fastq`
 by typing (or copying and pasting) the command:
 ```
-grep -c "CTGTAGG" GKG-13.fastq
+grep -c "TGGAATT" GRH-103_R1.fastq
 ```
 
 :warning: Here, the option -c is passed to `grep` to ask for only counting and not _printing_
-the lines that contain the string pattern `CTGTAGG`
+the lines that contain the string pattern `TGGAATT`
 
 Check it out !
 
@@ -234,45 +219,46 @@ Check it out !
 The implicit hypothesis in the previous computing was that the number of reads with 7-nucleotide string
 of the adapter sequence is closely reflecting the number of reads with the "real" adapter.
 
-This seems reasonable since le probability to find by chance this 7-nucleotide string in
+This seems reasonable since the probability to find by chance this 7-nucleotide string in
 a read that _does not_ contain the adapter is approx. 1/ 4^7 = 6.103516e-05.
 
 However, it is preferable to experiment a negative control.
 
-To find the number of sequences containing the "random" 7-nucleotide sequence `ATCTCGT`, type:
+To find the number of sequences containing the "random" 7-nucleotide sequence `ATCTCCT`, type:
 
 ```
-grep -c "ATCTCGT" GKG-13.fastq
+grep -c "ATCTCGT" GRH-103_R1.fastq
 ```
 
-If everything goes well, you should find `308`.
+If everything goes well, you should find `7 853`.
 
-You see that 308 divided by 6425957 total reads in the fastq file is 4.79306e-05, which goes
-pretty well with our a priori assertion.
+You see that 7 853 divided by 8 829 013 total reads in the fastq file is 8.89e-04, which is
+not too far from our *a priori* assertion.
 
 ### conclusion on the counting
 
-We found 6 355 061 out of 6 425 957 with the adapter sequence, which corresponds to 98.8 %
-sequences with adapters. The library seems to be OK.
+We found 8 829 013 out of 8 898 789 with the adapter sequence, which corresponds to 99.2 %
+sequences with adapters. The library seems to be OK !
 
 ## 6. Advanced combinations of bash commands.
 
 In a first example we are going to compute the number of reads that :
 
 - are 22 nucleotides long
-- _and_ contain a 3' flanking adapter sequence `CTGTAGG`.
+- _and_ contain a 3' flanking adapter sequence `TGGAATT`.
 
 To do so, type:
 ```
-cat GKG-13.fastq | perl -ne 'print if /^[ATGCN]{22}CTGTAGG/' | wc -l
+cat GRH-103_R1.fastq | perl -ne 'print if /^[ATGCN]{22}TGGAATT/' | wc -l
 ```
 
-You should obtain **1 675 469** as a result.
+You should obtain **988 421** as a result.
 
-??? question "Why did we choose **22** in the previous example ?"
+??? question "Why did we choose **{22}** in the previous example ?"
     22 nt is the major length of miRNAs...
 
-And now, a figure to explain the complex above command:
+And now, a figure to explain the complex above command (arguments have changed but the
+syntax is the same):
 
 ![](images/pipe_command_1.png){ width="800"}
 
@@ -281,7 +267,7 @@ Before moving on in the analysis, we will have to remove the adapter sequences f
 read sequences. Let's first execute this command:
 
 ```
-cat GKG-13.fastq | perl -ne 'if (/^(.+CTGTAGG)/) {print "$1\n"}' | more
+cat GRH-103_R1.fastq | perl -ne 'if (/^(.+TGGAATT)/) {print "$1\n"}' | more
 ```
 ??? question "What is showing the output of this command ?"
     The read sequences containing the adapter (in first approximation)
@@ -291,9 +277,9 @@ which did contain the adapter sequence **but** whose this sequence was **removed
 the reads:
 
 ```
-cat GKG-13.fastq | perl -ne \
-'if (/^([GATC]{18,})CTGTAGG/){$count++; print ">$count\n"; print "$1\n"}' \
-> clipped_GKG13.fasta
+cat GRH-103_R1.fastq | perl -ne \
+'if (/^([GATC]{18,})TGGAATT/){$count++; print ">$count\n"; print "$1\n"}' \
+> clipped_GRH-103_R1.fasta
 ```
 
 ??? question "What is the character ++"\"++ in the command "block" ?"
@@ -313,18 +299,11 @@ ll
 ??? question "What are you going to use as a command to look at the generated clipped_GKG13.fasta file ?"
     Something like:
     ```
-    cat clipped_GKG13.fasta | more
+    cat clipped_GRH-103_R1.fasta | more
     ```
     or simply:
     ```
-    less clipped_GKG13.fasta
+    less clipped_GRH-103_R1.fasta
     ```
     and type ++q++ to exit from the read mode !
-
-
-
-
-
-
-
 
