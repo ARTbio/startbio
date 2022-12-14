@@ -5,7 +5,7 @@
 We are going to use an Rstudio server. As its name indicates, the primary purpose of Rstudio
 is to provide an interactive R console for R coding.
 However, the Rstudio server also provides a graphical interface to a LINUX terminal and
-this is this interface that we are going to take advantage of !
+this is this interface we are going to take advantage of !
 
 :warning: The students are split in two groups. One group will use a serveur deployed in the Google
 cloud, whereas the other group will use a serveur deployed in the Jussieu campus.
@@ -14,7 +14,7 @@ cloud, whereas the other group will use a serveur deployed in the Jussieu campus
 and reserve an account by putting you email adresse in the
 corresponding row.
 
-:warning: Please only one account for one student.
+:warning: Please only one account by student.
 
 - Once this is done, copy the server address indicated for your account and paste it in your
 web browser (in a new tab).
