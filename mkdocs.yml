@@ -149,7 +149,6 @@ nav:
 
     -  Introduction to Deep-seq Analysis:
         - INTRODUCTION: deepseq/index.md
-        - PRÉREQUIS TECHNIQUES: deepseq/prerequis.md
         - Illumina sequencing: deepseq/illumina.md
         - Pacific Biosciences SMRT: deepseq/pacbio.md
         - Oxford Nanopore MinION: deepseq/nanopore.md
