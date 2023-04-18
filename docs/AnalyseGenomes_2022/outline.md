@@ -20,4 +20,4 @@ In this training, we are going to
 
 By the end of the training session, you should have prepared your Galaxy analysis environment
 and get it ready to perform subsequent analyses of small RNAseq and RNAseq datasets as
-described [here](https://slecrom.github.io/AG2021/)
+described [here](https://slecrom.github.io/AG2022/)
