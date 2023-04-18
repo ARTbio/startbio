@@ -13,7 +13,7 @@ hide:
 # News
 
 !!! info "2022-11-29"
-    ## The Galaxy Training [Analyse des Génomes (2022)]([Run-Galaxy/index.md](https://artbio.github.io/startbio/AnalyseGenomes_2022/outline/))
+    ## The Galaxy Training [Analyse des Génomes (2022)](https://artbio.github.io/startbio/AnalyseGenomes_2022/outline/)
     which was hold in November 29th, 2022, is available.
         
     <center>![](images/analyse_genomes_logo.svg){ width=400 }<center>
