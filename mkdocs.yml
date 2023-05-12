@@ -26,6 +26,7 @@ theme:
     - navigation.footer
 #    - toc.integrate
     - content.tabs.link
+    - content.code.copy
 
 nav:
   - Home: index.md
@@ -222,11 +223,15 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.highlight:
       auto_title: false
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
   - pymdownx.emoji:
       emoji_generator: !!python/name:pymdownx.emoji.to_svg
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
 #  - pymdownx.inlinehilite # compete with codehilite
+  - pymdownx.snippets
   - pymdownx.keys
   - pymdownx.magiclink:
       repo_url_shorthand: true
