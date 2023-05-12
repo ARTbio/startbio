@@ -23,6 +23,7 @@ theme:
     - navigation.sections
     - navigation.top
     - navigation.prune
+    - navigation.footer
 #    - toc.integrate
     - content.tabs.link
 
