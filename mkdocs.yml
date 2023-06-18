@@ -149,26 +149,8 @@ nav:
 
   - Interactive Online Companionship (IOC):
 
-    -  Introduction to Deep-seq Analysis:
-        - INTRODUCTION: deepseq/index.md
-        - Illumina sequencing: deepseq/illumina.md
-        - Pacific Biosciences SMRT: deepseq/pacbio.md
-        - Oxford Nanopore MinION: deepseq/nanopore.md
-        - Sequencing facts: deepseq/seq_parameters.md
-        - Small RNA library: deepseq/smRNA_lib_prep.md
-        - RNA library: deepseq/RNA_lib_prep.md
-        - ChIP-seq library: deepseq/chipseq_lib.md
-        - Deep Sequencing Applications: deepseq/deepseq_applications.md
-        - "Analysis Flowchart:": deepseq/flowchart.md
-        - Various aspects of sequence data mining: deepseq/mining.md
-        - "Pratical part: Command lines": deepseq/command_lines.md
-        - Align reads with bowtie: deepseq/bowtie.md
-        - To be continued... with Galaxy: deepseq/galaxy.md
-        - BOWTIE ALIGNMENT USING galaxy: deepseq/bowtie_galaxy.md
-
-    -  Starters to single-cell RNAseq analysis:
-        - single-cell RNAseq tutorials: scRNAseq_tutorials.md
-
+    - IOC on R:
+        - Introductive Session: R-IOC/RIOC.md
     - Single-cell RNAseq analysis using Seurat in R:
         - Introduction: scRNAseq_basics/introduction.md
         - Prerequisites: scRNAseq_basics/prerequisites.md
@@ -188,14 +170,29 @@ nav:
         - Differents visualizations of Seurat: scRNAseq_basics/visualization.md
         - References: scRNAseq_basics/references.md
 
+    -  Introduction to Deep-seq Analysis:
+        - INTRODUCTION: deepseq/index.md
+        - Illumina sequencing: deepseq/illumina.md
+        - Pacific Biosciences SMRT: deepseq/pacbio.md
+        - Oxford Nanopore MinION: deepseq/nanopore.md
+        - Sequencing facts: deepseq/seq_parameters.md
+        - Small RNA library: deepseq/smRNA_lib_prep.md
+        - RNA library: deepseq/RNA_lib_prep.md
+        - ChIP-seq library: deepseq/chipseq_lib.md
+        - Deep Sequencing Applications: deepseq/deepseq_applications.md
+        - "Analysis Flowchart:": deepseq/flowchart.md
+        - Various aspects of sequence data mining: deepseq/mining.md
+        - "Pratical part: Command lines": deepseq/command_lines.md
+        - Align reads with bowtie: deepseq/bowtie.md
+        - To be continued... with Galaxy: deepseq/galaxy.md
+        - BOWTIE ALIGNMENT USING galaxy: deepseq/bowtie_galaxy.md
+
   - Code Snippets:
     - Terminal Bash: bash_snippets.md
     - Buid your JupyterHub and user kernel: jupyterhub_and_kernels.md
     - The markdown emoji resource: markdown_emoji.md
 
   - Links: links.md
-
-  - STARTbio Training Project: startbio_project.md
 
 markdown_extensions:
   - meta
