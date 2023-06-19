@@ -1,13 +1,10 @@
-## Variables
-
-
 ### Introduction
 
-A variable is a named (`x`, `mydata`, `results`) placeholder to store data (`12`, `“my boss”`,
+A variable is a named (`x`, `mydata`, `results`) placeholder to store data (`12`, `"my boss"`,
 `[1]  4.59 12.40 20.21 28.02 35.83 43.64 51.45 59.26 67.07 74.88`).
 Variables are at the core of any programming language. Instead of directly manipulating
 the data, you manipulate variables, which you can think of as abstractions of the data.
-It should be noted that sometimes, R programmers use the term “object” in place of “variable”.
+It should be noted that sometimes, R programmers use the term "object" in place of "variable".
 No worries, we are still talking about variables!
 
 A variable has a type (`integer`, `character`, etc) and may have different structures
@@ -27,31 +24,39 @@ Thus, the type of a variable may be
 
 
 
-* Numeric. Eg: pi, 1.0, 2.7 or even 2
-* Integer. Eg: 1, 2, 45893. Note that in R, a variable assigned to an integer valueeur, has the type “numeric” by default. If you want to give it the type integer (which use less space in memory), you have to do it actively by typing x &lt;- 7L or x &lt;- as.integer(7)
-* Complex. Eg: 2 + 3i
-* Character. Eg: “a”, “X”, “ARTbio”, “I had a dream”
-* Logical. Also called boolean. Takes only two possible value: TRUE and FALSE
-* Raw. Store any piece of information as raw bytes, using the function charToRaw. For instance, A &lt;- charToRaw("ARTbio")
+1. Numeric. Eg: `pi`, `1.0`, `2.7` or even 2
+* Integer. Eg: `1`, `2`, `45893`. Note that in R, a variable assigned to an integer value,
+has the type "numeric" by default.
+If you want to give it the type integer (which use less space in memory), you have to do
+it actively by typing `x <- 7L` or `x <- as.integer(7)`
+* Complex. Eg: `2 + 3i`
+* Character. Eg: `"a"`, `"X"`, `"ARTbio"`, `"I had a dream"`. Note that characters are declared
+as character using double quotes.
+* Logical. Also called boolean. Takes only two possible value: `TRUE` and `FALSE`
+* Raw. Store any piece of information as raw bytes, using the function `charToRaw()`.
+For instance, `A <- charToRaw("ARTbio")`
 
-While the type of a variable is most often obvious, you can can check it out using the function typeof()
-
-myvariable &lt;- “ARTbio”
-
+While the type of a variable is most often obvious, you can can check it out using the function `typeof()`
+```
+myvariable <- "ARTbio"
 typeof(myvariable)
+```
+returns
+```
+[1] "character"
+```
 
-class(myvariable)
-
-For a quick review, see [R Data Types](https://www.programiz.com/r/data-types) 
-
+For a quick review on the types of the variables, see
+[R Data Types](https://www.programiz.com/r/data-types){:target="_blank"} 
 
 ### Structure of variable
 
-You may be less familiar with the notion of structure of an R variable. Take your time here because it is important to understand that the data you place in a variable may have different structures and how differences of structures will determine what you can and cannot do with a variable.
+You may be less familiar with the notion of structure of an R variable.
+Take your time here because it is important to understand that the data you place in
+a variable may have different structures and how differences of structures will determine
+what you can and cannot do with a variable.
 
 The main structures of variables in R are:
-
-
 
 1. Vectors
 2. Factors
@@ -59,16 +64,29 @@ The main structures of variables in R are:
 4. Data Frame
 5. Lists
 
-These structures are detailed in the [HBC training](https://hbctraining.github.io/Intro-to-R-flipped), section “[R Syntax and Data Structures](https://hbctraining.github.io/Intro-to-R-flipped/lessons/02_introR-syntax-and-data-structures.html)”
+These structures are detailed in the
+[HBC training], section
+["R Syntax and Data Structures"](https://hbctraining.github.io/Intro-to-R-flipped/lessons/02_introR-syntax-and-data-structures.html){:target="_blank"}
 
 Note that we will come back extensively to the data frames and lists later on.
 
-Now that you have dug into the R variables you may also read the sections [5.1](https://rstudio-education.github.io/hopr/r-objects.html) to [5.8](https://rstudio-education.github.io/hopr/r-objects.html#data-frames) of “Hands-On Programming with R” by Garrett Grolemund. This will recapitulate most of the notions introduced in the “Variables” section and help you to reinforce your comprehension of these notions.
+Now that you have dug into the R variables you may also read the sections
+[5.1](https://rstudio-education.github.io/hopr/r-objects.html){:target="_blank"} to
+[5.8](https://rstudio-education.github.io/hopr/r-objects.html#data-frames){:target="_blank"}
+of "Hands-On Programming with R" by Garrett Grolemund. This will recapitulate most of the
+notions introduced in the "Variables" section and help you to reinforce your
+comprehension of these notions.
 
 
 ### Scalars
 
-The scalar represents a single value and is the simplest form of data that is manipulated and stored in R. It can be of any existing R type (numeric, logical, character,...). It's important to note that even though a scalar represents a single value, R treats scalars as vectors of length 1, which means many vector operations can be performed on scalars as well. Most of the assignments that you have seen or manipulated so far are scalars. You can read a bit more about it [here](https://bookdown.org/ndphillips/YaRrr/scalars.html).
+The scalar represents a single value and is the simplest form of data that is
+manipulated and stored in R. It can be of any existing R type
+(numeric, logical, character,...). It's important to note that even though a scalar
+represents a single value, R treats scalars as vectors of length 1, which means many
+vector operations can be performed on scalars as well. Most of the assignments
+that you have seen or manipulated so far are scalars. You can read a bit more about it
+in ["YaRrr! The Pirate’s Guide to R, by Nathaniel D. Phillips"](https://bookdown.org/ndphillips/YaRrr/scalars.html){:target="_blank"}.
 
 
 ### Vectors
@@ -78,7 +96,7 @@ A vector is a fundamental data structure in R and can be considered as a basic b
 
 ### Attributes
 
-An attribute is a piece of information that you can attach to an atomic vector (or any R object). The attribute won’t affect any of the values in the object, and it will not appear when you display your object. You can think of an attribute as “metadata”; it is just a convenient place to put information associated with an object. R will normally ignore this metadata, but some R functions will check for specific attributes. These functions may use the attributes to do special things with the data.
+An attribute is a piece of information that you can attach to an atomic vector (or any R object). The attribute won’t affect any of the values in the object, and it will not appear when you display your object. You can think of an attribute as "metadata"; it is just a convenient place to put information associated with an object. R will normally ignore this metadata, but some R functions will check for specific attributes. These functions may use the attributes to do special things with the data.
 
 Attributes can be set and accessed individually with attr().
 
@@ -162,7 +180,7 @@ To build the factor of a vector, R, behind the scene,  (i) determines the distin
 
 Let’s start from the vector
 
-`pidigits &lt;- c(3, 1, 4, 1, 5, 9, 3`)
+`pidigits <- c(3, 1, 4, 1, 5, 9, 3`)
 
 and generate its factor pidigits_factor by
 
@@ -193,7 +211,7 @@ At first glance, the two objects are similar, except that the `pidigits_factor` 
 ```
 
 
-Thus, the value 2 has been assigned to the level “3” of Pi and comes at first in the initial vector, the value 1 has been assigned to the level “1” of Pi and comes at the second and fourth positions of the original vector, respectively, the value 3 has been assigned to the level “4” of Pi, etc… 
+Thus, the value 2 has been assigned to the level "3" of Pi and comes at first in the initial vector, the value 1 has been assigned to the level "1" of Pi and comes at the second and fourth positions of the original vector, respectively, the value 3 has been assigned to the level "4" of Pi, etc… 
 
 
 #### Example-2
@@ -233,7 +251,7 @@ And
 ```
 
 
-As you see, the levels are “female” and “male”, internally encoded by the value 1 and 2, respectively. Thus the internal sequence `1 2 2 1` returns the vector
+As you see, the levels are "female" and "male", internally encoded by the value 1 and 2, respectively. Thus the internal sequence `1 2 2 1` returns the vector
 
 
 ```
@@ -311,16 +329,16 @@ In R programming, operators are symbols or special characters that perform speci
     * Exponentiation: ^ or **
     * Modulo (remainder): %%
 * Assignment Operators:
-    * To assign value to a variable, use &lt;- \
+    * To assign value to a variable, use <- \
 Note that although rarely used you can also use right assignments such as 5 -> myvar. You may also use = for variable assignment, but in order to follow the best practices in R programming, don’t do it and keep the = sign for argument assignment in functions.
     * To assign value to a function argument, use =
 * Comparison Operators:
     * Equal to: ==
     * Not equal to: !=
     * Greater than: >
-    * Less than: &lt;
+    * Less than: <
     * Greater than or equal to: >=
-    * Less than or equal to: &lt;=
+    * Less than or equal to: <=
 * Logical Operators:
     * Logical AND: & or &&
     * Logical OR: | or ||
@@ -343,12 +361,12 @@ You will find more examples on R operators [here](https://www.datamentor.io/r-pr
 
 ## R Functions
 
-As soon as you start learning a programming language, you hear about functions. Functions are “self contained”, named modules of code that accomplish a specific task. They usually take in some variable(s) of a specific data structure (simple scalar, vector, dataframe, list, etc.), process it (them), and return a result.
+As soon as you start learning a programming language, you hear about functions. Functions are "self contained", named modules of code that accomplish a specific task. They usually take in some variable(s) of a specific data structure (simple scalar, vector, dataframe, list, etc.), process it (them), and return a result.
 
 
 ### Built-in functions
 
-R has _many_ “built-in” functions and you already used some of them.
+R has _many_ "built-in" functions and you already used some of them.
 
 Thus, charToRaw(), typeof(), class(), sum(), mean(), max(), sin(), log2(), etc. are built-in functions provided by R as soon as you run the software.
 
@@ -376,8 +394,8 @@ The important elements here are:
 
 
 
-* Function name (`add_three`): this is the name that you want to call your function. It should be something pretty short, easy to remember and as meaningful as possible. As when we create any variables or objects in R, we use the arrow &lt;- to assign this name to our function… Yes, a function is an R object as any R objects, and you will see that a function may be used in some occasion as a variable !
-* “function” and arguments (`function(x)`): we tell R that we want to create a function using `function()`. Within the parentheses, we can specify the number of arguments that we want our function to have. It doesn’t matter what we name our arguments within the parentheses (here,` x`), as long as we use the same names in the body of the function. If you want to have multiple arguments, it would look something like this: `function(arg1, arg2, arg3, ...)`. Later, when you put your function to use, you’ll have to specify values for the arguments.
+* Function name (`add_three`): this is the name that you want to call your function. It should be something pretty short, easy to remember and as meaningful as possible. As when we create any variables or objects in R, we use the arrow <- to assign this name to our function… Yes, a function is an R object as any R objects, and you will see that a function may be used in some occasion as a variable !
+* "function" and arguments (`function(x)`): we tell R that we want to create a function using `function()`. Within the parentheses, we can specify the number of arguments that we want our function to have. It doesn’t matter what we name our arguments within the parentheses (here,` x`), as long as we use the same names in the body of the function. If you want to have multiple arguments, it would look something like this: `function(arg1, arg2, arg3, ...)`. Later, when you put your function to use, you’ll have to specify values for the arguments.
 * Curly brackets: `{` and `}` come after `function(argument)` and need to bracket the actual function code that you’re writing. Note that the best practice is to put the first bracket` `{ on the same line as the function assignment and the last bracket } alone on its own (last) line.
 * Body of the function: this is the code in the function between the curly brackets that executes the task that you want. A new variable, y, is created to store the x + 3 value. Note that a good practice is to indent the body of the function for better readability.
 * The return value (`return(y)`): Also inside the curly brackets, but usually at the end, this is the result that the function prints for you when it’s done running. Here the function returns the value of y (aka, x + 3). Note that the return statement is not mandatory, when this statement is missing, the function will return the content of the last variable manipul
@@ -413,21 +431,21 @@ As a last word, we admit that the coding rules in R are less precisely described
 * Create a variable called `surname` with the string _Marilyn Monroe_
 * How would you name a variable containing the mean temperature ?** **
 * Which variable names are correct?
-    * 6h_day1 &lt;- 
+    * 6h_day1 <- 
     * day1_6h
     * day16h
     * Day1 6h
     * 6h@day1
 * Which assignments are correct?
-    * `x &lt;- 1,4`
-    * `x &lt;- 5`
-    * `y &lt;- x + 3`
-    * y &lt; -`
-    * `a &lt;- Marilyn`
-    * `wishes &lt;- “happy birthday”`
-    * `val &lt;- TRUE`
-    * `TEMP &lt;- `
-    * `pi &lt;- 3`
+    * `x <- 1,4`
+    * `x <- 5`
+    * `y <- x + 3`
+    * y < -`
+    * `a <- Marilyn`
+    * `wishes <- "happy birthday"`
+    * `val <- TRUE`
+    * `TEMP <- `
+    * `pi <- 3`
 * What will be the value of `a` after this code? 
 
 ```
