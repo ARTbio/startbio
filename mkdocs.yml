@@ -151,6 +151,8 @@ nav:
 
     - IOC on R:
         - Introductive Session: R-IOC/RIOC.md
+        - Variables: R-IOC/variables.md
+        - Storage room: R-IOC/pick-up.md
     - Single-cell RNAseq analysis using Seurat in R:
         - Introduction: scRNAseq_basics/introduction.md
         - Prerequisites: scRNAseq_basics/prerequisites.md
