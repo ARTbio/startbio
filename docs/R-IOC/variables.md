@@ -91,7 +91,40 @@ in ["YaRrr! The Pirate’s Guide to R, by Nathaniel D. Phillips"](https://bookdo
 
 ### Vectors
 
-A vector is a fundamental data structure in R and can be considered as a basic building block for storing and manipulating data. In R, vectors are one-dimensional datasets that consist of elements of the same data type. Unlike matrices and data frames, which are two-dimensional, vectors represent a single sequence of values without any row or column structure. Learn more about vectors with [chapter 5.1](https://rstudio-education.github.io/hopr/r-objects.html#atomic-vectors) of Garrett Grolemund’s Hands-on Programing with R’s book. The R guide by Nathaniel D. Phillips shows how to create vectors in section [5.2](https://bookdown.org/ndphillips/YaRrr/vectors.html) and how to manipulate them in sections [6 and 7](https://bookdown.org/ndphillips/YaRrr/vectorfunctions.html). If you want to test your knowledge, don’t hesitate to do the exercises proposed by Nathaniel D. Phillips where you can retrieve the solutions at sections [18.2 to 18.4](https://bookdown.org/ndphillips/YaRrr/chapter-5-scalers-and-vectors.html). 
+A vector is a fundamental data structure in R and can be considered as a basic building
+block for storing and manipulating data. In R, vectors are one-dimensional datasets
+that consist of elements of the same data type. Unlike matrices and data frames,
+which are two-dimensional, vectors represent a single sequence of values without any row
+or column structure.
+
+```
+mycharacter_vector <- c("un", "deux", "trois", "quatre", "cinq", "six")
+mynumeric_vector <- c(1, 2, 3, 4, 5, 6)
+myboolean_vector <- c(TRUE, FALSE, FALSE, TRUE, FALSE, TRUE)
+```
+
+are character, numeric and logical vectors, respectively.
+
+and you can watch their content just by typing and entering their names:
+```
+mycharacter_vector
+[1] "un"     "deux"   "trois"  "quatre" "cinq"   "six"   
+mynumeric_vector
+[1] 1 2 3 4 5 6
+myboolean_vector
+[1]  TRUE FALSE FALSE  TRUE FALSE  TRUE
+```
+
+Learn more about vectors with the
+[chapter 5.1](https://rstudio-education.github.io/hopr/r-objects.html#atomic-vectors)
+of Garrett Grolemund’s Hands-on Programing with R’s book.
+The R guide by Nathaniel D. Phillips shows how to create vectors its section
+[5.2](https://bookdown.org/ndphillips/YaRrr/vectors.html) and how to manipulate them in
+its sections [6 and 7](https://bookdown.org/ndphillips/YaRrr/vectorfunctions.html).
+
+If you want to test your knowledge, don’t hesitate to do the exercises proposed by
+Nathaniel D. Phillips where you can retrieve the solutions at sections
+[18.2 to 18.4](https://bookdown.org/ndphillips/YaRrr/chapter-5-scalers-and-vectors.html). 
 
 
 ### Attributes
