@@ -129,7 +129,13 @@ Nathaniel D. Phillips where you can retrieve the solutions at sections
 
 ### Attributes
 
-An attribute is a piece of information that you can attach to an atomic vector (or any R object). The attribute won’t affect any of the values in the object, and it will not appear when you display your object. You can think of an attribute as "metadata"; it is just a convenient place to put information associated with an object. R will normally ignore this metadata, but some R functions will check for specific attributes. These functions may use the attributes to do special things with the data.
+An attribute is a piece of information that you can attach to an atomic vector
+(or any R object).
+The attribute will not affect any of the values in the object, and it will not appear
+when you display your object. You can think of an attribute as "metadata"; it is just a
+convenient place to put information associated with an object.
+R will normally ignore this metadata, but some R functions will check for specific
+attributes. These functions may use the attributes to do special things with the data.
 
 Attributes can be set and accessed individually with attr().
 
@@ -137,69 +143,72 @@ For instance
 
 
 ```
-> sd <- 1:10
-> attr(sd, "comment") <- "This is a bad name for a vector because sd is also a built-in function name in R"
-> sd
- [1]  1  2  3  4  5  6  7  8  9 10
-> attr(sd, "comment")
+sd <- 1:10
+attr(sd, "comment") <- "This is a bad name for a vector because sd is also a built-in function name in R"
+
+sd
+[1]  1  2  3  4  5  6  7  8  9 10
+
+attr(sd, "comment")
 [1] "This is a bad name for a vector because sd is also a built-in function name in R"
 ```
 
-
 The three most important predefined attributes are:
 
+#### 1. Names
 
-#### Names
-
-A character vector giving each element a name. See the [section on names](http://adv-r.had.co.nz/Data-structures.html#vector-names) in the [Advanced R](http://adv-r.had.co.nz/) by Hadley Wickham. Names are undoubtedly attributes that you will use extensively. Thus, let's give quickly to a vector a names attribute:
+A character vector giving each element a name. See the
+[section on names](http://adv-r.had.co.nz/Data-structures.html#vector-names)
+in the [Advanced R](http://adv-r.had.co.nz/) by Hadley Wickham. Names are undoubtedly
+attributes that you will use extensively. Thus, let's give quickly to a vector a names attribute:
 
 
 ```
-> results <- c(1.2, 3.4, 8.02)
-> results
+results <- c(1.2, 3.4, 8.02)
+
+results
 [1] 1.20 3.40 8.02
-> names(results) <- c("Rep1", "Rep2", "Rep3")
-> results
+
+names(results) <- c("Rep1", "Rep2", "Rep3")
+
+results
 Rep1 Rep2 Rep2 
 1.20 3.40 8.02
 ```
 
-
 You can also give names to a vector when you create it:
 
-
 ```
-> other_results <- c(Rep1 = 5.6, Rep2 = 0.9, Rep3 = 5.7, Rep4 = 7.65)
-> other_results
+other_results <- c(Rep1 = 5.6, Rep2 = 0.9, Rep3 = 5.7, Rep4 = 7.65)
+
+other_results
 Rep1 Rep2 Rep3 Rep4 
 5.60 0.90 5.70 7.65
 ```
-
 
 Finally, you can give names to a vector by creating a modified copy of a vector:
 
 
 ```
-> other_results <- setNames(other_results, c("replicat1", "replicat2", "replicat3", "replicat4"))
-> other_results
+other_results <- setNames(other_results, c("replicat1", "replicat2", "replicat3", "replicat4"))
+
+other_results
 replicat1 replicat2 replicat3 replicat4 
      5.60      0.90      5.70      7.65
 ```
 
+#### 2. Dimensions
+
+Used to turn vectors into matrices and arrays. This will be covered later
 
 
-#### Dimensions
+#### 3. Class
 
-Used to turn vectors into matrices and arrays
+Used to implement the S3 object system; this will be covered later too.
 
-
-#### Class
-
-Used to implement the S3 object system
-
-**Exercises to manipulate vectors +vectors/operators*+ vectors/functions**
-
-[https://www.learnbyexample.org/r-operators/](https://www.learnbyexample.org/r-operators/) 
+### Exercises on vectors
+Exercises to manipulate vectors with operators and functions may be found
+[here](https://www.learnbyexample.org/r-operators/)
 
 
 ### Factors
