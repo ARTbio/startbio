@@ -172,6 +172,8 @@ nav:
         - Differents visualizations of Seurat: scRNAseq_basics/visualization.md
         - References: scRNAseq_basics/references.md
 
+    - IOC on bulk RNAseq analysis:
+        - Introductive Session: bulk_RNAseq-IOC/01_IOC_RNAseq.md
     -  Introduction to Deep-seq Analysis:
         - INTRODUCTION: deepseq/index.md
         - Illumina sequencing: deepseq/illumina.md
