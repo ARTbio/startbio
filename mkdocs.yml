@@ -173,7 +173,7 @@ nav:
         - References: scRNAseq_basics/references.md
 
     - IOC on bulk RNAseq analysis:
-        - Introductive Session: bulk_RNAseq-IOC/IOC_RNAseq_01.md
+        - Introductive Session: bulk_RNAseq-IOC/01_IOC_RNAseq.md
     -  Introduction to Deep-seq Analysis:
         - INTRODUCTION: deepseq/index.md
         - Illumina sequencing: deepseq/illumina.md
