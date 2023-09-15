@@ -74,10 +74,6 @@ of Bulk RNAseq
 - Program of the Week 8 [Week-5 exercices]()
     1. building clean workflows to capture all details of the analysis
 
-### Week 9 - Presentations of the analyses by the companions
+### Week 9 - **Presentations of the analyses by the companions**
 1. Questions on Week 8 (30 min max)
 - 20 min presentations by the attendees
-
-Some parts of this IOC were inspired by
-[Reference-based RNAseq analysis](https://galaxyproject.github.io/training-material/topics/transcriptomics/tutorials/ref-based/tutorial.html)
-of the Galaxy Training Network (GTN)
