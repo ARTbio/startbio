@@ -4,7 +4,8 @@
 In this Interactive Online Companionship, we will train to perform RNAseq analyses
 of Bulk RNAseq
 
-## Program / Schedule
+## Provisional Program / Schedule
+The final schedule will be published at mid October
 
 ### Week 1 - **3-hours Zoom video-conference**
 <!-- Faire un schedule sur google sheets -->
