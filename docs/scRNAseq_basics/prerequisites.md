@@ -6,7 +6,7 @@ transcriptomics data.
 It is composed of R code that you can execute in a R console. You can also 
 use any R development environment like Rstudio. You can retrieve the associated
 Rscript or R Markdown file (An executable document that combine text and code to
-produce formatted report) here : .
+produce formatted report) [here](https://gist.github.com/bellenger-l/762c39b39924f9c35a1b7df60e649bd3).
 
 !!! info " Installation of R and RStudio "
     Here is some documentation to help you install R and Rstudio if needed :
