@@ -11,8 +11,8 @@ produce formatted report) [here](https://gist.github.com/bellenger-l/762c39b3992
 !!! info " Installation of R and RStudio "
     Here is some documentation to help you install R and Rstudio if needed :
 
-        - https://larmarange.github.io/analyse-R/installation-de-R-et-RStudio.html
-        - https://bookdown.org/introrbook/intro2r/installing-r-and-rstudio.html
+    - https://larmarange.github.io/analyse-R/installation-de-R-et-RStudio.html
+    -  https://bookdown.org/introrbook/intro2r/installing-r-and-rstudio.html
 
 
 # Technical prerequisites
