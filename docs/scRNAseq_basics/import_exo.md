@@ -1,6 +1,5 @@
 ![](images/yourmove.png){width="500"}
 
-
 Now it's your time to shine ! We are going to put into pratice what we 
 have just seen. By using a more complicated use case, you are going to 
 reproduce the whole scRNAseq analysis with Seurat.  
@@ -14,8 +13,8 @@ the dataset at the GEO accession [GSE166981](https://0-www-ncbi-nlm-nih-gov.brum
 
 !!! question "What type of data do you retrieve ?"
     1. Fastq Files
-    3. BAM Files
-    2. Expression matrix  
+    2. BAM Files
+    3. Expression matrix  
     --> Right answer (1)
     
 1. You only need the expression matrix !
