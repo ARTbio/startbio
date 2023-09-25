@@ -4,7 +4,7 @@ This tutorial aims to help identify cell populations from single cell
 transcriptomics data.  
 
 It is composed of R code that you can execute in a R console. You can also 
-use any R development environment like Rstudio. You can retrieve the associated
+use any R graphical environment like Rstudio. You can retrieve the associated
 Rscript or R Markdown file (An executable document that combine text and code to
 produce formatted report) [here](https://gist.github.com/bellenger-l/762c39b39924f9c35a1b7df60e649bd3).
 
