@@ -14,6 +14,7 @@ produce formatted report) [here](https://gist.github.com/bellenger-l/762c39b3992
     - https://larmarange.github.io/analyse-R/installation-de-R-et-RStudio.html
     -  https://bookdown.org/introrbook/intro2r/installing-r-and-rstudio.html
 
+    However you are provided with an Rstudio-server account to follow the IOC !
 
 # Technical prerequisites
 
