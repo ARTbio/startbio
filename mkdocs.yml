@@ -157,8 +157,12 @@ nav:
         - Introduction: scRNAseq_basics/introduction.md
         - Prerequisites: scRNAseq_basics/prerequisites.md
         - Initialization of R analysis: scRNAseq_basics/intro_seurat.md
-        - Import data: scRNAseq_basics/import.md
-        - Preprocessing: scRNAseq_basics/preprocessing.md
+        - Import data: 
+          - Import data: scRNAseq_basics/import.md
+          - Exercices: scRNAseq_basics/import_exo.md
+        - Preprocessing: 
+          - Preprocessing: scRNAseq_basics/preprocessing.md
+          - Exercices: scRNAseq_basics/preprocessing_exo.md
         - Reduction of dimensionality: scRNAseq_basics/redim.md
         - Clustering: scRNAseq_basics/clustering.md
         - Cell population identification:
@@ -202,6 +206,7 @@ nav:
 markdown_extensions:
   - meta
   - attr_list
+  - md_in_html
   - codehilite:
       linenums: true
   - admonition
@@ -249,3 +254,7 @@ extra_javascript:
   - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - spoiler_files/spoiler.js
+
+extra_css:
+  - spoiler_files/spoiler.css

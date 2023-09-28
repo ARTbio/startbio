@@ -375,7 +375,7 @@ kable(top_n(x= GSEA_CM_res, n = 3, wt = NES)[, -c(2,11)])
     | Specialist antigen presenting cell |      18 |       0.8389319 |  2.138434 | 0.0004965 | 0.0066529 | 0.0047035 |  144 | tags=50%, list=8%, signal=46%  | 7       |
     | Morula cell (Blastomere)           |      10 |      -0.7380276 | -2.257087 | 0.0000162 | 0.0005186 | 0.0004606 |   76 | tags=80%, list=12%, signal=72% | 8       |
 
-## Analyse des resultats d’enrichissement
+## Analyzing enrichment results
 
 The different GSEA plots represent the first three signatures for which
 we had the highest enrichment scores. The increment of the score can be

@@ -4,10 +4,6 @@ A classical single-cell RNA seq analysis consists in identifying populations
 of cells and the associated marker genes. It can also look for the effect of
 a treatment or a condition using differential analysis methods.
 
-The dataset used for the analysis is composed of peripheral blood mononuclear
-cells (PBMC). It is available on the 10X and Seurat website which can be found
-on the [Seurat tutorial](https://satijalab.org/seurat/articles/pbmc3k_tutorial.html).
-
 ## Libraries
 
 Here is R packages needed for the analysis.

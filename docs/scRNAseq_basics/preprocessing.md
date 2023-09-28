@@ -8,29 +8,29 @@ expression analysis).
 
 The first step is to filter out cells that are of poor quality. This can
 concern the cells that exploded during the preparation of the library,
-the empty *beads* or that contain ambient RNA, *etc*... We will be able
-to base ourselves on different parameters like the number of detected genes,
-the number of UMI, the percentage of expressed genes of the mitochondria.
-Some barcodes can be considered as doublets, that is to say that two cells
-have been encapsulated in the same *bead*. This phenomenon will be translated
-in the opposite way by a very important number of detected genes and a library
-size largely superior to the rest of the dataset.
+the empty *beads* or those that contain ambient RNA, *etc*... We will be able
+to base ourselves on different parameters (quality controls) like the number 
+of detected genes, the number of UMI, the percentage of expressed genes of 
+the mitochondria. Some barcodes can be considered as doublets, that is to say 
+that two cells have been encapsulated in the same *bead*. This phenomenon will 
+be translated in the opposite way by a very important number of detected genes 
+and a library size largely superior to the rest of the dataset.
 
 ### Detection rate of mitochondrial genes
 
-A high level of expression of the genes of the MT genome can express a
+A high level of expression of genes of the MT genome can express a
 cell in apoptosis.  
 
 With the function `PercentageFeatureSet`, we calculate for each cell the %
-of detection of mitochondrial genes among all expressed genes. If we use
+of detection of mitochondrial genes among all expressed genes. If we have
 gene names, we can directly use the `pattern` parameter by entering
-"*^MT-*" to capture all genes starting with "*MT-*". If there is no pattern
-in the gene names, thanks to the `features` parameter we can directly give
-it a vector containing the genes present on the MT genome. We can use the
-Biomart annotation to retrieve all the genes present on the MT chromosome
-if the IDs (or the gene names) have no prefix to differentiate them. The
-function `PercentageFeatureSet` adds a column with the % values in the cell
-metadata (`object@meta.data`).
+"*^MT-*" to capture all genes starting with "*MT-*" (if we work with the 
+human genome). If there is no pattern, thanks to the `features` parameter 
+we can directly give it a vector containing the genes present on the MT 
+genome. We can use the Biomart annotation to retrieve all the genes present 
+on the MT chromosome if the IDs (or the gene names) have no prefix to 
+differentiate them. The function `PercentageFeatureSet` adds a column with 
+the % values in the cell metadata (`object@meta.data`).
 
 A cell is generally considered to be in apoptosis when the transcriptome
 detects more than 20% of the genes in the MT genome. Some are more stringent
@@ -169,13 +169,19 @@ and `@data`) and from the `meta.data` slot. Less than 100 cells were
 considered to be of low quality or a duplicate and were removed from
 the analysis.
 
+!!! note
+    This dataset was already filtered by cellRanger algorithm. With your data,
+    it will probably be more messy to understand the bondary between low and 
+    good quality cells. Don't hesitate to zoom in on histogram and violin plots
+    to better identify your cutoffs.
+
 ## Cell Normalization
 
 Data normalization allows to get rid of cell-specific biases
 (e.g. sequencing depth, amplification, GC content). It allows to make
 the libraries comparable. To do this, we will use the Seurat function,
 `NormalizeData` which is based on the assumption that each cell contains
-the same amount of RNA. With the `logNormalize` method, each IMU is
+the same amount of RNA. With the `logNormalize` method, each UMI is
 normalized as follows, for each cell :
 
 $$ norm.UMI = log2(\frac{UMI}{nCount.RNA} \times scale.factor +1) $$
@@ -185,7 +191,7 @@ $$ norm.UMI = log2(\frac{UMI}{nCount.RNA} \times scale.factor +1) $$
     page in order to visualize correctly equations  
 
 The `scale.factor` is set to 10 000 by default, most often we use the
-median of the library size (= total number of IMUs per cell, = `nCount_RNA`
+median of the library size (= total number of UMIs per cell, = `nCount_RNA`
 in `meta.data`). If the scale factor is equal to 1e6 then we would get
 log2(CPM+1). *CPM : Count Per Million*.
 
@@ -204,16 +210,16 @@ The `@data` slot is been updated with normalized UMI.
     There is a shortcut to access the metadata columns :
     `object@meta.data$column == object$column`
 
-## Identification of highly variable genes
+## Identification of Highly Variable Genes (*HGV*)
 
 We can represent each cell as the combinatorial expression of each gene.
 There are therefore many dimensions, which creates a lot of complexity.   
 
-A first step is to remove the genes that contain very little information,
+A first step is to leave out genes that contain very little information,
 *i.e.* the genes that are not expressed or those that are expressed in an
 equivalent way for all cells. These genes will not be able to help
-differentiate between cells. Removing them will allow the improvement of
-dimension reduction and clustering methods for reliable statistical
+differentiate cell populations. Removing them will allow the improvement 
+of dimension reduction and clustering methods for reliable statistical
 inference (or at least removing complexity).
 
 To identify the most variable genes we use the Seurat function
