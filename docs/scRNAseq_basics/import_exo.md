@@ -20,7 +20,7 @@ the dataset at the GEO accession [GSE166981](https://0-www-ncbi-nlm-nih-gov.brum
     
 Once you download the data, all you have to do is import it onto the Rstudio server.
 
-## Biomart is my friend
+## Biomart is your friend
 
 Don't forget to import biomaRt in order to help you annotate your genes.
 Make sure to tweak parameters to fit this new dataset. 
