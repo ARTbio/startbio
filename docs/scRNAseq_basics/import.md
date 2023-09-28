@@ -40,10 +40,24 @@ efficient processing of large matrices.
     problems, I **strongly recommend** to use the first column and to use only
     gene names afterwards.
 
+
+## Dataset test
+
+For this usecase, the dataset used for the analysis is composed of peripheral 
+blood mononuclear cells (PBMC). It is available on the 10X and Seurat website 
+which can be found on the [Seurat tutorial](https://satijalab.org/seurat/articles/pbmc3k_tutorial.html). The first thing to do is to dowload the dataset directly from 10X website. 
+We use the R function `system` to execute command lines that we normally run in a 
+terminal. Then we use the function `Read10X` to read the bundle format that are the
+direct output of CellRanger (with specific filenames). If you have another type of
+bundle format, you might be interessed by the function `ReadMtx`.
+
 ``` r
-## Import expression matrix
+## Download expression matrix from 10X website in my subfolder "test_data"
 system("wget -P ./test-data/ https://cf.10xgenomics.com/samples/cell/pbmc3k/pbmc3k_filtered_gene_bc_matrices.tar.gz")
+## Extract archive in my subfolder "test_data"
 system("tar -zxvf ./test-data/pbmc3k_filtered_gene_bc_matrices.tar.gz -C ./test-data/")
+
+## Import expression matrix in R global environment
 tenX_matrix <- Read10X(data.dir = "./test-data/filtered_gene_bc_matrices/hg19", #Path to the directory containing the three 10X files (matrix.mtx, genes.tsv (or features.tsv depending on the CellRanger version), barcodes.tsv)
                        gene.column = 1) #Choice of the genes.tsv column that will determine the names of the genes in the expression matrix
 
@@ -88,9 +102,12 @@ tenX_matrix[1:3, 1:3]
     ## ENSG00000237613                .                .                .
     ## ENSG00000186092                .                .                .
 
-If the format of the expression matrix is not a three-file format but a
-file containing a but a file containing a table (*n* genes x *n* barcodes),
-we can go directly to the next step.
+!!! question "What if I don't have a bundle format ?"
+    If the format of the expression matrix is not a three-file format but a
+    file containing a table (*n* genes x *n* barcodes), we can go directly to 
+    the next step. You just need to import it in your R global environment as 
+    a `matrix` or `data.frame` for example. Don't forget that the expression 
+    table must have barcodes as columns and genes as rows.
 
 ## biomaRt Annotation
 
@@ -119,7 +136,7 @@ the parameters *filters* and *values*.
 ## Import of the biomart database for hg19
 ensembl_hg19 <- useEnsembl(biomart = "genes",                  #Import ensembl genes database
                            dataset = "hsapiens_gene_ensembl",  #Genome
-                           GRCh = 37)                          #Genome version, only 38 or 37 are accepted for now
+                           GRCh = 37)                          #Genome version, only 37 or NULL for 38 are accepted for now
 
 ## If you don't know what to give to biomart parameter of useEnsembl just run :
 #listEnsembl() #dataframe where the first column is the value to give to biomart parameter of useEnsembl
@@ -157,7 +174,12 @@ kable(head(annotated_hg19), "simple")
 We obtained a dataframe with the information about the genes present
 in our expression matrix.
 
-# Creation of the object Seurat
+!!! note
+    The `kable` function is only useful when you are coding in RMarkdown notebooks. 
+    It helps improve the table display. If you code in the R console or with a Rscript
+    you just need to execute `head(annotated_hg19)`.
+
+# Creation of the Seurat object
 
 Then thanks to the `CreateSeuratObject` function we can import the expression
 matrix in a Seurat object which will be the basis of our analysis. All the
@@ -174,7 +196,7 @@ There are three important parameters:
   `min.cells`.
 - `min.features` : allows to filter the cells which do not detect at least
   `min.features`. We will define `min.features = 1` to filter the barcodes
-  (cells) that do not contain any UMI. This also allows to reduce the weight
+  (cells, nuclei) that do not contain any UMI. This also allows to reduce the weight
   of the Seurat object in our environment.
 
 ``` r
@@ -313,4 +335,5 @@ We can observe several slots via the `str` command:
     accessible via the `@`, *i.e.* `object@main slot` to go further in the
     slots tree, most often complex objects are accessible with a `@` (dgCMatrix,
     dataframe) and lists, vectors are accessible via `$`. If in doubt, you can
-    refer to the result of the `str` command.
+    refer to the result of the `str` command and use the character in front of
+    each slot name.

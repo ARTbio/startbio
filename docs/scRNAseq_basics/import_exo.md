@@ -8,7 +8,7 @@ reproduce the whole scRNAseq analysis with Seurat.
 
 The dataset for this analysis will be single cell RNAseq from chick embryos 
 from [de Lima *et al*](https://doi.org/10.1038/s41467-021-24157-x). We are 
-going to analyse only single cell of E10 stage of embryos. You can download 
+going to analyse only single cells of E10 stage of embryos. You can download 
 the dataset at the GEO accession [GSE166981](https://0-www-ncbi-nlm-nih-gov.brum.beds.ac.uk/geo/query/acc.cgi?acc=GSE166981).
 
 ??? tip "Do you need help to find the data ?"
@@ -23,7 +23,7 @@ Once you download the data, all you have to do is import it onto the Rstudio ser
 ## Biomart is my friend
 
 Don't forget to import biomaRt in order to help you annotate your genes.
-Make sure to tweak the parameter to fit this new dataset. 
+Make sure to tweak parameters to fit this new dataset. 
 
 !!! question "Trouble to use biomaRt ?"
     Here is some links to help you with biomaRt :
