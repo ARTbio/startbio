@@ -161,7 +161,9 @@ nav:
         - Import data: 
           - Import data: scRNAseq_basics/import.md
           - Exercices: scRNAseq_basics/import_exo.md
-        - Preprocessing: scRNAseq_basics/preprocessing.md
+        - Preprocessing: 
+          - Preprocessing: scRNAseq_basics/preprocessing.md
+          - Exercices: scRNAseq_basics/preprocessing_exo.md
         - Reduction of dimensionality: scRNAseq_basics/redim.md
         - Clustering: scRNAseq_basics/clustering.md
         - Cell population identification:
