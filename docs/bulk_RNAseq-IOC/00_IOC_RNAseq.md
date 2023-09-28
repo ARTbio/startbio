@@ -12,6 +12,7 @@ The final schedule will be published at mid October
 
 1. Introduction of the Companions and Instructors (10 min)
 - Presentation of the IOC general workflow (Scheme) (15 min)
+![](images/IOC-workflow.png)
 - Presentation of the IOC tools (2 hours)
     1. Zoom (5 min)
     - Starbio (5 min)
