@@ -73,7 +73,7 @@ If you have already a Slack account, you can connect to this account using this
     This might happen, for example, if you were invited to a Slack workspace with a
     different email than the one you initially used to create your first Slack workspace.
 
-!!! tip "Last but not Least..."
+!!! tip "Get Slack app on your local computer"
     We really strongly recommend that you use a desktop version of the slack application
     on your computer(s).
     
@@ -82,11 +82,20 @@ If you have already a Slack account, you can connect to this account using this
     dedicated to this IOC
     
     [Apple Desktop Slack](https://apps.apple.com/us/app/slack-for-desktop/id803453959?mt=12)
-    [Windows Desktop Slack](https://slack.com/intl/fr-fr/downloads/windows)
+    | [Windows Desktop Slack](https://slack.com/intl/fr-fr/downloads/windows)
+
+Last but not least, Slack is not an option for this IOC !
+
+We will be extremely reluctant to communicate by email with you about this IOC.
+
+Indeed, emails capture information very poorly, because very often the subject headings
+are poorly chosen (or not chosen at all...), conversations by email deal with heterogeneous
+subjects, the recipients of a series of messages vary over time, and other joyful things -
+the imagination of Internet users is limitless (and exhausting)... 
+
+### GitHub
 
 
-
-### GitHub (20 min)
 ### Psilo storage (15 min)
 ### Galaxy (65 min)
 ### Import data from Psilo to Galaxy
