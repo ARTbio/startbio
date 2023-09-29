@@ -1,81 +1,101 @@
-#  Introduction to the IOC ARTbio 064: Bulk RNAseq Analyses
-**November 2023**
+---
+hide:
+  - navigation
+---
+**3-hours Zoom video-conference**
 
-In this Interactive Online Companionship, we will train to perform RNAseq analyses
-of Bulk RNAseq
-
-## Provisional Program / Schedule
-The final schedule will be published at mid October
-
-### Week 0 - **3-hours Zoom video-conference**
-<!-- Faire un schedule sur google sheets -->
-
-1. Introduction of the Companions and Instructors (10 min)
-- Presentation of the IOC general workflow (Scheme) (15 min)
+## Introduction of the Companions and Instructors (10 min)
+## Presentation of the IOC general workflow (Scheme) (15 min)
 ![](images/IOC-workflow.png)
-- Presentation of the IOC tools (2 hours)
-    1. Zoom (5 min)
-    - Starbio (5 min)
-    - Slack (10 min)
-    - GitHub (20 min)
-    - Psilo storage (15 min)
-    - Galaxy (65 min)
-    - Import data from Psilo to Galaxy
-- Work Program of the week 1 - [Week-1 exercises]()
-    1. Exercises with Slack (use of markdown, configuration, files, no-screen-shots, etc.)
-    - Exercises with GitHub (web version)
-    - Data upload in Galaxy, from Psilo
-    - Pretreatment (renaming and collections) and metadata organisations (and basic Galaxy manipulation)
+## Presentation of the IOC tools (2 hours)
+### Zoom
+We currently use the Zoom software for our video-conferences.
+They will be recorded and available off line in the psilo data server (see below)
 
-### Week 1 - **Quality control and References**
-1. Question on Week 1
-    1. Data upload
-    2. Renaming, metadata organisation, collections
-    3. Check point of data availability in Galaxy accounts
-- Program of Week 2 - [Week-2 exercices]()
-    1. Quality control (fastqc, multiQC, adapter trimming)
-    2. reference datasets (Genome, GTF, subsets, ucsc tables, ensembl Biomart)
-### Week 2 - **Read Mapping and Bam manipulation**
-1. Questions on Week 2
-    1. reference
-    - GTF manipulation
-    - production of two parallel datasets, filtered/trimmed and not preatreated
-- Program of the Week 3 [Week-3 exercices]()
-    1. Mapping and mappers
-    2. Inspection of Bam files
-    - InferExperiment for read orientations
+Please, follow these guides lines for Zoom usage
 
-### Week 3 - **Counting Reads or Fragments**
-1. Questions on Week 3
-- Program of the Week 4 [Week-4 exercices]()
-    1. FeatureCount
-    2. HTSeq-counts
-    3. Count statistics and visualisations (side by side Scratchbook, R, etc)
+1. Use a local, desktop Zoom application instead of the online web application. You can
+   download Zoom [here](https://zoom.us/fr/download)
+- Test your Zoom application once if you never used it. We will be happy to arrange a quick
+  Zoom session a few days before the IOC if you feel that there may be an issue.
+- Be sure that your internet connection is reasonably fast to allow __the use of your camera__.
+  We much value visual interactions !
+- Arrange a quiet local place for your Zoom weekly session. People talking around you are
+  disturbing you as well as the other conference participants. If you cannot arrange to be
+  alone in your office, please warn you colleagues well ahead the session that you will
+  need peace.
+- **Use a headset with a built-in microphone**. It's not a gimmick! There are now cheap
+  headsets for video-conference that works well. Test your headset with your computer
+  and Zoom well ahead the first IOC session.
+- Prefer a Desktop (generally more powerful) to a Laptop computer.
+- Use the largest screen you have (another reason not using a laptop). If you have two
+  screens, even better, but then test zoom with your dual screen setup. We may have to
+  leave open several windows and applications during the Zoom session. 
+- Be on time at the session !
+- You are welcome to use the chat panel of Zoom to exchange links, code issues etc, but
+  Slack (see below) is likely better suited to this (especially because the Zoom chat is
+  lost when the application is shutdown. Therefore, be sure to have you Slack board available
+  during the Zoom sessions.
 
-### Week 4 - **Statistical Analysis of Differential Gene Expression**
-1. Questions on Week 4
-- Program of the Week 5 [Week-5 exercices]()
-    1. DESeq2
-    - EdgeR
-    - Volcano Plots, Waterfall plots
-    - RUVseq
+There are many other interesting functionalities with Zoom, which will be covered in the 
+presentation.
 
-### Week 5 - **Gene Enrichment Analysis**
-1. Questions on Week 5
-- Program of the Week 6 [Week-6 exercices]()
-    1. GOseq
+### STARTbio
+Our [STARTbio web site](https://artbio.github.io/startbio/) is the hub where we connect
+all the training materials for IOCs.
+To access rapidly to your bulk-RNAseq-analysis IOC, use this
+[URL shortcut](https://artbio.github.io/startbio/bulk_RNAseq-IOC/IOC_RNAseq_program/)
+
+Here, you'll find all weekly lessons, exercises, instructions, etc...
+
+**Importantly**, you, yes, you, are welcome to propose modifications or fixes to the STARTbio
+IOC web pages !
+Assuming that during this IOC you will become familiar with the use of GitHub, all you
+have to do is click on the pencil icon ![](images/github_pencil.png){width="25"}
+at the top of each page and propose your modifications in a branch of our GitHub startbio
+repository.
+
+### Slack
+Slack is a workspace to exchange messages or files, follow conversations, communicate
+about issues and ideas.
+
+If you haven't already done so, you will first need to open a
+[Slack account](https://slack.com/get-started#/createnew) by providing a username and
+password (you can also use authentication through Google or Apple).
+
+If you have already a Slack account, you can connect to this account using this
+[URL](https://slack.com/signin#/signin).
+
+!!! warning "Attention !"
+    If you have multiple login emails for your Slack account, it can become confusing if
+    some of your workspaces are identified with one email and others with another email.
+    
+    This might happen, for example, if you were invited to a Slack workspace with a
+    different email than the one you initially used to create your first Slack workspace.
+
+!!! tip "Last but not Least..."
+    We really strongly recommend that you use a desktop version of the slack application
+    on your computer(s).
+    
+    Once installed, this desktop Slack application will connect to
+    your Slack account(s) and import locally your workspace, including the workspace
+    dedicated to this IOC
+    
+    [Apple Desktop Slack](https://apps.apple.com/us/app/slack-for-desktop/id803453959?mt=12)
+    [Windows Desktop Slack](https://slack.com/intl/fr-fr/downloads/windows)
 
 
-### Week 6 - **Gene Set Enrichment Analyses (GSEA)**
-1. Questions on Week 6
-- Program of the Week 7 [Week-7 exercices]()
-    1. GSEA
 
-### Week 7 - **Galaxy Workflows**
-1. Questions on Week 7
-- Program of the Week 8 [Week-5 exercices]()
-    1. building clean workflows to capture all details of the analysis
+### GitHub (20 min)
+### Psilo storage (15 min)
+### Galaxy (65 min)
+### Import data from Psilo to Galaxy
 
-### Week 8 - **Presentations of the analyses by the companions**
-1. Questions on Week 8 (30 min max)
-- 20 min presentations by the attendees
+## Work Program of the week 1 - [Week-1 exercises]()
+
+### Exercises with Slack (use of markdown, configuration, files, no-screen-shots, etc.)
+### Exercises with GitHub (web version)
+### Data upload in Galaxy, from Psilo
+### Pretreatment (renaming and collections) and metadata organisations (and basic Galaxy manipulation)
+
+----
