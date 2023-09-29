@@ -94,7 +94,37 @@ subjects, the recipients of a series of messages vary over time, and other joyfu
 the imagination of Internet users is limitless (and exhausting)... 
 
 ### GitHub
+Git is a powerful versionning system.
+The software was implemented in web environments to create even more powerful system of
+continuous development and continuous integration.
 
+This is the case of [GitHub](https://github.com) which we have chosen in ARTbio.
+[GitLab](https://about.gitlab.com/) is another option, which will not use here.
+
+Good news ! there is a GitHub repository just for your IOC
+[**here**](https://github.com/ARTbio/ARTbio_064_IOC_Bulk-RNAseq/tree/main). This repository
+is private. Therefore, to access it, you will need to create a personal GitHub account, and
+to communicate your GitHub identifier to be invited to contribute to (and benefit from)
+the repository.
+
+We are not going to use the repository
+[ARTbio_064_IOC_Bulk-RNAseq](https://github.com/ARTbio/ARTbio_064_IOC_Bulk-RNAseq/tree/main)
+intensively. However, we will try to take advantage of it to introduce you to the notions
+of FAIR (Findability, Accessibility, interoperability and reproducibility) and familiarize
+you with the continuous integration and transparency of bioinformatics analyses.
+
+!!! info "Disclosure"
+    The learning curve of git and github is not steep for a biologist... which
+    unfortunately means that you will have to make a substantial effort before
+    understanding the benefit of GitHub and being able to manipulate it without
+    discomfort. But if you make the necessary effort, rest assured that you won't regret
+    it.
+    
+    For a very good introductory journal to Git and GitHub, although a bit old, see this
+    [article](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004668)
+    
+    GitHub is also very good at teaching how to use it... You can go from
+    [there](https://docs.github.com/en/get-started/quickstart)!
 
 ### Psilo storage (15 min)
 ### Galaxy (65 min)
