@@ -107,9 +107,9 @@ is private. Therefore, to access it, you will need to create a personal GitHub a
 to communicate your GitHub identifier to be invited to contribute to (and benefit from)
 the repository.
 
-We are not going to use the repository
-[ARTbio_064_IOC_Bulk-RNAseq](https://github.com/ARTbio/ARTbio_064_IOC_Bulk-RNAseq/tree/main)
-intensively. However, we will try to take advantage of it to introduce you to the notions
+We are not going to use the repository intensively
+[ARTbio_064_IOC_Bulk-RNAseq](https://github.com/ARTbio/ARTbio_064_IOC_Bulk-RNAseq/tree/main).
+However, we will try to take advantage of it to introduce you to the notions
 of FAIR (Findability, Accessibility, interoperability and reproducibility) and familiarize
 you with the continuous integration and transparency of bioinformatics analyses.
 
@@ -126,7 +126,25 @@ you with the continuous integration and transparency of bioinformatics analyses.
     GitHub is also very good at teaching how to use it... You can go from
     [there](https://docs.github.com/en/get-started/quickstart)!
 
-### Psilo storage (15 min)
+### PSILO storage (15 min)
+
+[PSILO](https://psilo.sorbonne-universite.fr/) is file storage server with a NextCloud web interface.
+If you are affiliated to Sorbonne-Université (and have a corresponding email address), you
+may have already an account on PSILO.
+In any case, as an IOC participant, whatever your affiliation. We will configure for you
+a PSILO account with the email of your choice and we will send you your credentials to
+access to this account.
+
+The NextCloud interface is rather easy and intuitive, and NextCloud documentation is extensive
+and easy to find with a web search engine.
+
+We will use PSILO to store large files, such as input datasets or important analysis results.
+Importantly, we will show you how to quickly transfer files from PSILO to your Galaxy account,
+your local computer, GitHub, etc...
+
+We may also use our ARTbio PSILO account to share files with you !
+
+You get it: stop exchanging research datasets (including excel tables) using your email client :smile:
 ### Galaxy (65 min)
 ### Import data from Psilo to Galaxy
 
