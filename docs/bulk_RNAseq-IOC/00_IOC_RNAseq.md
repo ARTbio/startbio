@@ -15,7 +15,7 @@ They will be recorded and available off line in the psilo data server (see below
 Please, follow these guides lines for Zoom usage
 
 1. Use a local, desktop Zoom application instead of the online web application. You can
-   download Zoom [here](https://zoom.us/fr/download)
+   download Zoom [here](https://zoom.us/fr/download){:target="_blank"}
 - Test your Zoom application once if you never used it. We will be happy to arrange a quick
   Zoom session a few days before the IOC if you feel that there may be an issue.
 - Be sure that your internet connection is reasonably fast to allow __the use of your camera__.
@@ -40,6 +40,16 @@ Please, follow these guides lines for Zoom usage
 There are many other interesting functionalities with Zoom, which will be covered in the 
 presentation.
 
+### Trello
+
+One of our favorite tools is Trello.
+You will be invited to access to the [trello board](https://trello.com/b/NtaNjZ6f){:target="_blank"}
+of the IOC. Not a lot to say about Trello. It is just a great tool to capture information,
+collaborate, and organize projects.
+
+We hope that you will still use Trello for your own projects and purposes when the IOC is
+finished !
+
 ### STARTbio
 Our [STARTbio web site](https://artbio.github.io/startbio/) is the hub where we connect
 all the training materials for IOCs.
@@ -60,11 +70,11 @@ Slack is a workspace to exchange messages or files, follow conversations, commun
 about issues and ideas.
 
 If you haven't already done so, you will first need to open a
-[Slack account](https://slack.com/get-started#/createnew) by providing a username and
-password (you can also use authentication through Google or Apple).
+[Slack account](https://slack.com/get-started#/createnew){:target="_blank"} by providing
+a username and password (you can also use authentication through Google or Apple).
 
 If you have already a Slack account, you can connect to this account using this
-[URL](https://slack.com/signin#/signin).
+[URL](https://slack.com/signin#/signin){:target="_blank"}.
 
 !!! warning "Attention !"
     If you have multiple login emails for your Slack account, it can become confusing if
@@ -81,8 +91,8 @@ If you have already a Slack account, you can connect to this account using this
     your Slack account(s) and import locally your workspace, including the workspace
     dedicated to this IOC
     
-    [Apple Desktop Slack](https://apps.apple.com/us/app/slack-for-desktop/id803453959?mt=12)
-    | [Windows Desktop Slack](https://slack.com/intl/fr-fr/downloads/windows)
+    [Apple Desktop Slack](https://apps.apple.com/us/app/slack-for-desktop/id803453959?mt=12){:target="_blank"}
+    | [Windows Desktop Slack](https://slack.com/intl/fr-fr/downloads/windows){:target="_blank"}
 
 Last but not least, Slack is not an option for this IOC !
 
@@ -98,17 +108,17 @@ Git is a powerful versionning system.
 The software was implemented in web environments to create even more powerful system of
 continuous development and continuous integration.
 
-This is the case of [GitHub](https://github.com) which we have chosen in ARTbio.
+This is the case of [GitHub](https://github.com){:target="_blank"} which we have chosen in ARTbio.
 [GitLab](https://about.gitlab.com/) is another option, which will not use here.
 
 Good news ! there is a GitHub repository just for your IOC
-[**here**](https://github.com/ARTbio/ARTbio_064_IOC_Bulk-RNAseq/tree/main). This repository
-is private. Therefore, to access it, you will need to create a personal GitHub account, and
-to communicate your GitHub identifier to be invited to contribute to (and benefit from)
-the repository.
+[**here**](https://github.com/ARTbio/ARTbio_064_IOC_Bulk-RNAseq/tree/main){:target="_blank"}.
+This repository is private. Therefore, to access it, you will need to create a personal
+GitHub account, and to communicate your GitHub identifier to be invited to contribute to
+(and benefit from) the repository.
 
 We are not going to use the repository intensively
-[ARTbio_064_IOC_Bulk-RNAseq](https://github.com/ARTbio/ARTbio_064_IOC_Bulk-RNAseq/tree/main).
+[ARTbio_064_IOC_Bulk-RNAseq](https://github.com/ARTbio/ARTbio_064_IOC_Bulk-RNAseq/tree/main){:target="_blank"}.
 However, we will try to take advantage of it to introduce you to the notions
 of FAIR (Findability, Accessibility, interoperability and reproducibility) and familiarize
 you with the continuous integration and transparency of bioinformatics analyses.
@@ -128,7 +138,7 @@ you with the continuous integration and transparency of bioinformatics analyses.
 
 ### PSILO storage (15 min)
 
-[PSILO](https://psilo.sorbonne-universite.fr/) is file storage server with a NextCloud web interface.
+[PSILO](https://psilo.sorbonne-universite.fr/){:target="_blank"} is file storage server with a NextCloud web interface.
 If you are affiliated to Sorbonne-Université (and have a corresponding email address), you
 may have already an account on PSILO.
 In any case, as an IOC participant, whatever your affiliation. We will configure for you
@@ -145,7 +155,58 @@ your local computer, GitHub, etc...
 We may also use our ARTbio PSILO account to share files with you !
 
 You get it: stop exchanging research datasets (including excel tables) using your email client :smile:
+
 ### Galaxy (65 min)
+
+Galaxy is a web service which provides a very powerful analysis environment.
+
+Galaxy is particularly well suited to bulk RNAseq analysis because virtually all the
+bioinformatics tools necessary to perform it are available in its environment, have been
+proven and are continuously improved by a very large community of analysts and developers.
+
+But the main reasons why we use Galaxy at ARTbio is that Galaxy helps immensely in making
+your analysis:
+
+- REPRODUCIBLE (by others, but believe us, by you too :smile:)
+- TRANSPARENT. Galaxy captures the smallest details of an analysis, allows you to build
+complete workflows, from input datasets to the most conclusive datasets of your analyses,
+including all the steps and tools you will have used. Finally, by having correctly
+constructed a Galaxy workflow, writing the “Materials and Methods” section of a manuscript
+is child’s play!
+- ACCESSIBLE. Everything is done in the Galaxy framework to allow you to exchange your
+information with others and explicitly report any problems or bugs encountered. Generally,
+biologists are not very good at correctly describing problems and concerns encountered when
+analyzing with a computer. Galaxy helps tremendously in this important area. It also makes
+it possible to carry out an analysis in real collaboration.
+
+Each IOC participant will have a Galaxy account on the artbio.snv.jussieu.fr server. We
+will give you the login and password for your account, probably on Slack and perhaps on
+Trello.
+
+So we will immediately take advantage of an invaluable resource of the Galaxy community,
+the [Galaxy Training Network](https://training.galaxyproject.org/training-material/){:target="_blank"}
+(GTN), in order to take together a short introductory tour of the Galaxy environment.
+
+#### A short introduction to Galaxy
+
+Enough talking!
+
+You are going to follow the tutorial
+[A short introduction to Galaxy](https://training.galaxyproject.org/training-material/topics/introduction/tutorials/galaxy-intro-short/tutorial.html){:target="_blank"}
+using your Galaxy account on the server [artbio.snv.jussieu.fr](artbio.snv.jussieu.fr)
+
+??? bug "Possible confusion about the `sharing story with yourself` step!"
+    The above tutorial says `Try and create a link for your history and share it
+    with…yourself!`.
+    
+    It is indeed impossible to share an history with yourself _if you do it using your
+    login email_. What is actually possible is to generate a share link for your story,
+    and open this link in a new window in your browser.
+    
+    However, please note in this case that what you will see is not exactly what another
+    user will see: that other user will have the option to import the shared story into
+    their own account, for e.g. to re-run a tool on another data set.
+
 ### Import data from Psilo to Galaxy
 
 ## Work Program of the week 1 - [Week-1 exercises]()
