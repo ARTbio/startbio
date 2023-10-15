@@ -193,7 +193,12 @@ Enough talking!
 
 You are going to follow the tutorial
 [A short introduction to Galaxy](https://training.galaxyproject.org/training-material/topics/introduction/tutorials/galaxy-intro-short/tutorial.html){:target="_blank"}
-using your Galaxy account on the server [artbio.snv.jussieu.fr](artbio.snv.jussieu.fr)
+using your Galaxy account on the server [artbio.snv.jussieu.fr](artbio.snv.jussieu.fr).
+
+Open this training link in a new tab in your browser, and keep it next to your Galaxy
+window !
+
+![](images/toolbox-do-it-yourself.png){: style="width:120px"}
 
 ??? bug "Possible confusion about the `sharing story with yourself` step!"
     The above tutorial says `Try and create a link for your history and share it
@@ -206,12 +211,54 @@ using your Galaxy account on the server [artbio.snv.jussieu.fr](artbio.snv.jussi
     However, please note in this case that what you will see is not exactly what another
     user will see: that other user will have the option to import the shared story into
     their own account, for e.g. to re-run a tool on another data set.
+-----
+#### Import data from Psilo to Galaxy
 
-### Import data from Psilo to Galaxy
+![](images/toolbox-do-it-yourself.png){: style="width:75px"} **Do it yourself !**
 
-## Work Program of the week 1 - [Week-1 exercises]()
+- [x] Upload a file from your local computer: either a png, jpeg, or tiff image, or a pdf
+  file, or a tsv text file, or a small sequence file (fasta, fastq...)
+- [x] Share your file on psilo, by clicking the sharing icon, then clinking the
+  :heavy_plus_sign: icon in the left handside pop-up menu.
+- [x] Copy and Paste the share link in a new browser window
+- [x] At the top right corner of the new window, there are three dots, just to the right
+  of the `Télécharger` button. Click on these three dots, and copy the direct link as shown
+  on this small screenshot.
+  
+  ![](images/direct_psilo_link.png){: style="width:300px"}
 
-### Exercises with Slack (use of markdown, configuration, files, no-screen-shots, etc.)
+- [x] Paste this link in a safe place (an open note, and open text file, whatever).
+  As We are writing this doc, we are using this
+  [DIRECT test link](https://psilo.sorbonne-universite.fr/index.php/s/ZzgYFd2Gg78AASy/download/chr22_sample.fa)
+  that should still work today.
+- [x] Go to *your* Galaxy account
+- [x] Create a new history and name it `PSILO file transfer`
+- [x] Click on the `Upload Data` button
+  
+  ![](images/galaxy_upload_button.png){: style="width:300px"}
+  
+- [x] Click on the `Paste/Fetch Data` button and copy your PSILO direct link in the central
+  field as shown on this small screenshot.
+  
+  ![](images/pastefetch.png){: style="width:600px"}
+  
+- [x] Click on the Start button and then on the close button.
+- [x] Your file transfer from PSILO to you Galaxy history should be soon completed !
+- [x] Check it out, by clicking on the `eye` icon.
+
+??? bug "It did not work for you ?"
+    This is most probably because you did not copy the *direct* psilo link but, instead,
+    the indirect link that display an intermediate "download file" window.
+
+## Exercises of the incoming week 1
+
+### Slack
+
+During the incoming week, please communicate exclusively with us using the IOC Slack workspace.
+
+In particular, we will guide you on the best practices to adopt with Slack, and show you
+several tips to exchange information between all participants or between only two participants.
+
 ### Exercises with GitHub (web version)
 ### Data upload in Galaxy, from Psilo
 ### Pretreatment (renaming and collections) and metadata organisations (and basic Galaxy manipulation)
