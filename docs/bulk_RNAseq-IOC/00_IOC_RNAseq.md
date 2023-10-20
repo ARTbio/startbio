@@ -101,7 +101,9 @@ We will be extremely reluctant to communicate by email with you about this IOC.
 Indeed, emails capture information very poorly, because very often the subject headings
 are poorly chosen (or not chosen at all...), conversations by email deal with heterogeneous
 subjects, the recipients of a series of messages vary over time, and other joyful things -
-the imagination of Internet users is limitless (and exhausting)... 
+the imagination of Internet users is limitless (and exhausting)....
+
+Instead, use your [IOC Slack](https://iocbulkrnaseq.slack.com)
 
 ### GitHub
 Git is a powerful versionning system.
@@ -179,9 +181,9 @@ biologists are not very good at correctly describing problems and concerns encou
 analyzing with a computer. Galaxy helps tremendously in this important area. It also makes
 it possible to carry out an analysis in real collaboration.
 
-Each IOC participant will have a Galaxy account on the artbio.snv.jussieu.fr server. We
-will give you the login and password for your account, probably on Slack and perhaps on
-Trello.
+Each IOC participant will have a Galaxy account on the
+[artbio.snv.jussieu.fr](https://artbio.snv.jussieu.fr) server. We will give you the login
+and password for your account, probably on Slack and perhaps on Trello.
 
 So we will immediately take advantage of an invaluable resource of the Galaxy community,
 the [Galaxy Training Network](https://training.galaxyproject.org/training-material/){:target="_blank"}
@@ -250,17 +252,6 @@ window !
     This is most probably because you did not copy the *direct* psilo link but, instead,
     the indirect link that display an intermediate "download file" window.
 
-## Exercises of the incoming week 1
-
-### Slack
-
-During the incoming week, please communicate exclusively with us using the IOC Slack workspace.
-
-In particular, we will guide you on the best practices to adopt with Slack, and show you
-several tips to exchange information between all participants or between only two participants.
-
-### Exercises with GitHub (web version)
-### Data upload in Galaxy, from Psilo
-### Pretreatment (renaming and collections) and metadata organisations (and basic Galaxy manipulation)
+#### Thank you for your attention and see you nextweek :clap: :clap: :clap:
 
 ----

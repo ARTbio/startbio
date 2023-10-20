@@ -175,6 +175,7 @@ nav:
     - IOC on bulk RNAseq analysis:
         - Provisional Program / Schedule: bulk_RNAseq-IOC/IOC_RNAseq_program.md
         - Introduction - Week-0: bulk_RNAseq-IOC/00_IOC_RNAseq.md
+        - Week 0 exercises: bulk_RNAseq-IOC/01_exercises_week_00.md
         - External Materials: bulk_RNAseq-IOC/links.md
     -  Introduction to Deep-seq Analysis:
         - INTRODUCTION: deepseq/index.md
