@@ -10,7 +10,8 @@ During the incoming week, please communicate exclusively with us using the IOC S
 We will guide you on the best practices to adopt with Slack, and show you
 several tips to exchange information between all participants or between only two participants.
 
-If you have any problem to perform the exercices below, there is only one address
+If you have any problem to perform the exercices below, there is only one address,
+the [IOC Bulk RNAseq Slack workspace](https://iocbulkrnaseq.slack.com)
 
 ### Exercises with GitHub (web interface only)
 
