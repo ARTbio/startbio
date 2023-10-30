@@ -1,7 +1,3 @@
----
-hide:
-  - navigation
----
 **3-hours Zoom video-conference**
 
 ## Introduction of the Companions and Instructors (10 min)

@@ -1,8 +1,3 @@
----
-hide:
-  - navigation
----
-
 ### Slack
 
 During the incoming week, please communicate exclusively with us using the IOC Slack workspace.

@@ -20,13 +20,15 @@ theme:
     - navigation.tracking
     - navigation.tabs
     - navigation.tabs.sticky
-    - navigation.sections
+#    - navigation.sections
     - navigation.top
     - navigation.prune
     - navigation.footer
 #    - toc.integrate
     - content.tabs.link
     - content.code.copy
+    - content.action.view
+    - content.action.edit
 
 nav:
   - Home: index.md
@@ -149,6 +151,22 @@ nav:
 
   - Interactive Online Companionship (IOC):
 
+    - IOC on bulk RNAseq analysis:
+        - Provisional Program / Schedule: bulk_RNAseq-IOC/00_IOC_RNAseq_program.md
+        - Week 0:
+            - Introduction - Week-0: bulk_RNAseq-IOC/01_IOC_RNAseq_week_00.md
+            - Week 0 exercises: bulk_RNAseq-IOC/02_exercises_week_00.md
+        - Week 1:
+          - Analysis Overwiew:
+            - The Key idea: bulk_RNAseq-IOC/03_readcounts.md
+            - RNAseq librairies:
+              - cDNA synthesis: bulk_RNAseq-IOC/04_cDNAs.md
+              - Inserts and sequencing strategies: bulk_RNAseq-IOC/05_sequencing_strategies.md
+            - About quality filtering in RNAseq analysis: bulk_RNAseq-IOC/06_read_filtering.md
+            - Transcript Quantification: bulk_RNAseq-IOC/07_transcript_quant.md
+            - Statistical Analysis of Differential expression: bulk_RNAseq-IOC/08_RNAseq_DE.md
+            - Understanding of all your experimental procedures: bulk_RNAseq-IOC/09_outline_conclusion.md
+        - External Materials: bulk_RNAseq-IOC/links.md
     - IOC on R:
         - Introductive Session: R-IOC/RIOC.md
         - Variables: R-IOC/variables.md
@@ -176,11 +194,6 @@ nav:
         - Differents visualizations of Seurat: scRNAseq_basics/visualization.md
         - References: scRNAseq_basics/references.md
 
-    - IOC on bulk RNAseq analysis:
-        - Provisional Program / Schedule: bulk_RNAseq-IOC/IOC_RNAseq_program.md
-        - Introduction - Week-0: bulk_RNAseq-IOC/00_IOC_RNAseq.md
-        - Week 0 exercises: bulk_RNAseq-IOC/01_exercises_week_00.md
-        - External Materials: bulk_RNAseq-IOC/links.md
     -  Introduction to Deep-seq Analysis:
         - INTRODUCTION: deepseq/index.md
         - Illumina sequencing: deepseq/illumina.md
