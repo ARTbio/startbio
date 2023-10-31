@@ -157,6 +157,7 @@ nav:
             - Introduction - Week-0: bulk_RNAseq-IOC/01_IOC_RNAseq_week_00.md
             - Week 0 exercises: bulk_RNAseq-IOC/02_exercises_week_00.md
         - Week 1:
+          - Review on week-0 work: bulk_RNAseq-IOC/02_exercices_week_00_review.md
           - Analysis Overwiew:
             - The Key idea: bulk_RNAseq-IOC/03_readcounts.md
             - RNAseq librairies:
@@ -166,6 +167,10 @@ nav:
             - Transcript Quantification: bulk_RNAseq-IOC/07_transcript_quant.md
             - Statistical Analysis of Differential expression: bulk_RNAseq-IOC/08_RNAseq_DE.md
             - Understanding of all your experimental procedures: bulk_RNAseq-IOC/09_outline_conclusion.md
+          - Week 1 exercises:
+            - Use case PRJNA630433:
+              - Presentation: bulk_RNAseq-IOC/10_PRJNA630433_presentation.md
+              - Data upload: bulk_RNAseq-IOC/11_uploads.md
         - External Materials: bulk_RNAseq-IOC/links.md
     - IOC on R:
         - Introductive Session: R-IOC/RIOC.md

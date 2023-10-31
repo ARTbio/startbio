@@ -37,7 +37,7 @@ such as you will be confortable to manipulate and analyse them.
 
 ### Pretreatments: data and metadata organisation in Galaxy
 
-####First of all, follow the
+#### First of all, follow the
 [training to collection operations](https://training.galaxyproject.org/training-material/topics/galaxy-interface/tutorials/collections/tutorial.html)
 prepared by the Galaxy Training Network.
 

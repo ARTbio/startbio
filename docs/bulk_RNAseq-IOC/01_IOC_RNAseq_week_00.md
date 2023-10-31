@@ -191,7 +191,7 @@ Enough talking!
 
 You are going to follow the tutorial
 [A short introduction to Galaxy](https://training.galaxyproject.org/training-material/topics/introduction/tutorials/galaxy-intro-short/tutorial.html){:target="_blank"}
-using your Galaxy account on the server [artbio.snv.jussieu.fr](artbio.snv.jussieu.fr).
+using your Galaxy account on the server [artbio.snv.jussieu.fr](https://artbio.snv.jussieu.fr).
 
 Open this training link in a new tab in your browser, and keep it next to your Galaxy
 window !
