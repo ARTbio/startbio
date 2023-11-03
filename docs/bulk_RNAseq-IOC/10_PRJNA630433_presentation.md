@@ -68,7 +68,7 @@ indicated in the following table.
 |OC                        |3        |SRR11688226    |
 |OC                        |4        |SRR11688229    |
 
-We well also need a GTF annotation file for the Mus musculus genome, version mm38/GRCm38.
+We well also need a GTF annotation file for the Mus musculus genome, version mm10/GRCm38.
 Interestingly, the link given in the mat and met section of the article for the GTF file
 ==does not work anymore== (the Illumina
 [iGenome site](https://support.illumina.com/sequencing/sequencing_software/igenome.html)).
