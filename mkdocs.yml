@@ -35,6 +35,16 @@ nav:
 
   - Interactive Online Companionship (IOC):
 
+    - IOC on R:
+        - Provisional Program / Schedule: R-IOC/00_IOC_R_program.md
+        - Reference Manual:
+          - Variables: R-IOC/r00_variables.md
+          - Vectors: R-IOC/r01_vectors.md
+          - Operators: R-IOC/r02_operators.md
+        - Week 0:
+          - Introduction - Week 0: R-IOC/01_IOC_R_week_00.md
+        - Storage room: R-IOC/pick-up.md
+
     - IOC on bulk RNAseq analysis:
         - Provisional Program / Schedule: bulk_RNAseq-IOC/00_IOC_RNAseq_program.md
         - Week 0:
@@ -57,10 +67,7 @@ nav:
               - Data upload: bulk_RNAseq-IOC/11_uploads.md
               - Quality Control: bulk_RNAseq-IOC/12_QC.md
         - External Materials: bulk_RNAseq-IOC/links.md
-    - IOC on R:
-        - Introductive Session: R-IOC/RIOC.md
-        - Variables: R-IOC/variables.md
-        - Storage room: R-IOC/pick-up.md
+
     - Single-cell RNAseq analysis using Seurat in R:
         - Introduction: scRNAseq_basics/introduction.md
         - Prerequisites: scRNAseq_basics/prerequisites.md
