@@ -20,16 +20,86 @@ theme:
     - navigation.tracking
     - navigation.tabs
     - navigation.tabs.sticky
-    - navigation.sections
+#    - navigation.sections
     - navigation.top
     - navigation.prune
     - navigation.footer
 #    - toc.integrate
     - content.tabs.link
     - content.code.copy
+    - content.action.view
+    - content.action.edit
 
 nav:
   - Home: index.md
+
+  - Interactive Online Companionship (IOC):
+
+    - IOC on bulk RNAseq analysis:
+        - Provisional Program / Schedule: bulk_RNAseq-IOC/00_IOC_RNAseq_program.md
+        - Week 0:
+            - Introduction - Week-0: bulk_RNAseq-IOC/01_IOC_RNAseq_week_00.md
+            - Week 0 exercises: bulk_RNAseq-IOC/02_exercises_week_00.md
+        - Week 1:
+          - Review on week-0 work: bulk_RNAseq-IOC/02_exercices_week_00_review.md
+          - Analysis Overwiew:
+            - The Key idea: bulk_RNAseq-IOC/03_readcounts.md
+            - RNAseq librairies:
+              - cDNA synthesis: bulk_RNAseq-IOC/04_cDNAs.md
+              - Inserts and sequencing strategies: bulk_RNAseq-IOC/05_sequencing_strategies.md
+            - About quality filtering in RNAseq analysis: bulk_RNAseq-IOC/06_read_filtering.md
+            - Transcript Quantification: bulk_RNAseq-IOC/07_transcript_quant.md
+            - Statistical Analysis of Differential expression: bulk_RNAseq-IOC/08_RNAseq_DE.md
+            - Understanding of all your experimental procedures: bulk_RNAseq-IOC/09_outline_conclusion.md
+          - Week 1 exercises:
+            - Use case PRJNA630433:
+              - Presentation: bulk_RNAseq-IOC/10_PRJNA630433_presentation.md
+              - Data upload: bulk_RNAseq-IOC/11_uploads.md
+              - Quality Control: bulk_RNAseq-IOC/12_QC.md
+        - External Materials: bulk_RNAseq-IOC/links.md
+    - IOC on R:
+        - Introductive Session: R-IOC/RIOC.md
+        - Variables: R-IOC/variables.md
+        - Storage room: R-IOC/pick-up.md
+    - Single-cell RNAseq analysis using Seurat in R:
+        - Introduction: scRNAseq_basics/introduction.md
+        - Prerequisites: scRNAseq_basics/prerequisites.md
+        - Initialization of R analysis: scRNAseq_basics/intro_seurat.md
+        - Import data: 
+          - Import data: scRNAseq_basics/import.md
+          - Exercices: scRNAseq_basics/import_exo.md
+        - Preprocessing: 
+          - Preprocessing: scRNAseq_basics/preprocessing.md
+          - Exercices: scRNAseq_basics/preprocessing_exo.md
+        - Reduction of dimensionality: scRNAseq_basics/redim.md
+        - Clustering: scRNAseq_basics/clustering.md
+        - Cell population identification:
+          - Introduction and markers identification:  scRNAseq_basics/intro_markers.md
+          - Markers Annotation:
+            - Presentation of annotation methods: scRNAseq_basics/marker_annot.md
+            - Over-representation analysis: scRNAseq_basics/over.md
+            - Gene Set Enrichment Analysis: scRNAseq_basics/gsea.md
+          - Cluster annotation: scRNAseq_basics/clusannot.md
+        - Comparison between 2 populations: scRNAseq_basics/comp.md
+        - Differents visualizations of Seurat: scRNAseq_basics/visualization.md
+        - References: scRNAseq_basics/references.md
+
+    -  Introduction to Deep-seq Analysis:
+        - INTRODUCTION: deepseq/index.md
+        - Illumina sequencing: deepseq/illumina.md
+        - Pacific Biosciences SMRT: deepseq/pacbio.md
+        - Oxford Nanopore MinION: deepseq/nanopore.md
+        - Sequencing facts: deepseq/seq_parameters.md
+        - Small RNA library: deepseq/smRNA_lib_prep.md
+        - RNA library: deepseq/RNA_lib_prep.md
+        - ChIP-seq library: deepseq/chipseq_lib.md
+        - Deep Sequencing Applications: deepseq/deepseq_applications.md
+        - "Analysis Flowchart:": deepseq/flowchart.md
+        - Various aspects of sequence data mining: deepseq/mining.md
+        - "Pratical part: Command lines": deepseq/command_lines.md
+        - Align reads with bowtie: deepseq/bowtie.md
+        - To be continued... with Galaxy: deepseq/galaxy.md
+        - BOWTIE ALIGNMENT USING galaxy: deepseq/bowtie_galaxy.md
 
   - 1Omin2:
     - Grep and Regex (1): ten2/Regex_01.md
@@ -146,57 +216,6 @@ nav:
         - Fill your GDC cart: TARGET_download/GDC_cart.md
         - Edit files metadata: TARGET_download/metadata_manipulation.md
         - import files in Galaxy using the edited files metadata: TARGET_download/galaxy_import.md
-
-  - Interactive Online Companionship (IOC):
-
-    - IOC on R:
-        - Introductive Session: R-IOC/RIOC.md
-        - Variables: R-IOC/variables.md
-        - Storage room: R-IOC/pick-up.md
-    - Single-cell RNAseq analysis using Seurat in R:
-        - Introduction: scRNAseq_basics/introduction.md
-        - Prerequisites: scRNAseq_basics/prerequisites.md
-        - Initialization of R analysis: scRNAseq_basics/intro_seurat.md
-        - Import data: 
-          - Import data: scRNAseq_basics/import.md
-          - Exercices: scRNAseq_basics/import_exo.md
-        - Preprocessing: 
-          - Preprocessing: scRNAseq_basics/preprocessing.md
-          - Exercices: scRNAseq_basics/preprocessing_exo.md
-        - Reduction of dimensionality: scRNAseq_basics/redim.md
-        - Clustering: scRNAseq_basics/clustering.md
-        - Cell population identification:
-          - Introduction and markers identification:  scRNAseq_basics/intro_markers.md
-          - Markers Annotation:
-            - Presentation of annotation methods: scRNAseq_basics/marker_annot.md
-            - Over-representation analysis: scRNAseq_basics/over.md
-            - Gene Set Enrichment Analysis: scRNAseq_basics/gsea.md
-          - Cluster annotation: scRNAseq_basics/clusannot.md
-        - Comparison between 2 populations: scRNAseq_basics/comp.md
-        - Differents visualizations of Seurat: scRNAseq_basics/visualization.md
-        - References: scRNAseq_basics/references.md
-
-    - IOC on bulk RNAseq analysis:
-        - Provisional Program / Schedule: bulk_RNAseq-IOC/IOC_RNAseq_program.md
-        - Introduction - Week-0: bulk_RNAseq-IOC/00_IOC_RNAseq.md
-        - Week 0 exercises: bulk_RNAseq-IOC/01_exercises_week_00.md
-        - External Materials: bulk_RNAseq-IOC/links.md
-    -  Introduction to Deep-seq Analysis:
-        - INTRODUCTION: deepseq/index.md
-        - Illumina sequencing: deepseq/illumina.md
-        - Pacific Biosciences SMRT: deepseq/pacbio.md
-        - Oxford Nanopore MinION: deepseq/nanopore.md
-        - Sequencing facts: deepseq/seq_parameters.md
-        - Small RNA library: deepseq/smRNA_lib_prep.md
-        - RNA library: deepseq/RNA_lib_prep.md
-        - ChIP-seq library: deepseq/chipseq_lib.md
-        - Deep Sequencing Applications: deepseq/deepseq_applications.md
-        - "Analysis Flowchart:": deepseq/flowchart.md
-        - Various aspects of sequence data mining: deepseq/mining.md
-        - "Pratical part: Command lines": deepseq/command_lines.md
-        - Align reads with bowtie: deepseq/bowtie.md
-        - To be continued... with Galaxy: deepseq/galaxy.md
-        - BOWTIE ALIGNMENT USING galaxy: deepseq/bowtie_galaxy.md
 
   - Code Snippets:
     - Terminal Bash: bash_snippets.md

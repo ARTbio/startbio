@@ -1,8 +1,3 @@
----
-hide:
-  - navigation
----
-
 ### Slack
 
 During the incoming week, please communicate exclusively with us using the IOC Slack workspace.
@@ -42,11 +37,13 @@ such as you will be confortable to manipulate and analyse them.
 
 ### Pretreatments: data and metadata organisation in Galaxy
 
-####First of all, follow the
+#### Galaxy training "Collection Operations"
+
+First of all, follow the
 [training to collection operations](https://training.galaxyproject.org/training-material/topics/galaxy-interface/tutorials/collections/tutorial.html)
 prepared by the Galaxy Training Network.
 
-**Do it in your Galaxy account, of course !**
+*Do it in your Galaxy account, of course !*
 
 In this training (plan at least one hour, this is a minimum), play a particular attention
 to
