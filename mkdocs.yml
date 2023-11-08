@@ -42,6 +42,9 @@ nav:
           - Vectors: R-IOC/r01_vectors.md
           - Operators: R-IOC/r02_operators.md
           - Functions: R-IOC/r03_functions.md
+          - Best Practices: R-IOC/r04_bestpractices.md
+          - Lists: R-IOC/r05_lists.md
+          - Dataframes and matrices: R-IOC/r06_df_matrices.md
         - Week 0:
           - Introduction - Week 0: R-IOC/01_IOC_R_week_00.md
         - Storage room: R-IOC/pick-up.md
