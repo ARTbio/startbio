@@ -55,7 +55,7 @@ There are other useful arguments that we didn't mentionned here,
 such as `na.strings` (characters to be interpreted as `NA` values), `colClasse` (type of columns), *etc.*, 
 please check the document with `?read.table`.
 
-All these functions from `utils` will return a <bold>`data.frame`</bold>.
+All these functions from `utils` will return a [data.frame](r06_df_matrices.md).
 
 Apart from the `utils` packages, we can use other package for instance 
 <code>[readr](https://cran.r-project.org/web/packages/readr/index.html)</code> and
@@ -101,13 +101,14 @@ read_xlsx(
 
 ```
 
-All these functions will return a <bold>`tibble`</bold>.
+All these functions will return a [tibble](https://tibble.tidyverse.org/reference/tibble-package.html).
 
 !!! danger "Caution"
-    The coloring of cells in Excel files CANNOT be handled by the reading functions from `readxl` package.
+    The coloring of cells in Excel files CANNOT be handled.
 
 !!! tip
-    The merged cells can be handled by using the `openxlsx::read.xlsx` with specifying `fillMergedCells = TRUE`
+    The merged cells can be handled by using the `openxlsx::read.xlsx` with specifying `fillMergedCells = TRUE`,
+    the value in a merged cell is given to all cells within the merge.
 
 
 ### Read R Data Format (.rds, .Rdata)
