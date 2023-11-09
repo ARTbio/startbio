@@ -67,6 +67,7 @@ We can use the <code>[readxl](https://cran.r-project.org/web/packages/readxl/ind
 to import them into R:
 
 ```r
+# install.packages("readxl")
 library("readxl")
 my_xls <- read_xls(
   path = "path/to/my_file.xls",
@@ -131,6 +132,7 @@ The R package <code>[foreign](https://cran.r-project.org/web/packages/foreign/in
 was developped to import these data. For example:
 
 ```r
+install.packages("foreign")
 library("foreign")
 my_sav <- read.spss(file = "path/to/my_file.sav")
 my_xpt <- read.xport(file = "path/to/my_file.xpt")
@@ -143,4 +145,78 @@ my_mtp <- read.mtp(file = "path/to/my_file.mtp")
 
 ## Exporting Data
 
+As we can import different formats of data into R, we can also export them from R and save it into various formats.
+Based on what we've seen in the above section, the functions used to save data are usually named in the same way as the data importing functions, by changing "read" by "write" or "save".
 
+### Write Text Files
+
+```r
+my_object <- data.frame(
+  x = 1:3,
+  y = letters[1:3]
+)
+write.csv(
+  x = my_object,
+  file = "path/to/my_file.csv",
+  quote = TRUE,                 # whether to quote columns in the output file
+  sep = ",",                    # the field separator
+  eol = "\n",                   # the character to print at the end of the line
+  na = "NA",                    # the character to mark missing value
+  dec = ".",                    # the decimal point character
+  row.names = FALSE,            # whether to write rownames in the output file
+  col.names = TRUE              # whether to write colnames in the output file
+)
+write.table(x = my_object, file = "path/to/my_file.txt")
+```
+
+### Write Excel Files
+
+Several packages are available to export data frame to Excel `.xlsx` format, for example 
+<code>[writexl](https://cran.r-project.org/web/packages/writexl/index.html)</code> and
+<code>[openxlsx](https://cran.r-project.org/web/packages/openxlsx/index.html)</code>.
+Here we illustrate with the `writexl` package:
+
+```r
+# install.packages("writexl")
+library("writexl")
+
+write_xlsx(
+  x = my_object,
+  path = "path/to/my_file.xlsx",
+  col_names = TRUE
+)
+```
+
+We can also store a list of data.frame into an Excel file with multiple sheet with the same function as follow: 
+
+```r
+list_df <- list(
+  "df1" = data.frame(
+    x = 1:3,
+    y = letters[1:3]
+  ),
+  "df2" = data.frame(
+    x = 4:6,
+    y = letters[4:6]
+  )
+)
+write_xlsx(
+  x = list_df,
+  path = "path/to/multi_sheets.xlsx",
+  col_names = TRUE
+)
+```
+
+### Write R Data Format
+
+```r
+a <- 1
+b <- c(1, "abc", 5)
+df <- data.frame(
+  x = 1:3,
+  y = letters[1:3]
+)
+
+saveRDS(a, file = "path/to/my_object.RDS")
+save(a, b, df, file = "path/to/my_objects.RData")
+```
