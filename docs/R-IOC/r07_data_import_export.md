@@ -101,7 +101,7 @@ my_xlsx <- read_xlsx(
 
 All these functions will return a [tibble](https://tibble.tidyverse.org/reference/tibble-package.html).
 
-`r excel_sheets()` is useful to list all sheets without openning the file.
+`excel_sheets()` is useful to list all sheets without openning the file.
 
 !!! danger "Caution"
     The coloring of cells in Excel files CANNOT be handled.
