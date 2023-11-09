@@ -1,8 +1,8 @@
 ## Data Import and Export
 
 We can deal with different formats of data with R, such as
-the text files (.csv, .tsv, .txt), the Excel files (.xlx, .xlsx), and the R data file formats (.rds, .Rdata).
-It's also possible to read or write other softwares-speficied formats, for example
+the text files (.csv, .tsv, .txt), the Excel files (.xlx, .xlsx), and the R data file formats (.RDS, .RData).
+It's also possible to read or write other program-speficied formats, for example
 "SAS", "SPSS" or "Minitab" files.
 
 
@@ -16,11 +16,9 @@ it's suggested to name the data columns following the naming conventions (see [B
 With the functions from the basic package "utils":
 
 ```r
-my_file <- "path/to/my_file"
-
 ## read a comma separated file ".csv"
-read.csv(
-  file = my_file,
+my_csv <- read.csv(
+  file = "path/to/my_file.csv",
   header = TRUE,    # whether the file has a colnames in the 1st row
   sep = ",",        # what is the field separator
   quote = "\"",     # the character(s) for quotes
@@ -30,8 +28,8 @@ read.csv(
 )
 
 ## read a tab separated file ".tsv"
-read.delim(
-  file = my_file,
+my_delim <- read.delim(
+  file = "path/to/my_file.tsv",
   header = TRUE,
   sep = "\t",       # what is the field separator
   quote = "\"",
@@ -41,8 +39,8 @@ read.delim(
 )
 
 ## read a text file ".txt"
-read.table(
-  file = my_file,
+my_table <- read.table(
+  file = "path/to/my_file.txt",
   header = TRUE,
   sep = "",          # what is the field separator
   quote = "\"'",     # the character(s) for quotes
@@ -70,8 +68,8 @@ to import them into R:
 
 ```r
 library("readxl")
-read_xls(
-  path = my_file,
+my_xls <- read_xls(
+  path = "path/to/my_file.xls",
   sheet = NULL,                 # sheet to read, can be the sheet number or the sheet name
   range = NULL,                 # a cell range to read
   col_names = TRUE,             # use the 1st row as column names
@@ -84,8 +82,8 @@ read_xls(
   .name_repair = "unique"       # argument passed to tibble::as_tibble, default is to ensure unique and not empty column names
 )
 
-read_xlsx(
-  path = my_file,
+my_xlsx <- read_xlsx(
+  path = "path/to/my_file.xlsx",
   sheet = NULL,
   range = NULL,
   col_names = TRUE,
@@ -95,13 +93,14 @@ read_xlsx(
   skip = 0,
   n_max = Inf,
   guess_max = min(1000, n_max),
-  progress = readxl_progress(),
   .name_repair = "unique"
 )
 
 ```
 
 All these functions will return a [tibble](https://tibble.tidyverse.org/reference/tibble-package.html).
+
+`r excel_sheets()` is useful to list all sheets without openning the file.
 
 !!! danger "Caution"
     The coloring of cells in Excel files CANNOT be handled.
@@ -110,12 +109,38 @@ All these functions will return a [tibble](https://tibble.tidyverse.org/referenc
     The merged cells can be handled by using the `openxlsx::read.xlsx` with specifying `fillMergedCells = TRUE`,
     the value in a merged cell is given to all cells within the merge.
 
+### Read R Data Format (.RDS, .RData)
 
-### Read R Data Format (.rds, .Rdata)
+`.RDS` is used to save a single R object and `.RData` is used to store multiple R objects.
+We can use `readRDS` to import the `.RDS` file and `load` to open the `.RData` file.
 
-### Other Software-specified Format (SAS, SPSS, Minitab, *etc.*)
+```r
+my_rds <- readRDS(file = "path/to/my_file.RDS")
+load(file = "path/to/my_file.RData")
+```
+
+Please note that you don't need to assign the loaded RData to any object,
+with `load`, you will import all objects stored in the RData file with their original name.
+R will not show what objects were loaded into the working session,
+if your environment has an object with the same name as one object from the RData file,
+it will be overwritten by what you've loaded.
+
+### Other Program-specified Format (SAS, SPSS, Minitab, *etc.*)
 
 The R package <code>[foreign](https://cran.r-project.org/web/packages/foreign/index.html)</code>
-was developped to import these data. 
+was developped to import these data. For example:
+
+```r
+library("foreign")
+my_sav <- read.spss(file = "path/to/my_file.sav")
+my_xpt <- read.xport(file = "path/to/my_file.xpt")
+my_mtp <- read.mtp(file = "path/to/my_file.mtp")
+```
+
+!!! tip
+    More detailed information about the data import and export in R can be found in the chapter [R Files](https://rstudio-education.github.io/hopr/dataio.html) of the eBook [Hands-On Programming with R](https://rstudio-education.github.io/hopr/)
+
 
 ## Exporting Data
+
+
