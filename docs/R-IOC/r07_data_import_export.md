@@ -2,9 +2,24 @@
 
 We can deal with different formats of data with R, such as
 the text files (.csv, .tsv, .txt), the Excel files (.xlx, .xlsx), and the R data file formats (.RDS, .RData).
-It's also possible to read or write other program-speficied formats, for example
+It is also possible to read or write other program-speficied formats, for example
 "SAS", "SPSS" or "Minitab" files.
 
+There are R functions which allow users to download files from the Internet, for example the `download.file()` from the `utils` package or the similar function `curl_download()` from the <code>[curl](https://cran.r-project.org/web/packages/curl/index.html)</code> package.
+
+```r
+download.file(
+  url = "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000841/ScoringFiles/PGS000841.txt.gz",
+    # example of the polygenic risk score file for the trait BMI
+  destifle = "path/to/out_dir"
+)
+
+# install.packages("curl")
+curl::curl_download(
+  url = "http://url_to_wanted_file",
+  destfile = "path/to/out_dir"
+)
+```
 
 ## Importing Data
 
@@ -20,7 +35,7 @@ With the functions from the basic package "utils":
 my_csv <- read.csv(
   file = "path/to/my_file.csv",
   header = TRUE,    # whether the file has a colnames in the 1st row
-  sep = ",",        # what is the field separator
+  sep = ",",        # the character used in the file to separate columns
   quote = "\"",     # the character(s) for quotes
   dec = ".",        # the character for decimal points
   fill = TRUE,      # in case of rows with unequal length, whether to add empty field
@@ -31,7 +46,7 @@ my_csv <- read.csv(
 my_delim <- read.delim(
   file = "path/to/my_file.tsv",
   header = TRUE,
-  sep = "\t",       # what is the field separator
+  sep = "\t",
   quote = "\"",
   dec = ".",
   fill = TRUE,
@@ -39,10 +54,11 @@ my_delim <- read.delim(
 )
 
 ## read a text file ".txt"
+### sometimes read.table does not work well, be careful of the parameter settings
 my_table <- read.table(
   file = "path/to/my_file.txt",
   header = TRUE,
-  sep = "",          # what is the field separator
+  sep = " ",
   quote = "\"'",     # the character(s) for quotes
   dec = ".",
   comment.char = "#"
@@ -55,7 +71,7 @@ please check the document with `?read.table`.
 
 All these functions from `utils` will return a [data.frame](r06_df_matrices.md).
 
-Apart from the `utils` packages, we can use other package for instance 
+Apart from the `utils` package, we can use other packages for instance 
 <code>[readr](https://cran.r-project.org/web/packages/readr/index.html)</code> and
 <code>[vroom](https://cran.r-project.org/web/packages/vroom/index.html)</code> to achieve the same goal.
 
@@ -99,7 +115,8 @@ my_xlsx <- read_xlsx(
 
 ```
 
-All these functions will return a [tibble](https://tibble.tidyverse.org/reference/tibble-package.html).
+All these functions will return a [tibble](https://tibble.tidyverse.org/reference/tibble-package.html),
+which is a more efficient version of data.frame created and used with the `tidyverse` packages (See "Tibble" section in the [Dataframes and Matrices](r06_df_matrices.md) chapter).
 
 `excel_sheets()` is useful to list all sheets without openning the file.
 
