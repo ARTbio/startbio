@@ -1,4 +1,4 @@
-## Dataframes and Matrices
+<!-- ## Dataframes and Matrices -->
 
 Both `data.frame` and `matrix` are two-dimensional objects, they consist of rows and columns.
 The main difference is that `matrix` can only store one class of data (either character or numeric),
