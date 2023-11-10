@@ -1,4 +1,4 @@
-<!-- ## Dataframes and Matrices -->
+<!-- ## Data Frames and Matrices -->
 
 Both `data.frame` and `matrix` are two-dimensional objects, they consist of rows and columns.
 The main difference is that `matrix` can only store one class of data (either character or numeric),
@@ -7,7 +7,7 @@ while `data.frame` can store different classes of data (numeric, character and f
 
 ## Matrices
 
-A matrix is a data structure used for mathematical computations, linear algebra operations, and storing homogeneous data. Learn more about matrices with chapter [5.3](https://rstudio-education.github.io/hopr/r-objects.html#matrices) of Garett’s book.
+A `matrix` is a data structure used for mathematical computations, linear algebra operations, and storing homogeneous data. Learn more about matrices with chapter [5.3](https://rstudio-education.github.io/hopr/r-objects.html#matrices) of Garett’s book.
 
 ### Creation of Matrices
 
@@ -91,11 +91,41 @@ sparse_mat
 
 ## Data Frames
 
-A data framematrix is a two-dimensional data structure that organizes data into rows and columns, similar to a table or spreadsheet. It is particularly useful for working with heterogeneous datasets where different columns can have different data types.that stores data in a grid-like format consisting of rows and columns. It’s composed of vectors arranged in columns, see chapter [5.8](https://rstudio-education.github.io/hopr/r-objects.html#data-frames) of Garett’s book and sections [8.2.3 to 8.2.4](https://bookdown.org/ndphillips/YaRrr/creating-matrices-and-dataframes.html#data.frame) of Philips’ book for more details. 
+A `data.frame` is similar to a Excel spreadsheet.
+It is particularly useful for working with heterogeneous datasets where different columns can have different data types.
+It can be considered as a list of vectors of equal length, arranged in columns.
+See chapter [5.8](https://rstudio-education.github.io/hopr/r-objects.html#data-frames) of Garett’s book and sections [8.2.3 to 8.2.4](https://bookdown.org/ndphillips/YaRrr/creating-matrices-and-dataframes.html#data.frame) of Philips’ book for more details. 
 
+### Creation of Data Frames
 
-### Tibble {#sec-tibble}
-### data.table
+Similar to how to create a matrix, we can bind named vectors through the function `data.frame()` to create a data frame with a mixture of numeric and character columns.
+
+```r
+data.frame(
+  "id" = 1:5,
+  "age" = c(21, 25, 18, 35, 27),
+  "sex" = c("female", "female", "male", "male", "male"),
+  stringsAsFactors = FALSE # by default for R > 4.0
+)
+```
+
+By default, `data.frame` requires the columns are of equal length.
+If it is not the case and when it is possible, `data.frame` will recycle the elements of the shorter vector(s).
+
+```r
+data.frame(x = 1:4, y = 1:2)
+data.frame(x = 1:4, y = 1:3) # will return an error
+```
+
+You can use `rownames()` and `colnames()` to name/rename the names of row or column.
+You can use the `as.data.frame()` function to convert a `vector`, a `list` or a `matrix` into a `data.frame`.
+
+### Access and Modification of Data Frames
+
+### To Go Further
+
+#### Tibble {#sec-tibble}
+#### data.table
 
 
 ### Manipulating Matrices and Dataframes
