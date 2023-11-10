@@ -116,24 +116,24 @@ nav:
   - Galaxy Trainings:
 
     -  Analyse des Génomes (2023):
-        - PLAN: AnalyseGenomes_2022/outline.md
-        - START A VIRTUAL MACHINE IN GOOGLE CLOUD ENGINE : AnalyseGenomes_2022/bare-galaxy-google.md
-        - DEPLOY A GALAXY SERVER IN THE VM: AnalyseGenomes_2022/deploy-galaxy-server.md
-        - INSTALL GALAXY TOOLS: AnalyseGenomes_2022/Install_tools.md
-        - MANAGE YOUR GOOGLE VM: AnalyseGenomes_2022/manage_VM.md
-        - MANAGE YOUR GALAXY SERVER: AnalyseGenomes_2022/manage_galaxy.md
-        - BOWTIE ALIGNMENT USING COMMAND LINES: AnalyseGenomes_2022/bowtie_cli.md
-        - BOWTIE ALIGNMENT USING GALAXY: AnalyseGenomes_2022/bowtie_galaxy.md
-        - LOAD TRAINING DATA: AnalyseGenomes_2022/Loading_data_in_galaxy.md
-        - PREPARE A REFERENCE GENOME: AnalyseGenomes_2022/Preparing_reference.md
-        - Format conversion using command lines: AnalyseGenomes_2022/file_parsing_cli.md
-        - Format conversion using a galaxy tool: AnalyseGenomes_2022/file_parsing_galaxy.md
-        - Running a galaxy workflow: AnalyseGenomes_2022/Run_workflow.md
-        - Why administering galaxy ?: AnalyseGenomes_2022/whyadmin.md
-        - "Appendix 1: Getting a Google Cloud Engine Account": AnalyseGenomes_2022/Google_cloud_Account.md
-        - "Appendix 2: Start and stop a Google virtual machine": AnalyseGenomes_2022/spin_off_VM.md
-        - "Appendix 3: The ADMIN tool kit": AnalyseGenomes_2022/admin_kit.md
-        - "Appendix 4: EMERGENCY image!": AnalyseGenomes_2022/emergency_image.md
+        - PLAN: AnalyseGenomes_2023/outline.md
+        - START A VIRTUAL MACHINE IN GOOGLE CLOUD ENGINE : AnalyseGenomes_2023/bare-galaxy-google.md
+        - DEPLOY A GALAXY SERVER IN THE VM: AnalyseGenomes_2023/deploy-galaxy-server.md
+        - INSTALL GALAXY TOOLS: AnalyseGenomes_2023/Install_tools.md
+        - MANAGE YOUR GOOGLE VM: AnalyseGenomes_2023/manage_VM.md
+        - MANAGE YOUR GALAXY SERVER: AnalyseGenomes_2023/manage_galaxy.md
+        - BOWTIE ALIGNMENT USING COMMAND LINES: AnalyseGenomes_2023/bowtie_cli.md
+        - BOWTIE ALIGNMENT USING GALAXY: AnalyseGenomes_2023/bowtie_galaxy.md
+        - LOAD TRAINING DATA: AnalyseGenomes_2023/Loading_data_in_galaxy.md
+        - PREPARE A REFERENCE GENOME: AnalyseGenomes_2023/Preparing_reference.md
+        - Format conversion using command lines: AnalyseGenomes_2023/file_parsing_cli.md
+        - Format conversion using a galaxy tool: AnalyseGenomes_2023/file_parsing_galaxy.md
+        - Running a galaxy workflow: AnalyseGenomes_2023/Run_workflow.md
+        - Why administering galaxy ?: AnalyseGenomes_2023/whyadmin.md
+        - "Appendix 1: Getting a Google Cloud Engine Account": AnalyseGenomes_2023/Google_cloud_Account.md
+        - "Appendix 2: Start and stop a Google virtual machine": AnalyseGenomes_2023/spin_off_VM.md
+        - "Appendix 3: The ADMIN tool kit": AnalyseGenomes_2023/admin_kit.md
+        - "Appendix 4: EMERGENCY image!": AnalyseGenomes_2023/emergency_image.md
 
     -  Run your Galaxy server:
         - INTRODUCTION: Run-Galaxy/index.md
