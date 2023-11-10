@@ -124,7 +124,7 @@ which is a more efficient version of data.frame created and used with the `tidyv
     The coloring of cells in Excel files CANNOT be handled.
 
 !!! tip
-    The merged cells can be handled by using the `openxlsx::read.xlsx` with specifying `fillMergedCells = TRUE`,
+    The merged cells can be handled by using the `openxlsx::read.xlsx()` with specifying `fillMergedCells = TRUE`,
     the value in a merged cell is given to all cells within the merge.
 
 ### Read R Data Format (.RDS, .RData)
