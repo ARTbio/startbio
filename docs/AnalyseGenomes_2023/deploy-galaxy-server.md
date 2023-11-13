@@ -44,7 +44,7 @@ Naturally, the nextime you start Galaxy, the process will be quickly skipped.
 
 <center>
 
-![](images/coffee_time.png)
+![](images/coffee_time.png){width="200"}
 </center>
 
 When deployment is finished, you will see the following log in the console:
