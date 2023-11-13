@@ -1,8 +1,7 @@
 ## Conditions and If statements
 
-The use of conditions in R is very important. It allows us to use logical variables 
-and "if" statements to manipulate variables or even to execute R code R code only 
-in certain modalities.
+The use of conditions in R is very important. A logical variable is a variable that can only take two values : `TRUE` and `FALSE`. A if statement indicates that the block code between `{ and }` will only be executed if the condition between parenthesis is fulfilled (or `TRUE`, to say it in short).
+
 
 !!! abstract "Take a break & Read"
     For an introduction in the differents logical conditions and if statements please look at [W3schools If/Else parts](https://www.w3schools.com/r/r_if_else.asp). Thanks to this reference you can also test the differents notions directly in this website. 
@@ -46,6 +45,8 @@ if(my_val > 0){
 
 ## [1] "my value is a negative value."
 ```
+
+> In this case, R will test if our value is negative only if the test `my_val > 0` returns `FALSE`. 
 
 These statements are only working when your condition return a single value (`TRUE` or `FALSE`). 
 But sometimes you'll need to test the same statement multiple times, so there is a way to use a
