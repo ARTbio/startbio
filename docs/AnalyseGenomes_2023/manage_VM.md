@@ -4,19 +4,17 @@ If you read this, you have probably launched at least one time a Google Virtual 
 
 A few rules to get your life easier during the rest of this training:
 
-- ==**Never** stop your VM, instead **suspend** it==
+- ==**Avoid** stopping your VM, instead **suspend** it==
   
   Stopping your VM is like stopping your PC or you laptop.
   
   You will stop everything and will have to literally reboot everything, including
-  the Galaxy server. It is not that difficult actually (see below). However, you have
-  many things to learn these days and it better not use your time and memory just to do
-  that.
+  the Galaxy server. It is not that difficult actually, but it takes a bit more time.
   
   Instead, **Suspending** your VM is like putting your PC in sleeping mode, or closing
   the lid of your laptop.
   
-  Thus, remember, at the end of the day or whenever you will not use your VM for a long
+  Thus, remember, at the end of the day or whenever you are not going to use your VM for a long
   time, use:
   
   ![suspend](images/suspend.png)

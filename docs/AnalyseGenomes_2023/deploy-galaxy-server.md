@@ -28,39 +28,50 @@ sh deploy_galaxy.sh
     This command runs the sh script
     [deploy_galaxy.sh](https://raw.githubusercontent.com/ARTbio/AnalyseGenome/main/GalaxyServer/deploy_galaxy.sh)
 
-  You should see an abundant log scrolling down. Don't worry !
+Running `deploy_galaxy.sh` shows abundant log scrolling down. The task being executed are:
 
-  - All Galaxy dependencies required for the Galaxy server instance are being downloaded and installed
-  - The Galaxy computing environment is automatically set up
-  - the Galaxy web server is installed and static pages are built
-  - The Galaxy database (sqlight) is automatically upgraded to its latest structure/model
+  - All python dependencies required for the Galaxy server instance are downloaded and installed
+  - The Galaxy computing environment (virtualenv) is automatically set up
+  - the Galaxy web server is installed (gunicorn) and static pages are built
+  - The Galaxy database (SQLite) is automatically upgraded to its latest structure/model
   - The package manager Conda, which is heavily used by Galaxy to install its tools is installed.
-  
-  After ~10 minutes, you should see the following log in the ssh console:
+
+
+This deployment process takes a while (~20 minutes with the release 23.1 of Galaxy), but
+this will happen only once.
+
+Naturally, the nextime you start Galaxy, the process will be quickly skipped.
+
+<center>
+
+![](images/coffee_time.png){width="200"}
+</center>
+
+When deployment is finished, you will see the following log in the console:
 
 ```{.bash title="Terminal"}
-Executing: galaxyctl start
-Registered galaxy config: /root/galaxy/config/galaxy.yml
-Creating or updating service gunicorn
-Creating or updating service celery
-Creating or updating service celery-beat
-celery: added process group
-celery-beat: added process group
-gunicorn: added process group
-celery                           STARTING  
-celery-beat                      STARTING  
-gunicorn                         STARTING  
-Log files are in /root/galaxy/database/gravity/log
+Adding systemd unit galaxy-gunicorn.service
+Adding systemd unit galaxy-celery.service
+Adding systemd unit galaxy-celery-beat.service
+Adding systemd unit galaxy.target
+Created symlink /etc/systemd/system/multi-user.target.wants/galaxy.target → /etc/systemd/system/galaxy.target.
+  UNIT                       LOAD   ACTIVE SUB     DESCRIPTION
+  galaxy-celery-beat.service loaded active running Galaxy celery-beat
+  galaxy-celery.service      loaded active running Galaxy celery
+  galaxy-gunicorn.service    loaded active running Galaxy gunicorn
+  galaxy.target              loaded active active  Galaxy
+
+LOAD   = Reflects whether the unit definition was properly loaded.
+ACTIVE = The high-level unit activation state, i.e. generalization of SUB.
+SUB    = The low-level unit activation state, values depend on unit type.
+
+4 loaded units listed.
+To show all installed unit files use 'systemctl list-unit-files'.
 Galaxy is now running as a daemon in the background
+and is controlled by systemctl
 ```
 We will review in a section apart how to display the server activity, stop, start or restart
 it.
-
-??? bug "In case of band width issue only"
-    ```
-    wget https://raw.githubusercontent.com/ARTbio/AnalyseGenome/main/GalaxyServer/deploy_galaxy_B.sh && \
-    sh deploy_galaxy_B.sh
-    ```
 
 ### 2. Connect to your living Galaxy instance
 
@@ -79,7 +90,10 @@ You should now be able to access to you Galaxy instance in a your web browser wi
   ![register](images/register.png){ width="300" }
 
   and  **register** to your instance using the email address
-  `admin@galaxy.org` and the password of your choice (:warning: don't forget it)
+  ```
+  admin@galaxy.org
+  ```
+  and the password of your choice (:warning: don't forget it)
   
 - After login, you should see the admin tab in the top menu of the Galaxy interface.
   
