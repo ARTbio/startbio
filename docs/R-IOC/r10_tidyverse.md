@@ -1,14 +1,14 @@
 ## What's the tidyverse ?
 
-The `tidyverse` is a set of R package for data visualisation and manipulation. You can learn 
+The `tidyverse` is a set of R packages for data visualisation and manipulation. You can learn 
 more on their [website](https://www.tidyverse.org/). It contains the following R packages : 
 
 - `dplyr` : A Grammar of Data Manipulation
 - `tidyr` : Tidy Messy Data
 - `stringr` : Simple, Consistent Wrappers for Common String Operations
 - `tibble` : Simple Data Frames
-- `ggplot2` : Create Elegant Data Visualisations Using the Grammar of Graphics
-- `readr` : Read Rectangular Text Data
+- `ggplot2` : Create Elegant Data Visualisations Using the Grammar of Graphics (coming next [here](../r09_viz_ggplot2))
+- `readr` : Read Rectangular Text Data (seen previously [here](../r07_data_import_export))
 - `forcats` : Tools for Working with Categorical Variables (Factors)
 - `purrr` : Functional Programming Tools
 
@@ -18,18 +18,26 @@ You can install and load all these packages with the following commands :
 install.packages("tidyverse")
 library(tidyverse)
 ```
-It's a collection that is really usefull and powerfull in data science. 
+
+It's a collection that is really usefull and powerfull in data science. We are going to rely
+on the book **R for Data Science (2e edition)** (O'Reilly Book on tidyverse), `R4DS` in short, 
+that you can retrieve [here](https://r4ds.hadley.nz/).
+
+!!! abstract "Take a break & Read"
+    For an introduction of the tidyverse, please go read the 
+    [introduction](https://r4ds.hadley.nz/intro) of R4DS.
 
 ### Tibbles, the "new" data.frame
 
 Tidyverse packages are based on the manipulation of a new type of variable, the `"tibble"`.
 It's a variant of `data.frame`. Don't worry, you can manipulate `tibble` the same way as
-`data.frame` that you learn previously (brackets `[ ]`, `$`, and with basics functions such as : `colnames`, `rownames`, `str`, *etc*...). 
+`data.frame` that you learn previously (brackets `[ ]`, `$`, and with basics functions such 
+as : `colnames`, `rownames`, `str`, *etc*...). 
 
 How it looks ? 
 
 ```
-# an example of a tibble from tidyverse
+# An example of a tibble from tidyverse
 starwars
 ```
 
@@ -54,7 +62,7 @@ starwars
 Compared to a `data.frame` version of `starwars` : 
 
 ```
-#First rows of a converted tibble in data.frame
+# First rows of a converted tibble in data.frame
 head(as.data.frame(starwars))
 ```
 
@@ -90,9 +98,125 @@ head(as.data.frame(starwars))
 ```
 
 !!! abstract "Take a break & Read"
-    R for Data Science (O'Reilly Book tidyverse) [section 10](https://r4ds.had.co.nz/tibbles.html)
+    For a detailled description of `tibbles`, please go read the [section 10](https://r4ds.had.co.nz/tibbles.html) 
+    of R4DS (O'Reilly Book on tidyverse).
 
 
-### Manipulating
+### Manipulating data
 
-R for Data Science Second Edition (O'Reilly Book tidyverse) Transform [sections 12 to 19](https://r4ds.hadley.nz/transform).
+Some of tidyverse packages such as `dplyr`, `tidyr` and `stringr` are used for manipulating 
+your data. You can add/remove columns or rows, filter or manipulating strings and tables. 
+
+!!! abstract "Take a break & Read"
+    To introduce the tidyverse, you can read the [section 3 Data Transform](https://r4ds.hadley.nz/data-transform) 
+    of R4DS 2e edition where you can be able to see basic commands for manipulating 
+    `data.frames` and `tibbles` thanks to `dplyr`.
+
+#### Pipe operator
+
+In the previous section, you must have notice some weird code : `|>`. It's called a 
+*pipe operator*. Tidyverse used this weird grammar to improve the code lisibility when
+you combine multiple functions to obtain one variable. 
+
+The following code lines are equivalent : 
+
+```
+# with the pipe operator
+starwars |> 
+  filter(species == "Droid") |>
+  head()
+
+
+#without the pipe operator
+head(filter(starwars, species == "Droid"))
+```
+
+But for those cases where you can combine several functions that may be more complicated, it can 
+really begin to be messy and difficult to read. You can imagine "russian dolls" where using
+the pipe is when they are not stack, it's the best way to know and see how many dolls we have and
+what they looks like.
+
+!!! abstract "Take a break & Read"
+    In order to be an expert of pipe operator, please go read again [section 3.4](https://r4ds.hadley.nz/data-transform#sec-the-pipe) 
+    but also [section 4.3](https://r4ds.hadley.nz/workflow-style#sec-pipes) of R4DS 2e edition that show you the best practices.
+
+#### Tidy data
+
+Using tibbles is not enough to make full use of the tidyverse's functionalities, you need to
+tidy your data. 
+Tidy a data.frame or a tibble is a manipulation of the columns in order to obtain one column = 
+one variable and one row = one observation.
+
+For instance here is a the difference between tidy and untidy data : 
+
+```
+# Untidy data
+untidy_df <- data.frame(celltype = c("T-cells", "B-cells", "Macrophages", "Endothelial cells", 
+                                     "CAFs", "NK cells", "Melanoma"),
+                        Sample1 = c(72, 0, 12, 11, 4, 10, 164), 
+                        Sample2 = c(118, 24, 2, 0, 30, 4, 0),
+                        Sample3 = c(212, 49, 0, 29, 23, 4, 125)
+                        )
+untidy_df
+```
+
+```
+##            celltype Sample1 Sample2 Sample3
+## 1           T-cells      72     118     212
+## 2           B-cells       0      24      49
+## 3       Macrophages      12       2       0
+## 4 Endothelial cells      11       0      29
+## 5              CAFs       4      30      23
+## 6          NK cells      10       4       4
+## 7          Melanoma     164       0     125
+```
+
+This format is often use when you manipulate excel sheets, but there is some inconvenients.
+What are the effectif stands for ? Potatoes ? Okay, I may overstating it but for complicated
+tables it may be an issue and it makes it harder to manipulate untidy data. Instead we are
+going to favor this architecture : 
+
+```
+# Tidy data
+
+tidy_df <- untidy_df |> 
+  pivot_longer(cols = starts_with("Sample"),   # Tidy all columns that starts with "Sample"
+               names_to = "Sample",            # Resume to a new column called "Sample"
+               values_to = "Nbr_of_cells")     # Store the numeric value to a column called "Nbr_of_cells"
+```
+
+```
+## # A tibble: 21 × 3
+##   celltype          Sample  Nbr_of_cells
+##   <chr>             <chr>          <dbl>
+## 1 T-cells           Sample1           72
+## 2 T-cells           Sample2          118
+## 3 T-cells           Sample3          212
+## 4 B-cells           Sample1            0
+## 5 B-cells           Sample2           24
+## 6 B-cells           Sample3           49
+## 7 Macrophages       Sample1           12
+## 8 Macrophages       Sample2            2
+## 9 Macrophages       Sample3            0
+## 10 Endothelial cells Sample1          11
+## # ℹ 11 more rows
+## # ℹ Use `print(n = ...)` to see more rows
+```
+
+The R function `pivot_longer` was used to tidy the data.frame, because it's a tidyverse function
+the resulting value of the variable `tidy_df` is now a tibble. As you can see, we have less
+columns and more rows but now each row describe one observation.
+
+!!! abstract "Take a break & Read"
+    To understand more about the power of tidy data, let's go read 
+    [section 5](https://r4ds.hadley.nz/data-tidy) of R4DS 2e edition.
+
+#### Transform data
+
+Okay now your data are ready, you can use the pipe operator with your eyes closed, it's time to
+look closer to `dplyr` and `stringr`. Thanks to these packages, you will be able to manipulate
+and transform tables as your wish. And bonus ! It will be usefull when you want to visualise your data ! 
+
+!!! abstract "Take a break & Read"
+    Please read carefully the Transform category : 
+    [sections 12 to 19](https://r4ds.hadley.nz/transform) of R4DS Second Edition (O'Reilly Book tidyverse).
