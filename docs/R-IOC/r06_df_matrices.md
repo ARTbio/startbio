@@ -39,6 +39,13 @@ my_mat[, 1] # the 1st column, same as my_mat[, "col"]
 my_mat[c(1, 3), 2] # the 2nd elements of the 1st and the 3rd row, same as my_mat[c("row1", "row3"), "col2"]
 ```
 
+If you use just one index without specifying any commas, you will get the Nth element of the matrix in column order.
+
+```r
+my_mat[3] # return the 3rd element
+my_mat[5] # return the 5th element, so the element in row 2 and column 2
+```
+
 To modify element(s) of a matrix, we can affect new value(s) to wanted position(s) using the index or colname/rowname.
 When the provided new values have a different length than the original ones,
 R will return an error, except you want to replace element(s) by a single new value.
@@ -101,12 +108,13 @@ See chapter [5.8](https://rstudio-education.github.io/hopr/r-objects.html#data-f
 Similar to how to create a matrix, we can bind named vectors through the function `data.frame()` to create a data frame with a mixture of numeric and character columns.
 
 ```r
-data.frame(
+my_df <- data.frame(
   "id" = 1:5,
   "age" = c(21, 25, 18, 35, 27),
   "sex" = c("female", "female", "male", "male", "male"),
   stringsAsFactors = FALSE # by default for R > 4.0
 )
+rownames(my_df) <- paste0("sample", 1:5) # data.frame can have unique rownames
 ```
 
 By default, `data.frame` requires the columns are of equal length.
@@ -122,15 +130,59 @@ You can use the `as.data.frame()` function to convert a `vector`, a `list` or a 
 
 ### Access and Modification of Data Frames
 
+Similar to the way that we use for matrix, we can access the elements in a data.frame by using the index or the name of rows or columns.
+
+```r
+my_df[, c(2, 3)] # get the 2nd and the 3rd columns by column index
+my_df[c(2, 3)] # the same as above but NOT suggested
+
+my_df[, c("age", "sex")] # get the 2nd and the 3rd columns by colnames
+my_df[c("age", "sex")] # the same as above but NOT suggested
+```
+
+We can inverse select the column by adding `-` before the column index or name:
+
+```r
+my_df[, -c(2, 3)] # get all columns except the 2nd and the 3rd
+my_df[, -c("age", "sex")]
+```
+
+The same logique to access to rows:
+
+```r
+my_df[c("sample1", "sample5"), ]
+my_df[c(1, 5), ]
+
+my_df[-c("sample1", "sample5"), ]
+my_df[-c(1, 5), ]
+```
+
+How to modify a `data.frame`?
+We can use `$` or `cbind` to add a named vector of equal length as the other columns or a named vector length of 1 as a new column.
+
+```r
+my_df$new_col <- letters[1:5]
+# or
+cbind(my_df, "new_col" = letters[1:5])
+my_df$new_col2 <- "cohort1"
+```
+
+To delete colummns in a `data.frame`, we can simply affect the wanted columns to `NULL`.
+
+```r
+my_df$new_col <- NULL
+```
+
+For other possible manipulations in `matrix` and `data.frame`, please refer to the sections [8.3 to 8.6](https://bookdown.org/ndphillips/YaRrr/matrix-and-dataframe-functions.html) of Philips’ book.
+
 ### To Go Further
 
-#### Tibble {#sec-tibble}
-#### data.table
+Besides the traditional `data.frame` class, there are other "enhanced" version of `data.frame`, for example:
 
+* the `tibble` ([tbl-df](https://search.r-project.org/CRAN/refmans/tibble/html/tbl_df-class.html)), which is the central data structure used by differents packages from <code>[tidyverse](https://www.tidyverse.org/packages/)</code>.
+Read more about `tibble` [here](https://r4ds.had.co.nz/tibbles.html) of Hadley Wickham's book "R for Data Science".
+* the <code>[data.table](https://cran.r-project.org/web/packages/data.table/vignettes/datatable-intro.html)</code>, which was developped to manipulate large data structure in a fast and memory efficient way.
 
-### Manipulating Matrices and Dataframes
-
-Please read with attention the sections [8.3 to 8.6](https://bookdown.org/ndphillips/YaRrr/matrix-and-dataframe-functions.html) of Philips’ book. 
 
 **Exercises to manipulate matrices and dataframes**
 
