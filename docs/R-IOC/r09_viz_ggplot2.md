@@ -117,3 +117,89 @@ ggsave(
 
 [The eBook of Claus](https://clauswilke.com/dataviz/) is interesting to have look for the general ideas of plot type to use and how to do a better visualization (not limited to ggplot2 figures).
 
+## Exercises
+
+Let's play with the dataset `diamonds` provided in the `ggplot2` package,
+it contains prices of more than 50,000 round cut diamonds, with 10 variables.
+Use `?diamonds` to get the full description and `str(diamonds)` to have a glimpse of the data structure.
+
+* Create a plot to visualize the `price` and the `carat`, colored by the quality of the `cut`
+
+```r
+library("ggplot2")
+data("diamonds")
+ggplot(
+  data = diamonds,
+  mapping = aes(x = carat, y = price)
+) +
+  geom_point(aes(color = cut))
+```
+
+* Change the shape and the size of the points
+
+```r
+ggplot(
+  data = diamonds,
+  mapping = aes(x = carat, y = price)
+) +
+  geom_point(aes(color = cut), shape = 2, size = 0.5) # possible shape `?pch`
+```
+
+* Create a histogram of `price` by the diamonds' `color`
+
+```r
+ggplot(data = diamonds) +
+  geom_histogram(aes(x = price, color = color, fill = color))
+```
+
+* What happens if you add `position = "dodge"` in the `geom_histogram()` function ?
+
+```r
+ggplot(data = diamonds) +
+  geom_histogram(
+    aes(x = price, color = color, fill = color),
+    position = "dodge"
+  )
+```
+
+* Do the same figure but only for diamonds with prices higher than 10,000$.
+
+```r
+ggplot(data = subset(diamonds, price > 10000)) +
+  geom_histogram(
+    aes(x = price, color = color, fill = color),
+    position = "dodge"
+  )
+```
+
+* Draw a density plot of prices by group of `clarity`.
+
+```r
+ggplot(data = diamonds) +
+  geom_density(aes(x = price, color = clarity))
+```
+
+* Visualize the diamonds' `carat` and width (`y`), colored by `clarity` and use `color` as facet.
+
+```r
+ggplot(data = diamonds) +
+  geom_point(aes(x = carat, y = y, color = clarity)) +
+  facet_wrap(facets = vars(color))
+```
+
+* Add a 2nd facet by using the `cut` and use free scales for both axes in the facets.
+
+```r
+ggplot(data = diamonds) +
+  geom_point(aes(x = carat, y = y, color = clarity)) +
+  facet_wrap(facets = vars(color, cut), scales = "free")
+```
+
+* What happens if you use `facet_grid()` (with appropriate arguments for facets, check `?facet_grid`) instead of `facet_wrap()`?
+
+```r
+ggplot(data = diamonds) +
+  geom_point(aes(x = carat, y = y, color = clarity)) +
+  facet_grid(rows = vars(color), cols = vars(cut), scales = "free")
+```
+
