@@ -60,11 +60,22 @@ p5
 ## A Plot With More Detail?
 
 ```r
-p_box <- ggplot(data = iris, aes(x = Species, y = Petal.Length)) + # init plot
-  geom_boxplot(aes(color = Species), outlier.shape = NA) + # add a layer of boxplot
-  scale_color_viridis_d(begin = 0.2, end = 0.8) + # tweak boxplot color using viridis palette
-  geom_point(alpha = 0.5, position = position_jitter(seed = 123)) + # add a layer of dots
-  stat_summary(fun = mean, shape = 17, geom = "point", size = 2, color = "red") + # add summary of average value with specified form (a red point of shape 17 and size 2)
+p_box <- ggplot( # init plot
+  data = iris,
+  mapping = aes(x = Species, y = Petal.Length)
+) +
+  geom_boxplot( # add a layer of boxplot
+    mapping = aes(color = Species), # colored by species
+    outlier.shape = NA # hide outlier points
+  ) + 
+  scale_color_viridis_d(begin = 0.2, end = 0.8) + # replace boxplot color by viridis palette
+  geom_point( # add a layer of dots
+    position = position_jitter(seed = 123) # use jitter position to avoid overlapping
+    alpha = 0.5 # make the points transparent
+  ) +
+  stat_summary(# add summary of average value with specified form (a red point of shape 17 and size 2)
+    fun = mean, shape = 17, geom = "point", size = 2, color = "red"
+  ) +
   labs( # tweak labels
     x = NULL, # remove abscissa title
     y = "Petal Length (cm)", # change ordinate title
