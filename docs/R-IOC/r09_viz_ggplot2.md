@@ -108,5 +108,12 @@ ggsave(
 )
 ```
 
+## Which Type of Plot?
 
-**reserve for exercises**
+* One variable: boxplot, histgram, pie chart, density plot
+* Two quantitative variables: scatter plot (dots plot)
+* Two qualitative variables: (nested) boxplot
+* One quantitative and one qualitative: boxplot, violin plot
+
+[The eBook of Claus](https://clauswilke.com/dataviz/) is interesting to have look for the general ideas of plot type to use and how to do a better visualization (not limited to ggplot2 figures).
+
