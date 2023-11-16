@@ -11,7 +11,7 @@ There are R functions which allow users to download files from the Internet, for
 download.file(
   url = "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000841/ScoringFiles/PGS000841.txt.gz",
     # example of the polygenic risk score file for the trait BMI
-  destifle = "path/to/out_dir"
+  destfile = "path/to/out_dir"
 )
 
 # install.packages("curl")
