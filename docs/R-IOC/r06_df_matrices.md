@@ -184,6 +184,105 @@ Read more about `tibble` [here](https://r4ds.had.co.nz/tibbles.html) of Hadley W
 * the <code>[data.table](https://cran.r-project.org/web/packages/data.table/vignettes/datatable-intro.html)</code>, which was developped to manipulate large data structure in a fast and memory efficient way.
 
 
-**Exercises to manipulate matrices and dataframes**
+## Exercises
 
+* Create an object of matrix with 3 rows and 4 columns, fill with numbers 1 to 12 by row,
+name the rows with "r1", "r2", "r3" and the columns with "c1", "c2", "c3", "c4".
+
+```r
+my_mat <- matrix(
+  1:12, nrow = 3, ncol = 4, byrow = TRUE,
+  dimnames = list(c("r1", "r2", "r3"), c("c1", "c2", "c3", "c4"))
+)
+```
+
+* Extract the 2nd row
+
+```r
+my_mat[2, ]
+my_mat["r2", ]
+```
+
+* Extract the 2nd row but keep it in matrix format
+
+```r
+my_mat[2, , drop = FALSE]
+my_mat["r2", , drop = FALSE]
+```
+
+* Extract the 2nd row using a logical vector
+
+```r
+my_mat[c(FALSE, TRUE, FALSE), ]
+```
+
+* What are the positions for the numbers that are multiples of 3?
+
+```r
+which((my_mat / 3) %in% seq(12/3))
+```
+
+* Add a column "c5" containing the values "a", "b", "c". What happens after this add?
+
+```r
+my_mat <- cbind(my_mat, "c5" = c("a", "b", "c"))
+```
+
+* Now delete the added column and convert the matrix to numeric mode.
+
+```r
+my_mat <- my_mat[, -5]
+# or
+my_mat <- my_mat[, !colnames(my_mat) %in% "c5"]
+
+mode(my_mat) <- "numeric"
+```
+
+* Replace the element bigger than 10 by 99
+
+```r
+my_mat[my_mat > 10] <- 99
+```
+
+* Transforme the matrix to a `data.frame`
+
+```r
+my_df <- as.data.frame(my_mat)
+```
+
+* Use the rownames to create a new column "id".
+
+```r
+my_df$id <- rownames(my_mat)
+```
+
+* Which rows has duplicated values?
+
+```r
+apply(my_df, MARGIN = 1, FUN = function(i) length(unique(i)) < ncol(my_df))
+```
+
+* Create a new column "total" which calcul the sum of column "c1" to "c4" by row.
+
+```r
+my_df$total <- rowSums(my_df[, c("c1", "c2", "c3", "c4")])
+```
+
+* Change the column order to put the "id" in the first column.
+
+```r
+my_df <- my_df[, c("id", setdiff(colnames(my_df), "id"))]
+```
+
+* Remove the rownames.
+
+```r
+rownames(my_df) <- NULL
+```
+
+* Add a new row which contains the sum of each column (except the "id" column, put `NA` in the new row for this column).
+
+```r
+my_df <- rbind(my_df, c(NA, colSums(my_df[, -1])))
+```
 
