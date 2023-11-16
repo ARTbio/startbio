@@ -3,7 +3,7 @@
 - [x] You have obtained and activated your Google Coupon for this training as described in
 [Appendix 1](../Google_cloud_Account)
 - [x] You have accessed to the Google dashboard and tested Starting and Stopping a virtual
-machine (VM) instance as described in [Appendix 2](../spin_off_VM)
+machine (VM) instance as described in [Appendix 1](../Google_cloud_Account)
 
 ### 1. Spin off a virtual Machine `bare-galaxy` with ![](images/google-padok.png){: style="width:30px"} Google Cloud Engine
 
@@ -16,14 +16,14 @@ machine (VM) instance as described in [Appendix 2](../spin_off_VM)
 !!! info "with the following settings"
     - Name: `bare-galaxy`
     - Region `europe-west6 (Zurich)` (or any region available with you Google coupon). ==As
-    it is very unlikely that a single Google zone will be able to provide enough resources
-    to support 18 virtual machines at the same time, we will have to coordinate to
+    it is unlikely that a single Google zone will be able to provide enough resources
+    to support 18 virtual machines at the same time, we will have to
     distribute our instances to different zones in Europe and USA==.
     - Zone: `europe-west6-a` (or `-b` or `-c`)
     - **Configuration de la machine**
-        - `OPTIMISEE POUR LE CALCUL` (or `COMPUTE-OPTIMISED`) ==:link:[in case of trouble](#trouble-shouting)==
-        - Série: `C2`
-        - Type de machine: `c2-standard-8 (8 processeurs virtuels, 32 Go de mémoire)`
+        - `USAGE général`
+        - Série: `E2`
+        - Type de machine: `PRÉDEFINI` :arrow_forward: `Standard` :arrow_forward: `e2-standard-8`
     - **Disque de démarrage (Modifier)**
         - `IMAGES PUBLIQUES`
         - Système d'exploitation: `Ubuntu`
@@ -34,9 +34,9 @@ machine (VM) instance as described in [Appendix 2](../spin_off_VM)
     - **Pare-feu**
         - Check `Autoriser le trafic HTTP`
 
-This settings should look like:
+These settings should look like:
     
-![](images/GCE_spin.png){: style="width:450px"}
+![](images/GCE_spin.png){: style="width:600px"}
 ![](images/GCE_OS.png){: style="width:450px"}
 ![](images/GCE_firewall.png){: style="width:450px"}
 
@@ -72,3 +72,5 @@ Roll down the `ssh` menu in the control pannel and select the first option
 **This opens a web ssh shell session to control your VM:**
 
 ![](images/web_ssh_console.png)
+
+---
