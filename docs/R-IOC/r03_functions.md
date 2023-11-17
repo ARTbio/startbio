@@ -102,7 +102,7 @@ The important elements here are:
     
 - The `return` statement
     
-    Here, `return(y)`)
+    Here, `return(y)`
     
     The return statement is usually at the end of the body function. This is the result
     that the function will return when executed, which can be assigned to a variable or
