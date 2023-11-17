@@ -130,10 +130,10 @@ nav:
         - Format conversion using a galaxy tool: AnalyseGenomes_2023/file_parsing_galaxy.md
         - Running a galaxy workflow: AnalyseGenomes_2023/Run_workflow.md
         - Why administering galaxy ?: AnalyseGenomes_2023/whyadmin.md
-        - "Appendix 1: Getting a Google Cloud Engine Account": AnalyseGenomes_2023/Google_cloud_Account.md
-        - "Appendix 2: Start and stop a Google virtual machine": AnalyseGenomes_2023/spin_off_VM.md
-        - "Appendix 3: The ADMIN tool kit": AnalyseGenomes_2023/admin_kit.md
-        - "Appendix 4: EMERGENCY image!": AnalyseGenomes_2023/emergency_image.md
+        - "Spin off a VM with your Google Cloud Account": AnalyseGenomes_2023/Google_cloud_Account.md
+        # - "Appendix 2: Start and stop a Google virtual machine": AnalyseGenomes_2023/spin_off_VM.md
+        # - "Appendix 3: The ADMIN tool kit": AnalyseGenomes_2023/admin_kit.md
+        - "EMERGENCY image": AnalyseGenomes_2023/emergency_image.md
 
     -  Run your Galaxy server:
         - INTRODUCTION: Run-Galaxy/index.md
