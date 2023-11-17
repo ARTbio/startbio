@@ -157,6 +157,15 @@ my_df[-c("sample1", "sample5"), ]
 my_df[-c(1, 5), ]
 ```
 
+Particularly for columns, the `[[` and `$` operators can be used to select a single column and return the values in a vector.
+The main difference is that `$` does not allow index, while `[[` allow both column name and index.
+
+```r
+my_df$age
+my_df[["age"]]
+my_df[[2]]
+```
+
 How to modify a `data.frame`?
 We can use `$` or `cbind` to add a named vector of equal length as the other columns or a named vector length of 1 as a new column.
 
