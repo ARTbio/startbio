@@ -228,7 +228,7 @@ my_mat[c(FALSE, TRUE, FALSE), ]
 * What are the positions for the numbers that are multiples of 3?
 
 ```r
-which((my_mat / 3) %in% seq(12/3))
+which(my_mat %% 3 == 0)
 ```
 
 * Add a column "c5" containing the values "a", "b", "c". What happens after this add?
