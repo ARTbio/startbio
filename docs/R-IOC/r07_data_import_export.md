@@ -116,7 +116,7 @@ my_xlsx <- read_xlsx(
 ```
 
 All these functions will return a [tibble](https://tibble.tidyverse.org/reference/tibble-package.html),
-which is a more efficient version of data.frame created and used with the `tidyverse` packages (See "Tibble" section in the [Dataframes and Matrices](r06_df_matrices.md) chapter).
+which is a more efficient version of data.frame created and used with the `tidyverse` packages (See "Tibble" section in the [tidyverse](r10_tidyverse.md) chapter).
 
 `excel_sheets()` is useful to list all sheets without openning the file.
 

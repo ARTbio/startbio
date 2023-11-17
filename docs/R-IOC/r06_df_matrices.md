@@ -190,6 +190,7 @@ Besides the traditional `data.frame` class, there are other "enhanced" version o
 
 * the `tibble` ([tbl-df](https://search.r-project.org/CRAN/refmans/tibble/html/tbl_df-class.html)), which is the central data structure used by differents packages from <code>[tidyverse](https://www.tidyverse.org/packages/)</code>.
 Read more about `tibble` [here](https://r4ds.had.co.nz/tibbles.html) of Hadley Wickham's book "R for Data Science".
+And we will cover this special data structure in the section [tidyverse](r10_tidyverse.md).
 * the <code>[data.table](https://cran.r-project.org/web/packages/data.table/vignettes/datatable-intro.html)</code>, which was developped to manipulate large data structure in a fast and memory efficient way.
 
 
