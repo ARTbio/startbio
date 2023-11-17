@@ -129,7 +129,7 @@ To build the factor of a vector, R, behind the scene,  (i) determines the distin
 
 Let’s start from the vector
 
-`pidigits <- c(3, 1, 4, 1, 5, 9, 3`)
+`pidigits <- c(3, 1, 4, 1, 5, 9, 3)`
 
 and generate its factor pidigits_factor by
 
@@ -245,7 +245,24 @@ Or,
 
 **Exercises to manipulate factors**
 
-[To be done]
+* Create factor of exam grades "A", "B", "C", "D", label them with "excellent", "good", "ok", "bad" respectively.
+What is the current reference level?
+
+```r
+exam_grade <- factor(c("A", "B", "C", "D"), lable = c("excellent", "good", "ok", "bad"))
+```
+
+* Now set the grade "B" as the reference level.
+
+```r
+exam_grade <- relevel(exam_grade, ref = "B")
+```
+
+* The grade "D" is no longer used in exam grades, please delete it from the vector and drop this unused level.
+
+```r
+droplevels(exam_grade[exam_grade != "D"])
+```
 
 
 ### Variable Manipulation
