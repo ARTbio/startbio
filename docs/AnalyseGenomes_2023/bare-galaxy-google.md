@@ -5,7 +5,7 @@
 - [x] You have accessed to the Google dashboard and tested Starting and Stopping a virtual
 machine (VM) instance as described in [Appendix 1](../Google_cloud_Account)
 
-### 1. Spin off a virtual Machine `bare-galaxy` with ![](images/google-padok.png){: style="width:30px"} Google Cloud Engine
+### 1. Spin off a virtual Machine `bare-galaxy` with ![](images/google-padok.png){width="30px" align="bottom"} Google Cloud Engine
 
 - Connect to your Google Compute Instances
   [dashboard](https://console.cloud.google.com/compute/instances)
