@@ -22,12 +22,12 @@ If it's `GO` !
 1. Go to your compute engine dashbord
 2. Stop your sick instance (you can even destroy it if you are sure it is really sick)
 3. Click on `CREER UNE INSTANCE`
-4. Give a new name to your instance (`save-me` for instance :smile:)
+4. Give a new name to your instance (`galaxy-backup` for instance)
 5. Region: somewhere in Europe
 6. Zone: where you can
-7. Click on `OPTIMISEE POUR LE CALCUL`
-8. Serie `C2`
-9. Type de Machine: `c2-standard-8`
+7. Click on `Usage général / E2 / PRÉDÉFINI`
+8. In the menu `PRÉDÉFINI`, select `Standard / e2-standard-8`
+9. Type de Machine: `e2-standard-8`
 10. Click at the bottom the check boxe `Autoriser le trafic HTTP`
 
 This is for the easy part.
@@ -37,23 +37,18 @@ Now the tricky part, using illustrations.
 1. Click `MODIFIER` in the `Disque de démarrage` section
 2. Click `IMAGES PERSONNALISEES`
 3. Click - really click - on `MODIFIER` of the field `Projet source pour les images *`
-4. There, you should see a project named `chris-workshop`. If you do not see it, it must
-  be because I did not register your email address (the academic one) for free access to
-  the image. Ring me again !
+4. Then, on the popup panel, click *again* the `TOUS` tab !
+5. Now, you should see `analyse-genomes-2023` appearing in the list !
+   Click this item, and check that now the `Projet source pour les images` has become
+   `analyse-genomes-2023`
+6. Click on the scroll-down menu `Image*`, and select the image `ag2023-image`
   
       ![chris-workshop](images/chris-workshop.png){width="350"}
   
-- Now, when you click the `Image *` field, you should see in the rolling menu, The
-  emergency image
-  ```
-  ag-2022
-  x86/64, Créée le 23 nov. 2022, 19:53:43
-  ```
-  Select it
 - The remaining fields should automatically fill in (`Disque persistant avec équilibrage` and `200 Go`)
 - If you have this:
   
-    ![form image personnalisee](images/select-ag2022-rescue-image.png){width="500"}
+    ![form image personnalisee](images/select-ag2023-rescue-image.png){width="500"}
   
   You can click on `SELECTIONNER`
   
@@ -61,12 +56,10 @@ Now the tricky part, using illustrations.
 
 Almost rescued !
 
-- Open an ssh console in your browser using the menu in the "connecter" column.
-- type sudo -i 
-- You will see the log indicating that Galaxy is starting (celery, celery-beat and guincorn)
 - go back to your Google Cloud engine dashboard.
 - Click on the external IP address
 - Click on Login/Register.
   This time, you do not have to register, this is already done !
-  Just put `admin@galaxy.org` as Email Address and `ag2022` as Password.
-- ==You are DONE== :tada: ! Back in a fresh, clean Galaxy server.
+  Just put `admin@galaxy.org` as Email Address and `ag2023` as Password.
+- ==You are DONE== :tada: ! Back in a fresh, clean Galaxy server, with preloaded datasets
+  and reference genome !
