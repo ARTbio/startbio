@@ -1,8 +1,8 @@
 For the course "Analyse des Génomes", we need three types of datasets
 
-- The reference sequences that will be used to align sequencing reads (full genome, miRNA, transposons, etc.)
-- libraries of sequencing reads from small RNAs (for analysis of piRNAs)
-- Librairies of sequencing reads from mRNA (for Gene differential expression analysis)
+- [x] The reference sequences that will be used to align sequencing reads (full genome, miRNA, transposons, etc.)
+- [x] libraries of sequencing reads from small RNAs (for analysis of piRNAs)
+- [x] Librairies of sequencing reads from mRNA (for Gene differential expression analysis)
 
 All these data have been deposited in the storage server
 [Psilo](https://psilo.sorbonne-universite.fr/index.php/s/yHSoKGZKMeJkeXa) at
@@ -31,10 +31,10 @@ Before all, create a new history by clicking the :heavy_plus_sign: icon in the h
 and immediately renaming the new history as
 `References`.
 
-- Click the `Upload Data` button at the top-left corner of the Galaxy interface.
-- This time, Click the `Rule-based` tab !
-- Leave **Upload data as** `Datasets` and **Load tabular data from** `Pasted Table`
-- In the text field `Tabular source data to extract collection files and metadata from`,
+- [x] Click the `Upload Data` button at the top-left corner of the Galaxy interface.
+- [x] This time, Click the `Rule-based` tab !
+- [x] Leave **Upload data as** `Datasets` and **Load tabular data from** `Pasted Table`
+- [x] In the text field `Tabular source data to extract collection files and metadata from`,
 paste the following Tabular source data:
 
 !!! info ":candy: URLs of references (genome and RNA classes)"
@@ -53,24 +53,24 @@ paste the following Tabular source data:
     https://psilo.sorbonne-universite.fr/index.php/s/A8dB5qPW3KgxNey/download/PlacW.fasta	PlacW
     ```
 
-- Click the `Build` button
-- In the `Build Rules ...` pannel that opens, click the ![](images/plus_rules.png){width="80" align="absbottom"}
+- [x] Click the `Build` button
+- [x] In the `Build Rules ...` pannel that opens, click the ![](images/plus_rules.png){width="80" align="absbottom"}
 and choose `Add/Modify Column Definitions`
-- Click a first time on `Add Definition` and Select `URL`. Leave the URL column to `A`
-- Click a second time on `Add Definition`, select `Name` and choose the column `B` for `Name`
-- Now, click the `Apply` button
-- And to finish the job, click on the dark-blue button `Upload`
+- [x] Click a first time on `Add Definition` and Select `URL`. Leave the URL column to `A`
+- [x] Click a second time on `Add Definition`, select `Name` and choose the column `B` for `Name`
+- [x] Now, click the `Apply` button
+- [x] And to finish the job, click on the dark-blue button `Upload`
 
 <center>:tada:	:confetti_ball:	:balloon:</center>
 
 #### 2. Upload of small RNA sequencing datasets :heavy_plus_sign: Programmatic dataset naming.
 
-- Create a new history using the :heavy_plus_sign: icon of the history menu, and rename it
+- [x] Create a new history using the :heavy_plus_sign: icon of the history menu, and rename it
   `Small RNA sequence datasets`
-- Click the `Upload Data` button at the top-left corner of the Galaxy interface.
-- Click the `Rule-based`tab as we just did with the reference datasets
-- Leave **Upload data as** `Datasets` and **Load tabular data from** `Pasted Table`
-- In the text field `Tabular source data to extract collection files and metadata from`,
+- [x] Click the `Upload Data` button at the top-left corner of the Galaxy interface.
+- [x] Click the `Rule-based`tab as we just did with the reference datasets
+- [x] Leave **Upload data as** `Datasets` and **Load tabular data from** `Pasted Table`
+- [x] In the text field `Tabular source data to extract collection files and metadata from`,
 paste the following Tabular source data:
 !!! info ":ice_cream: small RNAseq datasets"
     ```
@@ -85,26 +85,26 @@ paste the following Tabular source data:
     https://psilo.sorbonne-universite.fr/index.php/s/xgFNxA6fb7GgaLL/download/GRH-104_R1.fastq.gz	GRH-104
     https://psilo.sorbonne-universite.fr/index.php/s/Cp5ToXyj3X5jZxT/download/GRH-106_R1.fastq.gz	GRH-106
     ```
-- Click the `Build` button
-- In the `Build Rules ...` pannel that opened, click the ![](images/plus_rules.png){width="80" align="absbottom"}
+- [x] Click the `Build` button
+- [x] In the `Build Rules ...` pannel that opened, click the ![](images/plus_rules.png){width="80" align="absbottom"}
 and choose `Add/Modify Column Definitions`
-- Click a first time on `Add Definition` and Select `URL`. Leave the URL column to `A`
-- Click a second time on `Add Definition`, select `Name` and choose the column `B` for `Name`
-- Now, click the `Apply` button
-- select the Type "fastqsanger.gz" at the bottom of the panel
+- [x] Click a first time on `Add Definition` and Select `URL`. Leave the URL column to `A`
+- [x] Click a second time on `Add Definition`, select `Name` and choose the column `B` for `Name`
+- [x] Now, click the `Apply` button
+- [x] select the Type "fastqsanger.gz" at the bottom of the panel
 
     ![](images/type_fastqsanger_gz.png){width="200"}
 
-- To finish the job, click on the dark-blue button `Upload`
+- [x] To finish the job, click on the dark-blue button `Upload`
 <center>:tada:	:confetti_ball:	:balloon: :tada:	:confetti_ball:	:balloon:</center>
 
 #### 3. RNAseq datasets (for gene differential expression analysis)
 
-- Create a new history in Galaxy and rename it `RNA sequence datasets`
-- Click the `Upload Data` button at the top-left corner of the Galaxy interface.
-- Click the `Rule-based`tab as we just did with the reference datasets
-- Leave **Upload data as** `Datasets` and **Load tabular data from** `Pasted Table`
-- In the text field `Tabular source data to extract collection files and metadata from`,
+- [x] Create a new history in Galaxy and rename it `RNA sequence datasets`
+- [x] Click the `Upload Data` button at the top-left corner of the Galaxy interface.
+- [x] Click the `Rule-based`tab as we just did with the reference datasets
+- [x] Leave **Upload data as** `Datasets` and **Load tabular data from** `Pasted Table`
+- [x] In the text field `Tabular source data to extract collection files and metadata from`,
 paste the following Tabular source data:
 !!! info ":doughnut: RNAseq datasets"
     ```
@@ -116,17 +116,17 @@ paste the following Tabular source data:
     https://psilo.sorbonne-universite.fr/index.php/s/YFnT3KzPNLdH3N4/download/WT3_R1.fastq.gz	WT3
     ```
 
-- Click the `Build` button
-- In the `Build Rules ...` pannel that opened, click the ![](images/plus_rules.png){width="80" align="absbottom"}
+- [x] Click the `Build` button
+- [x] In the `Build Rules ...` pannel that opened, click the ![](images/plus_rules.png){width="80" align="absbottom"}
 and choose `Add/Modify Column Definitions`
-- Click a first time on `Add Definition` and Select `URL`. Leave the URL column to `A`
-- Click a second time on `Add Definition`, select `Name` and choose the column `B` for `Name`
-- Click the `Apply` button
-- select the Type "fastqsanger.gz" at the bottom of the panel
+- [x] Click a first time on `Add Definition` and Select `URL`. Leave the URL column to `A`
+- [x] Click a second time on `Add Definition`, select `Name` and choose the column `B` for `Name`
+- [x] Click the `Apply` button
+- [x] select the Type "fastqsanger.gz" at the bottom of the panel
 
     ![](images/type_fastqsanger_gz.png){width="200"}
 
-- And to finish the job, click on the dark-blue button `Upload`
+- [x] And to finish the job, click on the dark-blue button `Upload`
 
 <center>:tada:	:confetti_ball:	:balloon: :tada:	:confetti_ball:	:balloon:
 :tada:	:confetti_ball:	:balloon: :tada:	:confetti_ball:	:balloon:</center>
@@ -213,14 +213,14 @@ datatype will therefore become `fastqsanger`.
 
 ##### When all datasets are decompressed
 
-- Delete the compressed datasets (by clicking on the cross icon of datasets).
-- Rename the uncompressed datasets by removing the `uncompressed` suffix.
-- Purge the deleted datasets. This is done by clicking the wheel icon of the **top**
+- [x] Delete the compressed datasets (by clicking on the cross icon of datasets).
+- [x] Rename the uncompressed datasets by removing the `uncompressed` suffix.
+- [x] Purge the deleted datasets. This is done by clicking the wheel icon of the **top**
 history menu, and selecting `Purge Deleted Datasets` in the **Datasets Actions** section.
     
     ![](images/wheel.png){width="250"}
     
-- :warning: If you do not perform this last action, the deleted datasets remain on your
+- [x] :warning: If you do not perform this last action, the deleted datasets remain on your
 instance disk !
 
 #### 5. Dataset collections :alien:
@@ -238,23 +238,23 @@ Collections are particularly useful for RNAseq datasets,since these datasets oft
 as replicates which can be grouped upon a label. Your training is indeed a good example of
 that, since you are provided with 3 `WT` datasets (1, 2 and 3) and 3 `SF` datasets (1, 2 and 3).
 
-- Navigate to you `RNAseq inputs` history (or whatever you named it) and click the upper left small check box
+- [x] Navigate to you `RNAseq inputs` history (or whatever you named it) and click the upper left small check box
   at the top of the dataset stack ![](images/history_checkbox.png){width="150" align="absbottom"}
   
   You see that check boxes appear for each dataset of the history
   
-- Check the 3 RNA datasets `WT1`, `WT2` and `WT3`
-- In the menu `3 of 6 selected` (also in the top area of the history), select
+- [x] Check the 3 RNA datasets `WT1`, `WT2` and `WT3`
+- [x] In the menu `3 of 6 selected` (also in the top area of the history), select
   `Build Dataset List`
   
   ![build list](images/build_list.png){width="250"}
   
-- In the pop-up panel, just type `WT` in the field `Name: Enter a name for your new collection`
-- Reorganize the datasets order by clicking the `alphabetic sorting` icon.
-- Press the button `Create Collection`
+- [x] In the pop-up panel, just type `WT` in the field `Name: Enter a name for your new collection`
+- [x] Reorganize the datasets order by clicking the `alphabetic sorting` icon.
+- [x] Press the button `Create Collection`
 
-- **Repeat exactly the same operations for the 3 remaining datasets `SF1`, `SF2` and `SF3`**
-- When you are done with the creation of collection, you can uncheck the upper left small check box
+- [x] **Repeat exactly the same operations for the 3 remaining datasets `SF1`, `SF2` and `SF3`**
+- [x] When you are done with the creation of collection, you can uncheck the upper left small check box
 
 ??? question "What do you see when you click on name of the new dataset collections ?"
     You see the content of the collection, with datasets identified with original names.

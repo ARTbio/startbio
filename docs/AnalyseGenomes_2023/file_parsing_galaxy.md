@@ -54,37 +54,38 @@ TGAAATTGCGG
 ```
 ## Import the dataset
 
-- In galaxy, create a new history and name it =="EMBL to Fasta conversion"==
-- Copy the url of the flat EMBL file:
+- [x] In galaxy, create a new history and name it =="EMBL to Fasta conversion"==
+- [x] Copy the url of the flat EMBL file:
   ```
   https://raw.githubusercontent.com/bergmanlab/drosophila-transposons/9b28cdbe9d2b3ef895df37f8495b33104677e516/releases/transposon_sequence_set_v9.5.embl.txt
   ```
-- In Galaxy, click the `Upload Data` button
+- [x] In Galaxy, click the `Upload Data` button
   
   ![upload](images/galaxy_upload_button.png){width=200}
   
-- Then click the `Paste/Fetch data` button, Paste the copied file url in the central field and click `Start`
+- [x] Then click the `Paste/Fetch data` button, Paste the copied file url in the central field and click `Start`
   
   ![Paste/Fetch](images/pastefetch.png){width=700}
   
 
 ## Reformat the file using the tool `embl2fa`:
 
-- Go to the `Admin` --> `Install and Uninstall` panel.
-- In the search repository box, type `embl2fa`
-- The search should likely return the tool at the **bottom** of the page
+- [x] Go to the `Admin` --> `Install and Uninstall` panel.
+- [x] In the search repository box, type `embl2fa`
+- [x] The search should likely return the tool at the **bottom** of the page
   ```
   embl2fa										artbio	1	today
   Converts EMBL flat format to fasta format
   ```
-- Click on the embl2fa, then on the `install` button.
-- Choose `Analyse des Génomes` for the **Target Section:**, then click the `OK` button
-- The tool installation should only take a few seconds (the button `Install` turns to a red `Uninstall`)
-- You can now go back to the analysis interface by clicking the `home` icon.
-- in the Galaxy search toolbar box, search for `embl` and select the tool
+- [x] Click on the embl2fa, then on the `install` button.
+- [x] Choose `AG 2023` for the **Target Section:**, then click the `OK` button
+- [x] The tool installation should only take a few seconds (the button `Install` turns to a red `Uninstall`)
+- [x] You can now go back to the analysis interface by clicking the `home` icon.
+- [x] in the Galaxy search toolbar box, search for `embl` and select the tool
   `Convert embl flat file to fasta`.
-- Select the imported dataset `transposon_sequence_set_v9.5.embl.txt` (should likely be the
-  dataset #1) and click `Execute`
+- [x] Select the imported dataset `transposon_sequence_set_v9.5.embl.txt` (should likely be the
+  dataset #1) and click :arrow_forward:`Run Tool`
+
 
 ## Inspect the new dataset.
 
@@ -96,11 +97,11 @@ executed by the tool.
   
 ## Check the conversion
 
-- Download the file reference for the conversion (ie, a file that we know is correctly converted...)
+- [x] Download the file reference for the conversion (ie, a file that we know is correctly converted...)
 ```
 https://raw.githubusercontent.com/ARTbio/AnalyseGenome/main/Exercises/transposon_sequence_set_v9.5.fa
 ```
-- Use the tool `Differences between two files` to compare the dataset `fasta file` and the dataset
+- [x] Use the tool `Differences between two files` to compare the dataset `fasta file` and the dataset
   `transposon_sequence_set_v9.5.fa`
   
   The resulting dataset should be empty, meaning that the dataset `fasta file` and the dataset
