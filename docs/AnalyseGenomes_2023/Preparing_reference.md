@@ -77,7 +77,13 @@ by typing `Regex Find And Replace` in the search box at the top of the tool bar.
 !!! note "fill the form of :wrench: [Regex Find And Replace]"
     - **Select lines from**: `1. dmel-r6.18`
     - **Check**: Click `Insert Check`
-    - **Find Regex**: ` .+` :warning: this is a _space_, followed by a dot, followed by a sign plus.
+    - **Find Regex**:
+      
+        ```
+         .+
+        ```
+        
+        :warning: this is *one* _space_, followed by a dot, followed by a sign plus.
     - **Replacement**: _Nothing_ :warning: be sure that the remplacement box is _empty_
     - **Click :arrow_forward:`Run Tool`**
 
