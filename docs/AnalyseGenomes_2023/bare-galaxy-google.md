@@ -5,12 +5,12 @@
 - [x] You have accessed to the Google dashboard and tested Starting and Stopping a virtual
 machine (VM) instance as described in [Appendix 1](../Google_cloud_Account)
 
-### 1. Spin off a virtual Machine `bare-galaxy` with ![](images/google-padok.png){: style="width:30px"} Google Cloud Engine
+### 1. Spin off a virtual Machine `bare-galaxy` with ![](images/google-padok.png){width="30px" align="bottom"} Google Cloud Engine
 
-- Connect to your Google Compute Instances
+- [x] Connect to your Google Compute Instances
   [dashboard](https://console.cloud.google.com/compute/instances)
 
-- Create a Virtual Machine Instance
+- [x] Create a Virtual Machine Instance
  
 
 !!! info "with the following settings"
@@ -47,18 +47,13 @@ These settings should look like:
     1. Maybe you are not, indeed, using the billing account associated to your
     Google coupon, but instead using a billing account associated to a "Free Trial".
         
-        If this is the case, try either of the following solutions:
-        
-        - If it is not already done, activate your coupon by following the received
+        - [x] If it is not already done, activate your coupon by following the received
         instructions, and be sure that you activate a project associated with the billing
         account of the coupon.
-        - Instead a selecting `OPTIMISEE POUR LE CALCUL` (or `COMPUTE-OPTIMISED`), select
-        `USAGE GENERAL` (or `GENERAL-PURPOSE`) and scroll-down the **Machine-type** menu
-        to select `e2-standard-8 (8 vCPU, 32 GB memory)`
     2. The Region and Zone which you have chosen (in the example, `europe-west6-a`) is
     overloaded.
         
-        In this case, try another `Zone` (-b or -c), and/or another `Region`, in Europe or
+        - [x] In this case, try another `Zone` (-b or -c), and/or another `Region`, in Europe or
         America.
 
 ### 2. Connect to the VM using the ssh web console

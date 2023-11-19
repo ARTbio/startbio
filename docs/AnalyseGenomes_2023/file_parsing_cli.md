@@ -53,11 +53,7 @@ CACTAGCTGAGTAACGGGTATCTGATAGTCGGGAAACTCGACTATAGCATTCTCTCTTTT
 TGAAATTGCGG
 ```
 ## Import the dataset
-Create a dedicated screen session:
-```
-screen -S parsing
-```
-Then:
+Create a working directory and fetch the starting file:
 ```
 mkdir ~/file_parsing && \
 cd ~/file_parsing && \
@@ -90,15 +86,15 @@ sed -i.bak5 -r "s/ +[0-9]+//g" transposon_sequence_set_v9.5.fa
 ```
 ## Check the conversion
 
-- Download the file reference for the conversion (ie, a file that we know is correctly converted...)
+- [x] Download the file reference for the conversion (ie, a file that we know is correctly converted...)
 ```
 wget https://raw.githubusercontent.com/ARTbio/AnalyseGenome/main/Exercises/transposon_sequence_set_v9.5.fa
 ```
-- check the content, what do you see ?
+- [x] check the content, what do you see ?
 ```
 ll -tr
 ```
-- compute the difference between your conversion and the reference conversion
+- [x] compute the difference between your conversion and the reference conversion
 ```
 diff transposon_sequence_set_v9.5.fa transposon_sequence_set_v9.5.fa.1
 ```

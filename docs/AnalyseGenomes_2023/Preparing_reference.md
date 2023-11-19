@@ -22,8 +22,8 @@ and 4, but also many unmapped contig sequences and possibly some minor haplotype
 
 Thus, before indexing our Drosophila genome, we are going to clean it a little bit by,
 
-- simplifying the fasta headers (keeping only the characters before the first space)
-- and explicitly picking only the aforementioned chromosomes.
+- [x] simplifying the fasta headers (keeping only the characters before the first space)
+- [x] and explicitly picking only the aforementioned chromosomes.
 
 ### A. :wrench: simplify fasta headers
 
@@ -49,18 +49,28 @@ this tool shed.
     and press the ++enter++ key.
     - Select the tool owned by `galaxyp` (this is the one we want).
         and click the `install` button of the lattest
-        revision (4, version 1.0.2)
-    - In the `Target Section:` menu, select `Analyse des Génomes`.
-        Thus, the tool will appears in the section `Analyse des Génomes` of your Galaxy tools.
+        revision `5`, version `1.0.3`
+    - In the `Target Section:` menu, select `AG 2023`.
+        Thus, the tool will appears in the section `AG 2023` of your Galaxy tools.
     - Click `OK`
-    - After a few seconds, you will notice the `Cloning...` then soon `Installing dependencies`
-      displayed by the install button.
-    - And rapidly enough, the `Install` button should turn to a red `Uninstall` button.
+    - After a few seconds, you will notice that the install button goes through various
+      stages/colors. This can be quick and you may miss it...
+    - Rapidly enough, the `Install` button should turn to a red `Uninstall` button.
     - You can now check the `Installed Only` radio button at the top, and look at the newly
       installed tool `regex_find_replace` in the list.
 
-- Go to the `REFERENCE` history
-- Select the tool :wrench: **Regex Find And Replace** (Galaxy Version 1.0.2) in the tool
+- [x] Click on the house button ![](images/house.png){width="100px" align="absbottom"} and Go
+  to the `REFERENCE` history.
+  To navigate between your histories, you have many options, including the top menu "Utilisateurs":
+  
+    ![](images/utilisateur-histories.png){width="250px"}
+    
+    or the double-arrow menu in the history right bar:
+    
+    ![](images/history-history-menu.png){width="250px"}
+  
+  
+- [x] Select the tool :wrench: **Regex Find And Replace** (Galaxy Version 1.0.3) in the tool
 sub-menu `Analyse des Génomes`. Note that now that the tool is installed, you can find it
 by typing `Regex Find And Replace` in the search box at the top of the tool bar.
 
@@ -69,21 +79,15 @@ by typing `Regex Find And Replace` in the search box at the top of the tool bar.
     - **Check**: Click `Insert Check`
     - **Find Regex**: ` .+` :warning: this is a _space_, followed by a dot, followed by a sign plus.
     - **Replacement**: _Nothing_ :warning: be sure that the remplacement box is _empty_
-    - **Click :heavy_check_mark:`Execute`**
+    - **Click :arrow_forward:`Run Tool`**
 
-- After run, change the datatype of the dataset `Regex Find And Replace on data 1` from
-  `data` to `fasta` using the `pencil` icon.
-      
-      :warning: This is necessary, because there is a bug with the tool which is referencing its outputs
-      with the wrong datatype `data`
-
-- Now, you can use the `eye` icon to compare the new dataset with the initial genome dataset.
+- [x] Now, you can use the :eye: icon to compare the new dataset with the initial genome dataset.
 ??? question "What can you say, at least for the chromosome 2L ?"
     The visible header is now `>2L`.
     It was `>2L type=golden_path_region; loc=2L:1..23513712; ID=2L; dbxref=GB:AE014134,GB:AE014134,REFSEQ:NT_033779;
     MD5=b6a98b7c676bdaa11ec9521ed15aff2b; length=23513712; release=r6.18; species=Dmel;`
     before !
-- Create a short list of string "on the fly" with :wrench: [Upload Data]
+- [x] Create a short list of string "on the fly" with :wrench: [Upload Data]
 !!! note ""
     - **Click the `Upload Data` menu**
     - **Click the `Paste/Fetch Data` button**
@@ -98,18 +102,18 @@ by typing `Regex Find And Replace` in the search box at the top of the tool bar.
     3R
     4
     ```
-    - **Click the Start dark blue button**
+    - [x] **Click the Start dark blue button**
     
-- Select the tool :wrench: **Pick Fasta sequences** with header satisfying a string query
+- [x] Select the tool :wrench: **Pick Fasta sequences** with header satisfying a string query
   (Galaxy Version 3.0.3) in the tool sub-menu `Analyse des Génomes`. You may also use The
   tool search box.
 !!! note "Fill the form of :wrench: Pick Fasta sequences"
-    - **Source file**: `11. Regex Find And Replace on data 10`
+    - **Source file**: `14. Regex Find And Replace on data 1`
     - **for a**: Check `list of string`
     - **retrieve sequences whose headers...**: `exactly` **+** `contain one of this list string`
     - **list of strings dataset**: `13. chromosome_list`
     - **Click :heavy_check_mark:`Execute`**
-- Rename the created dataset using the pencil icon :pencil2: as `dmel-MAIN-chromosome-r6.18`
+- [x] Rename the created dataset using the pencil icon :pencil2: as `dmel-MAIN-chromosome-r6.18`
 ??? question "What can you notice if you look at `dmel-MAIN-chromosome-r6.18` ?"
     The number of fasta sequence is `7 sequences`
 ??? question "How can we check that the right chromosomes have been collected in the dataset ?"
@@ -119,7 +123,7 @@ by typing `Regex Find And Replace` in the search box at the top of the tool bar.
     - **that**: `Matching`
     - **the pattern**: `^>`
     - **Keep header line**: `No`
-    - **Click :heavy_check_mark:`Execute`**
+    - **Click :arrow_forward:`Run Tool`**
     
     From the result, can you deduce the role of the caret sign `^` in the regular expression ?
 
@@ -127,13 +131,13 @@ by typing `Regex Find And Replace` in the search box at the top of the tool bar.
 Now that we have a "clean" Drosophila reference genome in fasta format, it is time to notice
 it to Galaxy. This is an administrator task which we are going to perform.
 
-- Go to the `Admin` menu (in the top menu bar)
-- In the left bar of the `Admin` board, click `Local Data`
-- Click on the data manager tool :wrench: **Create DBKey and Reference Genome** _fetching_
+- [x] Go to the `Admin` menu (in the top menu bar)
+- [x] In the left bar of the `Admin` board, click `Local Data`
+- [x] Click on the data manager tool :wrench: **Create DBKey and Reference Genome** _fetching_
 
 ![](images/dbkey_manager.png){width=200}
 
-- Note that the form of the tool opens in a new browser window
+- [x] Note that the form of the tool opens in a new browser window
 
 !!! note "Fill the form of :wrench: **Create DBKey and Reference Genome** _fetching_"
     - **Use existing dbkey or create a new one.**: `New`
@@ -144,7 +148,7 @@ it to Galaxy. This is an administrator task which we are going to perform.
     - **Choose the source for the reference genome**: `History`
     - **FASTA file**: `dmel-MAIN-chromosome-r6.18`
     - **Sort by chromosome name**: `As is`
-    - **Click :heavy_check_mark:`Execute`**
+    - **Click :arrow_forward:`Run Tool`**
 
 A new dataset is created, which contain the metadata of the new genome declared to Galaxy,
 in a json format. This dataset is just a report and is not specially important, it can even
@@ -157,17 +161,17 @@ genome.
 
 ## 2. :wrench: Index `dmel-r6.18` for **Bowtie**.
 
-Now that dmel-r6.18 is an "official" Galaxy genome, it is easy to prepare corresponding
+Now that the dmel-r6.18 genome is referenced in Galaxy with a dbkey, it is easy to prepare corresponding
 indexes for the aligner Bowtie.
 
-- Go back to the local data manager board
-- Click on the data manager **Bowtie index** _builder_
+- [x] Go back to the local data manager board
+- [x] Click on the data manager **Bowtie index** _builder_
 
 !!! note "Fill the form of :wrench: **Bowtie index** _builder_"
     - **Source FASTA Sequence**: `dmel-r6.18` (no other choice !)
     - **Name of Sequence**: _Leave this field empty_
     - **ID for sequence**: _Leave this field empty_
-    - **Click :heavy_check_mark:`Execute`**
+    - **Click :arrow_forward:`Run Tool`**
 
 --> A new dataset `Bowtie index` is created and the orange color and running wheel indicate
 that the job is ongoing to create the bowtie index.
