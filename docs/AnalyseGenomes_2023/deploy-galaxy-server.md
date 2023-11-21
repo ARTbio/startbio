@@ -70,8 +70,18 @@ To show all installed unit files use 'systemctl list-unit-files'.
 Galaxy is now running as a daemon in the background
 and is controlled by systemctl
 ```
-We will review in a section apart how to display the server activity, stop, start or restart
-it.
+
+As a final check that your Galaxy deployment is successful, please, enter the following
+command line in your web console, copy the returned output (:warning: *copy* is not
+*screenshot*), and paste it in this
+[GitHub Discussion](https://github.com/ARTbio/AnalyseGenome/discussions/29) 
+
+```
+systemctl status galaxy*.service
+```
+
+We are reviewing in a section apart how to display the server activity, stop, start or
+restart it.
 
 ### 2. Connect to your living Galaxy instance
 

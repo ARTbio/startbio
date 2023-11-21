@@ -11,17 +11,17 @@ following command:
 sudo apt update && apt install -y bowtie samtools
 ```
 
-## Prepare dmel_r6.18 bowtie index (*Drosophila* genome)
+## Prepare dmel_r6.54 bowtie index (*Drosophila* genome)
 
 !!! note "Bowtie indexing command line"
     ```
-    bowtie-build --threads 3 dmel-all-chromosome-r6.18.fasta dmel.r6.18
+    bowtie-build --threads 6 dmel-all-chromosome-r6.54.fasta dmel.r6.54
     ```
-:clock230: This step should take about 3min 40s
+:clock230: This step should take about 2-3 min
 
-## Align the clipped fasta reads to dmel.r6.18 using `bowtie`
+## Align the clipped fasta reads to dmel.r6.54 using `bowtie`
 ```
-bowtie dmel.r6.18 -f clipped_GRH-103_R1.fasta \
+bowtie dmel.r6.54 -f clipped_GRH-103_R1.fasta \
                        -v 0 \
                        -k 1 \
                        -p 3 \
@@ -32,7 +32,7 @@ bowtie dmel.r6.18 -f clipped_GRH-103_R1.fasta \
 :clock230: This step should take about 1 min
 
 ??? info "The bowtie alignment command explained"
-    - `bowtie dmel.r6.18 -f clipped_GRH-103_R1.fasta` # tells bowtie where is the index and the input clipped_GRH-103_R1.fasta
+    - `bowtie dmel.r6.54 -f clipped_GRH-103_R1.fasta` # tells bowtie where is the index and the input clipped_GRH-103_R1.fasta
     - `-v 0 -k 1 -p 3` # These are bowtie options
     - `--al dmel_matched_GRH-103.fa` # aligned reads will be in the dmel_matched_GRH-103.fa file
     - `--un unmatched_GRH-103.fa` # Unaligned reads will be in the unmatched_GRH-103.fa file
