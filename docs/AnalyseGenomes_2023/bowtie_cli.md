@@ -10,7 +10,7 @@ data in it:
 mkdir ~/bowtie_work && cd ~/bowtie_work
 ```
 ```
-wget https://psilo.sorbonne-universite.fr/index.php/s/7YqGeFTxTgxtafy/download/dmel-all-chromosome-r6.18.fasta \
+wget https://ftp.flybase.net/genomes/dmel/dmel_r6.54_FB2023_05/fasta/dmel-all-chromosome-r6.54.fasta.gz \
      https://psilo.sorbonne-universite.fr/index.php/s/HYLtfo9d2eD3Q2A/download/GRH-103_R1.fastq.gz
 ```
 Check the imported files using:
@@ -18,18 +18,13 @@ Check the imported files using:
 ll
 ```
 
-We also need to uncompress the fastq.gz file to a fasq file
+We also need to uncompress the `.gz` files
 ```
-gunzip GRH-103_R1.fastq.gz
+gunzip *.gz
 ```
 you can check the result by
 ```
 ll -rt
-```
-
-Finally, it is better working in a separate screen shell:
-```
-screen -S bowtie
 ```
 
 ## Install required packages
@@ -53,18 +48,18 @@ and
 wc -l clipped_GRH-103.fa
 ```
 
-## Prepare dmel_r6.18 bowtie index
+## Prepare dmel_r6.54 bowtie index
 The following command line is masked. Before unmasking it, you can try to find the
 appropriate command line using the `man` command or the `--help` argument
 ??? question "Bowtie indexing command line"
     ```
-    time bowtie-build --threads 7 dmel-all-chromosome-r6.18.fasta dmel.r6.18
+    time bowtie-build --threads 7 dmel-all-chromosome-r6.54.fasta dmel.r6.54
     ```
     Note the `time` here is to indicate the time consumed to index the genome, it is optional.
 
-## Align the clipped fasta reads to dmel.r6.18 using `bowtie`
+## Align the clipped fasta reads to dmel.r6.54 using `bowtie`
 ```
-time bowtie dmel.r6.18 -f clipped_GRH-103.fa \
+time bowtie dmel.r6.54 -f clipped_GRH-103.fa \
                        -v 0 \
                        -k 1 \
                        -p 7 \

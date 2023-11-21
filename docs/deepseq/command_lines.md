@@ -97,23 +97,25 @@ mkdir ~/bowtie_work && cd ~/bowtie_work
 
 - Type (or Copy/Paste):
 ```
-wget https://psilo.sorbonne-universite.fr/index.php/s/7YqGeFTxTgxtafy/download/dmel-all-chromosome-r6.18.fasta \
+wget https://ftp.flybase.net/genomes/dmel/dmel_r6.54_FB2023_05/fasta/dmel-all-chromosome-r6.54.fasta.gz \
      https://psilo.sorbonne-universite.fr/index.php/s/HYLtfo9d2eD3Q2A/download/GRH-103_R1.fastq.gz
 ```
 ??? question "the `wget` command"
     wget downloads files whose URL is indicated as argument.
     
-    After wget, just check the presence of two new files, `dmel-all-chromosome-r6.18.fasta`
+    After wget, just check the presence of two new files, `dmel-all-chromosome-r6.54.fasta.gz`
     and `GRH-103_R1.fastq.gz` in your working directory, using the `ll` command.
 
-- We need to uncompress the fastq.gz file to a fastq file:
+- We need to uncompress the .gz files:
 ```
-gunzip GRH-103_R1.fastq.gz
+gunzip *.gz
 ```
 ??? question "What is it doing ?"
-    the GRH-103_R1.fastq.gz file is a compressed file (format gzip), as indicated by the `.gz`
-    extension.
-    The gunzip command has uncompressed the file to `GRH-103_R1.fastq`
+    the `GRH-103_R1.fastq.gz` and `dmel-all-chromosome-r6.54.fasta.gz` files are compressed files
+    (format gzip), as indicated by their `.gz` extension.
+    
+    The gunzip command has uncompressed the files to `GRH-103_R1.fastq` and
+    `dmel-all-chromosome-r6.54.fasta`, respectively.
     
     You can verify it by typing
     ```
@@ -125,9 +127,10 @@ gunzip GRH-103_R1.fastq.gz
     drwxr-xr-x 2 limace limace       4096 Dec 13 21:51 ./
     drwxr-xr-x 6 limace limace       4096 Dec 13 21:49 ../
     -rw-r--r-- 1 limace limace 1437054065 Dec 13 21:49 GRH-103_R1.fastq
-    -rw-r--r-- 1 limace limace  145942238 Dec 13 21:49 dmel-all-chromosome-r6.18.fasta
+    -rw-r--r-- 1 limace limace  145942238 Dec 13 21:49 dmel-all-chromosome-r6.54.fasta
     ```
-    :warning: as you may have deduce, the `ll` command is an _alias_ to the `ls -laF` command.
+    :warning: as you may have deduced, the `ll` command is an _alias_ to the `ls -laF`
+    command.
 
 ## 3. What is this fastq file containing ?
 

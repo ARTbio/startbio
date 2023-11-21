@@ -7,19 +7,32 @@ machine (VM) instance as described in [Appendix 1](../Google_cloud_Account)
 
 ### 1. Spin off a virtual Machine `bare-galaxy` with ![](images/google-padok.png){width="30px" align="bottom"} Google Cloud Engine
 
+:warning: :warning: :warning:
+
+The creation of your Galaxy server includes the configuration of your Virtual machine,
+the setup of the Galaxy Services and the installations of ~20 bioinformatics tools to
+analyse sequencing datasets.
+
+Although it is completely scripted and requires minimal intervention from your part, this
+process **takes about 40 minutes, once,** and the deployed server will serve you for the
+rest of the training week 
+
+Therefore, we ask you **extra focus** on the 2 following sections as well as **preparing
+your Galaxy server well in advance of the Galaxy training week**.
+
+Please pay also extra attention to the warnings bellow.
+
+:warning: :warning: :warning:
+
 - [x] Connect to your Google Compute Instances
   [dashboard](https://console.cloud.google.com/compute/instances)
 
 - [x] Create a Virtual Machine Instance
- 
 
 !!! info "with the following settings"
     - Name: `bare-galaxy`
-    - Region `europe-west6 (Zurich)` (or any region available with you Google coupon). ==As
-    it is unlikely that a single Google zone will be able to provide enough resources
-    to support 18 virtual machines at the same time, we will have to
-    distribute our instances to different zones in Europe and USA==.
-    - Zone: `europe-west6-a` (or `-b` or `-c`)
+    - Region `europe-west6 (Zurich)` :point_left: Check your Region in the popup table bellow 
+    - Zone: `europe-west6-a` (or `-b` or `-c`) :point_left: Check your Zone in the popup table bellow
     - **Configuration de la machine**
         - `USAGE général`
         - Série: `E2`
@@ -34,11 +47,49 @@ machine (VM) instance as described in [Appendix 1](../Google_cloud_Account)
     - **Pare-feu**
         - Check `Autoriser le trafic HTTP`
 
+??? warning "Region and Zone assignments to students :warning:"
+    ==As it is possible that a single Google zone will be able to provide enough resources
+    to support 18 virtual machines at the same time, we will distribute our instances to
+    different zones in Europe==.
+    
+    The following table assigns the instances by name to different Regions and Zones.
+
+    Please respect this attribution for your final instance, the one you will use during
+    your practical work.
+    
+    |    Email prefix    |         Region         |      Zone    |
+    |--------------------|------------------------|--------------|
+    |alix.martin         |europe-west1 (Belgique) |europe-west1-b|
+    |astrid.canal        |europe-west1 (Belgique) |europe-west1-d|
+    |camille.jarry       |europe-west1 (Belgique) |europe-west1-c|
+    |Christine.lin.1     |europe-west2 (Londres)  |europe-west2-c|
+    |claudia.martins     |europe-west2 (Londres)  |europe-west2-b|
+    |coraline.bernachot  |europe-west2 (Londres)  |europe-west2-a|
+    |julie.birgel        |europe-west3 (Francfort)|europe-west3-c|
+    |lasselin            |europe-west3 (Francfort)|europe-west3-a|
+    |laurine.bourel77    |europe-west3 (Francfort)|europe-west3-b|
+    |leila.qebibo        |europe-west6 (Zurich)   |europe-west6-a|
+    |marie.massier       |europe-west6 (Zurich)   |europe-west6-b|
+    |sabine.vautier      |europe-west6 (Zurich)   |europe-west6-c|
+    |Salim.Aiche         |europe-west9 (Paris)    |europe-west9-a|
+    |yelene.etter        |europe-west9 (Paris)    |europe-west9-b|
+    |zoe.guilbert        |europe-west9 (Paris)    |europe-west9-c|
+
 These settings should look like:
     
-![](images/GCE_spin.png){: style="width:600px"}
-![](images/GCE_OS.png){: style="width:450px"}
-![](images/GCE_firewall.png){: style="width:450px"}
+![](images/GCE_spin.png){width="600px"}
+![](images/GCE_OS.png){width="450px"}
+![](images/GCE_firewall.png){width="450px"}
+
+**When**
+
+- [x] you have double-checked all indicated settings
+- [x] you are sure that your instance will start in the zone assigned to you
+
+**Then** you can start you instance by clicking the button
+
+![](images/creer_instance.png){width="350px"}
+
 
 ??? bug "Trouble shouting"
     **In some occasions, launching of your VM may fail** as illustrated bellow:
