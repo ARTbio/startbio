@@ -16,7 +16,7 @@ by Nathaniel D. Phillips.
 
 Now that you masteurize the comparison operators we can look forward into the conditional
 statements. 
-You need to know 3 R functions : `if`, `else` and `ifelse`. 
+You need to know 2 statements : `if` and `else` and 1 R function : `ifelse`. 
 
 
 The structure of `if` statement will always be the same :  
@@ -28,6 +28,14 @@ if(cond){
     code to execute if `cond` returns `FALSE`
 }
 ```
+
+!!! Warning
+    Note that you can use `if` without `else` but never in the opposite way.
+    ```
+    if(cond){
+        code to execute if `cond` returns `TRUE`
+    } 
+    ```
 
 If you have more than two conditions, you will need to combine if statements. But if you are
 familiar with python you may know the existence of `elif`, unfortunately it doesn't exist in
@@ -46,7 +54,9 @@ if(my_val > 0){
 ## [1] "my value is a negative value."
 ```
 
-> In this case, R will test if our value is negative only if the test `my_val > 0` returns `FALSE`. 
+!!! note
+    In this case, R will test if our value is negative only if the test `my_val > 0` 
+    returns `FALSE`. 
 
 These statements are only working when your condition return a single value (`TRUE` or `FALSE`). 
 But sometimes you'll need to test the same statement multiple times, so there is a way to use a
