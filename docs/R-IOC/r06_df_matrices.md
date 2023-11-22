@@ -79,9 +79,12 @@ rowMeans(X)
 
 ### To Go Further
 
-You may have heard of a sparse matrix, it is also a matrix but contains a lot of zeros.
+You may have heard of a sparse matrix, it is also a matrix but contains a lot of zeros (usually more than 2/3 of all values).
 
-For example, the expression matrix of single cell RNAseq data from `Seurat` object is stored using this special class `dgCMatrix` (see the scRNAseq tutorial [here](../scRNAseq_basics/import.md)).
+For example, the single cell RNAseq gives cell-level expression resolution,
+and it is likely that only a small fraction of known genes are expressed in a single cell.
+Therefore, single-cell RNAseq expression data are stored using a special class `dgCMatrix` developped for sparse matrix,
+where only non-zero values are stored to save memory usage. 
 We can create a sparse matrix using the R package <code>[Matrix](https://cran.r-project.org/web/packages/Matrix/index.html)</code>.
 
 ```r
@@ -114,18 +117,19 @@ my_df <- data.frame(
   "sex" = c("female", "female", "male", "male", "male"),
   stringsAsFactors = FALSE # by default for R > 4.0
 )
-rownames(my_df) <- paste0("sample", 1:5) # data.frame can have unique rownames
+rownames(my_df) <- paste0("sample", 1:5) # name rows
 ```
+You can use `rownames()` and `colnames()` to name/rename the rows or columns.
+But the rownames and colnames should be unique, which allow us to have acces to the exact wanted value(s). 
 
 By default, `data.frame` requires the columns are of equal length.
-If it is not the case and when it is possible, `data.frame` will recycle the elements of the shorter vector(s).
+If it is not the case and when it is possible, *i.e.* the length of the longest column is a multiple of the lenghth of shorter column(s) , `data.frame` will recycle the elements of the shorter column(s).
 
 ```r
 data.frame(x = 1:4, y = 1:2)
 data.frame(x = 1:4, y = 1:3) # will return an error
 ```
 
-You can use `rownames()` and `colnames()` to name/rename the names of row or column.
 You can use the `as.data.frame()` function to convert a `vector`, a `list` or a `matrix` into a `data.frame`.
 
 ### Access and Modification of Data Frames
@@ -170,9 +174,9 @@ How to modify a `data.frame`?
 We can use `$` or `cbind` to add a named vector of equal length as the other columns or a named vector length of 1 as a new column.
 
 ```r
-my_df$new_col <- letters[1:5]
+my_df$new_col <- letters[1:nrow(my_df)]
 # or
-cbind(my_df, "new_col" = letters[1:5])
+cbind(my_df, "new_col" = letters[1:nrow(my_df)])
 my_df$new_col2 <- "cohort1"
 ```
 
@@ -183,15 +187,6 @@ my_df$new_col <- NULL
 ```
 
 For other possible manipulations in `matrix` and `data.frame`, please refer to the sections [8.3 to 8.6](https://bookdown.org/ndphillips/YaRrr/matrix-and-dataframe-functions.html) of Philips’ book.
-
-### To Go Further
-
-Besides the traditional `data.frame` class, there are other "enhanced" version of `data.frame`, for example:
-
-* the `tibble` ([tbl-df](https://search.r-project.org/CRAN/refmans/tibble/html/tbl_df-class.html)), which is the central data structure used by differents packages from <code>[tidyverse](https://www.tidyverse.org/packages/)</code>.
-Read more about `tibble` [here](https://r4ds.had.co.nz/tibbles.html) of Hadley Wickham's book "R for Data Science".
-And we will cover this special data structure in the section [tidyverse](r10_tidyverse.md).
-* the <code>[data.table](https://cran.r-project.org/web/packages/data.table/vignettes/datatable-intro.html)</code>, which was developped to manipulate large data structure in a fast and memory efficient way.
 
 
 ## Exercises
