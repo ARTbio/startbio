@@ -109,7 +109,7 @@ your data. You can add/remove columns or rows, filter or manipulating strings an
 
 !!! abstract "Take a break & Read"
     To introduce the tidyverse, you can read the [section 3 Data Transform](https://r4ds.hadley.nz/data-transform) 
-    of R4DS 2e edition where you can be able to see basic commands for manipulating 
+    of R4DS 2nd edition where you can be able to see basic commands for manipulating 
     `data.frames` and `tibbles` thanks to `dplyr`.
 
 #### Pipe operator
@@ -151,56 +151,59 @@ For instance here is a the difference between tidy and untidy data :
 
 ```
 # Untidy data
-untidy_df <- data.frame(celltype = c("T-cells", "B-cells", "Macrophages", "Endothelial cells", 
-                                     "CAFs", "NK cells", "Melanoma"),
-                        Sample1 = c(72, 0, 12, 11, 4, 10, 164), 
-                        Sample2 = c(118, 24, 2, 0, 30, 4, 0),
-                        Sample3 = c(212, 49, 0, 29, 23, 4, 125)
+untidy_df <- data.frame(Sample = paste0("Sample", 1:7),
+                        T_cells = c(72, 0, 12, 11, 4, 10, 164), 
+                        NK_cells = c(118, 24, 2, 0, 30, 4, 0),
+                        Endothelial_cells = c(212, 49, 0, 29, 23, 4, 125)
                         )
 untidy_df
 ```
 
 ```
-##            celltype Sample1 Sample2 Sample3
-## 1           T-cells      72     118     212
-## 2           B-cells       0      24      49
-## 3       Macrophages      12       2       0
-## 4 Endothelial cells      11       0      29
-## 5              CAFs       4      30      23
-## 6          NK cells      10       4       4
-## 7          Melanoma     164       0     125
+##    Sample T_cells    NK_cells Endothelial_cells
+## 1 Sample1      72         118               212
+## 2 Sample2       0          24                49
+## 3 Sample3      12           2                 0
+## 4 Sample4      11           0                29
+## 5 Sample5       4          30                23
+## 6 Sample6      10           4                 4
+## 7 Sample7     164           0               125
 ```
 
 This format is often use when you manipulate excel sheets, but there is some inconvenients.
 What are the effectif stands for ? Potatoes ? Okay, I may overstating it but for complicated
-tables it may be an issue and it makes it harder to manipulate untidy data. Instead we are
-going to favor this architecture : 
+tables it may be an issue and it makes it harder to manipulate untidy data. For example, if 
+you need to visualize the number of cells for each sample but also for each cell type, it's 
+not possible to do so easily in R. Instead we are going to favor this architecture : 
 
 ```
 # Tidy data
 
 tidy_df <- untidy_df |> 
-  pivot_longer(cols = starts_with("Sample"),   # Tidy all columns that starts with "Sample"
-               names_to = "Sample",            # Resume to a new column called "Sample"
-               values_to = "Nbr_of_cells")     # Store the numeric value to a column called "Nbr_of_cells"
+  pivot_longer(cols = contains("cells"),       # Tidy all columns that starts with "Sample"
+               names_to = "Cell_types",        # Resume to a new column called "Sample"
+               values_to = "Nbr_of_cells")     # Store the numeric value to a column called 
+tidy_df
 ```
 
 ```
-## # A tibble: 21 × 3
-##   celltype          Sample  Nbr_of_cells
-##   <chr>             <chr>          <dbl>
-## 1 T-cells           Sample1           72
-## 2 T-cells           Sample2          118
-## 3 T-cells           Sample3          212
-## 4 B-cells           Sample1            0
-## 5 B-cells           Sample2           24
-## 6 B-cells           Sample3           49
-## 7 Macrophages       Sample1           12
-## 8 Macrophages       Sample2            2
-## 9 Macrophages       Sample3            0
-## 10 Endothelial cells Sample1          11
-## # ℹ 11 more rows
-## # ℹ Use `print(n = ...)` to see more rows
+## # A tibble: 14 × 4
+##    Sample  Macrophages Cell_types        Nbr_of_cells
+##    <chr>         <dbl> <chr>                    <dbl>
+##  1 Sample1         118 T_cells                     72
+##  2 Sample1         118 Endothelial_cells          212
+##  3 Sample2          24 T_cells                      0
+##  4 Sample2          24 Endothelial_cells           49
+##  5 Sample3           2 T_cells                     12
+##  6 Sample3           2 Endothelial_cells            0
+##  7 Sample4           0 T_cells                     11
+##  8 Sample4           0 Endothelial_cells           29
+##  9 Sample5          30 T_cells                      4
+## 10 Sample5          30 Endothelial_cells           23
+## 11 Sample6           4 T_cells                     10
+## 12 Sample6           4 Endothelial_cells            4
+## 13 Sample7           0 T_cells                    164
+## 14 Sample7           0 Endothelial_cells          125
 ```
 
 The R function `pivot_longer` was used to tidy the data.frame, because it's a tidyverse function
