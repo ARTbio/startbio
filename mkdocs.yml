@@ -122,8 +122,6 @@ nav:
         - INSTALL GALAXY TOOLS: AnalyseGenomes_2023/Install_tools.md
         - MANAGE YOUR GOOGLE VM: AnalyseGenomes_2023/manage_VM.md
         - MANAGE YOUR GALAXY SERVER: AnalyseGenomes_2023/manage_galaxy.md
-        - BOWTIE ALIGNMENT USING COMMAND LINES: AnalyseGenomes_2023/bowtie_cli.md
-        - BOWTIE ALIGNMENT USING GALAXY: AnalyseGenomes_2023/bowtie_galaxy.md
         - LOAD TRAINING DATA: AnalyseGenomes_2023/Loading_data_in_galaxy.md
         - PREPARE A REFERENCE GENOME: AnalyseGenomes_2023/Preparing_reference.md
         - Format conversion using command lines: AnalyseGenomes_2023/file_parsing_cli.md
@@ -134,6 +132,9 @@ nav:
         # - "Appendix 2: Start and stop a Google virtual machine": AnalyseGenomes_2023/spin_off_VM.md
         # - "Appendix 3: The ADMIN tool kit": AnalyseGenomes_2023/admin_kit.md
         - "EMERGENCY image": AnalyseGenomes_2023/emergency_image.md
+        - SUP MATERIAL:
+          - BOWTIE ALIGNMENT USING COMMAND LINES: AnalyseGenomes_2023/bowtie_cli.md
+          - BOWTIE ALIGNMENT USING GALAXY: AnalyseGenomes_2023/bowtie_galaxy.md
 
     -  Run your Galaxy server:
         - INTRODUCTION: Run-Galaxy/index.md
