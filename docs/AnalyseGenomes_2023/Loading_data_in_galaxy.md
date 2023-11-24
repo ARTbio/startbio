@@ -38,19 +38,15 @@ and immediately renaming the new history as
 paste the following Tabular source data:
 
 !!! info ":candy: URLs of references (genome and RNA classes)"
+    The following list corresponds to the list of genomic features :heavy_plus_sign: the sequence
+    of the PLacZ transgene, given in your [course manual](https://slecrom.github.io/AG2023/ressources/)
     ```
-    https://ftp.flybase.net/genomes/dmel/dmel_r6.54_FB2023_05/fasta/dmel-all-chromosome-r6.54.fasta.gz	dmel-r6.54
-    https://ftp.flybase.net/genomes/dmel/dmel_r6.54_FB2023_05/fasta/dmel-all-transposon-r6.54.fasta.gz	transposons
-    https://psilo.sorbonne-universite.fr/index.php/s/2Y7BfGNZQokMDfT/download/Dmel_piRNA_clusters.fasta	piRNA_clusters
-    https://ftp.flybase.net/genomes/dmel/dmel_r6.54_FB2023_05/fasta/dmel-all-gene-r6.54.fasta.gz	genes
-    https://ftp.flybase.net/genomes/dmel/dmel_r6.54_FB2023_05/fasta/dmel-all-intron-r6.54.fasta.gz	introns
-    https://ftp.flybase.net/genomes/dmel/dmel_r6.54_FB2023_05/fasta/dmel-all-miRNA-r6.54.fasta.gz	miRNAs
-    https://ftp.flybase.net/genomes/dmel/dmel_r6.54_FB2023_05/fasta/dmel-all-miscRNA-r6.54.fasta.gz	miscRNAs
-    https://ftp.flybase.net/genomes/dmel/dmel_r6.54_FB2023_05/fasta/dmel-all-ncRNA-r6.54.fasta.gz	ncRNA
-    https://ftp.flybase.net/genomes/dmel/dmel_r6.54_FB2023_05/gtf/dmel-all-r6.54.gtf.gz	dmel-all-r6.54.gtf
-    https://ftp.flybase.net/genomes/dmel/dmel_r6.54_FB2023_05/fasta/dmel-all-transcript-r6.54.fasta.gz	transcripts
-    https://ftp.flybase.net/genomes/dmel/dmel_r6.54_FB2023_05/fasta/dmel-all-tRNA-r6.54.fasta.gz	tRNAs
-    https://psilo.sorbonne-universite.fr/index.php/s/A8dB5qPW3KgxNey/download/PlacW.fasta	PlacW
+    https://ftp.flybase.net/genomes/Drosophila_melanogaster/dmel_r6.54_FB2023_05/fasta/dmel-all-chromosome-r6.54.fasta.gz	dmel-r6.54-fasta
+    https://ftp.flybase.net/genomes/Drosophila_melanogaster/dmel_r6.54_FB2023_05/fasta/dmel-all-miRNA-r6.54.fasta.gz	dmel-r6.54-miRNA
+    https://ftp.flybase.net/genomes/Drosophila_melanogaster/dmel_r6.54_FB2023_05/fasta/dmel-all-miscRNA-r6.54.fasta.gz	dmel-r6.54-miscRNA
+    https://ftp.flybase.net/genomes/Drosophila_melanogaster/dmel_r6.54_FB2023_05/fasta/dmel-all-tRNA-r6.54.fasta.gz	dmel-r6.54-tRNA
+    https://ftp.flybase.net/genomes/Drosophila_melanogaster/dmel_r6.54_FB2023_05/gtf/dmel-all-r6.54.gtf.gz	dmel-r6.54-gtf
+    https://psilo.sorbonne-universite.fr/index.php/s/Kdm3_GenomicFeatures/download?path=%2F&files=PLacZ.fasta	PLacZ
     ```
 
 - [x] Click the `Build` button
@@ -71,27 +67,28 @@ and choose `Add/Modify Column Definitions`
 - [x] Click the `Rule-based`tab as we just did with the reference datasets
 - [x] Leave **Upload data as** `Datasets` and **Load tabular data from** `Pasted Table`
 - [x] In the text field `Tabular source data to extract collection files and metadata from`,
-paste the following Tabular source data:
+      paste the following Tabular source data:
+
 !!! info ":ice_cream: small RNAseq datasets"
     ```
-    https://psilo.sorbonne-universite.fr/index.php/s/HYLtfo9d2eD3Q2A/download/GRH-103_R1.fastq.gz	GRH-103
-    https://psilo.sorbonne-universite.fr/index.php/s/C3o48iyyaeYw9gk/download/GRH-105_R1.fastq.gz	GRH-105
-    ```
-??? note "supplementary smallRNAseq datasets"
-    You only need GRH-103 and GRH-105 datasets for the training.
-    However, you can also experiment with additional datasets if you wish, to be downloaded
-    as before using the following URL/name table:
-    ```
-    https://psilo.sorbonne-universite.fr/index.php/s/xgFNxA6fb7GgaLL/download/GRH-104_R1.fastq.gz	GRH-104
-    https://psilo.sorbonne-universite.fr/index.php/s/Cp5ToXyj3X5jZxT/download/GRH-106_R1.fastq.gz	GRH-106
+    https://psilo.sorbonne-universite.fr/index.php/s/Kdm3_smallRNAseqData/download?path=%2F&files=ALBA25.fastqsanger.gz	WT-ALBA25
+    https://psilo.sorbonne-universite.fr/index.php/s/Kdm3_smallRNAseqData/download?path=%2F&files=ALBA26.fastqsanger.gz	WT-ALBA26
+    https://psilo.sorbonne-universite.fr/index.php/s/Kdm3_smallRNAseqData/download?path=%2F&files=ALBA27.fastqsanger.gz	WT-ALBA27 
+    https://psilo.sorbonne-universite.fr/index.php/s/Kdm3_smallRNAseqData/download?path=%2F&files=ALBA28.fastqsanger.gz	GLKD-ALBA28
+    https://psilo.sorbonne-universite.fr/index.php/s/Kdm3_smallRNAseqData/download?path=%2F&files=ALBA29.fastqsanger.gz	GLKD-ALBA29
+    https://psilo.sorbonne-universite.fr/index.php/s/Kdm3_smallRNAseqData/download?path=%2F&files=ALBA30.fastqsanger.gz	GLKD-ALBA30
     ```
 - [x] Click the `Build` button
 - [x] In the `Build Rules ...` pannel that opened, click the ![](images/plus_rules.png){width="80" align="absbottom"}
-and choose `Add/Modify Column Definitions`
+      and choose `Add/Modify Column Definitions`
 - [x] Click a first time on `Add Definition` and Select `URL`. Leave the URL column to `A`
 - [x] Click a second time on `Add Definition`, select `Name` and choose the column `B` for `Name`
 - [x] Now, click the `Apply` button
-- [x] select the Type "fastqsanger.gz" at the bottom of the panel
+- [x] select the Type "fastqsanger.gz" at the bottom of the panel. :warning: In the menu,
+      the `fastqsanger.gz` looks very similar to the `fasqcsanger.gz` data type, which is
+      obsolete. The extra `c` makes a big difference and will put your future jobs in error.
+      Alternatively, you can let Galaxy guess the datatype. Nowadays, it is pretty good at
+      this !
 
     ![](images/type_fastqsanger_gz.png){width="200"}
 
@@ -105,15 +102,15 @@ and choose `Add/Modify Column Definitions`
 - [x] Click the `Rule-based`tab as we just did with the reference datasets
 - [x] Leave **Upload data as** `Datasets` and **Load tabular data from** `Pasted Table`
 - [x] In the text field `Tabular source data to extract collection files and metadata from`,
-paste the following Tabular source data:
+      paste the following Tabular source data:
 !!! info ":doughnut: RNAseq datasets"
     ```
-    https://psilo.sorbonne-universite.fr/index.php/s/iaQxyLJzAXknCYp/download/SF1_R1.fastq.gz	SF1
-    https://psilo.sorbonne-universite.fr/index.php/s/7HTaFnwfdQPCkL3/download/SF2_R1.fastq.gz	SF2
-    https://psilo.sorbonne-universite.fr/index.php/s/ig6yZgEg9FPgRiw/download/SF3_R1.fastq.gz	SF3
-    https://psilo.sorbonne-universite.fr/index.php/s/gyDgrq8S98C6KyL/download/WT1_R1.fastq.gz	WT1
-    https://psilo.sorbonne-universite.fr/index.php/s/J9o73xmQWk43P6A/download/WT2_R1.fastq.gz	WT2
-    https://psilo.sorbonne-universite.fr/index.php/s/YFnT3KzPNLdH3N4/download/WT3_R1.fastq.gz	WT3
+    https://psilo.sorbonne-universite.fr/index.php/s/Kdm3_RNAseqData/download?path=%2F&files=ALBA4.fastqsanger.gz	WT-ALBA4
+    https://psilo.sorbonne-universite.fr/index.php/s/Kdm3_RNAseqData/download?path=%2F&files=ALBA5.fastqsanger.gz	WT-ALBA5
+    https://psilo.sorbonne-universite.fr/index.php/s/Kdm3_RNAseqData/download?path=%2F&files=ALBA6.fastqsanger.gz	WT-ALBA6
+    https://psilo.sorbonne-universite.fr/index.php/s/Kdm3_RNAseqData/download?path=%2F&files=ALBA1.fastqsanger.gz	GLKD-ALBA1
+    https://psilo.sorbonne-universite.fr/index.php/s/Kdm3_RNAseqData/download?path=%2F&files=ALBA2.fastqsanger.gz	GLKD-ALBA2
+    https://psilo.sorbonne-universite.fr/index.php/s/Kdm3_RNAseqData/download?path=%2F&files=ALBA3.fastqsanger.gz	GLKD-ALBA3
     ```
 
 - [x] Click the `Build` button
@@ -132,7 +129,10 @@ and choose `Add/Modify Column Definitions`
 :tada:	:confetti_ball:	:balloon: :tada:	:confetti_ball:	:balloon:</center>
 
 
-#### 4. Uncompress datasets [_Section 4 should be optionnal_]
+#### 4. Uncompress datasets
+
+:warning: [_Section 4 should be optionnal_, see with Stéphane, I do not think it is
+necessary, but he's the boss !]
 
 At this stage, we have uploaded small RNA and RNA sequencing datasets as `fastqsanger.gz`.
 To simplify the subsequent analyzes we are going to uncompress all these datasets, whose
@@ -236,14 +236,15 @@ etc.
 
 Collections are particularly useful for RNAseq datasets,since these datasets often come
 as replicates which can be grouped upon a label. Your training is indeed a good example of
-that, since you are provided with 3 `WT` datasets (1, 2 and 3) and 3 `SF` datasets (1, 2 and 3).
+that, since you are provided with 3 `WT` datasets (ALBA4, 5 and 6) and 3 `GLKD` datasets
+(ALBA1, 2 and 3).
 
 - [x] Navigate to you `RNAseq inputs` history (or whatever you named it) and click the upper left small check box
   at the top of the dataset stack ![](images/history_checkbox.png){width="150" align="absbottom"}
   
   You see that check boxes appear for each dataset of the history
   
-- [x] Check the 3 RNA datasets `WT1`, `WT2` and `WT3`
+- [x] Check the 3 RNA datasets `WT` (-ALBA4, 5 and 6)
 - [x] In the menu `3 of 6 selected` (also in the top area of the history), select
   `Build Dataset List`
   
@@ -253,7 +254,7 @@ that, since you are provided with 3 `WT` datasets (1, 2 and 3) and 3 `SF` datase
 - [x] Reorganize the datasets order by clicking the `alphabetic sorting` icon.
 - [x] Press the button `Create Collection`
 
-- [x] **Repeat exactly the same operations for the 3 remaining datasets `SF1`, `SF2` and `SF3`**
+- [x] **Repeat exactly the same operations for the 3 remaining datasets `GLKD` (-ALBA1, 2 and 3)**
 - [x] When you are done with the creation of collection, you can uncheck the upper left small check box
 
 ??? question "What do you see when you click on name of the new dataset collections ?"
