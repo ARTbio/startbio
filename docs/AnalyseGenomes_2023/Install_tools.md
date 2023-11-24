@@ -24,7 +24,7 @@ Select `Manage API Key`, click `Create a new Key`, and copy the current API key
 
 and press the ++return++ key
 
-The tool installation should start immediately and last for about 15 minutes (you should
+The tool installation should start immediately and lasts about 15 minutes (you should
 see tools installing one at a time)
 
 ---
