@@ -55,4 +55,38 @@ You will find more examples on R operators
 
 **Exercises to manipulate operators**
 
+* How to check if there are same elements from `v1` (`v1 <- c(1, 2, 3, 4, 5)`) and `v2` (`v2 <- c(8, 3, 7, 9)`)
+
+```r
+v1 <- c(1, 2, 3, 4, 5)
+v2 <- c(8, 3, 7, 9)
+v1 == v2 # warning of not equal length!
+v1 %in% v2
+```
+
+* Do all elements from `v1` are greater than 3?
+
+```r
+v1 > 3
+```
+
+* Does any element from `v1` is greater than 8 AND any element from `v2` is greater than 8?
+
+```r
+any(v1 > 8) & any(v2 > 8)
+```
+
+* Try `c(TRUE, FALSE) & TRUE`, `c(TRUE, FALSE) & c(TRUE, FALSE)`, `c(TRUE, FALSE) && TRUE` and
+`c(TRUE, FALSE) && c(TRUE, FALSE)` in the R terminal,
+can you tell how to use properly `&` and `&&`? 
+
+```r
+c(TRUE, FALSE) & TRUE # element wise evaluation
+c(TRUE, FALSE) & c(TRUE, FALSE)
+
+c(TRUE, FALSE) && TRUE # error, `&&` is used to evaluate condition of length 1 
+c(TRUE, FALSE) && c(TRUE, FALSE) # same error
+TRUE && FALSE
+```
+
 ---

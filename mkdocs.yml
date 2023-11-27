@@ -42,6 +42,14 @@ nav:
           - Vectors: R-IOC/r01_vectors.md
           - Operators: R-IOC/r02_operators.md
           - Functions: R-IOC/r03_functions.md
+          - Best Practices: R-IOC/r04_bestpractices.md
+          - Lists: R-IOC/r05_lists.md
+          - Data Frames and Matrices: R-IOC/r06_df_matrices.md
+          - Data Import and Export: R-IOC/r07_data_import_export.md
+          - Apply & Co: R-IOC/r11_apply.md
+          - Conditions: R-IOC/r08_ifelse.md
+          - Manipulating data with tidyverse: R-IOC/r10_tidyverse.md
+          - Visualization: R-IOC/r09_viz_ggplot2.md
         - Week 0:
           - Introduction - Week 0: R-IOC/01_IOC_R_week_00.md
         - Storage room: R-IOC/pick-up.md
