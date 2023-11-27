@@ -223,3 +223,7 @@ and transform tables as your wish. And bonus ! It will be usefull when you want 
 !!! abstract "Take a break & Read"
     Please read carefully the Transform category : 
     [sections 12 to 19](https://r4ds.hadley.nz/transform) of R4DS Second Edition (O'Reilly Book tidyverse).
+
+## Cheatsheets
+
+You can retrieve overviews of all packages from the tidyverse [here](https://posit.co/resources/cheatsheets/), you can also download there `cheatsheets`, a small document that resume all main functions and their utilisation.
