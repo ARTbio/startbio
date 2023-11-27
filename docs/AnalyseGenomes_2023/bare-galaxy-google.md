@@ -7,22 +7,8 @@ machine (VM) instance as described in [Appendix 1](../Google_cloud_Account)
 
 ### 1. Spin off a virtual Machine `bare-galaxy` with ![](images/google-padok.png){width="30px" align="bottom"} Google Cloud Engine
 
-:warning: :warning: :warning:
-
-The creation of your Galaxy server includes the configuration of your Virtual machine,
-the setup of the Galaxy Services and the installations of ~20 bioinformatics tools to
-analyse sequencing datasets.
-
-Although it is completely scripted and requires minimal intervention from your part, this
-process **takes about 40 minutes, once,** and the deployed server will serve you for the
-rest of the training week 
-
-Therefore, we ask you **extra focus** on the 2 following sections as well as **preparing
-your Galaxy server well in advance of the Galaxy training week**.
-
-Please pay also extra attention to the warnings bellow.
-
-:warning: :warning: :warning:
+Before starting, we recommend you to pay extra attention any time you see the :warning:
+signal.
 
 - [x] Connect to your Google Compute Instances
   [dashboard](https://console.cloud.google.com/compute/instances)
