@@ -3,6 +3,37 @@
 We have automated the installation of Galaxy on your Google Virtual Machine.
 All you need is to (i) taking the control of the machine as root and (ii) downloading a 
 bash script and running it.
+
+??? warning "Important recommendations before starting"
+   
+    The creation of your Galaxy server includes the setup of the Galaxy Services and the
+    installations of ~25 bioinformatics tools to analyse sequencing datasets.
+    
+    Although it is completely scripted and requires minimal intervention from your part,
+    this process **takes ==1 hour in total==, once,** and the deployed server will serve you
+    for ==_the rest of the training week_==.
+    
+    Therefore, we ask you **extra focus** on the 2 following sections (including `DEPLOY A
+    GALAXY SERVER IN THE VM` and `INSTALL GALAXY TOOLS`) as well as **preparing your
+    Galaxy server well in advance of the Galaxy training week**.
+    
+    ==The two sections should be covered by yourself during the week 48 of Nov 27th, 2023.==
+    
+    A last practical recommendation about internet connection:
+    
+    The deployment of the Galaxy server and the installation of Galaxy tools in the server
+    mainly involved remote execution of scripts in your Virtual Machine.
+    Therefore, it is mandatory that the internet connection between your local terminal
+    (where you are physically working !) and the remote VM ==STAYS UP==.
+    
+    Some local machines are configured to sleep after a certain amount of time of inactivity.
+    This sleeping process MAY STOP YOUR CONNECTION with the VM and consequently STOP the
+    EXECUTION OF YOUR INSTALLATION SCRIPTS. Should this happen, you will have to re-running
+    the whole stopped script, with complications stemming from previous incomplete execution.
+    
+    Please, keep an eye on your deployment during its execution and take any action to
+    prevent internet connection breaks.
+
 So let's do this, step by step, using the ssh Terminal:
 
     
