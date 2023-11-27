@@ -46,6 +46,7 @@ nav:
           - Lists: R-IOC/r05_lists.md
           - Data Frames and Matrices: R-IOC/r06_df_matrices.md
           - Data Import and Export: R-IOC/r07_data_import_export.md
+          - Apply & Co: R-IOC/r11_apply.md
           - Conditions: R-IOC/r08_ifelse.md
           - Manipulating data with tidyverse: R-IOC/r10_tidyverse.md
           - Visualization: R-IOC/r09_viz_ggplot2.md
