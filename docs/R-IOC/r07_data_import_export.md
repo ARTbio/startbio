@@ -123,14 +123,14 @@ my_xlsx <- read_xlsx(
 All these functions will return a [tibble](https://tibble.tidyverse.org/reference/tibble-package.html),
 which is a more efficient version of data.frame created and used with the `tidyverse` packages (See "Tibble" section in the [tidyverse](r10_tidyverse.md) chapter).
 
-`excel_sheets()` is useful to list all sheets without openning the file.
-
 !!! danger "Caution"
     The coloring of cells in Excel files CANNOT be handled.
 
 !!! tip
-    The merged cells can be handled by using the `openxlsx::read.xlsx()` with specifying `fillMergedCells = TRUE`,
+    - `excel_sheets()` is useful to list all sheets without openning the file.
+    - The merged cells can be handled by using the `openxlsx::read.xlsx()` with specifying `fillMergedCells = TRUE`,
     the value in a merged cell is given to all cells within the merge.
+    
 
 ### Read R Data Format (.RDS, .RData)
 
