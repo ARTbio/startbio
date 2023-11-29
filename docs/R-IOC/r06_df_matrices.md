@@ -180,6 +180,21 @@ cbind(my_df, "new_col" = letters[1:nrow(my_df)])
 my_df$new_col2 <- "cohort1"
 ```
 
+How about joining two `data.frame`s to get a bigger one ? `merge()` if your friend.
+The merge is based on either a specific column or the `row.names`.
+
+```r
+my_df2 <- data.frame(
+  id = 1:10,
+  status = sample(x = c("case", "control"), size = 10, replace = TRUE, prob = c(0.1, 0.9))
+)
+merge(
+  x = my_df, y = my_df2,
+  by = "id", # the name of the column to use for merging
+  all.x = TRUE # the merging is based on the rows of the data frame provided in "x"
+)
+```
+
 To delete colummns in a `data.frame`, we can simply affect the wanted columns to `NULL`.
 
 ```r
