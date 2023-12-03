@@ -185,7 +185,7 @@ It will take several minutes.
 **==Your Cloud Galaxy is now ready for analyses with the other trainers==**
 
 
-## 3. After Work Session
+## 3. After Work Sessions (review)
 
 - [x] **Suspend your Google VM**
 ??? note "Suspend VM instance"
@@ -228,7 +228,4 @@ It will take several minutes.
     From this point, you will need to uncheck the box to destroy the instance and your are
     protected against unwanted manifestations of bad karma :imp:!
 
-<center>**Your are done for today !**</center>
-
-
-# <center>:coffee: :beer: :cocktail: :beers: :rainbow:</center>
+------
