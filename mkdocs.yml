@@ -143,6 +143,7 @@ nav:
         - SUP MATERIAL:
           - BOWTIE ALIGNMENT USING COMMAND LINES: AnalyseGenomes_2023/bowtie_cli.md
           - BOWTIE ALIGNMENT USING GALAXY: AnalyseGenomes_2023/bowtie_galaxy.md
+          - SHARE VM IMAGE WITH CLASS STUDENTS: AnalyseGenomes_2023/share_vm_image.md
 
     -  Run your Galaxy server:
         - INTRODUCTION: Run-Galaxy/index.md
