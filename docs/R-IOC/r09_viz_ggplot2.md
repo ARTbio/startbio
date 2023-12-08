@@ -94,6 +94,53 @@ Please check the [reference manual](https://ggplot2.tidyverse.org/reference/inde
 * [chapter 5](https://egallic.fr/Enseignement/R/Book/graphiques.html) of a R course notes from the Aix-Marseille Université
 * [chapters 2 and 3](https://bookdown.org/ansellbr/WEHI_tidyR_course_book/making-beautiful-plots.html) of Brendan's book
 
+## Volcano Plot & Heatmap
+
+The volcano plot and the heatmap are two widely used figure type to show biological research results.
+
+Check the chapter [19.11](https://biocorecrg.github.io/CRG_RIntroduction/volcano-plots.html) of Sarah's book
+for a concrete example of how to build a Volcano plot for differentially expression analysis results.
+
+Heatmap need a bit more data manipulation before draw it with ggplot2.
+For instance, we want to visualize a set of 10 genes of 6 samples (3 control and 3 treated):
+
+```r
+## prepare a toy dataset
+set.seed(123)
+exp_mat_ctrl <- matrix(rexp(30, rate = 0.1), ncol = 3)
+exp_mat_trt <- matrix(rexp(30, rate = 0.8), ncol = 3)
+exp_mat <- cbind(exp_mat_ctrl, exp_mat_trt)
+colnames(exp_mat) <- c(
+  paste0("ctrl_", 1:ncol(exp_mat_ctrl)),
+  paste0("trt_", 1:ncol(exp_mat_trt))
+)
+rownames(exp_mat) <- paste0("gene_", 1:nrow(exp_mat))
+
+## transform the data into "long" format (tidydata)
+exp_df <- as.data.frame(exp_mat)
+exp_df$gene_name <- rownames(exp_df)
+# install.packages("tidyr") # we need the 'gather' function from this package
+exp_df_long <- tidyr::gather(
+  exp_df,
+  key = "sample", # new column name to store the sample ID
+  value = "exp_value", # new column name to store the value of each sample
+  -gene_name # the column to skip when gathering
+)
+
+## visualize the data
+p_heatmap <- ggplot(exp_df_long, aes(x = sample, y = gene_name)) +
+  geom_tile(aes(fill = exp_value)) + 
+  scale_fill_gradient(high = "red", low = "blue")
+p_heatmap
+```
+
+There is a built-in function in R `stats::heatmap()` to draw the graph directly.
+But you can have more control on the figure (style, color, position, *etc.*) if you use ggplot2.
+
+## Other Chart Types
+
+Pleas check the [R graph gallery](https://r-graph-gallery.com/index.html) for more (complex, even dynamic) examples of different chart types.
+
 
 ## Export Graphs
 
@@ -203,3 +250,74 @@ ggplot(data = diamonds) +
   facet_grid(rows = vars(color), cols = vars(cut), scales = "free")
 ```
 
+### Bonus for Heatmap
+
+* Use the previous built `p_heatmap`, try to add clustering tree on the figure.
+
+Hints:
+  - we need first have the dendrogram data
+  - the R package {[ggdendro](https://andrie.github.io/ggdendro/)} can help you to draw the dendrogram data as a ggplot with `geom_segment()`
+  - the R package {[patchwork](https://patchwork.data-imaginist.com)} is simple and useful to combine multiple ggplots
+  (imagine we cut the plane on 4 parts:
+  top-left for the sample-level dendrogram, top-right remains empty,
+  bottom-left for the heatmap, bottom-right for the gene-level dendrogram
+  )
+
+```r
+## compute dendrogram data
+dendro_gene <- stats::as.dendrogram(
+  stats::hclust(
+    d = stats::dist(exp_mat, method = "euclidean"),
+    method = "ward.D2"
+  )
+)
+dendro_sample <- stats::as.dendrogram(
+  stats::hclust(
+    d = stats::dist(t(exp_mat), method = "euclidean"),
+    method = "ward.D2"
+  )
+)
+
+## build dendrogram ggplot
+install.packages("ggdendro")
+gg_dendro_gene <- ggplot() +
+  geom_segment(
+    data = ggdendro::segment(ggdendro::dendro_data(dendro_gene, type = "rectangle")),
+    mapping = aes(x = y, y = x, xend = yend, yend = xend),
+    linewidth = 0.5
+  ) +
+  theme_void() +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.1))) +
+  scale_y_continuous(expand = expansion(add = c(0.5, 0.5)))
+
+gg_dendro_sample <- ggplot() +
+  geom_segment(
+    data = ggdendro::segment(ggdendro::dendro_data(dendro_sample, type = "rectangle")),
+    mapping = aes(x = x, y = y, xend = xend, yend = yend),
+    linewidth = 0.5
+  ) +
+  theme_void() +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.1))) +
+  scale_y_continuous(expand = expansion(add = c(0.5, 0.5)))
+
+## need to order samples/genes as how they were grouped in the dendrogram
+p_heatmap <- ggplot(
+  exp_df_long,
+  aes(
+    x = factor(sample, levels = colnames(exp_mat)[stats::order.dendrogram(dendro_sample)]),
+    y = factor(gene_name, levels = rownames(exp_mat)[stats::order.dendrogram(dendro_gene)])
+  )
+) +
+  geom_tile(aes(fill = exp_value)) + 
+  scale_fill_gradient(high = "red", low = "blue") +
+  labs(x = NULL, y = NULL)
+
+## gather all ggplots
+patchwork::wrap_plots(
+  list(gg_dendro_sample, p_heatmap, gg_dendro_gene),
+  design = "A#\nBC",
+  guides = "collect",
+  widths = c(2/3, 1/3),
+  heights = c(1/3, 2/3)
+)
+```
