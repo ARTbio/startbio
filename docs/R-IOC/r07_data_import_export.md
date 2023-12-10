@@ -65,6 +65,11 @@ my_table <- read.table(
 )
 ```
 
+!!! note
+  In R, the backslash `\` is used to escape the character after it.
+  As we use `""` to pass value to the argument `quote`,  meanwhile the `"` is the quoting character used in the file to read, we need to "protect" the quoting character by the backslash to let R know the `"` between the `""` is a real character to be evaluated. 
+
+
 There are other useful arguments that we didn't mentionned here,
 such as `na.strings` (characters to be interpreted as `NA` values), `colClasse` (type of columns), *etc.*, 
 please check the document with `?read.table`.
@@ -87,8 +92,8 @@ to import them into R:
 library("readxl")
 my_xls <- read_xls(
   path = "path/to/my_file.xls",
-  sheet = NULL,                 # sheet to read, can be the sheet number or the sheet name
-  range = NULL,                 # a cell range to read
+  sheet = 1,                    # sheet to read, can be the sheet number or the sheet name
+  range = "B3:D87",             # a cell range to read from
   col_names = TRUE,             # use the 1st row as column names
   col_types = NULL,             # type of columns, use "NULL" to guess automatically the type of each column
   na = "",                      # characters to be interpreted as `NA` values
@@ -118,14 +123,14 @@ my_xlsx <- read_xlsx(
 All these functions will return a [tibble](https://tibble.tidyverse.org/reference/tibble-package.html),
 which is a more efficient version of data.frame created and used with the `tidyverse` packages (See "Tibble" section in the [tidyverse](r10_tidyverse.md) chapter).
 
-`excel_sheets()` is useful to list all sheets without openning the file.
-
 !!! danger "Caution"
     The coloring of cells in Excel files CANNOT be handled.
 
 !!! tip
-    The merged cells can be handled by using the `openxlsx::read.xlsx()` with specifying `fillMergedCells = TRUE`,
+    - `excel_sheets()` is useful to list all sheets without openning the file.
+    - The merged cells can be handled by using the `openxlsx::read.xlsx()` with specifying `fillMergedCells = TRUE`,
     the value in a merged cell is given to all cells within the merge.
+    
 
 ### Read R Data Format (.RDS, .RData)
 
@@ -291,7 +296,7 @@ pgs_info <- read.delim(
   header = FALSE,
   nrows = 14
 )
-pgs_info <- pgs_info[-c(1:3), ]
+pgs_info <- pgs_info[-c(1:3, 12), , drop = FALSE]
 
 # or
 pgs_info <- read.delim(
@@ -300,6 +305,7 @@ pgs_info <- read.delim(
   nrows = 11,
   skip = 3
 )
+pgs_info <- pgs_info[-9, , drop = FALSE]
 ```
 
 * Save the PGS information table in a `.RDS`
@@ -319,6 +325,30 @@ save(pgs_tab, pgs_info, file = "path/to/my_PGS.RData")
 
 ```r
 write_xlsx(
-  list(pgs_tab, pgs_info),
-  path = "PGS000841_score_and_info.xlsx")
+  x= list(pgs_tab, pgs_info),
+  path = "PGS000841_score_and_info.xlsx"
+)
+# or more beautiful format for the second sheet
+pgs_info <- strsplit(pgs_info$V1, split = "=")
+pgs_info <- data.frame(
+  "name" = sapply(pgs_info, "[[", 1), # extract the 1st elements into the column "name"
+  "value" = sapply(pgs_info, "[[", 2) # extract the 2nd elements into the column "value"
+)
+write_xlsx(
+  x = ist(
+    "pgs_tab" = pgs_tab,
+    "pgs_info" = as.data.frame(pgs_info)),
+  path = "PGS000841_score_and_info.xlsx"
+)
+```
+
+* Read the cells A8 to C10 of the first sheet of the previous saved Excel file.
+
+```r
+readxl::read_xlsx(
+  path = "PGS000841_score_and_info.xlsx",
+  sheet = 1,
+  range = "A8:C10",
+  col_names = FALSE
+)
 ```
