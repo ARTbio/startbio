@@ -132,7 +132,7 @@ nav:
         - MANAGE YOUR GALAXY SERVER: AnalyseGenomes_2023/manage_galaxy.md
         - LOAD TRAINING DATA: AnalyseGenomes_2023/Loading_data_in_galaxy.md
         - PREPARE A REFERENCE GENOME: AnalyseGenomes_2023/Preparing_reference.md
-        - Format conversion using command lines: AnalyseGenomes_2023/file_parsing_cli.md
+        - Format conversion using command lines in your Google VM: AnalyseGenomes_2023/file_parsing_cli.md
         - Format conversion using a galaxy tool: AnalyseGenomes_2023/file_parsing_galaxy.md
         - Running a galaxy workflow: AnalyseGenomes_2023/Run_workflow.md
         - Why administering galaxy ?: AnalyseGenomes_2023/whyadmin.md
@@ -143,6 +143,7 @@ nav:
         - SUP MATERIAL:
           - BOWTIE ALIGNMENT USING COMMAND LINES: AnalyseGenomes_2023/bowtie_cli.md
           - BOWTIE ALIGNMENT USING GALAXY: AnalyseGenomes_2023/bowtie_galaxy.md
+          - SHARE VM IMAGE WITH CLASS STUDENTS: AnalyseGenomes_2023/share_vm_image.md
 
     -  Run your Galaxy server:
         - INTRODUCTION: Run-Galaxy/index.md

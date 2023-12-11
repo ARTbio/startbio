@@ -36,15 +36,30 @@ dataset that is renamed `Canonical_transposons.fa`.
 
 ### 4. Retrieve the `transposon_set_embl.txt` dataset
 
-- [x] Create a new history and name it `workflow test`
-- [x] import the dataset using the `Paste/Fetch data` mode of the upload manager (the small
-bottom-top arrow icon at the top left of the Galaxy interface). Copy the URL
-```
-https://raw.githubusercontent.com/bergmanlab/drosophila-transposons/master/releases/transposon_sequence_set_v9.5.embl.txt
-```
-in the open field and click the `Start` button.
+- [x] Create a new history and name it ==`workflow test`==
+- [x] import the dataset 
+    - ==Either== using the `Paste/Fetch data` mode of the upload manager (the small
+      bottom-top arrow icon at the top left of the Galaxy interface). Copy the URL
+      ```
+      https://raw.githubusercontent.com/bergmanlab/drosophila-transposons/master/releases/transposon_sequence_set_v9.5.embl.txt
+      ```
+      in the open field and click the `Start` button.
+    - ==OR==, remembering that you just did that few minutes ago !
+        
+        Thus, you can use the copy datasets function which allow to copy datasets from history
+        to history !
+        ??? info "How to copy a dataset from an existing Galaxy history"
+            - Click the wheel icon at the top of your history right bar
+              
+              ![](images/copy_dataset.png){width="200"}
+            - Select `EMBL to Fasta conversion` in the `Source History` left panel
+            - Check the item `1`in the list (should be `transposon_sequence_set_v9.5.embl.txt`)
+            - Verify that the history in the `Destination History` right panel is `workflow
+              test` (should be by default, otherwise change it)
+            - Click the `Copy History Items` button
+            - Observe the dataset showing up in your `test workflow` history !
 
-- [x] have a close look at the file
+- [x] have a close look at the dataset
 
 ### 5. Run the workflow
 
@@ -57,3 +72,20 @@ in the open field and click the `Start` button.
 ### 6. Check result
 You may check that the generated dataset is identical to the one generated with the tool
 `embl2fa` using the tool `differences between two files`
+
+### 7. Goody for you: an exemple of workflow to treat complex data table
+
+As this is a goody, we put here the key steps to run the workflow
+
+- [ ] Workflow URL
+```
+https://raw.githubusercontent.com/ARTbio/AnalyseGenome/main/Exercises/Galaxy-Workflow-process_diffmod_table.ga
+```
+- [ ] 2 tools must be installed in your Galaxy instance to get the workflow running:
+  - `add_column_headers`
+  - `column_maker`
+- [ ] Input table to be parsed/transformed
+```
+https://github.com/ARTbio/AnalyseGenome/raw/main/Exercises/diffmod_table.tsv.zip
+```
+
