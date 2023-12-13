@@ -36,7 +36,10 @@ nav:
   - Interactive Online Companionship (IOC):
 
     - IOC on R:
-        - Provisional Program / Schedule: R-IOC/00_IOC_R_program.md
+        - Provisional Program : 
+          - Schedule: R-IOC/00_IOC_R_program.md
+          - Introduction - Week 0: R-IOC/01_IOC_R_week_00.md
+          - First steps - Week 1: R-IOC/02_IOC_R_week_01.md
         - Reference Manual:
           - Variables: R-IOC/r00_variables.md
           - Vectors: R-IOC/r01_vectors.md
@@ -50,8 +53,6 @@ nav:
           - Conditions: R-IOC/r08_ifelse.md
           - Manipulating data with tidyverse: R-IOC/r10_tidyverse.md
           - Visualization: R-IOC/r09_viz_ggplot2.md
-        - Week 0:
-          - Introduction - Week 0: R-IOC/01_IOC_R_week_00.md
         - Storage room: R-IOC/pick-up.md
 
     - IOC on bulk RNAseq analysis:
