@@ -1,9 +1,9 @@
-# First steps in R
+## First steps in R
 
 You are more familiar with the different tools for this IOC, especially Rstudio. 
 It's good because now we can go to the heart of the matter, R !
 
-## Variables
+### Variables
 
 We'll start slowly but surely by learning what's a variable. You need to understand
 what's a variable, how to create one and manipulate them. It's a key concept for R. 
@@ -11,21 +11,21 @@ what's a variable, how to create one and manipulate them. It's a key concept for
 You'll need to go read carefully the [variable](./r00_variables.md) page in the 
 reference manual.
 
-## Functions
+### Functions
 
 The other key concept of R is the use of function. A R function is a set of R command
 that achieve a specific task. 
 
 To learn more about them, how to use and create a function, go to the [function](./r03_functions.md) page in the reference manual. 
 
-## Best Practices
+### Best Practices
 
 Last but not least for this week, the best practices of R programming. Some people may
 disagree but for us in ARTbio, it's a very important topic. R is a language and like
 all language there are rules to correctly write it. Those rules are called [best practices](./r04_bestpractices.md) 
 and you can learn more on their page in the reference manual.
 
-# Let's practice
+## Let's practice
 
 For each week, you'll have a set of exercices that you must render in a R script. 
 After that you need to complete the following google form to answer some MCQ (Multiple
@@ -47,7 +47,17 @@ the extension `.txt` so your filename will be : `NAME_week1_script.R.txt`.
 
 Please be aware of the best practices for your Rscript, we will be attentive to them !
 
-Now you can fill the following quizz : [Quizz of week 1](https://forms.gle/gyBrxJmg3dMbw1Lc9).
+Now you can fill the following quizz : [Quizz of week 1](https://forms.gle/Y6enoxKSH5Nfa14w9).
 
 
 **Thank you for your attention and see you next week :clap: :clap: :clap:**
+
+### To go further
+
+You need more practicing ? You can test your R with the amazing Pirate's Guide to R of
+Nathaniel D. Phillips :
+
+- [Exercices for basic R](https://bookdown.org/ndphillips/YaRrr/test-your-r-might.html)
+- [Exercices for custom function](https://bookdown.org/ndphillips/YaRrr/test-your-r-might-6.html)
+
+Solutions are available in [Chapter 18](https://bookdown.org/ndphillips/YaRrr/solutions.html).
