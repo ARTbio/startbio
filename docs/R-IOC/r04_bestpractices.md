@@ -28,39 +28,3 @@ As a last word, we admit that the coding rules in R are less precisely described
 other languages (Python for example, not to name it). If how to code an R instruction
 seems ambiguous to you, look at what others are doing (StackOverflow is your friend)
 and choose the style of the majority!
-
-## Exercices
-
-* Create a variable called `surname` with the string _Marilyn Monroe_
-* How would you name a variable containing the mean temperature?
-* Which variable names are correct?
-    * 6h_day1 <- 
-    * day1_6h
-    * day16h
-    * Day1 6h
-    * 6h@day1
-* Which assignments are correct?
-    * `x <- 1,4`
-    * `x <- 5`
-    * `y <- x + 3`
-    * `y < -`
-    * `a <- Marilyn`
-    * `wishes <- "happy birthday"`
-    * `val <- TRUE`
-    * `TEMP <- `
-    * `pi <- 3`
-* What will be the value of `a` after this code? 
-
-```r
-a <- 10
-a + 10
-a 
-```
-
-* Are following codes correct? 
-
-```r
-a <- 5
-b <- 17
-ab <- a * b 
-```

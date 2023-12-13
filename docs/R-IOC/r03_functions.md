@@ -143,8 +143,3 @@ The important elements here are:
     ```
     If there is a match, then pick another name, unless you whish to mask the Built-in
     function on purpose !
-
-**Exercises where using `help()` may help !**: 
-
-- calculate the Ln, log in base 2 and log in base 10 of the value 1.
-- round the fraction 9/7 with 2 or 4 decimal numbers
