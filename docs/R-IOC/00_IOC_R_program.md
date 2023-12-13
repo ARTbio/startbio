@@ -26,73 +26,59 @@ The final schedule will be published at mid November
 ----
 ### Week 1 - **to be scheduled**
 1. Question on Week 0
-    1. ?
-    2. ?
-    3. ?
+2. Variables in R
+3. What's a function ?
+4. Best Practices for programming in R
 - Program of Week 1 - [Week-1 exercices]()
-    1. R item
-    2. R item
-    - R item
+    1. Exercices with RStudio and R scripting
+    2. QCM
 
 ### Week 2 - **to be scheduled**
 1. Question on Week 1
-    1. ?
-    2. ?
-    3. ?
-- Program of Week 2 - [Week-1 exercices]()
-    1. R item
-    2. R item
-    - R item
+2. Vectors in R
+3. What's an operators ?
+4. How upload and download data in R and Rstudio
+- Program of Week 2 - [Week-2 exercices]()
+    1. Exercices with RStudio and R scripting
+    2. QCM
 
 ### Week 3 - **to be scheduled**
 1. Question on Week 2
-    1. ?
-    2. ?
-    3. ?
-- Program of Week 4 - [Week-1 exercices]()
-    1. R item
-    2. R item
-    - R item
+2. What's a list ?
+4. How manipulating a list ?
+- Program of Week 3 - [Week-3 exercices]()
+    1. Exercices with RStudio and R scripting
+    2. QCM
 
 ### Week 4 - **to be scheduled**
 1. Question on Week 3
-    1. ?
-    2. ?
-    3. ?
-- Program of Week 5 - [Week-1 exercices]()
-    1. R item
-    2. R item
-    - R item
+2. What's a matrix and a dataframe ?
+4. How manipulating a two dimensional object ?
+- Program of Week 4 - [Week-4 exercices]()
+    1. Exercices with RStudio and R scripting
+    2. QCM
 
 ### Week 5 - **to be scheduled**
 1. Question on Week 4
-    1. ?
-    2. ?
-    3. ?
-- Program of Week 6 - [Week-1 exercices]()
-    1. R item
-    2. R item
-    - R item
+2. Improve code thanks to conditions
+4. How apply a function on several data ?
+- Program of Week 5 - [Week-5 exercices]()
+    1. Exercices with RStudio and R scripting
+    2. QCM
 
 ### Week 6 - **to be scheduled**
 1. Question on Week 5
-    1. ?
-    2. ?
-    3. ?
-- Program of Week 7 - [Week-1 exercices]()
-    1. R item
-    2. R item
-    - R item
+2. What's the tidyverse ?
+- Program of Week 6 - [Week-6 exercices]()
+    1. Exercices with RStudio and R scripting
+    2. QCM
 
 ### Week 7 - **to be scheduled**
 1. Question on Week 6
-    1. ?
-    2. ?
-    3. ?
-- Program of Week 8 - [Week-1 exercices]()
-    1. R item
-    2. R item
-    - R item
+2. Data visualization thanks to ggplot2
+- Program of Week 7 - [Week-7 exercices]()
+    1. Exercices with RStudio and R scripting
+    2. QCM
 
 
 ### Week 8 - **Presentations of the analyses by the companions**
