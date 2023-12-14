@@ -16,7 +16,7 @@ the extension `.txt` so your filename will be : `NAME_week3_script.R.txt`.
 
 ![](images/toolbox-do-it-yourself.png){: style="width:75px"} **Do it yourself !**
 
-- [x] Create a list with vectors (numeric, character and logical) of length 15, 8 and 10 respectively. Don't hesitate to use R function to create them without having to write them in hard copy (like : `hardcopy_vec <- c("it's", "not", "very", "effective", "that", "way")`)
+- [x] Create a list with vectors (numeric, character and logical) of length 15, 8 and 10 respectively. Don't hesitate to use R functions to create them without having to write them in hard copy (like : `hardcopy_vec <- c("it's", "not", "very", "effective", "that", "way")`)
     - [x] The numeric vector must follow a binomial distribution
     - [x] The character vector is the last 8 letters of the alphabet in capital
     - [x] The logical vector is composed as many true values than false in the order of your
@@ -29,7 +29,7 @@ the extension `.txt` so your filename will be : `NAME_week3_script.R.txt`.
 
 Please be aware of the best practices for your Rscript, we will be attentive to them !
 
-Now you can fill the following quizz : [Quizz of week 3](https://forms.gle/pgnPBscKu3S5bzTz5).
+Now you can fill the following quizz : [Quizz of week 3](https://forms.gle/NLFnZq2rHb9TrFso8).
 
 
-**Thank you for your attention and see you next week :clap: :clap: :clap:**
+**Thank you for your attention and see you next week :clap: :clap: :clap:** 
