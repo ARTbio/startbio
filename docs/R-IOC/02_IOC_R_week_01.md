@@ -1,4 +1,4 @@
-## First steps in R
+## Learning the basics of R
 
 You are more familiar with the different tools for this IOC, especially Rstudio. 
 It's good because now we can go to the heart of the matter, R !
@@ -30,7 +30,7 @@ and you can learn more on their page in the reference manual.
 For each week, you'll have a set of exercices that you must render in a R script. 
 After that you need to complete the following google form to answer some MCQ (Multiple
 Choice Questions) where the final question is to deposit your R script. Please note that
-a Rscript as the extension `.R` but it's not supported by Google Form so you must add
+a Rscript has the extension `.R` but it's not supported by Google Form so you must add
 the extension `.txt` so your filename will be : `NAME_week1_script.R.txt`. 
 
 ![](images/toolbox-do-it-yourself.png){: style="width:75px"} **Do it yourself !**
