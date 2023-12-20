@@ -37,6 +37,13 @@ the extension `.txt` so your filename will be : `NAME_week2_script.R.txt`.
 - [x] Create factor of exam grades "A", "B", "C", "D", label them with "excellent", "good", "ok", "bad" respectively. What is the current reference level?
 - [x] Now set the grade "B" as the reference level.
 - [x] The grade "D" is no longer used in exam grades, please delete it from the vector and drop this unused level.
+- [x] How to check if there are same elements from `v1` (`v1 <- c(1, 2, 3, 4, 5)`) and `v2` (`v2 <- c(8, 3, 7, 9)`)
+- [x] Do all elements from `v1` are greater than 3?
+- [x] Does any element from `v1` is greater than 8 AND any element from `v2` is greater than 8?
+- [x] Try `c(TRUE, FALSE) & TRUE`, `c(TRUE, FALSE) & c(TRUE, FALSE)`, `c(TRUE, FALSE) && TRUE` and
+`c(TRUE, FALSE) && c(TRUE, FALSE)` in the R terminal, can you tell how to use properly `&` and `&&`? 
+- [x]
+- [x]
 
 Please be aware of the best practices for your Rscript, we will be attentive to them !
 
