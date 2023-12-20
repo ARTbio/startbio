@@ -34,6 +34,10 @@ the extension `.txt` so your filename will be : `NAME_week2_script.R.txt`.
 
 ![](images/toolbox-do-it-yourself.png){ style="width:75px"} **Do it yourself !**
 
+- [x] Create factor of exam grades "A", "B", "C", "D", label them with "excellent", "good", "ok", "bad" respectively. What is the current reference level?
+- [x] Now set the grade "B" as the reference level.
+- [x] The grade "D" is no longer used in exam grades, please delete it from the vector and drop this unused level.
+
 Please be aware of the best practices for your Rscript, we will be attentive to them !
 
 Now you can fill the following quizz : [Quizz of week 2]().

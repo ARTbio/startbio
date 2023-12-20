@@ -243,28 +243,6 @@ Or,
 </table>
 
 
-**Exercises to manipulate factors**
-
-* Create factor of exam grades "A", "B", "C", "D", label them with "excellent", "good", "ok", "bad" respectively.
-What is the current reference level?
-
-```r
-exam_grade <- factor(c("A", "B", "C", "D"), lable = c("excellent", "good", "ok", "bad"))
-```
-
-* Now set the grade "B" as the reference level.
-
-```r
-exam_grade <- relevel(exam_grade, ref = "B")
-```
-
-* The grade "D" is no longer used in exam grades, please delete it from the vector and drop this unused level.
-
-```r
-droplevels(exam_grade[exam_grade != "D"])
-```
-
-
 ### Variable Manipulation
 
 Now that you have mastered the differences between variable’s types and structures, you need to manipulate them.
