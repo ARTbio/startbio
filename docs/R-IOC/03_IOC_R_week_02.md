@@ -42,8 +42,17 @@ the extension `.txt` so your filename will be : `NAME_week2_script.R.txt`.
 - [x] Does any element from `v1` is greater than 8 AND any element from `v2` is greater than 8?
 - [x] Try `c(TRUE, FALSE) & TRUE`, `c(TRUE, FALSE) & c(TRUE, FALSE)`, `c(TRUE, FALSE) && TRUE` and
 `c(TRUE, FALSE) && c(TRUE, FALSE)` in the R terminal, can you tell how to use properly `&` and `&&`? 
-- [x]
-- [x]
+- [x] Download the data from this url:
+"https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000841/ScoringFiles/PGS000841.txt.gz"
+- [x] Read the downloaded file and observe what you got.
+- [x] How many lines should we skip to get the data?
+- [x] Re read the file again with appropriate parameters of `read.delim()`.
+- [x] Save the readed table in `.csv` format and in Excel `.xlsx` format.
+- [x] The comment lines are sometime useful, for example, in this example we can get the information of the downloaded polygenic score. Try to read only the comment lines in R and transforme it into a `data.frame`.
+- [x] Save the PGS information table in a `.RDS`.
+- [x] Save both PGS score table and the information table in a `.RData`.
+- [x] Save both PGS score table and the information table in one Excel `.xlsx` file.
+- [x] Read the cells A8 to C10 of the first sheet of the previous saved Excel file.
 
 Please be aware of the best practices for your Rscript, we will be attentive to them !
 
