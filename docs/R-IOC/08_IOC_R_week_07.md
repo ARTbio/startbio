@@ -40,14 +40,15 @@ Use `?diamonds` to get the full description and `str(diamonds)` to have a glimps
 - [x] Use the previously built `p_heatmap` from the [ggplot2 reference](r09_viz_ggplot2.md), try to add clustering tree on the figure.
 
 Hints:
-  - we need first have the dendrogram data
-  - the R package {[ggdendro](https://andrie.github.io/ggdendro/)} can help you to draw the dendrogram data as a ggplot with `geom_segment()`
-  - the R package {[patchwork](https://patchwork.data-imaginist.com)} is simple and useful to combine multiple ggplots
-  (imagine we cut the plane on 4 parts:
-  top-left for the sample-level dendrogram, top-right remains empty,
-  bottom-left for the heatmap, bottom-right for the gene-level dendrogram
-  )
- 
+
+- we need first have the dendrogram data
+- the R package {[ggdendro](https://andrie.github.io/ggdendro/)} can help you to draw the dendrogram data as a ggplot with `geom_segment()`
+- the R package {[patchwork](https://patchwork.data-imaginist.com)} is simple and useful to combine multiple ggplots
+(imagine we cut the plane on 4 parts:
+top-left for the sample-level dendrogram, top-right remains empty,
+bottom-left for the heatmap, bottom-right for the gene-level dendrogram
+)
+
 
 Please be aware of the best practices for your Rscript, we will be attentive to them !
 
