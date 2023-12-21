@@ -56,7 +56,7 @@ the extension `.txt` so your filename will be : `NAME_week2_script.R.txt`.
 
 Please be aware of the best practices for your Rscript, we will be attentive to them !
 
-Now you can fill the following quizz : [Quizz of week 2](https://forms.gle/GX4gkqkARvns1mrU6).
+Now you can fill the following quiz: [Quizz of week 2](https://forms.gle/GX4gkqkARvns1mrU6).
 
 
 **Thank you for your attention and see you next week :clap: :clap: :clap:**

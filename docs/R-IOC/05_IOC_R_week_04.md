@@ -48,7 +48,7 @@ name the rows with "r1", "r2", "r3" and the columns with "c1", "c2", "c3", "c4".
 
 Please be aware of the best practices for your Rscript, we will be attentive to them !
 
-Now you can fill the following quizz : [Quizz of week 4](https://forms.gle/9ge6VxjL9dmFapJK6).
+Now you can fill the following quiz: [Quizz of week 4](https://forms.gle/9ge6VxjL9dmFapJK6).
 
 
 **Thank you for your attention and see you next week :clap: :clap: :clap:**
