@@ -1,3 +1,22 @@
+## Learning the two dimensional objects
+
+Now you are familiar with the basics of R,
+we will learn two more complexe data structures, the `matrix` and the `data.frame`.
+
+
+### Matrices
+
+A matrix is a fundamental two-dimensional data structure that organizes data into rows and columns.
+Matrices are homogeneous, meaning they store elements of the same data type, making them efficient for mathematical operations.
+
+Please check the [matrix](r06_df_matrices.md) part in the reference manual to learn more about it.
+
+### Data Frames
+
+The data frame is another essential two-dimensional data structure in R.
+Unlike matrices, `data.frame` can represent heterogeneous data.
+
+You can find how to create and manipulate it in the [data.frame](r06_df_matrices.md) part of the reference manual.
 
 
 ## Let's practice
