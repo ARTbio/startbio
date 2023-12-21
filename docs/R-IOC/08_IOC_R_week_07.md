@@ -1,3 +1,13 @@
+## Data visualization with ggplot2
+
+We reach out almost the end of this IOC, where you've laid the groundwork with fundamental concepts.
+Let's spice up your skill set with ggplot2!
+
+`ggplot2` is the magic wand for creating cool charts and graphs,
+it introduces you to the artistry of crafting meaningful and expressive visualizations.
+It's not just about stats; it's about making your data speak visually. So, gear up to add that extra flair to your reports and impress your audience with data storytelling!
+
+Unlock the power of data visualization by using the [ggplot2](r09_viz_ggplot2.md) page in the reference manual.
 
 
 ## Let's practice
