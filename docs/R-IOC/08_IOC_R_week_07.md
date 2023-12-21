@@ -51,7 +51,7 @@ Hints:
 
 Please be aware of the best practices for your Rscript, we will be attentive to them !
 
-Now you can fill the following quizz : [Quizz of week 7]().
+Now you can fill the following quizz : [Quizz of week 7](https://forms.gle/Jo3Tmphw8X6t2zH67).
 
 
 **Thank you for your attention and see you next week :clap: :clap: :clap:**
