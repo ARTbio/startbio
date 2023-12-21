@@ -166,33 +166,10 @@ ggsave(
 
 ## Exercises
 
-Let's play with the dataset `diamonds` provided in the `ggplot2` package,
-it contains prices of more than 50,000 round cut diamonds, with 10 variables.
-Use `?diamonds` to get the full description and `str(diamonds)` to have a glimpse of the data structure.
 
-* Create a plot to visualize the `price` and the `carat`, colored by the quality of the `cut`
 
-```r
-library("ggplot2")
-data("diamonds")
-ggplot(
-  data = diamonds,
-  mapping = aes(x = carat, y = price)
-) +
-  geom_point(aes(color = cut))
-```
 
-* Change the shape and the size of the points
 
-```r
-ggplot(
-  data = diamonds,
-  mapping = aes(x = carat, y = price)
-) +
-  geom_point(aes(color = cut), shape = 2, size = 0.5) # possible shape `?pch`
-```
-
-* Create a histogram of `price` by the diamonds' `color`
 
 ```r
 ggplot(data = diamonds) +
@@ -209,7 +186,7 @@ ggplot(data = diamonds) +
   )
 ```
 
-* Do the same figure but only for diamonds with prices higher than 10,000$.
+* 
 
 ```r
 ggplot(data = subset(diamonds, price > 10000)) +
@@ -219,14 +196,14 @@ ggplot(data = subset(diamonds, price > 10000)) +
   )
 ```
 
-* Draw a density plot of prices by group of `clarity`.
+* 
 
 ```r
 ggplot(data = diamonds) +
   geom_density(aes(x = price, color = clarity))
 ```
 
-* Visualize the diamonds' `carat` and width (`y`), colored by `clarity` and use `color` as facet.
+* 
 
 ```r
 ggplot(data = diamonds) +
@@ -234,7 +211,7 @@ ggplot(data = diamonds) +
   facet_wrap(facets = vars(color))
 ```
 
-* Add a 2nd facet by using the `cut` and use free scales for both axes in the facets.
+* 
 
 ```r
 ggplot(data = diamonds) +
@@ -242,7 +219,7 @@ ggplot(data = diamonds) +
   facet_wrap(facets = vars(color, cut), scales = "free")
 ```
 
-* What happens if you use `facet_grid()` (with appropriate arguments for facets, check `?facet_grid`) instead of `facet_wrap()`?
+* 
 
 ```r
 ggplot(data = diamonds) +
@@ -250,74 +227,4 @@ ggplot(data = diamonds) +
   facet_grid(rows = vars(color), cols = vars(cut), scales = "free")
 ```
 
-### Bonus for Heatmap
-
-* Use the previous built `p_heatmap`, try to add clustering tree on the figure.
-
-Hints:
-  - we need first have the dendrogram data
-  - the R package {[ggdendro](https://andrie.github.io/ggdendro/)} can help you to draw the dendrogram data as a ggplot with `geom_segment()`
-  - the R package {[patchwork](https://patchwork.data-imaginist.com)} is simple and useful to combine multiple ggplots
-  (imagine we cut the plane on 4 parts:
-  top-left for the sample-level dendrogram, top-right remains empty,
-  bottom-left for the heatmap, bottom-right for the gene-level dendrogram
-  )
-
-```r
-## compute dendrogram data
-dendro_gene <- stats::as.dendrogram(
-  stats::hclust(
-    d = stats::dist(exp_mat, method = "euclidean"),
-    method = "ward.D2"
-  )
-)
-dendro_sample <- stats::as.dendrogram(
-  stats::hclust(
-    d = stats::dist(t(exp_mat), method = "euclidean"),
-    method = "ward.D2"
-  )
-)
-
-## build dendrogram ggplot
-install.packages("ggdendro")
-gg_dendro_gene <- ggplot() +
-  geom_segment(
-    data = ggdendro::segment(ggdendro::dendro_data(dendro_gene, type = "rectangle")),
-    mapping = aes(x = y, y = x, xend = yend, yend = xend),
-    linewidth = 0.5
-  ) +
-  theme_void() +
-  scale_x_continuous(expand = expansion(mult = c(0, 0.1))) +
-  scale_y_continuous(expand = expansion(add = c(0.5, 0.5)))
-
-gg_dendro_sample <- ggplot() +
-  geom_segment(
-    data = ggdendro::segment(ggdendro::dendro_data(dendro_sample, type = "rectangle")),
-    mapping = aes(x = x, y = y, xend = xend, yend = yend),
-    linewidth = 0.5
-  ) +
-  theme_void() +
-  scale_x_continuous(expand = expansion(mult = c(0, 0.1))) +
-  scale_y_continuous(expand = expansion(add = c(0.5, 0.5)))
-
-## need to order samples/genes as how they were grouped in the dendrogram
-p_heatmap <- ggplot(
-  exp_df_long,
-  aes(
-    x = factor(sample, levels = colnames(exp_mat)[stats::order.dendrogram(dendro_sample)]),
-    y = factor(gene_name, levels = rownames(exp_mat)[stats::order.dendrogram(dendro_gene)])
-  )
-) +
-  geom_tile(aes(fill = exp_value)) + 
-  scale_fill_gradient(high = "red", low = "blue") +
-  labs(x = NULL, y = NULL)
-
-## gather all ggplots
-patchwork::wrap_plots(
-  list(gg_dendro_sample, p_heatmap, gg_dendro_gene),
-  design = "A#\nBC",
-  guides = "collect",
-  widths = c(2/3, 1/3),
-  heights = c(1/3, 2/3)
-)
-```
+---
