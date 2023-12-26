@@ -75,6 +75,14 @@ nav:
               - Presentation: bulk_RNAseq-IOC/10_PRJNA630433_presentation.md
               - Data upload: bulk_RNAseq-IOC/11_uploads.md
               - Quality Control: bulk_RNAseq-IOC/12_QC.md
+        - Week 2:
+          - Review on week-1 work: bulk_RNAseq-IOC/13_exercices_week_01_review.md
+          - Read Mapping overview:
+            - Splice-aware alignment: bulk_RNAseq-IOC/14_mapping.md
+          - Week 2 exercices:
+            - Library strandness: bulk_RNAseq-IOC/15_strandness.md
+            - HiSAT2: bulk_RNAseq-IOC/16_hisat2.md
+            - STAR: bulk_RNAseq-IOC/17_star.md
         - External Materials: bulk_RNAseq-IOC/links.md
 
     - Single-cell RNAseq analysis using Seurat in R:
