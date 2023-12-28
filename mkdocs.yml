@@ -79,10 +79,61 @@ nav:
           - Review on week-1 work: bulk_RNAseq-IOC/13_exercices_week_01_review.md
           - Read Mapping overview:
             - Splice-aware alignment: bulk_RNAseq-IOC/14_mapping.md
+            - BAM format: bulk_RNAseq-IOC/15_bam.md
           - Week 2 exercices:
-            - Library strandness: bulk_RNAseq-IOC/15_strandness.md
-            - HiSAT2: bulk_RNAseq-IOC/16_hisat2.md
-            - STAR: bulk_RNAseq-IOC/17_star.md
+            - Library strandness: bulk_RNAseq-IOC/16_strandness.md
+            - HiSAT2: bulk_RNAseq-IOC/17_hisat2.md
+            - STAR: bulk_RNAseq-IOC/18_star.md
+            - UCSC visualisation: bulk_RNAseq-IOC/18-1_UCSC_visualisation.md
+
+        - Week 3:
+          - Review on week-2 work: bulk_RNAseq-IOC/19_exercices_week_02_review.md
+          - Counting reads or fragments: bulk_RNAseq-IOC/20_intro_counting.md
+          - Week 3 exercices:
+            - FeatureCounts: bulk_RNAseq-IOC/21_FeatureCounts.md
+            - STAR: bulk_RNAseq-IOC/22_star_counts.md
+            - HTSeq_counts: bulk_RNAseq-IOC/23_HTSeq_counts.md
+
+
+        - Week 4:
+          - Review on week-2 work: bulk_RNAseq-IOC/24_exercices_week_03_review.md
+          - Differential Gene Expression Analysis: bulk_RNAseq-IOC/25_DE_intro.md
+          - Week 3 exercices:
+            - DESeq2: bulk_RNAseq-IOC/26_deseq2.md
+            - EdgeR: bulk_RNAseq-IOC/27_edgeR.md
+            - Visualisations: bulk_RNAseq-IOC/28_visualisations.md
+            - Volcano plot: bulk_RNAseq-IOC/29_volcano.md
+
+        - Week 5:
+          - Review on week-3 work: bulk_RNAseq-IOC/30_exercices_week_04_review.md
+          - Gene Ontology Enrichment Analysis: bulk_RNAseq-IOC/31_GO_enrichment_intro.md
+          - Week 4 exercices:
+            - GOseq: bulk_RNAseq-IOC/32_GOseq.md
+
+        - Week 6:
+          - Review on week-5 work: bulk_RNAseq-IOC/33_exercices_week_05_review.md
+          - Gene Set Enrichment Analysis (GSEA): bulk_RNAseq-IOC/34_GSEA_intro.md
+          - Week 6 exercices:
+            - GSEA part 1: bulk_RNAseq-IOC/35_GSEA_1.md
+            - GSEA part 2: bulk_RNAseq-IOC/36_GSEA_2.md
+
+        - Week 7:
+          - Review on week-6 work: bulk_RNAseq-IOC/40_exercices_week_06_review.md
+          - Read Mapping overview:
+            - Galaxy Workflows: bulk_RNAseq-IOC/41_workflow_intro.md
+          - Week 7 exercices:
+            - Workflows part 1: bulk_RNAseq-IOC/42_workflow_use_1.md
+            - Workflows part 2: bulk_RNAseq-IOC/43_workflow_use_2.md
+            - Workflows part 2: bulk_RNAseq-IOC/44_workflow_use_3.md
+
+        - Week 8:
+          - Review on week-7 work: bulk_RNAseq-IOC/50_exercices_week_07_review.md
+          - Recap: bulk_RNAseq-IOC/51_recap.md
+          - 20min presentations:
+            - Trainee 1: bulk_RNAseq-IOC/52_trainee-1.md
+            - Trainee 2: bulk_RNAseq-IOC/53_trainee-2.md
+            - Trainne 3: bulk_RNAseq-IOC/54_trainee-3.md
+
         - External Materials: bulk_RNAseq-IOC/links.md
 
     - Single-cell RNAseq analysis using Seurat in R:
