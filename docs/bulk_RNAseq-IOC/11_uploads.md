@@ -309,7 +309,7 @@ To finish with this tool, you probably noticed that it is much slower in fetchin
 fastq files than the standard Galaxy upload interface. The name of the tool is not totally
 appropriate :smile:. However, if someone gives you directly the list of the SRR identifier,
 the tool allows you to retrieve them with a minimum manipulations and without even interacting
-the EBI SRA interface.
+with the EBI SRA interface.
 
 ## Galaxy data libraries: the ultimate "upload" procedure !
 
