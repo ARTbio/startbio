@@ -78,8 +78,9 @@ nav:
         - Week 2:
           - Review on week-1 work: bulk_RNAseq-IOC/13_exercices_week_01_review.md
           - Read Mapping overview:
-            - Splice-aware alignment: bulk_RNAseq-IOC/14_mapping.md
-            - BAM format: bulk_RNAseq-IOC/15_bam.md
+            - Reference genomes: bulk_RNAseq-IOC/14_reference_genomes.md
+            - Aligners: bulk_RNAseq-IOC/14-1_aligners.md
+            - Splice-aware alignment: bulk_RNAseq-IOC/15_splice_aware_mapping.md
           - Week 2 exercices:
             - Library strandness: bulk_RNAseq-IOC/16_strandness.md
             - HiSAT2: bulk_RNAseq-IOC/17_hisat2.md
