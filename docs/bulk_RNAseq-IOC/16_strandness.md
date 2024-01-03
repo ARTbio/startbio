@@ -4,21 +4,24 @@
 In practice, with Illumina RNA-seq protocols you will most likely deal with either:
 
   - Unstranded RNAseq data
-  
   - Stranded RNA-seq data produced with - kits and dUTP tagging (ISR)
 
-This information should be provided with your FASTQ files, ask your sequencing facility!
+This information, here called "the strandness of the libraries" should be provided by your
+sequencing platform along with your FASTQ files. If you cannot find the information, ask
+for it, it is always better than guessing ! If you are working on published data, the
+strandness of the libraries can often be deduced from the kit reference for library preparation.
 
-If not, try to find it on the site where you downloaded the data or
-in the corresponding publication.
+In the absence of strandness information, it is still possible to make a (very) good guess
+using a tool called `Infer Experiment` from the `RSeQC` tool suite.
 
-Another option is to estimate these parameters with a tool called `Infer Experiment` from
-the `RSeQC` tool suite. This tool takes the output of your mappings (BAM files), selects
+This tool takes the output of your mappings (BAM files), selects
 a subsample of your reads and compares their genome coordinates and strands with those of
 the reference gene model (from an annotation file).
 
 Based on the strand of the genes, it can gauge whether sequencing is strand-specific,
 and if so, how reads are stranded.
+
+
 
 ## Use of `Infer Experiment` tool
 

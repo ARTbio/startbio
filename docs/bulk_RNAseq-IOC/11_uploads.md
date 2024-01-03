@@ -27,7 +27,7 @@ The first way to get input data in your Galaxy account is to transfer them from 
 ==local computer== to ==Galaxy==.
 
 Note that whereas this mode may be convenient if you have _already_ the data on your computer,
-it is pretty in inefficient: it implies 2 transfers of data, first from the data
+it is pretty inefficient: it implies 2 transfers of data, first from the data
 source to your computer, secondly from your computer to Galaxy. When it comes to large files,
 as it is the case here with the fastq file collection of PRJNA630433, it matters a lot !
 
@@ -184,7 +184,7 @@ SRR11688225	ftp.sra.ebi.ac.uk/vol1/fastq/SRR116/025/SRR11688225/SRR11688225.fast
 SRR11688226	ftp.sra.ebi.ac.uk/vol1/fastq/SRR116/026/SRR11688226/SRR11688226.fastq.gz	SAMN14836337	Oc rep3
 SRR11688229	ftp.sra.ebi.ac.uk/vol1/fastq/SRR116/029/SRR11688229/SRR11688229.fastq.gz	SAMN14836334	Oc rep4
 ```
-f you open your tsv file (change the filename from `filereport_read_run_PRJNA630433_tsv.txt`
+If you open your tsv file (change the filename from `filereport_read_run_PRJNA630433_tsv.txt`
 to `filereport_read_run_PRJNA630433.tsv`) with your spreadsheet software, it is also easy
 to generate three additional tables, which will be useful to you later.
 
@@ -309,7 +309,7 @@ To finish with this tool, you probably noticed that it is much slower in fetchin
 fastq files than the standard Galaxy upload interface. The name of the tool is not totally
 appropriate :smile:. However, if someone gives you directly the list of the SRR identifier,
 the tool allows you to retrieve them with a minimum manipulations and without even interacting
-the EBI SRA interface.
+with the EBI SRA interface.
 
 ## Galaxy data libraries: the ultimate "upload" procedure !
 

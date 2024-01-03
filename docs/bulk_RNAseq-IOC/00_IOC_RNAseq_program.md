@@ -1,7 +1,5 @@
-In this Interactive Online Companionship which will be held in **November 2023**,
-We will train to perform RNAseq analyses of Bulk RNAseq
-
-The final schedule will be published at mid October
+In this Interactive Online Companionship which will be held from **January 8th to March
+18th, 2024**, we will train to perform RNAseq analyses of Bulk RNAseq
 
 ### Week 0 - **3-hours Zoom video-conference**
 <!-- Faire un schedule sur google sheets -->

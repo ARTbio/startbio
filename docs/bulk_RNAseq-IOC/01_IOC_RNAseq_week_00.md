@@ -57,7 +57,7 @@ Here, you'll find all weekly lessons, exercises, instructions, etc...
 **Importantly**, you, yes, you, are welcome to propose modifications or fixes to the STARTbio
 IOC web pages !
 Assuming that during this IOC you will become familiar with the use of GitHub, all you
-have to do is click on the pencil icon ![](images/github_pencil.png){width="25"}
+have to do is click on the pencil icon ![](images/github_pencil.png){width="100" align="absbottom"}
 at the top of each page and propose your modifications in a branch of our GitHub startbio
 repository.
 
@@ -90,9 +90,8 @@ If you have already a Slack account, you can connect to this account using this
     [Apple Desktop Slack](https://apps.apple.com/us/app/slack-for-desktop/id803453959?mt=12){:target="_blank"}
     | [Windows Desktop Slack](https://slack.com/intl/fr-fr/downloads/windows){:target="_blank"}
 
-Last but not least, Slack is not an option for this IOC !
-
-We will be extremely reluctant to communicate by email with you about this IOC.
+Last but not least, Slack is not an option: we will be extremely reluctant to communicate
+by email with you about this IOC.
 
 Indeed, emails capture information very poorly, because very often the subject headings
 are poorly chosen (or not chosen at all...), conversations by email deal with heterogeneous
