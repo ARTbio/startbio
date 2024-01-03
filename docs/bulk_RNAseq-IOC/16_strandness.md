@@ -28,50 +28,127 @@ and if so, how reads are stranded.
     
     If so, you are right !
     
-    However, you may notice 2 points:
+    However:
     
     1. It is not necessary to use a splice-aware aligner to generate this first set of
     alignment. A "simple" bowtie or bwa alignment will be enough and less resource-demanding.
-    2. All your libraries have most likely the same design, unless they have not been
-    generated at the same time. Therefore, analyzing a single sequencing dataset should be
-    enough !
+    2. You can even use HISAT2 and specify "unstranded" for the library design. Even if it
+    is not true, this is not an issue since the bam file will be re-analyzed by the tool
+    `infer experiment`.
+    3. You can anyway use the STAR aligner to generate this fist BAM file, since STAR does
+    not require specifying whether the library is stranded or not.
+    4. Finally, all your libraries have most likely the same design, unless they have not been
+    generated at the same time. Therefore, analyzing a **single** sequencing dataset should
+    be enough !
 
-## Use of `Infer Experiment` tool
+## Preliminary read alignment from a single sequencing dataset
 
-----
+To keep it sample, we are going to do this preliminary alignment using the BWA aligner.
+Although BWA is not commonly used in transcriptome analysis, it will be the opportunity
+for you to use it once.
+
+- [x] First of all, create a new history and rename it `PRJNA630433 Strandness analysis`
+- [x] Using the data library. Follow the main menu Shared Data --> Data Libraries -->
+  IOC_bulk_RNAseq --> PRJNA630433 --> FASTQ files, and check out the  `SRR11688218` dataset.
+- [x] Select the `Export to History`tab and `as Datasets`
+- [x] On the next panel that pops up, select the newly created history `PRJNA630433
+  Strandness analysis` (which should be already selected). Click the `Import` button.
+- [x] If you are fast enough, click on the green pop up area which will return you to the
+  working history where the dataset is now imported and visible. Otherwise, click on the
+  house icon which will get you to the same history.
+
 ![](images/tool_small.png)
 
-### `Convert GTF to BED12` tool to convert the GTF file to BED
+- [x] Now, select the `Map with BWA-MEM` tool and check that his version is `0.7.17.2`. If it
+  is not, change it using the version icon (3 stacked cubes) at the top-right of the tool
+  form.
+!!! info "![](images/tool_small.png){width="25" align="absbottom"} Map with BWA-MEM tool settings"
+    - Will you select a reference genome from your history or use a built-in index?
+        
+        --> Use a built-in genome index
+    - Using reference genome
+        
+        --> GRCm38
+    - Single or Paired-end reads
+        
+        --> single
+    - Select fastq dataset
+        
+        --> SRR11688218
+    - Leave other paramaters as is
+    - Click the `Execute` button
+    
+    The tool should run about 2-3 mins before returning a green bam dataset, which you can
+    examine with the eye icon
+     
+- [x] Before using the `Infer Experiment` tool, you will need the GTF annotation file
+  "Mus_musculus.GRCm38.102.chr.gtf" from the data library `IOC_bulk_RNAseq`. Import it as
+  you already did with the `SRR11688218` dataset.
 
-1. Go to your history `STAR` or `HISAT2`
-2. Select the tool `Convert GTF to BED12`
-    1. `GTF File to convert`: Drosophila_melanogaster.BDGP6.95.gtf
-3. `Execute`
 
-----
-![](images/tool_small.png)
+## ![](images/tool_small.png){width="30" align="absbottom"} Use of `Infer Experiment` tool
 
-### `Infer Experiment` tool to determine the library strandness
+Unfortunalty, the `Infer Experiment` tool does not with annotations in GTF format, but rather
+in another format: the BED12 format. No worries, there is a converter tool for this.
 
-1. In the same history `STAR` or `HISAT2`
-2. Select the tool `Infer Experiment`
-    1. `Input .bam file`: mapped.bam files (outputs of RNA STAR or HISAT2 tools)
-    2. `Reference gene model` : BED12 file (output of Convert GTF to BED12 tool)
-    3. `Number of reads sampled from SAM/BAM file (default = 200000)`: 200000
-3. `Execute`
+!!! info "![](images/tool_small.png){width="25" align="absbottom"} `Convert GTF to BED12` settings"
+    - GTF File to convert
+        
+        --> Mus_musculus.GRCm38.102.chr.gtf
+    - Advanced options
+        
+        --> Use default options
+    - Click `Execute` button
+    
+    This will return a bed12 dataset "Convert GTF to BED12 on data 2: BED12" to be used In
+    the next step
 
-----
+!!! info "![](images/tool_small.png){width="25" align="absbottom"} `Infer Experiment` settings"
+    - Input BAM file
+        
+        --> Map with BWA-MEM on data 1 (mapped reads in BAM format)
+    - Reference gene model
+        
+        --> "Convert GTF to BED12 on data 2: BED12" (the output of Convert GTF to BED12 tool)
+    - Number of reads sampled
+        --> 200000
+        
+    - Minimum mapping quality
+        
+        --> 30
+    - `Execute`
+
+The output of the `Infer Experiment` tool is the following text file:
+```
+This is SingleEnd Data
+Fraction of reads failed to determine: 0.0299
+Fraction of reads explained by "++,--": 0.0035
+Fraction of reads explained by "+-,-+": 0.9666
+```
+
+In most cases, when a read in mapped to the (+) strand of the genome, the parental gene is
+located on the (-) strand of the genome (thus "+-") or conversely when a read in mapped to
+the (-) strand of the genome, the parental gene is located on the (+) strand of the genome
+(thus "-+").
+
+In conclusion, in this study, the library is **stranded** and reads correspond to the reverse
+of transcribed RNA.
+
+
 ![](images/tool_small.png)
 
 ###  Summarize results with `MultiQC` tool
 
-1. Select the tool `MultiQC`
-2. Which tool was used generate logs?
-    - `RSeQC`
-3.  RSeQC output (Type of RSeQC output?)
-    - infer_experiment
-4. Select the 7 datasets of type `Infer Experiment on ...`
-3. `Execute`
+For a marginal benefit, you can also use the `MultiQC` tool
+!!! info "![](images/tool_small.png){width="25" align="absbottom"} `MultiQC` settings"
+    - Which tool was used generate logs?
+        
+        --> RSeQC
+    - RSeQC output (Type of RSeQC output?)
+        
+        --> infer_experiment
+    - Select dataset `Infer Experiment on ...`
+    - `Execute`
 
 ----
 ![](images/lamp.png)
