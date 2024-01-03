@@ -21,7 +21,20 @@ the reference gene model (from an annotation file).
 Based on the strand of the genes, it can gauge whether sequencing is strand-specific,
 and if so, how reads are stranded.
 
-
+!!! info "a paradoxical situation"
+    At this point you can notice a sort of paradox: splice-aware aligner need to know the
+    strandness of the library, but if you do not know this strandness, you must use the
+    "infer experiment" tool which itself will analyze a bam alignment...
+    
+    If so, you are right !
+    
+    However, you may notice 2 points:
+    
+    1. It is not necessary to use a splice-aware aligner to generate this first set of
+    alignment. A "simple" bowtie or bwa alignment will be enough and less resource-demanding.
+    2. All your libraries have most likely the same design, unless they have not been
+    generated at the same time. Therefore, analyzing a single sequencing dataset should be
+    enough !
 
 ## Use of `Infer Experiment` tool
 
