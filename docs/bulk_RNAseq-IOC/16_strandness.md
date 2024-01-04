@@ -57,9 +57,7 @@ for you to use it once.
   working history where the dataset is now imported and visible. Otherwise, click on the
   house icon which will get you to the same history.
 
-![](images/tool_small.png)
-
-- [x] Now, select the `Map with BWA-MEM` tool and check that his version is `0.7.17.2`. If it
+![](images/tool_small.png) Now, select the `Map with BWA-MEM` tool and check that his version is `0.7.17.2`. If it
   is not, change it using the version icon (3 stacked cubes) at the top-right of the tool
   form.
 !!! info "![](images/tool_small.png){width="25" align="absbottom"} Map with BWA-MEM tool settings"
@@ -133,9 +131,32 @@ the (-) strand of the genome, the parental gene is located on the (+) strand of 
 
 In conclusion, in this study, the library is **stranded** and reads correspond to the reverse
 of transcribed RNA.
-
-
-![](images/tool_small.png)
+??? note "![](images/lamp.png){width="30" align="absbottom"} Infer experiment tool explained in greater details"
+    Infer Experiment tool generates one file with information on:
+    
+    - Paired-end or single-end library
+    - Fraction of reads failed to determine
+    - 2 lines:
+        - For single-end
+            - Fraction of reads explained by “++,–” (SF in previous figure)
+            - Fraction of reads explained by “+-,-+” (SR in previous figure)
+        - For paired-end
+            - Fraction of reads explained by “1++,1–,2+-,2-+” (SF in previous figure)
+            - Fraction of reads explained by “1+-,1-+,2++,2–” (SR in previous figure)
+        
+    If the two “Fraction of reads explained by” numbers are close to each other (*i.e.* a mix of SF and SR),
+    we conclude that the library is not a strand-specific dataset (U in previous figure).
+    
+    As it is sometimes quite difficult to find out which settings correspond to those of
+    other programs, the following table might be helpful to identify the library type:
+    
+    |Library type              |Infer Experiment | TopHat           | HISAT            | htseq-count |featureCounts |
+    |--------------------------|-----------------|------------------|------------------|-------------|--------------|
+    |Paired-End (PE) - SF      |1++,1–,2+-,2-+   |FR Second Strand  |Second Strand F/FR|yes          |Forward (1)   |
+    |PE - SR                   |1+-,1-+,2++,2–   |FR First Strand   |First Strand R/RF |reverse      |Reverse (2)   |
+    |Single-End (SE) - SF      |+,–              |FR Second Strand  |Second Strand F/FR|yes          |Forward (1)   |
+    |SE - SR                   |+-,-+            |FR First Strand   |First Strand R/RF |reverse      |Reverse (2)   |
+    |PE, SE - U                |undecided        |FR Unstranded     |default           |no           |Unstranded (0)|
 
 ###  Summarize results with `MultiQC` tool
 
@@ -150,31 +171,3 @@ For a marginal benefit, you can also use the `MultiQC` tool
     - Select dataset `Infer Experiment on ...`
     - `Execute`
 
-----
-![](images/lamp.png)
-
-Infer Experiment tool generates one file with information on:
-
-- Paired-end or single-end library
-- Fraction of reads failed to determine
-- 2 lines:
-    - For single-end
-        - Fraction of reads explained by “++,–” (SF in previous figure)
-        - Fraction of reads explained by “+-,-+” (SR in previous figure)
-    - For paired-end
-        - Fraction of reads explained by “1++,1–,2+-,2-+” (SF in previous figure)
-        - Fraction of reads explained by “1+-,1-+,2++,2–” (SR in previous figure)
-    
-If the two “Fraction of reads explained by” numbers are close to each other (*i.e.* a mix of SF and SR),
-we conclude that the library is not a strand-specific dataset (U in previous figure).
-
-As it is sometimes quite difficult to find out which settings correspond to those of
-other programs, the following table might be helpful to identify the library type:
-
-|Library type              |Infer Experiment | TopHat           | HISAT            | htseq-count |featureCounts |
-|--------------------------|-----------------|------------------|------------------|-------------|--------------|
-|Paired-End (PE) - SF      |1++,1–,2+-,2-+   |FR Second Strand  |Second Strand F/FR|yes          |Forward (1)   |
-|PE - SR                   |1+-,1-+,2++,2–   |FR First Strand   |First Strand R/RF |reverse      |Reverse (2)   |
-|Single-End (SE) - SF      |+,–              |FR Second Strand  |Second Strand F/FR|yes          |Forward (1)   |
-|SE - SR                   |+-,-+            |FR First Strand   |First Strand R/RF |reverse      |Reverse (2)   |
-|PE, SE - U                |undecided        |FR Unstranded     |default           |no           |Unstranded (0)|
