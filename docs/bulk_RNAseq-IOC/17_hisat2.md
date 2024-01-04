@@ -169,10 +169,25 @@ Let's do it first for the alignment of the `Mo` dataset collection:
   new output collections `Mo HISAT2 alignments (BAM)` and `Mo Mapping summary`, respectively.
   
 As you can expect now, it remains to repeat the exact same operation sequence to align the
-Remaining input collection ==`15: Oc`==
+Remaining input collection ==`15: Oc`==.
+
+:warning: Do not forget to rename your output collection appropriately !
 
 ## ![](images/tool_small.png){width="30" align="absbottom"} Mapping statistics with MultiQC tool
 
+!!! info "![](images/tool_small.png){width="25" align="absbottom"} MultiQC settings"
+    - 1: Results
+        
+        --> HISAT2
+    - Output of HISAT2
+        
+        --> Click first the collection icon ![](images/library_icon.png){width="75" align="absbottom"}
+        
+        --> Select the 3 collections `Dc`, `Mo` and `Oc Mapping summary`, holding down the
+        ++command++ key
+    - Leave the other settings as is
+    - Press `Execute` !
 
-
-
+When MultiQC has run, look at the aggregated mapping statistics by clicking the eye icon
+of the dataset `MultiQC on data 46, data 44, and others: Webpage`
+---

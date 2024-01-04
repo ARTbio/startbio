@@ -1,87 +1,103 @@
 ![](images/galaxylogo.png)
 
-# RNA STAR (option for 50 % of attendees)
+# STAR alignments
 
-For information to set proper value for STAR parameters:
+Let's test another aligner, STAR, in another new history. It will later be possible to
+compare the performance between STAR and HISAT2.
 
-![](images/multiqc_samples_length.png)
+Before anything, let's use some nice features of Galaxy to manipulate quickly datasets
+and histories.
 
-----
-![](images/tool_small.png)
-
-  1. create a new history and name it `RNA STAR`
-  2. Import the 11 datasets from the RNAseq data library to this `RNA STAR` history, plus the Drosophila_melanogaster.BDGP6.95.gtf file
-  3. Select the `RNA STAR` tool with the following parameters to map your reads on the reference genome:
-      1. `Single-end or paired-end reads`: Single-end
-      2. `RNA-Seq FASTQ/FASTA file` (multiple datasets button), Cmd-shift Select:
-          - `GSM461176_untreat_single.fastq.gz`
-          - `GSM461179_treat_single.fastq.gz`
-      3. `Custom or built-in reference genome:` Use a built-in index
-      4. `Reference genome with or without an annotation:` use genome reference without builtin gene-model
-      5. `Select reference genome:` Drosophila Melanogaster (dm6)
-      6. `Gene model (gff3,gtf) file for splice junctions:` the imported Drosophila_melanogaster.BDGP6.95.gtf
-      7. `Length of the genomic sequence around annotated junctions:` 44 (This parameter should be length of reads - 1, see above table from fastQC/multiQC analysis)
-  4. `Execute`
-----
-![](images/redo.png)
-
-  Redo the STAR run with
-
-  **3.2**	 Select the `RNA STAR` tool with the following parameters to map your reads on the reference genome:
-   `RNA-Seq FASTQ/FASTA file` (as multiple datasets), Cmd-shift Select:
-          - `GSM461182_untreat_single.fastq.gz`
-          
-  **3.7**	 `Length of the genomic sequence around annotated junctions:` 74 (This parameter should be length of reads - 1, see above table from fastQC/multiQC analysis)
-
-----
-![](images/redo.png)
-
-  Redo a last STAR run for paired-end datasets
+- [x] Go, or stay, to the history `HISAT alignments`
+- [x] Click the upper right wheel icon at the top of the history stack and select `Copy
+  datasets` or `Copier des jeux de données` if your interface is french.
+  <center>![](images/copy_datasets.png){width="250"}</center>
+- [x] In the pop up panel, select the three dataset collection that we already built in the
+  history. In the right part of the panel (`Destination History`), fill the empty field
+  `New history named` with `STAR Alignments`, as shown bellow, and last, click the `Copy
+  History Items` button.
   
-  3. With the following parameters to map your reads on the reference genome:
-      1. `Single-end or paired-end reads`: Paired-end (as multiple datasets)
-      2. `RNA-Seq FASTQ/FASTA file, forward reads` (multiple datasets button), Cmd-shift Select:
-          - `GSM461177_1_untreat_paired.fastq.gz`
-          - `GSM461178_1_untreat_paired.fastq.gz`
-          - `GSM461180_1_treat_paired.fastq.gz`
-          - `GSM461181_1_treat_paired.fastq.gz
-      3. `RNA-Seq FASTQ/FASTA file, forward reads` (multiple datasets button), Cmd-shift Select:
-          - `GSM461177_2_untreat_paired.fastq.gz`
-          - `GSM461178_2_untreat_paired.fastq.gz`
-          - `GSM461180_2_treat_paired.fastq.gz`
-          - `GSM461181_2_treat_paired.fastq.gz
-      3. `Custom or built-in reference genome:` Use a built-in index
-      4. `Reference genome with or without an annotation:` use genome reference without builtin gene-model
-      5. `Select reference genome:` Drosophila Melanogaster (dm6)
-      6. `Gene model (gff3,gtf) file for splice junctions:` the imported Drosophila_melanogaster.BDGP6.95.gtf
-      7. `Length of the genomic sequence around annotated junctions:` **36** (This parameter should be length of reads - 1, see above table from fastQC/multiQC analysis)
-  4. `Execute`
+  ![](images/copy_source.png){width="250"} ![](images/copy_destination.png){width="350"}
 
-
-## Rename your datasets !
+- [x] Navigate directly to the newly created history by clicking the link ==3 datasets copied
+  to 1 history: STAR alignments.==
+- [x] You could also have copied the GTF file which will also required for STAR alignment, button
+  for practicing purposes, let's get this file from the data library. We assume that you
+  now know how to do this !
+- [x] This makes our new history `STAR alignments` looking as follows:
+  
+  <center>![](images/STAR_start_history.png){width="250"}</center>
 
 ----
-![](images/rename_datasets.png)
 
-You need now to rename you datasets to facilitate your downstream analysis.
+## ![](images/tool_small.png){width="30" align="absbottom"}RNA STAR tool
 
-Be quiet and focus ! No hurry, this is an *important task* in the analysis.
+!!! info "![](images/tool_small.png){width="25" align="absbottom"} RNA STAR settings"
+    - Single-end or paired-end reads
+        
+        --> Single-end
+    - RNA-Seq FASTQ/FASTA file
+        
+        --> select the collection icon and then the collection `5: Dc`
+    - Custom or built-in reference genome
+        
+        --> Use a built-in index
+    - Reference genome with or without an annotation
+        
+        --> use genome reference without builtin gene-model but provide a gtf
+    - Select reference genome
+        
+        --> GRCm38_w/o_GTF
+    - Gene model (gff3,gtf) file for splice junctions
+        
+        --> Mus_musculus.GRCm38.102.chr.gtf
+    - In `Output filter criteria`, **Exclude the following records from the BAM output**
+        
+        --> check Select all
+    - Leave any other setting as is and Press `Execute` !
+    
+    The tool will run during several minutes, generating four new dataset collections, whose
+    name is self-explanatory. Take benefit of the run time, to rename at least 3 of these
+    collections with more meaningful names:
+    
+    - `RNA STAR on collection 5: log` --> `Dc STAR log`
+    - `RNA STAR on collection 5: mapped.bam` --> `Dc RNA STAR mapped.bam`
+    - `RNA STAR on collection 5: reads per gene` --> `Dc nbre of reads per gene (STAR)`
+    
+    :warning: Reminder: we understand it is a bit borring to rename datasets but these
+    renaming operations are essential to the readibility of your histories.
 
-1. Search and select datasets with RNA STAR ![](images/search_star.png)
+### Re-run the RNA STAR tool as you learned before with HISAT for the collections:
+- [x] `10: Mo`
+- [x] `15: Oc`
+- [x] :warning: ... And do not forget to rename your collections accordingly :smile:
 
-2. Click on the info icon ![](images/info.png) of both `log` and `bam` files
+!!! info "About RNA STAR splice junctions.bed collection"
+    These datasets are useful if you seek to find new splicing events and describe them.
+    
+    Since here, we are performing annotation-guided RNAseq analysis, these collections of
+    datasets are not useful and you can trash them !
 
-3. Copy the name or one of the two names of the datasets as shown bellow
-![](images/copy.png)
-4. Now click on the pencil icon of the *_same_* dataset
-![](images/pencil.png)
-5. Paste your text in the `Name` field of the dataset
-![](images/paste.png)
-6. Edit your text as follow for `log` files
-![](images/edit_log.png)
-7. Edit your text as follow for `bam` files
-![](images/edit_bam.png)
+## ![](images/tool_small.png){width="30" align="absbottom"} Mapping statistics with MultiQC tool
 
-8. repeat _ad lib_ for all `log` and `bam` files 
+!!! info "![](images/tool_small.png){width="25" align="absbottom"} MultiQC settings"
+    - 1: Results
+    - Which tool was used generate logs?
+        
+        --> STAR
+    - Click "Insert STAR output"
+    - Type of STAR output?
+        
+        --> Log
+    - STAR log output
+        
+        --> Click first the collection icon ![](images/library_icon.png){width="75" align="absbottom"}
+        
+        --> Select the 3 collections `Dc`, `Mo` and `Oc RNA STAR log`, holding down the
+        ++command++ key
+    - Leave the other settings as is
+    - Press `Execute` !
 
-
+When MultiQC has run, look at the aggregated mapping statistics by clicking the eye icon
+of the dataset `MultiQC on data 46, data 44, and others: Webpage`
+---
