@@ -83,10 +83,20 @@ We are going to do this
     which contains the mm10 BAM alignments. As usual take benefit of this run time to rename
     the collection "Dc BAM alignments to mm10".
 
+If you deploy the collection and its first dataset, you should notice that
 
-![](images/ucsc.png) To be changed
+- the genome dbkey is now `mm10`
+- there is a small icon in the form of histogram at the bottom of the dataset.
 
-Zoom to chr4:540,000-560,000 (Chromosome 4 between 540 kb to 560 kb)
+<center>![](images/collection_for_ucsc_visu.png){width="250"}</center>
+
+- [x] Click on this icon !
+- [x] in the following menu, an option `1. display at UCSC (main , test )`is available (it
+  would not be on the bam collection mapped to GRCm38, you may check)
+- [x] Click on `main` to go to the main UCSC genome browser.
+- [x] After a few secondes, a new `UCSC Genome Browser on Mouse (GRCm38/mm10)` page should directly open 
+- [x] Paste the coordinates `chr15:97,239,883-97,250,884`
+
 
 
 ## IGV  ![](images/oeil.png)
