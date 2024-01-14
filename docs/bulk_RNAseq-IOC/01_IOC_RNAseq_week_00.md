@@ -247,6 +247,147 @@ window !
     This is most probably because you did not copy the *direct* psilo link but, instead,
     the indirect link that display an intermediate "download file" window.
 
+#### An advanced Psilo to Galaxy Transfer Use-Case
+Generally, you have a serie of files to transfer from Psilo to Galaxy.
+
+As we previously showed, using the url of a file shared in Psilo in the download Galaxy interface
+is a simple operation.
+
+However, this can become very tedious if you have more than 10 files !
+
+Here, we are going to show how to handle a case with 12 files to transfer from psilo
+to Galaxy. As you will see, this case can be easily scaled-up to > 100 files, provided that
+you have the good tools and you are not reluctant to use `regular expressions`.
+
+And you know what ? The good tools and easy use of regular expression are just provided
+by Galaxy !...
+
+Let's start from Psilo and the 12 files stored in the PRJNA630433 folder.
+
+![](images/psilo_PRJNA630433_folder.png){width="300px"}
+
+- [x] Somehow you must have a list of these files. Keep it handy!
+    ```
+    SRR11688222.fastqsanger.gz
+    SRR11688221.fastqsanger.gz
+    SRR11688228.fastqsanger.gz
+    SRR11688227.fastqsanger.gz
+    SRR11688218.fastqsanger.gz
+    SRR11688219.fastqsanger.gz
+    SRR11688220.fastqsanger.gz
+    SRR11688223.fastqsanger.gz
+    SRR11688224.fastqsanger.gz
+    SRR11688225.fastqsanger.gz
+    SRR11688226.fastqsanger.gz
+    SRR11688229.fastqsanger.gz
+    ```
+- [x] Share the folder by clicking the link icon on the figure above (white arrow)
+- [x] Create a public link and copy it. This is something in the form of:
+    `https://psilo.sorbonne-universite.fr/index.php/s/gqE3fsgr7XKiJXq`
+- [x] Paste this link in a **new** web browser window
+- [x] Click the upper white dots and copy the `direct link`
+    
+    ![](images/psilo_direct_link.png){width="300px"}
+    
+- [x] In our use case, it is
+    ```
+    https://psilo.sorbonne-universite.fr/index.php/s/gqE3fsgr7XKiJXq/download
+    ```
+    Note that it is the same link as the public link, plus the suffix `/download`
+    
+- [x] Now, if you add the string `?path=%2F&files=` and the name of the first file in the list
+    `SRR11688222.fastqsanger.gz`, you obtain the following direct link to this file
+    ```
+    https://psilo.sorbonne-universite.fr/index.php/s/gqE3fsgr7XKiJXq/download?path=%2F&files=SRR11688218.fastqsanger.gz
+    ```
+    You can test it in another browser window: it should trigger the download in your
+    local computer
+    
+    Thus the pattern of a working link in our use case is
+    
+    `https://psilo.sorbonne-universite.fr/index.php/s/gqE3fsgr7XKiJXq/download?path=%2F&files=` + `<filename>`
+    
+    
+- [x] Copy this list, 
+    ```
+    SRR11688222.fastqsanger.gz
+    SRR11688221.fastqsanger.gz
+    SRR11688228.fastqsanger.gz
+    SRR11688227.fastqsanger.gz
+    SRR11688218.fastqsanger.gz
+    SRR11688219.fastqsanger.gz
+    SRR11688220.fastqsanger.gz
+    SRR11688223.fastqsanger.gz
+    SRR11688224.fastqsanger.gz
+    SRR11688225.fastqsanger.gz
+    SRR11688226.fastqsanger.gz
+    SRR11688229.fastqsanger.gz
+    ```
+    go to your Galaxy account, and paste it in the `Upload Data` --> `Paste/Fetch data`
+    panel. After pressing start, you will have this list as a Galaxy dataset.
+- [x] Now you can use the Galaxy tool `Regex Find And Replace (Galaxy Version 1.0.3)`
+    - Select the file list dataset as an input of the tool form
+    - Click the `+ Insert Check` button
+    - In the `Find Regex` field, just enter `^` that in regex means "the beginning of a line"
+    - In the `Replacement` field, enter the string formed above
+      ```
+      https://psilo.sorbonne-universite.fr/index.php/s/gqE3fsgr7XKiJXq/download?path=%2F&files=
+      ```
+    - And press the `Execute` button !
+- [x] This tool will return the following final list of working URLs for the files.
+    ```
+    https://psilo.sorbonne-universite.fr/index.php/s/gqE3fsgr7XKiJXq/download?path=%2F&files=SRR11688222.fastqsanger.gz
+    https://psilo.sorbonne-universite.fr/index.php/s/gqE3fsgr7XKiJXq/download?path=%2F&files=SRR11688221.fastqsanger.gz
+    https://psilo.sorbonne-universite.fr/index.php/s/gqE3fsgr7XKiJXq/download?path=%2F&files=SRR11688228.fastqsanger.gz
+    https://psilo.sorbonne-universite.fr/index.php/s/gqE3fsgr7XKiJXq/download?path=%2F&files=SRR11688227.fastqsanger.gz
+    https://psilo.sorbonne-universite.fr/index.php/s/gqE3fsgr7XKiJXq/download?path=%2F&files=SRR11688218.fastqsanger.gz
+    https://psilo.sorbonne-universite.fr/index.php/s/gqE3fsgr7XKiJXq/download?path=%2F&files=SRR11688219.fastqsanger.gz
+    https://psilo.sorbonne-universite.fr/index.php/s/gqE3fsgr7XKiJXq/download?path=%2F&files=SRR11688220.fastqsanger.gz
+    https://psilo.sorbonne-universite.fr/index.php/s/gqE3fsgr7XKiJXq/download?path=%2F&files=SRR11688223.fastqsanger.gz
+    https://psilo.sorbonne-universite.fr/index.php/s/gqE3fsgr7XKiJXq/download?path=%2F&files=SRR11688224.fastqsanger.gz
+    https://psilo.sorbonne-universite.fr/index.php/s/gqE3fsgr7XKiJXq/download?path=%2F&files=SRR11688225.fastqsanger.gz
+    https://psilo.sorbonne-universite.fr/index.php/s/gqE3fsgr7XKiJXq/download?path=%2F&files=SRR11688226.fastqsanger.gz
+    https://psilo.sorbonne-universite.fr/index.php/s/gqE3fsgr7XKiJXq/download?path=%2F&files=SRR11688229.fastqsanger.gz
+    ```
+    *Nota Bene*: If there were 100 or 1000 files, there would be no more work !
+
+- [x] We are finally ready to upload this list of files to Galaxy:
+    - Click one more time `Upload Data` but this time click the tab `Rule-based`
+    - Paste the above url list in the central field, keeping the other `Upload data as` and
+      `Load tabular data from` as `Collection(s)` and `Pasted Table`, respectively.
+    - Click the `Build` button
+    - On the next panel, start by adding a column (`+ Column` button), `Using a regular
+      Expression`
+      
+      ![](images/adding_column.png){width="300px"}
+      
+    - Leave `From Column` `A` selected
+    - Check the radio button `Create columns matching expression groups`
+    - in the field `Regular Expression ?` enter exactly the following string pattern
+      ```
+      .+(SRR.+)\.fastqsanger\.gz
+      ```
+      leave the `Number of groups` as `1`
+      
+      <center>![](images/form_regex.png){width="300px"}</center>
+      
+      and press the button `Apply`
+      
+    - Now, Press the `+ Rules button` and select the item `Add / Modify Column Definitions`
+      in the pop up list.
+    - Click the `Add Definition` button
+    - Select `URL` in the drop-down menu
+    - Click one more time the `+ Add Definition` button
+    - Select `List Identifier(s)` item in the drop-down menu
+    - Click the `Select a column` menu and this time, select `B`
+    - Click the `Apply` button
+    - Give a name to the new collection to be built, for instance `PRJNA630433 Input data`
+    - And finally, press the `Upload` button :tada:
+
+- [x] **This is it !**
+      The download of all files as a dataset collection should start and take a certain
+      amount of time, depending on the size and number of your files.
+
 #### Thank you for your attention and see you nextweek :clap: :clap: :clap:
 
 ----
