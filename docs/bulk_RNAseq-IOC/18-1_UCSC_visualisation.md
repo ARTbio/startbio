@@ -101,14 +101,30 @@ If you deploy the collection and its first dataset, you should notice that
 
 ## IGV  ![](images/oeil.png)
 
-To use IGV with galaxy you need to have this tool on your computer. (If not you can download IGV from [their main site](http://software.broadinstitute.org/software/igv/).)
+To use IGV with galaxy you need to have this tool on your computer. (If not, you can download
+IGV from [their main site](https://igv.org/doc/desktop/#DownloadPage/).)
 
-1. Open locally IGV
-2. click the IGV local ling as indicated by the red arrow.
-
-![](images/igv.png)
-
-Zoom to chr4:540,000-560,000 (Chromosome 4 between 540 kb to 560 kb)
+- [x] Open locally IGV
+- [x] Click again on the "histogram icon"
+  
+  <center>![](images/collection_for_ucsc_visu.png){width="200"}</center>
+  
+- [x] This time, instead of "display at UCSC (main , test )", click the
+    `local` link in the line
+    
+    `2. display with IGV ( local , Mouse mm10 )`
+    
+    ![](images/igv.png){width="300"}
+    
+- [x] :warning: Depending on the size of the bam file you visualise, it can takes several
+  minutes before data are effectively displayed in the IGV browser.
+- [x] As a last note: IGV has become a powerful local genome browser with
+  integration of remote Galaxy datasets. However the learning curve of IGV is flat at the
+  beginning since it requires a general understanding of network as well as Input/Output
+  mechanisms in Information Technologie. Then, when these issues are mastered, the slope
+  of the IGV LC increase significantly since the Graphical Interface of IGV is in contrast
+  rather intuitive.
+    
+    :nerd_face: Hang in there, it's definitely worth it ! 
 
 ----
-![](images/gene_counting.png)
