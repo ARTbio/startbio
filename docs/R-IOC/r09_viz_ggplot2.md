@@ -6,7 +6,7 @@ With R, we can use the default plotting functions from the R package <code>graph
 (`plot()`, `hist()`, `boxplot()`, *etc.*).
 Read more about these functions in the [chapters 11 and 12](https://bookdown.org/ndphillips/YaRrr/plotting1.html) of Philips’ book.
 
-In this tutorial, we will introduct the <code>[ggplot2](https://ggplot2.tidyverse.org/index.html)</code> package to make more flexible and beautiful plots.
+In this tutorial, we will introduce the <code>[ggplot2](https://ggplot2.tidyverse.org/index.html)</code> package to make more flexible and beautiful plots.
 
 
 ## The Compositions of A ggplot
@@ -89,17 +89,17 @@ p_box <- ggplot( # init plot
 p_box
 ```
 
-Please check the [reference manual](https://ggplot2.tidyverse.org/reference/index.html) of `ggplot2` for the documentation of all functions. For more examples, please check:
+Please check the official [reference manual](https://ggplot2.tidyverse.org/reference/index.html) of `ggplot2` for the documentation of all functions. For more examples, please check:
 
 * [chapter 5](https://egallic.fr/Enseignement/R/Book/graphiques.html) of a R course notes from the Aix-Marseille Université
 * [chapters 2 and 3](https://bookdown.org/ansellbr/WEHI_tidyR_course_book/making-beautiful-plots.html) of Brendan's book
 
 ## Volcano Plot & Heatmap
 
-The volcano plot and the heatmap are two widely used figure type to show biological research results.
+The volcano plot and the heatmap are two widely used figure types to show biological research results.
 
 Check the chapter [19.11](https://biocorecrg.github.io/CRG_RIntroduction/volcano-plots.html) of Sarah's book
-for a concrete example of how to build a Volcano plot for differentially expression analysis results.
+for a concrete example of how to build a Volcano plot for differential expression analysis results.
 
 Heatmap need a bit more data manipulation before draw it with ggplot2.
 For instance, we want to visualize a set of 10 genes of 6 samples (3 control and 3 treated):
@@ -139,7 +139,7 @@ But you can have more control on the figure (style, color, position, *etc.*) if 
 
 ## Other Chart Types
 
-Pleas check the [R graph gallery](https://r-graph-gallery.com/index.html) for more (complex, even dynamic) examples of different chart types.
+Please check the [R graph gallery](https://r-graph-gallery.com/index.html) for more (complex, even dynamic) examples of different chart types.
 
 
 ## Export Graphs
@@ -164,6 +164,6 @@ ggsave(
 
 [The eBook of Claus](https://clauswilke.com/dataviz/) is interesting to have look for the general ideas of plot type to use and how to do a better visualization (not limited to ggplot2 figures).
 
-And you can find a the cheat sheet for ggplot2 [here](https://rstudio.github.io/cheatsheets/data-visualization.pdf)
+And you can find the `ggplot2` cheat sheet [here](https://rstudio.github.io/cheatsheets/data-visualization.pdf).
 
 ---
