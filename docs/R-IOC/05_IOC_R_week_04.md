@@ -46,7 +46,7 @@ name the rows with "r1", "r2", "r3" and the columns with "c1", "c2", "c3", "c4".
 - [x] Remove the rownames of `my_df`.
 - [x] Add a new row in `my_df` which contains the sum of each column (except the "id" column, put `NA` in the new row for this column).
 
-Please be aware of the best practices for your Rscript, we will be attentive to them !
+Please be aware of the best practices for your Rscript, we will be attentive to them!
 
 Now you can fill the following quiz: [Quiz of week 4](https://forms.gle/9ge6VxjL9dmFapJK6).
 

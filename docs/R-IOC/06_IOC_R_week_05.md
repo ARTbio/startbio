@@ -15,7 +15,7 @@ To avoid this inconvenience, you need to add the `.txt` extension to make your f
 
 - [x] 
 
-Please be aware of the best practices for your Rscript, we will be attentive to them !
+Please be aware of the best practices for your Rscript, we will be attentive to them!
 
 Now you can fill the following quiz: [Quiz of week 5](https://forms.gle/FRomLC2PCjYyydbZA).
 

@@ -54,7 +54,7 @@ To avoid this inconvenience, you need to add the `.txt` extension to make your f
 - [x] Save both PGS score table and the information table in one Excel `.xlsx` file.
 - [x] Read the cells A8 to C10 of the first sheet of the previous saved Excel file.
 
-Please be aware of the best practices for your Rscript, we will be attentive to them !
+Please be aware of the best practices for your Rscript, we will be attentive to them!
 
 Now you can fill the following quiz: [Quiz of week 2](https://forms.gle/GX4gkqkARvns1mrU6).
 

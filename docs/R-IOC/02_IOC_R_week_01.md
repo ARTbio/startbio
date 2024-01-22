@@ -45,7 +45,7 @@ To avoid this inconvenience, you need to add the `.txt` extension to make your f
 - [x] Create a function that takes a value and substract the number 4
 - [x] Test your function for the values : 12, 5.6 and 0 
 
-Please be aware of the best practices for your Rscript, we will be attentive to them !
+Please be aware of the best practices for your Rscript, we will be attentive to them!
 
 Now you can fill the following quiz: [Quiz of week 1](https://forms.gle/Y6enoxKSH5Nfa14w9).
 

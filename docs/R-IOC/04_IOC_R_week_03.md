@@ -27,7 +27,7 @@ To avoid this inconvenience, you need to add the `.txt` extension to make your f
 - [x] Filter the numerical vector within your list so that only positive 
 - [x] Filter false value of the logical vector within your list
 
-Please be aware of the best practices for your Rscript, we will be attentive to them !
+Please be aware of the best practices for your Rscript, we will be attentive to them!
 
 Now you can fill the following quiz: [Quiz of week 3](https://forms.gle/NLFnZq2rHb9TrFso8).
 
