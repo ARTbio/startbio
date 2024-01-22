@@ -12,16 +12,16 @@ Please use the [vector](r01_vectors.md) page in the reference manual to learn ab
 
 ### Operators
 
-R has different groups of operators, for arthmetic operation, for logical operations, for assignment, *etc.*
+R has different groups of operators, for arthmetic operations, for logical operations, for assignment, *etc.*
 What exactly are the operators and when to use them?
-You can find answers in the [operator](r02_operators.md) page in the reference manual.
+You can find answers on the [operator](r02_operators.md) page in the reference manual.
 
 ### Data Import & Export
 
 With the help of previous basic concepts, we know you are now keen to use R to manipulate your data.
-Wait a moment! How you import your data in R? You want to import data from other softwares into R?
+Wait a moment! How you import your data into R? You want to import data from other softwares into R?
 The [data import and export](r07_data_import_export.md) page in the reference manual is your friend.
-And you will of course find how to export data from R in this page.
+And you will of course find how to export data from R on this page.
 
 
 ## Let's Practice
