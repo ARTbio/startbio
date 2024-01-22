@@ -19,13 +19,13 @@ Unlike matrices, `data.frame` can represent heterogeneous data.
 You can find how to create and manipulate it in the [data.frame](r06_df_matrices.md) part of the reference manual.
 
 
-## Let's practice
+## Let's Practice
 
-For each week, you'll have a set of exercices that you must render in a R script. 
+For each week, you'll have a set of exercises that you must render in an R script. 
 After that you need to complete the following google form to answer some MCQ (Multiple
-Choice Questions) where the final question is to deposit your R script. Please note that
-a Rscript has the extension `.R` but it's not supported by Google Form so you must add
-the extension `.txt` so your filename will be : `NAME_week4_script.R.txt`. 
+Choice Questions) where the final question is to deposit your R script.
+Please note that an Rscript has the extension `.R` but it's not supported by Google Form.
+To avoid this inconvenience, you need to add the `.txt` extension to make your file named as: `NAME_week4_script.R.txt`. 
 
 ![](images/toolbox-do-it-yourself.png){: style="width:75px"} **Do it yourself !**
 
