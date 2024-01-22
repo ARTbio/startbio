@@ -30,7 +30,7 @@ The final schedule will be published at mid November
 3. What's a function ?
 4. Best Practices for programming in R
 - Program of Week 1 - [Week-1 exercices](./02_IOC_R_week_01.md)
-    1. Exercices with RStudio and R scripting
+    1. Exercises with RStudio and R scripting
     2. MCQ
 
 ### Week 2 - **to be scheduled**
@@ -39,7 +39,7 @@ The final schedule will be published at mid November
 3. What's an operators ?
 4. How upload and download data in R and Rstudio
 - Program of Week 2 - [Week-2 exercices](./03_IOC_R_week_02.md)
-    1. Exercices with RStudio and R scripting
+    1. Exercises with RStudio and R scripting
     2. MCQ
 
 ### Week 3 - **to be scheduled**
@@ -47,7 +47,7 @@ The final schedule will be published at mid November
 2. What's a list ?
 4. How manipulating a list ?
 - Program of Week 3 - [Week-3 exercices](./04_IOC_R_week_03.md)
-    1. Exercices with RStudio and R scripting
+    1. Exercises with RStudio and R scripting
     2. MCQ
 
 ### Week 4 - **to be scheduled**
@@ -55,7 +55,7 @@ The final schedule will be published at mid November
 2. What's a matrix and a dataframe ?
 4. How manipulating a two dimensional object ?
 - Program of Week 4 - [Week-4 exercices](./05_IOC_R_week_04.md)
-    1. Exercices with RStudio and R scripting
+    1. Exercises with RStudio and R scripting
     2. MCQ
 
 ### Week 5 - **to be scheduled**
@@ -63,21 +63,21 @@ The final schedule will be published at mid November
 2. Improve code thanks to conditions
 4. How apply a function on several data ?
 - Program of Week 5 - [Week-5 exercices](./06_IOC_R_week_05.md)
-    1. Exercices with RStudio and R scripting
+    1. Exercises with RStudio and R scripting
     2. MCQ
 
 ### Week 6 - **to be scheduled**
 1. Question on Week 5
 2. What's the tidyverse ?
 - Program of Week 6 - [Week-6 exercices](./07_IOC_R_week_06.md)
-    1. Exercices with RStudio and R scripting
+    1. Exercises with RStudio and R scripting
     2. MCQ
 
 ### Week 7 - **to be scheduled**
 1. Question on Week 6
 2. Data visualization thanks to ggplot2
 - Program of Week 7 - [Week-7 exercices](./08_IOC_R_week_07.md)
-    1. Exercices with RStudio and R scripting
+    1. Exercises with RStudio and R scripting
     2. Small project with a specific objective
     3. MCQ
 
