@@ -1,7 +1,7 @@
 ## Learning the two dimensional objects
 
 Now you are familiar with the basics of R,
-we will learn two more complexe data structures, the `matrix` and the `data.frame`.
+we will learn two more complex data structures, the `matrix` and the `data.frame`.
 
 
 ### Matrices
