@@ -28,11 +28,19 @@ From the image above, we can compute:
 Two main tools could be used for that: HTSeq-count
 ([Anders et al, Bioinformatics, 2015](https://academic.oup.com/bioinformatics/article/31/2/166/2366196))
 or featureCounts ([Liao et al, Bioinformatics, 2014](https://academic.oup.com/bioinformatics/article/31/2/166/2366196)).
-FeatureCounts is considerably faster and requires far less computational resources,
-so we will use it here.
 
-In principle, the counting of reads overlapping with genomic features is a fairly
-simple task. But there are some details that need to be given to featureCounts:
-for example the strandness.
+FeatureCounts is considerably faster and requires far less computational resources.
 
-![](images/sequencing_strategies.png)
+HTSeq-counts was originally developed by Simon Anders (the developer of DESeq2 and DEXSeq).
+Thus, there is certainly a guaranty of quality. However, it is less easy to use and requires
+several additional steps, in particular to carefully control the GTF/GFF files taken as
+an input by HTSeq-counts.
+
+!!! note "Three important points"
+    - [x] Here again (in the counting task), the genome annotation file, either a GTF or a GFF3, is
+    central, regardless of the chosen counting software.
+    - [x] The library strandness is absolutly required for an accurate gene read counting.
+    - [x] If you are working with paired-end sequencing datasets, you will not count reads.
+      Instead, you will count ==fragments==. If you count reads in this situation, you will
+      overestimate gene expressions !
+---

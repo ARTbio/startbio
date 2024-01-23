@@ -86,7 +86,7 @@ for you to use it once.
 
 ## ![](images/tool_small.png){width="30" align="absbottom"} Use of `Infer Experiment` tool
 
-Unfortunalty, the `Infer Experiment` tool does not with annotations in GTF format, but rather
+Unfortunalty, the `Infer Experiment` tool does not work with annotations in GTF format, but rather
 in another format: the BED12 format. No worries, there is a converter tool for this.
 
 !!! info "![](images/tool_small.png){width="25" align="absbottom"} `Convert GTF to BED12` settings"
