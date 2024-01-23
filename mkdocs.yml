@@ -47,7 +47,7 @@ nav:
             - RNAseq librairies:
               - cDNA synthesis: bulk_RNAseq-IOC/04_cDNAs.md
               - Inserts and sequencing strategies: bulk_RNAseq-IOC/05_sequencing_strategies.md
-            - About quality filtering in RNAseq analysis: bulk_RNAseq-IOC/06_read_filtering.md
+            - Sequence Quality and Read Filtering: bulk_RNAseq-IOC/06_sequence_quality_read_filtering.md
             - Transcript Quantification: bulk_RNAseq-IOC/07_transcript_quant.md
             - Statistical Analysis of Differential expression: bulk_RNAseq-IOC/08_RNAseq_DE.md
             - Understanding of all your experimental procedures: bulk_RNAseq-IOC/09_outline_conclusion.md
