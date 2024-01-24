@@ -8,7 +8,7 @@ Choice Questions) where the final question is to deposit your R script.
 Please note that an Rscript has the extension `.R` but it's not supported by Google Form.
 To avoid this inconvenience, you need to add the `.txt` extension to make your file named as: `NAME_week6_script.R.txt`. 
 
-![](images/toolbox-do-it-yourself.png){: style="width:75px"} **Do it yourself !**
+![](images/toolbox-do-it-yourself.png){: style="width:75px"} **Do it yourself!**
 
 - [x] 
 

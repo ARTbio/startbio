@@ -1,7 +1,7 @@
-In this Interactive Online Companionship which will be held in **December 2023**,
-We will train to use the R programming language for data manipulation and analysis
+In this Interactive Online Companionship which will be held in **January 2024**.
+We will train to use the R programming language for data manipulation and visualization.
 
-The final schedule will be published at mid November
+<!-- The final schedule will be published at mid November -->
 
 ### Week 0 - **3-hours Zoom video-conference**
 <!-- Faire un schedule sur google sheets -->
@@ -24,56 +24,56 @@ The final schedule will be published at mid November
     - basic usage of R (pre-existing functions, variables)
 
 ----
-### Week 1 - **to be scheduled**
+### Week 1 - **Fisrt steps**
 1. Question on Week 0
 2. Variables in R
-3. What's a function ?
+3. What's a function?
 4. Best Practices for programming in R
 - Program of Week 1 - [Week-1 exercices](./02_IOC_R_week_01.md)
     1. Exercises with RStudio and R scripting
     2. MCQ
 
-### Week 2 - **to be scheduled**
+### Week 2 - **Learning vectors and more**
 1. Question on Week 1
 2. Vectors in R
-3. What's an operators ?
+3. What's an operators?
 4. How upload and download data in R and Rstudio
 - Program of Week 2 - [Week-2 exercices](./03_IOC_R_week_02.md)
     1. Exercises with RStudio and R scripting
     2. MCQ
 
-### Week 3 - **to be scheduled**
+### Week 3 - **Learning lists**
 1. Question on Week 2
-2. What's a list ?
-4. How manipulating a list ?
+2. What's a list?
+4. How manipulating a list?
 - Program of Week 3 - [Week-3 exercices](./04_IOC_R_week_03.md)
     1. Exercises with RStudio and R scripting
     2. MCQ
 
-### Week 4 - **to be scheduled**
+### Week 4 - **Two-dimensional objects**
 1. Question on Week 3
-2. What's a matrix and a dataframe ?
-4. How manipulating a two dimensional object ?
+2. What's a matrix and a dataframe?
+4. How manipulating a two dimensional object?
 - Program of Week 4 - [Week-4 exercices](./05_IOC_R_week_04.md)
     1. Exercises with RStudio and R scripting
     2. MCQ
 
-### Week 5 - **to be scheduled**
+### Week 5 - **Level up your code**
 1. Question on Week 4
 2. Improve code thanks to conditions
-4. How apply a function on several data ?
+4. How apply a function on several data?
 - Program of Week 5 - [Week-5 exercices](./06_IOC_R_week_05.md)
     1. Exercises with RStudio and R scripting
     2. MCQ
 
-### Week 6 - **to be scheduled**
+### Week 6 - **Tidyverse**
 1. Question on Week 5
-2. What's the tidyverse ?
+2. What's the tidyverse?
 - Program of Week 6 - [Week-6 exercices](./07_IOC_R_week_06.md)
     1. Exercises with RStudio and R scripting
     2. MCQ
 
-### Week 7 - **to be scheduled**
+### Week 7 - **Data visualisation**
 1. Question on Week 6
 2. Data visualization thanks to ggplot2
 - Program of Week 7 - [Week-7 exercices](./08_IOC_R_week_07.md)

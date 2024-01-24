@@ -38,14 +38,14 @@ nav:
     - IOC on R:
         - Provisional Program : 
           - Schedule: R-IOC/00_IOC_R_program.md
-          - Introduction - Week 0: R-IOC/01_IOC_R_week_00.md
-          - First steps - Week 1: R-IOC/02_IOC_R_week_01.md
-          - Learning vectors and more - Week 2: R-IOC/03_IOC_R_week_02.md
-          - Learning Lists - Week 3: R-IOC/04_IOC_R_week_03.md
-          - Two-dimensional variables - Week 4: R-IOC/05_IOC_R_week_04.md
-          - Level up your code - Week 5: R-IOC/06_IOC_R_week_05.md
-          - Tidyverse - Week 6: R-IOC/07_IOC_R_week_06.md
-          - Data visualisation - Week 7: R-IOC/08_IOC_R_week_07.md
+          - Week 0 - Introduction: R-IOC/01_IOC_R_week_00.md
+          - Week 1 - First steps: R-IOC/02_IOC_R_week_01.md
+          - Week 2 - Learning vectors and more: R-IOC/03_IOC_R_week_02.md
+          - Week 3 - Learning Lists: R-IOC/04_IOC_R_week_03.md
+          - Week 4 - Two-dimensional objects: R-IOC/05_IOC_R_week_04.md
+          - Week 5 - Level up your code: R-IOC/06_IOC_R_week_05.md
+          - Week 6 - Tidyverse: R-IOC/07_IOC_R_week_06.md
+          - Week 7 - Data visualisation: R-IOC/08_IOC_R_week_07.md
         - Reference Manual:
           - Variables: R-IOC/r00_variables.md
           - Vectors: R-IOC/r01_vectors.md

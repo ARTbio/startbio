@@ -1,4 +1,4 @@
-## Learning the two dimensional objects
+## Learning the two-dimensional objects
 
 Now you are familiar with the basics of R,
 we will learn two more complex data structures, the `matrix` and the `data.frame`.
@@ -7,7 +7,7 @@ we will learn two more complex data structures, the `matrix` and the `data.frame
 ### Matrices
 
 A matrix is a fundamental two-dimensional data structure that organizes data into rows and columns.
-Matrices are homogeneous, meaning they store elements of the same data type, making them efficient for mathematical operations.
+Matrices are homogeneous, meaning they store elements of the same type, making them efficient for mathematical operations.
 
 Please check the [matrix](r06_df_matrices.md) part in the reference manual to learn more about it.
 
@@ -27,9 +27,10 @@ Choice Questions) where the final question is to deposit your R script.
 Please note that an Rscript has the extension `.R` but it's not supported by Google Form.
 To avoid this inconvenience, you need to add the `.txt` extension to make your file named as: `NAME_week4_script.R.txt`. 
 
-![](images/toolbox-do-it-yourself.png){: style="width:75px"} **Do it yourself !**
+![](images/toolbox-do-it-yourself.png){: style="width:75px"} **Do it yourself!**
 
-- [x] Create an object of matrix named `my_mat` with 3 rows and 4 columns, fill with numbers 1 to 12 by row,
+- [x] Create a matrix object named `my_mat` with 3 rows and 4 columns,
+fill with numbers 1 to 12 by row,
 name the rows with "r1", "r2", "r3" and the columns with "c1", "c2", "c3", "c4".
 - [x] Extract the 2nd row of `my_mat`.
 - [x] Extract the 2nd row of `my_mat` but keep it in matrix format.
@@ -40,7 +41,7 @@ name the rows with "r1", "r2", "r3" and the columns with "c1", "c2", "c3", "c4".
 - [x] Replace the element bigger than 10 by 99 in `my_mat`.
 - [x] Transforme the matrix `my_mat` to a `data.frame` named `my_df`.
 - [x] Use the rownames to create a new column "id" for `my_df`.
-- [x] Which rows has duplicated values in `my_df`?
+- [x] Which row(s) has(have) duplicated values in `my_df`?
 - [x] Create a new column named "total" in `my_df`, which calculates the sum of column "c1" to "c4" by row.
 - [x] Change the column order to put the "id" in the first column in `my_df`.
 - [x] Remove the rownames of `my_df`.
