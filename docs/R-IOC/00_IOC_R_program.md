@@ -16,9 +16,8 @@ We will train to use the R programming language for data manipulation and visual
     - R-Studio 
     - Import data from Psilo to R-Studio
 4. Work Program of the week 0 - [Week-0](./01_IOC_R_week_00.md)
-    - Exercises with Slack (use of markdown, configuration, files, no-screen-shots, etc.)
-    Exercises with GitHub (web version)
-    - Data upload in Rstudio, from Psilo
+    - Exercises with Slack and Trello (use of markdown, configuration, files, no-screen-shots, etc.)
+    - Data upload in Rstudio
     - Create various projects and navigate between them
     - basic usage of R (pre-existing functions, variables)
 
@@ -44,7 +43,7 @@ We will train to use the R programming language for data manipulation and visual
 2. Work to be done throughout the [Week-2](./03_IOC_R_week_02.md)
     - Theoretical part
         1. Vectors in R
-        2. What's an operators?
+        2. What's an operator ?
         3. How upload and download data in R and Rstudio
     - Assignment
         1. Exercises with RStudio and R scripting
@@ -57,7 +56,7 @@ We will train to use the R programming language for data manipulation and visual
 2. Work to be done throughout the [Week-3](./04_IOC_R_week_03.md)
     - Theoretical part
         1. What's a list?
-        2. How manipulating a list?
+        2. How to manipulate a list
     - Assignment
         1. Exercises with RStudio and R scripting
         2. MCQ
@@ -69,7 +68,7 @@ We will train to use the R programming language for data manipulation and visual
 2. Work to be done throughout the [Week-4](./05_IOC_R_week_04.md)
     - Theoretical part
         1. What's a matrix and a dataframe?
-        2. How manipulating a two dimensional object?
+        2. How to manipulate a two dimensional object
     - Assignment
         1. Exercises with RStudio and R scripting
         2. MCQ
@@ -81,7 +80,7 @@ We will train to use the R programming language for data manipulation and visual
 2. Work to be done throughout the [Week-5](./06_IOC_R_week_05.md)
     - Theoretical part
         1. Improve code thanks to conditions
-        2. How apply a function on several data?
+        2. How to apply a function on several data
     - Assignment
         1. Exercises with RStudio and R scripting
         2. MCQ
