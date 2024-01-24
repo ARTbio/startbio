@@ -109,7 +109,7 @@ continuous development and continuous integration.
 This is the case of [GitHub](https://github.com){:target="_blank"} which we have chosen in ARTbio.
 [GitLab](https://about.gitlab.com/) is another option, which will not use here.
 
-Good news! there is a GitHub repository just for your IOC
+<!-- Good news! there is a GitHub repository just for your IOC
 [**here**](https://github.com/ARTbio/ARTbio_065_IOC_R/tree/main){:target="_blank"}.
 This repository is private. Therefore, to access it, you will need to create a personal
 GitHub account, and to communicate your GitHub identifier to be invited to contribute to
@@ -119,7 +119,7 @@ We are not going to use the repository intensively
 [ARTbio_065_IOC_R](https://github.com/ARTbio/ARTbio_065_IOC_R/tree/main){:target="_blank"}.
 However, we will try to take advantage of it to introduce you to the notions
 of FAIR (Findability, Accessibility, interoperability and reproducibility) and familiarize
-you with the continuous integration and transparency of bioinformatics analyses.
+you with the continuous integration and transparency of bioinformatics analyses. -->
 
 !!! info "Disclosure"
     The learning curve of git and github is not steep for a biologist... which
