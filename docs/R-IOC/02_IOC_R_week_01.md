@@ -25,6 +25,18 @@ disagree but for us in ARTbio, it's a very important topic. R is a language and 
 all languages, there are rules to correctly write it.
 Those rules are called [best practices](./r04_bestpractices.md) and you can learn more on their page in the reference manual.
 
+### Bonus: Automatic Reporting (R Markdown/Quarto)
+
+Do you want to simplify your life by generating automatic reports?
+As a bonus, we'll introduce you a simple and practical way -- using R Markdown (or Quarto)!
+
+R Markdown and Quarto provides a streamlined and efficient way to generate dynamic and reproducible reports in data analysis and research.
+They are both markup languages that **integrate code, text and output in a single document**.
+In addition, you can choose different output formats (Word, Powerpoint, PDF, HTML, *etc.*) to write reports, presentations or even articles.
+With the ability to incorporate R code directly into the document, these tools ensuring that reports can be easily updated with new data or changes in analysis.
+
+Please check the [automatic reporting](./r11_auto_reporting.md) page in the reference manual for more details.
+
 ## Let's Practice
 
 For each week, you'll have a set of exercises that you must render in an R script. 
