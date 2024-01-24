@@ -180,7 +180,7 @@ cbind(my_df, "new_col" = letters[1:nrow(my_df)])
 my_df$new_col2 <- "cohort1"
 ```
 
-How about joining two `data.frame`s to get a bigger one ? `merge()` if your friend.
+How about joining two `data.frame`s to get a bigger one? `merge()` if your friend.
 The merge is based on either a specific column or the `row.names`.
 
 ```r

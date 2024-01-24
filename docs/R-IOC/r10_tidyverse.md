@@ -1,4 +1,4 @@
-## What's the tidyverse ?
+## What's the tidyverse?
 
 The `tidyverse` is a set of R packages for data visualisation and manipulation. You can learn 
 more on their [website](https://www.tidyverse.org/). It contains the following R packages : 
@@ -34,7 +34,7 @@ It's a variant of `data.frame`. Don't worry, you can manipulate `tibble` the sam
 `data.frame` that you learn previously (brackets `[ ]`, `$`, and with basics functions such 
 as : `colnames`, `rownames`, `str`, *etc*...). 
 
-How it looks ? 
+How it looks? 
 
 ```
 # An example of a tibble from tidyverse
@@ -171,7 +171,7 @@ untidy_df
 ```
 
 This format is often use when you manipulate excel sheets, but there is some inconvenients.
-What are the effectif stands for ? Potatoes ? Okay, I may overstating it but for complicated
+What are the effectif stands for? Potatoes? Okay, I may overstating it but for complicated
 tables it may be an issue and it makes it harder to manipulate untidy data. For example, if 
 you need to visualize the number of cells for each sample but also for each cell type, it's 
 not possible to do so easily in R. Instead we are going to favor this architecture : 

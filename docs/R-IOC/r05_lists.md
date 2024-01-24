@@ -9,7 +9,7 @@ You can read a perfectly well explained introduction of list from the chapter [5
 
 ## Manipulating list
 
-### How to navigate within a list ? 
+### How to navigate within a list? 
 
 To manipulate lists, you can use the square brackets `[ ]` but not quite the same way that 
 you saw for vectors. 
@@ -62,7 +62,7 @@ mylist[[3]][[1]]
 ## logi TRUE
 ```
 
-**But why are we using a double square brackets ?**
+**But why are we using a double square brackets?**
 
 Because if we use a simple square brackets you only filter the list, *i.e.* by using simple
 square brackets you'll retrieve a *smaller* list instead of the element. 
@@ -121,7 +121,7 @@ mylist <- list(a_vector = 100:130,
                a_list = list(TRUE, FALSE))
 ```
 
-**What difference does it make ?**
+**What difference does it make?**
 
 ```
 mylist
