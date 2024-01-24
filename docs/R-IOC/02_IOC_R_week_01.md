@@ -35,7 +35,22 @@ They are both markup languages that **integrate code, text and output in a singl
 In addition, you can choose different output formats (Word, Powerpoint, PDF, HTML, *etc.*) to write reports, presentations or even articles.
 With the ability to incorporate R code directly into the document, these tools ensuring that reports can be easily updated with new data or changes in analysis.
 
-Please check the [automatic reporting](./r11_auto_reporting.md) page in the reference manual for more details.
+The suffix for R Markdown scripts is `.Rmd` and the suffix for Quarto scripts is `.qmd`.
+You can test the built-in templates in RStudio (go to menu: `File` -> `New File` -> `Quarto Document` or `R Markdown`). You can select the wanted output format in the pop-up window,
+for the first time of use, RStudio will remind you to install the needed package(s).
+
+For more detail about the parameters, please check these links:
+
+- R Markdown:
+  * [R Markdown from RStudio](https://rmarkdown.rstudio.com/lesson-1.html)
+  * [R Markdown Quick Tour](https://rmarkdown.rstudio.com/authoring_quick_tour.html)
+  * [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
+  * [R Markdown Themes Guide](https://rpubs.com/ranydc/rmarkdown_themes)
+
+- Quarto
+  * [Quarto tutorial for RStudio](https://quarto.org/docs/get-started/hello/rstudio.html)
+  * [Quarto: The Definitive Guide](https://quarto-tdg.org)
+
 
 ## Let's Practice
 
