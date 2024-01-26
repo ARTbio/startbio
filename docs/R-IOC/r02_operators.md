@@ -37,10 +37,10 @@ compare values, and combine expressions. Here are some commonly used operators i
 - Membership Operators:
     - `%in%`: Checks if an element is present in a vector or list.
 
-- Miscellaneous Operators-:
+- Miscellaneous Operators:
     - Function call: `()`
     - Indexing: `[]`
-    - Sequence generation: `:` (for instance `5:8` return `[1] 5 6 7 8`)
+    - Sequence generation: `:` (for instance, `5:8` returns `[1] 5 6 7 8`)
     - Access attributes: `$`
 
 These operators can be used in combination with variables, literals, and expressions to
