@@ -16,12 +16,12 @@ is necessary to comply with rules that are developed by a large community of dev
 and generally accepted by consensus.
 
 For a nice summary of good practices in R coding, please see the section
-[10](https://www.r4epi.com/coding-best-practices.html) of R for epidemiology by Brad Cannell.
+[10 Coding Best Practices](https://www.r4epi.com/coding-best-practices.html) of "R for Epidemiology" by Brad Cannell.
 
 You can also check the sections
-[2.4](https://bookdown.org/ndphillips/YaRrr/reading-and-writing-code.html) and
-[4.3](https://bookdown.org/ndphillips/YaRrr/a-brief-style-guide-commenting-and-spacing.html)
-of the Nathaniel D. Phillips's guide and the [post](http://adv-r.had.co.nz/Style.html) of
+[2.4 Reading and writing Code](https://bookdown.org/ndphillips/YaRrr/reading-and-writing-code.html) and
+[4.3 A brief style guide](https://bookdown.org/ndphillips/YaRrr/a-brief-style-guide-commenting-and-spacing.html)
+of the Nathaniel D. Phillips's guide and the [Style guide](http://adv-r.had.co.nz/Style.html) of
 Hadley Wickham which gives good and bad examples of R coding practices.
 
 As a last word, we admit that the coding rules in R are less precisely described than for
