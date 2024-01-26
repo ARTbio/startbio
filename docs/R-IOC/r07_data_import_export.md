@@ -66,8 +66,8 @@ my_table <- read.table(
 ```
 
 !!! note
-  In R, the backslash `\` is used to escape the character after it.
-  As we use `""` to pass value to the argument `quote`,  meanwhile the `"` is the quoting character used in the file to read, we need to "protect" the quoting character by the backslash to let R know the `"` between the `""` is a real character to be evaluated. 
+    In R, the backslash `\` is used to escape the character after it.
+    As we use `""` to pass value to the argument `quote`,  meanwhile the `"` is the quoting character used in the file to read, we need to "protect" the quoting character by the backslash to let R know the `"` between the `""` is a real character to be evaluated. 
 
 
 There are other useful arguments that we didn't mentionned here,
