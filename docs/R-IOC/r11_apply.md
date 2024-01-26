@@ -11,7 +11,7 @@ of a two dimensional object.
 
 !!! abstract "Take a break & Read"
     In order to learn more about `apply` please go read carefully the section 1-2
-    of the [Chapter 4](https://ademos.people.uic.edu/Chapter4.html) of Erin Sovansky Winter
+    of the [Chapter 4](https://ademos.people.uic.edu/Chapter4.html) of Erin Sovansky Winter's book.
 
 
 ## Other Apply functions
@@ -20,7 +20,7 @@ If you want to apply a function on other object than a two dimensional variable,
 you may be interested in `lapply` and `mapply` for example. It performs a function
 for each element of a vector or a list. 
 
-```
+```r
 mylist <- list(100:130, "R", list(TRUE, FALSE))
 mylist
 ## [[1]]
@@ -56,14 +56,13 @@ differs for each lap in `lapply` (the element vector or list). Whereas for `mapp
 you can define a different set of parameters for each lap. `lapply` returns a list
 and `mapply` a vector. 
 
-```
+```r
 mylist2 <- list(test = letters[1:3], test2 = letters[4:6])
 
 #Concatenate each vector with an underscore
 lapply(X = mylist2,
        FUN = paste,
        collapse = "_")
-
 ## $test
 ## [1] "a_b_c"
 ##
@@ -74,7 +73,6 @@ lapply(X = mylist2,
 mapply(FUN = paste,
        mylist2,
        collapse = c("_", "-"))
-
 ##    test   test2 
 ## "a_b_c" "d-e-f" 
 ```
