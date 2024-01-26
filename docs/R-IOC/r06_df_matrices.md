@@ -79,7 +79,7 @@ my_mat[5] # return the 5th element, so the element in row 2 and column 2
 ## [1] 5
 ```
 
-!!! tips "About dimensionality..."
+!!! tip "About dimensionality..."
     Did you notice that the results are all vectors?
     To learn how to preserve the dimensionality, please check the section [4.2.5](https://adv-r.hadley.nz/subsetting.html#simplify-preserve) of Hadley Wickham's "Advanced R".
 
@@ -286,7 +286,7 @@ my_df[, -c(2, 3)] # get all columns except the 2nd and the 3rd
 ## [1] 1 2 3 4 5
 ```
 
-!!! questions "Question"
+!!! question
     How to maintain dimensionality when subsetting results in selecting only one column?
 
 The same logique to access to rows:
