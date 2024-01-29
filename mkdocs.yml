@@ -73,8 +73,8 @@ nav:
           - Counting reads or fragments: bulk_RNAseq-IOC/20_intro_counting.md
           - Week 3 exercices:
             - FeatureCounts: bulk_RNAseq-IOC/21_FeatureCounts.md
-            - STAR: bulk_RNAseq-IOC/22_star_counts.md
-            - HTSeq_counts: bulk_RNAseq-IOC/23_HTSeq_counts.md
+            - HTSeq_counts: bulk_RNAseq-IOC/22_HTSeq_counts.md
+            - Count with STAR: bulk_RNAseq-IOC/23_star_counts.md
 
 
         - Week 4:

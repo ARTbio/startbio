@@ -115,6 +115,11 @@ The main functions of FastQC are:
 
 ### Quick discussion of quality metrics assessed by FastQC
 
+For several online discussions about Fastq quality metrics, see
+
+- [hbctraining.github.io](https://hbctraining.github.io/Intro-to-rnaseq-hpc-salmon-flipped/lessons/07_qc_fastqc_assessment.html){:target="_blank"}
+- [ancient but still interesing discussion from the BIOINFO-CORE teal (2010)](http://bioinfo-core.org/index.php/9th_Discussion-28_October_2010){:target="_blank"}
+
 ??? info "Basic Statistics... are basic statitics"
     | Measure                           | Value                   |
     | --------------------------------- | ----------------------- |
