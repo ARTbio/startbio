@@ -1,4 +1,4 @@
-## ![](images/tool_small.png){width="30" align="absbottom"} Use of ` htseq-count` tool on `PRJNA630433` datasets
+## ![](images/tool_small.png){width="30" align="absbottom"} Use of `FeatureCounts` tool on `PRJNA630433` datasets
 
 Before using `FeatureCounts` ensure that you have ready:
 
