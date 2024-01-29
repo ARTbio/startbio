@@ -119,7 +119,16 @@ nav:
         - External Materials: bulk_RNAseq-IOC/links.md
 
     - IOC on R:
-        - Provisional Program / Schedule: R-IOC/00_IOC_R_program.md
+        - Provisional Program : 
+          - Schedule: R-IOC/00_IOC_R_program.md
+          - Week 0 - Introduction: R-IOC/01_IOC_R_week_00.md
+          - Week 1 - First steps: R-IOC/02_IOC_R_week_01.md
+          - Week 2 - Learning vectors and more: R-IOC/03_IOC_R_week_02.md
+          - Week 3 - Learning Lists: R-IOC/04_IOC_R_week_03.md
+          - Week 4 - Two-dimensional objects: R-IOC/05_IOC_R_week_04.md
+          - Week 5 - Level up your code: R-IOC/06_IOC_R_week_05.md
+          - Week 6 - Tidyverse: R-IOC/07_IOC_R_week_06.md
+          - Week 7 - Data visualisation: R-IOC/08_IOC_R_week_07.md
         - Reference Manual:
           - Variables: R-IOC/r00_variables.md
           - Vectors: R-IOC/r01_vectors.md
@@ -133,8 +142,6 @@ nav:
           - Conditions: R-IOC/r08_ifelse.md
           - Manipulating data with tidyverse: R-IOC/r10_tidyverse.md
           - Visualization: R-IOC/r09_viz_ggplot2.md
-        - Week 0:
-          - Introduction - Week 0: R-IOC/01_IOC_R_week_00.md
         - Storage room: R-IOC/pick-up.md
 
     - Single-cell RNAseq analysis using Seurat in R:

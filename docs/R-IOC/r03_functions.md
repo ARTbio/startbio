@@ -1,4 +1,4 @@
-As soon as you start learning a programming language, you hear about functions. Functions
+As soon as you start learning a programming language, you will hear about functions. Functions
 are "self contained", named modules of code that accomplish a specific task. They usually
 take in some variable(s) of a specific data structure (simple scalar, vector, dataframe,
 list, etc.), process it (them), and return a result.
@@ -7,7 +7,7 @@ list, etc.), process it (them), and return a result.
 
 R has _many_ "built-in" functions and you already used some of them.
 
-Thus,
+Such as:
 
 - `charToRaw()`
 - `str()`
@@ -23,29 +23,29 @@ Thus,
 are built-in functions provided by R as soon as you run the R environment.
 
 A very useful function when you learn R (and later too !) is the `help()` function. Thus,
-```
+```r
 help("sum")
 ```
-returns documentation on the sum() function. Note that the question mark acts as shortcut
-to the help() function. Thus,
-```
+returns documentation on the sum() function. Note that the question mark acts as a shortcut
+to the help() function. So you can also do:
+```r
 ?sum
 ```
-returns the same as `help("sum")`.
+it returns the same as `help("sum")`.
 
 All functions coming from R and R packages have a help page that explains how to use them.
 
 You will find extended explanations on the help function and help pages
 [here](https://rstudio-education.github.io/hopr/packages.html#getting-help-with-help-pages).
 
-### Custom user functions
+## Custom user functions
 
 Importantly, you can also create, use and reuse your own functions.
 
 A typical custom function has the following structure:
 
 
-```
+```r
 add_three <- function(x){
     y <- x + 3
    return(y)
@@ -64,15 +64,17 @@ The important elements here are:
     name to the function. Indeed, a function is an R object as any R objects, and you will
     see that a function may be assigned in some occasion to a variable !
     
-- the reserved token `function` and argument(s) (function`(x)`):
+- the reserved token `function()` and argument(s) (here `x`):
     
     We tell R that we want to create a function using `function()`.
     
     Within the parentheses, we can specify the number of arguments that we want our
-    function to take in. It does not matter how we name the arguments (here,` x`), as
+    function to take in. It does not matter how we name the arguments (here` x`), as
     long as we consistently use these argument names in the body of the function.
+    But don't forget to follow the [best practices](./r04_bestpractices.md) when you are naming the arguments.
+    
     If you need multiple arguments, it will look like this:
-    ```
+    ```r
     mysuperfunc(arg1, arg2, arg3){
         ...
         ...
@@ -81,7 +83,9 @@ The important elements here are:
     
     When you latter on call the function, you will have to specify values for the
     arguments. In this instance, this call will look like:
-    ```
+    ```r
+    myresult <- mysuperfunc(arg1 = "mytitle", arg2 = 12.8, arg3 = another_variable)
+    ## or simply provide values, but in the correct order!
     myresult <- mysuperfunc("mytitle", 12.8, another_variable)
     ```
     where here the `mysupefunc` function take a string, a float number, and the content of
@@ -113,20 +117,20 @@ The important elements here are:
     will return the last variable called in the function block.
     
     Here, we could have written our function as
-    ```
+    ```r
     add_three <- function(x){
         y <- x + 3
     }
     ```
     without change, because y is the last called variable.
     
-    But, let us say it again: for readability by others (and by yourself in a few weeks...)
-    always put a return statement in your functions.
+    But, let us say it again: for readability by others (and by yourself in a few weeks...),
+    always put a return statement at the end of your functions.
 
 
 !!! warning ":warning:"
-    be careful, when you create your own functions, to not using names reserved for R
-    built-in functions such as `log`, `min`, `max`, `sum`, `mean`, `sd`
+    Be careful, when you create your own functions, DO NOT use names reserved for R
+    built-in functions, such as `log`, `min`, `max`, `sum`, `mean`, `sd`
     (for standard deviation), `se` (for standard error), and many others.
     
     If you do so, you have to be aware that the new user function has precedence over the
@@ -134,17 +138,12 @@ The important elements here are:
     If you are not sure, you can check if a name is already used by typing the name in your
     console.
     
-    for instance:
-    ```
-    > sum
-    function (..., na.rm = FALSE)  .Primitive("sum")
-    > log
-    function (x, base = exp(1))  .Primitive("log")
+    For instance:
+    ```r
+    sum
+    ## function (..., na.rm = FALSE)  .Primitive("sum")
+    log
+    ## function (x, base = exp(1))  .Primitive("log")
     ```
     If there is a match, then pick another name, unless you whish to mask the Built-in
     function on purpose !
-
-**Exercises where using `help()` may help !**: 
-
-- calculate the Ln, log in base 2 and log in base 10 of the value 1.
-- round the fraction 9/7 with 2 or 4 decimal numbers

@@ -7,8 +7,8 @@ the data, you manipulate variables, which you can think of as abstractions of th
 It should be noted that sometimes, R programmers use the term "object" in place of "variable".
 No worries, we are still talking about variables!
 
-A variable has a type (`integer`, `character`, etc) and may have different structures
-(`scalar`, `vector`, `dataframe`, etc.)
+A variable has a type (`integer`, `character`, *etc.*) and may have different structures
+(`scalar`, `vector`, `dataframe`, *etc.*)
 
 For an introduction to variables in R, read the section
 [1.10 - Variables](https://bookdown.org/ansellbr/WEHI_tidyR_course_book/welcome-to-r.html#variables){:target="_blank"}
@@ -18,26 +18,25 @@ from Brendan R. E.
 
 ### Type of variable
 
-The notion of type of a variable is pretty intuitive.  You are indeed familiar with most of the variable types.
+The notion of type of a variable is pretty intuitive.
+You are indeed familiar with most of the variable types.
+The type of a variable may be:
 
-Thus, the type of a variable may be
-
-
-
-1. Numeric. Eg: `pi`, `1.0`, `2.7` or even 2
-* Integer. Eg: `1`, `2`, `45893`. Note that in R, a variable assigned to an integer value,
+1. Numeric. E.g.: `pi`, `1.0`, `2.7` or `2`
+* Integer. E.g.: `1`, `2`, `45893`. Note that in R, a variable assigned to an integer value,
 has the type "numeric" by default.
 If you want to give it the type integer (which use less space in memory), you have to do
 it actively by typing `x <- 7L` or `x <- as.integer(7)`
-* Complex. Eg: `2 + 3i`
-* Character. Eg: `"a"`, `"X"`, `"ARTbio"`, `"I had a dream"`. Note that characters are declared
+* Complex. E.g.: `2 + 3i`
+* Character. E.g.: `"a"`, `"X"`, `"ARTbio"`, `"I had a dream"`. Note that characters are declared
 as character using double quotes.
 * Logical. Also called boolean. Takes only two possible value: `TRUE` and `FALSE`
 * Raw. Store any piece of information as raw bytes, using the function `charToRaw()`.
 For instance, `A <- charToRaw("ARTbio")`
 
-While the type of a variable is most often obvious, you can can check it out using the function `typeof()`
-```
+While the type of a variable is most often obvious, you can check it out using the function `typeof()`:
+
+```r
 myvariable <- "ARTbio"
 typeof(myvariable)
 ```
@@ -47,7 +46,7 @@ returns
 ```
 
 For a quick review on the types of the variables, see
-[R Data Types](https://www.programiz.com/r/data-types){:target="_blank"} 
+[R Data Types](https://www.programiz.com/r/data-types){:target="_blank"}.
 
 ### Structure of variable
 
@@ -66,7 +65,7 @@ The main structures of variables in R are:
 
 These structures are detailed in the
 [HBC training], section
-["R Syntax and Data Structures"](https://hbctraining.github.io/Intro-to-R-flipped/lessons/02_introR-syntax-and-data-structures.html){:target="_blank"}
+["R Syntax and Data Structures"](https://hbctraining.github.io/Intro-to-R-flipped/lessons/02_introR-syntax-and-data-structures.html){:target="_blank"}.
 
 Note that we will come back extensively to the data frames and lists later on.
 
@@ -86,6 +85,6 @@ manipulated and stored in R. It can be of any existing R type
 represents a single value, R treats scalars as vectors of length 1, which means many
 vector operations can be performed on scalars as well. Most of the assignments
 that you have seen or manipulated so far are scalars. You can read a bit more about it
-in ["YaRrr! The Pirate’s Guide to R, by Nathaniel D. Phillips"](https://bookdown.org/ndphillips/YaRrr/scalars.html){:target="_blank"}.
+in ["YaRrr! The Pirate’s Guide to R"](https://bookdown.org/ndphillips/YaRrr/scalars.html){:target="_blank"}, by Nathaniel D. Phillips.
 
 ---

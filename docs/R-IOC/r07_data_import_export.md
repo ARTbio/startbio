@@ -66,8 +66,8 @@ my_table <- read.table(
 ```
 
 !!! note
-  In R, the backslash `\` is used to escape the character after it.
-  As we use `""` to pass value to the argument `quote`,  meanwhile the `"` is the quoting character used in the file to read, we need to "protect" the quoting character by the backslash to let R know the `"` between the `""` is a real character to be evaluated. 
+    In R, the backslash `\` is used to escape the character after it.
+    As we use `""` to pass value to the argument `quote`,  meanwhile the `"` is the quoting character used in the file to read, we need to "protect" the quoting character by the backslash to let R know the `"` between the `""` is a real character to be evaluated. 
 
 
 There are other useful arguments that we didn't mentionned here,
@@ -243,112 +243,4 @@ saveRDS(a, file = "path/to/my_object.RDS")
 save(a, b, df, file = "path/to/my_objects.RData")
 ```
 
-## Exercises
-
-* Download the data from this url:
-"https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000841/ScoringFiles/PGS000841.txt.gz"
-
-```r
-download.file(
-  url = "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000841/ScoringFiles/PGS000841.txt.gz",
-  destfile = "PGS000841.txt.gz" # be careful of the file extension
-)
-```
-
-* Read the downloaded file and observe what you got
-
-```r
-pgs_tab <- read.delim("PGS000841.txt.gz", header = FALSE)
-```
-
-* How many lines should we skip to get the data?
-
-```r
-grep("^#", pgs_tab$V1) # count how many lines are in comment
-```
-
-* Re read the file again with appropriate parameters of `read.delim()`
-
-```r
-pgs_tab <- read.delim(
-  here("data", "PGS000841.txt.gz"),
-  header = TRUE,
-  skip = 14
-)
-```
-
-* Save the readed table in `.csv` format and in Excel `.xlsx` format
-
-```r
-write.csv(pgs_tab, file = "PGS000841.csv")
-
-library(writexl)
-write_xlsx(pgs_tab, path = "PGS000841.xlsx")
-```
-
-* The comment lines are sometime useful, for example,
-in this example we can get the information of the downloaded polygenic score.
-Try to read only the comment lines in R and transforme it into a `data.frame`.
-
-```r
-pgs_info <- read.delim(
-  "PGS000841.txt.gz",
-  header = FALSE,
-  nrows = 14
-)
-pgs_info <- pgs_info[-c(1:3, 12), , drop = FALSE]
-
-# or
-pgs_info <- read.delim(
-  "PGS000841.txt.gz",
-  header = FALSE,
-  nrows = 11,
-  skip = 3
-)
-pgs_info <- pgs_info[-9, , drop = FALSE]
-```
-
-* Save the PGS information table in a `.RDS`
-
-```r
-saveRDS(pgs_info, file = "path/to/my_PGS_info.RDS")
-```
-
-
-* Save both PGS score table and the information table in a `.RData`.
-
-```r
-save(pgs_tab, pgs_info, file = "path/to/my_PGS.RData")
-```
-
-* Save both PGS score table and the information table in one Excel `.xlsx` file.
-
-```r
-write_xlsx(
-  x= list(pgs_tab, pgs_info),
-  path = "PGS000841_score_and_info.xlsx"
-)
-# or more beautiful format for the second sheet
-pgs_info <- strsplit(pgs_info$V1, split = "=")
-pgs_info <- data.frame(
-  "name" = sapply(pgs_info, "[[", 1), # extract the 1st elements into the column "name"
-  "value" = sapply(pgs_info, "[[", 2) # extract the 2nd elements into the column "value"
-)
-write_xlsx(
-  x = ist(
-    "pgs_tab" = pgs_tab,
-    "pgs_info" = as.data.frame(pgs_info)),
-  path = "PGS000841_score_and_info.xlsx"
-)
-```
-
-* Read the cells A8 to C10 of the first sheet of the previous saved Excel file.
-
-```r
-readxl::read_xlsx(
-  path = "PGS000841_score_and_info.xlsx",
-  sheet = 1,
-  range = "A8:C10",
-  col_names = FALSE
-)
-```
+---

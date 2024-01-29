@@ -6,7 +6,7 @@ With R, we can use the default plotting functions from the R package <code>graph
 (`plot()`, `hist()`, `boxplot()`, *etc.*).
 Read more about these functions in the [chapters 11 and 12](https://bookdown.org/ndphillips/YaRrr/plotting1.html) of Philips’ book.
 
-In this tutorial, we will introduct the <code>[ggplot2](https://ggplot2.tidyverse.org/index.html)</code> package to make more flexible and beautiful plots.
+In this tutorial, we will introduce the <code>[ggplot2](https://ggplot2.tidyverse.org/index.html)</code> package to make more flexible and beautiful plots.
 
 
 ## The Compositions of A ggplot
@@ -24,11 +24,20 @@ In this tutorial, we will introduct the <code>[ggplot2](https://ggplot2.tidyvers
 
 > All ggplot2 plots begin with a call to `ggplot()`, supplying default data and aesthethic mappings, specified by `aes()`. You then add layers, scales, coords and facets with `+`.
 
+Example using the built-in dataset `iris`:
+
+```r
+str(iris) # data structure of "iris" dataset
+## 'data.frame':	150 obs. of  5 variables:
+##  $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...
+##  $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...
+##  $ Petal.Length: num  1.4 1.4 1.3 1.5 1.4 1.7 1.4 1.5 1.4 1.5 ...
+##  $ Petal.Width : num  0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 ...
+##  $ Species     : Factor w/ 3 levels "setosa","versicolor",..: 1 1 1 1 1 1 1 1 1 1 ...
+```
+
 ```r
 library("ggplot2")
-
-str(iris) # data structure of "iris" dataset
-
 # initiate a plot for "iris" dataset, 
 # display "Sepal.Length" on the abscissa and "Petal.Length" on the ordinate
 p0 <- ggplot(
@@ -36,26 +45,43 @@ p0 <- ggplot(
   mapping = aes(x = Sepal.Length, y = Petal.Length)
 )
 p0
+```
+![](images/r09_p0.png)
 
+```r
 # the data will be shown as dots in the graph
 p1 <- p0 + geom_point()
 p1
+```
+![](images/r09_p1.png)
 
+```r
 # add a linear regression model line calculated based on x and y
 p2 <- p1 + stat_smooth(method = "lm")
 p2
+```
+![](images/r09_p2.png)
 
+```r
 # change the breaks' position
 p3 <- p2 + scale_x_continuous(breaks = seq(4, 8, by = 0.5))
 p3
+```
+![](images/r09_p3.png)
 
+```r
 # show the graph by Species
 p4 <- p3 + facet_wrap(facets = vars(Species))
+p4
+```
+![](images/r09_p4.png)
 
+```r
 # use the "light" theme
 p5 <- p4 + theme_light()
 p5
 ```
+![](images/r09_p5.png)
 
 ## A Plot With More Detail?
 
@@ -70,7 +96,7 @@ p_box <- ggplot( # init plot
   ) + 
   scale_color_viridis_d(begin = 0.2, end = 0.8) + # replace boxplot color by viridis palette
   geom_point( # add a layer of dots
-    position = position_jitter(seed = 123) # use jitter position to avoid overlapping
+    position = position_jitter(seed = 123), # use jitter position to avoid overlapping
     alpha = 0.5 # make the points transparent
   ) +
   stat_summary(# add summary of average value with specified form (a red point of shape 17 and size 2)
@@ -88,18 +114,19 @@ p_box <- ggplot( # init plot
   )
 p_box
 ```
+![](images/r09_p_box.png)
 
-Please check the [reference manual](https://ggplot2.tidyverse.org/reference/index.html) of `ggplot2` for the documentation of all functions. For more examples, please check:
+Please check the official [reference manual](https://ggplot2.tidyverse.org/reference/index.html) of `ggplot2` for the documentation of all functions. For more examples, please check:
 
 * [chapter 5](https://egallic.fr/Enseignement/R/Book/graphiques.html) of a R course notes from the Aix-Marseille Université
 * [chapters 2 and 3](https://bookdown.org/ansellbr/WEHI_tidyR_course_book/making-beautiful-plots.html) of Brendan's book
 
 ## Volcano Plot & Heatmap
 
-The volcano plot and the heatmap are two widely used figure type to show biological research results.
+The volcano plot and the heatmap are two widely used figure types to show biological research results.
 
-Check the chapter [19.11](https://biocorecrg.github.io/CRG_RIntroduction/volcano-plots.html) of Sarah's book
-for a concrete example of how to build a Volcano plot for differentially expression analysis results.
+Check the chapter [19.11 Volcano plots](https://biocorecrg.github.io/CRG_RIntroduction/volcano-plots.html) of Sarah's book
+for a concrete example of how to build a Volcano plot for differential expression analysis results.
 
 Heatmap need a bit more data manipulation before draw it with ggplot2.
 For instance, we want to visualize a set of 10 genes of 6 samples (3 control and 3 treated):
@@ -115,10 +142,35 @@ colnames(exp_mat) <- c(
   paste0("trt_", 1:ncol(exp_mat_trt))
 )
 rownames(exp_mat) <- paste0("gene_", 1:nrow(exp_mat))
+exp_mat
+##             ctrl_1    ctrl_2     ctrl_3     trt_1     trt_2     trt_3
+## gene_1   8.4345726 10.048301  8.4314973 2.7097997 0.5254560 0.1132392
+## gene_2   5.7661027  4.802147  9.6587121 0.6332697 9.0137595 0.3827548
+## gene_3  13.2905487  2.810136 14.8527579 0.3244473 1.0571525 1.3340163
+## gene_4   0.3157736  3.771178 13.4804449 3.2461151 0.2819275 0.3918953
+## gene_5   0.5621098  1.882840 11.6852898 1.5362822 1.3754235 1.2183002
+## gene_6   3.1650122  8.497861 16.0585234 0.9883522 2.8103821 2.3597791
+## gene_7   3.1422729 15.632035 14.9674287 0.7866001 1.7046679 0.7057358
+## gene_8   1.4526680  4.787604 15.7065255 1.5683013 0.7204896 3.2212017
+## gene_9  27.2623646  5.909348  0.3176774 0.7358558 3.4065948 1.3096197
+## gene_10  0.2915345 40.410117  5.9784969 1.4116125 1.6402038 1.2805517
 
 ## transform the data into "long" format (tidydata)
 exp_df <- as.data.frame(exp_mat)
 exp_df$gene_name <- rownames(exp_df)
+exp_df
+##             ctrl_1    ctrl_2     ctrl_3     trt_1     trt_2     trt_3 gene_name
+## gene_1   8.4345726 10.048301  8.4314973 2.7097997 0.5254560 0.1132392    gene_1
+## gene_2   5.7661027  4.802147  9.6587121 0.6332697 9.0137595 0.3827548    gene_2
+## gene_3  13.2905487  2.810136 14.8527579 0.3244473 1.0571525 1.3340163    gene_3
+## gene_4   0.3157736  3.771178 13.4804449 3.2461151 0.2819275 0.3918953    gene_4
+## gene_5   0.5621098  1.882840 11.6852898 1.5362822 1.3754235 1.2183002    gene_5
+## gene_6   3.1650122  8.497861 16.0585234 0.9883522 2.8103821 2.3597791    gene_6
+## gene_7   3.1422729 15.632035 14.9674287 0.7866001 1.7046679 0.7057358    gene_7
+## gene_8   1.4526680  4.787604 15.7065255 1.5683013 0.7204896 3.2212017    gene_8
+## gene_9  27.2623646  5.909348  0.3176774 0.7358558 3.4065948 1.3096197    gene_9
+## gene_10  0.2915345 40.410117  5.9784969 1.4116125 1.6402038 1.2805517   gene_10
+
 # install.packages("tidyr") # we need the 'gather' function from this package
 exp_df_long <- tidyr::gather(
   exp_df,
@@ -126,6 +178,14 @@ exp_df_long <- tidyr::gather(
   value = "exp_value", # new column name to store the value of each sample
   -gene_name # the column to skip when gathering
 )
+head(exp_df_long)
+##   gene_name sample  exp_value
+## 1    gene_1 ctrl_1  8.4345726
+## 2    gene_2 ctrl_1  5.7661027
+## 3    gene_3 ctrl_1 13.2905487
+## 4    gene_4 ctrl_1  0.3157736
+## 5    gene_5 ctrl_1  0.5621098
+## 6    gene_6 ctrl_1  3.1650122
 
 ## visualize the data
 p_heatmap <- ggplot(exp_df_long, aes(x = sample, y = gene_name)) +
@@ -133,13 +193,14 @@ p_heatmap <- ggplot(exp_df_long, aes(x = sample, y = gene_name)) +
   scale_fill_gradient(high = "red", low = "blue")
 p_heatmap
 ```
+![](images/r09_p_heatmap.png)
 
 There is a built-in function in R `stats::heatmap()` to draw the graph directly.
 But you can have more control on the figure (style, color, position, *etc.*) if you use ggplot2.
 
 ## Other Chart Types
 
-Pleas check the [R graph gallery](https://r-graph-gallery.com/index.html) for more (complex, even dynamic) examples of different chart types.
+Please check the [R graph gallery](https://r-graph-gallery.com/index.html) for more (complex, even dynamic) examples of different chart types.
 
 
 ## Export Graphs
@@ -164,160 +225,6 @@ ggsave(
 
 [The eBook of Claus](https://clauswilke.com/dataviz/) is interesting to have look for the general ideas of plot type to use and how to do a better visualization (not limited to ggplot2 figures).
 
-## Exercises
+And you can find the `ggplot2` cheat sheet [here](https://rstudio.github.io/cheatsheets/data-visualization.pdf).
 
-Let's play with the dataset `diamonds` provided in the `ggplot2` package,
-it contains prices of more than 50,000 round cut diamonds, with 10 variables.
-Use `?diamonds` to get the full description and `str(diamonds)` to have a glimpse of the data structure.
-
-* Create a plot to visualize the `price` and the `carat`, colored by the quality of the `cut`
-
-```r
-library("ggplot2")
-data("diamonds")
-ggplot(
-  data = diamonds,
-  mapping = aes(x = carat, y = price)
-) +
-  geom_point(aes(color = cut))
-```
-
-* Change the shape and the size of the points
-
-```r
-ggplot(
-  data = diamonds,
-  mapping = aes(x = carat, y = price)
-) +
-  geom_point(aes(color = cut), shape = 2, size = 0.5) # possible shape `?pch`
-```
-
-* Create a histogram of `price` by the diamonds' `color`
-
-```r
-ggplot(data = diamonds) +
-  geom_histogram(aes(x = price, color = color, fill = color))
-```
-
-* What happens if you add `position = "dodge"` in the `geom_histogram()` function ?
-
-```r
-ggplot(data = diamonds) +
-  geom_histogram(
-    aes(x = price, color = color, fill = color),
-    position = "dodge"
-  )
-```
-
-* Do the same figure but only for diamonds with prices higher than 10,000$.
-
-```r
-ggplot(data = subset(diamonds, price > 10000)) +
-  geom_histogram(
-    aes(x = price, color = color, fill = color),
-    position = "dodge"
-  )
-```
-
-* Draw a density plot of prices by group of `clarity`.
-
-```r
-ggplot(data = diamonds) +
-  geom_density(aes(x = price, color = clarity))
-```
-
-* Visualize the diamonds' `carat` and width (`y`), colored by `clarity` and use `color` as facet.
-
-```r
-ggplot(data = diamonds) +
-  geom_point(aes(x = carat, y = y, color = clarity)) +
-  facet_wrap(facets = vars(color))
-```
-
-* Add a 2nd facet by using the `cut` and use free scales for both axes in the facets.
-
-```r
-ggplot(data = diamonds) +
-  geom_point(aes(x = carat, y = y, color = clarity)) +
-  facet_wrap(facets = vars(color, cut), scales = "free")
-```
-
-* What happens if you use `facet_grid()` (with appropriate arguments for facets, check `?facet_grid`) instead of `facet_wrap()`?
-
-```r
-ggplot(data = diamonds) +
-  geom_point(aes(x = carat, y = y, color = clarity)) +
-  facet_grid(rows = vars(color), cols = vars(cut), scales = "free")
-```
-
-### Bonus for Heatmap
-
-* Use the previous built `p_heatmap`, try to add clustering tree on the figure.
-
-Hints:
-  - we need first have the dendrogram data
-  - the R package {[ggdendro](https://andrie.github.io/ggdendro/)} can help you to draw the dendrogram data as a ggplot with `geom_segment()`
-  - the R package {[patchwork](https://patchwork.data-imaginist.com)} is simple and useful to combine multiple ggplots
-  (imagine we cut the plane on 4 parts:
-  top-left for the sample-level dendrogram, top-right remains empty,
-  bottom-left for the heatmap, bottom-right for the gene-level dendrogram
-  )
-
-```r
-## compute dendrogram data
-dendro_gene <- stats::as.dendrogram(
-  stats::hclust(
-    d = stats::dist(exp_mat, method = "euclidean"),
-    method = "ward.D2"
-  )
-)
-dendro_sample <- stats::as.dendrogram(
-  stats::hclust(
-    d = stats::dist(t(exp_mat), method = "euclidean"),
-    method = "ward.D2"
-  )
-)
-
-## build dendrogram ggplot
-install.packages("ggdendro")
-gg_dendro_gene <- ggplot() +
-  geom_segment(
-    data = ggdendro::segment(ggdendro::dendro_data(dendro_gene, type = "rectangle")),
-    mapping = aes(x = y, y = x, xend = yend, yend = xend),
-    linewidth = 0.5
-  ) +
-  theme_void() +
-  scale_x_continuous(expand = expansion(mult = c(0, 0.1))) +
-  scale_y_continuous(expand = expansion(add = c(0.5, 0.5)))
-
-gg_dendro_sample <- ggplot() +
-  geom_segment(
-    data = ggdendro::segment(ggdendro::dendro_data(dendro_sample, type = "rectangle")),
-    mapping = aes(x = x, y = y, xend = xend, yend = yend),
-    linewidth = 0.5
-  ) +
-  theme_void() +
-  scale_x_continuous(expand = expansion(mult = c(0, 0.1))) +
-  scale_y_continuous(expand = expansion(add = c(0.5, 0.5)))
-
-## need to order samples/genes as how they were grouped in the dendrogram
-p_heatmap <- ggplot(
-  exp_df_long,
-  aes(
-    x = factor(sample, levels = colnames(exp_mat)[stats::order.dendrogram(dendro_sample)]),
-    y = factor(gene_name, levels = rownames(exp_mat)[stats::order.dendrogram(dendro_gene)])
-  )
-) +
-  geom_tile(aes(fill = exp_value)) + 
-  scale_fill_gradient(high = "red", low = "blue") +
-  labs(x = NULL, y = NULL)
-
-## gather all ggplots
-patchwork::wrap_plots(
-  list(gg_dendro_sample, p_heatmap, gg_dendro_gene),
-  design = "A#\nBC",
-  guides = "collect",
-  widths = c(2/3, 1/3),
-  heights = c(1/3, 2/3)
-)
-```
+---
