@@ -78,7 +78,7 @@ nav:
 
 
         - Week 4:
-          - Review on week-2 work: bulk_RNAseq-IOC/24_exercices_week_03_review.md
+          - Review on week-3 work: bulk_RNAseq-IOC/24_exercices_week_03_review.md
           - Differential Gene Expression Analysis: bulk_RNAseq-IOC/25_DE_intro.md
           - Week 3 exercices:
             - DESeq2: bulk_RNAseq-IOC/26_deseq2.md
