@@ -1,8 +1,5 @@
-![](images/galaxylogo.png)
+# Analysis of the differential gene expression using `DESeq2`
 
-# `DESeq2`
-
-----
 ![](images/tool_small.png)
 
   1. Let's create a clean fresh history (`wheel` --> `Create New`) and name it DESeq2 ![](images/wheel.png)

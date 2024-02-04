@@ -1,3 +1,64 @@
+# ![](images/lamp.png){align="absbottom} Statistical analysis of Differential Gene Expression
+
+## The basic ideas of Differential expression analysis
+
+### Gene Counts are Observations of Variables
+We consider that each gene is a ==variable==. Thus DE analysis is dealing with
+==multiple== variables (10 to several tens of thousands).
+
+Each read count is an ==observation== of these variables. Thus, for instance, if your
+experiment is based on biological triplicates in two conditions, you have three
+observation of your gene variables under 2 different conditions (6 observations in total).
+
+### Testing
+When we say that we are testing for differential expression, we mean that we are
+performing multiple statistical tests, ==one for each== gene variable. These tests are
+well established mathematical treatments such as the Student Test (t-test), the
+Mann-Whitney U test, the Wilcoxon test or the exact Fisher test, for the most used tests.
+However, note that not all these tests are suitable for discrete count variables.
+
+### Conditions for testing
+As you probably learned during your university studies each of these tests have underlying
+assumptions. The parametric tests require the a-priori knowledge of parameters (mean,
+variance, etc.), or that the distribution of the tested variable follows a specific law
+(normality, continuity, etc.). For instance the parametric student test requires that the
+means of observation is normally distributed, which is the case if the number of
+observation is > 30 (Central Limit Theorem) or if the variable is normally distributed
+(which is not the case for a read count variable !)
+
+### Read counts from NGS sequencing are not normally distributed
+
+In contrast to the intensity of a probe in a microarray, a read count variable is does not
+follow and gaussian (normal) distribution ! Statistician showed that read counts
+variables, which are discrete variable, follow a generalized Poisson distribution, which
+can be approximated by an inverse binomial distribution (also referred to as negative
+binomial, NB) when the number of observations is low.
+
+From this, it comes that the main tools for NGS DE analysis model read count variables with
+a Poisson (Limma) or a NB law, and use specific tests for differential expression.
+
+Note that these tests are ==parametric test==, which implies that the Mean and the Variance
+must be approximated before the tests. In the case of the Negative Binomial distribution,
+Mean == Variance.
+
+### Shared information between read count variables
+
+Although differential Expression analysis is based on the assumption that gene expression
+variables are **independent**, it happens that these variables share information which can be
+used for better modeling of test parameters *for each test*.
+
+Thus, the main benefit from using Limma, DESeq or EdgeR packages is this modeling operation
+which improves the accuracy of the statistical tests for differential expression.
+
+### Normalization
+
+Last, but certainly not the least, to test a read count variable for differential expression,
+a Normalization operation must be performed, since different sequencing depth lead to different
+estimation of gene expression !
+
+This Normalisation is performed differently by the Limma, DESeq or EdgeR packages, which is
+responsible a part of the differences between the package.
+
 # Analysis of the differential gene expression using `DESeq2`
 
 ![](images/lamp.png)
