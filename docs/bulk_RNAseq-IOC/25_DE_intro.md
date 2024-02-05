@@ -47,51 +47,61 @@ Although differential Expression analysis is based on the assumption that gene e
 variables are **independent**, it happens that these variables share information which can be
 used for better modeling of test parameters *for each test*.
 
-Thus, the main benefit from using Limma, DESeq or EdgeR packages is this modeling operation
+Thus, the main benefit from using Limma, DESeq or edgeR packages is this modeling operation
 which improves the accuracy of the statistical tests for differential expression.
+
+### Multiple Testing
+
+Each test for DE gives rise to a p-value, which is the probability of wrongly rejecting
+hypothesis H0 which is, remember, that there is no difference in gene expression in view
+of the observations of the number of reads.
+
+For instance, when you read p = 0.05, this implies that the gene is differentially
+expressed, with the probability that this conclusion is false being < 0.05. This is the
+type I error.
+
+However, transcriptome analysis implies thousands of tests. It happens that these tests
+also follow a statistical law ! Even if a given test returns a p-value < 0.05, there is,
+in addition a probability that this test was wrong !
+
+Thus, when you perform thousands of test, you know that a proportion of these tests will
+return wrong p-values.
+
+The adjustment of the p-values seeds from this situation: you **must** correct your
+p-values for multiple testing, because in the context of dozen of thousands tests,
+p-values are poor indicators and does not allow to control the False Discovery Rate (type
+I error)
+
+Several methods exist for this correction. The Bonferroni correction is popular and
+relatively conservative, whereas the Benjamini and Hochberg correction, which controls a
+priori the False Discovery Rate is considered as less stringent. We can also cite other
+methods that are not widely used in Biology such as the  Bonferroni Step-down (Holm)
+correction or the Westfall and Young Permutation.
 
 ### Normalization
 
-Last, but certainly not the least, to test a read count variable for differential expression,
-a Normalization operation must be performed, since different sequencing depth lead to different
-estimation of gene expression !
+Last, but certainly not the least, to test a read count variable for differential
+expression, a Normalization operation must be performed, since different sequencing depth
+lead to different estimation of gene expression !
 
-This Normalisation is performed differently by the Limma, DESeq or EdgeR packages, which is
-responsible a part of the differences between the package.
+This Normalisation is performed differently by the Limma, DESeq or edgeR packages, which
+is responsible a significant part of the differences between the packages.
 
-# Analysis of the differential gene expression using `DESeq2`
+### R packages used in this companionship
 
-![](images/lamp.png)
+We are going to use most popular R packages DESeq2 and edgeR and it will be interesting to
+compare the results returned by both packages. We will also try to give a shot to Limma
+which was a very popular packages for analysing microarray results. Interestingly, Limma
+has evolved and incorpores several methods to adapt to the more recent NGS RNAseq results.
 
-----
+### References
 
-DESeq2 is a great tool for Differential Gene Expression (DGE) analysis.
-It takes read counts and combines them into a table (with genes in the rows and samples in the columns).
-Importantly, it applies size factor normalization by:
+- **DESeq2**: Anders and Huber, Genome Biology 2010, 11:R106
+  [DOI](https://doi.org/10.1186/gb-2010-11-10-r106)
+- **edgeR**: Robinson, McCarthy and Smyth,
+  Bioinformatics 2010, 26 p 139 [DOI](https://doi.org/10.1093/bioinformatics/btp616)
+- **Limma**: Ritchie, Phipson, Wu, Hu, Law, Shi, et al., Nucleic Acids Res. 2015;43: e47.
+  [DOI](https://doi.org/10.1093/nar/gkv007)
 
-- Computing for each gene the geometric mean of read counts across all samples
-- Dividing every gene count by the geometric mean accross samples
-- Using the median of these ratios as a sample’s size factor for normalization
 
-Multiple factors with several levels can then be incorporated in the analysis.
-After normalization we can compare the response of the expression of any gene to
-the presence of different levels of a factor in a statistically reliable way.
-
-In our example, we have samples with two varying factors that can contribute to
-differences in gene expression:
-
-- Treatment (either treated or untreated)
-- Sequencing type (paired-end or single-end)
-
-Here, treatment is the primary factor that we are interested in.
-
-The sequencing type is further information we know about the data that might affect
-the analysis. Multi-factor analysis allows us to assess the effect of the treatment,
-while taking the sequencing type into account too.
-
-```
-We recommend that you add as many factors as you think may affect gene expression in
-your experiment. It can be the sequencing type like here, but it can also be the
-manipulation (if different persons are involved in the library preparation),
-other batch effects, etc…
-```
+---
