@@ -78,11 +78,12 @@ nav:
 
 
         - Week 4:
-          - Review on week-2 work: bulk_RNAseq-IOC/24_exercices_week_03_review.md
+          - Review on week-3 work: bulk_RNAseq-IOC/24_exercices_week_03_review.md
           - Differential Gene Expression Analysis: bulk_RNAseq-IOC/25_DE_intro.md
           - Week 3 exercices:
             - DESeq2: bulk_RNAseq-IOC/26_deseq2.md
-            - EdgeR: bulk_RNAseq-IOC/27_edgeR.md
+            - edgeR: bulk_RNAseq-IOC/27_edgeR.md
+            - limma: bulk_RNAseq-IOC/27_1_limma.md
             - Visualisations: bulk_RNAseq-IOC/28_visualisations.md
             - Volcano plot: bulk_RNAseq-IOC/29_volcano.md
 

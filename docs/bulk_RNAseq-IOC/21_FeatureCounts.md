@@ -47,7 +47,7 @@ and
     - Advanced options
         
         --> Leave folded, no advanced options !
-    - `Execute`
+    - `Run Tool`
 
 ### Repeat the exact same operation twice for the collections Mo and Oc HISAT2 alignments
 
