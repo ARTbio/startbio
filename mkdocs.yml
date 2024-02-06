@@ -84,7 +84,9 @@ nav:
             - DESeq2: bulk_RNAseq-IOC/26_deseq2.md
             - edgeR: bulk_RNAseq-IOC/27_edgeR.md
             - limma: bulk_RNAseq-IOC/27_1_limma.md
-            - DE_manipulations: bulk_RNAseq-IOC/28_manipulation_DE_data.md
+            - DE_manipulations:
+              - DESeq2: bulk_RNAseq-IOC/28_manipulation_DEseq2_data.md
+              - edgeR: bulk_RNAseq-IOC/28_1_manipulation_edgeR_data.md
             - Volcano plot: bulk_RNAseq-IOC/29_volcano.md
 
         - Week 5:
