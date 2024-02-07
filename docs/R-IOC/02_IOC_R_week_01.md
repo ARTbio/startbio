@@ -47,7 +47,7 @@ For more details, please check these links:
     * [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
     * [R Markdown Themes Guide](https://rpubs.com/ranydc/rmarkdown_themes)
 - Quarto
-    * [Quarto tutorial for RStudio](https://quarto.org/docs/get-started/hello/rstudio.html)
+    * [Quarto tutorial](https://quarto.org/docs/get-started/hello/rstudio.html)
     * [Quarto: The Definitive Guide](https://quarto-tdg.org)
 
 
