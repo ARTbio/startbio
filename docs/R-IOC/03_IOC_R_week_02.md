@@ -34,7 +34,7 @@ To avoid this inconvenience, you need to add the `.txt` extension to make your f
 
 ![](images/toolbox-do-it-yourself.png){ style="width:75px"} **Do it yourself!**
 
-- [x] Create factor of exam grades "A", "B", "C", "D", label them with "excellent", "good", "ok", "bad" respectively. What is the current reference level?
+- [x] Create factor of exam grades "A", "B", "C", "D". What is the current reference level?
 - [x] Now set the grade "B" as the reference level.
 - [x] The grade "D" is no longer used in exam grades, please delete it from the vector and drop this unused level.
 - [x] How to check if there are same elements in `v1` (`v1 <- c(1, 2, 3, 4, 5)`) and `v2` (`v2 <- c(8, 3, 7, 9)`)
