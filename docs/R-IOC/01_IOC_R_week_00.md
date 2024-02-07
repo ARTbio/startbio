@@ -134,7 +134,7 @@ you with the continuous integration and transparency of bioinformatics analyses.
     GitHub is also very good at teaching how to use it... You can go from
     [there](https://docs.github.com/en/get-started/quickstart)!
 
-### PSILO storage (15 min)
+<!-- ### PSILO storage (15 min)
 
 [PSILO](https://psilo.sorbonne-universite.fr/){:target="_blank"} is file storage server with a NextCloud web interface.
 If you are affiliated to Sorbonne-Université (and have a corresponding email address), you
@@ -152,7 +152,7 @@ your local computer, GitHub, *etc*...
 
 We may also use our ARTbio PSILO account to share files with you!
 
-You get it: stop exchanging research datasets (including excel tables) using your email client :smile:
+You get it: stop exchanging research datasets (including excel tables) using your email client :smile: -->
 
 
 ### R and RStudio
@@ -192,45 +192,12 @@ Brief, but the essential is [here](https://www.youtube.com/watch?v=FIrsOBy5k58&t
         * [https://posit.co/resources/cheatsheets/](https://posit.co/resources/cheatsheets/)
 
 -----
-#### Import data from Psilo to Rstudio
 
 ![](images/toolbox-do-it-yourself.png){: style="width:75px"} **Do it yourself!**
 
-- [x] Upload a file from your local computer: either a txt, csv (comma separated values)
-      or a tsv (tabulated separated values) text file.
-- [x] Share your file on psilo, by clicking the sharing icon, then clinking the
-  :heavy_plus_sign: icon in the left handside pop-up menu.
-- [x] Copy and Paste the share link in a new browser window
-- [x] At the top right corner of the new window, there are three dots, just to the right
-  of the `Télécharger` button. Click on these three dots, and copy the direct link as shown
-  on this small screenshot.
-  
-  ![](images/direct_psilo_link.png){: style="width:300px"}
-
-- [x] Paste this link in a safe place (an open note, and open text file, whatever).
-  As We are writing this doc, we are using this
-  [DIRECT test link](https://psilo.sorbonne-universite.fr/index.php/s/ZzgYFd2Gg78AASy/download/chr22_sample.fa)
-  that should still work today.
-- [x] Go to *your* ARTbio Rstudio account
-- [x] Navigate in the `Project` of your choice or create a new one for the purpose
-- [x] Type the following command in your RStudio console:
-      ```
-      download.file(url = "https://psilo.sorbonne-universite.fr/index.php/s/ZzgYFd2Gg78AASy/download/chr22_sample.fa", destfile = "chr22_sample.fa")
-      ```
-- [x] Your file transfer from PSILO to you Galaxy history should be soon completed with the
-      following login
-      ```
-      trying URL 'https://psilo.sorbonne-universite.fr/index.php/s/ZzgYFd2Gg78AASy/download/chr22_sample.fa'
-      Content type 'application/octet-stream' length 479803 bytes (468 KB)
-      ==================================================
-      downloaded 468 KB
-      ```
-- [x] Check it out, by clicking on the file name `chr22_sample.fa` in the `Files` tab of
-      the RStudio environment.
-
-??? bug "It did not work for you?"
-    This is most probably because you did not copy the *direct* psilo link but, instead,
-    the indirect link that display an intermediate "download file" window.
+- [x] Familiarize yourself with RStudio, play with the different panels.
+- [x] Create a new Rproject in RStudio, containing folders for your scripts, the input data and the output data.
+- [x] Try to navigate between projects.
 
 **Thank you for your attention and see you next week :clap: :clap: :clap:**
 
