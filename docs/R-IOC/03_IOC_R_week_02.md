@@ -34,13 +34,13 @@ To avoid this inconvenience, you need to add the `.txt` extension to make your f
 
 ![](images/toolbox-do-it-yourself.png){ style="width:75px"} **Do it yourself!**
 
-- [x] Create factor of exam grades "A", "B", "C", "D". What is the current reference level?
+- [x] Create a factor for exam grades "A", "B", "C", "D". What is the current reference level?
 - [x] Now set the grade "B" as the reference level.
 - [x] The grade "D" is no longer used in exam grades, please delete it from the vector and drop this unused level.
 - [x] How to check if there are same elements in `v1` (`v1 <- c(1, 2, 3, 4, 5)`) and `v2` (`v2 <- c(8, 3, 7, 9)`)
 - [x] Are all elements in `v1` greater than 3?
 - [x] Is any element in `v1` greater than 8 AND is any element in `v2` greater than 8?
-- [x] Try `c(TRUE, FALSE) & TRUE`, `c(TRUE, FALSE) & c(TRUE, FALSE)`, `c(TRUE, FALSE) && TRUE` and
+- [x] Try `c(TRUE, FALSE) & TRUE`, `c(TRUE, FALSE) & c(TRUE, FALSE)`, `c(TRUE, FALSE) & c(TRUE, FALSE, TRUE)`, `FALSE && TRUE`, `c(TRUE, FALSE) && TRUE` and
 `c(TRUE, FALSE) && c(TRUE, FALSE)` in the R terminal, can you tell how to use properly `&` and `&&`? 
 - [x] Download the data in any folder of your choice using this url:
 https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000841/ScoringFiles/PGS000841.txt.gz

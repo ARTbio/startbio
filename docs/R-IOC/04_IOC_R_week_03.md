@@ -24,8 +24,14 @@ To avoid this inconvenience, you need to add the `.txt` extension to make your f
 - [x] Add names for each element of your list.
 - [x] Retrieve the character vector within your list.
 - [x] Retrieve the 4th value of the logical vector within your list.
-- [x] Filter only positive elements of the numerical vector within your list.
-- [x] Filter false value of the logical vector within your list.
+- [x] Filter out positive elements of the numerical vector within your list.
+- [x] Filter to retrieve only false value of the logical vector within your list.
+- [x] Create a function that generate a random DNA sequence of a specified length
+- [x] Create a list of 4 random DNA sequences with a random number between 10 and 200 bases 
+    (don't hard copy the length) called human, mouse, chicken, fly
+- [x] Compute the number of bases of each sequences
+- [x] Test of many sequences had more than 50 nucleotides
+- [x] Filter the list to retrieve only non mammals sequences
 
 Please be aware of the best practices for your Rscript, we will be attentive to them!
 
