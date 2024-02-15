@@ -391,3 +391,5 @@ heatmap with high number of rows` tool
         
         --> `24`
     - `Run Tool`
+
+---

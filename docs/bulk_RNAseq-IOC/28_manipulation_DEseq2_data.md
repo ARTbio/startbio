@@ -293,13 +293,13 @@ We do this with the tools `Add Header`
 !!! info "![](images/tool_small.png){width="25" align="absbottom"} `Add Header` settings"
     - List of Column headers (comma delimited, e.g. C1,C2,...)
         
-        --> `All_DE_genes`
+        --> `DESeq_All_DE_genes`
     - Data File (tab-delimted)
         
         --> `Unique on data 1xx...`
     - Click the `Run Tool` button
 
-:warning: Rename the generated dataset `All_DE_genes`
+:warning: Rename the generated dataset `DESeq_All_DE_genes`
 
 ### Intersection (join operation) between the list of unique gene name associated with DE and the rLog-Normalized counts file.
 
@@ -318,7 +318,7 @@ To do this, we are going to use the tool
         --> `1`
     - 2nd File
         
-        --> `All_DE_genes`
+        --> `DESeq_All_DE_genes`
     - Column to use from 2nd file
         
         --> `1`
