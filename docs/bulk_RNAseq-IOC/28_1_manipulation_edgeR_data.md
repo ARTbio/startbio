@@ -1,6 +1,6 @@
 # Manipulation of edgeR data for visualisation and comparisons
 
-Now we would like to extract the most differentially expressed genes in the various
+As we did for DESeq2 we will extract the most differentially expressed genes in the various
 conditions, and then visualize them using an heatmap of the normalized counts for each
 sample.
 
@@ -239,7 +239,7 @@ expression`
 :warning: Rename the collection `Select on collection...` to `edgeR top down-regulated
 gene lists`
 
-:warning: keep the last three generated collections for later comparison with edgeR and
+:warning: keep the last three generated collections for later comparison with DESeq2 and
 limma tools
 
 ## Plotting an heatmap of the most significantly de-regulated genes
@@ -376,7 +376,7 @@ heatmap with high number of rows` tool
 !!! info "![](images/tool_small.png){width="25" align="absbottom"} `Plot heatmap with high number of rows` settings"
     - Input should have column headers - these will be the columns that are plotted
         
-        --> `rLog-Normalized counts of DE genes`
+        --> Click the collection icon and select `edgeR Log2CPM Normalized counts of DE genes`
     - Data transformation
         
         --> `Plot the data as it is`

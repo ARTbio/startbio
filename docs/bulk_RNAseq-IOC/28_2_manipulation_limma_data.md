@@ -1,106 +1,111 @@
-# Manipulation of DESeq2 data for visualisation and comparisons
+# Manipulation of limma data for visualisation and comparisons
 
 Now we would like to extract the most differentially expressed genes in the various
 conditions, and then visualize them using an heatmap of the normalized counts for each
 sample.
 
-We will proceed in several steps:
+## Extract the most differentially expressed genes (PRJNA630433 / limma)
 
-- [x] For each package, extract the normalized counts of genes for each sample (all three
-  packages, DESeq2, edgeR and limma, provide this functionality.
-- [x] For each package, extract the most differentially expressed genes at a given log2FC
-  threshold (let's say 2, corresponding to a 4x or 1/4x fold time expression), and at a
-  given p-adjusted value (let's say p-adj < 0.01). We will keep these gene lists apart to
-  build latter a venn diagram for comparison of the three tools.
-- [x] Plot heatmaps of normalized counts
+Basically, we navigate in the limma history of the PRJNA630433 use-case and we **repeat a
+limma run**, asking in addition for a file containing the normalised counts, these are in
+**log2 counts per million (logCPM)**.
 
-## Extract the most differentially expressed genes (PRJNA630433 / DESeq2)
+Note that, as edgeR, limma returns **log2 counts per million (logCPM)**.
 
-Basically, we navigate in the DESeq history of the PRJNA630433 use-case and we repeat a
-DESeq2 run, asking in addition for a **rLog-Normalized** counts output.
-
-??? info "![](images/tool_small.png){width="25" align="absbottom"} `DESeq2` settings"
-    Basically, the same as before, except that we ask for a Normalized counts file
-    
-    - how
+??? info "![](images/tool_small.png){width="25" align="absbottom"} `limma` settings"
+    - Differential Expression Method
         
-        --> Select datasets per levels
-    - 1: Factor
+        --> `limma-voom`
+    - Apply voom with sample quality weights?
+        
+        --> `No`
+    - Count Files or Matrix?
+        
+        --> Separate Count Files
+    - 1: Factor/Name
         
         --> Tissue
-    - 1: Factor level
+    - 1: Factor/1: Group
         
-        Note that there will be three factor levels in this analysis: Dc, Mo and Oc.
+        Note that there will be three Groups (ie factor levels) in this analysis: Dc, Mo and Oc.
         
         --> Oc
         
     - Counts file(s)
         
         --> select the data collection icon, then `15: Oc FeatureCounts counts`
-    - 2: Factor level
+    - 2: Factor/2: Group
         
         --> Mo
         
     - Counts file(s)
         
         --> select the data collection icon, then `10: Mo FeatureCounts counts`
-    - 3: Factor level (you must click on :heavy_plus_sign: `Insert Factor level`)
+    - 3: Factor level (you must click on :heavy_plus_sign: `Insert Group`)
         
         --> Dc
         
     - Counts file(s)
         
         --> select the data collection icon, then `5: Mo FeatureCounts counts`
-    - (Optional) provide a tabular file with additional batch factors to include in the model.
+    - Use Gene Annotations?
         
-        --> Leave to `Nothing selected`
-    - Files have header?
+        --> `No`
+     - Input Contrast information from file?
+       
+       --> `No`
+    - 1: Constrast
         
-        --> Yes
-    - Choice of Input data
+        --> `Mo-Dc`
+    - 2: Constrast (click :heavy_plus_sign: `Insert Contrast`)
         
-        --> Count data
-    - Advanced options
+        --> `Oc-Dc`
+    - 3: Constrast (click :heavy_plus_sign: `Insert Contrast`)
+        
+        --> `Oc-Mo`
+    - Filter Low Counts
         
         --> No, leave folded
     - Output options
         
-        --> ==This time, check the `Output rLog normalized table` box !==
+        --> Unfold and select `Output Normalised Counts Table?: Yes`
+    - Advanced options
         
-        --> Unfold and check `Output all levels vs all levels of primary factor (use when
-        you have >2 levels for primary factor)` in addition to the already checked
-        `Generate plots for visualizing the analysis results`
+        --> Put `P-Value Adjusted Threshold` to 0.1 (to be consistent with DESeq settings)
         
-        --> Leave `Alpha value for MA-plot` to 0,1: note that this option is used for
-        plots and does not impact DESeq2 results
+        --> Leave other advanced options unchanged
     - `Run Tool`
 
-:warning: This time you can trash the DESeq2 plots and result files which we have already
-generated.
+:warning: Note that limma is nicer than edgeR (in Galaxy) and return a single extra dataset
+ `limma on data ... and others: Normalised counts`. Thus, no need here to do collection
+ manipulations.
 
-:warning: Keep this output for latter, will use it for a clustered heatmap
+Beside, as with edgeR, a `limma-voom_normcounts.tsv` also show up as a html link in the dataset `limma on
+data 4, data 3, and others: Report`, that download directly to your local computer if you
+click it.
 
-## Generate top lists of DE genes
+:warning: Keep the dataset `limma on ... and others: Normalised counts` for latter, we will use
+it for the clustered heatmap.
 
-We will do that with the help of the tool `Filter data on any column using simple
-expressions`. We will also use 3 other tools `Compute on rows`, `Column Regex Find And
-Replace` and `Filter data on any column using simple expressions`
+## Generate top lists of limma DE genes
 
 ### Select genes with |log2FC > 2| and p-adj < 0.01 with ![](images/tool_small.png){width="30" align="absbottom"}`Filter data on any column using simple expressions`
 
 !!! info "![](images/tool_small.png){width="25" align="absbottom"} `Filter data on any column...` settings"
     - Filter
         
-        --> DESeq2 Results Tables
+        --> limma on data ... others: DE tables (:warning: this is a collection)
     - With following condition
         
-        --> abs(c3) > 2 and c7 < 0.01
+        --> `abs(c2) > 2 and c6 < 0.01` :warning: this expression is different from the one
+        used for DESeq2 tables because the column structure is different. Actually this is
+        the same expression that the one used for edgeR.
     - Number of header lines to skip
         
         --> `1` (these tables have an added header !)
     - Click the `Run Tool` button
 
-:warning: Rename the "filter on..." collection to `Top gene lists`
+:warning: Rename the "filter on..." collection to `limma Top gene lists`
 
 ### Compute a boolean value by row
 
@@ -109,14 +114,15 @@ This is to determine whether genes in the lists are up or down-regulated
 !!! info "![](images/tool_small.png){width="25" align="absbottom"} `Compute on rows` settings"
     - Input file
         
-        --> `Top gene lists` (:warning: collection !)
+        --> `limma Top gene lists` (:warning: collection !)
     - Input has a header line with column names?
         
         --> `Yes`
     - 1: Expressions
     - Add expression
         
-        --> `c3 > 0`
+        --> `c2 > 0`
+        tables
     - Mode of the operation
         
         --> `Append`
@@ -128,7 +134,7 @@ This is to determine whether genes in the lists are up or down-regulated
         --> `No`
     - Click the `Run Tool` button
 
-:warning: Look at the effect of evaluating the expression `c3 > 0` in the new column
+:warning: Look at the effect of evaluating the expression `c2 > 0` in the new column
 `expression` in the output datasets.
 
 ### Transform `True` and `False` values to `up` and `down`, respectively
@@ -136,10 +142,10 @@ This is to determine whether genes in the lists are up or down-regulated
 !!! info "![](images/tool_small.png){width="25" align="absbottom"} `Column Regex Find And Replace` settings"
     - Select cells from
         
-        --> `Compute on collection 36 (or so)`
+        --> `Compute on collection 32 (or so)`
     - using column
         
-        --> `8`
+        --> `8` (for limma there are now 8 columns...)
     - Check
         
         --> click the button :heavy_plus_sign:`Insert Check`
@@ -160,8 +166,8 @@ This is to determine whether genes in the lists are up or down-regulated
         --> `up`
     - Click the `Run Tool` button
 
-:warning: rename the collection `Column Regex Find And Replace on collection 40` with
-`top gene lists - oriented`
+:warning: rename the collection `Column Regex Find And Replace on collection 44` with
+`limma top gene lists - oriented`
 
 ### Split the lists in `up` and `down` regulated lists
 
@@ -172,7 +178,7 @@ expression`
 !!! info "![](images/tool_small.png){width="25" align="absbottom"} `Select lines that match an expression` settings"
     - Select lines from
         
-        --> `top gene lists - oriented`
+        --> `limma top gene lists - oriented`
     - that
         
         --> `matching`
@@ -184,7 +190,7 @@ expression`
         --> `Yes`
     - Click the `Run Tool` button
 
-:warning: Immediately rename the collection `Select on collection...` to `top up-regulated
+:warning: Immediately rename the collection `Select on collection...` to `limma top up-regulated
 gene lists`
 
 Redo exactly the same operation with a single change in the setting of the
@@ -194,7 +200,7 @@ expression`
 ??? info "![](images/tool_small.png){width="25" align="absbottom"} `Select lines that match an expression` settings"
     - Select lines from
         
-        --> `top gene lists - oriented`
+        --> `limma top gene lists - oriented`
     - that
         
         --> `matching`
@@ -206,11 +212,11 @@ expression`
         --> `Yes`
     - Click the `Run Tool` button
 
-:warning: Rename the collection `Select on collection...` to `top down-regulated
+:warning: Rename the collection `Select on collection...` to `limma top down-regulated
 gene lists`
 
 :warning: keep the last three generated collections for later comparison with edgeR and
-limma tools
+DESeq2 tools
 
 ## Plotting an heatmap of the most significantly de-regulated genes
 
@@ -223,7 +229,7 @@ table precedently generated.
 !!! info "![](images/tool_small.png){width="25" align="absbottom"} `advanced cut` settings"
     - File to cut
         
-        --> `Top gene lists` (this is a collection)
+        --> `limma Top gene lists` (this is a collection)
     - Operation
         
         --> `Keep`
@@ -239,7 +245,8 @@ table precedently generated.
     - First line is a header line
     - Click the `Run Tool` button
 
-:warning: Rename this collection of single column datasets `top genes names`
+:warning: Rename this collection of single column datasets `limma top genes names`
+
 ### Next we concatenate the three datasets of the previous collection in a single dataset
 
 We do that using the ![](images/tool_small.png){width="25" align="absbottom"}
@@ -251,7 +258,7 @@ We do that using the ![](images/tool_small.png){width="25" align="absbottom"}
         --> `Single datasets`
     - Concatenate Datasets
         
-        --> :warning: Click on the collection icon and select `top genes names`
+        --> :warning: Click on the collection icon and select `limma top genes names`
     - Include dataset names?
         
         --> `No`
@@ -260,7 +267,7 @@ We do that using the ![](images/tool_small.png){width="25" align="absbottom"}
         --> `1`
     - Click the `Run Tool` button
 
-:warning: Rename the return single dataset as `Pooled top genes`
+:warning: Rename the return single dataset as `limma Pooled top genes`
 
 ### Next we extract *Uniques* gene names from the `Pooled top genes` dataset
 
@@ -274,7 +281,7 @@ occurrences of each record`.
 !!! info "![](images/tool_small.png){width="25" align="absbottom"} `Unique occurrences of each record` settings"
     - File to scan for unique values
         
-        --> `Pooled top genes`
+        --> `limma Pooled top genes`
     - Ignore differences in case when comparing
         
         --> `No`
@@ -293,18 +300,18 @@ We do this with the tools `Add Header`
 !!! info "![](images/tool_small.png){width="25" align="absbottom"} `Add Header` settings"
     - List of Column headers (comma delimited, e.g. C1,C2,...)
         
-        --> `DESeq_All_DE_genes`
+        --> `limma_All_DE_genes`
     - Data File (tab-delimted)
         
-        --> `Unique on data 1xx...`
+        --> `Unique on data 7x...`
     - Click the `Run Tool` button
 
-:warning: Rename the generated dataset `DESeq_All_DE_genes`
+:warning: Rename the generated dataset `limma_All_DE_genes`
 
 ### Intersection (join operation) between the list of unique gene name associated with DE and the rLog-Normalized counts file.
 
-This is the moment when we are going to use the `rLog-Normalized counts file on data...`
-and intersect it (join operation) with the list of DE genes in all three condition.
+This is the moment when we are going to use the dataset `limma on ... and others: Normalised counts`
+ and intersect it (join operation) with the list of DE genes in all three condition.
 
 To do this, we are going to use the tool
 ![](images/tool_small.png){width="25" align="absbottom"}`Join two files`
@@ -312,13 +319,13 @@ To do this, we are going to use the tool
 !!! info "![](images/tool_small.png){width="25" align="absbottom"} `Join two files` settings"
     - 1st file
         
-        --> `rLog-Normalized counts file on data...`
+        --> select `limma on ... and others: Normalised counts`
     - Column to use from 1st file
         
         --> `1`
     - 2nd File
         
-        --> `DESeq_All_DE_genes`
+        --> `limma_All_DE_genes`
     - Column to use from 2nd file
         
         --> `1`
@@ -336,9 +343,9 @@ To do this, we are going to use the tool
         --> `NA`
     - Click the `Run Tool` button
 
-:warning: Rename the output dataset `rLog-Normalized counts of DE genes`
+:warning: Rename the single-element output collection `limma Log2CPM Normalized counts of DE genes`
 
-### Plot a heatmap of the rLog-Normalized counts of DE genes in all three conditions
+### Plot a heatmap of the Log2CPM Normalized counts of limma DE genes in all three conditions
 
 We do this using the ![](images/tool_small.png){width="25" align="absbottom"}`Plot
 heatmap with high number of rows` tool
@@ -346,7 +353,7 @@ heatmap with high number of rows` tool
 !!! info "![](images/tool_small.png){width="25" align="absbottom"} `Plot heatmap with high number of rows` settings"
     - Input should have column headers - these will be the columns that are plotted
         
-        --> `rLog-Normalized counts of DE genes`
+        --> Click the collection icon and select `limma Log2CPM Normalized counts of DE genes`
     - Data transformation
         
         --> `Plot the data as it is`
@@ -384,3 +391,5 @@ heatmap with high number of rows` tool
         
         --> `24`
     - `Run Tool`
+
+---
