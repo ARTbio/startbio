@@ -92,7 +92,7 @@ nav:
             - Volcano plots: bulk_RNAseq-IOC/29_volcano.md
 
         - Week 5:
-          - Review on week-3 work: bulk_RNAseq-IOC/30_exercices_week_04_review.md
+          - Review on week-4 work: bulk_RNAseq-IOC/30_exercices_week_04_review.md
           - Gene Ontology Enrichment Analysis: bulk_RNAseq-IOC/31_GO_enrichment_intro.md
           - Week 5 exercices:
             - GOseq: bulk_RNAseq-IOC/32_GOseq.md
