@@ -101,8 +101,8 @@ nav:
           - Review on week-5 work: bulk_RNAseq-IOC/33_exercices_week_05_review.md
           - Gene Set Enrichment Analysis (GSEA): bulk_RNAseq-IOC/34_GSEA_intro.md
           - Week 6 exercices:
-            - GSEA part 1: bulk_RNAseq-IOC/35_GSEA_1.md
-            - GSEA part 2: bulk_RNAseq-IOC/36_GSEA_2.md
+            - fGSEA: bulk_RNAseq-IOC/35_GSEA_1.md
+            - EGSEA: bulk_RNAseq-IOC/36_GSEA_2.md
 
         - Week 7:
           - Review on week-6 work: bulk_RNAseq-IOC/40_exercices_week_06_review.md

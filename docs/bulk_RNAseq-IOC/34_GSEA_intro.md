@@ -72,20 +72,54 @@ that reflects their differential expression between the two biological condition
 metric is most often fold change, but could be t-statistic, or any other relevant
 statistical measure.
 
-2. **Cumulative Sum Calculation**: The Enrichment Score is calculated by walking down the ranked list of genes, accumulating a running sum statistic. At each step, the running sum is increased when a gene belongs to the gene set being evaluated and decreased otherwise. The running sum captures the degree of enrichment of the gene set at that point in the ranked list.
+2. **Cumulative Sum Calculation**: The Enrichment Score is calculated by walking down the
+      ranked list of genes, accumulating a running sum statistic. At each step, the running sum
+      is increased when a gene belongs to the gene set being evaluated and decreased otherwise.
+      The running sum captures the degree of enrichment of the gene set at that point in the
+      ranked list.
+      
+      The way the running sum is increased when a gene belongs to the gene set being evaluated
+      and decreased otherwise varies depending on the GSEA implementation (there are several).
+      What you need to remember is that increment and decrement are never calculated
+      symmetrically.
+      
+      A simple example of running sum calculation is to add the GSEA metric (eg fold change)
+      when a gene belongs to the gene set being evaluated and to remove a fixed value that
+      depends on the total number of genes in the ranked gene list (eg 1 / N). This fixed value
+      is typically referred to as the "penalty" or "decay" factor.
+      
+      The rationale behind using a penalty or decay factor is to adjust the running sum to
+      account for the fact that genes not belonging to the gene set can still contribute to the
+      overall distribution of scores. This adjustment helps to prevent the running sum from
+      being overly biased by the presence or absence of genes in the gene set.
+      
+3. **Peak Enrichment Score**: The Enrichment Score reaches its maximum (peak) value when
+the cumulative sum reaches its maximum deviation from zero. This peak reflects the
+enrichment of the gene set at a particular position in the ranked list.
 
-3. **Peak Enrichment Score**: The Enrichment Score reaches its maximum (peak) value when the cumulative sum reaches its maximum deviation from zero. This peak reflects the enrichment of the gene set at a particular position in the ranked list.
+4. **Normalization of Enrichment Score**: To make Enrichment Scores comparable across
+different gene sets and datasets, the Enrichment Score is normalized. This normalization
+accounts for differences in gene set size and dataset size. One common normalization
+method is to divide the Enrichment Score by the mean enrichment score from permuted
+datasets.
 
-4. **Normalization of Enrichment Score**: To make Enrichment Scores comparable across different gene sets and datasets, the Enrichment Score is normalized. This normalization accounts for differences in gene set size and dataset size. One common normalization method is to divide the Enrichment Score by the mean enrichment score from permuted datasets.
+5. **Estimation of Significance**: The significance of the Enrichment Score is assessed
+through permutation testing. This involves repeatedly permuting the gene labels to
+generate a null distribution of Enrichment Scores (ie computing many NES from gene sets
+randomly sampled from the total gene list). The observed Enrichment Score is then compared
+to the null distribution to determine its statistical significance, typically reported as
+a nominal p-value or false discovery rate (FDR).
 
-5. **Estimation of Significance**: The significance of the Enrichment Score is assessed through permutation testing. This involves repeatedly permuting the gene labels to generate a null distribution of Enrichment Scores. The observed Enrichment Score is then compared to the null distribution to determine its statistical significance, typically reported as a nominal p-value or false discovery rate (FDR).
 
-Overall, the Enrichment Score provides a quantitative measure of the degree to which a predefined gene set is enriched towards the top or bottom of a ranked list of genes, indicating the collective expression behavior of genes within that set under different experimental conditions. It enables the identification of biologically relevant gene sets associated with specific phenotypes or experimental treatments in gene expression studies.
+Overall, the Enrichment Score provides a quantitative measure of the degree to which a
+predefined gene set is enriched towards the top or bottom of a ranked list of genes,
+indicating the collective expression behavior of genes within that set under different
+experimental conditions. It enables the identification of biologically relevant gene sets
+associated with specific phenotypes or experimental treatments in gene expression studies.
 
-## 
-## Tools and Resources for GSEA
-
+## The main resource for GSEA
 
 * GSEA software: [https://www.gsea-msigdb.org/gsea/msigdb](https://www.gsea-msigdb.org/gsea/msigdb)
     * Provides a user-friendly platform for performing GSEA analysis.
-    * Includes access to curated gene sets from various
+    * Provides access to a large database of curated gene sets in various format, including
+    the GMT format (.gmt files) which is the format that we are going to use in this IOC.
