@@ -113,7 +113,7 @@ your background genes.
         --> `fields`
     - List of Fields
     
-        --> `boolean`
+        --> `column 1` and `column 3`
     - `Run Tool`
 
 :warning: As this is the last step of the construction of the gene set lists, you should
