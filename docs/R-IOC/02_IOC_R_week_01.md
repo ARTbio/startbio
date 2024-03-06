@@ -61,15 +61,15 @@ To avoid this inconvenience, you need to add the `.txt` extension to make your f
 
 ![](images/toolbox-do-it-yourself.png){: style="width:75px"} **Do it yourself!**
 
-- [x] Create a variable called `my_var` that contain your favorite color.
-- [x] Create a variable called `surname` with the string _Marilyn Monroe_.
-- [x] Create a variable with the number 9.
-- [x] What's its type?
-- [x] Change it to character.
-- [x] Calculate the Ln, log in base 2 and log in base 10 of the value 1.
-- [x] Round the fraction 9/7 with 2 and then 4 decimal numbers.
-- [x] Create a function that takes a value and substract the number 4.
-- [x] Test your function for the values : 12, 5.6 and 0.
+- [x] 1. Create a variable called `my_var` that contain your favorite color.
+- [x] 2. Create a variable called `surname` with the string _Marilyn Monroe_.
+- [x] 3. Create a variable with the number 9.
+- [x] 4. What's its type?
+- [x] 5. Change it to character.
+- [x] 6. Calculate the Ln, log in base 2 and log in base 10 of the value 1.
+- [x] 7. Round the fraction 9/7 with 2 and then 4 decimal numbers.
+- [x] 8. Create a function that takes a value and substract the number 4.
+- [x] 9. Test your function for the values : 12, 5.6 and 0.
 
 Please be aware of the best practices for your Rscript, we will be attentive to them!
 

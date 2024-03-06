@@ -34,25 +34,25 @@ To avoid this inconvenience, you need to add the `.txt` extension to make your f
 
 ![](images/toolbox-do-it-yourself.png){ style="width:75px"} **Do it yourself!**
 
-- [x] Create a factor for exam grades "A", "B", "C", "D". What is the current reference level?
-- [x] Now set the grade "B" as the reference level.
-- [x] The grade "D" is no longer used in exam grades, please delete it from the vector and drop this unused level.
-- [x] How to check if there are same elements in `v1` (`v1 <- c(1, 2, 3, 4, 5)`) and `v2` (`v2 <- c(8, 3, 7, 9)`)
-- [x] Are all elements in `v1` greater than 3?
-- [x] Is any element in `v1` greater than 8 AND is any element in `v2` greater than 8?
-- [x] Try `c(TRUE, FALSE) & TRUE`, `c(TRUE, FALSE) & c(TRUE, FALSE)`, `c(TRUE, FALSE) & c(TRUE, FALSE, TRUE)`, `FALSE && TRUE`, `c(TRUE, FALSE) && TRUE` and
+- [x] 1. Create a factor for exam grades "A", "B", "C", "D". What is the current reference level?
+- [x] 2. Now set the grade "B" as the reference level.
+- [x] 3. The grade "D" is no longer used in exam grades, please delete it from the vector and drop this unused level.
+- [x] 4. How to check if there are same elements in `v1` (`v1 <- c(1, 2, 3, 4, 5)`) and `v2` (`v2 <- c(8, 3, 7, 9)`)
+- [x] 5. Are all elements in `v1` greater than 3?
+- [x] 6. Is any element in `v1` greater than 8 AND is any element in `v2` greater than 8?
+- [x] 7. Try `c(TRUE, FALSE) & TRUE`, `c(TRUE, FALSE) & c(TRUE, FALSE)`, `c(TRUE, FALSE) & c(TRUE, FALSE, TRUE)`, `FALSE && TRUE`, `c(TRUE, FALSE) && TRUE` and
 `c(TRUE, FALSE) && c(TRUE, FALSE)` in the R terminal, can you tell how to use properly `&` and `&&`? 
-- [x] Download the data in any folder of your choice using this url:
+- [x] 8. Download the data in any folder of your choice using this url:
 https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000841/ScoringFiles/PGS000841.txt.gz
-- [x] Read (*i.e.*, import into R) the downloaded file and observe what you got.
-- [x] How many lines of comment (also called metadata) should we skip to get the data?
-- [x] Re read the file again with appropriate parameters of `read.delim()`.
-- [x] Save the readed table in `.csv` format and in Excel `.xlsx` format.
-- [x] The comment lines are sometime useful, in this example we can get the information of the downloaded polygenic score (PGS). Try to read only the comment lines in R and transforme it into a `data.frame`.
-- [x] Save the PGS information table in an `.RDS`.
-- [x] Save both PGS score table and the information table in an `.RData`.
-- [x] Save both PGS score table and the information table in a single Excel `.xlsx` file.
-- [x] Read the cells A8 to C10 of the first sheet of the previous saved Excel file.
+- [x] 9. Read (*i.e.*, import into R) the downloaded file and observe what you got.
+- [x] 10. How many lines of comment (also called metadata) should we skip to get the data?
+- [x] 11. Re read the file again with appropriate parameters of `read.delim()`.
+- [x] 12. Save the readed table in `.csv` format and in Excel `.xlsx` format.
+- [x] 13. The comment lines are sometime useful, in this example we can get the information of the downloaded polygenic score (PGS). Try to read only the comment lines in R and transforme it into a `data.frame`.
+- [x] 14. Save the PGS information table in an `.RDS`.
+- [x] 15. Save both PGS score table and the information table in an `.RData`.
+- [x] 16. Save both PGS score table and the information table in a single Excel `.xlsx` file.
+- [x] 17. Read the cells A8 to C10 of the first sheet of the previous saved Excel file.
 
 Please be aware of the best practices for your Rscript, we will be attentive to them!
 

@@ -16,22 +16,22 @@ To avoid this inconvenience, you need to add the `.txt` extension to make your f
 
 ![](images/toolbox-do-it-yourself.png){: style="width:75px"} **Do it yourself!**
 
-- [x] Create a list with vectors (numeric, character and logical) of length 15, 8 and 10 respectively. Don't hesitate to use R functions to create them without having to write them in hard copy (like : `hardcopy_vec <- c("it's", "not", "very", "effective", "that", "way")`).
+- [x] 1. Create a list with vectors (numeric, character and logical) of length 15, 8 and 10 respectively. Don't hesitate to use R functions to create them without having to write them in hard copy (like : `hardcopy_vec <- c("it's", "not", "very", "effective", "that", "way")`).
     - [x] The numeric vector must follow a binomial distribution
     - [x] The character vector is the last 8 letters of the alphabet in capital
     - [x] The logical vector is composed as many true values as false in the order of your
      like but remember not written in hard copy!
-- [x] Add names for each element of your list.
-- [x] Retrieve the character vector from your list.
-- [x] Retrieve the 4th value of the logical vector from your list.
-- [x] Remove positive elements of the numerical vector from your list.
-- [x] Filter to keep only false value of the logical vector from your list.
-- [x] Create a function that generate a random DNA sequence of a specified length (example, for a length 7 you must obtain : `ATCGATC`)
-- [x] Create a list of 4 random DNA sequences with a **random** number between 10 and 200 bases 
+- [x] 2. Add names for each element of your list.
+- [x] 3. Retrieve the character vector from your list.
+- [x] 4. Retrieve the 4th value of the logical vector from your list.
+- [x] 5. Remove positive elements of the numerical vector from your list.
+- [x] 6. Filter to keep only false value of the logical vector from your list.
+- [x] 7. Create a function that generate a random DNA sequence of a specified length (example, for a length 7 you must obtain : `ATCGATC`)
+- [x] 8. Create a list of 4 random DNA sequences with a **random** number between 10 and 200 bases 
     (don't hard copy the length) called human, mouse, chicken, fly
-- [x] Compute the number of bases of each sequences
-- [x] Test of many sequences had more than 50 nucleotides
-- [x] Filter the list to keep only non mammals sequences
+- [x] 9. Compute the number of bases of each sequences
+- [x] 10. Test of many sequences had more than 50 nucleotides
+- [x] 11. Filter the list to keep only non mammals sequences
 
 Please be aware of the best practices for your Rscript, we will be attentive to them!
 
