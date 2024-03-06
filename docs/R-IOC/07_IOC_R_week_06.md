@@ -14,18 +14,18 @@ To avoid this inconvenience, you need to add the `.txt` extension to make your f
 
 ![](images/toolbox-do-it-yourself.png){: style="width:75px"} **Do it yourself!**
 
-- [x] Create a tibble `my_phones` from the available data.frame `WorldPhones`. Beware of the rownames ! We don't want to lose them
-- [x] Make it tidy and write it in `my_phones`
-- [x] Filter the tibble to retrieve only the European (don't write it in `myphones`).
-- [x] Select the tibble to retrieve only the region (don't write it in `myphones`).
-- [x] Replace "." by underscore in region name
-- [x] Replace truncated region names (`Amer`) by the full continent name using stringr's pattern matching functions.
-- [x] Group the data based on the region
-- [x] Compute the mean of number of telephones per region
-- [x] Add a column with a normalized number of telephone per region (Reminder : `norm_val = val - mean(val) / sd(val)`)
-- [x] Resume the information to check if the mean equal 0 and the sd equal 1. What do you get ?
-- [x] Do the same for the last 4 questions but by grouping on the year you can change the created column names
-- [x] Resume the information to retrieve the Year with the most phones for each region
+- [x] 1. Create a tibble `my_phones` from the available data.frame `WorldPhones`. Beware of the rownames ! We don't want to lose them
+- [x] 2. Make it tidy and write it in `my_phones`
+- [x] 3. Filter the tibble to retrieve only the European (don't write it in `myphones`).
+- [x] 4. Select the tibble to retrieve only the region (don't write it in `myphones`).
+- [x] 5. Replace "." by underscore in region name
+- [x] 6. Replace truncated region names (`Amer`) by the full continent name using stringr's pattern matching functions.
+- [x] 7. Group the data based on the region
+- [x] 8. Compute the mean of number of telephones per region
+- [x] 9. Add a column with a normalized number of telephone per region (Reminder : `norm_val = val - mean(val) / sd(val)`)
+- [x] 10. Resume the information to check if the mean equal 0 and the sd equal 1. What do you get ?
+- [x] 11. Do the same for the last 4 questions but by grouping on the year you can change the created column names
+- [x] 12. Resume the information to retrieve the Year with the most phones for each region
 
 Please be aware of the best practices for your Rscript, we will be attentive to them!
 

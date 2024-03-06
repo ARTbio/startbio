@@ -26,18 +26,18 @@ Let's play with the dataset `diamonds` provided in the `ggplot2` package,
 it contains prices of more than 50,000 round cut diamonds, with 10 variables.
 Use `?diamonds` to get the full description and `str(diamonds)` to have a glimpse of the data structure.
 
-- [x] Create a plot to visualize the `price` and the `carat`, colored by the quality of the `cut`.
-- [x] Change the shape and the size of the points.
-- [x] Create a histogram of `price` by the diamonds' `color`.
-- [x] Make the bars in histogram side by side.
-- [x] Do the same figure but only for diamonds with prices higher than 10,000$.
-- [x] Draw a density plot of prices by group of `clarity`.
-- [x] Visualize the diamonds' `carat` and width (`y`), colored by `clarity` and use `color` as facet.
-- [x] Add a 2nd facet for the `cut`, make the scales vary across both columns and rows.
+- [x] 1. Create a plot to visualize the `price` and the `carat`, colored by the quality of the `cut`.
+- [x] 2. Change the shape and the size of the points.
+- [x] 3. Create a histogram of `price` by the diamonds' `color`.
+- [x] 4. Make the bars in histogram side by side.
+- [x] 5. Do the same figure but only for diamonds with prices higher than 10,000$.
+- [x] 6. Draw a density plot of prices by group of `clarity`.
+- [x] 7. Visualize the diamonds' `carat` and width (`y`), colored by `clarity` and use `color` as facet.
+- [x] 8. Add a 2nd facet for the `cut`, make the scales vary across both columns and rows.
 
 #### Bonus for heatmap
 
-- [x] Use the previously built `p_heatmap` from the [ggplot2 reference](r09_viz_ggplot2.md), try to add clustering tree (dendrogram) on the figure.
+- [x] 9. Use the previously built `p_heatmap` from the [ggplot2 reference](r09_viz_ggplot2.md), try to add clustering tree (dendrogram) on the figure.
 
 !!! tip "Hints"
     - We first need data for dendrogram: think about what you will use to build the dendrogram?
