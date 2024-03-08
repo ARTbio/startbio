@@ -390,6 +390,25 @@ my_df
 ## sample5  5  27   male  cohort1
 ```
 
+Remember the built-in functions which calculate the sums or the average by column or by row seen in matrix's part?
+They can be used on data frame for numeric rows or columns too!
+
+```r
+colSums(my_df[, c("id", "age")])
+## id age 
+## 15 126 
+
+colMeans(my_df[, c("id", "age")])
+##  id  age 
+## 3.0 25.2 
+
+rowSums(my_df[, c("id", "age")])
+## [1] 22 27 21 39 32
+
+rowMeans(my_df[, c("id", "age")])
+## [1] 11.0 13.5 10.5 19.5 16.0
+```
+
 For other possible manipulations in `matrix` and `data.frame`, please refer to the sections [8.3 to 8.6](https://bookdown.org/ndphillips/YaRrr/matrix-and-dataframe-functions.html) of Philips’ book.
 
 ---
