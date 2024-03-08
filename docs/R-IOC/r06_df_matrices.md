@@ -128,18 +128,17 @@ X
 ## [2,]    2    4   -2
 ## [3,]   -3   -2   16
 
-Y <- matrix(0:8, ncol = 3)
-Y
-##      [,1] [,2] [,3]
-## [1,]    0    3    6
-## [2,]    1    4    7
-## [3,]    2    5    8
+colSums(X) # calculate the sum by column 
+## [1]  8  4 11
 
-X %*% Y # matrix multiplication
-##      [,1] [,2] [,3]
-## [1,]   -4   20   44
-## [2,]    0   12   24
-## [3,]   30   63   96
+rowSums(X) # calculate the sum by row
+## [1]  8  4 11
+
+colMeans(X) # calculate the average by column
+## [1] 2.666667 1.333333 3.666667
+
+rowMeans(X) # calculate the average by row
+## [1] 2.666667 1.333333 3.666667
 
 t(X) # matrix transpose
 ##      [,1] [,2] [,3]
@@ -159,17 +158,18 @@ solve(X) # inverse X
 diag(X) # matrix diagonals
 ## [1]  9  4 16
 
-colSums(X)
-## [1]  8  4 11
+Y <- matrix(0:8, ncol = 3)
+Y
+##      [,1] [,2] [,3]
+## [1,]    0    3    6
+## [2,]    1    4    7
+## [3,]    2    5    8
 
-rowSums(X)
-## [1]  8  4 11
-
-colMeans(X)
-## [1] 2.666667 1.333333 3.666667
-
-rowMeans(X)
-## [1] 2.666667 1.333333 3.666667
+X %*% Y # matrix multiplication
+##      [,1] [,2] [,3]
+## [1,]   -4   20   44
+## [2,]    0   12   24
+## [3,]   30   63   96
 ```
 
 ### To Go Further
@@ -388,6 +388,25 @@ my_df
 ## sample3  3  18   male  cohort1
 ## sample4  4  35   male  cohort1
 ## sample5  5  27   male  cohort1
+```
+
+Remember the built-in functions which calculate the sums or the average by column or by row seen in matrix's part?
+They can be used on data frame for numeric rows or columns too!
+
+```r
+colSums(my_df[, c("id", "age")])
+## id age 
+## 15 126 
+
+colMeans(my_df[, c("id", "age")])
+##  id  age 
+## 3.0 25.2 
+
+rowSums(my_df[, c("id", "age")])
+## [1] 22 27 21 39 32
+
+rowMeans(my_df[, c("id", "age")])
+## [1] 11.0 13.5 10.5 19.5 16.0
 ```
 
 For other possible manipulations in `matrix` and `data.frame`, please refer to the sections [8.3 to 8.6](https://bookdown.org/ndphillips/YaRrr/matrix-and-dataframe-functions.html) of Philips’ book.

@@ -41,11 +41,10 @@ name the rows with "r1", "r2", "r3" and the columns with "c1", "c2", "c3", "c4".
 - [x] 8. Replace the element bigger than 10 by 99 in `my_mat`.
 - [x] 9. Transforme the matrix `my_mat` to a `data.frame` named `my_df`.
 - [x] 10. Use the rownames to create a new column "id" for `my_df`.
-- [x] 11. Which row(s) has(have) duplicated values in `my_df`?
-- [x] 12. Create a new column named "total" in `my_df`, which calculates the sum of column "c1" to "c4" by row.
-- [x] 13. Change the column order to put the "id" in the first column in `my_df`.
-- [x] 14. Remove the rownames of `my_df`.
-- [x] 15. Add a new row in `my_df` which contains the sum of each column (except the "id" column, put `NA` in the new row for this column).
+- [x] 11. Create a new column named "total" in `my_df`, which calculates the sum of column "c1" to "c4" by row.
+- [x] 12. Change the column order to put the "id" in the first column in `my_df`.
+- [x] 13. Remove the rownames of `my_df`.
+- [x] 14. Add a new row in `my_df` which contains the sum of each column (except the "id" column, put `NA` in the new row for this column).
 
 Please be aware of the best practices for your Rscript, we will be attentive to them!
 
