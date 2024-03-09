@@ -85,7 +85,7 @@ The Galaxy workflow [Galaxy-Workflow-fgsea.ga](Galaxy-Workflow-fgsea.ga) perform
 analysis from
 
 - [x] The collection `DESeq2 Results Tables` (history `PRJNA630433 DESeq2 analysis`)
-- [x] The dataset `ENTREZID-GeneSymbol table` (from the data library `IOC_bulk_RNAseq /
+- [x] The dataset `EnsemblID-GeneSymbol table` (from the data library `IOC_bulk_RNAseq /
 Mouse reference files`) or where available
 - [x] 5 GMT files dendritic.gmt, glycolysis.gmt, monocyte_OR_macrophage.gmt,
   mouse_immune_AND_response.gmt,osteoclast.gmt.
