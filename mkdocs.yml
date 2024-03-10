@@ -107,8 +107,8 @@ nav:
 
         - Week 7:
           - Review on week-6 work: bulk_RNAseq-IOC/40_exercices_week_06_review.md
-          - Read Mapping overview:
-            - Galaxy Workflows: bulk_RNAseq-IOC/41_workflow_intro.md
+          - Galaxy Workflows:
+            - Introduction: bulk_RNAseq-IOC/41_workflow_intro.md
           - Week 7 exercices:
             - Workflows part 1: bulk_RNAseq-IOC/42_workflow_use_1.md
             - Workflows part 2: bulk_RNAseq-IOC/43_workflow_use_2.md
