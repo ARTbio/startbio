@@ -44,6 +44,30 @@ Galaxy workflows offer a powerful solution for managing complex analyses. You ca
 - [x] Build a workflow from scratch using the Galaxy workflow editor:
     
     This allows you to design custom workflows for specific analyses.
+    
+- [x] Use a combination of both approaches !
+    
+    Beginners tend to start with the first approach since it allows to automatically build
+    a workflow without interacting too much with the workflow `editor`. However, in use this
+    proves difficult, because the stories are often cluttered with several trials and
+    errors or trials and successes, with different parameter values for the same tool.
+    
+    Thus, a workflow built from a story can be difficult to untangle.
+    
+    On the other hand, experts in using the workflow editor favor creating workflows from
+    scratch. This mode requires you to have an analysis plan in mind, whereby workflow
+    editing is literally akin to the graphic writing of a computer script. Testing this
+    workflow can be done as it is written, by running it in Galaxy and verifying that the
+    outputs are valid and conform to what is expected.
+    
+    In real life, it is often a combination of the two approaches that is implemented: you
+    can start a workflow from a not too complicated story and correct / develop it later
+    by first using the editor before testing it
+    
+    Along the same lines, Galaxy masters will also rely on already existing workflows to
+    avoid reinventing what has already been done and save time. It is also possible to use 
+    a workflow as a tool in another workflow, and thus to build very complex and elaborate
+    workflows by structuring them as `workflows of workflows`.
 
 The beauty of workflows lies in their reusability. You can:
 
