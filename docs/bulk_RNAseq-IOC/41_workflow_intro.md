@@ -80,12 +80,20 @@ The beauty of workflows lies in their reusability. You can:
     This allows you to export your workflows and import them into other Galaxy servers. As
     long as the new server has the required data and tools, the analysis will run identically.
 
+### Workflow reports
+Another essential aspect of Galaxy workflows is that their invocations are logged and
+accessible in the menu `User` --> `Workflow invocations`
+
+In addition, a report is automatically generated for each workflow invocation. A minimal
+default report is generated for each workflow invocation and give access to inputs, outputs
+and the workflow ==in its runtime version==. You can customize and enrich this automated
+report using the Galaxy workflow editor.
+
+:warning: Reports cannot still be considered as a Material and Methods section for your
+scientific manuscripts with computational analyses but they clearly make this section more
+accurate and easier to write ! Moreover, the goal of reports is clearly to generate this
+section in a fully automated manner, and Galaxy development is happening at a rapid pace !
+
 ### Key Takeaway
 Advanced Galaxy users leverage workflows to capture their analyses, ensuring transparency,
 reproducibility, and reusability of their computational protocols.
-
-### Looking Ahead:
-The next section will explore... (insert what the next section covers).
-
-, you will test 2 workflows that are available in your
-Galaxy server and recapitulate most of the analyses you have performed today.
