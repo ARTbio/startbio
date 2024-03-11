@@ -1,102 +1,69 @@
-# Workflow upload
+# A workflow of your use-case
 
-Same as data libraries, you can import workflows, from shared data that has been pre-set in your Galaxy server for this training session.
+The exercise of this week is difficult:
 
-To access these workflows :
+You are going to prepare a complete workflow of your analysis.
 
-----
-  ![](images/tool_small.png)
+Depending on your model organisms, you may not have been able to perform all of the
+analyses covered in this training. This is not a problem: you are expected to create a
+workflow from what you have actually been able to do.
+
+In order to make a sustainable, reproducible and transparent workflow, you should meet the
+following requirements:
+
+## Workflow inputs
+
+Best inputs are
+
+- [x] Completely unprocessed data (i.e. fastq files)
+- [x] Preferably accessible through a sustainable URL. If it is not possible, they should
+  be at least easily accessible (i.e. gathered in a single folder, whose location is
+  precisely described)
+- [x] reference data (GTF, bed, etc...) should be precisely annotated, date, organisation,
+  version, etc... Importantly, a **direct** URL to the original reference should be included
+- [x] :warning: Unless impossible to do, do not use processed data as inputs of your
+  workflow. If you think this is impossible to do, **let's discuss it** !
+- A lot of good workflows stand on a metadata table, which describes input data, their
+  names, labels if required, replicate status, etc. This metadata table may be considered
+  as a genuine dataset which can be used by the workflow to perform some operations.
   
-  1. Click the menu `Données partagées` (`Shared data`) and select the submenu
-  `Workflows`. You should see two workflows : `paired-data-STAR-RNAseq` and `paired-data-HISAT2-RNAseq`
+## Computational steps
+
+- [x] Whenever a computational step applies to multiple sample, think "**Collections**"
+- [x] A good clue that you should switch to collections is when your workflow contains
+  twice or more the same step with the same parameters (or almost the same)
+- [x] Take the time, for each step, to carefully fill the tool form at the right hand-side
+  of the workflow editor.
+- [x] There are several fields in this tool form that *must* be used to clarify the step:
+  The `Label` field at the top of the tool form, the `Step Annotation` field, and the
+  `Configure Output: xxx` fields and their sub-fields `Label`, `Rename dataset` and `Change
+  datatype`
   
-  2. For each workflow, click on the arrow and select `Import`.
-
-
-Now, you'll be able to see these workflows in the `Workflow` menu.
-
-----
-
-# Running workflows
-
-You need to return to our first galaxy history `Inputs`, to do so :
-
-----
-  ![](images/tool_small.png)
+  Experiment theses fields with your workflow !
   
-  1. Click the menu `Utilisateur` and select the submenu
-  `Historiques sauvegardés`.
+- [x] Workflow **can use parameters** at their runtime. If you are interested by this functionality,
+  let's discuss it !
   
-  2. Click on `Inputs`. Its status is now **current history**. 
+## Workflow outputs
 
-----
+- [x] You can hide some output datasets for better readability of the workflow by
+  unchecking this outputs in the tool items of the workflow.
+      
+      :warning: By default all outputs are visible although unchecked. This is only when you
+      check a first output that unchecked outputs become hidden.
+      
+      :warning: Hidden does not mean deleted: all workflow outputs are still there and you can
+      reveal them in the Galaxy history.
+  
+- [x] Whenever possible, rename your datasets in the workflow using the `Configure Output: xxx`
+  fields in the tool forms
+  
+## Your objective:
 
-## Prepare inputs
+Is that you generate the complete analysis in a **single** workflow run, with the minimal
+number of inputs.
 
-These workflows use data collection as inputs, one per condition `treat` and `untreat`. Let's create our two data collections !
+This way, you can even loose/trash your Galaxy history :
+Just having the inputs plus the workflow should be enough to regenerate the analysis.
 
-----
-  ![](images/tool_small.png)
-  
-  1. Click on the checked box. ![](images/checked-box.png)
-  
-  2. Select all treated datasets in pair ends :
-      - `GSM461180_1_treat_paired.fastq.gz`
-      - `GSM461181_1_treat_paired.fastq.gz`
-      - `GSM461180_2_treat_paired.fastq.gz`
-      - `GSM461181_2_treat_paired.fastq.gz`
-  
-  3. Then click on the button `Pour toute la sélection...` and `Build List of Dataset Pairs`.
-  
-  4. Enter a name for your dataset collection. `Name`: Treat data pairs. 
-  
-  5. `Create list`
-
-----
-![](images/redo.png)
-
-  Redo a data collections for untreated datasets.
-  
-  1. Unchecked the previous datasets.
-  
-  2. Select all untreated datasets in pair ends :
-      - `GSM461177_1_untreat_paired.fastq.gz`
-      - `GSM461178_1_untreat_paired.fastq.gz`
-      - `GSM461177_2_untreat_paired.fastq.gz`
-      - `GSM461178_2_untreat_paired.fastq.gz`
-
-  3. Then click on the button `Pour toute la sélection...` and `Build List of Dataset Pairs`.
-  
-  4. Enter a name for your dataset collection. `Name`: Untreat data pairs. 
-  
-  5. `Create list`
-
-----
-
-You are now the happy owner of two dataset paired collections ! 
-
-It's time to test the worflows !
-
-----
-  ![](images/tool_small.png)
-  
-  1. Go to Menu `Workflow`.
-  
-  2. For the workflow `imported: paired-data-HISAT2-RNAseq`, click on the arrow and then `Run`.
-  
-  3. `History Options`
-      - `Send results to a new history`: Yes
-  
-  4. `1: treated data pairs`: Treat data pairs
-  
-  5. `2:GTF`: Drosophila_melanogaster.BDGP6.95.gtf.gz
-    
-  6. `3: un-treated data pairs`: Untreat data pairs
-  
-  7. `Run workflow`
-
-----
-
-![](images/redo.png)
-
-  Redo the same for the workflow `imported: paired-data-STAR-RNAseq`.
+Consider that it is also a **huge** gain in term of data storage.
