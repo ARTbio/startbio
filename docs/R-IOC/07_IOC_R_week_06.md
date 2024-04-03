@@ -22,7 +22,7 @@ To avoid this inconvenience, you need to add the `.txt` extension to make your f
 - [x] 6. Replace truncated region names (like `Amer`) by the full continent name using stringr's pattern matching functions.
 - [x] 7. Group the data based on the region
 - [x] 8. Compute the mean of number of telephones per region
-- [x] 9. Add a column with a normalized number of telephone per region (Reminder : `norm_val = val - mean(val) / sd(val)`)
+- [x] 9. Add a column with a normalized number of telephone per region (Reminder : `norm_val = (val - mean(val)) / sd(val)`)
 - [x] 10. Resume the information to check if the mean equal 0 and the sd equal 1. What do you get ?
 - [x] 11. Do the same for the last 4 questions (from Q7 to 10) but by grouping on the year you can change the created column names
 - [x] 12. Resume the information to retrieve the Year with the most phones for each region
