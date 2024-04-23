@@ -174,6 +174,8 @@ the analysis.
     it will probably be more messy to understand the bondary between low and 
     good quality cells. Don't hesitate to zoom in on histogram and violin plots
     to better identify your cutoffs.
+    Also in the `VlnPlot` function from Seurat, you can use the `log` parameter
+    to better see outliers (barcodes that contains mRNA ambiant) !
 
 ## Cell Normalization
 
@@ -207,7 +209,7 @@ pbmc_small <- NormalizeData(pbmc_small,                                   #Seura
 The `@data` slot is been updated with normalized UMI.
 
 !!! tip
-    There is a shortcut to access the metadata columns :
+    There is a shortcut to access the cell metadata columns :
     `object@meta.data$column == object$column`
 
 ## Identification of Highly Variable Genes (*HGV*)
@@ -240,17 +242,19 @@ VariableFeaturePlot(pbmc_small)
 
 <img src="../images/VariableFeature-1.png" style="display: block; margin: auto;" />
 
-The function `FindVariableFeatures` updates two slots:
+The function `FindVariableFeatures` updates a slot:
 
-- `pbmc_small@assays$RNA@var.features` : vector of n genes
-    genes determined to be the most variable
-- `pbmc_small@assays$RNA@meta.features` : dataframe containing the different
+- `object@assays[["RNA"]]@meta.data` : dataframe containing the different
   variables calculated by the vst method. For each gene we have :
-    - `vst.mean` : expression mean
-    - `vst.variance` : expression variance
-    - `vst.variance.expected` : expected variance
-    - `vst.variance.standardized` : standardized variance
-    - `vst.variable` : logical, is the gene a variable gene TRUE / FALSE
+    - `vf_vst_counts_mean` : expression mean
+    - `vf_vst_counts_variance` : expression variance
+    - `vf_vst_counts_variance.expected` : expected variance
+    - `vf_vst_counts_variance.standardized` : standardized variance
+    - `vf_vst_counts_variable` : logical, is the gene a variable gene TRUE / FALSE
+    - `vf_vst_counts_rank` : rank of HGV (if `NA` the gene is not an HGV)
+    - `var.features` : if `NA` the gene is not HGV, else you'll see the gene name 
+    - `var.features.rank` : rank of HGV (if `NA` the gene is not an HGV), same as
+      `vf_vst_counts_rank` column if `vst` is the last or only HGV method.
 
 !!! tip
-    We can directly access to HGV via : `VariableFeatures(pbmc_small)`
+    We can directly access to HGV via : `VariableFeatures(object)`
