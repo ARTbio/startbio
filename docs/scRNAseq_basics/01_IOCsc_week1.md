@@ -4,13 +4,13 @@ The preprocessing is the most important part of a single cell analysis because y
 can skew your result if you filter too much **or too little** and you must really
 understand what's going on these steps.
 
-Please go read the following pages to learn more about it : [Preprocessing.](preprocessing.md).
-
-The preprocesing is composed of : 
+The preprocesing is composed of: 
 
 - Filtering of low quality barcodes
-- Barcode Normalization
+- Barcode normalization
 - Selection of most variable features
+
+Please go read the [preprocessing](preprocessing.md) pages to learn more about it.
 
 ---
 
@@ -39,7 +39,7 @@ To complete this week you'll need to :
     each step of your thoughts. 
     In general, try to explain in your own words, each step of your analysis !
 
-Add your RMD/QMD in your trello card.
+Add your RMD/QMD in your Trello card.
 
 **Thank you for your attention and see you next week :clap: :clap: :clap:**
 

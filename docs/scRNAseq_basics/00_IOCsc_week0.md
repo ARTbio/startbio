@@ -50,7 +50,7 @@ To complete this week you'll need to :
 - [x] 4. Create a Seurat Object
 - [x] 5. Create an annotation table of zebrafish genes using `biomaRt`. 
 
-Add your RMD/QMD in your trello card.
+Add your RMD/QMD in your Trello card.
 
 **Thank you for your attention and see you next week :clap: :clap: :clap:**
 
