@@ -151,15 +151,14 @@ nav:
     - IOC on Single-cell RNAseq analysis using Seurat in R:
         - Program / Schedule :
           - Schedule : scRNAseq_basics/program_sc.md
-          - Week 0: scRNAseq_basics/00_IOCsc_week0.md # import_annot
-          - Week 1: scRNAseq_basics/01_IOCsc_week1.md # preprocessing_hvg
-          - Week 2: scRNAseq_basics/02_IOCsc_week2.md # reduction_dimension
-          - Week 3: scRNAseq_basics/03_IOCsc_week3.md # clustering
-          - Week 4: scRNAseq_basics/04_IOCsc_week4.md # differential_expression
-          - Week 5: scRNAseq_basics/05_IOCsc_week5.md # ora
-          - Week 6: scRNAseq_basics/06_IOCsc_week6.md # gsea
-          - Week 7: scRNAseq_basics/07_IOCsc_week7.md # visualisation
-          - Week 8: scRNAseq_basics/08_IOCsc_week8.md # presentation_results
+          - Week 0 - Introduction, Data Import & Annotation: scRNAseq_basics/00_IOCsc_week0.md
+          - Week 1 - Data Processing & High Variable Genes: scRNAseq_basics/01_IOCsc_week1.md
+          - Week 2 - Reduction of Dimensionality: scRNAseq_basics/02_IOCsc_week2.md
+          - Week 3 - Clustering: scRNAseq_basics/03_IOCsc_week3.md
+          - Week 4 - Differential Gene Expression: scRNAseq_basics/04_IOCsc_week4.md
+          - Week 5 - Enrichment Analysis (ORA): scRNAseq_basics/05_IOCsc_week5.md
+          - Week 6 - Enrichment Analysis (GSEA): scRNAseq_basics/06_IOCsc_week6.md
+          - Week 7 - Visualisation: scRNAseq_basics/07_IOCsc_week7.md
         - Reference Manual:
           - Introduction: scRNAseq_basics/introduction.md
           - Prerequisites: scRNAseq_basics/prerequisites.md
