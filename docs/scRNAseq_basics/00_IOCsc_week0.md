@@ -16,18 +16,15 @@ reproduce the whole scRNAseq analysis with Seurat.
 
 # Dataset test
 
-The dataset for this analysis will be single cell RNAseq from chick embryos 
-from [de Lima *et al*](https://doi.org/10.1038/s41467-021-24157-x). We are 
-going to analyse only single cells of E10 stage of embryos. You can download 
-the dataset at the GEO accession [GSE166981](https://0-www-ncbi-nlm-nih-gov.brum.beds.ac.uk/geo/query/acc.cgi?acc=GSE166981).
+The dataset for this analysis will be single cell RNAseq from zebrafish embryos 
+from [Metikala *et al*](https://doi.org/10.1371/journal.pone.0254024). You can download 
+the dataset at the GEO accession [GSE152982](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE152982).
 
 ??? question "Do you need help to find the data ?"
     ??? tip "First tip : "
         Look to supplementary file....
         ??? tip "Second tip : "
             To see what's inside the tar archive you can click on `(custom)`
-            ??? tip "Still no clue ? :"
-                You need the three files with *"E10"* in the filename. You need to check the three files and then click on download. You will have the archive `GSE166981_RAW.tar` in your downloads.  
     
 Once you download the data, all you have to do is import it onto the Rstudio server.
 
