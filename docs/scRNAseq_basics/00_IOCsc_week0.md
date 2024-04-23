@@ -40,17 +40,17 @@ Make sure to tweak parameters to fit this new dataset.
     - [Short presentation](https://docs.google.com/presentation/d/1ck41d_0a6bMEreTfeeES67RExEc2pp_OXQvqbJ3ZdhU/edit?usp=sharing) of the use of the R package, comparing it with the Ensembl interface
 
 
-# Render your script
+# Render your RMD/QMD
 
 To complete this week you'll need to :
 
-- [x] 1. Retrieve the chick dataset
+- [x] 1. Retrieve the zebrafish dataset
 - [x] 2. Import data in Rstudio
 - [x] 3. Import data in your global environment
 - [x] 4. Create a Seurat Object
-- [x] 5. Create an annotation table of chick genes using `biomaRt`. 
+- [x] 5. Create an annotation table of zebrafish genes using `biomaRt`. 
 
-Add your script in your trello card.
+Add your RMD/QMD in your trello card.
 
 **Thank you for your attention and see you next week :clap: :clap: :clap:**
 
