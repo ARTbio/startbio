@@ -23,8 +23,14 @@ $$ scaled.data(x) = \frac{x - mean(x)}{ standard.deviation(x)} $$
 pbmc_small <- ScaleData(pbmc_small)
 ```
 
-The slot `object@assays$RNA@scale.data` is now filled. It is a
-dataframe of dimensions `n HVG x n cells` of reduced centered data.
+The slot `object@assays[["RNA"]]@layers$scale.data` is now filled. 
+It is a dataframe of dimensions `n HVG x n cells` of reduced centered data.
+
+!!! note
+    You can use `ScaleData` on all genes (easier if you need to visualize 
+    gene expression in an heatmap but be carefull and specify 
+    `features = VariableFeatures(pbmc_small)` in the `RunPCA` function 
+    explained below)
 
 ## Principal Component Analysis (PCA)
 
@@ -101,7 +107,7 @@ of the PCs with that of PCs computed from permuted data.
 The `JackStraw` function will perform 100 permutations (default value of the
 `num.replicate` parameter). At each permutation, it will randomly select 1%
 of the most variable genes (default proportion, parameter `prop.freq`).
-`JackStraw` will mix the values of the slot `object@assays$RNA@scale.data`
+`JackStraw` will mix the values of the slot `object@assays[["RNA"]]@layers$scale.data`
 filter on these genes and then perform a PCA on this fake matrix.
 From these results and for each PC, it calculates the number of times the
 values of the fake loadings ($fakevals$) is greater than each value of the
@@ -175,6 +181,10 @@ Straw results.
 
 -> We can determine the choice of the number of PCs at **10**.
 
+``` r
+pc_to_keep <- 10
+```
+
 !!! note
     I find the Elbow Plot method much more complicated to decide how many PCs
     to keep. But it allows to have a second opinion, at choice I prefer to
@@ -212,7 +222,7 @@ pbmc_small <- RunUMAP(pbmc_small,               #SeuratObject
                       reduction = "pca",        #Reduction used to compute UMAP
                       reduction.key = "UMAP_",  #Dimension prefix
                       assay = "RNA",            #Assay to use
-                      dims = 1:10)              #Number of PCs to keep (previously determined)
+                      dims = 1:pc_to_keep)      #Number of PCs to keep (previously determined)
 
 ## Plot
 UMAPPlot(pbmc_small)
