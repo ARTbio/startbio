@@ -148,28 +148,29 @@ nav:
           - Visualization: R-IOC/r09_viz_ggplot2.md
         - Storage room: R-IOC/pick-up.md
 
-    - Single-cell RNAseq analysis using Seurat in R:
-        - Introduction: scRNAseq_basics/introduction.md
-        - Prerequisites: scRNAseq_basics/prerequisites.md
-        - Initialization of R analysis: scRNAseq_basics/intro_seurat.md
-        - Import data: 
+    - IOC on Single-cell RNAseq analysis using Seurat in R:
+        - Program / Schedule :
+          - Schedule : scRNAseq_basics/program_sc.md
+          - Week0 : scRNAseq_basics/import_exo.md
+          - Week1 : scRNAseq_basics/preprocessing_exo.md
+        - Reference Manual:
+          - Introduction: scRNAseq_basics/introduction.md
+          - Prerequisites: scRNAseq_basics/prerequisites.md
+          - Initialization of R analysis: scRNAseq_basics/intro_seurat.md
           - Import data: scRNAseq_basics/import.md
-          - Exercices: scRNAseq_basics/import_exo.md
-        - Preprocessing: 
           - Preprocessing: scRNAseq_basics/preprocessing.md
-          - Exercices: scRNAseq_basics/preprocessing_exo.md
-        - Reduction of dimensionality: scRNAseq_basics/redim.md
-        - Clustering: scRNAseq_basics/clustering.md
-        - Cell population identification:
-          - Introduction and markers identification:  scRNAseq_basics/intro_markers.md
-          - Markers Annotation:
-            - Presentation of annotation methods: scRNAseq_basics/marker_annot.md
-            - Over-representation analysis: scRNAseq_basics/over.md
-            - Gene Set Enrichment Analysis: scRNAseq_basics/gsea.md
-          - Cluster annotation: scRNAseq_basics/clusannot.md
-        - Comparison between 2 populations: scRNAseq_basics/comp.md
-        - Differents visualizations of Seurat: scRNAseq_basics/visualization.md
-        - References: scRNAseq_basics/references.md
+          - Reduction of dimensionality: scRNAseq_basics/redim.md
+          - Clustering: scRNAseq_basics/clustering.md
+          - Cell population identification:
+            - Introduction and markers identification:  scRNAseq_basics/intro_markers.md
+            - Markers Annotation:
+              - Presentation of annotation methods: scRNAseq_basics/marker_annot.md
+              - Over-representation analysis: scRNAseq_basics/over.md
+              - Gene Set Enrichment Analysis: scRNAseq_basics/gsea.md
+            - Cluster annotation: scRNAseq_basics/clusannot.md
+          - Comparison between 2 populations: scRNAseq_basics/comp.md
+          - Differents visualizations of Seurat: scRNAseq_basics/visualization.md
+          - References: scRNAseq_basics/references.md
 
     -  Introduction to Deep-seq Analysis:
         - INTRODUCTION: deepseq/index.md
