@@ -232,31 +232,41 @@ pbmc_small <- CreateSeuratObject(tenX_matrix,                    #Expression mat
 
         ## Formal class 'Seurat' [package "SeuratObject"] with 13 slots
         ##   ..@ assays      :List of 1
-        ##   .. ..$ RNA:Formal class 'Assay' [package "SeuratObject"] with 8 slots
-        ##   .. .. .. ..@ counts       :Formal class 'dgCMatrix' [package "Matrix"] with 6 slots
-        ##   .. .. .. .. .. ..@ i       : int [1:2286884] 70 166 178 326 363 410 412 492 494 495 ...
-        ##   .. .. .. .. .. ..@ p       : int [1:2701] 0 781 2133 3264 4224 4746 5528 6311 7101 7634 ...
-        ##   .. .. .. .. .. ..@ Dim     : int [1:2] 32738 2700
-        ##   .. .. .. .. .. ..@ Dimnames:List of 2
-        ##   .. .. .. .. .. .. ..$ : chr [1:32738] "ENSG00000243485" "ENSG00000237613" "ENSG00000186092" "ENSG00000238009" ...
+        ##   .. ..$ RNA:Formal class 'Assay5' [package "SeuratObject"] with 8 slots
+        ##   .. .. .. ..@ layers    :List of 1
+        ##   .. .. .. .. ..$ counts:Formal class 'dgCMatrix' [package "Matrix"] with 6 slots
+        ##   .. .. .. .. .. .. ..@ i       : int [1:2286884] 70 166 178 326 363 410 412 492 494 495 ...
+        ##   .. .. .. .. .. .. ..@ p       : int [1:2701] 0 781 2133 3264 4224 4746 5528 6311 7101 7634 ...
+        ##   .. .. .. .. .. .. ..@ Dim     : int [1:2] 32738 2700
+        ##   .. .. .. .. .. .. ..@ Dimnames:List of 2
+        ##   .. .. .. .. .. .. .. ..$ : NULL
+        ##   .. .. .. .. .. .. .. ..$ : NULL
+        ##   .. .. .. .. .. .. ..@ x       : num [1:2286884] 1 1 2 1 1 1 1 41 1 1 ...
+        ##   .. .. .. .. .. .. ..@ factors : list()
+        ##   .. .. .. ..@ cells     :Formal class 'LogMap' [package "SeuratObject"] with 1 slot
+        ##   .. .. .. .. .. ..@ .Data: logi [1:2700, 1] TRUE TRUE TRUE TRUE TRUE TRUE ...
+        ##   .. .. .. .. .. .. ..- attr(*, "dimnames")=List of 2
+        ##   .. .. .. .. .. .. .. ..$ : chr [1:2700] "AAACATACAACCAC-1" "AAACATTGAGCTAC-1" "AAACATTGATCAGC-1" "AAACCGTGCTTCCG-1" ...
+        ##   .. .. .. .. .. .. .. ..$ : chr "counts"
+        ##   .. .. .. .. .. ..$ dim     : int [1:2] 2700 1
+        ##   .. .. .. .. .. ..$ dimnames:List of 2
         ##   .. .. .. .. .. .. ..$ : chr [1:2700] "AAACATACAACCAC-1" "AAACATTGAGCTAC-1" "AAACATTGATCAGC-1" "AAACCGTGCTTCCG-1" ...
-        ##   .. .. .. .. .. ..@ x       : num [1:2286884] 1 1 2 1 1 1 1 41 1 1 ...
-        ##   .. .. .. .. .. ..@ factors : list()
-        ##   .. .. .. ..@ data         :Formal class 'dgCMatrix' [package "Matrix"] with 6 slots
-        ##   .. .. .. .. .. ..@ i       : int [1:2286884] 70 166 178 326 363 410 412 492 494 495 ...
-        ##   .. .. .. .. .. ..@ p       : int [1:2701] 0 781 2133 3264 4224 4746 5528 6311 7101 7634 ...
-        ##   .. .. .. .. .. ..@ Dim     : int [1:2] 32738 2700
-        ##   .. .. .. .. .. ..@ Dimnames:List of 2
+        ##   .. .. .. .. .. .. ..$ : chr "counts"
+        ##   .. .. .. ..@ features  :Formal class 'LogMap' [package "SeuratObject"] with 1 slot
+        ##   .. .. .. .. .. ..@ .Data: logi [1:32738, 1] TRUE TRUE TRUE TRUE TRUE TRUE ...
+        ##   .. .. .. .. .. .. ..- attr(*, "dimnames")=List of 2
+        ##   .. .. .. .. .. .. .. ..$ : chr [1:32738] "ENSG00000243485" "ENSG00000237613" "ENSG00000186092" "ENSG00000238009" ...
+        ##   .. .. .. .. .. .. .. ..$ : chr "counts"
+        ##   .. .. .. .. .. ..$ dim     : int [1:2] 32738 1
+        ##   .. .. .. .. .. ..$ dimnames:List of 2
         ##   .. .. .. .. .. .. ..$ : chr [1:32738] "ENSG00000243485" "ENSG00000237613" "ENSG00000186092" "ENSG00000238009" ...
-        ##   .. .. .. .. .. .. ..$ : chr [1:2700] "AAACATACAACCAC-1" "AAACATTGAGCTAC-1" "AAACATTGATCAGC-1" "AAACCGTGCTTCCG-1" ...
-        ##   .. .. .. .. .. ..@ x       : num [1:2286884] 1 1 2 1 1 1 1 41 1 1 ...
-        ##   .. .. .. .. .. ..@ factors : list()
-        ##   .. .. .. ..@ scale.data   : num[0 , 0 ]
-        ##   .. .. .. ..@ key          : chr "rna_"
-        ##   .. .. .. ..@ assay.orig   : NULL
-        ##   .. .. .. ..@ var.features : logi(0)
-        ##   .. .. .. ..@ meta.features:'data.frame':   32738 obs. of  0 variables
-        ##   .. .. .. ..@ misc         : list()
+        ##   .. .. .. .. .. .. ..$ : chr "counts"
+        ##   .. .. .. ..@ default   : int 1
+        ##   .. .. .. ..@ assay.orig: chr(0) 
+        ##   .. .. .. ..@ meta.data :'data.frame':  32738 obs. of  0 variables
+        ##   .. .. .. ..@ misc      :List of 1
+        ##   .. .. .. .. ..$ calcN: logi TRUE
+        ##   .. .. .. ..@ key       : chr "rna_"
         ##   ..@ meta.data   :'data.frame': 2700 obs. of  3 variables:
         ##   .. ..$ orig.ident  : Factor w/ 1 level "PBMC analysis": 1 1 1 1 1 1 1 1 1 1 ...
         ##   .. ..$ nCount_RNA  : num [1:2700] 2421 4903 3149 2639 981 ...
@@ -271,20 +281,14 @@ pbmc_small <- CreateSeuratObject(tenX_matrix,                    #Expression mat
         ##   ..@ project.name: chr "PBMC analysis"
         ##   ..@ misc        : list()
         ##   ..@ version     :Classes 'package_version', 'numeric_version'  hidden list of 1
-        ##   .. ..$ : int [1:3] 4 1 0
+        ##   .. ..$ : int [1:3] 5 0 1
         ##   ..@ commands    : list()
         ##   ..@ tools       : list()
 
 === "Dimension of expression matrices"
 
     ``` r
-    dim(pbmc_small@assays$RNA@counts)
-    ```
-
-        ## [1] 32738  2700
-
-    ``` r
-    dim(pbmc_small@assays$RNA@data)
+    dim(pbmc_small[["RNA"]])
     ```
 
         ## [1] 32738  2700
@@ -306,29 +310,25 @@ pbmc_small <- CreateSeuratObject(tenX_matrix,                    #Expression mat
 
 We can observe several slots via the `str` command:  
 
-- `assays`: general slot that will include the different information of each
-  study. They are composed of several things:
-    - the starting expression matrix (`@counts`), usually raw counts or raw UMI
-    - the one that will "undergo" all the modifications (filters,
-      normalization, etc) (`@data`)
-    - dataframe that will be created when scaling the data (`@scale_data`)
-    - prefix used for each calculation that will use this assay (study)
-      (`@key`)
-    - vector of gene names that will be determined to have a variable
-      expression (`@var.features`)
-    - dataframe associated with genes with different metadata
-      (`@meta.features`)
-
-- `meta.data` : gathers all the information about the cells. At the beginning
-  Seurat will calculate the size of the library (nCount_RNA, or the total
-  number of UMI) and the number of detected genes (nFeatures_RNA) for each
-  cell. If a dataframe is given in the `meta.data` parameter of the
-  `CreateSeuratObject` function, its columns will be added after those
-  calculated by Seurat.  
-
-- `active.assay` : study used by default
-- `active.ident` : default cell identity, here the name of the given project,
-  also stored under the column `orig.ident` in the metadata
+-   `assays`: general slot that will include the different information
+    of each study. It’s a list where each element is linked to a
+    expression data type. For instance in the element `RNA` you retrieve
+    all information link to you scRNAseq. But for example, if you have a
+    more complicated study you can also have `ADT` or `peaks` if you
+    perform a CITEseq, scATACseq or Multiome. Here we have a simple
+    scRNAseq, so by default `assays` will be composed of only the
+    element `RNA`. It’s class is `Assay5` you can have a great
+    description in the documentation of the `SeuratObject` package. In
+    you console `?Assay5` to read it.
+-   `meta.data` : gathers all the information about the cells. At the
+    beginning Seurat will calculate the size of the library (nCount_RNA,
+    or the total number of UMI) and the number of detected genes
+    (nFeatures_RNA) for each cell. If a dataframe is given in the
+    `meta.data` parameter of the `CreateSeuratObject` function, its
+    columns will be added after those calculated by Seurat.
+-   `active.assay` : study used by default
+-   `active.ident` : default cell identity, here the name of the given
+    project, also stored under the column `orig.ident` in the metadata
 
 !!! note
     Navigation in the different slots is done via `@` or `$`. Each main slot is
@@ -336,4 +336,9 @@ We can observe several slots via the `str` command:
     slots tree, most often complex objects are accessible with a `@` (dgCMatrix,
     dataframe) and lists, vectors are accessible via `$`. If in doubt, you can
     refer to the result of the `str` command and use the character in front of
-    each slot name.
+    each slot name. If you want to look to the expression matrix you can go :
+
+    ```r
+    # Retrieve data in an expression matrix RNA counts matrix
+    pbmc_small[["RNA"]]$counts[1:10,1:5]
+    ```
