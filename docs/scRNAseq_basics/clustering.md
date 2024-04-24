@@ -23,7 +23,7 @@ represents our cell populations.
 pbmc_small <- FindNeighbors(pbmc_small,          #SeuratObject
                             reduction = "pca",   #Reduction to used
                             k.param = 20,
-                            dims = 1:10)         #Number of PCs to keep (previously determined)
+                            dims = 1:pc_to_keep) #Number of PCs to keep (previously determined)
 
 pbmc_small <- FindClusters(pbmc_small,                                        #SeuratObject
                            resolution = seq(from = 0.2, to = 1.2, by = 0.2),  #Compute clustering with several resolutions (from 0.2 to 1.2 : values usually used)

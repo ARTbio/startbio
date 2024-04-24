@@ -2,7 +2,7 @@
 
 The pre-processing steps are used to clean the data in order not to distort
 the results of downstream analyses (clustering analysis, markers, differential
-expression analysis).
+expression analysis, *etc.*).
 
 ## Filter out low quality cells
 
@@ -36,7 +36,7 @@ A cell is generally considered to be in apoptosis when the transcriptome
 detects more than 20% of the genes in the MT genome. Some are more stringent
 in lowering this threshold to 10%.  
 
-``` r
+```r
 ## Retrieve genes from the MT genome using biomart
 genes_MT <- annotated_hg19$ensembl_gene_id[annotated_hg19$chromosome_name == "MT"]
 
@@ -55,7 +55,7 @@ VlnPlot(object = pbmc_small,
 
 <img src="../images/MitoGenes-1.png" style="display: block; margin: auto;" />
 
-``` r
+```r
 ## Graphical representation of QC
 ggplot(pbmc_small@meta.data,
        aes(y = nCount_RNA,
@@ -69,8 +69,9 @@ ggplot(pbmc_small@meta.data,
                         high = "red",
                         mid = "yellow",
                         midpoint = 20) +
-  ggtitle("QC plot", "Number of detected genes in function of number of UMI")+
-  labs(y = "Number of UMI per cell", x = "Number of detected genes by cell")
+  labs(x = "Number of detected genes by cell",
+       y = "Number of UMI per cell",
+       title = "QC plot", "Number of detected genes in function of number of UMI")
 ```
 
 <img src="../images/MitoGenes-2.png" style="display: block; margin: auto;" />
@@ -87,7 +88,7 @@ We can also use a histogram representation. I recommend the three types of
 figures because depending on the dataset, the best method to identify
 outliers is different.
 
-``` r
+```r
 hist(pbmc_small$nCount_RNA,
      breaks = 100,
      xlab = "Number of UMI per cell",
@@ -98,7 +99,7 @@ abline(v = 10000, col = "red")
 
 <img src="../images/histQC-1.png" style="display: block; margin: auto;" />
 
-``` r
+```r
 hist(pbmc_small$nFeature_RNA,
      breaks = 100,
      xlab = "Number of detected genes by cell",
@@ -128,14 +129,12 @@ We will remove all the cells :
 - that detect less than 300 genes or more than 2300.
 - whose percentage of expressed genes of the MT genome exceeds 10%
 
-``` r
+```r
 ## Filtering SeuratObject
 pbmc_small <- subset(pbmc_small,
                      percent_mito < 10 &
-                       nCount_RNA > 650 &
-                       nCount_RNA < 10000 &
-                       nFeature_RNA > 300 &
-                       nFeature_RNA < 2300)
+                     (nCount_RNA > 650 & nCount_RNA < 10000) &
+                     (nFeature_RNA > 300 & nFeature_RNA < 2300))
 
 ## Plot
 ggplot(pbmc_small@meta.data,
@@ -148,13 +147,14 @@ ggplot(pbmc_small@meta.data,
                         high = "red",
                         mid = "yellow",
                         midpoint = 20) +
-  ggtitle("QC plot after filtering", "Number of detected genes in function of number of UMI")+
-  labs(y = "Number of UMI per cell", x = "Number of detected genes by cell")
+  labs(x = "Number of detected genes by cell",
+       y = "Number of UMI per cell",
+       title = "QC plot after filtering", "Number of detected genes in function of number of UMI")
 ```
 
 <img src="../images/QCFilter-1.png" style="display: block; margin: auto;" />
 
-``` r
+```r
 ## Update object in R console
 pbmc_small
 ```
@@ -174,6 +174,8 @@ the analysis.
     it will probably be more messy to understand the bondary between low and 
     good quality cells. Don't hesitate to zoom in on histogram and violin plots
     to better identify your cutoffs.
+    Also in the `VlnPlot` function from Seurat, you can use the `log` parameter
+    to better see outliers (barcodes that contains mRNA ambiant) !
 
 ## Cell Normalization
 
@@ -195,7 +197,7 @@ median of the library size (= total number of UMIs per cell, = `nCount_RNA`
 in `meta.data`). If the scale factor is equal to 1e6 then we would get
 log2(CPM+1). *CPM : Count Per Million*.
 
-``` r
+```r
 ## Inter-cell normalization
 pbmc_small <- NormalizeData(pbmc_small,                                   #SeuratObject
                             assay = "RNA",                                #Assay to use
@@ -207,7 +209,7 @@ pbmc_small <- NormalizeData(pbmc_small,                                   #Seura
 The `@data` slot is been updated with normalized UMI.
 
 !!! tip
-    There is a shortcut to access the metadata columns :
+    There is a shortcut to access the cell metadata columns :
     `object@meta.data$column == object$column`
 
 ## Identification of Highly Variable Genes (*HGV*)
@@ -228,7 +230,7 @@ relation between the expression mean and the variance of each gene.
 With the `nfeatures` parameter we retrieve the 2000 most variable genes
 according to the vst method.
 
-``` r
+```r
 pbmc_small <- FindVariableFeatures(pbmc_small,                 #SeuratObject
                                    selection.method = "vst",   #Method
                                    nfeatures = 2000)           #Top HVG (Highly Variable Gene), default value
@@ -240,17 +242,19 @@ VariableFeaturePlot(pbmc_small)
 
 <img src="../images/VariableFeature-1.png" style="display: block; margin: auto;" />
 
-The function `FindVariableFeatures` updates two slots:
+The function `FindVariableFeatures` updates a slot:
 
-- `pbmc_small@assays$RNA@var.features` : vector of n genes
-    genes determined to be the most variable
-- `pbmc_small@assays$RNA@meta.features` : dataframe containing the different
+- `object@assays[["RNA"]]@meta.data` : dataframe containing the different
   variables calculated by the vst method. For each gene we have :
-    - `vst.mean` : expression mean
-    - `vst.variance` : expression variance
-    - `vst.variance.expected` : expected variance
-    - `vst.variance.standardized` : standardized variance
-    - `vst.variable` : logical, is the gene a variable gene TRUE / FALSE
+    - `vf_vst_counts_mean` : expression mean
+    - `vf_vst_counts_variance` : expression variance
+    - `vf_vst_counts_variance.expected` : expected variance
+    - `vf_vst_counts_variance.standardized` : standardized variance
+    - `vf_vst_counts_variable` : logical, is the gene a variable gene TRUE / FALSE
+    - `vf_vst_counts_rank` : rank of HGV (if `NA` the gene is not an HGV)
+    - `var.features` : if `NA` the gene is not HGV, else you'll see the gene name 
+    - `var.features.rank` : rank of HGV (if `NA` the gene is not an HGV), same as
+      `vf_vst_counts_rank` column if `vst` is the last or only HGV method.
 
 !!! tip
-    We can directly access to HGV via : `VariableFeatures(pbmc_small)`
+    We can directly access to HGV via : `VariableFeatures(object)`
