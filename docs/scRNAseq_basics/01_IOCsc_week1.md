@@ -1,4 +1,4 @@
-## Data Preprocessing
+# Data Preprocessing
 
 The preprocessing is the most important part of a single cell analysis because you
 can skew your result if you filter too much **or too little** and you must really
