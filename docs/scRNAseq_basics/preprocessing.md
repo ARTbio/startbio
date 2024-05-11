@@ -137,10 +137,10 @@ pbmc_small <- subset(pbmc_small,
                      (nFeature_RNA > 300 & nFeature_RNA < 2300))
 
 ## Plot
-ggplot(pbmc_small@meta.data,
-               aes(x = nCount_RNA,
-                   y = nFeature_RNA,
-                   color = percent_mito)) +
+ggplot(pbmc_small@meta.data, 
+       aes(x = nFeature_RNA,
+           y = nCount_RNA,
+           color = percent_mito)) +
   geom_point() +
   scale_y_log10() +
   scale_color_gradient2(low = "green",

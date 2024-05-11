@@ -1,4 +1,4 @@
-## First Steps with Seurat
+# First Steps with Seurat
 
 Please go read the following pages : 
 
