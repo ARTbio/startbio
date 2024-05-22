@@ -33,49 +33,55 @@ pbmc_markers_signif <- subset(pbmc_markers_annotated,
 table(pbmc_markers_signif$cluster)
 ```
 
-    ##
-    ##   0   1   2   3   4   5   6   7   8
-    ## 321 518 166 337 173 436 384 127 233
+    ## 
+    ##    0    1    2    3    4    5    6    7    8 
+    ##  688 1000  403  554  280  975  453  430  296
 
 ``` r
 ## Sorting results by cluster and by average log2(Fold Change)
 pbmc_markers_signif <- pbmc_markers_signif %>%                 #Rearrange df with dplyr package
   group_by(cluster) %>%                                        #Group df based on cluster column
-  arrange(desc(avg_log2FC), .by_group = TRUE)                  #Sort lines by descending the column avg_log2FC and by group
+  arrange(desc(pct.1), .by_group = TRUE)                  #Sort lines by descending the column avg_log2FC and by group
+
+## Filter to retrieve meaningful genes
+markers_display <- pbmc_markers_signif %>% 
+  filter((pct.1 - pct.2) >= (0.25 * pct.1) & pct.1 >= 0.5) %>%
+  slice_max(n = 3, order_by = avg_log2FC, with_ties = FALSE)
 
 ## Most DE gene marker for each cluster
-kable(top_n(x= pbmc_markers_signif, n = 3, wt = avg_log2FC))
+paged_table(markers_display)
 ```
 ??? abstract "First annotated markers for each cluster"
-    | gene            | p_val | avg_log2FC | pct.1 | pct.2 | p_val_adj | cluster | external_gene_name | description                                                                                                  | gene_biotype   | chromosome_name |
-    |:----------------|------:|-----------:|------:|------:|----------:|:--------|:-------------------|:-------------------------------------------------------------------------------------------------------------|:---------------|:----------------|
-    | ENSG00000111716 |     0 |  0.7920556 | 0.929 | 0.592 |         0 | 0       | LDHB               | lactate dehydrogenase B \[Source:HGNC Symbol;Acc:6541\]                                                      | protein_coding | 12              |
-    | ENSG00000145425 |     0 |  0.7576946 | 0.997 | 0.976 |         0 | 0       | RPS3A              | ribosomal protein S3A \[Source:HGNC Symbol;Acc:10421\]                                                       | protein_coding | 4               |
-    | ENSG00000118181 |     0 |  0.7149172 | 1.000 | 0.978 |         0 | 0       | RPS25              | ribosomal protein S25 \[Source:HGNC Symbol;Acc:10413\]                                                       | protein_coding | 11              |
-    | ENSG00000163220 |     0 |  4.4535241 | 0.998 | 0.212 |         0 | 1       | S100A9             | S100 calcium binding protein A9 \[Source:HGNC Symbol;Acc:10499\]                                             | protein_coding | 1               |
-    | ENSG00000090382 |     0 |  4.0594058 | 1.000 | 0.517 |         0 | 1       | LYZ                | lysozyme \[Source:HGNC Symbol;Acc:6740\]                                                                     | protein_coding | 12              |
-    | ENSG00000143546 |     0 |  3.9631418 | 0.971 | 0.119 |         0 | 1       | S100A8             | S100 calcium binding protein A8 \[Source:HGNC Symbol;Acc:10498\]                                             | protein_coding | 1               |
-    | ENSG00000227507 |     0 |  1.1123793 | 0.979 | 0.649 |         0 | 2       | LTB                | lymphotoxin beta (TNF superfamily, member 3) \[Source:HGNC Symbol;Acc:6711\]                                 | protein_coding | 6               |
-    | ENSG00000008517 |     0 |  0.9990429 | 0.949 | 0.473 |         0 | 2       | IL32               | interleukin 32 \[Source:HGNC Symbol;Acc:16830\]                                                              | protein_coding | 16              |
-    | ENSG00000168685 |     0 |  0.7342628 | 0.733 | 0.336 |         0 | 2       | IL7R               | interleukin 7 receptor \[Source:HGNC Symbol;Acc:6024\]                                                       | protein_coding | 5               |
-    | ENSG00000019582 |     0 |  2.7304144 | 1.000 | 0.820 |         0 | 3       | CD74               | CD74 molecule, major histocompatibility complex, class II invariant chain \[Source:HGNC Symbol;Acc:1697\]    | protein_coding | 5               |
-    | ENSG00000105369 |     0 |  2.5281075 | 0.939 | 0.041 |         0 | 3       | CD79A              | CD79a molecule, immunoglobulin-associated alpha \[Source:HGNC Symbol;Acc:1698\]                              | protein_coding | 19              |
-    | ENSG00000204287 |     0 |  2.5010512 | 1.000 | 0.492 |         0 | 3       | HLA-DRA            | major histocompatibility complex, class II, DR alpha \[Source:HGNC Symbol;Acc:4947\]                         | protein_coding | 6               |
-    | ENSG00000161570 |     0 |  2.6006662 | 0.968 | 0.223 |         0 | 4       | CCL5               | chemokine (C-C motif) ligand 5 \[Source:HGNC Symbol;Acc:10632\]                                              | protein_coding | 17              |
-    | ENSG00000105374 |     0 |  1.8826628 | 0.906 | 0.215 |         0 | 4       | NKG7               | natural killer cell group 7 sequence \[Source:HGNC Symbol;Acc:7830\]                                         | protein_coding | 19              |
-    | ENSG00000113088 |     0 |  1.6720773 | 0.582 | 0.050 |         0 | 4       | GZMK               | granzyme K (granzyme 3; tryptase II) \[Source:HGNC Symbol;Acc:4711\]                                         | protein_coding | 5               |
-    | ENSG00000204482 |     0 |  2.5414949 | 1.000 | 0.315 |         0 | 5       | LST1               | leukocyte specific transcript 1 \[Source:HGNC Symbol;Acc:14189\]                                             | protein_coding | 6               |
-    | ENSG00000203747 |     0 |  2.2148756 | 0.975 | 0.135 |         0 | 5       | FCGR3A             | Fc fragment of IgG, low affinity IIIa, receptor (CD16a) \[Source:HGNC Symbol;Acc:3619\]                      | protein_coding | 1               |
-    | ENSG00000158869 |     0 |  2.2070349 | 0.994 | 0.317 |         0 | 5       | FCER1G             | Fc fragment of IgE, high affinity I, receptor for; gamma polypeptide \[Source:HGNC Symbol;Acc:3611\]         | protein_coding | 1               |
-    | ENSG00000115523 |     0 |  4.2579309 | 0.968 | 0.131 |         0 | 6       | GNLY               | granulysin \[Source:HGNC Symbol;Acc:4414\]                                                                   | protein_coding | 2               |
-    | ENSG00000105374 |     0 |  3.4664868 | 1.000 | 0.260 |         0 | 6       | NKG7               | natural killer cell group 7 sequence \[Source:HGNC Symbol;Acc:7830\]                                         | protein_coding | 19              |
-    | ENSG00000100453 |     0 |  3.3326422 | 0.955 | 0.068 |         0 | 6       | GZMB               | granzyme B (granzyme 2, cytotoxic T-lymphocyte-associated serine esterase 1) \[Source:HGNC Symbol;Acc:4709\] | protein_coding | 14              |
-    | ENSG00000223865 |     0 |  2.5518720 | 1.000 | 0.510 |         0 | 7       | HLA-DPB1           | major histocompatibility complex, class II, DP beta 1 \[Source:HGNC Symbol;Acc:4940\]                        | protein_coding | 6               |
-    | ENSG00000204287 |     0 |  2.3823825 | 1.000 | 0.552 |         0 | 7       | HLA-DRA            | major histocompatibility complex, class II, DR alpha \[Source:HGNC Symbol;Acc:4947\]                         | protein_coding | 6               |
-    | ENSG00000101439 |     0 |  2.3027895 | 1.000 | 0.389 |         0 | 7       | CST3               | cystatin C \[Source:HGNC Symbol;Acc:2475\]                                                                   | protein_coding | 20              |
-    | ENSG00000163736 |     0 |  6.4755064 | 1.000 | 0.025 |         0 | 8       | PPBP               | pro-platelet basic protein (chemokine (C-X-C motif) ligand 7) \[Source:HGNC Symbol;Acc:9240\]                | protein_coding | 4               |
-    | ENSG00000163737 |     0 |  5.4177748 | 1.000 | 0.011 |         0 | 8       | PF4                | platelet factor 4 \[Source:HGNC Symbol;Acc:8861\]                                                            | protein_coding | 4               |
-    | ENSG00000120885 |     0 |  4.5424885 | 0.857 | 0.015 |         0 | 8       | CLU                | clusterin \[Source:HGNC Symbol;Acc:2095\]                                                                    | protein_coding | 8               |
+    | gene            | p_val | avg_log2FC | pct.1 | pct.2 | p_val_adj | cluster | external_gene_name | description                                                                                                                            | gene_biotype   | chromosome_name |
+    |:----|--:|---:|--:|--:|---:|:--|:-----|:---------------------------------|:----|:----|
+    | ENSG00000142546 |     0 |   1.261953 | 0.663 | 0.354 |         0 | 0       | NOSIP              | nitric oxide synthase interacting protein \[Source:HGNC Symbol;Acc:17946\]                                                             | protein_coding | 19              |
+    | ENSG00000111716 |     0 |   1.179308 | 0.929 | 0.592 |         0 | 0       | LDHB               | lactate dehydrogenase B \[Source:HGNC Symbol;Acc:6541\]                                                                                | protein_coding | 12              |
+    | ENSG00000167286 |     0 |   1.061714 | 0.853 | 0.415 |         0 | 0       | CD3D               | CD3d molecule, delta (CD3-TCR complex) \[Source:HGNC Symbol;Acc:1673\]                                                                 | protein_coding | 11              |
+    | ENSG00000143546 |     0 |   6.683076 | 0.971 | 0.119 |         0 | 1       | S100A8             | S100 calcium binding protein A8 \[Source:HGNC Symbol;Acc:10498\]                                                                       | protein_coding | 1               |
+    | ENSG00000163220 |     0 |   6.215798 | 0.998 | 0.212 |         0 | 1       | S100A9             | S100 calcium binding protein A9 \[Source:HGNC Symbol;Acc:10499\]                                                                       | protein_coding | 1               |
+    | ENSG00000170458 |     0 |   5.984897 | 0.666 | 0.027 |         0 | 1       | CD14               | CD14 molecule \[Source:HGNC Symbol;Acc:1628\]                                                                                          | protein_coding | 5               |
+    | ENSG00000116824 |     0 |   1.563939 | 0.635 | 0.254 |         0 | 2       | CD2                | CD2 molecule \[Source:HGNC Symbol;Acc:1639\]                                                                                           | protein_coding | 1               |
+    | ENSG00000168685 |     0 |   1.408361 | 0.733 | 0.336 |         0 | 2       | IL7R               | interleukin 7 receptor \[Source:HGNC Symbol;Acc:6024\]                                                                                 | protein_coding | 5               |
+    | ENSG00000008517 |     0 |   1.384736 | 0.949 | 0.473 |         0 | 2       | IL32               | interleukin 32 \[Source:HGNC Symbol;Acc:16830\]                                                                                        | protein_coding | 16              |
+    | ENSG00000247982 |     0 |   7.168087 | 0.561 | 0.010 |         0 | 3       | LINC00926          | long intergenic non-protein coding RNA 926 \[Source:HGNC Symbol;Acc:27514\]                                                            | lincRNA        | 15              |
+    | ENSG00000105369 |     0 |   6.865916 | 0.939 | 0.041 |         0 | 3       | CD79A              | CD79a molecule, immunoglobulin-associated alpha \[Source:HGNC Symbol;Acc:1698\]                                                        | protein_coding | 19              |
+    | ENSG00000100721 |     0 |   6.590071 | 0.625 | 0.022 |         0 | 3       | TCL1A              | T-cell leukemia/lymphoma 1A \[Source:HGNC Symbol;Acc:11648\]                                                                           | protein_coding | 14              |
+    | ENSG00000113088 |     0 |   4.668454 | 0.582 | 0.050 |         0 | 4       | GZMK               | granzyme K (granzyme 3; tryptase II) \[Source:HGNC Symbol;Acc:4711\]                                                                   | protein_coding | 5               |
+    | ENSG00000161570 |     0 |   3.478015 | 0.968 | 0.223 |         0 | 4       | CCL5               | chemokine (C-C motif) ligand 5 \[Source:HGNC Symbol;Acc:10632\]                                                                        | protein_coding | 17              |
+    | ENSG00000145220 |     0 |   2.608064 | 0.576 | 0.127 |         0 | 4       | LYAR               | Ly1 antibody reactive \[Source:HGNC Symbol;Acc:26021\]                                                                                 | protein_coding | 4               |
+    | ENSG00000129757 |     0 |   5.643867 | 0.519 | 0.009 |         0 | 5       | CDKN1C             | cyclin-dependent kinase inhibitor 1C (p57, Kip2) \[Source:HGNC Symbol;Acc:1786\]                                                       | protein_coding | 11              |
+    | ENSG00000188290 |     0 |   5.060087 | 0.589 | 0.020 |         0 | 5       | HES4               | hes family bHLH transcription factor 4 \[Source:HGNC Symbol;Acc:24149\]                                                                | protein_coding | 1               |
+    | ENSG00000166927 |     0 |   4.377772 | 0.810 | 0.074 |         0 | 5       | MS4A7              | membrane-spanning 4-domains, subfamily A, member 7 \[Source:HGNC Symbol;Acc:13378\]                                                    | protein_coding | 11              |
+    | ENSG00000115523 |     0 |   6.159853 | 0.968 | 0.131 |         0 | 6       | GNLY               | granulysin \[Source:HGNC Symbol;Acc:4414\]                                                                                             | protein_coding | 2               |
+    | ENSG00000100453 |     0 |   5.924214 | 0.955 | 0.068 |         0 | 6       | GZMB               | granzyme B (granzyme 2, cytotoxic T-lymphocyte-associated serine esterase 1) \[Source:HGNC Symbol;Acc:4709\]                           | protein_coding | 14              |
+    | ENSG00000143185 |     0 |   5.605621 | 0.551 | 0.021 |         0 | 6       | XCL2               | chemokine (C motif) ligand 2 \[Source:HGNC Symbol;Acc:10646\]                                                                          | protein_coding | 1               |
+    | ENSG00000132386 |     0 |   7.901006 | 0.500 | 0.002 |         0 | 7       | SERPINF1           | serpin peptidase inhibitor, clade F (alpha-2 antiplasmin, pigment epithelium derived factor), member 1 \[Source:HGNC Symbol;Acc:8824\] | protein_coding | 17              |
+    | ENSG00000179639 |     0 |   7.630987 | 0.812 | 0.011 |         0 | 7       | FCER1A             | Fc fragment of IgE, high affinity I, receptor for; alpha polypeptide \[Source:HGNC Symbol;Acc:3609\]                                   | protein_coding | 1               |
+    | ENSG00000132514 |     0 |   6.084949 | 0.688 | 0.015 |         0 | 7       | CLEC10A            | C-type lectin domain family 10, member A \[Source:HGNC Symbol;Acc:16916\]                                                              | protein_coding | 17              |
+    | ENSG00000204424 |     0 |  12.573630 | 0.714 | 0.000 |         0 | 8       | LY6G6F             | lymphocyte antigen 6 complex, locus G6F \[Source:HGNC Symbol;Acc:13933\]                                                               | protein_coding | 6               |
+    | ENSG00000005961 |     0 |  11.632991 | 0.857 | 0.002 |         0 | 8       | ITGA2B             | integrin, alpha 2b (platelet glycoprotein IIb of IIb/IIIa complex, antigen CD41) \[Source:HGNC Symbol;Acc:6138\]                       | protein_coding | 17              |
+    | ENSG00000127920 |     0 |  11.064293 | 1.000 | 0.010 |         0 | 8       | GNG11              | guanine nucleotide binding protein (G protein), gamma 11 \[Source:HGNC Symbol;Acc:4403\]                                               | protein_coding | 7               |
+
 
 
 ``` r
