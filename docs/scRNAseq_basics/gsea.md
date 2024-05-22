@@ -138,18 +138,18 @@ C8_t2g <- msigdbr(species = "Homo sapiens", category = "C8") %>%
   kable(head(C8_t2g, 10))
 ```
 
-  | gs_name                          | ensembl_gene    |
-  |:---------------------------------|:----------------|
-  | AIZARANI_LIVER_C1_NK_NKT_CELLS_1 | ENSG00000123146 |
-  | AIZARANI_LIVER_C1_NK_NKT_CELLS_1 | ENSG00000205336 |
-  | AIZARANI_LIVER_C1_NK_NKT_CELLS_1 | ENSG00000106948 |
-  | AIZARANI_LIVER_C1_NK_NKT_CELLS_1 | ENSG00000132965 |
-  | AIZARANI_LIVER_C1_NK_NKT_CELLS_1 | ENSG00000244509 |
-  | AIZARANI_LIVER_C1_NK_NKT_CELLS_1 | ENSG00000239713 |
-  | AIZARANI_LIVER_C1_NK_NKT_CELLS_1 | ENSG00000163219 |
-  | AIZARANI_LIVER_C1_NK_NKT_CELLS_1 | ENSG00000186517 |
-  | AIZARANI_LIVER_C1_NK_NKT_CELLS_1 | ENSG00000180448 |
-  | AIZARANI_LIVER_C1_NK_NKT_CELLS_1 | ENSG00000123329 |
+| gs_name                    | ensembl_gene    |
+|:---------------------------|:----------------|
+| AIZARANI_LIVER_C10_MVECS_1 | ENSG00000175899 |
+| AIZARANI_LIVER_C10_MVECS_1 | ENSG00000213088 |
+| AIZARANI_LIVER_C10_MVECS_1 | ENSG00000102575 |
+| AIZARANI_LIVER_C10_MVECS_1 | ENSG00000139567 |
+| AIZARANI_LIVER_C10_MVECS_1 | ENSG00000143537 |
+| AIZARANI_LIVER_C10_MVECS_1 | ENSG00000154734 |
+| AIZARANI_LIVER_C10_MVECS_1 | ENSG00000163638 |
+| AIZARANI_LIVER_C10_MVECS_1 | ENSG00000129467 |
+| AIZARANI_LIVER_C10_MVECS_1 | ENSG00000284814 |
+| AIZARANI_LIVER_C10_MVECS_1 | ENSG00000069122 |
 
 ``` r
 ## Apply GSEA for each cluster
@@ -169,14 +169,6 @@ GSEA_list <- lapply(levels(pbmc_markers_annotated$cluster), function(cluster_nam
   ## Perform GSEA analysis
   gseaC8 <- GSEA(geneList_byclus, TERM2GENE = C8_t2g)
   gseaC8@result$cluster <- cluster_name #add cluster name as column
-
-  ## Add plot
-  # print(ridgeplot(gseaC8,
-  #                 showCategory = 3,
-  #                 orderBy = "NES") +
-  #         ggtitle(paste("Cluster", cluster_name)) +
-  #         theme(axis.text.y = element_text(size = 10),
-  #               legend.key.size = unit(0.2, 'cm')))
 
   print(gseaplot2(gseaC8,
                   geneSetID = rownames(gseaC8@result %>%
@@ -203,39 +195,44 @@ GSEA_res <- GSEA_res %>%
   group_by(cluster)
 
 ## Visualize first 3 signatures for each cluster (removing the vector of genes just for the visualization and the description that match ID column for this dataset MSigDB)
-kable(top_n(x= GSEA_res, n = 3, wt = NES)[, -c(2,11)])
+kable(slice_max(
+  GSEA_res, 
+  n = 3, 
+  order_by = NES,
+  with_ties = FALSE)[, -c(2, 11)]
+)
 ```
 
 ??? abstract "First Enriched MSigDB gene sets for each cluster"
-    | ID                                                      | setSize | enrichmentScore |      NES |  pvalue |  p.adjust |   qvalues | rank | leading_edge                   | cluster |
-    |:--------------------------------------------------------|--------:|----------------:|---------:|--------:|----------:|----------:|-----:|:-------------------------------|:--------|
-    | HAY_BONE_MARROW_NAIVE_T\_CELL                           |     208 |       0.9209917 | 3.046758 | 0.0e+00 | 0.0000000 | 0.0000000 |  216 | tags=76%, list=17%, signal=75% | 0       |
-    | RUBENSTEIN_SKELETAL_MUSCLE_T\_CELLS                     |     153 |       0.8553262 | 2.739346 | 0.0e+00 | 0.0000000 | 0.0000000 |  146 | tags=67%, list=11%, signal=67% | 0       |
-    | TRAVAGLINI_LUNG_CD4_NAIVE_T\_CELL                       |     116 |       0.9155134 | 2.824719 | 0.0e+00 | 0.0000000 | 0.0000000 |  135 | tags=75%, list=11%, signal=74% | 0       |
-    | AIZARANI_LIVER_C23_KUPFFER_CELLS_3                      |     142 |       0.8455834 | 2.003393 | 0.0e+00 | 0.0000000 | 0.0000000 |  257 | tags=68%, list=16%, signal=62% | 1       |
-    | DURANTE_ADULT_OLFACTORY_NEUROEPITHELIUM_DENDRITIC_CELLS |     101 |       0.8823161 | 2.065142 | 0.0e+00 | 0.0000000 | 0.0000000 |  192 | tags=72%, list=12%, signal=68% | 1       |
-    | TRAVAGLINI_LUNG_CLASSICAL_MONOCYTE_CELL                 |     168 |       0.8365088 | 1.997979 | 0.0e+00 | 0.0000000 | 0.0000000 |  265 | tags=69%, list=16%, signal=64% | 1       |
-    | HAY_BONE_MARROW_NAIVE_T\_CELL                           |     230 |       0.7672855 | 3.015408 | 0.0e+00 | 0.0000000 | 0.0000000 |  260 | tags=67%, list=25%, signal=64% | 2       |
-    | RUBENSTEIN_SKELETAL_MUSCLE_T\_CELLS                     |     145 |       0.7263295 | 2.725064 | 0.0e+00 | 0.0000000 | 0.0000000 |  192 | tags=58%, list=19%, signal=55% | 2       |
-    | TRAVAGLINI_LUNG_CD4_NAIVE_T\_CELL                       |     107 |       0.7627843 | 2.748389 | 0.0e+00 | 0.0000000 | 0.0000000 |  180 | tags=64%, list=17%, signal=59% | 2       |
-    | AIZARANI_LIVER_C34_MHC_II_POS_B\_CELLS                  |      83 |       0.9034082 | 2.063760 | 0.0e+00 | 0.0000000 | 0.0000000 |  152 | tags=80%, list=13%, signal=75% | 3       |
-    | FAN_EMBRYONIC_CTX_BRAIN_B\_CELL                         |      70 |       0.9140261 | 2.070592 | 0.0e+00 | 0.0000000 | 0.0000000 |  103 | tags=66%, list=9%, signal=64%  | 3       |
-    | TRAVAGLINI_LUNG_B\_CELL                                 |     112 |       0.9092172 | 2.119503 | 0.0e+00 | 0.0000000 | 0.0000000 |  121 | tags=68%, list=10%, signal=67% | 3       |
-    | AIZARANI_LIVER_C1_NK_NKT_CELLS_1                        |      70 |       0.8838737 | 2.284841 | 0.0e+00 | 0.0000000 | 0.0000000 |   90 | tags=64%, list=13%, signal=62% | 4       |
-    | HAY_BONE_MARROW_NK_CELLS                                |     105 |       0.8450920 | 2.260853 | 0.0e+00 | 0.0000000 | 0.0000000 |  132 | tags=68%, list=18%, signal=65% | 4       |
-    | TRAVAGLINI_LUNG_CD8_NAIVE_T\_CELL                       |      92 |       0.8842939 | 2.338596 | 0.0e+00 | 0.0000000 | 0.0000000 |   90 | tags=62%, list=13%, signal=62% | 4       |
-    | AIZARANI_LIVER_C31_KUPFFER_CELLS_5                      |      53 |       0.8510682 | 1.948702 | 0.0e+00 | 0.0000000 | 0.0000000 |  191 | tags=68%, list=10%, signal=63% | 5       |
-    | HAY_BONE_MARROW_MONOCYTE                                |     191 |       0.8332887 | 2.001325 | 0.0e+00 | 0.0000000 | 0.0000000 |  295 | tags=73%, list=16%, signal=68% | 5       |
-    | TRAVAGLINI_LUNG_NONCLASSICAL_MONOCYTE_CELL              |     163 |       0.8581938 | 2.050371 | 0.0e+00 | 0.0000000 | 0.0000000 |  301 | tags=81%, list=16%, signal=75% | 5       |
-    | DURANTE_ADULT_OLFACTORY_NEUROEPITHELIUM_NK_CELLS        |      72 |       0.8853806 | 2.022495 | 0.0e+00 | 0.0000000 | 0.0000000 |  131 | tags=71%, list=13%, signal=66% | 6       |
-    | HAY_BONE_MARROW_NK_CELLS                                |     236 |       0.8420024 | 1.990762 | 0.0e+00 | 0.0000000 | 0.0000000 |  196 | tags=56%, list=19%, signal=59% | 6       |
-    | TRAVAGLINI_LUNG_NATURAL_KILLER_CELL                     |     108 |       0.8994932 | 2.104728 | 0.0e+00 | 0.0000000 | 0.0000000 |  124 | tags=69%, list=12%, signal=67% | 6       |
-    | HAY_BONE_MARROW_DENDRITIC_CELL                          |      96 |       0.8483908 | 2.413478 | 0.0e+00 | 0.0000000 | 0.0000000 |   99 | tags=49%, list=6%, signal=49%  | 7       |
-    | DESCARTES_FETAL_LUNG_MYELOID_CELLS                      |      62 |       0.8072714 | 2.240695 | 0.0e+00 | 0.0000000 | 0.0000000 |  145 | tags=55%, list=8%, signal=52%  | 7       |
-    | TRAVAGLINI_LUNG_PLASMACYTOID_DENDRITIC_CELL             |      41 |       0.8240860 | 2.252436 | 8.0e-07 | 0.0000107 | 0.0000073 |  128 | tags=51%, list=7%, signal=49%  | 7       |
-    | DESCARTES_FETAL_LIVER_MEGAKARYOCYTES                    |      55 |       0.8328324 | 1.392413 | 2.1e-06 | 0.0000795 | 0.0000704 |   83 | tags=56%, list=13%, signal=54% | 8       |
-    | DESCARTES_FETAL_ADRENAL_MEGAKARYOCYTES                  |      43 |       0.8505604 | 1.416959 | 4.6e-06 | 0.0001235 | 0.0001092 |   74 | tags=63%, list=11%, signal=60% | 8       |
-    | DESCARTES_FETAL_KIDNEY_MEGAKARYOCYTES                   |      32 |       0.8561275 | 1.417434 | 5.7e-05 | 0.0010710 | 0.0009475 |   69 | tags=66%, list=11%, signal=62% | 8       |
+    | ID                                                      | setSize | enrichmentScore |      NES |   pvalue |  p.adjust |    qvalue | rank | leading_edge                   | cluster |
+    |:----------------------|----:|-------:|----:|----:|----:|----:|--:|:------------|:----|
+    | HAY_BONE_MARROW_NAIVE_T_CELL                            |     208 |       0.9209917 | 3.040190 | 0.00e+00 | 0.0000000 | 0.0000000 |  216 | tags=76%, list=17%, signal=75% | 0       |
+    | TRAVAGLINI_LUNG_CD4_NAIVE_T_CELL                        |     116 |       0.9155134 | 2.810199 | 0.00e+00 | 0.0000000 | 0.0000000 |  135 | tags=75%, list=11%, signal=74% | 0       |
+    | RUBENSTEIN_SKELETAL_MUSCLE_T_CELLS                      |     153 |       0.8553262 | 2.728288 | 0.00e+00 | 0.0000000 | 0.0000000 |  146 | tags=67%, list=11%, signal=67% | 0       |
+    | DURANTE_ADULT_OLFACTORY_NEUROEPITHELIUM_DENDRITIC_CELLS |     101 |       0.8823161 | 2.077092 | 0.00e+00 | 0.0000000 | 0.0000000 |  192 | tags=72%, list=12%, signal=68% | 1       |
+    | AIZARANI_LIVER_C23_KUPFFER_CELLS_3                      |     142 |       0.8455834 | 2.014606 | 0.00e+00 | 0.0000000 | 0.0000000 |  257 | tags=68%, list=16%, signal=62% | 1       |
+    | TRAVAGLINI_LUNG_CLASSICAL_MONOCYTE_CELL                 |     168 |       0.8365088 | 2.004205 | 0.00e+00 | 0.0000000 | 0.0000000 |  265 | tags=69%, list=16%, signal=64% | 1       |
+    | HAY_BONE_MARROW_NAIVE_T_CELL                            |     230 |       0.7672855 | 3.036834 | 0.00e+00 | 0.0000000 | 0.0000000 |  260 | tags=67%, list=25%, signal=64% | 2       |
+    | TRAVAGLINI_LUNG_CD4_NAIVE_T_CELL                        |     107 |       0.7627843 | 2.788339 | 0.00e+00 | 0.0000000 | 0.0000000 |  180 | tags=64%, list=17%, signal=59% | 2       |
+    | RUBENSTEIN_SKELETAL_MUSCLE_T_CELLS                      |     145 |       0.7263295 | 2.750747 | 0.00e+00 | 0.0000000 | 0.0000000 |  192 | tags=58%, list=19%, signal=55% | 2       |
+    | TRAVAGLINI_LUNG_B_CELL                                  |     112 |       0.9092172 | 2.110121 | 0.00e+00 | 0.0000000 | 0.0000000 |  121 | tags=68%, list=10%, signal=67% | 3       |
+    | AIZARANI_LIVER_C34_MHC_II_POS_B_CELLS                   |      83 |       0.9034082 | 2.074433 | 0.00e+00 | 0.0000000 | 0.0000000 |  152 | tags=80%, list=13%, signal=75% | 3       |
+    | FAN_EMBRYONIC_CTX_BRAIN_B_CELL                          |      70 |       0.9140261 | 2.065855 | 0.00e+00 | 0.0000000 | 0.0000000 |  103 | tags=66%, list=9%, signal=64%  | 3       |
+    | TRAVAGLINI_LUNG_CD8_NAIVE_T_CELL                        |      92 |       0.8842939 | 2.386819 | 0.00e+00 | 0.0000000 | 0.0000000 |   90 | tags=62%, list=13%, signal=62% | 4       |
+    | HAY_BONE_MARROW_NK_CELLS                                |     105 |       0.8450920 | 2.289715 | 0.00e+00 | 0.0000000 | 0.0000000 |  132 | tags=68%, list=18%, signal=65% | 4       |
+    | AIZARANI_LIVER_C1_NK_NKT_CELLS_1                        |      70 |       0.8838737 | 2.287887 | 0.00e+00 | 0.0000000 | 0.0000000 |   90 | tags=64%, list=13%, signal=62% | 4       |
+    | TRAVAGLINI_LUNG_NONCLASSICAL_MONOCYTE_CELL              |     163 |       0.8581938 | 2.048972 | 0.00e+00 | 0.0000000 | 0.0000000 |  301 | tags=81%, list=16%, signal=75% | 5       |
+    | HAY_BONE_MARROW_MONOCYTE                                |     191 |       0.8332887 | 1.990825 | 0.00e+00 | 0.0000000 | 0.0000000 |  295 | tags=73%, list=16%, signal=68% | 5       |
+    | AIZARANI_LIVER_C31_KUPFFER_CELLS_5                      |      53 |       0.8510682 | 1.952480 | 0.00e+00 | 0.0000000 | 0.0000000 |  191 | tags=68%, list=10%, signal=63% | 5       |
+    | TRAVAGLINI_LUNG_NATURAL_KILLER_CELL                     |     108 |       0.8994932 | 2.109996 | 0.00e+00 | 0.0000000 | 0.0000000 |  124 | tags=69%, list=12%, signal=67% | 6       |
+    | DURANTE_ADULT_OLFACTORY_NEUROEPITHELIUM_NK_CELLS        |      72 |       0.8853806 | 2.024887 | 0.00e+00 | 0.0000000 | 0.0000000 |  131 | tags=71%, list=13%, signal=66% | 6       |
+    | HAY_BONE_MARROW_NK_CELLS                                |     236 |       0.8420024 | 2.006702 | 0.00e+00 | 0.0000000 | 0.0000000 |  196 | tags=56%, list=19%, signal=59% | 6       |
+    | HAY_BONE_MARROW_DENDRITIC_CELL                          |      96 |       0.8483908 | 2.436756 | 0.00e+00 | 0.0000000 | 0.0000000 |   99 | tags=49%, list=6%, signal=49%  | 7       |
+    | TRAVAGLINI_LUNG_PLASMACYTOID_DENDRITIC_CELL             |      41 |       0.8240860 | 2.289426 | 1.00e-07 | 0.0000017 | 0.0000011 |  128 | tags=51%, list=7%, signal=49%  | 7       |
+    | DESCARTES_FETAL_LUNG_MYELOID_CELLS                      |      62 |       0.8072714 | 2.288988 | 0.00e+00 | 0.0000000 | 0.0000000 |  145 | tags=55%, list=8%, signal=52%  | 7       |
+    | DESCARTES_FETAL_KIDNEY_MEGAKARYOCYTES                   |      32 |       0.8561275 | 1.435384 | 7.06e-05 | 0.0012628 | 0.0011172 |   69 | tags=66%, list=11%, signal=62% | 8       |
+    | DESCARTES_FETAL_ADRENAL_MEGAKARYOCYTES                  |      43 |       0.8505604 | 1.424486 | 5.00e-06 | 0.0001346 | 0.0001191 |   74 | tags=63%, list=11%, signal=60% | 8       |
+    | DESCARTES_FETAL_LIVER_MEGAKARYOCYTES                    |      55 |       0.8328324 | 1.394386 | 4.00e-06 | 0.0001245 | 0.0001102 |   83 | tags=56%, list=13%, signal=54% | 8       |
 
 
 ## CellMarkers
@@ -279,7 +276,7 @@ kable(head(cell_marker_data, 10))
 ```
 
 | speciesType | tissueType         | UberonOntologyID | cancerType                     | cellType    | cellName                           | CellOntologyID | cellMarker                                     | geneSymbol                                                                      | geneID                                                              | proteinName                                                                  | proteinID                                                                                      | markerResource | PMID     | Company |
-|:------------|:-------------------|:-----------------|:-------------------------------|:------------|:-----------------------------------|:---------------|:-----------------------------------------------|:--------------------------------------------------------------------------------|:--------------------------------------------------------------------|:-----------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------|:---------------|:---------|:--------|
+|:--|:---|:--|:----|:--|:----|:--|:------|:---------|:-------|:--------|:----------|:--|:-|:-|
 | Human       | Kidney             | UBERON_0002113   | Normal                         | Normal cell | Proximal tubular cell              | NA             | Intestinal Alkaline Phosphatase                | ALPI                                                                            | 248                                                                 | PPBI                                                                         | P09923                                                                                         | Experiment     | 9263997  | NA      |
 | Human       | Liver              | UBERON_0002107   | Normal                         | Normal cell | Ito cell (hepatic stellate cell)   | CL_0000632     | Synaptophysin                                  | SYP                                                                             | 6855                                                                | SYPH                                                                         | P08247                                                                                         | Experiment     | 10595912 | NA      |
 | Human       | Endometrium        | UBERON_0001295   | Normal                         | Normal cell | Trophoblast cell                   | CL_0000351     | CEACAM1                                        | CEACAM1                                                                         | 634                                                                 | CEAM1                                                                        | P13688                                                                                         | Experiment     | 10751340 | NA      |
@@ -294,40 +291,32 @@ kable(head(cell_marker_data, 10))
 ``` r
 ## Apply GSEA for each cluster
 GSEA_CM_list <- lapply(levels(pbmc_markers_annotated$cluster), function(cluster_name){
-  
+
   res_markers <- subset(pbmc_markers_annotated, cluster == cluster_name)                     #Filter markers dataframe by cluster
-  
+
   ## Generate named vector of ranked gene mandatory for GSEA analysis that take into account DE importance and significativity
   geneList_byclus <- sign(res_markers$avg_log2FC) * -log10(ifelse(res_markers$p_val == 0,    #Deal with pval = 0
                                                                   1e-323,                    #Smallest interpretable number
                                                                   res_markers$p_val))
   names(geneList_byclus) <- res_markers$external_gene_name
-  
+
   ## Order by avg log FC and significativity
   geneList_byclus <- sort(geneList_byclus, decreasing = TRUE)
-  
+
   ## Perform GSEA analysis
   gseaCM <- GSEA(geneList_byclus, TERM2GENE = cells)
   gseaCM@result$cluster <- cluster_name #add cluster name as column
-  
-  ## Add plot
-  # print(ridgeplot(gseaCM, 
-  #                 showCategory = 5, 
-  #                 orderBy = "NES") +
-  #         ggtitle(paste("Cluster", cluster_name)) +
-  #         theme(axis.text.y = element_text(size = 10),
-  #               legend.key.size = unit(0.2, 'cm')))
-  
-  print(gseaplot2(gseaCM, 
-                  geneSetID = rownames(gseaCM@result %>% 
-                                         arrange(desc(NES)))[1:ifelse(nrow(gseaCM) < 3, 
-                                                                      nrow(gseaCM), 
+
+  print(gseaplot2(gseaCM,
+                  geneSetID = rownames(gseaCM@result %>%
+                                         arrange(desc(NES)))[1:ifelse(nrow(gseaCM) < 3,
+                                                                      nrow(gseaCM),
                                                                       3)],
                   base_size = 8,
-                  pvalue_table = TRUE, 
+                  pvalue_table = TRUE,
                   subplots = 1:2,
                   title = paste("Cluster", cluster_name)))
-  
+
   return(gseaCM@result) #Return dataframe result
 })
 ```
@@ -339,41 +328,47 @@ GSEA_CM_list <- lapply(levels(pbmc_markers_annotated$cluster), function(cluster_
 GSEA_CM_res <- do.call("rbind", GSEA_CM_list)
 
 ## Group result by cluster (easier to manipulate with dplyr)
-GSEA_CM_res <- GSEA_CM_res %>% 
+GSEA_CM_res <- GSEA_CM_res %>%
   group_by(cluster)
 
 ## Visualise first 3 signatures for each cluster (removing the vector of genes just for the visualisation and the description that match ID column for this dataset MSigDB)
-kable(top_n(x= GSEA_CM_res, n = 3, wt = NES)[, -c(2,11)])
+kable(slice_max(
+  GSEA_CM_res, 
+  n = 3, 
+  order_by = NES,
+  with_ties = FALSE)[, -c(2, 11)]
+)
 ```
 
 ??? abstract "First Enriched CellMarker gene sets for each cluster"
-    | ID                                 | setSize | enrichmentScore |       NES |    pvalue |  p.adjust |   qvalues | rank | leading_edge                   | cluster |
-    |:-----------------------------------|--------:|----------------:|----------:|----------:|----------:|----------:|-----:|:-------------------------------|:--------|
-    | Leydig precursor cell              |      44 |       0.8602093 |  2.256066 | 0.0000000 | 0.0000000 | 0.0000000 |  132 | tags=70%, list=10%, signal=65% | 0       |
-    | Mitotic fetal germ cell            |     164 |       0.6500399 |  2.095496 | 0.0000000 | 0.0000000 | 0.0000000 |  135 | tags=35%, list=11%, signal=36% | 0       |
-    | Naive CD8+ T cell                  |      45 |       0.8009130 |  2.108249 | 0.0000000 | 0.0000003 | 0.0000002 |  212 | tags=78%, list=17%, signal=67% | 0       |
-    | Monocyte                           |     423 |       0.8131596 |  1.974827 | 0.0000000 | 0.0000000 | 0.0000000 |  332 | tags=54%, list=21%, signal=58% | 1       |
-    | Paneth cell                        |     119 |       0.7580558 |  1.785342 | 0.0000000 | 0.0000000 | 0.0000000 |  327 | tags=61%, list=20%, signal=53% | 1       |
-    | Neutrophil                         |      41 |       0.8413770 |  1.817697 | 0.0000002 | 0.0000036 | 0.0000025 |  172 | tags=66%, list=11%, signal=60% | 1       |
-    | CD4+ T cell                        |      14 |       0.8825202 |  2.213082 | 0.0000002 | 0.0000023 | 0.0000013 |   52 | tags=64%, list=5%, signal=62%  | 2       |
-    | T helper cell                      |      12 |       0.8630525 |  2.103741 | 0.0000084 | 0.0000529 | 0.0000292 |  106 | tags=75%, list=10%, signal=68% | 2       |
-    | Activated T cell                   |      10 |       0.8687549 |  2.035541 | 0.0000261 | 0.0001498 | 0.0000826 |  101 | tags=70%, list=10%, signal=64% | 2       |
-    | B cell                             |     178 |       0.8779346 |  2.075372 | 0.0000000 | 0.0000000 | 0.0000000 |  167 | tags=61%, list=14%, signal=61% | 3       |
-    | Secretory cell                     |      18 |       0.9223015 |  1.811398 | 0.0000023 | 0.0000758 | 0.0000572 |   32 | tags=61%, list=3%, signal=60%  | 3       |
-    | Plasma cell                        |      15 |       0.8797950 |  1.678179 | 0.0012256 | 0.0117304 | 0.0088462 |   78 | tags=60%, list=7%, signal=57%  | 3       |
-    | CD4+ cytotoxic T cell              |      37 |       0.8900805 |  2.090355 | 0.0000000 | 0.0000000 | 0.0000000 |   55 | tags=59%, list=8%, signal=58%  | 4       |
-    | Natural killer cell                |      30 |       0.8370655 |  1.896569 | 0.0000201 | 0.0001404 | 0.0000871 |   72 | tags=60%, list=10%, signal=56% | 4       |
-    | CD8+ T cell                        |      13 |       0.9231380 |  1.880140 | 0.0000652 | 0.0004054 | 0.0002515 |   40 | tags=69%, list=6%, signal=67%  | 4       |
-    | CD1C-CD141- dendritic cell         |     234 |       0.8010932 |  1.915014 | 0.0000000 | 0.0000000 | 0.0000000 |  314 | tags=59%, list=17%, signal=56% | 5       |
-    | Monocyte                           |     452 |       0.7167580 |  1.731494 | 0.0000000 | 0.0000000 | 0.0000000 |  427 | tags=50%, list=23%, signal=51% | 5       |
-    | Paneth cell                        |     143 |       0.7375016 |  1.742889 | 0.0000000 | 0.0000000 | 0.0000000 |  204 | tags=41%, list=11%, signal=40% | 5       |
-    | CD4+ cytotoxic T cell              |      56 |       0.8789105 |  1.987043 | 0.0000000 | 0.0000000 | 0.0000000 |  116 | tags=66%, list=11%, signal=62% | 6       |
-    | Effector CD8+ memory T (Tem) cell  |      48 |       0.8512421 |  1.908905 | 0.0000000 | 0.0000002 | 0.0000002 |  116 | tags=54%, list=11%, signal=50% | 6       |
-    | Natural killer cell                |      41 |       0.8669408 |  1.918940 | 0.0000000 | 0.0000005 | 0.0000003 |   55 | tags=49%, list=5%, signal=48%  | 6       |
-    | CD1C+\_A dendritic cell            |      16 |       0.9085712 |  2.285287 | 0.0000043 | 0.0001444 | 0.0001021 |   36 | tags=44%, list=2%, signal=43%  | 7       |
-    | Secretory cell                     |      16 |       0.8755798 |  2.202305 | 0.0001511 | 0.0033737 | 0.0023852 |   79 | tags=69%, list=4%, signal=66%  | 7       |
-    | Specialist antigen presenting cell |      18 |       0.8389319 |  2.138434 | 0.0004965 | 0.0066529 | 0.0047035 |  144 | tags=50%, list=8%, signal=46%  | 7       |
-    | Morula cell (Blastomere)           |      10 |      -0.7380276 | -2.257087 | 0.0000162 | 0.0005186 | 0.0004606 |   76 | tags=80%, list=12%, signal=72% | 8       |
+    | ID                                 | setSize | enrichmentScore |       NES |    pvalue |  p.adjust |    qvalue | rank | leading_edge                   | cluster |
+    |:---------------|----:|-------:|-----:|-----:|-----:|-----:|---:|:--------------|:----|
+    | Leydig precursor cell              |      44 |       0.8602093 |  2.304057 | 0.0000000 | 0.0000000 | 0.0000000 |  132 | tags=70%, list=10%, signal=65% | 0       |
+    | Naive CD8+ T cell                  |      45 |       0.8009130 |  2.161422 | 0.0000000 | 0.0000001 | 0.0000001 |  212 | tags=78%, list=17%, signal=67% | 0       |
+    | Mitotic fetal germ cell            |     164 |       0.6500399 |  2.116061 | 0.0000000 | 0.0000000 | 0.0000000 |  135 | tags=35%, list=11%, signal=36% | 0       |
+    | Monocyte                           |     423 |       0.8131596 |  1.971916 | 0.0000000 | 0.0000000 | 0.0000000 |  332 | tags=54%, list=21%, signal=58% | 1       |
+    | Neutrophil                         |      41 |       0.8413770 |  1.815000 | 0.0000003 | 0.0000044 | 0.0000031 |  172 | tags=66%, list=11%, signal=60% | 1       |
+    | Paneth cell                        |     119 |       0.7580558 |  1.789124 | 0.0000000 | 0.0000000 | 0.0000000 |  327 | tags=61%, list=20%, signal=53% | 1       |
+    | CD4+ T cell                        |      14 |       0.8825202 |  2.128362 | 0.0000001 | 0.0000011 | 0.0000006 |   52 | tags=64%, list=5%, signal=62%  | 2       |
+    | T helper cell                      |      12 |       0.8630525 |  2.005726 | 0.0000138 | 0.0000871 | 0.0000480 |  106 | tags=75%, list=10%, signal=68% | 2       |
+    | Activated T cell                   |      10 |       0.8687549 |  1.946512 | 0.0000234 | 0.0001341 | 0.0000739 |  101 | tags=70%, list=10%, signal=64% | 2       |
+    | B cell                             |     178 |       0.8779346 |  2.084143 | 0.0000000 | 0.0000000 | 0.0000000 |  167 | tags=61%, list=14%, signal=61% | 3       |
+    | Secretory cell                     |      18 |       0.9223015 |  1.755494 | 0.0000054 | 0.0001820 | 0.0001373 |   32 | tags=61%, list=3%, signal=60%  | 3       |
+    | Plasmacytoid dendritic cell        |      62 |       0.7454877 |  1.660767 | 0.0004702 | 0.0066639 | 0.0050254 |  108 | tags=34%, list=9%, signal=32%  | 3       |
+    | CD4+ cytotoxic T cell              |      37 |       0.8900805 |  2.126355 | 0.0000000 | 0.0000000 | 0.0000000 |   55 | tags=59%, list=8%, signal=58%  | 4       |
+    | Natural killer cell                |      30 |       0.8370655 |  1.936860 | 0.0000095 | 0.0000664 | 0.0000412 |   72 | tags=60%, list=10%, signal=56% | 4       |
+    | CD8+ T cell                        |      13 |       0.9231380 |  1.904665 | 0.0000256 | 0.0001594 | 0.0000989 |   40 | tags=69%, list=6%, signal=67%  | 4       |
+    | CD1C-CD141- dendritic cell         |     234 |       0.8010932 |  1.915882 | 0.0000000 | 0.0000000 | 0.0000000 |  314 | tags=59%, list=17%, signal=56% | 5       |
+    | Paneth cell                        |     143 |       0.7375016 |  1.751359 | 0.0000000 | 0.0000000 | 0.0000000 |  204 | tags=41%, list=11%, signal=40% | 5       |
+    | Monocyte                           |     452 |       0.7167580 |  1.727644 | 0.0000000 | 0.0000000 | 0.0000000 |  427 | tags=50%, list=23%, signal=51% | 5       |
+    | CD4+ cytotoxic T cell              |      56 |       0.8789105 |  1.996487 | 0.0000000 | 0.0000000 | 0.0000000 |  116 | tags=66%, list=11%, signal=62% | 6       |
+    | Natural killer cell                |      41 |       0.8669408 |  1.918376 | 0.0000000 | 0.0000006 | 0.0000004 |   55 | tags=49%, list=5%, signal=48%  | 6       |
+    | Effector CD8+ memory T (Tem) cell  |      48 |       0.8512421 |  1.905953 | 0.0000000 | 0.0000003 | 0.0000002 |  116 | tags=54%, list=11%, signal=50% | 6       |
+    | CD1C+\_A dendritic cell            |      16 |       0.9085712 |  2.256311 | 0.0000038 | 0.0001274 | 0.0000901 |   36 | tags=44%, list=2%, signal=43%  | 7       |
+    | Secretory cell                     |      16 |       0.8755798 |  2.174381 | 0.0001587 | 0.0035432 | 0.0025050 |   79 | tags=69%, list=4%, signal=66%  | 7       |
+    | Specialist antigen presenting cell |      18 |       0.8389319 |  2.106915 | 0.0007640 | 0.0085314 | 0.0060316 |  144 | tags=50%, list=8%, signal=46%  | 7       |
+    | Platelet                           |      11 |       0.9030579 |  1.446735 | 0.0020960 | 0.0335357 | 0.0308882 |   14 | tags=36%, list=2%, signal=36%  | 8       |
+    | Morula cell (Blastomere)           |      10 |      -0.7380276 | -2.285142 | 0.0000356 | 0.0011399 | 0.0010499 |   76 | tags=80%, list=12%, signal=72% | 8       |
 
 ## Analyzing enrichment results
 
