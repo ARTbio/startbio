@@ -92,9 +92,10 @@ enrich_go_list <- lapply(levels(pbmc_markers_signif$cluster), function(cluster_n
   print(dotplot(ego,                                                     #enrichResult object
                 split = "ONTOLOGY",                                      #Do separated plot for each ontology type (only valable fo GO results)
                 showCategory = 3,                                        #Only show first three categories
+                label_format = 20,
                 title = paste("Cluster", cluster_name)) +                #Add title
     facet_grid(ONTOLOGY~., scales = "free_y") +                          #Create subplot according to type used with `split = "ONTOLOGY"`
-    theme(axis.text.y = element_text(size = 5),
+    theme(axis.text.y = element_text(size = 10),
                 legend.key.size = unit(0.2, 'cm')))                      #Reduce ontology labels names
   return(ego@result)
 })
@@ -109,115 +110,100 @@ enrich_go <- enrich_go %>%
 
 
 ## show first results
-kable(top_n(x= enrich_go, n = 3, wt = (Count))[,-9])               #Only remove list of genes for the visualisation
+kable(slice_max(
+  enrich_go, 
+  n = 3, 
+  order_by = Count, 
+  with_ties = FALSE)[,-9]
+)  #Only remove list of genes for the visualisation
 ```
 
 ??? abstract "First Enriched GO terms for each cluster"
 
-    | ONTOLOGY | ID           | Description                                                        | GeneRatio | BgRatio   |    pvalue |  p.adjust |    qvalue | Count | cluster |
-    |:---------|:-------------|:-------------------------------------------------------------------|:----------|:----------|----------:|----------:|----------:|------:|:--------|
-    | BP       | <GO:0006413> | translational initiation                                           | 69/111    | 191/16175 | 0.0000000 | 0.0000000 | 0.0000000 |    69 | 0       |
-    | BP       | <GO:0006402> | mRNA catabolic process                                             | 69/111    | 359/16175 | 0.0000000 | 0.0000000 | 0.0000000 |    69 | 0       |
-    | BP       | <GO:0006401> | RNA catabolic process                                              | 69/111    | 395/16175 | 0.0000000 | 0.0000000 | 0.0000000 |    69 | 0       |
-    | CC       | <GO:0022626> | cytosolic ribosome                                                 | 66/113    | 104/16891 | 0.0000000 | 0.0000000 | 0.0000000 |    66 | 0       |
-    | CC       | <GO:0044391> | ribosomal subunit                                                  | 66/113    | 179/16891 | 0.0000000 | 0.0000000 | 0.0000000 |    66 | 0       |
-    | CC       | <GO:0005840> | ribosome                                                           | 66/113    | 216/16891 | 0.0000000 | 0.0000000 | 0.0000000 |    66 | 0       |
-    | MF       | <GO:0003735> | structural constituent of ribosome                                 | 66/112    | 158/16533 | 0.0000000 | 0.0000000 | 0.0000000 |    66 | 0       |
-    | MF       | <GO:0019843> | rRNA binding                                                       | 15/112    | 58/16533  | 0.0000000 | 0.0000000 | 0.0000000 |    15 | 0       |
-    | MF       | <GO:0003729> | mRNA binding                                                       | 14/112    | 284/16533 | 0.0000000 | 0.0000005 | 0.0000005 |    14 | 0       |
-    | BP       | <GO:0043312> | neutrophil degranulation                                           | 69/274    | 468/16175 | 0.0000000 | 0.0000000 | 0.0000000 |    69 | 1       |
-    | BP       | <GO:0036230> | granulocyte activation                                             | 70/274    | 486/16175 | 0.0000000 | 0.0000000 | 0.0000000 |    70 | 1       |
-    | BP       | <GO:0002283> | neutrophil activation involved in immune response                  | 69/274    | 471/16175 | 0.0000000 | 0.0000000 | 0.0000000 |    69 | 1       |
-    | BP       | <GO:0042119> | neutrophil activation                                              | 69/274    | 481/16175 | 0.0000000 | 0.0000000 | 0.0000000 |    69 | 1       |
-    | BP       | <GO:0002446> | neutrophil mediated immunity                                       | 69/274    | 482/16175 | 0.0000000 | 0.0000000 | 0.0000000 |    69 | 1       |
-    | CC       | <GO:0034774> | secretory granule lumen                                            | 37/285    | 314/16891 | 0.0000000 | 0.0000000 | 0.0000000 |    37 | 1       |
-    | CC       | <GO:0060205> | cytoplasmic vesicle lumen                                          | 37/285    | 318/16891 | 0.0000000 | 0.0000000 | 0.0000000 |    37 | 1       |
-    | CC       | <GO:0031983> | vesicle lumen                                                      | 37/285    | 320/16891 | 0.0000000 | 0.0000000 | 0.0000000 |    37 | 1       |
-    | MF       | <GO:0009055> | electron transfer activity                                         | 18/278    | 121/16533 | 0.0000000 | 0.0000000 | 0.0000000 |    18 | 1       |
-    | MF       | <GO:0033218> | amide binding                                                      | 17/278    | 363/16533 | 0.0001466 | 0.0041824 | 0.0035415 |    17 | 1       |
-    | MF       | <GO:0004857> | enzyme inhibitor activity                                          | 16/278    | 362/16533 | 0.0004353 | 0.0090741 | 0.0076836 |    16 | 1       |
-    | BP       | <GO:0042110> | T cell activation                                                  | 17/67     | 458/16175 | 0.0000000 | 0.0000000 | 0.0000000 |    17 | 2       |
-    | BP       | <GO:0006402> | mRNA catabolic process                                             | 15/67     | 359/16175 | 0.0000000 | 0.0000000 | 0.0000000 |    15 | 2       |
-    | BP       | <GO:0006401> | RNA catabolic process                                              | 15/67     | 395/16175 | 0.0000000 | 0.0000000 | 0.0000000 |    15 | 2       |
-    | BP       | <GO:1903131> | mononuclear cell differentiation                                   | 15/67     | 402/16175 | 0.0000000 | 0.0000000 | 0.0000000 |    15 | 2       |
-    | CC       | <GO:0022626> | cytosolic ribosome                                                 | 12/70     | 104/16891 | 0.0000000 | 0.0000000 | 0.0000000 |    12 | 2       |
-    | CC       | <GO:0044391> | ribosomal subunit                                                  | 12/70     | 179/16891 | 0.0000000 | 0.0000000 | 0.0000000 |    12 | 2       |
-    | CC       | <GO:0005840> | ribosome                                                           | 12/70     | 216/16891 | 0.0000000 | 0.0000000 | 0.0000000 |    12 | 2       |
-    | MF       | <GO:0003735> | structural constituent of ribosome                                 | 12/69     | 158/16533 | 0.0000000 | 0.0000000 | 0.0000000 |    12 | 2       |
-    | MF       | <GO:0030674> | protein-macromolecule adaptor activity                             | 7/69      | 254/16533 | 0.0000891 | 0.0037620 | 0.0029300 |     7 | 2       |
-    | MF       | <GO:0060090> | molecular adaptor activity                                         | 7/69      | 307/16533 | 0.0002863 | 0.0079818 | 0.0062167 |     7 | 2       |
-    | MF       | <GO:0050839> | cell adhesion molecule binding                                     | 8/69      | 500/16533 | 0.0010961 | 0.0223564 | 0.0174124 |     8 | 2       |
-    | BP       | <GO:0006413> | translational initiation                                           | 27/120    | 191/16175 | 0.0000000 | 0.0000000 | 0.0000000 |    27 | 3       |
-    | BP       | <GO:0006612> | protein targeting to membrane                                      | 27/120    | 197/16175 | 0.0000000 | 0.0000000 | 0.0000000 |    27 | 3       |
-    | BP       | <GO:0090150> | establishment of protein localization to membrane                  | 27/120    | 328/16175 | 0.0000000 | 0.0000000 | 0.0000000 |    27 | 3       |
-    | BP       | <GO:0006401> | RNA catabolic process                                              | 28/120    | 395/16175 | 0.0000000 | 0.0000000 | 0.0000000 |    28 | 3       |
-    | BP       | <GO:0006605> | protein targeting                                                  | 28/120    | 420/16175 | 0.0000000 | 0.0000000 | 0.0000000 |    28 | 3       |
-    | BP       | <GO:0002250> | adaptive immune response                                           | 27/120    | 401/16175 | 0.0000000 | 0.0000000 | 0.0000000 |    27 | 3       |
-    | CC       | <GO:0022626> | cytosolic ribosome                                                 | 25/125    | 104/16891 | 0.0000000 | 0.0000000 | 0.0000000 |    25 | 3       |
-    | CC       | <GO:0005840> | ribosome                                                           | 27/125    | 216/16891 | 0.0000000 | 0.0000000 | 0.0000000 |    27 | 3       |
-    | CC       | <GO:0044391> | ribosomal subunit                                                  | 25/125    | 179/16891 | 0.0000000 | 0.0000000 | 0.0000000 |    25 | 3       |
-    | MF       | <GO:0003735> | structural constituent of ribosome                                 | 26/123    | 158/16533 | 0.0000000 | 0.0000000 | 0.0000000 |    26 | 3       |
-    | MF       | <GO:0019843> | rRNA binding                                                       | 11/123    | 58/16533  | 0.0000000 | 0.0000000 | 0.0000000 |    11 | 3       |
-    | MF       | <GO:0140375> | immune receptor activity                                           | 11/123    | 131/16533 | 0.0000000 | 0.0000001 | 0.0000001 |    11 | 3       |
-    | BP       | <GO:0002250> | adaptive immune response                                           | 20/66     | 401/16175 | 0.0000000 | 0.0000000 | 0.0000000 |    20 | 4       |
-    | BP       | <GO:0042110> | T cell activation                                                  | 17/66     | 458/16175 | 0.0000000 | 0.0000000 | 0.0000000 |    17 | 4       |
-    | BP       | <GO:0002694> | regulation of leukocyte activation                                 | 15/66     | 493/16175 | 0.0000000 | 0.0000001 | 0.0000001 |    15 | 4       |
-    | CC       | <GO:0009897> | external side of plasma membrane                                   | 12/67     | 312/16891 | 0.0000000 | 0.0000002 | 0.0000001 |    12 | 4       |
-    | CC       | <GO:0030135> | coated vesicle                                                     | 10/67     | 283/16891 | 0.0000002 | 0.0000027 | 0.0000021 |    10 | 4       |
-    | CC       | <GO:0010008> | endosome membrane                                                  | 11/67     | 483/16891 | 0.0000028 | 0.0000330 | 0.0000251 |    11 | 4       |
-    | MF       | <GO:0042608> | T cell receptor binding                                            | 5/67      | 11/16533  | 0.0000000 | 0.0000001 | 0.0000001 |     5 | 4       |
-    | MF       | <GO:0003823> | antigen binding                                                    | 7/67      | 52/16533  | 0.0000000 | 0.0000002 | 0.0000001 |     7 | 4       |
-    | MF       | <GO:0042605> | peptide antigen binding                                            | 5/67      | 23/16533  | 0.0000000 | 0.0000021 | 0.0000017 |     5 | 4       |
-    | MF       | <GO:0004252> | serine-type endopeptidase activity                                 | 5/67      | 156/16533 | 0.0004229 | 0.0113647 | 0.0089582 |     5 | 4       |
-    | MF       | <GO:0008236> | serine-type peptidase activity                                     | 5/67      | 174/16533 | 0.0006950 | 0.0146216 | 0.0115254 |     5 | 4       |
-    | MF       | <GO:0017171> | serine hydrolase activity                                          | 5/67      | 176/16533 | 0.0007318 | 0.0146216 | 0.0115254 |     5 | 4       |
-    | BP       | <GO:0002446> | neutrophil mediated immunity                                       | 59/274    | 482/16175 | 0.0000000 | 0.0000000 | 0.0000000 |    59 | 5       |
-    | BP       | <GO:0043312> | neutrophil degranulation                                           | 58/274    | 468/16175 | 0.0000000 | 0.0000000 | 0.0000000 |    58 | 5       |
-    | BP       | <GO:0002283> | neutrophil activation involved in immune response                  | 58/274    | 471/16175 | 0.0000000 | 0.0000000 | 0.0000000 |    58 | 5       |
-    | BP       | <GO:0042119> | neutrophil activation                                              | 58/274    | 481/16175 | 0.0000000 | 0.0000000 | 0.0000000 |    58 | 5       |
-    | BP       | <GO:0036230> | granulocyte activation                                             | 58/274    | 486/16175 | 0.0000000 | 0.0000000 | 0.0000000 |    58 | 5       |
-    | CC       | <GO:0060205> | cytoplasmic vesicle lumen                                          | 33/285    | 318/16891 | 0.0000000 | 0.0000000 | 0.0000000 |    33 | 5       |
-    | CC       | <GO:0031983> | vesicle lumen                                                      | 33/285    | 320/16891 | 0.0000000 | 0.0000000 | 0.0000000 |    33 | 5       |
-    | CC       | <GO:0034774> | secretory granule lumen                                            | 32/285    | 314/16891 | 0.0000000 | 0.0000000 | 0.0000000 |    32 | 5       |
-    | MF       | <GO:0003779> | actin binding                                                      | 26/277    | 424/16533 | 0.0000000 | 0.0000066 | 0.0000056 |    26 | 5       |
-    | MF       | <GO:0044389> | ubiquitin-like protein ligase binding                              | 16/277    | 300/16533 | 0.0000487 | 0.0041852 | 0.0035090 |    16 | 5       |
-    | MF       | <GO:0050839> | cell adhesion molecule binding                                     | 20/277    | 500/16533 | 0.0003057 | 0.0162987 | 0.0136653 |    20 | 5       |
-    | BP       | <GO:0002768> | immune response-regulating cell surface receptor signaling pathway | 30/201    | 385/16175 | 0.0000000 | 0.0000000 | 0.0000000 |    30 | 6       |
-    | BP       | <GO:0002764> | immune response-regulating signaling pathway                       | 30/201    | 388/16175 | 0.0000000 | 0.0000000 | 0.0000000 |    30 | 6       |
-    | BP       | <GO:0002831> | regulation of response to biotic stimulus                          | 29/201    | 395/16175 | 0.0000000 | 0.0000000 | 0.0000000 |    29 | 6       |
-    | BP       | <GO:0002253> | activation of immune response                                      | 29/201    | 437/16175 | 0.0000000 | 0.0000000 | 0.0000000 |    29 | 6       |
-    | BP       | <GO:0032103> | positive regulation of response to external stimulus               | 29/201    | 479/16175 | 0.0000000 | 0.0000000 | 0.0000000 |    29 | 6       |
-    | BP       | <GO:0036230> | granulocyte activation                                             | 29/201    | 486/16175 | 0.0000000 | 0.0000000 | 0.0000000 |    29 | 6       |
-    | CC       | <GO:0005925> | focal adhesion                                                     | 28/212    | 407/16891 | 0.0000000 | 0.0000000 | 0.0000000 |    28 | 6       |
-    | CC       | <GO:0030055> | cell-substrate junction                                            | 28/212    | 413/16891 | 0.0000000 | 0.0000000 | 0.0000000 |    28 | 6       |
-    | CC       | <GO:0015629> | actin cytoskeleton                                                 | 22/212    | 478/16891 | 0.0000002 | 0.0000062 | 0.0000048 |    22 | 6       |
-    | MF       | <GO:0003779> | actin binding                                                      | 15/211    | 424/16533 | 0.0003694 | 0.0138507 | 0.0117285 |    15 | 6       |
-    | MF       | <GO:0050839> | cell adhesion molecule binding                                     | 16/211    | 500/16533 | 0.0007065 | 0.0244203 | 0.0206787 |    16 | 6       |
-    | MF       | <GO:0004175> | endopeptidase activity                                             | 14/211    | 411/16533 | 0.0008361 | 0.0250827 | 0.0212396 |    14 | 6       |
-    | BP       | <GO:0002764> | immune response-regulating signaling pathway                       | 26/112    | 388/16175 | 0.0000000 | 0.0000000 | 0.0000000 |    26 | 7       |
-    | BP       | <GO:0002768> | immune response-regulating cell surface receptor signaling pathway | 24/112    | 385/16175 | 0.0000000 | 0.0000000 | 0.0000000 |    24 | 7       |
-    | BP       | <GO:0002253> | activation of immune response                                      | 25/112    | 437/16175 | 0.0000000 | 0.0000000 | 0.0000000 |    25 | 7       |
-    | BP       | <GO:0002283> | neutrophil activation involved in immune response                  | 24/112    | 471/16175 | 0.0000000 | 0.0000000 | 0.0000000 |    24 | 7       |
-    | BP       | <GO:0042119> | neutrophil activation                                              | 24/112    | 481/16175 | 0.0000000 | 0.0000000 | 0.0000000 |    24 | 7       |
-    | BP       | <GO:0002446> | neutrophil mediated immunity                                       | 24/112    | 482/16175 | 0.0000000 | 0.0000000 | 0.0000000 |    24 | 7       |
-    | BP       | <GO:0036230> | granulocyte activation                                             | 24/112    | 486/16175 | 0.0000000 | 0.0000000 | 0.0000000 |    24 | 7       |
-    | CC       | <GO:0005765> | lysosomal membrane                                                 | 20/115    | 351/16891 | 0.0000000 | 0.0000000 | 0.0000000 |    20 | 7       |
-    | CC       | <GO:0098852> | lytic vacuole membrane                                             | 20/115    | 351/16891 | 0.0000000 | 0.0000000 | 0.0000000 |    20 | 7       |
-    | CC       | <GO:0005774> | vacuolar membrane                                                  | 21/115    | 402/16891 | 0.0000000 | 0.0000000 | 0.0000000 |    21 | 7       |
-    | MF       | <GO:0042277> | peptide binding                                                    | 14/113    | 293/16533 | 0.0000000 | 0.0000013 | 0.0000010 |    14 | 7       |
-    | MF       | <GO:0033218> | amide binding                                                      | 15/113    | 363/16533 | 0.0000000 | 0.0000015 | 0.0000012 |    15 | 7       |
-    | MF       | <GO:0004857> | enzyme inhibitor activity                                          | 11/113    | 362/16533 | 0.0000377 | 0.0012609 | 0.0010186 |    11 | 7       |
-    | BP       | <GO:0042060> | wound healing                                                      | 31/178    | 497/16175 | 0.0000000 | 0.0000000 | 0.0000000 |    31 | 8       |
-    | BP       | <GO:0007596> | blood coagulation                                                  | 23/178    | 321/16175 | 0.0000000 | 0.0000000 | 0.0000000 |    23 | 8       |
-    | BP       | <GO:0007599> | hemostasis                                                         | 23/178    | 325/16175 | 0.0000000 | 0.0000000 | 0.0000000 |    23 | 8       |
-    | BP       | <GO:0050817> | coagulation                                                        | 23/178    | 325/16175 | 0.0000000 | 0.0000000 | 0.0000000 |    23 | 8       |
-    | BP       | <GO:0050878> | regulation of body fluid levels                                    | 23/178    | 477/16175 | 0.0000000 | 0.0000009 | 0.0000008 |    23 | 8       |
-    | CC       | <GO:0015629> | actin cytoskeleton                                                 | 25/181    | 478/16891 | 0.0000000 | 0.0000000 | 0.0000000 |    25 | 8       |
-    | CC       | <GO:0030055> | cell-substrate junction                                            | 20/181    | 413/16891 | 0.0000000 | 0.0000012 | 0.0000010 |    20 | 8       |
-    | CC       | <GO:0005925> | focal adhesion                                                     | 19/181    | 407/16891 | 0.0000001 | 0.0000024 | 0.0000020 |    19 | 8       |
-    | MF       | <GO:0003779> | actin binding                                                      | 19/179    | 424/16533 | 0.0000002 | 0.0000735 | 0.0000652 |    19 | 8       |
-    | MF       | <GO:0051015> | actin filament binding                                             | 10/179    | 201/16533 | 0.0000685 | 0.0090608 | 0.0080366 |    10 | 8       |
-    | MF       | <GO:0003924> | GTPase activity                                                    | 11/179    | 291/16533 | 0.0003372 | 0.0278493 | 0.0247013 |    11 | 8       |
+    | ONTOLOGY | ID           | Description                                    | GeneRatio | BgRatio   |    pvalue |  p.adjust |    qvalue | Count | cluster |
+    |:-----|:------|:----------------------|:-----|:-----|-----:|-----:|-----:|---:|:----|
+    | BP       | <GO:0002181> | cytoplasmic translation                        | 70/185    | 150/16049 | 0.0000000 | 0.0000000 | 0.0000000 |    70 | 0       |
+    | BP       | <GO:0022613> | ribonucleoprotein complex biogenesis           | 40/185    | 438/16049 | 0.0000000 | 0.0000000 | 0.0000000 |    40 | 0       |
+    | BP       | <GO:0042254> | ribosome biogenesis                            | 36/185    | 297/16049 | 0.0000000 | 0.0000000 | 0.0000000 |    36 | 0       |
+    | CC       | <GO:0005840> | ribosome                                       | 72/189    | 224/16891 | 0.0000000 | 0.0000000 | 0.0000000 |    72 | 0       |
+    | CC       | <GO:0022626> | cytosolic ribosome                             | 70/189    | 110/16891 | 0.0000000 | 0.0000000 | 0.0000000 |    70 | 0       |
+    | CC       | <GO:0044391> | ribosomal subunit                              | 70/189    | 178/16891 | 0.0000000 | 0.0000000 | 0.0000000 |    70 | 0       |
+    | MF       | <GO:0003735> | structural constituent of ribosome             | 68/188    | 159/16507 | 0.0000000 | 0.0000000 | 0.0000000 |    68 | 0       |
+    | MF       | <GO:0003729> | mRNA binding                                   | 17/188    | 318/16507 | 0.0000001 | 0.0000111 | 0.0000099 |    17 | 0       |
+    | MF       | <GO:0019843> | rRNA binding                                   | 16/188    | 59/16507  | 0.0000000 | 0.0000000 | 0.0000000 |    16 | 0       |
+    | BP       | <GO:0031349> | positive regulation of defense response        | 52/539    | 437/16049 | 0.0000000 | 0.0000000 | 0.0000000 |    52 | 1       |
+    | BP       | <GO:0006091> | generation of precursor metabolites and energy | 52/539    | 447/16049 | 0.0000000 | 0.0000000 | 0.0000000 |    52 | 1       |
+    | BP       | <GO:0002764> | immune response-regulating signaling pathway   | 49/539    | 440/16049 | 0.0000000 | 0.0000000 | 0.0000000 |    49 | 1       |
+    | CC       | <GO:0034774> | secretory granule lumen                        | 52/550    | 314/16891 | 0.0000000 | 0.0000000 | 0.0000000 |    52 | 1       |
+    | CC       | <GO:0060205> | cytoplasmic vesicle lumen                      | 52/550    | 317/16891 | 0.0000000 | 0.0000000 | 0.0000000 |    52 | 1       |
+    | CC       | <GO:0031983> | vesicle lumen                                  | 52/550    | 318/16891 | 0.0000000 | 0.0000000 | 0.0000000 |    52 | 1       |
+    | MF       | <GO:0003779> | actin binding                                  | 32/540    | 424/16507 | 0.0000105 | 0.0006036 | 0.0005298 |    32 | 1       |
+    | MF       | <GO:0140678> | molecular function inhibitor activity          | 32/540    | 474/16507 | 0.0000921 | 0.0031247 | 0.0027424 |    32 | 1       |
+    | MF       | <GO:0033218> | amide binding                                  | 28/540    | 368/16507 | 0.0000323 | 0.0014190 | 0.0012454 |    28 | 1       |
+    | BP       | <GO:0051249> | regulation of lymphocyte activation            | 36/213    | 484/16049 | 0.0000000 | 0.0000000 | 0.0000000 |    36 | 2       |
+    | BP       | <GO:1903131> | mononuclear cell differentiation               | 32/213    | 471/16049 | 0.0000000 | 0.0000000 | 0.0000000 |    32 | 2       |
+    | BP       | <GO:0030098> | lymphocyte differentiation                     | 31/213    | 421/16049 | 0.0000000 | 0.0000000 | 0.0000000 |    31 | 2       |
+    | CC       | <GO:0005840> | ribosome                                       | 27/224    | 224/16891 | 0.0000000 | 0.0000000 | 0.0000000 |    27 | 2       |
+    | CC       | <GO:0005925> | focal adhesion                                 | 26/224    | 411/16891 | 0.0000000 | 0.0000000 | 0.0000000 |    26 | 2       |
+    | CC       | <GO:0030055> | cell-substrate junction                        | 26/224    | 420/16891 | 0.0000000 | 0.0000000 | 0.0000000 |    26 | 2       |
+    | MF       | <GO:0003735> | structural constituent of ribosome             | 24/220    | 159/16507 | 0.0000000 | 0.0000000 | 0.0000000 |    24 | 2       |
+    | MF       | <GO:0140678> | molecular function inhibitor activity          | 16/220    | 474/16507 | 0.0006378 | 0.0293565 | 0.0253015 |    16 | 2       |
+    | MF       | <GO:0045296> | cadherin binding                               | 13/220    | 309/16507 | 0.0002675 | 0.0237934 | 0.0205069 |    13 | 2       |
+    | BP       | <GO:0002181> | cytoplasmic translation                        | 31/171    | 150/16049 | 0.0000000 | 0.0000000 | 0.0000000 |    31 | 3       |
+    | BP       | <GO:0002250> | adaptive immune response                       | 29/171    | 449/16049 | 0.0000000 | 0.0000000 | 0.0000000 |    29 | 3       |
+    | BP       | <GO:0042113> | B cell activation                              | 27/171    | 265/16049 | 0.0000000 | 0.0000000 | 0.0000000 |    27 | 3       |
+    | CC       | <GO:0005840> | ribosome                                       | 29/178    | 224/16891 | 0.0000000 | 0.0000000 | 0.0000000 |    29 | 3       |
+    | CC       | <GO:0022626> | cytosolic ribosome                             | 28/178    | 110/16891 | 0.0000000 | 0.0000000 | 0.0000000 |    28 | 3       |
+    | CC       | <GO:0044391> | ribosomal subunit                              | 28/178    | 178/16891 | 0.0000000 | 0.0000000 | 0.0000000 |    28 | 3       |
+    | MF       | <GO:0003735> | structural constituent of ribosome             | 29/170    | 159/16507 | 0.0000000 | 0.0000000 | 0.0000000 |    29 | 3       |
+    | MF       | <GO:0042277> | peptide binding                                | 16/170    | 295/16507 | 0.0000001 | 0.0000029 | 0.0000027 |    16 | 3       |
+    | MF       | <GO:0033218> | amide binding                                  | 16/170    | 368/16507 | 0.0000013 | 0.0000496 | 0.0000464 |    16 | 3       |
+    | BP       | <GO:0002250> | adaptive immune response                       | 27/103    | 449/16049 | 0.0000000 | 0.0000000 | 0.0000000 |    27 | 4       |
+    | BP       | <GO:0002443> | leukocyte mediated immunity                    | 23/103    | 377/16049 | 0.0000000 | 0.0000000 | 0.0000000 |    23 | 4       |
+    | BP       | <GO:0051249> | regulation of lymphocyte activation            | 23/103    | 484/16049 | 0.0000000 | 0.0000000 | 0.0000000 |    23 | 4       |
+    | CC       | <GO:0009897> | external side of plasma membrane               | 16/106    | 372/16891 | 0.0000000 | 0.0000001 | 0.0000001 |    16 | 4       |
+    | CC       | <GO:0005769> | early endosome                                 | 13/106    | 399/16891 | 0.0000013 | 0.0000229 | 0.0000179 |    13 | 4       |
+    | CC       | <GO:0030666> | endocytic vesicle membrane                     | 12/106    | 194/16891 | 0.0000000 | 0.0000002 | 0.0000001 |    12 | 4       |
+    | MF       | <GO:0003823> | antigen binding                                | 9/106     | 62/16507  | 0.0000000 | 0.0000001 | 0.0000000 |     9 | 4       |
+    | MF       | <GO:0042277> | peptide binding                                | 8/106     | 295/16507 | 0.0006277 | 0.0146499 | 0.0128414 |     8 | 4       |
+    | MF       | <GO:0033218> | amide binding                                  | 8/106     | 368/16507 | 0.0025574 | 0.0374167 | 0.0327978 |     8 | 4       |
+    | BP       | <GO:0002764> | immune response-regulating signaling pathway   | 68/757    | 440/16049 | 0.0000000 | 0.0000000 | 0.0000000 |    68 | 5       |
+    | BP       | <GO:0002253> | activation of immune response                  | 68/757    | 482/16049 | 0.0000000 | 0.0000000 | 0.0000000 |    68 | 5       |
+    | BP       | <GO:0002757> | immune response-activating signaling pathway   | 63/757    | 415/16049 | 0.0000000 | 0.0000000 | 0.0000000 |    63 | 5       |
+    | CC       | <GO:0005774> | vacuolar membrane                              | 65/781    | 448/16891 | 0.0000000 | 0.0000000 | 0.0000000 |    65 | 5       |
+    | CC       | <GO:0030667> | secretory granule membrane                     | 63/781    | 299/16891 | 0.0000000 | 0.0000000 | 0.0000000 |    63 | 5       |
+    | CC       | <GO:0060205> | cytoplasmic vesicle lumen                      | 61/781    | 317/16891 | 0.0000000 | 0.0000000 | 0.0000000 |    61 | 5       |
+    | MF       | <GO:0003779> | actin binding                                  | 54/770    | 424/16507 | 0.0000000 | 0.0000000 | 0.0000000 |    54 | 5       |
+    | MF       | <GO:0051015> | actin filament binding                         | 32/770    | 202/16507 | 0.0000000 | 0.0000005 | 0.0000004 |    32 | 5       |
+    | MF       | <GO:0045296> | cadherin binding                               | 32/770    | 309/16507 | 0.0000211 | 0.0028534 | 0.0025270 |    32 | 5       |
+    | BP       | <GO:0002250> | adaptive immune response                       | 43/262    | 449/16049 | 0.0000000 | 0.0000000 | 0.0000000 |    43 | 6       |
+    | BP       | <GO:0002443> | leukocyte mediated immunity                    | 41/262    | 377/16049 | 0.0000000 | 0.0000000 | 0.0000000 |    41 | 6       |
+    | BP       | <GO:0051249> | regulation of lymphocyte activation            | 37/262    | 484/16049 | 0.0000000 | 0.0000000 | 0.0000000 |    37 | 6       |
+    | CC       | <GO:0005925> | focal adhesion                                 | 29/269    | 411/16891 | 0.0000000 | 0.0000000 | 0.0000000 |    29 | 6       |
+    | CC       | <GO:0030055> | cell-substrate junction                        | 29/269    | 420/16891 | 0.0000000 | 0.0000000 | 0.0000000 |    29 | 6       |
+    | CC       | <GO:0009897> | external side of plasma membrane               | 25/269    | 372/16891 | 0.0000000 | 0.0000001 | 0.0000001 |    25 | 6       |
+    | MF       | <GO:0003779> | actin binding                                  | 20/268    | 424/16507 | 0.0000210 | 0.0021638 | 0.0019775 |    20 | 6       |
+    | MF       | <GO:0051015> | actin filament binding                         | 15/268    | 202/16507 | 0.0000011 | 0.0001900 | 0.0001736 |    15 | 6       |
+    | MF       | <GO:0140375> | immune receptor activity                       | 10/268    | 141/16507 | 0.0001028 | 0.0067171 | 0.0061389 |    10 | 6       |
+    | BP       | <GO:0051249> | regulation of lymphocyte activation            | 43/373    | 484/16049 | 0.0000000 | 0.0000000 | 0.0000000 |    43 | 7       |
+    | BP       | <GO:0002250> | adaptive immune response                       | 40/373    | 449/16049 | 0.0000000 | 0.0000000 | 0.0000000 |    40 | 7       |
+    | BP       | <GO:0002696> | positive regulation of leukocyte activation    | 37/373    | 359/16049 | 0.0000000 | 0.0000000 | 0.0000000 |    37 | 7       |
+    | CC       | <GO:0005774> | vacuolar membrane                              | 30/388    | 448/16891 | 0.0000002 | 0.0000041 | 0.0000035 |    30 | 7       |
+    | CC       | <GO:0005765> | lysosomal membrane                             | 29/388    | 407/16891 | 0.0000001 | 0.0000024 | 0.0000020 |    29 | 7       |
+    | CC       | <GO:0098852> | lytic vacuole membrane                         | 29/388    | 407/16891 | 0.0000001 | 0.0000024 | 0.0000020 |    29 | 7       |
+    | MF       | <GO:0033218> | amide binding                                  | 23/382    | 368/16507 | 0.0000168 | 0.0016856 | 0.0015624 |    23 | 7       |
+    | MF       | <GO:0140375> | immune receptor activity                       | 20/382    | 141/16507 | 0.0000000 | 0.0000000 | 0.0000000 |    20 | 7       |
+    | MF       | <GO:0042277> | peptide binding                                | 20/382    | 295/16507 | 0.0000188 | 0.0016856 | 0.0015624 |    20 | 7       |
+    | BP       | <GO:0042060> | wound healing                                  | 29/218    | 403/16049 | 0.0000000 | 0.0000000 | 0.0000000 |    29 | 8       |
+    | BP       | <GO:0007596> | blood coagulation                              | 21/218    | 221/16049 | 0.0000000 | 0.0000000 | 0.0000000 |    21 | 8       |
+    | BP       | <GO:0050817> | coagulation                                    | 21/218    | 225/16049 | 0.0000000 | 0.0000000 | 0.0000000 |    21 | 8       |
+    | CC       | <GO:0015629> | actin cytoskeleton                             | 26/228    | 475/16891 | 0.0000000 | 0.0000001 | 0.0000001 |    26 | 8       |
+    | CC       | <GO:0030055> | cell-substrate junction                        | 22/228    | 420/16891 | 0.0000001 | 0.0000022 | 0.0000019 |    22 | 8       |
+    | CC       | <GO:0005925> | focal adhesion                                 | 21/228    | 411/16891 | 0.0000002 | 0.0000062 | 0.0000053 |    21 | 8       |
+    | MF       | <GO:0003779> | actin binding                                  | 21/227    | 424/16507 | 0.0000004 | 0.0002070 | 0.0001890 |    21 | 8       |
+    | MF       | <GO:0005178> | integrin binding                               | 10/227    | 144/16507 | 0.0000305 | 0.0073768 | 0.0067362 |    10 | 8       |
+    | MF       | <GO:0008093> | cytoskeletal anchor activity                   | 4/227     | 24/16507  | 0.0002981 | 0.0479966 | 0.0438282 |     4 | 8       |
+
 
 
 The result is a dataframe where the GO terms have been considered as enriched:
@@ -325,42 +311,45 @@ enrich_kegg <- enrich_kegg %>%
   group_by(cluster)
 
 ## Visualise first 3 KEGG categories for each cluster (removing the vector of genes just for the visualisation)
-kable(top_n(x= enrich_kegg, n = 3, wt = (Count))[,-8])
+kable(slice_max(
+  enrich_kegg, 
+  n = 3, 
+  order_by = Count, 
+  with_ties = FALSE)[,-8]
+)
 ```
 
 ??? abstract "First Enriched KEGG categories for each cluster"
-    | ID       | Description                                       | GeneRatio | BgRatio  |    pvalue |  p.adjust |    qvalue | Count | cluster |
-    |:---------|:--------------------------------------------------|:----------|:---------|----------:|----------:|----------:|------:|:--------|
-    | hsa03010 | Ribosome                                          | 66/94     | 134/7558 | 0.0000000 | 0.0000000 | 0.0000000 |    66 | 0       |
-    | hsa05171 | Coronavirus disease - COVID-19                    | 66/94     | 228/7558 | 0.0000000 | 0.0000000 | 0.0000000 |    66 | 0       |
-    | hsa04640 | Hematopoietic cell lineage                        | 6/94      | 94/7558  | 0.0010652 | 0.0242334 | 0.0241073 |     6 | 0       |
-    | hsa05415 | Diabetic cardiomyopathy                           | 24/179    | 175/7558 | 0.0000000 | 0.0000000 | 0.0000000 |    24 | 1       |
-    | hsa05020 | Prion disease                                     | 23/179    | 246/7558 | 0.0000000 | 0.0000004 | 0.0000003 |    23 | 1       |
-    | hsa05022 | Pathways of neurodegeneration - multiple diseases | 23/179    | 443/7558 | 0.0002945 | 0.0018710 | 0.0013802 |    23 | 1       |
-    | hsa03010 | Ribosome                                          | 12/44     | 134/7558 | 0.0000000 | 0.0000000 | 0.0000000 |    12 | 2       |
-    | hsa05171 | Coronavirus disease - COVID-19                    | 14/44     | 228/7558 | 0.0000000 | 0.0000000 | 0.0000000 |    14 | 2       |
-    | hsa05170 | Human immunodeficiency virus 1 infection          | 9/44      | 204/7558 | 0.0000020 | 0.0000413 | 0.0000317 |     9 | 2       |
-    | hsa03010 | Ribosome                                          | 27/81     | 134/7558 | 0.0000000 | 0.0000000 | 0.0000000 |    27 | 3       |
-    | hsa05171 | Coronavirus disease - COVID-19                    | 28/81     | 228/7558 | 0.0000000 | 0.0000000 | 0.0000000 |    28 | 3       |
-    | hsa04640 | Hematopoietic cell lineage                        | 17/81     | 94/7558  | 0.0000000 | 0.0000000 | 0.0000000 |    17 | 3       |
-    | hsa04650 | Natural killer cell mediated cytotoxicity         | 10/47     | 124/7558 | 0.0000000 | 0.0000002 | 0.0000001 |    10 | 4       |
-    | hsa04514 | Cell adhesion molecules                           | 10/47     | 147/7558 | 0.0000000 | 0.0000005 | 0.0000004 |    10 | 4       |
-    | hsa05170 | Human immunodeficiency virus 1 infection          | 11/47     | 204/7558 | 0.0000000 | 0.0000008 | 0.0000006 |    11 | 4       |
-    | hsa05166 | Human T-cell leukemia virus 1 infection           | 11/47     | 219/7558 | 0.0000001 | 0.0000011 | 0.0000008 |    11 | 4       |
-    | hsa04145 | Phagosome                                         | 21/180    | 146/7558 | 0.0000000 | 0.0000000 | 0.0000000 |    21 | 5       |
-    | hsa05152 | Tuberculosis                                      | 21/180    | 176/7558 | 0.0000000 | 0.0000001 | 0.0000001 |    21 | 5       |
-    | hsa05022 | Pathways of neurodegeneration - multiple diseases | 21/180    | 443/7558 | 0.0018748 | 0.0133316 | 0.0100316 |    21 | 5       |
-    | hsa04650 | Natural killer cell mediated cytotoxicity         | 23/126    | 124/7558 | 0.0000000 | 0.0000000 | 0.0000000 |    23 | 6       |
-    | hsa05163 | Human cytomegalovirus infection                   | 17/126    | 222/7558 | 0.0000001 | 0.0000043 | 0.0000033 |    17 | 6       |
-    | hsa05170 | Human immunodeficiency virus 1 infection          | 16/126    | 204/7558 | 0.0000002 | 0.0000064 | 0.0000049 |    16 | 6       |
-    | hsa05152 | Tuberculosis                                      | 17/72     | 176/7558 | 0.0000000 | 0.0000000 | 0.0000000 |    17 | 7       |
-    | hsa04145 | Phagosome                                         | 15/72     | 146/7558 | 0.0000000 | 0.0000000 | 0.0000000 |    15 | 7       |
-    | hsa05164 | Influenza A                                       | 15/72     | 166/7558 | 0.0000000 | 0.0000000 | 0.0000000 |    15 | 7       |
-    | hsa05168 | Herpes simplex virus 1 infection                  | 15/72     | 484/7558 | 0.0000389 | 0.0002724 | 0.0002048 |    15 | 7       |
-    | hsa04611 | Platelet activation                               | 9/97      | 122/7558 | 0.0000240 | 0.0043154 | 0.0039621 |     9 | 8       |
-    | hsa04530 | Tight junction                                    | 9/97      | 165/7558 | 0.0002499 | 0.0224924 | 0.0206509 |     9 | 8       |
-    | hsa04510 | Focal adhesion                                    | 9/97      | 198/7558 | 0.0009458 | 0.0340474 | 0.0312599 |     9 | 8       |
-    | hsa05022 | Pathways of neurodegeneration - multiple diseases | 9/97      | 443/7558 | 0.1141696 | 0.5182323 | 0.4758039 |     9 | 8       |
+    | category                       | subcategory                     | ID       | Description                                       | GeneRatio | BgRatio  |    pvalue |    qvalue | geneID                                                                                                                                                                                                                                                                                                                                                      | Count | cluster |
+    |:----|:----|:--|:------|:--|:--|--:|--:|:----------------------------------------|-:|:-|
+    | Human Diseases                 | Infectious disease: viral       | hsa05171 | Coronavirus disease - COVID-19                    | 69/131    | 227/7983 | 0.0000000 | 0.0000000 | 3725/3921/4736/6122/6124/6125/6128/6129/6130/6133/6134/6135/6136/6137/6138/6139/6141/6142/6143/6144/6146/6147/6152/6155/6156/6157/6160/6161/6164/6165/6167/6168/6169/6173/6175/6176/6181/6187/6188/6189/6191/6192/6193/6194/6202/6203/6204/6206/6207/6208/6209/6210/6217/6222/6223/6224/6227/6228/6230/6231/6232/6233/6234/6235/9045/9349/11224/23521/25873 |    69 | 0       |
+    | Genetic Information Processing | Translation                     | hsa03010 | Ribosome                                          | 68/131    | 134/7983 | 0.0000000 | 0.0000000 | 3921/4736/6122/6124/6125/6128/6129/6130/6133/6134/6135/6136/6137/6138/6139/6141/6142/6143/6144/6146/6147/6152/6155/6156/6157/6160/6161/6164/6165/6167/6168/6169/6173/6175/6176/6181/6187/6188/6189/6191/6192/6193/6194/6202/6203/6204/6206/6207/6208/6209/6210/6217/6222/6223/6224/6227/6228/6230/6231/6232/6233/6234/6235/9045/9349/11224/23521/25873      |    68 | 0       |
+    | Organismal Systems             | Immune system                   | hsa04640 | Hematopoietic cell lineage                        | 9/131     | 94/7983  | 0.0000215 | 0.0009710 | 914/915/916/917/921/924/926/2323/3575                                                                                                                                                                                                                                                                                                                       |     9 | 0       |
+    | Human Diseases                 | Cancer: overview                | hsa05208 | Chemical carcinogenesis - reactive oxygen species | 36/341    | 196/7983 | 0.0000000 | 0.0000000 | 292/293/873/1327/1329/1340/1351/1535/1537/2885/3162/4257/4688/4695/4707/4716/4726/4731/4792/5580/5879/6390/6648/7384/7386/9377/9446/10105/10327/10975/29796/51079/54539/126328/374291/653361                                                                                                                                                                |    36 | 1       |
+    | Human Diseases                 | Neurodegenerative disease       | hsa05022 | Pathways of neurodegeneration - multiple diseases | 36/341    | 443/7983 | 0.0001337 | 0.0008218 | 292/293/637/1327/1329/1340/1351/1460/1536/1537/2876/3553/4695/4707/4716/4726/4731/5688/5691/5879/6390/7132/7133/7384/7386/8878/9246/9377/10105/10975/23401/29796/51079/54539/126328/374291                                                                                                                                                                  |    36 | 1       |
+    | Human Diseases                 | Cardiovascular disease          | hsa05415 | Diabetic cardiomyopathy                           | 34/341    | 175/7983 | 0.0000000 | 0.0000000 | 292/293/948/1327/1329/1340/1351/1509/1535/1536/1537/2597/4688/4689/4695/4707/4716/4726/4731/5580/5879/6390/7040/7384/7386/9377/10105/10975/29796/51079/54539/126328/374291/653361                                                                                                                                                                           |    34 | 1       |
+    | Human Diseases                 | Infectious disease: viral       | hsa05171 | Coronavirus disease - COVID-19                    | 26/131    | 227/7983 | 0.0000000 | 0.0000000 | 2353/3725/3921/6122/6139/6147/6156/6157/6160/6166/6173/6175/6188/6201/6204/6206/6210/6222/6224/6227/6230/6233/6235/6772/9045/25873                                                                                                                                                                                                                          |    26 | 2       |
+    | Genetic Information Processing | Translation                     | hsa03010 | Ribosome                                          | 23/131    | 134/7983 | 0.0000000 | 0.0000000 | 3921/6122/6139/6147/6156/6157/6160/6166/6173/6175/6188/6201/6204/6206/6210/6222/6224/6227/6230/6233/6235/9045/25873                                                                                                                                                                                                                                         |    23 | 2       |
+    | Human Diseases                 | Infectious disease: bacterial   | hsa05132 | Salmonella infection                              | 17/131    | 244/7983 | 0.0000004 | 0.0000154 | 71/330/399/2353/3320/3725/6188/6281/6500/6932/6990/7277/7295/8717/10627/51176/103910                                                                                                                                                                                                                                                                        |    17 | 2       |
+    | Human Diseases                 | Infectious disease: viral       | hsa05171 | Coronavirus disease - COVID-19                    | 30/112    | 227/7983 | 0.0000000 | 0.0000000 | 2197/3921/4736/5579/6125/6132/6133/6136/6138/6141/6142/6144/6147/6155/6159/6167/6168/6189/6193/6202/6205/6207/6222/6223/6227/6228/6232/11224/23521/200916                                                                                                                                                                                                   |    30 | 3       |
+    | Genetic Information Processing | Translation                     | hsa03010 | Ribosome                                          | 29/112    | 134/7983 | 0.0000000 | 0.0000000 | 2197/3921/4736/6125/6132/6133/6136/6138/6141/6142/6144/6147/6155/6159/6167/6168/6189/6193/6202/6205/6207/6222/6223/6227/6228/6232/11224/23521/200916                                                                                                                                                                                                        |    29 | 3       |
+    | Organismal Systems             | Immune system                   | hsa04640 | Hematopoietic cell lineage                        | 17/112    | 94/7983  | 0.0000000 | 0.0000000 | 930/931/933/951/2208/3108/3109/3112/3113/3115/3117/3118/3119/3122/3123/3127/3566                                                                                                                                                                                                                                                                            |    17 | 3       |
+    | Organismal Systems             | Immune system                   | hsa04650 | Natural killer cell mediated cytotoxicity         | 15/73     | 125/7983 | 0.0000000 | 0.0000000 | 919/2534/3002/3105/3106/3107/3133/3824/3932/4068/5551/7535/10870/27040/259197                                                                                                                                                                                                                                                                               |    15 | 4       |
+    | Human Diseases                 | Infectious disease: viral       | hsa05170 | Human immunodeficiency virus 1 infection          | 12/73     | 204/7983 | 0.0000003 | 0.0000032 | 567/801/915/916/917/919/3105/3106/3107/3133/3134/60489                                                                                                                                                                                                                                                                                                      |    12 | 4       |
+    | Organismal Systems             | Immune system                   | hsa04660 | T cell receptor signaling pathway                 | 11/73     | 117/7983 | 0.0000000 | 0.0000001 | 915/916/917/919/925/926/2534/3932/5527/7535/27040                                                                                                                                                                                                                                                                                                           |    11 | 4       |
+    | Human Diseases                 | Neurodegenerative disease       | hsa05022 | Pathways of neurodegeneration - multiple diseases | 49/481    | 443/7983 | 0.0000208 | 0.0002333 | 292/293/581/637/805/808/847/1020/1329/1337/1340/1347/1351/1460/1536/4218/4701/4709/4711/4717/5579/5594/5606/5663/5685/5688/5691/5692/5701/5702/5710/5715/5879/7132/7133/7384/7386/7416/7846/9246/9377/10010/10121/10376/29796/51079/51465/55062/55255                                                                                                       |    49 | 5       |
+    | Human Diseases                 | Infectious disease: bacterial   | hsa05132 | Salmonella infection                              | 42/481    | 244/7983 | 0.0000000 | 0.0000000 | 60/302/387/388/391/581/834/837/2316/3071/4074/4615/5058/5216/5585/5594/5606/5878/5879/6237/6281/6934/6993/7132/7846/8655/8677/8743/10092/10094/10095/10097/10109/10121/10376/10552/25828/27128/29108/51143/55845/112574                                                                                                                                     |    42 | 5       |
+    | Human Diseases                 | Neurodegenerative disease       | hsa05014 | Amyotrophic lateral sclerosis                     | 42/481    | 332/7983 | 0.0000031 | 0.0000601 | 60/581/637/834/847/1329/1337/1340/1347/1351/4218/4701/4709/4711/4717/5216/5606/5685/5688/5691/5692/5701/5702/5710/5715/5879/7132/7133/7384/7386/7416/7846/8021/9377/10010/10121/10376/29796/51079/55062/55255/400916                                                                                                                                        |    42 | 5       |
+    | Organismal Systems             | Immune system                   | hsa04650 | Natural killer cell mediated cytotoxicity         | 26/156    | 125/7983 | 0.0000000 | 0.0000000 | 356/919/2207/2214/3002/3105/3106/3107/3133/3458/3683/3689/3804/3812/3821/3824/4068/5551/5880/7305/7462/7535/10870/51744/117157/259197                                                                                                                                                                                                                       |    26 | 6       |
+    | Human Diseases                 | Infectious disease: viral       | hsa05163 | Human cytomegalovirus infection                   | 17/156    | 222/7983 | 0.0000014 | 0.0000328 | 356/567/801/811/2923/3105/3106/3107/3133/3716/5732/5880/6348/6351/6352/6890/54331                                                                                                                                                                                                                                                                           |    17 | 6       |
+    | Cellular Processes             | Cell motility                   | hsa04810 | Regulation of actin cytoskeleton                  | 17/156    | 226/7983 | 0.0000018 | 0.0000329 | 60/71/1072/2934/3683/3689/3695/5216/5499/5880/10093/10096/10109/10627/10788/81873/103910                                                                                                                                                                                                                                                                    |    17 | 6       |
+    | Human Diseases                 | Infectious disease: bacterial   | hsa05152 | Tuberculosis                                      | 22/217    | 176/7983 | 0.0000000 | 0.0000000 | 637/972/2207/3108/3109/3111/3113/3115/3117/3118/3119/3122/3123/3127/3553/3606/4046/4261/5534/6850/7879/8844                                                                                                                                                                                                                                                 |    22 | 7       |
+    | Organismal Systems             | Immune system                   | hsa04640 | Hematopoietic cell lineage                        | 20/217    | 94/7983  | 0.0000000 | 0.0000000 | 911/912/945/1436/1438/2322/3108/3109/3111/3113/3115/3117/3118/3119/3122/3123/3127/3553/3563/3570                                                                                                                                                                                                                                                            |    20 | 7       |
+    | Cellular Processes             | Transport and catabolism        | hsa04145 | Phagosome                                         | 20/217    | 146/7983 | 0.0000000 | 0.0000001 | 60/71/3108/3109/3111/3113/3115/3117/3118/3119/3122/3123/3127/4688/5879/7879/10376/53407/83547/84617                                                                                                                                                                                                                                                         |    20 | 7       |
+    | NA                             | NA                              | hsa04820 | Cytoskeleton in muscle cells                      | 12/125    | 230/7983 | 0.0002438 | 0.0100247 | 2026/2273/3674/3688/3690/3693/7125/7168/7171/9124/10398/23002                                                                                                                                                                                                                                                                                               |    12 | 8       |
+    | Organismal Systems             | Immune system                   | hsa04611 | Platelet activation                               | 11/125    | 122/7983 | 0.0000029 | 0.0005543 | 2811/2815/3674/3688/3690/4638/5742/6915/7450/51206/83706                                                                                                                                                                                                                                                                                                    |    11 | 8       |
+    | Cellular Processes             | Cellular community - eukaryotes | hsa04510 | Focal adhesion                                    | 11/125    | 198/7983 | 0.0002602 | 0.0100247 | 87/3611/3674/3688/3690/3693/4638/7450/10398/29780/56034                                                                                                                                                                                                                                                                                                     |    11 | 8       |
+
 
 
 The result is a dataframe where KEGG categories have been considered
