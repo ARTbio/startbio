@@ -41,11 +41,11 @@ paste the following Tabular source data:
     The following list corresponds to the list of genomic features :heavy_plus_sign: the sequence
     of the PLacZ transgene, given in your [course manual](https://slecrom.github.io/AG2023/ressources/)
     ```
-    https://ftp.flybase.net/genomes/Drosophila_melanogaster/dmel_r6.54_FB2023_05/fasta/dmel-all-chromosome-r6.54.fasta.gz	dmel-r6.54-fasta
-    https://ftp.flybase.net/genomes/Drosophila_melanogaster/dmel_r6.54_FB2023_05/fasta/dmel-all-miRNA-r6.54.fasta.gz	dmel-r6.54-miRNA
-    https://ftp.flybase.net/genomes/Drosophila_melanogaster/dmel_r6.54_FB2023_05/fasta/dmel-all-miscRNA-r6.54.fasta.gz	dmel-r6.54-miscRNA
-    https://ftp.flybase.net/genomes/Drosophila_melanogaster/dmel_r6.54_FB2023_05/fasta/dmel-all-tRNA-r6.54.fasta.gz	dmel-r6.54-tRNA
-    https://ftp.flybase.net/genomes/Drosophila_melanogaster/dmel_r6.54_FB2023_05/gtf/dmel-all-r6.54.gtf.gz	dmel-r6.54-gtf
+    https://psilo.sorbonne-universite.fr/index.php/s/Kdm3_GenomicFeatures/download?path=%2F&files=dmel-all-chromosome-r6.59.fasta	dmel-r6.59-fasta
+    https://psilo.sorbonne-universite.fr/index.php/s/Kdm3_GenomicFeatures/download?path=%2F&files=dmel-all-miRNA-r6.59.fasta	dmel-r6.59-miRNA
+    https://psilo.sorbonne-universite.fr/index.php/s/Kdm3_GenomicFeatures/download?path=%2F&files=dmel-all-miscRNA-r6.59.fasta	dmel-r6.59-miscRNA
+    https://psilo.sorbonne-universite.fr/index.php/s/Kdm3_GenomicFeatures/download?path=%2F&files=dmel-all-tRNA-r6.59.fasta	dmel-r6.59-tRNA
+    https://psilo.sorbonne-universite.fr/index.php/s/Kdm3_GenomicFeatures/download?path=%2F&files=dmel-all-r6.59.gtf	dmel-r6.59-gtf
     https://psilo.sorbonne-universite.fr/index.php/s/Kdm3_GenomicFeatures/download?path=%2F&files=PLacZ.fasta	PLacZ
     ```
 
