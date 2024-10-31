@@ -108,7 +108,7 @@ command line in your web console, copy the returned output (:warning: *copy* is 
 [GitHub Discussion](https://github.com/ARTbio/AnalyseGenome/discussions/29) 
 
 ```
-systemctl status galaxy*.service
+systemctl status galaxy*.service  | grep -v "galaxyctl"
 ```
 
 We are reviewing in a section apart how to display the server activity, stop, start or
