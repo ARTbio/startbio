@@ -1,13 +1,14 @@
 ### 1. Installation of the Galaxy server
 
 We have automated the installation of Galaxy on your Google Virtual Machine.
-All you need is to (i) taking the control of the machine as root and (ii) downloading a 
-bash script and running it.
+All you need is to (i) taking the control of the machine as root and (ii) cloning
+a `AnalyseGenome` folder in your VM and running a bash script, using a single
+command line.
 
-??? warning "Important recommendations before starting"
+??? warning "Recommendations before starting"
    
     The creation of your Galaxy server includes the setup of the Galaxy Services and the
-    installations of ~25 bioinformatics tools to analyse sequencing datasets.
+    installations of ~28 bioinformatics tools to analyse sequencing datasets.
     
     Although it is completely scripted and requires minimal intervention from your part,
     this process **takes ==1 hour in total==, once,** and the deployed server will serve you
@@ -15,16 +16,16 @@ bash script and running it.
     
     Therefore, we ask you **extra focus** on the 2 following sections (including `DEPLOY A
     GALAXY SERVER IN THE VM` and `INSTALL GALAXY TOOLS`) as well as **preparing your
-    Galaxy server well in advance of the Galaxy training week**.
+    Galaxy server in advance of the Galaxy training week**.
     
     ==The two sections should be covered by yourself during the week 48 of Nov 27th, 2023.==
     
     A last practical recommendation about internet connection:
     
     The deployment of the Galaxy server and the installation of Galaxy tools in the server
-    mainly involved remote execution of scripts in your Virtual Machine.
+    involves remote execution of scripts in your Virtual Machine.
     Therefore, it is mandatory that the internet connection between your local terminal
-    (where you are physically working !) and the remote VM ==STAYS UP==.
+    (where you are physically working !) and the remote VM ==STAYS UP== during these two phases.
     
     Some local machines are configured to sleep after a certain amount of time of inactivity.
     This sleeping process MAY STOP YOUR CONNECTION with the VM and consequently STOP the
@@ -49,15 +50,15 @@ So let's do this, step by step, using the ssh Terminal:
 
 ____
 ```
-wget https://raw.githubusercontent.com/ARTbio/AnalyseGenome/main/GalaxyServer/deploy_galaxy.sh && \
-sh deploy_galaxy.sh
+git clone https://github.com/artbio/AnalyseGenome -b ag-2024 && \
+sh AnalyseGenome/deploy_galaxy.sh
 ```
-??? info "What does `wget` command"
-    This command is downloading an installation script located in the GitHub repository
-    @artbio/AnalyseGenome
-??? info "What does `sh deploy_galaxy.sh` command ?"
-    This command runs the sh script
-    [deploy_galaxy.sh](https://raw.githubusercontent.com/ARTbio/AnalyseGenome/main/GalaxyServer/deploy_galaxy.sh)
+??? info "What does `git` command"
+    This command is cloning the GitHub repository @artbio/AnalyseGenome into a
+    local folder named AnalyseGenome
+??? info "What does `sh AnalyseGenome/deploy_galaxy.sh` command ?"
+    This command runs the script
+    [deploy_galaxy.sh](https://raw.githubusercontent.com/ARTbio/AnalyseGenome/refs/heads/ag-2024/GalaxyServer/install_galaxy_tools.sh)
 
 Running `deploy_galaxy.sh` shows abundant log scrolling down. The task being executed are:
 
@@ -65,10 +66,10 @@ Running `deploy_galaxy.sh` shows abundant log scrolling down. The task being exe
   - The Galaxy computing environment (virtualenv) is automatically set up
   - the Galaxy web server is installed (gunicorn) and static pages are built
   - The Galaxy database (SQLite) is automatically upgraded to its latest structure/model
-  - The package manager Conda, which is heavily used by Galaxy to install its tools is installed.
+  - The package manager Conda, which is heavily used by Galaxy to install its tools, is installed.
 
 
-This deployment process takes a while (~20 minutes with the release 23.1 of Galaxy), but
+This deployment process takes a while (~20 minutes with the release 24.1 of Galaxy), but
 this will happen only once.
 
 Naturally, the nextime you start Galaxy, the process will be quickly skipped.
