@@ -26,7 +26,7 @@ signal.
     - **Disque de démarrage (Modifier)**
         - `IMAGES PUBLIQUES`
         - Système d'exploitation: `Ubuntu`
-        - Version*: `Ubuntu 20.04 LTS`
+        - Version: `Ubuntu 22.04 LTS` :point_left: It is important this year that you select this version. Also, take the intel flavor (amd64 should not be possible anyway)
         - Type de disque de démarrage: `Disque persistant avec équilibrage`
         - Taille (Go): ==`200`==
         - ==SELECTIONNER==
