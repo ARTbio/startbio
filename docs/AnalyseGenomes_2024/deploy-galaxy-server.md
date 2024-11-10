@@ -50,23 +50,29 @@ So let's do this, step by step, using the ssh Terminal:
 
 ____
 ```
-git clone https://github.com/artbio/AnalyseGenome -b ag-2024 && \
-sh AnalyseGenome/deploy_galaxy.sh
+git clone https://github.com/artbio/galaxyXpand -b ag2024 && \
+cd galaxyXpand && \
+sh scripts/deploy_ag2024.sh &&
 ```
 ??? info "What does `git` command"
-    This command is cloning the GitHub repository @artbio/AnalyseGenome into a
-    local folder named AnalyseGenome
-??? info "What does `sh AnalyseGenome/deploy_galaxy.sh` command ?"
+    This command is cloning the GitHub repository @artbio/galaxyXpand into a
+    local folder named galaxyXpand.
+    
+    galaxyXpand is a software developped to quickly and easily install a Galaxy
+    server. It is based upon the ansible framework for software deploiement.
+??? info "What does `scripts/deploy_ag2024.sh` command ?"
     This command runs the script
-    [deploy_galaxy.sh](https://raw.githubusercontent.com/ARTbio/AnalyseGenome/refs/heads/ag-2024/GalaxyServer/install_galaxy_tools.sh)
+    [deploy_ag2024.sh](https://github.com/ARTbio/galaxyXpand/blob/ag2024/scripts/deploy_ag2024.sh)
 
-Running `deploy_galaxy.sh` shows abundant log scrolling down. The task being executed are:
+Running `deploy_ag2024.sh` shows abundant log scrolling down. The task being executed are:
 
-  - All python dependencies required for the Galaxy server instance are downloaded and installed
+  - Python dependencies required for the Galaxy server instance are downloaded and installed
+  - The ansible framework v3.0.0 is installed for running the ansible playbooks
   - The Galaxy computing environment (virtualenv) is automatically set up
-  - the Galaxy web server is installed (gunicorn) and static pages are built
-  - The Galaxy database (SQLite) is automatically upgraded to its latest structure/model
+  - The Galaxy web server is installed (nginx reverse proxying gunicorn) and static pages are built
+  - The Galaxy database Postgresql is installed and upgraded to its latest structure/model
   - The package manager Conda, which is heavily used by Galaxy to install its tools, is installed.
+  - Plus many other tasks : a performing Galaxy server is a complex piece of software.
 
 
 This deployment process takes a while (~20 minutes with the release 24.1 of Galaxy), but
