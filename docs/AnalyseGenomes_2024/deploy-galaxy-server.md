@@ -52,7 +52,7 @@ ____
 ```
 git clone https://github.com/artbio/galaxyXpand -b ag2024 && \
 cd galaxyXpand && \
-sh scripts/deploy_ag2024.sh &&
+sh scripts/deploy_ag2024.sh
 ```
 ??? info "What does `git` command"
     This command is cloning the GitHub repository @artbio/galaxyXpand into a
@@ -72,13 +72,16 @@ Running `deploy_ag2024.sh` shows abundant log scrolling down. The task being exe
   - The Galaxy web server is installed (nginx reverse proxying gunicorn) and static pages are built
   - The Galaxy database Postgresql is installed and upgraded to its latest structure/model
   - The package manager Conda, which is heavily used by Galaxy to install its tools, is installed.
-  - Plus many other tasks : a performing Galaxy server is a complex piece of software.
+  - Plus many other tasks : a high-performance server relies on complex software.
+  - [x] The final step in Galaxy deployment is the automated installation of
+    around 15 tools that you will need for your analyses.
 
 
-This deployment process takes a while (~20 minutes with the release 24.1 of Galaxy), but
-this will happen only once.
+In total, the automated deployment of your Galaxy server will take about ~45
+minutes, including the installation of your tool "portfolio".
 
-Naturally, the nextime you start Galaxy, the process will be quickly skipped.
+Naturally, this deployment will happen once. The next time you connect to your
+Galaxy server, you'll be ready to use it !
 
 <center>
 
