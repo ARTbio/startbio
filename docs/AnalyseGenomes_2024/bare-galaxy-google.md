@@ -16,7 +16,7 @@ signal.
 - [x] Create a Virtual Machine Instance
 
 !!! info "with the following settings"
-    - Name: `bare-galaxy`
+    - Name: `ansible-galaxy`
     - Region `europe-west6 (Zurich)` :point_left: Check your Region in the popup table bellow 
     - Zone: `europe-west6-a` (or `-b` or `-c`) :point_left: Check your Zone in the popup table bellow
     - **Configuration de la machine**
@@ -26,7 +26,8 @@ signal.
     - **Disque de démarrage (Modifier)**
         - `IMAGES PUBLIQUES`
         - Système d'exploitation: `Ubuntu`
-        - Version: `Ubuntu 22.04 LTS` :point_left: It is important this year that you select this version. Also, take the intel flavor (amd64 should not be possible anyway)
+        - Version: `Ubuntu 20.04 LTS` :point_left: :warning: Watch to the version number (20.04).
+          When several processor types are available (eg x86, amd, ...) you can choose anyone.
         - Type de disque de démarrage: `Disque persistant avec équilibrage`
         - Taille (Go): ==`200`==
         - ==SELECTIONNER==
@@ -34,7 +35,7 @@ signal.
         - Check `Autoriser le trafic HTTP`
 
 ??? warning "Region and Zone assignments to students :warning:"
-    ==As it is possible that a single Google zone will be able to provide enough resources
+    ==As it is possible that a single Google zone is not able to provide enough resources
     to support 18 virtual machines at the same time, we will distribute our instances to
     different zones in Europe==.
     
@@ -43,25 +44,30 @@ signal.
     Please respect this attribution for your final instance, the one you will use during
     your practical work.
     
-    |    Email prefix    |         Region         |      Zone    |
-    |--------------------|------------------------|--------------|
-    |alix.martin         |europe-west1 (Belgique) |europe-west1-b|
-    |astrid.canal        |europe-west1 (Belgique) |europe-west1-d|
-    |camille.jarry       |europe-west1 (Belgique) |europe-west1-c|
-    |Christine.lin.1     |europe-west2 (Londres)  |europe-west2-c|
-    |claudia.martins     |europe-west2 (Londres)  |europe-west2-b|
-    |coraline.bernachot  |europe-west2 (Londres)  |europe-west2-a|
-    |julie.birgel        |europe-west3 (Francfort)|europe-west3-c|
-    |lasselin            |europe-west3 (Francfort)|europe-west3-a|
-    |laurine.bourel77    |europe-west3 (Francfort)|europe-west3-b|
-    |leila.qebibo        |europe-west6 (Zurich)   |europe-west6-a|
-    |marie.massier       |europe-west6 (Zurich)   |europe-west6-b|
-    |sabine.vautier      |europe-west6 (Zurich)   |europe-west6-c|
-    |Salim.Aiche         |europe-west9 (Paris)    |europe-west9-a|
-    |yelene.etter        |europe-west9 (Paris)    |europe-west9-b|
-    |zoe.guilbert        |europe-west9 (Paris)    |europe-west9-c|
+    |    Email prefix    |         Region           |      Zone         |
+    |--------------------|--------------------------|-------------------|
+    |alleon.gaelle       |europe-west1 (Belgique)   |europe-west1-b     |
+    |enzo.becherel       |europe-west1 (Belgique)   |europe-west1-d     |
+    |emma.benbakir       |europe-west1 (Belgique)   |europe-west1-c     |
+    |samuel.bensoussan   |europe-west2 (Londres)    |europe-west2-c     |
+    |tberthom            |europe-west2 (Londres)    |europe-west2-b     |
+    |gregblavier76       |europe-west2 (Londres)    |europe-west2-a     |
+    |faroukbouraima      |europe-west3 (Francfort)  |europe-west3-c     |
+    |lunadebarbarin      |europe-west3 (Francfort)  |europe-west3-a     |
+    |baptiste.demaret    |europe-west3 (Francfort)  |europe-west3-b     |
+    |nicolas.doucet      |europe-west6 (Zurich)     |europe-west6-a     |
+    |maeva.drai          |europe-west6 (Zurich)     |europe-west6-b     |
+    |yoann.gonneau       |europe-west6 (Zurich)     |europe-west6-c     |
+    |sarah.graine        |europe-west9 (Paris)      |europe-west9-a     |
+    |margot.hully        |europe-west9 (Paris)      |europe-west9-b     |
+    |nathan.lacombe      |europe-west9 (Paris)      |europe-west9-c     |
+    |jules.richez.22     |europe-west10 (Berlin)    |europe-west10-a    |
+    |loann.paterour      |europe-west10 (Berlin)    |europe-west10-b    |
+    |mathilde.quibeuf    |europe-west10 (Berlin)    |europe-west10-c    |
+    |michiel.tawdarous   |europe-southwest1 (Madrid)|europe-southwest1-a|
+    |oceane.wauthier     |europe-southwest1 (Madrid)|europe-southwest1-b|
 
-These settings should look like:
+These settings should be similar to this:
     
 ![](images/GCE_spin.png){width="600px"}
 ![](images/GCE_OS.png){width="450px"}

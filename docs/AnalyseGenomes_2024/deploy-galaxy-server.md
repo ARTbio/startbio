@@ -2,8 +2,8 @@
 
 We have automated the installation of Galaxy on your Google Virtual Machine.
 All you need is to (i) taking the control of the machine as root and (ii) cloning
-a `AnalyseGenome` folder in your VM and running a bash script, using a single
-command line.
+a `galaxyXpand` folder in your VM and running a bash script, using a single
+command line (see below).
 
 ??? warning "Recommendations before starting"
    
@@ -14,13 +14,10 @@ command line.
     this process **takes ==1 hour in total==, once,** and the deployed server will serve you
     for ==_the rest of the training week_==.
     
-    Therefore, we ask you **extra focus** on the 2 following sections (including `DEPLOY A
-    GALAXY SERVER IN THE VM` and `INSTALL GALAXY TOOLS`) as well as **preparing your
-    Galaxy server in advance of the Galaxy training week**.
+    Therefore, we ask you **extra focus** on this section as well as ==preparing your
+    Galaxy server in advance of the Galaxy training week==.
     
-    ==The two sections should be covered by yourself during the week 48 of Nov 27th, 2023.==
-    
-    A last practical recommendation about internet connection:
+    Last practical recommendation about internet connection:
     
     The deployment of the Galaxy server and the installation of Galaxy tools in the server
     involves remote execution of scripts in your Virtual Machine.
@@ -29,13 +26,14 @@ command line.
     
     Some local machines are configured to sleep after a certain amount of time of inactivity.
     This sleeping process MAY STOP YOUR CONNECTION with the VM and consequently STOP the
-    EXECUTION OF YOUR INSTALLATION SCRIPTS. Should this happen, you will have to re-running
-    the whole stopped script, with complications stemming from previous incomplete execution.
+    EXECUTION OF YOUR INSTALLATION SCRIPTS. Should this happen, you will have to re-run
+    the whole interrupted script, with complications stemming from previous incomplete execution.
     
-    Please, keep an eye on your deployment during its execution and take any action to
+    --> Please, keep an eye on your deployment during its execution and take any action to
     prevent internet connection breaks.
 
-So let's do this, step by step, using the ssh Terminal:
+So let's do this, step by step, typin in the ssh Terminal you have opened in the previous
+[section](../bare-galaxy-google/#2-connect-to-the-vm-using-the-ssh-web-console):
 
     
   ```Console
@@ -56,10 +54,10 @@ sh scripts/deploy_ag2024.sh
 ```
 ??? info "What does `git` command"
     This command is cloning the GitHub repository @artbio/galaxyXpand into a
-    local folder named galaxyXpand.
+    local folder named `galaxyXpand`.
     
     galaxyXpand is a software developped to quickly and easily install a Galaxy
-    server. It is based upon the ansible framework for software deploiement.
+    server. It is based upon the ansible framework for software deployment.
 ??? info "What does `scripts/deploy_ag2024.sh` command ?"
     This command runs the script
     [deploy_ag2024.sh](https://github.com/ARTbio/galaxyXpand/blob/ag2024/scripts/deploy_ag2024.sh)

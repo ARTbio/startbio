@@ -205,7 +205,6 @@ nav:
         - PLAN: AnalyseGenomes_2024/outline.md
         - START A VIRTUAL MACHINE IN GOOGLE CLOUD ENGINE : AnalyseGenomes_2024/bare-galaxy-google.md
         - DEPLOY A GALAXY SERVER IN THE VM: AnalyseGenomes_2024/deploy-galaxy-server.md
-        - INSTALL GALAXY TOOLS: AnalyseGenomes_2024/Install_tools.md
         - MANAGE YOUR GOOGLE VM: AnalyseGenomes_2024/manage_VM.md
         - MANAGE YOUR GALAXY SERVER: AnalyseGenomes_2024/manage_galaxy.md
         - LOAD TRAINING DATA: AnalyseGenomes_2024/Loading_data_in_galaxy.md
