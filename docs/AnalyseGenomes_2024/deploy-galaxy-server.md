@@ -50,17 +50,23 @@ ____
 ```
 git clone https://github.com/artbio/galaxyXpand -b ag2024 && \
 cd galaxyXpand && \
-sh scripts/deploy_ag2024.sh
+screen -d -m sh scripts/deploy_ag2024.sh
 ```
-??? info "What does `git` command"
+??? info "What is `git` command doing ?"
     This command is cloning the GitHub repository @artbio/galaxyXpand into a
     local folder named `galaxyXpand`.
     
     galaxyXpand is a software developped to quickly and easily install a Galaxy
     server. It is based upon the ansible framework for software deployment.
-??? info "What does `scripts/deploy_ag2024.sh` command ?"
+??? info "What is `sh scripts/deploy_ag2024.sh` doing ?"
     This command runs the script
     [deploy_ag2024.sh](https://github.com/ARTbio/galaxyXpand/blob/ag2024/scripts/deploy_ag2024.sh)
+
+??? info "What is `screen -d -m` doing ? (Linux geek corner)"
+    `screen -d -m <command>` is starting the <command> in a separate child shell
+    which is in a "detached" mode, ie interruption of your ssh connection will
+    not interrupt the detached shell process. You can see this as a small daemon
+    programm.
 
 Running `deploy_ag2024.sh` shows abundant log scrolling down. The task being executed are:
 
