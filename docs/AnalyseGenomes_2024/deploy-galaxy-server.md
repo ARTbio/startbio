@@ -32,7 +32,7 @@ command line (see below).
     --> Please, keep an eye on your deployment during its execution and take any action to
     prevent internet connection breaks.
 
-So let's do this, step by step, typin in the ssh Terminal you have opened in the previous
+So let's do this, step by step, typing in the ssh Terminal you have opened in the previous
 [section](../bare-galaxy-google/#2-connect-to-the-vm-using-the-ssh-web-console):
 
     
