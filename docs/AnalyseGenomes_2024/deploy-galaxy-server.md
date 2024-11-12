@@ -68,20 +68,48 @@ screen -d -m sh scripts/deploy_ag2024.sh
     not interrupt the detached shell process. You can see this as a small daemon
     programm.
 
-Running `deploy_ag2024.sh` shows abundant log scrolling down. The task being executed are:
+### 2. Monitoring the deployment of the Galaxy server
 
-  - Python dependencies required for the Galaxy server instance are downloaded and installed
-  - The ansible framework v3.0.0 is installed for running the ansible playbooks
-  - The Galaxy computing environment (virtualenv) is automatically set up
-  - The Galaxy web server is installed (nginx reverse proxying gunicorn) and static pages are built
-  - The Galaxy database Postgresql is installed and upgraded to its latest structure/model
-  - The package manager Conda, which is heavily used by Galaxy to install its tools, is installed.
-  - Plus many other tasks : a high-performance server relies on complex software.
-  - [x] The final step in Galaxy deployment is the automated installation of
-    around 15 tools that you will need for your analyses.
+The tasks executed by the `deploy_ag2024.sh` are logged in the file `install_log.txt`.
+??? info "The main steps of the Galaxy server deployment"
+    - The Ubuntu system is updated at its latest version
+    - Python dependencies required for the Galaxy server instance are downloaded and installed
+    - The ansible framework v3.0.0 is installed for running the ansible playbooks
+    - The Galaxy computing environment (virtualenv) is automatically set up
+    - The Galaxy web server is installed (nginx reverse proxying gunicorn) and static pages are built
+    - The Galaxy database Postgresql is installed and upgraded to its latest structure/model
+    - The package manager Conda, which is heavily used by Galaxy to install its tools, is installed.
+    - Plus many other tasks : a high-performance server relies on complex software.
+    - [x] The final step in Galaxy deployment is the automated installation of
+      around 15 tools which you will need for your analyses.
+
+During the installation, you can follow the log just by typing
+`tail -f ~/install_log.txt`. Use Ctrl-C to stop the continuous scrolling (this
+will not affect the execution of `deploy_ag2024.sh`).
+
+When the installation is finished, the last lines of install_log.txt should show
+
+??? info "Last lines of install_log.txt"
+    
+    ```bash
+    TASK [install.galaxy-tools : include_tasks] ************************************
+    skipping: [localhost]
+    
+    TASK [install.galaxy-tools : include_tasks] ************************************
+    skipping: [localhost]
+    
+    PLAY RECAP *********************************************************************
+    localhost                  : ok=11   changed=5    unreachable=0    failed=0    skipped=3    rescued=0    ignored=1
+    ```
+You can read the content of the file `~/deploy_ag2024.sh` using any of the commands
+- `tail`
+- `more`
+- `less`
+- `cat`
+- or your favorite text editor, eg `nano` or `vim`
 
 
-In total, the automated deployment of your Galaxy server will take about ~45
+In total, the automated deployment of your Galaxy server will take **45 to 60**
 minutes, including the installation of your tool "portfolio".
 
 Naturally, this deployment will happen once. The next time you connect to your
@@ -91,30 +119,6 @@ Galaxy server, you'll be ready to use it !
 
 ![](images/coffee_time.png){width="200"}
 </center>
-
-When deployment is finished, you will see the following log in the console:
-
-```{.bash title="Terminal"}
-Adding systemd unit galaxy-gunicorn.service
-Adding systemd unit galaxy-celery.service
-Adding systemd unit galaxy-celery-beat.service
-Adding systemd unit galaxy.target
-Created symlink /etc/systemd/system/multi-user.target.wants/galaxy.target → /etc/systemd/system/galaxy.target.
-  UNIT                       LOAD   ACTIVE SUB     DESCRIPTION
-  galaxy-celery-beat.service loaded active running Galaxy celery-beat
-  galaxy-celery.service      loaded active running Galaxy celery
-  galaxy-gunicorn.service    loaded active running Galaxy gunicorn
-  galaxy.target              loaded active active  Galaxy
-
-LOAD   = Reflects whether the unit definition was properly loaded.
-ACTIVE = The high-level unit activation state, i.e. generalization of SUB.
-SUB    = The low-level unit activation state, values depend on unit type.
-
-4 loaded units listed.
-To show all installed unit files use 'systemctl list-unit-files'.
-Galaxy is now running as a daemon in the background
-and is controlled by systemctl
-```
 
 As a final check that your Galaxy deployment is successful, please, enter the following
 command line in your web console, copy the returned output (:warning: *copy* is not
@@ -128,7 +132,7 @@ systemctl status galaxy*.service
 We are reviewing in a section apart how to display the server activity, stop, start or
 restart it.
 
-### 2. Connect to your living Galaxy instance
+### 3. Connect to your living Galaxy instance
 
 You should now be able to access to you Galaxy instance in a your web browser window.
 
