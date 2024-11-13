@@ -49,7 +49,8 @@ So let's do this, step by step, typing in the ssh Terminal you have opened in th
 ____
 ```
 git clone https://github.com/artbio/galaxyXpand -b ag2024 && \
-screen -d -m sh galaxyXpand/scripts/deploy_ag2024.sh
+screen -d -m sh galaxyXpand/scripts/deploy_ag2024.sh && \
+sleep 5 && tail -f ~/install_log.txt
 ```
 ??? info "What is `git` command doing ?"
     This command is cloning the GitHub repository @artbio/galaxyXpand into a
@@ -69,7 +70,8 @@ screen -d -m sh galaxyXpand/scripts/deploy_ag2024.sh
 
 ### 2. Monitoring the deployment of the Galaxy server
 
-The tasks executed by the `deploy_ag2024.sh` are logged in the file `install_log.txt`.
+The tasks executed by the `deploy_ag2024.sh` are logged in the file `install_log.txt`
+as well as displayed in your terminal (thanks to the `tail -f ~/install_log.txt` command).
 ??? info "The main steps of the Galaxy server deployment"
     - The Ubuntu system is updated at its latest version
     - Python dependencies required for the Galaxy server instance are downloaded and installed
@@ -82,11 +84,9 @@ The tasks executed by the `deploy_ag2024.sh` are logged in the file `install_log
     - [x] The final step in Galaxy deployment is the automated installation of
       around 15 tools which you will need for your analyses.
 
-During the installation, you can follow the log just by typing
-`tail -f ~/install_log.txt`. Use Ctrl-C to stop the continuous scrolling (this
-will not affect the execution of `deploy_ag2024.sh`).
-
-When the installation is finished, the last lines of install_log.txt should show
+:warning: Although the installation log in your terminal may seem to stop for
+several minutes (because of long internal steps), it is only when the following
+lines show up that the Galaxy Installation is finished.
 
 ??? info "Last lines of install_log.txt"
     
@@ -100,16 +100,6 @@ When the installation is finished, the last lines of install_log.txt should show
     PLAY RECAP *********************************************************************
     localhost                  : ok=11   changed=5    unreachable=0    failed=0    skipped=3    rescued=0    ignored=1
     ```
-You can read the content of the file `~/deploy_ag2024.sh` using any of the commands
-- `tail`
-- `more`
-- `less`
-- `cat`
-- or your favorite text editor, eg `nano` or `vim`
-
-
-In total, the automated deployment of your Galaxy server will take **45 to 60**
-minutes, including the installation of your tool "portfolio".
 
 Naturally, this deployment will happen once. The next time you connect to your
 Galaxy server, you'll be ready to use it !
