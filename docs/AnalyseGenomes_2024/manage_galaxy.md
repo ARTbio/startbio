@@ -1,26 +1,23 @@
 !!! info "Galaxy server commands, quick reminder"
     Check that the server is running and see last logs
-    ```
-    systemctl status galaxy*.service
     
-    # the three services Galaxy celery-beat, celery and gunicorn must be
-    # active and running (green)
+    :warning: The following commands won't working if you are not logged as root.
+    (`sudo -i` at your initial connection)
+    
+    - [x] Check the state of the Galaxy server
     ```
-    Restart the server
+    galaxyctl status
     ```
-    systemctl restart galaxy.target
+    - [x] Restart **gently** the Galaxy server
     ```
-    Start the Galaxy server, if for any reason it is down
+    galaxyctl graceful 
     ```
-    systemctl start galaxy.target
+    - [x] Restart "firmly" the Galaxy server (if for whatever reason it is frozen)
     ```
-    Follow the activity of the web part only (gunicorn) of the Galaxy server:
+    galaxyctl restart
     ```
-    systemctl status galaxy-gunicorn.service
+    - [x] Follow the activity log of the Galaxy WEB server:
     ```
-
-## A graphical view of the Galaxy server states and the commands to control them
-
-![Galaxy server states](images/GalaxyStates-AG2022.png){width="1200"}
-
+    galaxyctl follow
+    ```
 ---
