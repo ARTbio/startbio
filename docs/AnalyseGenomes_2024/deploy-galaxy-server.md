@@ -49,8 +49,7 @@ So let's do this, step by step, typing in the ssh Terminal you have opened in th
 ____
 ```
 git clone https://github.com/artbio/galaxyXpand -b ag2024 && \
-cd galaxyXpand && \
-screen -d -m sh scripts/deploy_ag2024.sh
+screen -d -m sh galaxyXpand/scripts/deploy_ag2024.sh
 ```
 ??? info "What is `git` command doing ?"
     This command is cloning the GitHub repository @artbio/galaxyXpand into a
