@@ -49,7 +49,7 @@ So let's do this, step by step, typing in the ssh Terminal you have opened in th
 ____
 ```
 git clone https://github.com/artbio/galaxyXpand -b ag2024 && \
-screen -d -m sh galaxyXpand/scripts/deploy_ag2024.sh && \
+screen -d -m sh ~/galaxyXpand/scripts/deploy_ag2024.sh && \
 sleep 5 && tail -f ~/install_log.txt
 ```
 ??? info "What is `git` command doing ?"
@@ -58,20 +58,45 @@ sleep 5 && tail -f ~/install_log.txt
     
     galaxyXpand is a software developped to quickly and easily install a Galaxy
     server. It is based upon the ansible framework for software deployment.
-??? info "What is `sh scripts/deploy_ag2024.sh` doing ?"
+??? info "What is `screen -d -m` doing ? (:metal: Linux geek corner)"
+    `screen -d -m <command>` is starting the <command> in a separate child shell
+    and a "detached" mode. This way, interruption of your ssh connection will
+    not interrupt the detached shell process. You can see this as a small daemon
+    programm.
+??? info "What is `sh ~/galaxyXpand/scripts/deploy_ag2024.sh` doing ?"
     This command runs the script
     [deploy_ag2024.sh](https://github.com/ARTbio/galaxyXpand/blob/ag2024/scripts/deploy_ag2024.sh)
 
-??? info "What is `screen -d -m` doing ? (Linux geek corner)"
-    `screen -d -m <command>` is starting the <command> in a separate child shell
-    which is in a "detached" mode, ie interruption of your ssh connection will
-    not interrupt the detached shell process. You can see this as a small daemon
-    programm.
 
-### 2. Monitoring the deployment of the Galaxy server
+### 2. About monitoring the deployment of the Galaxy server
 
-The tasks executed by the `deploy_ag2024.sh` are logged in the file `install_log.txt`
-as well as displayed in your terminal (thanks to the `tail -f ~/install_log.txt` command).
+The tasks executed by the `deploy_ag2024.sh` are displayed in your terminal
+(thanks to the `tail -f ~/install_log.txt` command) as well as logged in the
+file `install_log.txt`.
+
+:warning: Although the installation log in your terminal may seem to stop for
+several minutes (because of long internal steps), it is only when the following
+lines show up that the Galaxy Installation is finished.
+
+??? info "Last lines of install_log.txt"
+    
+    ```bash
+    changed: [localhost] => (item={'name': 'sambamba', 'owner': 'artbio', 'tool_panel_section_id': 'samtools', 'tool_panel_section_label': 'Samtools', 'tool_shed_url': 'https://toolshed.g2.bx.psu.edu/'})
+    changed: [localhost] => (item={'name': 'bedtools', 'owner': 'iuc', 'tool_panel_section_id': 'bedtools', 'tool_panel_section_label': 'Bedtools', 'tool_shed_url': 'https://toolshed.g2.bx.psu.edu/'})
+    
+    TASK [install.galaxy-tools : include_tasks] ************************************
+    kipping: [localhost]
+    
+    TASK [install.galaxy-tools : include_tasks] ************************************
+    skipping: [localhost]
+    
+    PLAY RECAP *********************************************************************
+    localhost                  : ok=11   changed=5    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
+    
+    Wed Nov 13 18:05:40 UTC 2024
+    Installation is complete
+    ```
+
 ??? info "The main steps of the Galaxy server deployment"
     - The Ubuntu system is updated at its latest version
     - Python dependencies required for the Galaxy server instance are downloaded and installed
@@ -83,47 +108,31 @@ as well as displayed in your terminal (thanks to the `tail -f ~/install_log.txt`
     - Plus many other tasks : a high-performance server relies on complex software.
     - [x] The final step in Galaxy deployment is the automated installation of
       around 15 tools which you will need for your analyses.
-
-:warning: Although the installation log in your terminal may seem to stop for
-several minutes (because of long internal steps), it is only when the following
-lines show up that the Galaxy Installation is finished.
-
-??? info "Last lines of install_log.txt"
     
-    ```bash
-    TASK [install.galaxy-tools : include_tasks] ************************************
-    skipping: [localhost]
-    
-    TASK [install.galaxy-tools : include_tasks] ************************************
-    skipping: [localhost]
-    
-    PLAY RECAP *********************************************************************
-    localhost                  : ok=11   changed=5    unreachable=0    failed=0    skipped=3    rescued=0    ignored=1
-    ```
+    **Naturally, this deployment will happen once. The next time you connect to your
+    Galaxy server, you'll be ready to use it !**
 
-Naturally, this deployment will happen once. The next time you connect to your
-Galaxy server, you'll be ready to use it !
+**:point_right: Your contribution is expected**
 
-<center>
-
-![](images/coffee_time.png){width="200"}
-</center>
-
-As a final check that your Galaxy deployment is successful, please, enter the following
-command line in your web console, copy the returned output (:warning: *copy* is not
-*screenshot*), and paste it in this
-[GitHub Discussion](https://github.com/ARTbio/AnalyseGenome/discussions/29) 
-
+As a final check that your Galaxy deployment is successful, type ++ctrl++++c++
+to get the hand back over your web terminal, and enter the following
+command line :
 ```
-systemctl status galaxy*.service
+galaxyctl status
 ```
+Copy the returned output (:warning: *copy* is not *screenshot*), and paste it in
+this [GitHub Discussion](https://github.com/ARTbio/AnalyseGenome/discussions/40) 
 
 We are reviewing in a section apart how to display the server activity, stop, start or
 restart it.
 
+<center>
+![](images/coffee_time.png){width="150"}
+</center>
+
 ### 3. Connect to your living Galaxy instance
 
-You should now be able to access to you Galaxy instance in a your web browser window.
+You should now be able to access to you Galaxy instance in a web browser window.
 
 - Go back to your Google Cloud Engine control panel.
 - Find the `External IP address` / `Adresse IP externe` in the 7th column of the dashboard
@@ -133,7 +142,7 @@ You should now be able to access to you Galaxy instance in a your web browser wi
   
 - Click on the hyperlink.
 - In the new browser window, follow the menu `Authentification et enregistrement`
-  --> `Enregistrement` --> `Register here`
+  --> `Enregistrement` --> `Don't have an account? Register here.`
   
   ![register](images/register.png){ width="300" }
 
