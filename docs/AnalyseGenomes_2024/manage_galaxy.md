@@ -1,5 +1,5 @@
 !!! info "Galaxy server commands, quick reminder"
-    :warning: The following commands won't working if you are not logged as root.
+    :warning: The following commands won't work if you are not logged as root.
     (`sudo -i` at your initial connection)
     
     - [x] Check the state of the Galaxy server
