@@ -1,6 +1,4 @@
 !!! info "Galaxy server commands, quick reminder"
-    Check that the server is running and see last logs
-    
     :warning: The following commands won't working if you are not logged as root.
     (`sudo -i` at your initial connection)
     
