@@ -11,26 +11,34 @@ command line (see below).
     installations of ~28 bioinformatics tools to analyse sequencing datasets.
     
     Although it is completely scripted and requires minimal intervention from your part,
-    this process **takes ==1 hour in total==, once,** and the deployed server will serve you
+    this process **takes ==~1 hour in total==, once,** and the deployed server will serve you
     for ==_the rest of the training week_==.
     
     Therefore, we ask you **extra focus** on this section as well as ==preparing your
-    Galaxy server in advance of the Galaxy training week==.
+    Galaxy server in advance of the Galaxy training week== **starting on Monday
+    2nd, December - 2024**.
     
-    Last practical recommendation about internet connection:
+    **Practical recommendation about internet connection:**
     
-    The deployment of the Galaxy server and the installation of Galaxy tools in the server
-    involves remote execution of scripts in your Virtual Machine.
-    Therefore, it is mandatory that the internet connection between your local terminal
-    (where you are physically working !) and the remote VM ==STAYS UP== during these two phases.
+    The deployment of the Galaxy server and the installation of Galaxy tools
+    in the server involves **remote execution** of scripts in your Virtual Machine.
+    Therefore, it is much better that the internet connection between your local
+    terminal (where you are physically working) and the remote VM ==**STAYS UP**==
+    and that you stay physically around your screen during these two phases.
     
     Some local machines are configured to sleep after a certain amount of time of inactivity.
-    This sleeping process MAY STOP YOUR CONNECTION with the VM and consequently STOP the
-    EXECUTION OF YOUR INSTALLATION SCRIPTS. Should this happen, you will have to re-run
-    the whole interrupted script, with complications stemming from previous incomplete execution.
+    This sleeping process may stop your connection with the VM and consequently
+    give you the inconfortable feeling that you "lost the thread".
+    However, should you loose your SSH connection,
+    for any reason, do not [panic and restart everything from scratch.]
     
-    --> Please, keep an eye on your deployment during its execution and take any action to
-    prevent internet connection breaks.
+    Indeed, once the installation software is triggered, it will continue in the
+    background of ubuntu until its completion and independently from the SSH
+    connection. 
+    
+    --> Just reconnect to your VM instance and follow the running installation
+    whose log is keept in /root/install_log.txt, using the command
+    `tail -f /root/install_log.txt`
 
 So let's do this, step by step, typing in the ssh Terminal you have opened in the previous
 [section](../bare-galaxy-google/#2-connect-to-the-vm-using-the-ssh-web-console):
@@ -59,10 +67,12 @@ sleep 5 && tail -f ~/install_log.txt
     galaxyXpand is a software developped to quickly and easily install a Galaxy
     server. It is based upon the ansible framework for software deployment.
 ??? info "What is `screen -d -m` doing ? (:metal: Linux geek corner)"
-    `screen -d -m <command>` is starting the <command> in a separate child shell
-    and a "detached" mode. This way, interruption of your ssh connection will
-    not interrupt the detached shell process. You can see this as a small daemon
-    programm.
+    `screen -d -m <command>` is starting the `<command>` in a separate child shell
+    and a "detached" mode. In this particular case, `deploy_ag2024.sh` is run in a
+    "orphean child shell". This way, interruption of your ssh connection with the
+    parent shell will not interrupt the detached shell process.
+    
+    You can see it as a small "daemon" program :smiling_imp:.
 ??? info "What is `sh ~/galaxyXpand/scripts/deploy_ag2024.sh` doing ?"
     This command runs the script
     [deploy_ag2024.sh](https://github.com/ARTbio/galaxyXpand/blob/ag2024/scripts/deploy_ag2024.sh)
@@ -94,7 +104,7 @@ lines show up that the Galaxy Installation is finished.
     localhost                  : ok=11   changed=5    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
     
     Wed Nov 13 18:05:40 UTC 2024
-    Installation is complete
+    -- Installation is complete --
     ```
 
 ??? info "The main steps of the Galaxy server deployment"
@@ -107,7 +117,7 @@ lines show up that the Galaxy Installation is finished.
     - The package manager Conda, which is heavily used by Galaxy to install its tools, is installed.
     - Plus many other tasks : a high-performance server relies on complex software.
     - [x] The final step in Galaxy deployment is the automated installation of
-      around 15 tools which you will need for your analyses.
+      28 tools which you will need for your analyses.
     
     **Naturally, this deployment will happen once. The next time you connect to your
     Galaxy server, you'll be ready to use it !**
