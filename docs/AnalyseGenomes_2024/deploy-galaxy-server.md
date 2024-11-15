@@ -122,16 +122,22 @@ lines show up that the Galaxy Installation is finished.
     **Naturally, this deployment will happen once. The next time you connect to your
     Galaxy server, you'll be ready to use it !**
 
-**:point_right: Your contribution is expected**
+![](images/checkpoint.png){width="80"}
 
-As a final check that your Galaxy deployment is successful, type ++ctrl++++c++
-to get the hand back over your web terminal, and enter the following
-command line :
-```
-galaxyctl status
-```
-Copy the returned output (:warning: *copy* is not *screenshot*), and paste it in
-this [GitHub Discussion](https://github.com/ARTbio/AnalyseGenome/discussions/40) 
+:point_right: We need to check that your Galaxy server has been successfully
+deployed
+
+- [ ] Type ++ctrl++++c++ to get the hand back over your web terminal
+- [ ] Copy and paste the last lines of the installation log in the
+  a new post in this
+  [GitHub Discussion](https://github.com/ARTbio/AnalyseGenome/discussions/40).
+  These lines should be similar to the textbox above ("Last lines of install_log.txt")
+- [ ] Enter the following command line :
+  ```
+  galaxyctl status
+  ```
+  copy the returned output (:warning: *copy* is not *screenshot*) and paste it in
+  the same post in the [GitHub Discussion](https://github.com/ARTbio/AnalyseGenome/discussions/40) 
 
 We are reviewing in a section apart how to display the server activity, stop, start or
 restart it.
