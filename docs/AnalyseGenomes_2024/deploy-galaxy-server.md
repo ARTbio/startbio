@@ -1,44 +1,16 @@
-### 1. Installation of the Galaxy server
+### 1. Initial checking
+Before anything, let's check that the Google Virtual Machine that you have started
+has the required characteristics.
 
-We have automated the installation of Galaxy on your Google Virtual Machine.
-All you need is to (i) taking the control of the machine as root and (ii) cloning
-a `galaxyXpand` folder in your VM and running a bash script, using a single
-command line (see below).
+Assuming that you have reached the end of the previous
+[section](../bare-galaxy-google/#2-connect-to-the-vm-using-the-ssh-web-console), you have your
+WEB SSH window opened in front of you.
 
-??? warning "Recommendations before starting"
-   
-    The creation of your Galaxy server includes the setup of the Galaxy Services and the
-    installations of ~28 bioinformatics tools to analyse sequencing datasets.
-    
-    Although it is completely scripted and requires minimal intervention from your part,
-    this process **takes ==1 hour in total==, once,** and the deployed server will serve you
-    for ==_the rest of the training week_==.
-    
-    Therefore, we ask you **extra focus** on this section as well as ==preparing your
-    Galaxy server in advance of the Galaxy training week==.
-    
-    Last practical recommendation about internet connection:
-    
-    The deployment of the Galaxy server and the installation of Galaxy tools in the server
-    involves remote execution of scripts in your Virtual Machine.
-    Therefore, it is mandatory that the internet connection between your local terminal
-    (where you are physically working !) and the remote VM ==STAYS UP== during these two phases.
-    
-    Some local machines are configured to sleep after a certain amount of time of inactivity.
-    This sleeping process MAY STOP YOUR CONNECTION with the VM and consequently STOP the
-    EXECUTION OF YOUR INSTALLATION SCRIPTS. Should this happen, you will have to re-run
-    the whole interrupted script, with complications stemming from previous incomplete execution.
-    
-    --> Please, keep an eye on your deployment during its execution and take any action to
-    prevent internet connection breaks.
+Type in
+```
+sudo -i
+```
 
-So let's do this, step by step, typing in the ssh Terminal you have opened in the previous
-[section](../bare-galaxy-google/#2-connect-to-the-vm-using-the-ssh-web-console):
-
-    
-  ```Console
-  sudo -i
-  ```
 ??? info "What does `sudo -i` command ?"
     This command open a new `shell` where you are root. You can check this by typing `whoami`
     that should return `root`, meaning that you are now working as `root` user.
@@ -46,7 +18,63 @@ So let's do this, step by step, typing in the ssh Terminal you have opened in th
     This is required because installation of new programs as well as manipulations of network
     interfaces is permitted only to users with administration rights.
 
-____
+Now, type the following command
+
+```
+lsb_release -a && lscpu | grep 'CPU(s):' && free -h | grep 'Mem:' && df -h | grep '/$'
+```
+
+ - [x] Then, copy the text returned by this command (no screenshot, please) in a separate
+post (one by student) in this GitHub
+[discussion](https://github.com/ARTbio/AnalyseGenome/discussions/41){:target="_blank"}
+
+<center>
+![](images/checkpoint.png){width="80"}
+</center> 
+---
+
+### 2. Installation of the Galaxy server
+??? warning "Recommendations before starting"
+   
+    The creation of your Galaxy server includes the setup of the Galaxy Services and the
+    installations of ~28 bioinformatics tools to analyse sequencing datasets.
+    
+    Although it is completely scripted and requires minimal intervention from your part,
+    this process **takes ==~1 hour in total==, once,** and the deployed server will serve you
+    for ==_the rest of the training week_==.
+    
+    Therefore, we ask you **extra focus** on this section as well as ==preparing your
+    Galaxy server in advance of the Galaxy training week== **starting on Monday
+    2nd, December - 2024**.
+    
+    **Practical recommendation about internet connection:**
+    
+    The deployment of the Galaxy server and the installation of Galaxy tools
+    in the server involves **remote execution** of scripts in your Virtual Machine.
+    Therefore, it is much better that the internet connection between your local
+    terminal (where you are physically working) and the remote VM ==**STAYS UP**==
+    and that you stay physically around your screen during these two phases.
+    
+    Some local machines are configured to sleep after a certain amount of time of inactivity.
+    This sleeping process may stop your connection with the VM and consequently
+    give you the inconfortable feeling that you "lost the thread".
+    However, should you loose your SSH connection,
+    for any reason, do not [panic and restart everything from scratch.]
+    
+    Indeed, once the installation software is triggered, it will continue in the
+    background of ubuntu until its completion and independently from the SSH
+    connection. 
+    
+    --> Just reconnect to your VM instance and follow the running installation
+    whose log is keept in /root/install_log.txt, using the command
+    `tail -f /root/install_log.txt`
+
+We have automated the installation of Galaxy on your Google Virtual Machine.
+All you need is to clone a `galaxyXpand` folder in your VM and run a bash script,
+using a single command.
+
+--> Copy the full content of the box below and paste it in your ssh terminal.
+
 ```
 git clone https://github.com/artbio/galaxyXpand -b ag2024 && \
 screen -d -m sh ~/galaxyXpand/scripts/deploy_ag2024.sh && \
@@ -59,16 +87,19 @@ sleep 5 && tail -f ~/install_log.txt
     galaxyXpand is a software developped to quickly and easily install a Galaxy
     server. It is based upon the ansible framework for software deployment.
 ??? info "What is `screen -d -m` doing ? (:metal: Linux geek corner)"
-    `screen -d -m <command>` is starting the <command> in a separate child shell
-    and a "detached" mode. This way, interruption of your ssh connection will
-    not interrupt the detached shell process. You can see this as a small daemon
-    programm.
+    `screen -d -m <command>` is starting the `<command>` in a separate child shell
+    and a "detached" mode. In this particular case, `deploy_ag2024.sh` is run in a
+    "orphean child shell". This way, interruption of your ssh connection with the
+    parent shell will not interrupt the detached shell process.
+    
+    You can see it as a small "daemon" program :smiling_imp:.
+
 ??? info "What is `sh ~/galaxyXpand/scripts/deploy_ag2024.sh` doing ?"
     This command runs the script
     [deploy_ag2024.sh](https://github.com/ARTbio/galaxyXpand/blob/ag2024/scripts/deploy_ag2024.sh)
 
 
-### 2. About monitoring the deployment of the Galaxy server
+### 3. Monitoring the deployment of the Galaxy server
 
 The tasks executed by the `deploy_ag2024.sh` are displayed in your terminal
 (thanks to the `tail -f ~/install_log.txt` command) as well as logged in the
@@ -94,7 +125,7 @@ lines show up that the Galaxy Installation is finished.
     localhost                  : ok=11   changed=5    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
     
     Wed Nov 13 18:05:40 UTC 2024
-    Installation is complete
+    -- Installation is complete --
     ```
 
 ??? info "The main steps of the Galaxy server deployment"
@@ -107,30 +138,30 @@ lines show up that the Galaxy Installation is finished.
     - The package manager Conda, which is heavily used by Galaxy to install its tools, is installed.
     - Plus many other tasks : a high-performance server relies on complex software.
     - [x] The final step in Galaxy deployment is the automated installation of
-      around 15 tools which you will need for your analyses.
+      28 tools which you will need for your analyses.
     
     **Naturally, this deployment will happen once. The next time you connect to your
     Galaxy server, you'll be ready to use it !**
 
-**:point_right: Your contribution is expected**
+:point_right: We need to check that your Galaxy server has been successfully
+deployed
 
-As a final check that your Galaxy deployment is successful, type ++ctrl++++c++
-to get the hand back over your web terminal, and enter the following
-command line :
-```
-galaxyctl status
-```
-Copy the returned output (:warning: *copy* is not *screenshot*), and paste it in
-this [GitHub Discussion](https://github.com/ARTbio/AnalyseGenome/discussions/40) 
-
-We are reviewing in a section apart how to display the server activity, stop, start or
-restart it.
-
+- [x] Type ++ctrl++++c++ to get the hand back over your web terminal
+- [x] Copy and paste the last lines of the installation log in
+  a new post in this
+  [GitHub Discussion](https://github.com/ARTbio/AnalyseGenome/discussions/40){:target="_blank"}.
+  These lines should be similar to the textbox above ("Last lines of install_log.txt")
+- [x] Enter the following command line :
+  ```
+  galaxyctl status
+  ```
+  copy the returned output (:warning: *copy* is not *screenshot*) and paste it in
+  the same post in the [GitHub Discussion](https://github.com/ARTbio/AnalyseGenome/discussions/40){:target="_blank"}
 <center>
-![](images/coffee_time.png){width="150"}
-</center>
-
-### 3. Connect to your living Galaxy instance
+![](images/checkpoint.png){width="80"}
+</center> 
+---
+### 4. Connect to your living Galaxy instance
 
 You should now be able to access to you Galaxy instance in a web browser window.
 
@@ -157,3 +188,10 @@ You should now be able to access to you Galaxy instance in a web browser window.
   ![](images/admin_menu.png){ width="600" }
   
   ==You are connected to Galaxy as an admin !==
+
+??? bug "If you do not see the `admin` menu"
+    This is most likely due to an error in the login which must be
+    exactly `admin@galaxy.org`
+    
+    --> Just register another user with the proper email address
+---
