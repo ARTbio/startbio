@@ -1,6 +1,4 @@
 ### 1. Initial checking
-![](images/checkpoint.png){width="80"}
-
 Before anything, let's check that the Google Virtual Machine that you have started
 has the required characteristics.
 
@@ -27,9 +25,12 @@ lsb_release -a && lscpu | grep 'CPU(s):' && free -h | grep 'Mem:' && df -h | gre
 ```
 
  - [x] Then, copy the text returned by this command (no screenshot, please) in a separate
-post (one by student) in this
+post (one by student) in this GitHub
 [discussion](https://github.com/ARTbio/AnalyseGenome/discussions/41){:target="_blank"}
 
+<center>
+![](images/checkpoint.png){width="80"}
+</center> 
 ---
 
 ### 2. Installation of the Galaxy server
@@ -141,13 +142,11 @@ lines show up that the Galaxy Installation is finished.
     **Naturally, this deployment will happen once. The next time you connect to your
     Galaxy server, you'll be ready to use it !**
 
-![](images/checkpoint.png){width="80"}
-
 :point_right: We need to check that your Galaxy server has been successfully
 deployed
 
 - [x] Type ++ctrl++++c++ to get the hand back over your web terminal
-- [x] Copy and paste the last lines of the installation log in the
+- [x] Copy and paste the last lines of the installation log in
   a new post in this
   [GitHub Discussion](https://github.com/ARTbio/AnalyseGenome/discussions/40){:target="_blank"}.
   These lines should be similar to the textbox above ("Last lines of install_log.txt")
@@ -157,14 +156,10 @@ deployed
   ```
   copy the returned output (:warning: *copy* is not *screenshot*) and paste it in
   the same post in the [GitHub Discussion](https://github.com/ARTbio/AnalyseGenome/discussions/40){:target="_blank"}
-
-We are reviewing in a section apart how to display the server activity, stop, start or
-restart it.
-
 <center>
-![](images/coffee_time.png){width="150"}
-</center>
-
+![](images/checkpoint.png){width="80"}
+</center> 
+---
 ### 4. Connect to your living Galaxy instance
 
 You should now be able to access to you Galaxy instance in a web browser window.
@@ -192,3 +187,10 @@ You should now be able to access to you Galaxy instance in a web browser window.
   ![](images/admin_menu.png){ width="600" }
   
   ==You are connected to Galaxy as an admin !==
+
+??? bug "If you do not see the `admin` menu"
+    This is most likely due to an error in the login which must be
+    exactly `admin@galaxy.org`
+    
+    --> Just register another user with the proper email address
+---

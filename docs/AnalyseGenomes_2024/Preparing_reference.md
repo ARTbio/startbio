@@ -11,9 +11,9 @@ and of possible derived indexes.
 
 <center>![](images/galaxy_indexing.svg){ width="600" }</center>
 
-## 1. :wrench: Prepare the _Drosophila_ genome dmel-all-chromosome-r6.54 for indexation.
+## 1. :wrench: Prepare the _Drosophila_ genome dmel-all-chromosome-r6.59 for indexation.
 
-In the history `REFERENCES` we have uploaded a `dmel-all-chromosome-r6.54` dataset. If you
+In the history `REFERENCES` we have uploaded a `dmel-all-chromosome-r6.59` dataset. If you
 click on the name of the dataset, you will expand the (green) dataset box and see that it
 is a fasta format dataset which contains 1870 sequences.
 
@@ -73,7 +73,7 @@ sub-menu `Analyse des Génomes`. Note that now that the tool is installed, you c
 by typing `Regex Find And Replace` in the search box at the top of the tool bar.
 
 !!! note "fill the form of :wrench: [Regex Find And Replace]"
-    - **Select lines from**: `1. dmel-r6.54`
+    - **Select lines from**: `1. dmel-r6.59`
     - **Check**: Click `Insert Check`
     - **Find Regex**:
       
@@ -89,7 +89,7 @@ by typing `Regex Find And Replace` in the search box at the top of the tool bar.
 ??? question "What can you say, at least for the chromosome 2L ?"
     The visible header is now `>2L`.
     It was `>2L type=golden_path; loc=2L:1..23513712; ID=2L; dbxref=GB:AE014134,GB:AE014134,
-    REFSEQ:NT_033779; MD5=b6a98b7c676bdaa11ec9521ed15aff2b; length=23513712; release=r6.54; species=Dmel;`
+    REFSEQ:NT_033779; MD5=b6a98b7c676bdaa11ec9521ed15aff2b; length=23513712; release=r6.59; species=Dmel;`
     before !
 - [x] Create a short list of string "on the fly" with :wrench: [Upload Data]
 !!! note ""
@@ -117,13 +117,13 @@ by typing `Regex Find And Replace` in the search box at the top of the tool bar.
     - **retrieve sequences whose headers...**: `exactly` **+** `contain one of this list string`
     - **list of strings dataset**: `13. chromosome_list`
     - **Click :heavy_check_mark:`Execute`**
-- [x] Rename the created dataset using the pencil icon :pencil2: as `dmel-MAIN-chromosome-r6.54`
-??? question "What can you notice if you look at `dmel-MAIN-chromosome-r6.54` ?"
+- [x] Rename the created dataset using the pencil icon :pencil2: as `dmel-MAIN-chromosome-r6.59`
+??? question "What can you notice if you look at `dmel-MAIN-chromosome-r6.59` ?"
     The number of fasta sequence is `7 sequences`
 ??? question "How can we check that the right chromosomes have been collected in the dataset ?"
     Use the :wrench: **Select lines** that match an expression (Galaxy Version 1.0.3)
     
-    - **Select lines from**: `dmel-MAIN-chromosome-r6.54`
+    - **Select lines from**: `dmel-MAIN-chromosome-r6.59`
     - **that**: `Matching`
     - **the pattern**: `^>`
     - **Keep header line**: `No`
@@ -131,7 +131,7 @@ by typing `Regex Find And Replace` in the search box at the top of the tool bar.
     
     From the result, can you deduce the role of the caret sign `^` in the regular expression ?
 
-### B. :wrench: Declare the `dmel-MAIN-chromosome-r6.54` dataset as a reference to Galaxy.
+### B. :wrench: Declare the `dmel-MAIN-chromosome-r6.59` dataset as a reference to Galaxy.
 Now that we have a "clean" Drosophila reference genome in fasta format, it is time to notice
 it to Galaxy. This is an administrator task which we are going to perform.
 
@@ -145,12 +145,12 @@ it to Galaxy. This is an administrator task which we are going to perform.
 
 !!! note "Fill the form of :wrench: **Create DBKey and Reference Genome** _fetching_"
     - **Use existing dbkey or create a new one.**: `New`
-    - **dbkey**: Choose a simple identifier such as `dmel-r6.54`
+    - **dbkey**: Choose a simple identifier such as `dmel-r6.59`
     - **Display name for dbkey**: _Leave this field empty_
     - **Name of Sequence**: _Leave this field empty_
     - **ID for sequence**: _Leave this field empty_
     - **Choose the source for the reference genome**: `History`
-    - **FASTA file**: `dmel-MAIN-chromosome-r6.54`
+    - **FASTA file**: `dmel-MAIN-chromosome-r6.59`
     - **Sort by chromosome name**: `As is`
     - **Click :arrow_forward:`Run Tool`**
 
@@ -160,19 +160,19 @@ be deleted.
 
 In contrast, if you go back to other Galaxy web page with the local data management board,
 you can now click on the Tool Data Tables `__dbkeys__ ` and `all_fasta` and see that the
-Galaxy database now contains informations in these tables about the dmel-r6.54 reference
+Galaxy database now contains informations in these tables about the dmel-r6.59 reference
 genome.
 
-## 2. :wrench: Index `dmel-r6.54` for **Bowtie**.
+## 2. :wrench: Index `dmel-r6.59` for **Bowtie**.
 
-Now that the dmel-r6.54 genome is referenced in Galaxy with a dbkey, it is easy to prepare corresponding
+Now that the dmel-r6.59 genome is referenced in Galaxy with a dbkey, it is easy to prepare corresponding
 indexes for the aligner Bowtie.
 
 - [x] Go back to the local data manager board
 - [x] Click on the data manager **Bowtie index** _builder_
 
 !!! note "Fill the form of :wrench: **Bowtie index** _builder_"
-    - **Source FASTA Sequence**: `dmel-r6.54` (no other choice !)
+    - **Source FASTA Sequence**: `dmel-r6.59` (no other choice !)
     - **Name of Sequence**: _Leave this field empty_
     - **ID for sequence**: _Leave this field empty_
     - **Click :arrow_forward:`Run Tool`**

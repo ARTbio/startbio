@@ -5,34 +5,33 @@ For the course "Analyse des Génomes", we need three types of datasets
 - [x] Librairies of sequencing reads from mRNA (for Gene differential expression analysis)
 
 All these data have been deposited in the storage server
-[Psilo](https://psilo.sorbonne-universite.fr/index.php/s/yHSoKGZKMeJkeXa) at
-Sorbonne-Université.
+[Psilo](https://psilo.sorbonne-universite.fr/) at Sorbonne-Université.
 
 ### Get data "by URL"
-As these data _**are available through a URL**_ (Universal Resource Location) we will use
-as before the menu `Paste/Fetch Data` of the `Upload Data` menu.
+As these data _**are available through URLs**_ (Universal Resource Locations) we will use
+the menu `Paste/Fetch Data` of the `Upload Data` menu.
 
 ??? warning "There are other methods to upload data in Galaxy !"
     * You can transfer data from your local machine (the one where your keyboard is plugged !)
       to Galaxy
+    * You can upload a single dataset using its URL on a remote server
     * You can upload data to your Galaxy FTP account and then transfer these data from your
     Galaxy FTP directory to one of your Galaxy histories.
 
     
 #### 1. Upload of reference files as a batch of multiple URLs :heavy_plus_sign: Programmatic file naming
 
-As you have already uploaded single files using their url, we are going to use a more
-powerful procedure which is appropriate when uploading numerous files.
+We are going to use a procedure which is powerful when you have to upload numerous
+files associated to known URLs.
 
-Before all, create a new history by clicking the :heavy_plus_sign: icon in the history header
+Before anything, create a new history by clicking the :heavy_plus_sign: icon in the history header
 
 ![](images/history_header.png){width="300"}
 
-and immediately renaming the new history as
-`References`.
+and immediately rename the new history as `References`.
 
 - [x] Click the `Upload Data` button at the top-left corner of the Galaxy interface.
-- [x] This time, Click the `Rule-based` tab !
+- [x] Click the `Rule-based` tab
 - [x] Leave **Upload data as** `Datasets` and **Load tabular data from** `Pasted Table`
 - [x] In the text field `Tabular source data to extract collection files and metadata from`,
 paste the following Tabular source data:
@@ -71,12 +70,12 @@ and choose `Add/Modify Column Definitions`
 
 !!! info ":ice_cream: small RNAseq datasets"
     ```
-    https://psilo.sorbonne-universite.fr/index.php/s/Kdm3_smallRNAseqData/download?path=%2F&files=ALBA25.fastqsanger.gz	WT-ALBA25
-    https://psilo.sorbonne-universite.fr/index.php/s/Kdm3_smallRNAseqData/download?path=%2F&files=ALBA26.fastqsanger.gz	WT-ALBA26
-    https://psilo.sorbonne-universite.fr/index.php/s/Kdm3_smallRNAseqData/download?path=%2F&files=ALBA27.fastqsanger.gz	WT-ALBA27 
     https://psilo.sorbonne-universite.fr/index.php/s/Kdm3_smallRNAseqData/download?path=%2F&files=ALBA28.fastqsanger.gz	GLKD-ALBA28
     https://psilo.sorbonne-universite.fr/index.php/s/Kdm3_smallRNAseqData/download?path=%2F&files=ALBA29.fastqsanger.gz	GLKD-ALBA29
     https://psilo.sorbonne-universite.fr/index.php/s/Kdm3_smallRNAseqData/download?path=%2F&files=ALBA30.fastqsanger.gz	GLKD-ALBA30
+    https://psilo.sorbonne-universite.fr/index.php/s/Kdm3_smallRNAseqData/download?path=%2F&files=ALBA25.fastqsanger.gz	WT-ALBA25
+    https://psilo.sorbonne-universite.fr/index.php/s/Kdm3_smallRNAseqData/download?path=%2F&files=ALBA26.fastqsanger.gz	WT-ALBA26
+    https://psilo.sorbonne-universite.fr/index.php/s/Kdm3_smallRNAseqData/download?path=%2F&files=ALBA27.fastqsanger.gz	WT-ALBA27
     ```
 - [x] Click the `Build` button
 - [x] In the `Build Rules ...` pannel that opened, click the ![](images/plus_rules.png){width="80" align="absbottom"}
@@ -105,12 +104,13 @@ and choose `Add/Modify Column Definitions`
       paste the following Tabular source data:
 !!! info ":doughnut: RNAseq datasets"
     ```
-    https://psilo.sorbonne-universite.fr/index.php/s/Kdm3_RNAseqData/download?path=%2F&files=ALBA4.fastqsanger.gz	WT-ALBA4
-    https://psilo.sorbonne-universite.fr/index.php/s/Kdm3_RNAseqData/download?path=%2F&files=ALBA5.fastqsanger.gz	WT-ALBA5
-    https://psilo.sorbonne-universite.fr/index.php/s/Kdm3_RNAseqData/download?path=%2F&files=ALBA6.fastqsanger.gz	WT-ALBA6
     https://psilo.sorbonne-universite.fr/index.php/s/Kdm3_RNAseqData/download?path=%2F&files=ALBA1.fastqsanger.gz	GLKD-ALBA1
     https://psilo.sorbonne-universite.fr/index.php/s/Kdm3_RNAseqData/download?path=%2F&files=ALBA2.fastqsanger.gz	GLKD-ALBA2
     https://psilo.sorbonne-universite.fr/index.php/s/Kdm3_RNAseqData/download?path=%2F&files=ALBA3.fastqsanger.gz	GLKD-ALBA3
+    https://psilo.sorbonne-universite.fr/index.php/s/Kdm3_RNAseqData/download?path=%2F&files=ALBA4.fastqsanger.gz	WT-ALBA4
+    https://psilo.sorbonne-universite.fr/index.php/s/Kdm3_RNAseqData/download?path=%2F&files=ALBA5.fastqsanger.gz	WT-ALBA5
+    https://psilo.sorbonne-universite.fr/index.php/s/Kdm3_RNAseqData/download?path=%2F&files=ALBA6.fastqsanger.gz	WT-ALBA6
+    https://psilo.sorbonne-universite.fr/index.php/s/Kdm3_RNAseqData/download?path=%2F&files=TestMapping.fastqsanger.gz	Test-Mapping    
     ```
 
 - [x] Click the `Build` button
