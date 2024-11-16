@@ -1,10 +1,38 @@
-### 1. Installation of the Galaxy server
+### 1. Initial checking
+![](images/checkpoint.png){width="80"}
 
-We have automated the installation of Galaxy on your Google Virtual Machine.
-All you need is to (i) taking the control of the machine as root and (ii) cloning
-a `galaxyXpand` folder in your VM and running a bash script, using a single
-command line (see below).
+Before anything, let's check that the Google Virtual Machine that you have started
+has the required characteristics.
 
+Assuming that you have reached the end of the previous
+[section](../bare-galaxy-google/#2-connect-to-the-vm-using-the-ssh-web-console), you have your
+WEB SSH window opened in front of you.
+
+Type in
+```
+sudo -i
+```
+
+??? info "What does `sudo -i` command ?"
+    This command open a new `shell` where you are root. You can check this by typing `whoami`
+    that should return `root`, meaning that you are now working as `root` user.
+    
+    This is required because installation of new programs as well as manipulations of network
+    interfaces is permitted only to users with administration rights.
+
+Now, type the following command
+
+```
+lsb_release -a && lscpu | grep 'CPU(s):' && free -h | grep 'Mem:' && df -h | grep '/$'
+```
+
+ - [x] Then, copy the text returned by this command (no screenshot, please) in a separate
+post (one by student) in this
+[discussion](https://github.com/ARTbio/AnalyseGenome/discussions/41){:target="_blank"}
+
+---
+
+### 2. Installation of the Galaxy server
 ??? warning "Recommendations before starting"
    
     The creation of your Galaxy server includes the setup of the Galaxy Services and the
@@ -40,21 +68,12 @@ command line (see below).
     whose log is keept in /root/install_log.txt, using the command
     `tail -f /root/install_log.txt`
 
-So let's do this, step by step, typing in the ssh Terminal you have opened in the previous
-[section](../bare-galaxy-google/#2-connect-to-the-vm-using-the-ssh-web-console):
+We have automated the installation of Galaxy on your Google Virtual Machine.
+All you need is to clone a `galaxyXpand` folder in your VM and run a bash script,
+using a single command.
 
-    
-  ```Console
-  sudo -i
-  ```
-??? info "What does `sudo -i` command ?"
-    This command open a new `shell` where you are root. You can check this by typing `whoami`
-    that should return `root`, meaning that you are now working as `root` user.
-    
-    This is required because installation of new programs as well as manipulations of network
-    interfaces is permitted only to users with administration rights.
+--> Copy the full content of the box below and paste it in your ssh terminal.
 
-____
 ```
 git clone https://github.com/artbio/galaxyXpand -b ag2024 && \
 screen -d -m sh ~/galaxyXpand/scripts/deploy_ag2024.sh && \
@@ -78,7 +97,7 @@ sleep 5 && tail -f ~/install_log.txt
     [deploy_ag2024.sh](https://github.com/ARTbio/galaxyXpand/blob/ag2024/scripts/deploy_ag2024.sh)
 
 
-### 2. About monitoring the deployment of the Galaxy server
+### 3. Monitoring the deployment of the Galaxy server
 
 The tasks executed by the `deploy_ag2024.sh` are displayed in your terminal
 (thanks to the `tail -f ~/install_log.txt` command) as well as logged in the
@@ -127,17 +146,17 @@ lines show up that the Galaxy Installation is finished.
 :point_right: We need to check that your Galaxy server has been successfully
 deployed
 
-- [ ] Type ++ctrl++++c++ to get the hand back over your web terminal
-- [ ] Copy and paste the last lines of the installation log in the
+- [x] Type ++ctrl++++c++ to get the hand back over your web terminal
+- [x] Copy and paste the last lines of the installation log in the
   a new post in this
-  [GitHub Discussion](https://github.com/ARTbio/AnalyseGenome/discussions/40).
+  [GitHub Discussion](https://github.com/ARTbio/AnalyseGenome/discussions/40){:target="_blank"}.
   These lines should be similar to the textbox above ("Last lines of install_log.txt")
-- [ ] Enter the following command line :
+- [x] Enter the following command line :
   ```
   galaxyctl status
   ```
   copy the returned output (:warning: *copy* is not *screenshot*) and paste it in
-  the same post in the [GitHub Discussion](https://github.com/ARTbio/AnalyseGenome/discussions/40) 
+  the same post in the [GitHub Discussion](https://github.com/ARTbio/AnalyseGenome/discussions/40){:target="_blank"}
 
 We are reviewing in a section apart how to display the server activity, stop, start or
 restart it.
@@ -146,7 +165,7 @@ restart it.
 ![](images/coffee_time.png){width="150"}
 </center>
 
-### 3. Connect to your living Galaxy instance
+### 4. Connect to your living Galaxy instance
 
 You should now be able to access to you Galaxy instance in a web browser window.
 
