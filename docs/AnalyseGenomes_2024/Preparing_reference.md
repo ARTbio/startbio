@@ -48,8 +48,8 @@ this tool shed.
     ```
     - Select the tool owned by `galaxyp` (this is the one we want).
         and click the `install` button of the lattest revision `5`, version `1.0.3`
-    - In the `Target Section:` menu, select `AG 2023`.
-        Thus, the tool will appears in the section `AG 2023` of your Galaxy tools.
+    - In the `Target Section:` menu, select `AG 2024`.
+        Thus, the tool will appears in the section `AG 2024` of your Galaxy tools.
     - Click `OK`
     - In the next few seconds, you will notice that the status goes through various
       stages/colors. This can be quick and you may miss it...
