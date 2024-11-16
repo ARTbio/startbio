@@ -93,6 +93,7 @@ sleep 5 && tail -f ~/install_log.txt
     parent shell will not interrupt the detached shell process.
     
     You can see it as a small "daemon" program :smiling_imp:.
+
 ??? info "What is `sh ~/galaxyXpand/scripts/deploy_ag2024.sh` doing ?"
     This command runs the script
     [deploy_ag2024.sh](https://github.com/ARTbio/galaxyXpand/blob/ag2024/scripts/deploy_ag2024.sh)
