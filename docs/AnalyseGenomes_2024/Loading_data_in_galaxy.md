@@ -130,9 +130,8 @@ and choose `Add/Modify Column Definitions`
 
 
 #### 4. Uncompress datasets
-
-:warning: [_Section 4 should be optionnal_, see with Stéphane, I do not think it is
-necessary, but he's the boss !]
+:warning: Section 4 is optional because Galaxy is managing transparently file
+decompression when necessary.
 
 At this stage, we have uploaded small RNA and RNA sequencing datasets as `fastqsanger.gz`.
 To simplify the subsequent analyzes we are going to uncompress all these datasets, whose
