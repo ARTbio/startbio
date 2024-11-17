@@ -11,7 +11,7 @@ mkdir ~/bowtie_work && cd ~/bowtie_work
 ```
 ```
 wget https://ftp.flybase.net/genomes/dmel/dmel_r6.54_FB2023_05/fasta/dmel-all-chromosome-r6.54.fasta.gz \
-     https://psilo.sorbonne-universite.fr/index.php/s/HYLtfo9d2eD3Q2A/download/GRH-103_R1.fastq.gz
+     https://psilo.sorbonne-universite.fr/index.php/s/p6SEEQGQw39NJ3N/download/GRH-103.fastq.gz
 ```
 Check the imported files using:
 ```
@@ -35,7 +35,7 @@ apt update && apt install -y bowtie samtools
 
 ## Clip fastq reads from their sequence adapter and output clipped sequences in a fasta format
 ```
-cat GRH-103_R1.fastq | \
+cat GRH-103.fastq | \
 perl -ne 'if (/^([GATC]{18,})TGGAATT/){$count++; print ">$count\n"; print "$1\n"}' \
 > clipped_GRH-103.fa
 ```

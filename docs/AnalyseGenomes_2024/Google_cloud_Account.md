@@ -5,18 +5,17 @@ a Google Cloud coupon.
 Through this URL, you will be asked to provide your University email address and your name.
 This year, valid email addresses have the following domain names
 
-- sorbonne-university.fr
-- etu.sorbonne-universite.fr
-- u-paris.fr
-- univ-rouen.fr
-- etu.unicaen.fr
-- edu.bio.ens.psl.eu
-- u-psud.fr
+- [x] etu.sorbonne-universite.fr
+- [x] etu.u-paris.fr
+- [x] ens-paris-saclay.fr
+- [x] edu.bio.ens.psl.eu
+- [x] ens.psl.eu
+- [x] sorbonne-universite.fr
 
 An email
 will be sent to you to confirm these details before a coupon is sent to you.
 
-- Your coupon is valid through: 11/20/2024
+- Your coupon is valid through: 12/11/2025
 - You can **only request ONE coupon per unique** email address.
 
 # Access to your Google Cloud Account
@@ -120,10 +119,8 @@ Roll down the `ssh` menu in the control pannel and select the first option
     lsb_release -a && lscpu | grep 'CPU(s):' && free -h | grep 'Mem:' && df -h | grep '/$'
     ```
 
-- [x] Copy the result of this command and paste it in the chanel `galaxy` of your Slack
-    `Analyse des Génomes 2023`
-    This should look like:
-??? info "Exemple of returned result"
+    The returned info should look like:
+??? info "Exemple of returned info"
     ```
     drosofff@bare-galaxy:~$ lsb_release -a && lscpu | grep 'CPU(s):' && free -h | grep 'Mem:' && df -h | grep '/$'
     No LSB modules are available.
@@ -138,7 +135,7 @@ Roll down the `ssh` menu in the control pannel and select the first option
     ```
 
 - [x] You can now close the console window
-- [x] :warning: Do not forget to stop (or even trash) your instance:
+- [x] :warning: Do not forget to stop (or suspend) your instance:
     ![](images/stop_vm.png){width="500px"}
 
 ---
