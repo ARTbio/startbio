@@ -208,6 +208,7 @@ nav:
         - MANAGE YOUR GOOGLE VM: AnalyseGenomes_2024/manage_VM.md
         - MANAGE YOUR GALAXY SERVER: AnalyseGenomes_2024/manage_galaxy.md
         - LOAD TRAINING DATA: AnalyseGenomes_2024/Loading_data_in_galaxy.md
+        - LAST CHECK BEFORE BUILDING GENOME INDEX: AnalyseGenomes_2024/histories_check.md
         - PREPARE A REFERENCE GENOME: AnalyseGenomes_2024/Preparing_reference.md
         - Format conversion using command lines in your Google VM: AnalyseGenomes_2024/file_parsing_cli.md
         - Format conversion using a galaxy tool: AnalyseGenomes_2024/file_parsing_galaxy.md
