@@ -107,7 +107,8 @@ file `install_log.txt`.
 
 :warning: Although the installation log in your terminal may seem to stop for
 several minutes (because of long internal steps), it is only when the following
-lines show up that the Galaxy Installation is finished.
+lines show up that the Galaxy Installation is finished. Keep cool :sunglasses:
+and remember that the full deployment lasts for ~50 mins.
 
 ??? info "Last lines of install_log.txt"
     
