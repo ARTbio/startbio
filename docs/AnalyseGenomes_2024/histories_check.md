@@ -37,8 +37,8 @@ Then, take a screenshot of these histories, similar to the following image.
 ![](images/AG_input_data_histories.png){width="600px"}
 
 And please, paste your screenshot in the third GitHub
-[discussion](https://github.com/ARTbio/AnalyseGenome/discussions/42) in a
-separate comment (one by student).
+[discussion](https://github.com/ARTbio/AnalyseGenome/discussions/42){:target="_blank"}
+in a separate comment (one by student).
 
 <center>
 ![](images/thanks.jpg){width="300px"}
