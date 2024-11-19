@@ -100,7 +100,7 @@ These settings should be similar to this:
 
 ### 3. Connect to the VM using the ssh web console and check that everything is fine
 
-Roll down the `ssh` menu in the control pannel and select the first option
+- [x] Roll down the `ssh` menu in the control pannel and select the first option
 
 `Ouvrir dans une fenêtre du navigateur`
 
@@ -111,7 +111,7 @@ Roll down the `ssh` menu in the control pannel and select the first option
 ![](images/web_ssh_console.png)
 
 
-Assuming that you have reached this point you can now type in the web console
+- [x] Assuming that you have reached this point you can now type in the web console
 the following command (you can copy it from the box bellow)
 
 ```
@@ -128,4 +128,14 @@ post (one by student) in this GitHub
 
 ![](images/checkpoint.png){width="80"}
 </center> 
+
+### 4. Suspend or continue
+
+If you intend to go through the next section, there is no other action to
+complete here.
+
+In contrast, if it is late or you are planing to do something else, suspend your
+VM, using the small pop up menu (with 3 vertical dots) : 
+
+![](images/stop_vm.png){width="500px"}
 ---
