@@ -73,7 +73,7 @@ sub-menu `Analyse des Génomes`. Note that now that the tool is installed, you c
 by typing `Regex Find And Replace` in the search box at the top of the tool bar.
 
 !!! note "fill the form of :wrench: [Regex Find And Replace]"
-    - **Select lines from**: `1. dmel-r6.59`
+    - **Select lines from**: `1. dmel-r6.59-fasta`
     - **Check**: Click `Insert Check`
     - **Find Regex**:
       
