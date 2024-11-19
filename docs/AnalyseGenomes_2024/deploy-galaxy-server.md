@@ -1,12 +1,8 @@
-### 1. Initial checking
-Before anything, let's check that the Google Virtual Machine that you have started
-has the required characteristics.
+### 1. Connect your VM as Root
 
-Assuming that you have reached the end of the previous
-[section](../bare-galaxy-google/#2-connect-to-the-vm-using-the-ssh-web-console), you have your
-WEB SSH window opened in front of you.
+If you have previously suspended your VM, reactivate it and open a WEB SSH window.
+If you just completed the previous section, type :
 
-Type in
 ```
 sudo -i
 ```
@@ -17,21 +13,6 @@ sudo -i
     
     This is required because installation of new programs as well as manipulations of network
     interfaces is permitted only to users with administration rights.
-
-Now, type the following command
-
-```
-lsb_release -a && lscpu | grep 'CPU(s):' && free -h | grep 'Mem:' && df -h | grep '/$'
-```
-
- - [x] Then, copy the text returned by this command (no screenshot, please) in a separate
-post (one by student) in this GitHub
-[discussion](https://github.com/ARTbio/AnalyseGenome/discussions/41){:target="_blank"}
-
-<center>
-![](images/checkpoint.png){width="80"}
-</center> 
----
 
 ### 2. Installation of the Galaxy server
 ??? warning "Recommendations before starting"
@@ -144,8 +125,7 @@ and remember that the full deployment lasts for ~50 mins.
     **Naturally, this deployment will happen once. The next time you connect to your
     Galaxy server, you'll be ready to use it !**
 
-:point_right: We need to check that your Galaxy server has been successfully
-deployed
+### 4. :point_right: Galaxy Server Check
 
 - [x] Type ++ctrl++++c++ to get the hand back over your web terminal
 - [x] Copy and paste the last lines of the installation log in
@@ -156,13 +136,13 @@ deployed
   ```
   galaxyctl status
   ```
-  copy the returned output (:warning: *copy* is not *screenshot*) and paste it in
+- [x] copy the returned output (:warning: *copy* is not *screenshot*) and paste it in
   the same post in the [GitHub Discussion](https://github.com/ARTbio/AnalyseGenome/discussions/40){:target="_blank"}
 <center>
 ![](images/checkpoint.png){width="80"}
 </center> 
 ---
-### 4. Connect to your living Galaxy instance
+### 5. Connect to your living Galaxy instance
 
 You should now be able to access to you Galaxy instance in a web browser window.
 
