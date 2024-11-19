@@ -141,7 +141,7 @@ and remember that the full deployment lasts for ~50 mins.
 <center>
 ![](images/checkpoint.png){width="80"}
 </center> 
----
+
 ### 5. Connect to your living Galaxy instance
 
 You should now be able to access to you Galaxy instance in a web browser window.
