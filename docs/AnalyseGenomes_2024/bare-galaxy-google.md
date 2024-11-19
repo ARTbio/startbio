@@ -137,5 +137,6 @@ complete here.
 In contrast, if it is late or you are planing to do something else, suspend your
 VM, using the small pop up menu (with 3 vertical dots) : 
 
-![](images/suspend.png){width="500px"}
+![](images/suspend.png){width="800px"}
+
 ---
