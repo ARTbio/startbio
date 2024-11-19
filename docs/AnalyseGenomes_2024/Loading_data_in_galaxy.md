@@ -32,8 +32,8 @@ and immediately rename the new history as `References`.
 
 - [x] Click the `Upload Data` button at the top-left corner of the Galaxy interface.
 - [x] Click the `Rule-based` tab
-- [x] Leave **Upload data as** `Datasets` and **Load tabular data from** `Pasted Table`
-- [x] In the text field `Tabular source data to extract collection files and metadata from`,
+- [x] Leave **Upload data as** `Datasets`
+- [x] In the text field `Insert tabular source data to extract collection files and metadata.`,
 paste the following Tabular source data:
 
 !!! info ":candy: URLs of references (genome and RNA classes)"
