@@ -182,7 +182,7 @@ You should now be able to access to you Galaxy instance in a web browser window.
   ```
   admin@galaxy.org
   ```
-  and the password of your choice (:warning: don't forget it)
+  and the password of your choice (:warning: don't forget it). Use an easy to remember one as you will need to type it frequently.
   
 - After login, you should see the admin tab in the top menu of the Galaxy interface.
   
