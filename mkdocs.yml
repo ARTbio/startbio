@@ -215,8 +215,6 @@ nav:
         - Running a galaxy workflow: AnalyseGenomes_2024/Run_workflow.md
         - Why administering galaxy ?: AnalyseGenomes_2024/whyadmin.md
         - "Spin off a VM with your Google Cloud Account": AnalyseGenomes_2024/Google_cloud_Account.md
-        # - "Appendix 2: Start and stop a Google virtual machine": AnalyseGenomes_2024/spin_off_VM.md
-        # - "Appendix 3: The ADMIN tool kit": AnalyseGenomes_2024/admin_kit.md
         - "EMERGENCY image": AnalyseGenomes_2024/emergency_image.md
         - SUP MATERIAL:
           - BOWTIE ALIGNMENT USING COMMAND LINES: AnalyseGenomes_2024/bowtie_cli.md
