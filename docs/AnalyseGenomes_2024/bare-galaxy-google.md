@@ -3,7 +3,8 @@
 - [x] You have obtained and activated your Google Coupon for this training as described in
 [Appendix 1](../Google_cloud_Account)
 - [x] You have accessed to the Google dashboard and tested Starting and Stopping a virtual
-machine (VM) instance as described in [Appendix 1](../Google_cloud_Account)
+machine (VM) instance as described in
+["Spin off a VM with your Google Cloud Account"](../Google_cloud_Account)
 
 ### 1. Spin off a virtual Machine `bare-galaxy` with ![](images/google-padok.png){width="30px" align="bottom"} Google Cloud Engine
 
