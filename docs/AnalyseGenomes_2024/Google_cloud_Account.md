@@ -135,7 +135,8 @@ Roll down the `ssh` menu in the control pannel and select the first option
     ```
 
 - [x] You can now close the console window
-- [x] :warning: Do not forget to stop (or suspend) your instance:
+- [x] :warning: This was just a test. Thus we ask you to **trash/delete** your
+      Virtual Machine, using the small pop up menu (with 3 vertical dots) : 
     ![](images/stop_vm.png){width="500px"}
 
 ---
