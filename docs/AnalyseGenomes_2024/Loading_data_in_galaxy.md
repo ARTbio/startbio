@@ -64,9 +64,11 @@ and choose `Add/Modify Column Definitions`
   `Small RNA sequence datasets`
 - [x] Click the `Upload Data` button at the top-left corner of the Galaxy interface.
 - [x] Click the `Rule-based`tab as we just did with the reference datasets
-- [x] Leave **Upload data as** `Datasets` and **Load tabular data from** `Pasted Table`
-- [x] In the text field `Tabular source data to extract collection files and metadata from`,
+- [x] Leave **Upload data as** `Datasets`
+- [x] In the text field `Insert tabular source data to extract collection files and metadata.`,
       paste the following Tabular source data:
+
+??? warning "From the list below, choose the two samples you are going to work on as indicated in the [table shared online](https://docs.google.com/spreadsheets/d/1aOcIwFhsY8qtf-cb1hz1NWUmFlfvU1sVO73e-tBzybs/edit?gid=243437883)."
 
 !!! info ":ice_cream: small RNAseq datasets"
     ```
@@ -83,15 +85,8 @@ and choose `Add/Modify Column Definitions`
 - [x] Click a first time on `Add Definition` and Select `URL`. Leave the URL column to `A`
 - [x] Click a second time on `Add Definition`, select `Name` and choose the column `B` for `Name`
 - [x] Now, click the `Apply` button
-- [x] select the Type "fastqsanger.gz" at the bottom of the panel. :warning: In the menu,
-      the `fastqsanger.gz` looks very similar to the `fasqcsanger.gz` data type, which is
-      obsolete. The extra `c` makes a big difference and will put your future jobs in error.
-      Alternatively, you can let Galaxy guess the datatype. Nowadays, it is pretty good at
-      this !
-
-    ![](images/type_fastqsanger_gz.png){width="200"}
-
 - [x] To finish the job, click on the dark-blue button `Upload`
+
 <center>:tada:	:confetti_ball:	:balloon: :tada:	:confetti_ball:	:balloon:</center>
 
 #### 3. RNAseq datasets (for gene differential expression analysis)
@@ -99,9 +94,12 @@ and choose `Add/Modify Column Definitions`
 - [x] Create a new history in Galaxy and rename it `RNA sequence datasets`
 - [x] Click the `Upload Data` button at the top-left corner of the Galaxy interface.
 - [x] Click the `Rule-based`tab as we just did with the reference datasets
-- [x] Leave **Upload data as** `Datasets` and **Load tabular data from** `Pasted Table`
-- [x] In the text field `Tabular source data to extract collection files and metadata from`,
+- [x] Leave **Upload data as** `Datasets`
+- [x] In the text field `Insert tabular source data to extract collection files and metadata.`,
       paste the following Tabular source data:
+
+??? warning "From the list below, choose the two samples you are going to work on as indicated in the [table shared online](https://docs.google.com/spreadsheets/d/1aOcIwFhsY8qtf-cb1hz1NWUmFlfvU1sVO73e-tBzybs/edit?gid=418538100). and the Test-Mapping sample"
+
 !!! info ":doughnut: RNAseq datasets"
     ```
     https://psilo.sorbonne-universite.fr/index.php/s/Kdm3_RNAseqData/download?path=%2F&files=ALBA1.fastqsanger.gz	GLKD-ALBA1
@@ -119,11 +117,7 @@ and choose `Add/Modify Column Definitions`
 - [x] Click a first time on `Add Definition` and Select `URL`. Leave the URL column to `A`
 - [x] Click a second time on `Add Definition`, select `Name` and choose the column `B` for `Name`
 - [x] Click the `Apply` button
-- [x] select the Type "fastqsanger.gz" at the bottom of the panel
-
-    ![](images/type_fastqsanger_gz.png){width="200"}
-
-- [x] And to finish the job, click on the dark-blue button `Upload`
+- [x] To finish the job, click on the dark-blue button `Upload`
 
 <center>:tada:	:confetti_ball:	:balloon: :tada:	:confetti_ball:	:balloon:
 :tada:	:confetti_ball:	:balloon: :tada:	:confetti_ball:	:balloon:</center>
