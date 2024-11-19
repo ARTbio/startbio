@@ -1,12 +1,10 @@
-### 0. Prerequisite
+### 1. Prerequisite
 
-- [x] You have obtained and activated your Google Coupon for this training as described in
-[Appendix 1](../Google_cloud_Account)
-- [x] You have accessed to the Google dashboard and tested Starting and Stopping a virtual
-machine (VM) instance as described in
+Before starting this section, you have to complete successfully all the
+instructions given in
 ["Spin off a VM with your Google Cloud Account"](../Google_cloud_Account)
 
-### 1. Spin off a virtual Machine `bare-galaxy` with ![](images/google-padok.png){width="30px" align="bottom"} Google Cloud Engine
+### 2. Spin off a virtual Machine `ansible-galaxy` with ![](images/google-padok.png){width="30px" align="bottom"} Google Cloud Engine
 
 Before starting, we recommend you to pay extra attention any time you see the :warning:
 signal.
@@ -100,7 +98,7 @@ These settings should be similar to this:
         - [x] In this case, try another `Zone` (-b or -c), and/or another `Region`, in Europe or
         America.
 
-### 2. Connect to the VM using the ssh web console
+### 3. Connect to the VM using the ssh web console
 
 Roll down the `ssh` menu in the control pannel and select the first option
 

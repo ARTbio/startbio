@@ -139,4 +139,8 @@ Roll down the `ssh` menu in the control pannel and select the first option
       Virtual Machine, using the small pop up menu (with 3 vertical dots) : 
     ![](images/stop_vm.png){width="500px"}
 
+??? tip "If you have some difficulties to follow the instructions of this section"
+    Please say HELP in the Slack Board Chanel #tp1-droso.
+    
+    The more specific you are, the better help you will get (take home message).
 ---
