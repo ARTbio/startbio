@@ -38,7 +38,7 @@ paste the following Tabular source data:
 
 !!! info ":candy: URLs of references (genome and RNA classes)"
     The following list corresponds to the list of genomic features :heavy_plus_sign: the sequence
-    of the PLacZ transgene, given in your [course manual](https://slecrom.github.io/AG2023/ressources/)
+    of the PLacZ transgene, given in your [course manual](https://slecrom.github.io/AG2024/ressources/)
     ```
     https://psilo.sorbonne-universite.fr/index.php/s/Kdm3_GenomicFeatures/download?path=%2F&files=dmel-all-chromosome-r6.59.fasta	dmel-r6.59-fasta
     https://psilo.sorbonne-universite.fr/index.php/s/Kdm3_GenomicFeatures/download?path=%2F&files=dmel-all-miRNA-r6.59.fasta	dmel-r6.59-miRNA
