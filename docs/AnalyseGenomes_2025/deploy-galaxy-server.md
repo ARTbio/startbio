@@ -69,15 +69,15 @@ sleep 5 && tail -f ~/install_log.txt
     server. It is based upon the ansible framework for software deployment.
 ??? info "What is `screen -d -m` doing ? (:metal: Linux geek corner)"
     `screen -d -m <command>` is starting the `<command>` in a separate child shell
-    and a "detached" mode. In this particular case, `deploy_ag2024.sh` is run in a
+    and a "detached" mode. In this particular case, `deploy_ag2025.sh` is run in a
     "orphean child shell". This way, interruption of your ssh connection with the
     parent shell will not interrupt the detached shell process.
     
     You can see it as a small "daemon" program :smiling_imp:.
 
-??? info "What is `sh ~/galaxyXpand/scripts/deploy_ag2024.sh` doing ?"
+??? info "What is `sh ~/galaxyXpand/scripts/deploy_ag2025.sh` doing ?"
     This command runs the script
-    [deploy_ag2024.sh](https://github.com/ARTbio/galaxyXpand/blob/ag2024/scripts/deploy_ag2024.sh)
+    [deploy_ag2025.sh](https://github.com/ARTbio/galaxyXpand/blob/ubuntu24.04/scripts/deploy_ag2025.sh)
 
 
 ### 3. Monitoring the deployment of the Galaxy server
