@@ -57,8 +57,8 @@ using a single command.
 --> Copy the full content of the box below and paste it in your ssh terminal.
 
 ```
-git clone https://github.com/artbio/galaxyXpand -b ag2024 && \
-screen -d -m sh ~/galaxyXpand/scripts/deploy_ag2024.sh && \
+git clone https://github.com/artbio/galaxyXpand -b ubuntu24.04 && \
+screen -d -m sh ~/galaxyXpand/scripts/deploy_ag2025.sh && \
 sleep 5 && tail -f ~/install_log.txt
 ```
 ??? info "What is `git` command doing ?"
