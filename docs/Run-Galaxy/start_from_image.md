@@ -17,7 +17,7 @@ me, or provide me by any mean (Slack, GitHub, etc.), your Gmail adress identifie
 # Starting a new VM instance from the image `analyse-genomes-v6`
 
 ## 1. open the form for creating an instance
-This will be mostly done as in [this section](../GalaxyKickStart/#deployment) which we
+This will be mostly done as in [this section](GalaxyKickStart.md#deployment) which we
 are reproducing bellow, except that for the `Disque de démarrage` (`Boot disk`), we are
 not going to choose `IMAGES PUBLIQUES`/`PUBLIC IMAGES` :
 
@@ -57,7 +57,7 @@ small RNA datasets and RNA datasets, as well as already buit dataset collections
 
 # <center>:nail_care:</center>
 :warning: Do not forget to attach your static IP address to this VM (as described
-[here](../Preparing_reference/#a-reserve-a-static-ip-address)) if you wish to use it for
+[here](Preparing_reference.md#a-reserve-a-static-ip-address)) if you wish to use it for
 your analyses.
 
 

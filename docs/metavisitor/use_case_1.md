@@ -24,7 +24,7 @@ You now see a page with all the workflow steps, whose top part looks like:
 
 - As pointed by the first red arrow, a parameter has to be provided at runtime of the workflow: the **ncbi_guide_ID**. In this Use Case as in the other 1-2 and 1-3 Use Cases, you will paste in the **ncbi_guide_ID** field the `NC_007919.3_`value. This is the NCBI identifier for the Nora virus genome sequence which will be retrieved from Genbank during the workflow and used as a guide for the final reconstruction of the Nora virus genome sequence that is "present" in the analyzed small RNA sequencing datasets.
 
-- You have to select an Input dataset collection for Step 1 (second red arrow). However, as there is only one dataset collection in the input history (the one we have prepared in the [previous chapter](use_cases_input_data/#history-with-input-data-for-use-cases-1-1-1-2-1-3-and-1-4)), there is no other option in the menu than "**SRP013822**".
+- You have to select an Input dataset collection for Step 1 (second red arrow). However, as there is only one dataset collection in the input history (the one we have prepared in the [previous chapter](use_cases_input_data.md#history-with-input-data-for-use-cases-1-1-1-2-1-3-and-1-4)), there is no other option in the menu than "**SRP013822**".
 
 - You have to select the viral nucleotide Blast database for Step 2. Here again there is indeed nothing else to select than the "**nucleotide vir2 blast database**", just because there is only one dataset in the input history with the "blast database" type.
 

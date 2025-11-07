@@ -2,7 +2,7 @@
 
 **Before following this section, you have to complete successfully all the
 instructions given in
-["Spin off a VM with your Google Cloud Account"](../Google_cloud_Account)**
+["Spin off a VM with your Google Cloud Account"](Google_cloud_Account.md)**
 
 ### 2. Spin off a virtual Machine `ansible-galaxy` with ![](images/google-padok.png){width="30px" align="bottom"} Google Cloud Engine
 

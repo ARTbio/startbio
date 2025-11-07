@@ -7,8 +7,8 @@ more on their [website](https://www.tidyverse.org/). It contains the following R
 - `tidyr`: Tidy Messy Data
 - `stringr`: Simple, Consistent Wrappers for Common String Operations
 - `tibble`: Simple Data Frames
-- `ggplot2`: Create Elegant Data Visualisations Using the Grammar of Graphics (coming [next](../r09_viz_ggplot2))
-- `readr`: Read Rectangular Text Data (seen previously [here](../r07_data_import_export))
+- `ggplot2`: Create Elegant Data Visualisations Using the Grammar of Graphics (coming [next](r09_viz_ggplot2.md))
+- `readr`: Read Rectangular Text Data (seen previously [here](r07_data_import_export.md))
 - `forcats`: Tools for Working with Categorical Variables (Factors)
 - `purrr`: Functional Programming Tools
 

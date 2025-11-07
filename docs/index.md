@@ -13,7 +13,7 @@ hide:
 # News
 
 !!! info "2025-11-06"
-    ## The Galaxy Training in [Analyse des Génomes (2025)](AnalyseGenomes_2025/outline/)
+    ## The Galaxy Training in [Analyse des Génomes (2025)](AnalyseGenomes_2025/outline.md)
     is planned for December 1st, 2025.
         
     ## Refreshed documentation is coming soon.

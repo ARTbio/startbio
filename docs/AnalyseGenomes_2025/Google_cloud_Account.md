@@ -15,7 +15,7 @@ This year, valid email addresses have the following domain names
 An email
 will be sent to you to confirm these details before a coupon is sent to you.
 
-- Your coupon is valid through: 12/11/2025
+- Your coupon is valid through: 15/11/2026
 - You can **only request ONE coupon per unique** email address.
 
 # Access to your Google Cloud Account
