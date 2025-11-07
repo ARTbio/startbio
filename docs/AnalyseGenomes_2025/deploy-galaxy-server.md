@@ -58,7 +58,7 @@ using a single command.
 
 ```
 git clone https://github.com/artbio/galaxyXpand -b ubuntu24.04 && \
-screen -d -m sh ~/galaxyXpand/scripts/deploy_ag2025.sh && \
+screen -d -m bash ~/galaxyXpand/scripts/deploy_ag2025.sh && \
 sleep 5 && tail -f ~/install_log.txt
 ```
 ??? info "What is `git` command doing ?"
