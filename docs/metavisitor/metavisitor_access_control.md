@@ -1,10 +1,10 @@
-When you are done with the installation of your own Metavisitor Galaxy instance installation using either [GalaxyKickStart](metavisitor_ansible.md) or [docker](metavisitor_docker), there are a few basic things to know for web access and basic server admin operations
+When you are done with the installation of your own Metavisitor Galaxy instance installation using either [GalaxyKickStart](metavisitor_ansible.md) or [docker](metavisitor_docker.md), there are a few basic things to know for web access and basic server admin operations
 
 ## 1. Connect web frontpage of your Metavisitor Galaxy
 We assume that you know the IP address to reach the Metavisitor Galaxy webserver:
 
 - if you used [GalaxyKickStart](metavisitor_ansible.md#adapt-the-ansible-inventory-file), you had to indicate this host IP in your hosts inventory file.
-- if you used [docker](metavisitor_docker), you had to connect to the host machine with the appropriate IP address.
+- if you used [docker](metavisitor_docker.md), you had to connect to the host machine with the appropriate IP address.
 
 Thus, to access Metavisitor Galaxy webserver, just type this IP address in your web browser.
 
@@ -53,7 +53,7 @@ galaxy_web: started
 ```
 That's it, the Galaxy instance has restarted.
 
-#### restart Metavisitor Galaxy instance deployed with [docker](metavisitor_docker)
+#### restart Metavisitor Galaxy instance deployed with [docker](metavisitor_docker.md)
 
 - Connect to the server where the Galaxy instance has been installed either through the ssh connection you have used with [GalaxyKickStart](metavisitor_ansible.md)
 

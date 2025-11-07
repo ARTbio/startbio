@@ -34,7 +34,7 @@ in [Metavisitor's Github](https://github.com/ARTbio/metavisitor/tree/master/extr
 
 Users who want to use Metavisitor on the [Galaxy Mississippi Server](https://mississippi.snv.jussieu.fr),
 or got already the Metavisitor suite of tools installed in their own Galaxy server, can
-jump to the next chapter [Prepare input data histories](use_cases_input_data).
+jump to the next chapter [Prepare input data histories](use_cases_input_data.md).
 
 
 ## Availability of Metavisitor tools and workflows

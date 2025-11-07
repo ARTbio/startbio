@@ -22,7 +22,7 @@ length bias into account.
 - [x] Although we are going to focus on the DESeq2 tables, the approach would be the same
 with other DE callers: feel free to test it latter on.
 - [x] to perform the analysis, we will need a gene length list. This list was generated
-[previously by the featureCounts tool](../21_FeatureCounts) and is therefore available in
+[previously by the featureCounts tool](21_FeatureCounts.md) and is therefore available in
 the history `PRJNA630433 FeatureCounts Counting on HISAT2 bam alignments`.
   
   --> Copy one of the collection among the `Dc`, `Mo` or `Oc FeatureCounts Feature Length`

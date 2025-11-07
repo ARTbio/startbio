@@ -9,7 +9,7 @@ Before all, it is important to remember the structure of the data as mentioned i
 introduction to the use case PRJNA630433.
 
 For the sake of simplicity, we report here again the table 3 from the section
-[data upload](../11_uploads#table3):
+[data upload](11_uploads.md#table3):
 ??? info "Table 3"
     ```
     run_accession	sample_title
@@ -51,7 +51,7 @@ Let's do this directly without even creating a new history "HISAT2 mapping" befo
 will do it on the fly)
 
 - [x] Go to the data library `Libraries / IOC_bulk_RNAseq / PRJNA630433 / FASTQ files` (
-  You know how to do this from the previous [section](../16_strandness))
+  You know how to do this from the previous [section](16_strandness.md))
 - [x] Check first the datasets SRR11688**218**, SRR11688**221**, SRR11688**224** and
   SRR11688**228**
 - [x] click the `Export to History` tab and, this time, select ==`as a Collection`==

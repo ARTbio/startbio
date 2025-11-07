@@ -7,7 +7,7 @@ GTF input file.
 This is what we are going to do in this section.
 
 At first, navigate to the history `STAR Alignments` which we previously generated in the
-section [STAR alignments](../18_star/#star-alignments).
+section [STAR alignments](18_star.md#star-alignments).
 
 From this history, copy (using the menu `copy datasets` item in the wheel history menu)
 
@@ -74,7 +74,7 @@ respectively. You can do this, even is the runs are not finished.
 ## ![](images/tool_small.png){width="30" align="absbottom"} Mapping statistics with MultiQC tool
 
 You can re-run MultiQC on the 3 RNA STAR log collection but note that we already permormed
-this operation in the history `STAR alignments` with the section [18_star](../18_star/#mapping-statistics-with-multiqc-tool)
+this operation in the history `STAR alignments` with the section [18_star](18_star.md#mapping-statistics-with-multiqc-tool)
 
 ??? info "![](images/tool_small.png){width="25" align="absbottom"} MultiQC settings"
     - 1: Results
