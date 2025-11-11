@@ -210,9 +210,8 @@ nav:
 
     -  Analyse des Génomes (2025):
         - Analyse des Génomes (2025): AnalyseGenomes_2025/outline.md
-        - "Spin off a VM with your Google Cloud Account": AnalyseGenomes_2025/Google_cloud_Account.md
-        - START A VIRTUAL MACHINE IN GOOGLE CLOUD ENGINE : AnalyseGenomes_2025/bare-galaxy-google.md
-        - DEPLOY A GALAXY SERVER IN THE VM: AnalyseGenomes_2025/deploy-galaxy-server.md
+        - YOUR GOOGLE CLOUD ACCOUNT: AnalyseGenomes_2025/Google_cloud_Account.md
+        - DEPLOY YOUR OWN GALAXY SERVER: AnalyseGenomes_2025/Deploy_server_from_VMI.md
         - MANAGE YOUR GOOGLE VM: AnalyseGenomes_2025/manage_VM.md
         - MANAGE YOUR GALAXY SERVER: AnalyseGenomes_2025/manage_galaxy.md
         - LOAD TRAINING DATA: AnalyseGenomes_2025/Loading_data_in_galaxy.md

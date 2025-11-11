@@ -1,10 +1,15 @@
-### 1. Prerequisite
+## **1. Activate Compute Engine API**
+Since you have now a running project, you can move forward and activate your Compute Engine interface.
 
-**Before following this section, you have to complete successfully all the
-instructions given in
-["Spin off a VM with your Google Cloud Account"](Google_cloud_Account.md)**
+1. Click on the ☰ Menu and navigate to the `Compute Engine` button.
+2. Since this is the first time, you will not see a list of Virtual Machines (VMs). You will land on a "Compute Engine" presentation page where the main message will be: "The Compute Engine API is not enabled" (or a similar message).
+3. Click the clearly visible blue button: "ENABLE".
 
-### 2. Spin off a virtual Machine `ansible-galaxy` with ![](images/google-padok.png){width="30px" align="bottom"} Google Cloud Engine
+:warning: The API activation is not instantaneous; it may take a minute or two (a loading indicator will be displayed).
+
+Once the API is activated, the page will automatically reload, and you will finally access the actual Compute Engine dashboard (the "VM instances" page), which will be empty.
+
+## 2. Spin off a virtual Machine `ansible-galaxy` with !{width="30px" align="bottom"} Google Cloud Engine
 
 Before starting, we recommend you to pay extra attention any time you see the :warning:
 signal.
