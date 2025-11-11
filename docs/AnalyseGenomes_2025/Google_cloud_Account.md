@@ -1,4 +1,4 @@
-# Get your ![googleCloud logo](images/googlecloud.png){width="200"} coupon and activate it.
+# Get your ![googleCloud logo](images/googlecloud.png){width="200" align="absbottom"} coupon and activate it.
 We will send you in the Slack board a URL which you will need to access in order to request
 a Google Cloud coupon.
 
