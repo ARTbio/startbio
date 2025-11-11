@@ -9,139 +9,57 @@ Since you have now a running project, you can move forward and activate your Com
 
 Once the API is activated, the page will automatically reload, and you will finally access the actual Compute Engine dashboard (the "VM instances" page), which will be empty.
 
-## 2. Spin off a virtual Machine `ansible-galaxy` with !{width="30px" align="bottom"} Google Cloud Engine
+## 2. **Spin off your Galaxy server from a Virtual Machine Image**
 
-Before starting, we recommend you to pay extra attention any time you see the :warning:
-signal.
+Using your fresh Compute Engine dashboard, you are going to start a Virtual Machine with 8 cpus, 32 MB of RAM and a 300 GB disk, pre-configured with a fully functional Galaxy server. To do so, you will use an Image, which is prepared for you, as a template (or "model") for your VM.
 
-- [x] Connect to your Google Compute Instances
-  [dashboard](https://console.cloud.google.com/compute/instances)
+### Left Tab "`Configuration de la machine`"
 
-- [x] Create a Virtual Machine Instance
+- [x] First of all, click the blue button `Créer une Instance` at the top of your Compute Engine dashboard.
+- [x] Give you machine a name (eg "galaxy-server", "ag2025-galaxy", "john-galaxy-server", etc.)
+- [x] Chose a `Region` the `europe-west` region. This can be `europ-west-1`, `-2`, `-3`, `-4`, `-6`, `-8`, `-9`, `-10` or `-12`.
+- [x] Leave the `Zone` to `Toutes` (Google Engine will automatically chose the best one for you).
 
-!!! info "with the following settings"
-    - Name: `ansible-galaxy`
-    - Region `europe-west6 (Zurich)` :point_left: Check your Region in the popup table bellow 
-    - Zone: `europe-west6-a` (or `-b` or `-c`) :point_left: Check your Zone in the popup table bellow
-    - **Configuration de la machine**
-        - `USAGE général`
-        - Série: `E2`
-        - Type de machine: `PRÉDEFINI` :arrow_forward: `Standard` :arrow_forward: `e2-standard-8`
-    - **Disque de démarrage (Modifier)**
-        - `IMAGES PUBLIQUES`
-        - Système d'exploitation: `Ubuntu`
-        - Version: `Ubuntu 20.04 LTS` :point_left: :warning: Watch to the version number (20.04).
-          When several processor types are available (eg x86, amd, ...) you can choose anyone.
-        - Type de disque de démarrage: `Disque persistant avec équilibrage`
-        - Taille (Go): ==`200`==
-        - ==SELECTIONNER==
-    - **Pare-feu**
-        - Check `Autoriser le trafic HTTP`
+![](images/Config_1.png){width="700px"}
 
-??? warning "Region assignments to students :warning:"
-    ==As it is possible that a single Google region is not able to provide enough resources
-    to support 18 virtual machines at the same time, we will distribute our instances to
-    different regions in Europe==.
-    
-    The following table assigns the instances by name to different Regions.
+Scroll down to the bottom of the page.
 
-    Please respect this attribution for your final instance, the one you will
-    use during your practical work.
-    
-    |    Email prefix    |         Region           |      Zone         |
-    |--------------------|--------------------------|-------------------|
-    |alleon.gaelle       |europe-west1 (Belgique)   |let Google decide  |
-    |enzo.becherel       |europe-west1 (Belgique)   |let Google decide  |
-    |emma.benbakir       |europe-west1 (Belgique)   |let Google decide  |
-    |samuel.bensoussan   |europe-west2 (Londres)    |let Google decide  |
-    |tberthom            |europe-west2 (Londres)    |let Google decide  |
-    |gregblavier76       |europe-west2 (Londres)    |let Google decide  |
-    |faroukbouraima      |europe-west3 (Francfort)  |let Google decide  |
-    |lunadebarbarin      |europe-west3 (Francfort)  |let Google decide  |
-    |baptiste.demaret    |europe-west3 (Francfort)  |let Google decide  |
-    |nicolas.doucet      |europe-west6 (Zurich)     |let Google decide  |
-    |maeva.drai          |europe-west6 (Zurich)     |let Google decide  |
-    |yoann.gonneau       |europe-west6 (Zurich)     |let Google decide  |
-    |sarah.graine        |europe-west9 (Paris)      |let Google decide  |
-    |margot.hully        |europe-west9 (Paris)      |let Google decide  |
-    |nathan.lacombe      |europe-west9 (Paris)      |let Google decide  |
-    |jules.richez.22     |europe-west10 (Berlin)    |let Google decide  |
-    |loann.paterour      |europe-west10 (Berlin)    |let Google decide  |
-    |mathilde.quibeuf    |europe-west10 (Berlin)    |let Google decide  |
-    |michiel.tawdarous   |europe-southwest1 (Madrid)|let Google decide  |
-    |oceane.wauthier     |europe-southwest1 (Madrid)|let Google decide  |
+- [x] Click on this menu :
 
-These settings should be similar to this:
-    
-![](images/GCE_spin.png){width="600px"}
-![](images/GCE_OS.png){width="450px"}
-![](images/GCE_firewall.png){width="450px"}
+![](images/Type_machine.png){width="700px"}
 
-**When**
+Then select standard → e2-standard-8 as in the screenshot bellow:
 
-- [x] you have double-checked all indicated settings
-- [x] you are sure that your instance will start in the zone assigned to you
+![](images/e2-standard-8.png){width="700px"}
 
-**Then** you can start you instance by clicking the button
+### Left Tab "`OS et stockage`"
+- [x] Click in the left menu the tab `OS et stockage`
+- [x] Click the blue button `Modifier` of the `Système d'exploitation et stockage` section.
+- [x] In the pop-up menu `Disque de démarrage`, select `Images personnalisées`
+- [x] In the line `Projet source pour les images *`, click on the item `Modifier` (:warning: many people missed it, watch carefully)
+- [x] Select the project `AG2025-25-10-01-1` where the image you are looking for is located.
+- [x] In the menu, you can now select the image `galaxy-image-x` where x stand for 5, 6, 7, etc.
+![](images/select_image.png){width="350px"}
+- [x] Last but not least, type `300` in the `Taille (Go)` fiels, and click on the blue button `Sélectionner`. This will be the size
+of your disk.
 
-![](images/creer_instance.png){width="350px"}
+### Left Tab "`Protection des données`"
+- [x] Check `Aucune sauvegarde` (This is not necessary and would use your credits for useless storage)
 
+### Left Tab "`Mise en réseau`"
+- [x] Check `Autoriser le trafic HTTP`
 
-??? bug "Trouble shouting"
-    **In some occasions, launching of your VM may fail** as illustrated bellow:
-    ![](images/instance_failing.png){: style="width:600px"}
-    
-    1. Maybe you are not, indeed, using the billing account associated to your
-    Google coupon, but instead using a billing account associated to a "Free Trial".
-        
-        - [x] If it is not already done, activate your coupon by following the received
-        instructions, and be sure that you activate a project associated with the billing
-        account of the coupon.
-    2. The Region and Zone which you have chosen (in the example, `europe-west6-a`) is
-    overloaded.
-        
-        - [x] In this case, try another `Zone` (-b or -c), and/or another `Region`, in Europe or
-        America.
+Leave unchanged the remaining left tabs `Observabilité`, `Sécurité` and `Avancé`.
 
-### 3. Connect to the VM using the ssh web console and check that everything is fine
+- [x] Click the blue button `Créer`
 
-- [x] Roll down the `ssh` menu in the control pannel and select the first option
+**:tada: That's it, you should see your VM starting in the dashbord. This may take 1 or 2 minutes before you can access to your Galaxy
+server and start using it !**
 
-`Ouvrir dans une fenêtre du navigateur`
+![](images/started_VM.png){width="700px"}
 
-![Select ssh session in browser](images/select_ssh.png)
-    
-**This opens a web ssh shell session to control your VM:**
+Do not hesitate to click the button `Actualiser`, as the GCE dashboard does not refresh that often.
 
-![](images/web_ssh_console.png)
-
-
-- [x] Assuming that you have reached this point you can now type in the web console
-the following command (you can copy it from the box bellow)
-
-```
-lsb_release -a && lscpu | grep 'CPU(s):' && free -h | grep 'Mem:' && df -h | grep '/$'
-```
-
- - [x] Then, copy the text returned by the command (no screenshot, please) in a separate
-post (one by student) in this GitHub
-[discussion](https://github.com/ARTbio/AnalyseGenome/discussions/41){:target="_blank"}
-
-
-<center>
-**This is the first check of three (2 more to come)**
-
-![](images/checkpoint.png){width="80"}
-</center> 
-
-### 4. Suspend or continue
-
-If you intend to go through the next section, there is no other action to
-complete here.
-
-In contrast, if it is late or you are planing to do something else, suspend your
-VM, using the small pop up menu (with 3 vertical dots) : 
-
-![](images/suspend.png){width="800px"}
+![](images/started_VM_2.png){width="700px"}
 
 ---
