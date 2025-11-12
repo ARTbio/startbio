@@ -75,9 +75,11 @@ of your disk.
 ### Left Tab "`Mise en réseau`"
 - [x] Check `Autoriser le trafic HTTP`
 
+![](images/GCE_firewall.png){width="500px"}
+
 Leave unchanged the remaining left tabs `Observabilité`, `Sécurité` and `Avancé`.
 
-- [x] Click the blue button `Créer`
+- [x] Click the blue button `Créer` at the bottom of the page.
 
 **:tada: That's it, you should see your VM starting in the dashbord. This may take 1 or 2 minutes before you can access to your Galaxy
 server and start using it !**

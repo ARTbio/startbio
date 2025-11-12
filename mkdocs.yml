@@ -213,7 +213,7 @@ nav:
         - YOUR GOOGLE CLOUD ACCOUNT: AnalyseGenomes_2025/Google_cloud_Account.md
         - DEPLOY YOUR OWN GALAXY SERVER: AnalyseGenomes_2025/Deploy_server_from_VMI.md
         - MANAGE YOUR GOOGLE VM: AnalyseGenomes_2025/manage_VM.md
-        - MANAGE YOUR GALAXY SERVER: AnalyseGenomes_2025/manage_galaxy.md
+        - CONNECT TO YOUR GALAXY SERVER: AnalyseGenomes_2025/manage_galaxy.md
         - LOAD TRAINING DATA: AnalyseGenomes_2025/Loading_data_in_galaxy.md
         - LAST CHECK BEFORE BUILDING GENOME INDEX: AnalyseGenomes_2025/histories_check.md
         - PREPARE A REFERENCE GENOME: AnalyseGenomes_2025/Preparing_reference.md
