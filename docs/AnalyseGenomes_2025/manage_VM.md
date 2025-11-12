@@ -1,10 +1,11 @@
 ## Management of your Google Virtual Machine
 
-If you read this, you have probably launched at least one time a Google Virtual Machine.
+By now, you have likely launched your Galaxy Virtual Machine at least once.
+The next section will cover how to access the web interface of your Galaxy server.
 
-A few rules to get your life easier during the rest of this training:
+Before we continue, here are a few important guidelines to follow for the rest of the training:
 
-- ==**Avoid** stopping your VM, instead **suspend** it==
+- [x] ==**Do not** stop your VM, instead **suspend** it==
   
   Stopping your VM is like stopping your PC or you laptop.
   
@@ -19,21 +20,20 @@ A few rules to get your life easier during the rest of this training:
   
   ![suspend](images/suspend.png)
   
-- **==Protect your instance from unwanted destruction==**
+- [x] **==Protect your instance from unwanted destruction==**
     
-    An accident happens so quickly...
+    Accidents happen quickly...
   
-    - Go to the Google Cloud Platform management web page.
+    - Go to the Compute Engine management web page.
     - Click on the **name** of your VM.
     - Click on the top menu :pencil2:`Modifier`
-    - Edit the `Protection contre la suppression` option as follows:
-    
+    - Check the `Activer la protection contre la suppression` box (At the end of the section `Informations générales`).
+        
     ![](images/self_destruction.png){width=600}
     
-    (just at the end of the section **Informations générales**) and do not forget to save
-    this new setting.
+    - [x] and do not forget to save this new setting (button `Enregistrer` at the bottom of the page).
   
   From this point, you will need to uncheck the box to destroy the instance and your are
-  protected against unwanted manifestations of bad karma :imp:!
+  protected against unwanted manifestations of bad karma. :imp:
 
 ---

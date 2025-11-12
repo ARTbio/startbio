@@ -15,7 +15,7 @@ Using your fresh Compute Engine dashboard, you are going to start a Virtual Mach
 
 ??? info "The Geek Corner"
     If you do not like clicking everywhere on a complex graphical interface, you can bypass **all** the steps bellow
-    using a single command line !
+    using a one of the following command lines !
 
     1. **Click on the Cloud Shell icone (a small >_ in a square, at the top right corner of the page, next to your login circular icon).**
     2. When you Cloud Shell is authenticated and started, just copy and paste one of the following commands:
