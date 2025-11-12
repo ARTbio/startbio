@@ -13,6 +13,32 @@ Once the API is activated, the page will automatically reload, and you will fina
 
 Using your fresh Compute Engine dashboard, you are going to start a Virtual Machine with 8 cpus, 32 MB of RAM and a 300 GB disk, pre-configured with a fully functional Galaxy server. To do so, you will use an Image, which is prepared for you, as a template (or "model") for your VM.
 
+??? info "The Geek Corner"
+    If you do not like clicking everywhere on a complex graphical interface, you can bypass **all** the steps bellow
+    using a single command line !
+
+    1. **Click on the Cloud Shell icone (a small >_ in a square, at the top right corner of the page, next to your login circular icon).**
+    2. When you Cloud Shell is authenticated and started, just copy and paste one of the following commands:
+    ```
+    gcloud compute instances create my-galaxy-server --image-family=galaxy-images --image-project=ag2025-25-10-01-1 --zone=europe-west1-b --machine-type=e2-standard-8 --tags=http-server --boot-disk-size=300GB
+    ```
+    ```
+    gcloud compute instances create my-galaxy-server --image-family=galaxy-images --image-project=ag2025-25-10-01-1 --zone=europe-west2-b --machine-type=e2-standard-8 --tags=http-server --boot-disk-size=300GB
+    ```
+    ```
+    gcloud compute instances create my-galaxy-server --image-family=galaxy-images --image-project=ag2025-25-10-01-1 --zone=europe-west3-b --machine-type=e2-standard-8 --tags=http-server --boot-disk-size=300GB
+    ```
+    ```
+    gcloud compute instances create my-galaxy-server --image-family=galaxy-images --image-project=ag2025-25-10-01-1 --zone=europe-west4-b --machine-type=e2-standard-8 --tags=http-server --boot-disk-size=300GB
+    ```
+    ```
+    gcloud compute instances create my-galaxy-server --image-family=galaxy-images --image-project=ag2025-25-10-01-1 --zone=europe-west6-b --machine-type=e2-standard-8 --tags=http-server --boot-disk-size=300GB
+    ```
+    ```
+    gcloud compute instances create my-galaxy-server --image-family=galaxy-images --image-project=ag2025-25-10-01-1 --zone=europe-west9-b --machine-type=e2-standard-8 --tags=http-server --boot-disk-size=300GB
+    ```
+
+
 ### Left Tab "`Configuration de la machine`"
 
 - [x] First of all, click the blue button `Créer une Instance` at the top of your Compute Engine dashboard.
