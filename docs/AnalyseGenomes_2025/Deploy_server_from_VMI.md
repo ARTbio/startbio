@@ -20,29 +20,32 @@ Using your fresh Compute Engine dashboard, you are going to start a Virtual Mach
     1. **Click on the Cloud Shell icone (a small >_ in a square, at the top right corner of the page, next to your login circular icon).**
     2. When you Cloud Shell is authenticated and started, just copy and paste one of the following commands:
     ```
-    gcloud compute instances create my-galaxy-server --image-family=galaxy-images --image-project=ag2025-25-10-01-1 --zone=europe-west1-b --machine-type=e2-standard-8 --tags=http-server --boot-disk-size=300GB
+    gcloud compute instances create <your-name>-galaxy-server --image-family=galaxy-images --image-project=ag2025-25-10-01-1 --zone=europe-west1-b --machine-type=e2-standard-8 --tags=http-server --boot-disk-size=300GB
     ```
     ```
-    gcloud compute instances create my-galaxy-server --image-family=galaxy-images --image-project=ag2025-25-10-01-1 --zone=europe-west2-b --machine-type=e2-standard-8 --tags=http-server --boot-disk-size=300GB
+    gcloud compute instances create <your-name>-galaxy-server --image-family=galaxy-images --image-project=ag2025-25-10-01-1 --zone=europe-west2-b --machine-type=e2-standard-8 --tags=http-server --boot-disk-size=300GB
     ```
     ```
-    gcloud compute instances create my-galaxy-server --image-family=galaxy-images --image-project=ag2025-25-10-01-1 --zone=europe-west3-b --machine-type=e2-standard-8 --tags=http-server --boot-disk-size=300GB
+    gcloud compute instances create <your-name>-galaxy-server --image-family=galaxy-images --image-project=ag2025-25-10-01-1 --zone=europe-west3-b --machine-type=e2-standard-8 --tags=http-server --boot-disk-size=300GB
     ```
     ```
-    gcloud compute instances create my-galaxy-server --image-family=galaxy-images --image-project=ag2025-25-10-01-1 --zone=europe-west4-b --machine-type=e2-standard-8 --tags=http-server --boot-disk-size=300GB
+    gcloud compute instances create <your-name>-galaxy-server --image-family=galaxy-images --image-project=ag2025-25-10-01-1 --zone=europe-west4-b --machine-type=e2-standard-8 --tags=http-server --boot-disk-size=300GB
     ```
     ```
-    gcloud compute instances create my-galaxy-server --image-family=galaxy-images --image-project=ag2025-25-10-01-1 --zone=europe-west6-b --machine-type=e2-standard-8 --tags=http-server --boot-disk-size=300GB
+    gcloud compute instances create <your-name>-galaxy-server --image-family=galaxy-images --image-project=ag2025-25-10-01-1 --zone=europe-west6-b --machine-type=e2-standard-8 --tags=http-server --boot-disk-size=300GB
     ```
     ```
-    gcloud compute instances create my-galaxy-server --image-family=galaxy-images --image-project=ag2025-25-10-01-1 --zone=europe-west9-b --machine-type=e2-standard-8 --tags=http-server --boot-disk-size=300GB
+    gcloud compute instances create <your-name>-galaxy-server --image-family=galaxy-images --image-project=ag2025-25-10-01-1 --zone=europe-west9-b --machine-type=e2-standard-8 --tags=http-server --boot-disk-size=300GB
     ```
 
 
 ### Left Tab "`Configuration de la machine`"
 
 - [x] First of all, click the blue button `Créer une Instance` at the top of your Compute Engine dashboard.
-- [x] Give you machine a name (eg "galaxy-server", "ag2025-galaxy", "john-galaxy-server", etc.)
+- [x] Give you machine a name. To facilite management of your VM and help in case of trouble, please take a name in the form of
+      ```
+      <your-name>-galaxy-server
+      ```
 - [x] Chose a `Region` the `europe-west` region. This can be `europ-west-1`, `-2`, `-3`, `-4`, `-6`, `-8`, `-9`, `-10` or `-12`.
 - [x] Leave the `Zone` to `Toutes` (Google Engine will automatically chose the best one for you).
 
