@@ -1,7 +1,7 @@
 ## **1. Activate Compute Engine API**
 Since you have now a running project, you can move forward and activate your Compute Engine interface.
 
-1. Click on the ☰ Menu and navigate to the `Compute Engine` button.
+1. Click on the top-left **☰** Menu and navigate to the `Compute Engine` button.
 2. Since this is the first time, you will not see a list of Virtual Machines (VMs). You will land on a "Compute Engine" presentation page where the main message will be: "The Compute Engine API is not enabled" (or a similar message).
 3. Click the clearly visible blue button: "ENABLE".
 
@@ -15,7 +15,7 @@ Using your fresh Compute Engine dashboard, you are going to start a Virtual Mach
 
 ??? info "The Geek Corner"
     If you do not like clicking everywhere on a complex graphical interface, you can bypass **all** the steps bellow
-    using a one of the following command lines !
+    using one of the following command lines !
 
     1. **Click on the Cloud Shell icone (a small >_ in a square, at the top right corner of the page, next to your login circular icon).**
     2. When you Cloud Shell is authenticated and started, just copy and paste one of the following commands:

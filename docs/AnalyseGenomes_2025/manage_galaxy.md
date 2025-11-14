@@ -1,6 +1,7 @@
 ![](images/instance_check.png){width="800px"}
 
 Once your VM is up and running, its state indicator turns green.
+
 In addition to the internal IP address (which you will not use), an external IP address
 is also attributed to your VM (red ellipsis in the above screenshot).
 

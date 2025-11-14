@@ -1,4 +1,4 @@
-## A. Redeem and activate your Google Cloud coupon
+## **A. Redeem and activate your Google Cloud coupon**
 
 For this training, we have obtained $50 coupons for all students from the Google Cloud Education Program.
 These coupons will allow you to use the Google Cloud Engine infrastructure for the entire
@@ -42,7 +42,7 @@ with a Google Cloud Coupon Code and a redeem link:
 ![](images/3_xAtterissage_Google_Cloud_Facturation.png){width="600"}
 
 
-## B. Create a project.
+## **B. Create a project**
 
 - As you can see, your newly created Google Cloud account has one "compte de facturation" (billing account)
 which shoud be "Compte de facturation des établissements d'enseignement" or something close.

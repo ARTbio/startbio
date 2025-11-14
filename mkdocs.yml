@@ -214,14 +214,13 @@ nav:
         - DEPLOY YOUR OWN GALAXY SERVER: AnalyseGenomes_2025/Deploy_server_from_VMI.md
         - MANAGE YOUR GOOGLE VM: AnalyseGenomes_2025/manage_VM.md
         - CONNECT TO YOUR GALAXY SERVER: AnalyseGenomes_2025/manage_galaxy.md
-        - LOAD TRAINING DATA: AnalyseGenomes_2025/Loading_data_in_galaxy.md
+        - IMPORT DATA IN YOUR GALAXY ACCOUNT: AnalyseGenomes_2025/Loading_data_in_galaxy.md
         - LAST CHECK BEFORE BUILDING GENOME INDEX: AnalyseGenomes_2025/histories_check.md
         - PREPARE A REFERENCE GENOME: AnalyseGenomes_2025/Preparing_reference.md
         - Format conversion using command lines in your Google VM: AnalyseGenomes_2025/file_parsing_cli.md
         - Format conversion using a galaxy tool: AnalyseGenomes_2025/file_parsing_galaxy.md
         - Running a galaxy workflow: AnalyseGenomes_2025/Run_workflow.md
         - Why administering galaxy ?: AnalyseGenomes_2025/whyadmin.md
-        - "EMERGENCY image": AnalyseGenomes_2025/emergency_image.md
         - SUP MATERIAL:
           - BOWTIE ALIGNMENT USING COMMAND LINES: AnalyseGenomes_2025/bowtie_cli.md
           - BOWTIE ALIGNMENT USING GALAXY: AnalyseGenomes_2025/bowtie_galaxy.md
