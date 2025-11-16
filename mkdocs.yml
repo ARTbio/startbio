@@ -30,6 +30,13 @@ theme:
     - content.action.view
     - content.action.edit
 
+plugins:
+  - search  # TRÈS IMPORTANT: pour garder la barre de recherche
+  - unused_files:
+      # Ne mettez pas 'dir:' pour scanner tout le dossier 'docs/'
+      strict: false
+      file_types: ["png", "jpg", "jpeg", "gif", "svg"]
+
 nav:
   - Home: index.md
 
@@ -203,19 +210,17 @@ nav:
 
     -  Analyse des Génomes (2025):
         - Analyse des Génomes (2025): AnalyseGenomes_2025/outline.md
-        - START A VIRTUAL MACHINE IN GOOGLE CLOUD ENGINE : AnalyseGenomes_2025/bare-galaxy-google.md
-        - DEPLOY A GALAXY SERVER IN THE VM: AnalyseGenomes_2025/deploy-galaxy-server.md
+        - YOUR GOOGLE CLOUD ACCOUNT: AnalyseGenomes_2025/Google_cloud_Account.md
+        - DEPLOY YOUR OWN GALAXY SERVER: AnalyseGenomes_2025/Deploy_server_from_VMI.md
+        - CONNECT TO YOUR GALAXY SERVER: AnalyseGenomes_2025/manage_galaxy.md
         - MANAGE YOUR GOOGLE VM: AnalyseGenomes_2025/manage_VM.md
-        - MANAGE YOUR GALAXY SERVER: AnalyseGenomes_2025/manage_galaxy.md
-        - LOAD TRAINING DATA: AnalyseGenomes_2025/Loading_data_in_galaxy.md
-        - LAST CHECK BEFORE BUILDING GENOME INDEX: AnalyseGenomes_2025/histories_check.md
-        - PREPARE A REFERENCE GENOME: AnalyseGenomes_2025/Preparing_reference.md
+        - IMPORT DATA IN YOUR GALAXY ACCOUNT: AnalyseGenomes_2025/Loading_data_in_galaxy.md
+        - LAST CHECK BEFORE ANALYSES: AnalyseGenomes_2025/histories_check.md
+        - REFERENCE GENOME: AnalyseGenomes_2025/Preparing_reference.md
         - Format conversion using command lines in your Google VM: AnalyseGenomes_2025/file_parsing_cli.md
         - Format conversion using a galaxy tool: AnalyseGenomes_2025/file_parsing_galaxy.md
         - Running a galaxy workflow: AnalyseGenomes_2025/Run_workflow.md
         - Why administering galaxy ?: AnalyseGenomes_2025/whyadmin.md
-        - "Spin off a VM with your Google Cloud Account": AnalyseGenomes_2025/Google_cloud_Account.md
-        - "EMERGENCY image": AnalyseGenomes_2025/emergency_image.md
         - SUP MATERIAL:
           - BOWTIE ALIGNMENT USING COMMAND LINES: AnalyseGenomes_2025/bowtie_cli.md
           - BOWTIE ALIGNMENT USING GALAXY: AnalyseGenomes_2025/bowtie_galaxy.md

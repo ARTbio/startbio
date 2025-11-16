@@ -1,25 +1,28 @@
-In this training, you are going to
+In this training, you will:
 
-1. Deploy your own Galaxy server in a Google Virtual machine
-      
-      :warning: ==This will be done outside of class hours== as it takes
-      computer time, during which you cannot do analyses.
-      
-- Review the operations to stop, start, restart your Galaxy server in your Google
-  virtual machine
+### **1. :warning: Outside of class hours**
+1. **Access your Google Cloud account using your academic email address**
 
-- Prepare your Galaxy server for the next day analyses
-      
-      Upload references data and sequencing datasets, index genome references for fast read
-      alignments, etc.
-      
-- Compare the procedures for performing a simple file formatting task, either using command
-  lines in the linux environment or using Galaxy
-     
-     This will provide also the opportunity to take the control of your Galaxy server deployed
-     in `1.`
+    You have been provided with Google Cloud Education coupons to comfortably
+    run a Google Cloud Engine (GCE) Virtual Machine (VM).
 
+2. **Deploy your own Galaxy server by launching a Virtual Machine (VM) from a Virtual Machine Image (VMI)**
+3. **Register to your Galaxy server as an admin.** and post an artifact showing that you actually did it.
 
-By the end of the training session, you should have prepared your Galaxy analysis environment
-and get it ready to perform subsequent analyses of small RNAseq and RNAseq datasets as
-described [here](https://slecrom.github.io/AG2024/)
+![](images/checkpoint.png){width="70px"}
+
+4. **Review a few command line useful to manage you Galaxy server** (using an ssh session in your VM).
+    
+### **2. During the class session of Monday afternoon (December 1st)**
+1. **Restart you VM with your Galaxy server**
+2. **Check that you Galaxy server is up and running properly**
+3. **Transfer the needed data from the data library to Galaxy histories.**
+      
+      This includes genome reference indexes, reference data (RNA classes, GTF files, etc.),
+      and sequencing datasets.
+
+4. **Compare the procedures for performing a simple file formatting task**, using either command lines (Linux environment) or the Galaxy interface.
+
+By the end of this training, you should be familiar with the Galaxy analysis
+environment and ready to perform analyses of small RNA-seq and RNA-seq datasets,
+as described [here](https://slecrom.github.io/AG2025/).
