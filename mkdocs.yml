@@ -212,11 +212,11 @@ nav:
         - Analyse des Génomes (2025): AnalyseGenomes_2025/outline.md
         - YOUR GOOGLE CLOUD ACCOUNT: AnalyseGenomes_2025/Google_cloud_Account.md
         - DEPLOY YOUR OWN GALAXY SERVER: AnalyseGenomes_2025/Deploy_server_from_VMI.md
-        - MANAGE YOUR GOOGLE VM: AnalyseGenomes_2025/manage_VM.md
         - CONNECT TO YOUR GALAXY SERVER: AnalyseGenomes_2025/manage_galaxy.md
+        - MANAGE YOUR GOOGLE VM: AnalyseGenomes_2025/manage_VM.md
         - IMPORT DATA IN YOUR GALAXY ACCOUNT: AnalyseGenomes_2025/Loading_data_in_galaxy.md
-        - LAST CHECK BEFORE BUILDING GENOME INDEX: AnalyseGenomes_2025/histories_check.md
-        - PREPARE A REFERENCE GENOME: AnalyseGenomes_2025/Preparing_reference.md
+        - LAST CHECK BEFORE ANALYSES: AnalyseGenomes_2025/histories_check.md
+        - REFERENCE GENOME: AnalyseGenomes_2025/Preparing_reference.md
         - Format conversion using command lines in your Google VM: AnalyseGenomes_2025/file_parsing_cli.md
         - Format conversion using a galaxy tool: AnalyseGenomes_2025/file_parsing_galaxy.md
         - Running a galaxy workflow: AnalyseGenomes_2025/Run_workflow.md

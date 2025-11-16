@@ -1,28 +1,34 @@
 ## Management of your Google Virtual Machine
 
-By now, you have likely launched your Galaxy Virtual Machine at least once.
-The next section will cover how to access the web interface of your Galaxy server.
+By now, you have likely launched and suspended (or stopped) your Galaxy Virtual Machine at least once.
 
-Before we continue, here are a few important guidelines to follow for the rest of the training:
+Here are a few guidelines to follow for the rest of the training:
 
-- [x] ==**Do not** stop your VM, instead **suspend** it==
+- [x] ==**Stopping** your VM versus ==**Suspending**== it.
   
   Stopping your VM is like stopping your PC or you laptop.
   
   You will stop everything and will have to literally reboot everything, including
-  the Galaxy server. It is not that difficult actually, but it takes a bit more time.
+  the Galaxy server. It is not that difficult actually, but it takes more time.
   
   Instead, **Suspending** your VM is like putting your PC in sleeping mode, or closing
   the lid of your laptop.
+  
+  In both Suspend and Stop cases, you stop paying for Google computing resources
+  (this payment is occuring through your 50$ coupon)
+
+  In contrast, you will continue to pay for the storage resources as long as you do not
+  *destroy* your VM. ==But, please, don't do that before the end of the course !==
   
   Thus, remember, at the end of the day or whenever you are not going to use your VM for a long
   time, use:
   
   ![suspend](images/suspend.png)
-  
+
+
 - [x] **==Protect your instance from unwanted destruction==**
     
-    Accidents happen quickly...
+    :warning: :warning: :warning: :warning: :warning: :warning: :warning: :warning: :warning: :warning: :warning: :warning: Accidents happen quickly...
   
     - Go to the Compute Engine management web page.
     - Click on the **name** of your VM.

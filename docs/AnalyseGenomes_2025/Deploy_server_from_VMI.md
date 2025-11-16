@@ -13,9 +13,20 @@ Once the API is activated, the page will automatically reload, and you will fina
 
 Using your fresh Compute Engine dashboard, you are going to start a Virtual Machine with 8 cpus, 32 MB of RAM and a 300 GB disk, pre-configured with a fully functional Galaxy server. To do so, you will use an Image, which is prepared for you, as a template (or "model") for your VM.
 
+This procedure can be performed in two ways:
+
+- [x] Using a single command line which is hidden below in the "Geek Corner"
+ 
 ??? info "The Geek Corner"
     If you do not like clicking everywhere on a complex graphical interface, you can bypass **all** the steps bellow
-    using one of the following command lines !
+    using one of the following command lines.
+
+    These command are identical, except for the --zone parameter, which is different for each line. :warning: In order to balance the resources demanded to Google in different compute centes, we ask you to chose randomly one of them. There are 6 lines, for 6 zones: roll a die !
+    
+    In addition, before enter ++return++, please edit `<your-name>` with your name (eg `christophe-antoniewski` or `chris-antoniewski`). The command will not work with the `<` and the `>` characters.
+
+
+
 
     1. **Click on the Cloud Shell icone (a small >_ in a square, at the top right corner of the page, next to your login circular icon).**
     2. When you Cloud Shell is authenticated and started, just copy and paste one of the following commands:
@@ -37,7 +48,7 @@ Using your fresh Compute Engine dashboard, you are going to start a Virtual Mach
     ```
     gcloud compute instances create <your-name>-galaxy-server --image-family=galaxy-images --image-project=ag2025-25-10-01-1 --zone=europe-west9-b --machine-type=e2-standard-8 --tags=http-server --boot-disk-size=300GB
     ```
-
+- [x] Using the graphical interface of GCE through the following steps.
 
 ### Left Tab "`Configuration de la machine`"
 
