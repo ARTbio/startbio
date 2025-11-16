@@ -32,10 +32,10 @@ theme:
 
 plugins:
   - search  # TRÈS IMPORTANT: pour garder la barre de recherche
-  - unused_files:
-      # Ne mettez pas 'dir:' pour scanner tout le dossier 'docs/'
-      strict: false
-      file_types: ["png", "jpg", "jpeg", "gif", "svg"]
+  #- unused_files:
+  #    # Ne mettez pas 'dir:' pour scanner tout le dossier 'docs/'
+  #    strict: false
+  #    file_types: ["png", "jpg", "jpeg", "gif", "svg"]
 
 nav:
   - Home: index.md
