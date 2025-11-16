@@ -1,0 +1,1404 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://artbio.github.io/startbio/ten2/Regex_01/">
+      
+      
+        <link rel="prev" href="../../deepseq/bowtie_galaxy/">
+      
+      
+        <link rel="next" href="../python_decorators/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>Grep and Regex (1) - STARTbio</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bcfcd587.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+  
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M4.855.708c.5-.896 1.79-.896 2.29 0l4.675 8.351a1.312 1.312 0 0 1-1.146 1.954H1.33A1.313 1.313 0 0 1 .183 9.058ZM7 7V3H5v4Zm-1 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"/></svg>');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+Display:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans Display";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../spoiler_files/spoiler.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#anchors-and" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="STARTbio" class="md-header__button md-logo" aria-label="STARTbio" data-md-component="logo">
+      
+  <img src="../../assets/startbio_icon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            STARTbio
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Grep and Regex (1)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ARTbio/startbio" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ARTbio/startbio
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../bulk_RNAseq-IOC/00_IOC_RNAseq_program/" class="md-tabs__link">
+          
+  
+  Interactive Online Companionship (IOC)
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  1Omin2
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../AnalyseGenomes_2025/outline/" class="md-tabs__link">
+          
+  
+  Galaxy Trainings
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../bash_snippets/" class="md-tabs__link">
+          
+  
+  Code Snippets
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../links/" class="md-tabs__link">
+        
+  
+    
+  
+  Links
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="STARTbio" class="md-nav__button md-logo" aria-label="STARTbio" data-md-component="logo">
+      
+  <img src="../../assets/startbio_icon.png" alt="logo">
+
+    </a>
+    STARTbio
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ARTbio/startbio" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ARTbio/startbio
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    
+  
+  
+    <a href="../../bulk_RNAseq-IOC/00_IOC_RNAseq_program/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Interactive Online Companionship (IOC)
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    1Omin2
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            1Omin2
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Grep and Regex (1)
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Grep and Regex (1)
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#anchors-and" class="md-nav__link">
+    <span class="md-ellipsis">
+      Anchors — ^ and $
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantifiers-and" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantifiers — * + ? and {}
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#or-operator-or" class="md-nav__link">
+    <span class="md-ellipsis">
+      OR operator — | or [ ]
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#character-classes-d-w-s-and" class="md-nav__link">
+    <span class="md-ellipsis">
+      Character classes — \d \w \s and .
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flags
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grouping-and-capturing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Grouping and capturing — ()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bracket-expressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bracket expressions — [ ]
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#greedy-and-lazy-match" class="md-nav__link">
+    <span class="md-ellipsis">
+      Greedy and Lazy match
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boundaries-b-and-b" class="md-nav__link">
+    <span class="md-ellipsis">
+      Boundaries — \b and \B
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#back-references-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Back-references — \1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#look-ahead-and-look-behind-and" class="md-nav__link">
+    <span class="md-ellipsis">
+      Look-ahead and Look-behind — (?=) and (?&lt;=)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python_decorators/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python Decorators
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    
+  
+  
+    <a href="../../AnalyseGenomes_2025/outline/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Galaxy Trainings
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../bash_snippets/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Code Snippets
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../links/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Links
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#anchors-and" class="md-nav__link">
+    <span class="md-ellipsis">
+      Anchors — ^ and $
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantifiers-and" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantifiers — * + ? and {}
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#or-operator-or" class="md-nav__link">
+    <span class="md-ellipsis">
+      OR operator — | or [ ]
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#character-classes-d-w-s-and" class="md-nav__link">
+    <span class="md-ellipsis">
+      Character classes — \d \w \s and .
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flags
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grouping-and-capturing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Grouping and capturing — ()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bracket-expressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bracket expressions — [ ]
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#greedy-and-lazy-match" class="md-nav__link">
+    <span class="md-ellipsis">
+      Greedy and Lazy match
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boundaries-b-and-b" class="md-nav__link">
+    <span class="md-ellipsis">
+      Boundaries — \b and \B
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#back-references-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Back-references — \1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#look-ahead-and-look-behind-and" class="md-nav__link">
+    <span class="md-ellipsis">
+      Look-ahead and Look-behind — (?=) and (?&lt;=)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/ARTbio/startbio/edit/master/docs/ten2/Regex_01.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/ARTbio/startbio/raw/master/docs/ten2/Regex_01.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+    </a>
+  
+
+
+  <h1>Grep and Regex (1)</h1>
+
+<p><strong>Credit: this tutorial is extracted from <a href="https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285">Regex tutorial — A quick cheatsheet by examples</a></strong></p>
+<p>Regular expressions (regex or regexp) are extremely useful in <strong>extracting information from any text</strong> by searching for one or more matches of a specific search pattern (i.e. a specific sequence of ASCII or unicode characters).</p>
+<p>Fields of application range from validation to parsing/replacing strings, passing through translating data to other formats and web scraping.</p>
+<p>One of the most interesting features is that once you’ve learned the syntax, you can actually use this tool in (almost) all programming languages ​​(JavaScript, Java, VB, C #, C / C++, Python, Perl, Ruby, Delphi, R, Tcl, and many others) with the slightest distinctions about the support of the most advanced features and syntax versions supported by the engines).</p>
+<p>Let’s start by looking at some examples and explanations.</p>
+<h3 id="anchors-and">Anchors — ^ and $<a class="headerlink" href="#anchors-and" title="Permanent link">&para;</a></h3>
+<table>
+  <tr>
+   <td><strong><code>^The</code></strong>
+   </td>
+   <td>matches any string that <strong>starts with</strong> <strong>The </strong>-><strong><a target="_blank" href="https://regex101.com/r/cO8lqs/2"> Try it! </a></strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>end$</code></strong>
+   </td>
+   <td>matches <strong>a</strong> string that <strong>ends with</strong> <strong>end</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>^The end$</code></strong>
+   </td>
+   <td><strong>exact string match</strong> (starts and <strong>ends</strong> with <strong>The end</strong>)
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>roar</code></strong>
+   </td>
+   <td>matches any string that <strong>has the text roar in it</strong>
+   </td>
+  </tr>
+</table>
+
+<h3 id="quantifiers-and">Quantifiers — * + ? and {}<a class="headerlink" href="#quantifiers-and" title="Permanent link">&para;</a></h3>
+<table>
+  <tr>
+   <td><code>abc<strong>*</strong></code>
+   </td>
+   <td>matches a string that has <strong>ab followed by zero or more c </strong>-><strong><a target="_blank" href="https://regex101.com/r/cO8lqs/1"> Try it!</a></strong>
+   </td>
+  </tr>
+  <tr>
+   <td><code>abc<strong>+</strong></code>
+   </td>
+   <td>matches a string that has <strong>ab followed by one or more c</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><code>abc<strong>?</strong></code>
+   </td>
+   <td>matches a string that has <strong>ab followed by zero or one c</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><code>abc<strong>{2}</strong></code>
+   </td>
+   <td>matches a string that has <strong>ab followed by 2 c</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><code>abc<strong>{2,}</strong></code>
+   </td>
+   <td>matches a string that has <strong>ab followed by 2 or more c</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><code>abc<strong>{2,5}</strong></code>
+   </td>
+   <td>matches a string that has <strong>ab followed by 2 up to 5 c</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><code>a<strong>(bc)*</strong></code>
+   </td>
+   <td>matches a string that has <strong>a followed by zero or more copies of the sequence bc</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><code>a<strong>(bc){2,5}</strong></code>
+   </td>
+   <td>matches a string that has<strong> a followed by 2 up to 5 copies of the sequence bc</strong>
+   </td>
+  </tr>
+</table>
+
+<h3 id="or-operator-or">OR operator — | or [ ]<a class="headerlink" href="#or-operator-or" title="Permanent link">&para;</a></h3>
+<table>
+  <tr>
+   <td><strong><code>a(b|c)</code></strong>
+   </td>
+   <td>matches a string that has <strong>a followed by b or c -><a target="_blank" href="https://regex101.com/r/cO8lqs/3"> Try it!</a></strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>a[bc]</code></strong>
+   </td>
+   <td>same as previous
+   </td>
+  </tr>
+</table>
+
+<h3 id="character-classes-d-w-s-and"><code></code>Character classes — \d \w \s and .<a class="headerlink" href="#character-classes-d-w-s-and" title="Permanent link">&para;</a></h3>
+<table>
+  <tr>
+   <td><strong><code>\d</code></strong>
+   </td>
+   <td>matches a <strong>single character</strong> that is a <strong>digit </strong>-><strong><a target="_blank" href="https://regex101.com/r/cO8lqs/4"> Try it!</a></strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>\w</code></strong>
+   </td>
+   <td>matches a <strong>word character</strong> (alphanumeric character plus underscore) -><a target="_blank" href="https://regex101.com/r/cO8lqs/4"> Try it!</a>
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>\s</code></strong>
+   </td>
+   <td>matches a <strong>whitespace character</strong> (includes tabs and line breaks)
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>.</code></strong>
+   </td>
+   <td>matches <strong>any character </strong>-><strong><a target="_blank" href="https://regex101.com/r/cO8lqs/5"> Try it!</a></strong>
+   </td>
+  </tr>
+</table>
+
+<p>Use the <code>.</code> operator carefully since often class or negated character class (which we’ll cover next) are faster and more precise.</p>
+<p><code>\d</code>, <code>\w</code> and <code>\s</code> also present their negations with <code>\D</code>, <code>\W</code> and <code>\S</code> respectively.</p>
+<p>For example, <code>\D</code> will perform the inverse match with respect to that obtained with <code>\d</code>.</p>
+<table>
+  <tr>
+   <td><strong><code>\D</code></strong>
+   </td>
+   <td>matches a <strong>single non-digit character </strong>-><strong><a target="_blank" href="https://regex101.com/r/cO8lqs/6"> Try it!</a></strong>
+   </td>
+  </tr>
+</table>
+
+<p>In order to be taken literally, you must escape the characters <code>^.[$()|*+?{\</code>with a backslash <code>\</code> as they have special meaning.</p>
+<table>
+  <tr>
+   <td><strong><code>\$\d</code></strong>
+   </td>
+   <td>matches a string that has a <strong>$ before one digit </strong>-><strong><a target="_blank" href="https://regex101.com/r/cO8lqs/9"> Try it!</a></strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>\$\d</code></strong>
+   </td>
+   <td>Notice that you can match also <strong>non-printable characters</strong> like tabs <code>\t</code>, new-lines <code>\n</code>, carriage returns <code>\r</code>.
+   </td>
+  </tr>
+</table>
+
+<h3 id="flags">Flags<a class="headerlink" href="#flags" title="Permanent link">&para;</a></h3>
+<p>We are learning how to construct a regex but forgetting a fundamental concept: <strong>flags</strong>.</p>
+<p>A regex usually comes within this form **<code>/abc/</code></strong>, where the search pattern is delimited by two slash characters <code>/</code>. At the end we can specify a flag with these values (we can also combine them each other):</p>
+<ul>
+<li>
+<p><strong>g </strong>(global) does not return after the first match, restarting the subsequent searches from the end of the previous match</p>
+</li>
+<li>
+<p><strong>m</strong> (multi-line) when enabled <code>^</code> and <code>$</code> will match the start and end of a line, instead of the whole string</p>
+</li>
+<li>
+<p><strong>i</strong> (insensitive) makes the whole expression case-insensitive (for instance **<code>/aBc/i</code></strong> would match <strong><code>AbC</code></strong>)</p>
+</li>
+</ul>
+<hr />
+<h3 id="grouping-and-capturing">Grouping and capturing — ()<a class="headerlink" href="#grouping-and-capturing" title="Permanent link">&para;</a></h3>
+<table>
+  <tr>
+   <td><code>a<strong>(</strong>bc<strong>)</strong></code>
+   </td>
+   <td>parentheses create a <strong>capturing group with value bc </strong>-><strong><a target="_blank" href="https://regex101.com/r/cO8lqs/11"> Try it!</a></strong>
+   </td>
+  </tr>
+  <tr>
+   <td><code>a<strong>(?:</strong>bc<strong>)</strong>*</code>
+   </td>
+   <td>using <strong>?:</strong> we <strong>disable the capturing group </strong>-><strong><a target="_blank" href="https://regex101.com/r/cO8lqs/12"> Try it!</a></strong>
+   </td>
+  </tr>
+  <tr>
+   <td><code>a<strong>(?<foo></strong>bc<strong>)</strong></code>
+   </td>
+   <td>using <strong>?<foo></strong> we put a name to the group -><a target="_blank" href="https://regex101.com/r/cO8lqs/17"> Try it!</a>
+   </td>
+  </tr>
+</table>
+
+<p>This operator is very useful when we need to extract information from strings or data using your preferred programming language. Any multiple occurrences captured by several groups will be exposed in the form of a classical array: we will access their values specifying using an index on the result of the match.</p>
+<p>If we choose to put a name to the groups (using <code>(<strong>?<foo></strong>...)</code>) we will be able to retrieve the group values using the match result like a dictionary where the keys will be the name of each group.</p>
+<h3 id="bracket-expressions">Bracket expressions — [ ]<a class="headerlink" href="#bracket-expressions" title="Permanent link">&para;</a></h3>
+<table>
+  <tr>
+   <td><strong><code>[abc]</code></strong>
+   </td>
+   <td>matches a string that has <strong>either an a or a b or a c </strong>-><strong> </strong>is the <strong>same as a|b|c </strong>-><strong><a target="_blank" href="https://regex101.com/r/cO8lqs/7"> Try it!</a></strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>[a-c]</code></strong>
+   </td>
+   <td>same as previous
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>[a-fA-F0-9]</code></strong>
+   </td>
+   <td>a string that represents <strong>a single hexadecimal digit, case insensitively </strong>-><strong><a target="_blank" href="https://regex101.com/r/cO8lqs/22"> Try it!</a></strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>[0-9]%</code></strong>
+   </td>
+   <td>a string that has a character <strong>from 0 to 9 before a % sign</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>[^a-zA-Z]</code></strong>
+   </td>
+   <td>a string that has <strong>not a letter from a to z or from A to Z. </strong>In this case the <strong>^</strong> is used as <strong>negation of the expression </strong>-><strong><a target="_blank" href="https://regex101.com/r/cO8lqs/10"> Try it!</a></strong>
+   </td>
+  </tr>
+</table>
+
+<p>Remember that inside bracket expressions all special characters (including the backslash <code>\</code>) lose their special powers: thus we will not apply the “escape rule”.</p>
+<h3 id="greedy-and-lazy-match">Greedy and Lazy match<a class="headerlink" href="#greedy-and-lazy-match" title="Permanent link">&para;</a></h3>
+<p>The quantifiers ( <code>* + {}</code>) are greedy operators, so they expand the match as far as they can through the provided text.</p>
+<p>For example, <code>&lt;.+&gt;</code> matches <code>&lt;div&gt;simple div&lt;/div&gt;</code> in <code>This is a &lt;strong&gt;&lt;div&gt; simple div&lt;/div&gt;&lt;/strong&gt; test</code>.</p>
+<hr />
+<p>In order to catch only the <code>div</code> tag we can use a <code>?</code> to make it lazy:</p>
+<p><code>&lt;.+?&gt;</code> matches <strong>any character one or more</strong> times included <strong>inside &lt;</strong> and <strong>&gt;</strong>, expanding as needed &rarr; <a href="https://regex101.com/r/cO8lqs/24" target="_blank">Try it!</a></p>
+<p>Notice that a better solution should avoid the usage of <code>.</code> in favor of a more strict regex:</p>
+<p><code>&lt;[^&lt;&gt;]+&gt;</code> matches <strong>any character except &lt; or &gt; one or more</strong> times included <strong>inside &lt; and &gt;</strong> -&gt; <a href="https://regex101.com/r/cO8lqs/23" target="_blank">Try it!</a></p>
+<hr />
+<h3 id="boundaries-b-and-b">Boundaries — \b and \B<a class="headerlink" href="#boundaries-b-and-b" title="Permanent link">&para;</a></h3>
+<table>
+  <tr>
+   <td><strong><code>\babc\b</code></strong>
+   </td>
+   <td>performs a <strong>"whole words only" search </strong>-><strong><a target="_blank" href="https://regex101.com/r/cO8lqs/25"> Try it!</a></strong>
+   </td>
+  </tr>
+</table>
+
+<p><code>\b</code> represents an <strong>anchor like caret</strong> (it is similar to <code>$</code> and <code>^</code>) matching positions where <strong>one side is a word</strong> <strong>character </strong>(like <code>\w</code>) and the <strong>other side is not a word</strong> <strong>character </strong>(for instance it may be the beginning of the string or a space character).</p>
+<p>It comes with its <strong>negation</strong>, <code>\B</code>. This matches all positions where <code>\b</code> doesn’t match and could be if we want to find a search pattern fully surrounded by word characters.</p>
+<table>
+  <tr>
+   <td><strong><code>\Babc\B </code></strong>
+   </td>
+   <td>matches only if the pattern is <strong>fully surrounded by word</strong> characters -><a target="_blank" href="https://regex101.com/r/cO8lqs/26"> Try it!</a>
+   </td>
+  </tr>
+</table>
+
+<h3 id="back-references-1">Back-references — \1<a class="headerlink" href="#back-references-1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>expression</th>
+<th>effect</th>
+<th>Try</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>([abc])\1</code></td>
+<td>using <strong>\1</strong> it matches the <strong>same</strong> text that was matched by the <strong>first capturing group</strong></td>
+<td><a href="https://regex101.com/r/cO8lqs/14" target="_blank">Try it!</a></td>
+</tr>
+<tr>
+<td><code>([abc])([de])\2\1</code></td>
+<td>we can use <strong>\2</strong> (\3, \4, etc.) to identify <strong>the same</strong> text that <strong>was matched by the second</strong> (third, fourth, etc.) <strong>capturing group</strong></td>
+<td><a href="https://regex101.com/r/cO8lqs/15" target="_blank">Try it!</a></td>
+</tr>
+<tr>
+<td><code>(?&lt;foo&gt;[abc])\k&lt;foo&gt;</code></td>
+<td>we put the name <strong>foo</strong> to the group and we reference it later (<strong>\k<foo></strong>). The result is the same of the first regex</td>
+<td><a href="https://regex101.com/r/cO8lqs/16" target="_blank">Try it!</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="look-ahead-and-look-behind-and">Look-ahead and Look-behind — (?=) and (?&lt;=)<a class="headerlink" href="#look-ahead-and-look-behind-and" title="Permanent link">&para;</a></h3>
+<table>
+  <tr>
+   <td><code>d<strong>(?=</strong>r<strong>)</strong></code>
+   </td>
+   <td>matches a <strong>d </strong>only if is<strong> followed by r</strong>, <strong>but r will not be</strong> part of the overall regex <strong>match </strong>-><strong><a target="_blank" href="https://regex101.com/r/cO8lqs/18"> Try it!</a></strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>(?<=r)d</code></strong>
+   </td>
+   <td>matches a <strong>d </strong>only if is<strong> preceded by an r</strong>, <strong>but r will not be</strong> part of the overall regex <strong>match </strong>-><strong><a target="_blank" href="https://regex101.com/r/cO8lqs/19"> Try it!</a></strong>
+   </td>
+  </tr>
+</table>
+
+<p>You can use also the negation operator!</p>
+<table>
+<thead>
+<tr>
+<th>expression</th>
+<th>effect</th>
+<th>Try</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>d(?=r)</code></td>
+<td>matches a <strong>d</strong> only if is <strong>not followed by r</strong>, <strong>but r will not be</strong> part of the overall regex <strong>match</strong></td>
+<td><a href="https://regex101.com/r/cO8lqs/20" target="_blank">Try it!</a></td>
+</tr>
+<tr>
+<td><code>(?&lt;!r)d</code></td>
+<td>matches a <strong>d</strong> <strong>only if is not preceded by an r, but r will not be</strong> part of the overall regex <strong>match</strong></td>
+<td><a href="https://regex101.com/r/cO8lqs/21" target="_blank">Try it!</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p>As you’ve seen, the application fields of regex can be multiple and I’m sure that you’ve recognized at least one of these tasks among those seen in your developer career, here a quick list:</p>
+<ul>
+<li>
+<p>data validation (for example check if a time string i well-formed)</p>
+</li>
+<li>
+<p>data scraping (especially web scraping, find all pages that contain a certain set of words eventually in a specific order)</p>
+</li>
+<li>
+<p>data wrangling (transform data from “raw” to another format)</p>
+</li>
+<li>
+<p>string parsing (for example catch all URL GET parameters, capture text inside a set of parenthesis)</p>
+</li>
+<li>
+<p>string replacement (for example, even during a code session using a common IDE to translate a Java or C# class in the respective JSON object — replace “;” with “,” make it lowercase, avoid type declaration, etc.)</p>
+</li>
+<li>
+<p>syntax highlightning, file renaming, packet sniffing and many other applications involving strings (where data need not be textual)
+Have fun and do not forget to recommend the article if you liked it 💚</p>
+</li>
+</ul>
+<!-- Docs to Markdown version 1.0β17 -->
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../deepseq/bowtie_galaxy/" class="md-footer__link md-footer__link--prev" aria-label="Previous: BOWTIE ALIGNMENT USING galaxy">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                BOWTIE ALIGNMENT USING galaxy
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../python_decorators/" class="md-footer__link md-footer__link--next" aria-label="Next: Python Decorators">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Python Decorators
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["header.autohide", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.prune", "navigation.footer", "content.tabs.link", "content.code.copy", "content.action.view", "content.action.edit"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../spoiler_files/spoiler.js"></script>
+      
+    
+  </body>
+</html>

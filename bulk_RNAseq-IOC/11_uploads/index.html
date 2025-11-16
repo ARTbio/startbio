@@ -1,0 +1,2162 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://artbio.github.io/startbio/bulk_RNAseq-IOC/11_uploads/">
+      
+      
+        <link rel="prev" href="../10_PRJNA630433_presentation/">
+      
+      
+        <link rel="next" href="../12_QC/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>Data upload - STARTbio</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bcfcd587.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+  
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M4.855.708c.5-.896 1.79-.896 2.29 0l4.675 8.351a1.312 1.312 0 0 1-1.146 1.954H1.33A1.313 1.313 0 0 1 .183 9.058ZM7 7V3H5v4Zm-1 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"/></svg>');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+Display:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans Display";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../spoiler_files/spoiler.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#upload-of-prjna630433-data-in" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="STARTbio" class="md-header__button md-logo" aria-label="STARTbio" data-md-component="logo">
+      
+  <img src="../../assets/startbio_icon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            STARTbio
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Data upload
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ARTbio/startbio" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ARTbio/startbio
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../00_IOC_RNAseq_program/" class="md-tabs__link">
+          
+  
+  Interactive Online Companionship (IOC)
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ten2/Regex_01/" class="md-tabs__link">
+          
+  
+  1Omin2
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../AnalyseGenomes_2025/outline/" class="md-tabs__link">
+          
+  
+  Galaxy Trainings
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../bash_snippets/" class="md-tabs__link">
+          
+  
+  Code Snippets
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../links/" class="md-tabs__link">
+        
+  
+    
+  
+  Links
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="STARTbio" class="md-nav__button md-logo" aria-label="STARTbio" data-md-component="logo">
+      
+  <img src="../../assets/startbio_icon.png" alt="logo">
+
+    </a>
+    STARTbio
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ARTbio/startbio" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ARTbio/startbio
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Interactive Online Companionship (IOC)
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Interactive Online Companionship (IOC)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    IOC on bulk RNAseq analysis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            IOC on bulk RNAseq analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00_IOC_RNAseq_program/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Provisional Program / Schedule
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../01_IOC_RNAseq_week_00/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Week 0
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_3" id="__nav_2_1_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Week 1
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            Week 1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_exercices_week_00_review/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Review on week-0 work
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../03_readcounts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Analysis Overwiew
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_3_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_3_3" id="__nav_2_1_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Week 1 exercises
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_1_3_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Week 1 exercises
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_3_3_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_3_3_1" id="__nav_2_1_3_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Use case PRJNA630433
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_2_1_3_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1_3_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Use case PRJNA630433
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_PRJNA630433_presentation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Presentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Data upload
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Data upload
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#upload-data-from-your-local-computer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upload data from your local computer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Upload data from your local computer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-a-mus-musculus-gtf-file-from-ensembl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get a mus musculus GTF file from Ensembl
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upload-the-gtf-file-to-your-galaxy-account" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upload the GTF file to your Galaxy account.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upload-data-by-url-to-galaxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upload data by URL to Galaxy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upload-data-using-multiple-urls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upload data using multiple URLs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Upload data using multiple URLs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#retrieve-information-from-the-ebi-sra" class="md-nav__link">
+    <span class="md-ellipsis">
+      Retrieve information from the EBI SRA.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-the-url-list-for-a-batch-upload-in-galaxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use the URL list for a batch upload in Galaxy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upload-sra-datasets-using-a-galaxy-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upload SRA datasets using a Galaxy tool
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#galaxy-data-libraries-the-ultimate-upload-procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Galaxy data libraries: the ultimate "upload" procedure !
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_QC/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quality Control
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../13_exercices_week_01_review/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Week 2
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../19_exercices_week_02_review/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Week 3
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../24_exercices_week_03_review/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Week 4
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../30_exercices_week_04_review/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Week 5
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../33_exercices_week_05_review/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Week 6
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../40_exercices_week_06_review/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Week 7
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../50_exercices_week_07_review/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Week 8
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../links/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    External Materials
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    
+  
+  
+    <a href="../../R-IOC/00_IOC_R_program/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    IOC on R
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    
+  
+  
+    <a href="../../scRNAseq_basics/program_sc/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    IOC on Single-cell RNAseq analysis using Seurat in R
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../deepseq/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Introduction to Deep-seq Analysis
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../ten2/Regex_01/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    1Omin2
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    
+  
+  
+    <a href="../../AnalyseGenomes_2025/outline/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Galaxy Trainings
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../bash_snippets/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Code Snippets
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../links/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Links
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#upload-data-from-your-local-computer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upload data from your local computer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Upload data from your local computer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-a-mus-musculus-gtf-file-from-ensembl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get a mus musculus GTF file from Ensembl
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upload-the-gtf-file-to-your-galaxy-account" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upload the GTF file to your Galaxy account.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upload-data-by-url-to-galaxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upload data by URL to Galaxy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upload-data-using-multiple-urls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upload data using multiple URLs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Upload data using multiple URLs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#retrieve-information-from-the-ebi-sra" class="md-nav__link">
+    <span class="md-ellipsis">
+      Retrieve information from the EBI SRA.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-the-url-list-for-a-batch-upload-in-galaxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use the URL list for a batch upload in Galaxy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upload-sra-datasets-using-a-galaxy-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upload SRA datasets using a Galaxy tool
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#galaxy-data-libraries-the-ultimate-upload-procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Galaxy data libraries: the ultimate "upload" procedure !
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/ARTbio/startbio/edit/master/docs/bulk_RNAseq-IOC/11_uploads.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/ARTbio/startbio/raw/master/docs/bulk_RNAseq-IOC/11_uploads.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+    </a>
+  
+
+
+<h1 id="upload-of-prjna630433-data-in">Upload of PRJNA630433 data in <img alt="" src="../images/galaxylogo.png" /><a class="headerlink" href="#upload-of-prjna630433-data-in" title="Permanent link">&para;</a></h1>
+<hr />
+<p>For this use case, we need three types of datasets:</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> The fastq files, which are stored at the EBI SRA in a specific compressed format, the
+small read archive (sra) format.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> The appropriate GTF annotation file corresponding to the Mus musculus genome version
+GRCm38 (which is strictly synonymous of mm10)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> The genome GRCm38 in a fasta format. Indeed it is not necessary to fetch this genome
+because Galaxy servers can store genomes and make it available server-wide to all its users.
+Thus, your ARTbio Galaxy server already provides you with the reference genome GRCm38.</li>
+</ul>
+<p>We will take benefit from these requirements to review below the various ways of uploading
+data in your Galaxy account.</p>
+<p><img alt="⚠" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/26a0.svg" title=":warning:" /> Importantly, it will also be an opportunity to practice a little on an important
+aspect of bioinformatics analyses: the skills needed to access reliable genomic datasets
+by visiting and mastering reliable public databases/repositories. Here, for the moment,
+we will focus on two sources: the <a href="https://www.ensembl.org/index.html">Ensembl website</a> and
+the EMBL's European Bioinformatics Institute (<a href="https://www.ebi.ac.uk/">EBI</a>) Small Read
+Archive (<a href="https://www.ebi.ac.uk/ena/browser/home">SRA</a>)</p>
+<h2 id="upload-data-from-your-local-computer">Upload data from your local computer<a class="headerlink" href="#upload-data-from-your-local-computer" title="Permanent link">&para;</a></h2>
+<p>The first way to get input data in your Galaxy account is to transfer them from your
+<mark>local computer</mark> to <mark>Galaxy</mark>.</p>
+<p>Note that whereas this mode may be convenient if you have <em>already</em> the data on your computer,
+it is pretty inefficient: it implies 2 transfers of data, first from the data
+source to your computer, secondly from your computer to Galaxy. When it comes to large files,
+as it is the case here with the fastq file collection of PRJNA630433, it matters a lot !</p>
+<p>Therefore, we will illustrate the upload from computer with the case of the GTF file which
+has a "reasonable" size.</p>
+<h3 id="get-a-mus-musculus-gtf-file-from-ensembl"><img alt="" src="../images/tool_small.png" /> Get a mus musculus GTF file from Ensembl<a class="headerlink" href="#get-a-mus-musculus-gtf-file-from-ensembl" title="Permanent link">&para;</a></h3>
+<ol>
+<li>First Go to the <a href="https://www.ensembl.org/index.html">Ensembl portal page</a></li>
+<li>We are going to work with the mus musculus genome. Thus, click the Mouse button on the
+page, which is linked to this <a href="https://www.ensembl.org/Mus_musculus/Info/Index">URL</a></li>
+<li>As of the date this doc is written, the current version of the mus musculus genome
+assembly is GRCm39 (GCA_000001635.9). However, you will see in this current landing page
+a menu to select older assembly version, including the previous one GRCm38 (Ensembl release
+102) which is already selected in the menu <code>Other reference assemblies</code>: just click on the
+<code>Go</code> button !</li>
+<li>
+<p>The color of the page background will change to brown (archive area) and you will see
+in the top-right panel, a link to <a href="ftp://ftp.ensembl.org/pub/release-102/gtf/mus_musculus/">Download</a>
+<code>GTF or GFF3 files for genes, cDNAs, ncRNA, proteins</code>.</p>
+<ul>
+<li>if you click directly this link you may have a pop up alert warning you that an helper
+application for ftp download will take in charge the next (downloading) step. This may be
+Filezilla, or Cyberduck or any application which you have on your computer and that is
+recognized as being able to take in charge <code>ftp://</code> links.
+<br>
+If it works for you,
+go for it ! In this helper application, you will see the content
+of an archive directory. Select the GTF file <code>Mus_musculus.GRCm38.102.chr.gtf.gz</code> (be
+carreful because file names are very similar...), and ask your ftp application to
+download it on your computer.</li>
+<li>However, it is well possible that you do not have (yet) a helper ftp application, or
+that the communication between your navigator and this helper ftp application does not
+work properly. In this case you are in a kind of dead end... <br> No worries, there is
+a simple turn around !
+<br>
+Instead of clicking the link <a href="ftp://ftp.ensembl.org/pub/release-102/gtf/mus_musculus/">Download</a>
+<code>GTF or GFF3 files for genes, cDNAs, ncRNA, proteins</code>, only <em>copy</em> it (using the
+right-click button of your mouse).
+<br>
+Then, copy the link in a new browser window/tab and <em>edit it</em>, from
+<code>ftp://ftp.ensembl.org/pub/release-102/gtf/mus_musculus/</code> to 
+<code>https://ftp.ensembl.org/pub/release-102/gtf/mus_musculus/</code> (did you see the subtle
+difference ? <img alt="😄" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f604.svg" title=":smile:" />) and press the <span class="keys"><kbd class="key-enter">Enter</kbd></span> key to navigate to this edited URL.
+<br>
+Here, you should see the content list of the directory <code>Index of
+/pub/release-102/gtf/mus_musculus</code> which looks like:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Name    Last modified   Size    Description
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Parent Directory        -    
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>CHECKSUMS   2020-10-28 13:45    225  
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>Mus_musculus.GRCm38.102.abinitio.gtf.gz 2020-10-27 00:25    3.2M
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>Mus_musculus.GRCm38.102.chr.gtf.gz  2020-10-27 00:08    32M &lt;----
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>[Mus_musculus.GRCm38.102.chr_patch_hapl_scaff.gtf.gz    2020-10-27 00:11    32M
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>Mus_musculus.GRCm38.102.gtf.gz  2020-10-27 00:08    32M
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>README  2020-10-27 00:12    9.2K
+</span></code></pre></div>
+<br>
+Now, you have just to click the right GTF file:
+<a href="https://ftp.ensembl.org/pub/release-102/gtf/mus_musculus/Mus_musculus.GRCm38.102.chr.gtf.gz">Mus_musculus.GRCm38.102.chr.gtf.gz</a></li>
+</ul>
+</li>
+</ol>
+<p>Last recommendation: it is not necessary to uncompress the <code>Mus_musculus.GRCm38.102.chr.gtf.gz</code>.
+Leave it as is on your computer.</p>
+<h3 id="upload-the-gtf-file-to-your-galaxy-account"><img alt="" src="../images/tool_small.png" /> Upload the GTF file to your Galaxy account.<a class="headerlink" href="#upload-the-gtf-file-to-your-galaxy-account" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Navigate to your Galaxy account</li>
+<li>Create a new history (the <img alt="➕" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/2795.svg" title=":heavy_plus_sign:" /> button at the top right corner)and name it
+<code>PRJNA630433 input data</code></li>
+<li>Click the <code>upload data</code> icon <img alt="" src="../images/upload_button.png" /> at the top of the left bar.</li>
+<li>Select <code>Choose local files</code></li>
+<li>Select your local <code>Mus_musculus.GRCm38.102.chr.gtf.gz</code> file in the menu</li>
+<li>Press "Start", then "Close" buttons.</li>
+</ol>
+<p>This is it. Your download should start in the history menu and the dataset will turn green
+when is is complete.</p>
+<hr />
+<h2 id="upload-data-by-url-to-galaxy">Upload data by URL to Galaxy<a class="headerlink" href="#upload-data-by-url-to-galaxy" title="Permanent link">&para;</a></h2>
+<details class="question">
+<summary>By the way, do you know what URL means ?</summary>
+<p>A URL (Uniform Resource Locator) is a unique identifier used to locate a resource on
+the Internet. It is also referred to as a web address.</p>
+</details>
+<p><a href="../images/tool_small.png"></a></p>
+<p>Indeed, we can directly transfert the Drosophila_melanogaster.BDGP6.95.gtf.gz
+from its primary location in the Ensembl database server to your Galaxy History. This is
+one transfer less !</p>
+<ol>
+<li>
+<p>Copy the URL of the GTF Mus_musculus.GRCm38.102.chr.gtf.gz
+   Note that this can be either the
+   <a href="ftp://ftp.ensembl.org/pub/release-102/gtf/mus_musculus/Mus_musculus.GRCm38.102.chr.gtf.gz">FTP URL</a>
+   or the
+   <a href="https://ftp.ensembl.org/pub/release-102/gtf/mus_musculus/Mus_musculus.GRCm38.102.chr.gtf.gz">HTTPS URL</a></p>
+</li>
+<li>
+<p>Paste it in the <code>Paste/Fetch data</code> tab of the Galaxy <img alt="" src="../images/upload_button.png" /> upload interface.</p>
+</li>
+<li>Press the <code>start</code> button, then the <code>close</code> button.</li>
+</ol>
+<p>It really is better, isn't it? <img alt="😆" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f606.svg" title=":satisfied:" /></p>
+<p>However, this does not exempt you from providing
+Galaxy with the correct URL! This is why we took our time to explain how to access the
+appropriate GTF file on the Ensembl website.</p>
+<hr />
+<h2 id="upload-data-using-multiple-urls">Upload data using multiple URLs<a class="headerlink" href="#upload-data-using-multiple-urls" title="Permanent link">&para;</a></h2>
+<p>We have also to upload 12 fastq files which are deposited in the EBI SRA.</p>
+<h3 id="retrieve-information-from-the-ebi-sra">Retrieve information from the EBI SRA.<a class="headerlink" href="#retrieve-information-from-the-ebi-sra" title="Permanent link">&para;</a></h3>
+<p>Let's first have a look to the <a href="https://www.ebi.ac.uk/ena/browser/home">EBI SRA</a> database
+of NGS sequence read files.</p>
+<p>If you enter
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>PRJNA630433
+</span></code></pre></div>
+In the accession search box of the SRA homepage, you will land
+<a href="https://www.ebi.ac.uk/ena/browser/view/PRJNA630433">here</a>, where a table displayed at
+the bottom, which contains information about all samples of the study. Note that by defaults,
+only the first 10 samples are shown. If you want to see, in our case, the 2 remaining samples,
+you have either to click the <code>next</code> arrow button, or change the number of items displayed by
+page.</p>
+<p>If you click the <code>download report - TSV</code> link, you will download the table with the fields
+as displayed on the page. However, looking carefully at the table, you'll see that the displayed
+fields are not all what we need. Some fields are not useful (for instance Study Accession,
+Sample Accession, Experiment Accession, Tax Id, Scientific Name), whereas a field is
+notoriously missing: the one that describe to which replicate of DC, MPO or OC cells
+correspond the sequencing runs.</p>
+<p>No worry, you can customize the fields displayed in the table by clicking the link <code>Show
+Column Selection</code>.</p>
+<p>Here, uncheck all boxes and recheck only <code>run_accession</code>, <code>sample_title</code> and <code>fastq_ftp</code>.</p>
+<p>Then click the <code>download report - TSV</code> link and retrieve the useful information as
+a tsv (tabulation separated values) file, which looks like below:</p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>run_accession   fastq_ftp   sample_accession    sample_title
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>SRR11688222 ftp.sra.ebi.ac.uk/vol1/fastq/SRR116/022/SRR11688222/SRR11688222.fastq.gz    SAMN14836341    Mo rep2
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>SRR11688221 ftp.sra.ebi.ac.uk/vol1/fastq/SRR116/021/SRR11688221/SRR11688221.fastq.gz    SAMN14836342    Dc rep2
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>SRR11688228 ftp.sra.ebi.ac.uk/vol1/fastq/SRR116/028/SRR11688228/SRR11688228.fastq.gz    SAMN14836335    Dc rep4
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>SRR11688227 ftp.sra.ebi.ac.uk/vol1/fastq/SRR116/027/SRR11688227/SRR11688227.fastq.gz    SAMN14836336    Mo rep4
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>SRR11688218 ftp.sra.ebi.ac.uk/vol1/fastq/SRR116/018/SRR11688218/SRR11688218.fastq.gz    SAMN14836345    Dc rep1
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>SRR11688219 ftp.sra.ebi.ac.uk/vol1/fastq/SRR116/019/SRR11688219/SRR11688219.fastq.gz    SAMN14836344    Mo rep1
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>SRR11688220 ftp.sra.ebi.ac.uk/vol1/fastq/SRR116/020/SRR11688220/SRR11688220.fastq.gz    SAMN14836343    Oc rep1
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>SRR11688223 ftp.sra.ebi.ac.uk/vol1/fastq/SRR116/023/SRR11688223/SRR11688223.fastq.gz    SAMN14836340    Oc rep2
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>SRR11688224 ftp.sra.ebi.ac.uk/vol1/fastq/SRR116/024/SRR11688224/SRR11688224.fastq.gz    SAMN14836339    Dc rep3
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>SRR11688225 ftp.sra.ebi.ac.uk/vol1/fastq/SRR116/025/SRR11688225/SRR11688225.fastq.gz    SAMN14836338    Mo rep3
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>SRR11688226 ftp.sra.ebi.ac.uk/vol1/fastq/SRR116/026/SRR11688226/SRR11688226.fastq.gz    SAMN14836337    Oc rep3
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>SRR11688229 ftp.sra.ebi.ac.uk/vol1/fastq/SRR116/029/SRR11688229/SRR11688229.fastq.gz    SAMN14836334    Oc rep4
+</span></code></pre></div>
+If you open your tsv file (change the filename from <code>filereport_read_run_PRJNA630433_tsv.txt</code>
+to <code>filereport_read_run_PRJNA630433.tsv</code>) with your spreadsheet software, it is also easy
+to generate three additional tables, which will be useful to you later.</p>
+<p>The first one is a single list of fastq.gz URLs (<img alt="⚠" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/26a0.svg" title=":warning:" /> you have to had <code>https://</code> at
+the beginning of each line):</p>
+<div class="admonition info">
+<p class="admonition-title">Table 1</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR116/022/SRR11688222/SRR11688222.fastq.gz
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR116/021/SRR11688221/SRR11688221.fastq.gz
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR116/028/SRR11688228/SRR11688228.fastq.gz
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR116/027/SRR11688227/SRR11688227.fastq.gz
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR116/018/SRR11688218/SRR11688218.fastq.gz
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR116/019/SRR11688219/SRR11688219.fastq.gz
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR116/020/SRR11688220/SRR11688220.fastq.gz
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR116/023/SRR11688223/SRR11688223.fastq.gz
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR116/024/SRR11688224/SRR11688224.fastq.gz
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR116/025/SRR11688225/SRR11688225.fastq.gz
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR116/026/SRR11688226/SRR11688226.fastq.gz
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR116/029/SRR11688229/SRR11688229.fastq.gz
+</span></code></pre></div>
+</div>
+<p>The second one is a single list of the run_accession IDs</p>
+<div class="admonition info">
+<p class="admonition-title">Table 2</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>SRR11688222
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>SRR11688221
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>SRR11688228
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>SRR11688227
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>SRR11688218
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>SRR11688219
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>SRR11688220
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>SRR11688223
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>SRR11688224
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>SRR11688225
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>SRR11688226
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>SRR11688229
+</span></code></pre></div>
+</div>
+<p>The third one is a run_accession / sample_title match table:
+<a name="table3"></a></p>
+<div class="admonition info">
+<p class="admonition-title">Table 3</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>run_accession   sample_title
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>SRR11688222 Mo rep2
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>SRR11688221 Dc rep2
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>SRR11688228 Dc rep4
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>SRR11688227 Mo rep4
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>SRR11688218 Dc rep1
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>SRR11688219 Mo rep1
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>SRR11688220 Oc rep1
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>SRR11688223 Oc rep2
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>SRR11688224 Dc rep3
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>SRR11688225 Mo rep3
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>SRR11688226 Oc rep3
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>SRR11688229 Oc rep4
+</span></code></pre></div>
+</div>
+<h3 id="use-the-url-list-for-a-batch-upload-in-galaxy">Use the URL list for a batch upload in Galaxy<a class="headerlink" href="#use-the-url-list-for-a-batch-upload-in-galaxy" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Copy the content of the above Table 1</li>
+<li>Paste it as is in the <code>Paste/Fetch data</code> tab of the Galaxy <img alt="" src="../images/upload_button.png" />
+   upload interface.</li>
+<li>Press the <code>start</code> button, then the <code>close</code> button.</li>
+</ol>
+<p>You will see soon 12 datasets popping up in the right history bar. The datasets will turn
+green when their upload (from the SRA site) is finished.</p>
+<h2 id="upload-sra-datasets-using-a-galaxy-tool"><img alt="" src="../images/tool_small.png" /> Upload SRA datasets using a Galaxy tool<a class="headerlink" href="#upload-sra-datasets-using-a-galaxy-tool" title="Permanent link">&para;</a></h2>
+<p>A third way to upload the fastq samples is to use the Galaxy tool
+<code>Faster Download and Extract Reads in FASTQ format from NCBI SRA</code></p>
+<p>Note that the NCBI and EBI Small Read Archives are mostly synchronised. Therefore, this
+tool will retrieve the fastq datasets of our use case without problem.</p>
+<ol>
+<li>Copy the content of the above Table 2 and paste it in the <code>Paste/Fetch data</code> tab of the
+   Galaxy <img alt="" src="../images/upload_button.png" /> upload interface.
+   <br>
+   &rarr; Change the content of the <code>Name</code> box from "New File" to "SRR list"
+   <br>
+   <img alt="" src="../images/newfile.png" />
+   <br>
+   &rarr; Click the <code>Start</code> then the <code>Close</code> buttons.
+   <br>
+   &rarr; You will rapidly see a new dataset in the history right bar, whose name is "SRR list"
+   and content is what you have pasted in the upload interface.
+   <br>
+   Thus, the upload interface of Galaxy can also be used to upload pieces
+   of text, in addition to files ! Remember this functionality because it is very useful. </li>
+<li>Click on the tool <code>Faster Download and Extract Reads in FASTQ format from NCBI SRA</code>
+   (you can select it rapidly by typing <code>Faster Download</code> in the tool search bar)</li>
+<li>In the <strong>select input type</strong> menu of the tool, select <code>List of SRA accession, one per
+   line</code></li>
+<li>In the <strong>sra accession list</strong> menu, select the newly created dataset whose name should
+   be <code>SRR list</code></li>
+<li>Click the <code>Execute</code> button !</li>
+</ol>
+<p>Several datasets will show up in the history right bar, similarly to this (except the
+datasets numbers):</p>
+<p><img alt="" src="../images/sra_datasets.png" style="width:300px" /></p>
+<p>the dataset lists (three first datasets), will remain empty until the upload is finished.
+In contrast, the <code>fasterq-dump log</code> dataset will show progressively blocks of logs similar
+to:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>spots read      : 28,473,868
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>reads read      : 28,473,868
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>reads written   : 28,473,868
+</span></code></pre></div></p>
+<p>When the upload is completed, all 4 datasets will turn green. The you can verify that only
+one dataset list is containing the list of SRR datasets: <code>Single-end data (fasterq-dump)</code>,
+whereas the other lists remained empty.</p>
+<p>You can now, and only now, delete the empty datasets and the useless log dataset.</p>
+<p>To finish with this tool, you probably noticed that it is much slower in fetching the SRR
+fastq files than the standard Galaxy upload interface. The name of the tool is not totally
+appropriate <img alt="😄" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f604.svg" title=":smile:" />. However, if someone gives you directly the list of the SRR identifier,
+the tool allows you to retrieve them with a minimum manipulations and without even interacting
+with the EBI SRA interface.</p>
+<h2 id="galaxy-data-libraries-the-ultimate-upload-procedure">Galaxy data libraries: the ultimate "upload" procedure !<a class="headerlink" href="#galaxy-data-libraries-the-ultimate-upload-procedure" title="Permanent link">&para;</a></h2>
+<p>You might rightly point out that there is no point in asking multiple users to upload the
+same datasets.</p>
+<p>It’s actually a waste of time, energy, and storage space!</p>
+<p>To address this issue of effort duplication, Galaxy offers data libraries, where datasets
+can be stored and available to multiple users.</p>
+<p>In preparing this IOC, we uploaded the SRRs of this use case into a data library named
+<code>IOC_bulk_RNAseq</code>.</p>
+<p>To access this data library and import the SRR fastq files in your histories:</p>
+<p><img alt="" src="../images/tool_small.png" /></p>
+<ol>
+<li>
+<p>Click the menu <code>Données partagées</code> (<code>Shared data</code>) and select the submenu
+  <code>Bibliothèque de Données</code> (<code>Data libraries</code>).</p>
+</li>
+<li>
+<p>Navigate to the data library <code>IOC_bulk_RNAseq</code></p>
+</li>
+<li>
+<p>Navigate to the folder <code>IOC_bulk_RNAseq / PRJNA630433 / FASTQ files</code></p>
+</li>
+<li>
+<p>Select all datasets</p>
+</li>
+<li>
+<p>Click the <code>To History</code> button and select <code>as a Collection</code></p>
+</li>
+<li>
+<p>In the pop up window, leave <strong>Collection type</strong> as <code>List</code> and select your input history
+  in the menu <strong>Select history</strong>. Note that if instead, you type the name of a new history,
+  an history will be created and fastq datasets will be transfered in this new history.
+  in a new history with this name.</p>
+</li>
+<li>
+<p>Click on the <code>Continue</code> button</p>
+</li>
+<li>
+<p>In the field <code>Name</code>, just type a name for you collection such as <code>PRJNA630433 FASTQ
+  collection</code>, and click <code>Create collection</code></p>
+</li>
+<li>
+<p>Here we are ! Click the House icon in the very top Galaxy menu (main menu). You should
+  see the new collection of fastq datasets in the history you have selected for its creation.</p>
+</li>
+</ol>
+<p><strong>Super fast isn't it <img alt="😄" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f604.svg" title=":smile:" /> ?</strong></p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../10_PRJNA630433_presentation/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Presentation">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Presentation
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../12_QC/" class="md-footer__link md-footer__link--next" aria-label="Next: Quality Control">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Quality Control
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["header.autohide", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.prune", "navigation.footer", "content.tabs.link", "content.code.copy", "content.action.view", "content.action.edit"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../spoiler_files/spoiler.js"></script>
+      
+    
+  </body>
+</html>

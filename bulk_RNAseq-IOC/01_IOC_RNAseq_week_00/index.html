@@ -1,0 +1,2086 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://artbio.github.io/startbio/bulk_RNAseq-IOC/01_IOC_RNAseq_week_00/">
+      
+      
+        <link rel="prev" href="../00_IOC_RNAseq_program/">
+      
+      
+        <link rel="next" href="../02_exercises_week_00/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>Introduction - Week-0 - STARTbio</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bcfcd587.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+  
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M4.855.708c.5-.896 1.79-.896 2.29 0l4.675 8.351a1.312 1.312 0 0 1-1.146 1.954H1.33A1.313 1.313 0 0 1 .183 9.058ZM7 7V3H5v4Zm-1 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"/></svg>');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+Display:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans Display";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../spoiler_files/spoiler.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction-of-the-companions-and-instructors-10-min" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="STARTbio" class="md-header__button md-logo" aria-label="STARTbio" data-md-component="logo">
+      
+  <img src="../../assets/startbio_icon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            STARTbio
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introduction - Week-0
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ARTbio/startbio" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ARTbio/startbio
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../00_IOC_RNAseq_program/" class="md-tabs__link">
+          
+  
+  Interactive Online Companionship (IOC)
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ten2/Regex_01/" class="md-tabs__link">
+          
+  
+  1Omin2
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../AnalyseGenomes_2025/outline/" class="md-tabs__link">
+          
+  
+  Galaxy Trainings
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../bash_snippets/" class="md-tabs__link">
+          
+  
+  Code Snippets
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../links/" class="md-tabs__link">
+        
+  
+    
+  
+  Links
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="STARTbio" class="md-nav__button md-logo" aria-label="STARTbio" data-md-component="logo">
+      
+  <img src="../../assets/startbio_icon.png" alt="logo">
+
+    </a>
+    STARTbio
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ARTbio/startbio" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ARTbio/startbio
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Interactive Online Companionship (IOC)
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Interactive Online Companionship (IOC)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    IOC on bulk RNAseq analysis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            IOC on bulk RNAseq analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00_IOC_RNAseq_program/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Provisional Program / Schedule
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_2" id="__nav_2_1_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Week 0
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            Week 0
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Introduction - Week-0
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Introduction - Week-0
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-of-the-companions-and-instructors-10-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction of the Companions and Instructors (10 min)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#presentation-of-the-ioc-general-workflow-scheme-15-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      Presentation of the IOC general workflow (Scheme) (15 min)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#presentation-of-the-ioc-tools-2-hours" class="md-nav__link">
+    <span class="md-ellipsis">
+      Presentation of the IOC tools (2 hours)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Presentation of the IOC tools (2 hours)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#zoom" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zoom
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trello" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trello
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#startbio" class="md-nav__link">
+    <span class="md-ellipsis">
+      STARTbio
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Slack
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#psilo-storage-15-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      PSILO storage (15 min)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#galaxy-65-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      Galaxy (65 min)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Galaxy (65 min)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-short-introduction-to-galaxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      A short introduction to Galaxy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#import-data-from-psilo-to-galaxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Import data from Psilo to Galaxy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#an-advanced-psilo-to-galaxy-transfer-use-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      An advanced Psilo to Galaxy Transfer Use-Case
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thank-you-for-your-attention-and-see-you-nextweek" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thank you for your attention and see you nextweek
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_exercises_week_00/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 0 exercises
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../02_exercices_week_00_review/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Week 1
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../13_exercices_week_01_review/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Week 2
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../19_exercices_week_02_review/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Week 3
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../24_exercices_week_03_review/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Week 4
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../30_exercices_week_04_review/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Week 5
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../33_exercices_week_05_review/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Week 6
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../40_exercices_week_06_review/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Week 7
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../50_exercices_week_07_review/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Week 8
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../links/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    External Materials
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    
+  
+  
+    <a href="../../R-IOC/00_IOC_R_program/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    IOC on R
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    
+  
+  
+    <a href="../../scRNAseq_basics/program_sc/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    IOC on Single-cell RNAseq analysis using Seurat in R
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../deepseq/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Introduction to Deep-seq Analysis
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../ten2/Regex_01/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    1Omin2
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    
+  
+  
+    <a href="../../AnalyseGenomes_2025/outline/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Galaxy Trainings
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../bash_snippets/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Code Snippets
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../links/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Links
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-of-the-companions-and-instructors-10-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction of the Companions and Instructors (10 min)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#presentation-of-the-ioc-general-workflow-scheme-15-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      Presentation of the IOC general workflow (Scheme) (15 min)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#presentation-of-the-ioc-tools-2-hours" class="md-nav__link">
+    <span class="md-ellipsis">
+      Presentation of the IOC tools (2 hours)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Presentation of the IOC tools (2 hours)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#zoom" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zoom
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trello" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trello
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#startbio" class="md-nav__link">
+    <span class="md-ellipsis">
+      STARTbio
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Slack
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#psilo-storage-15-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      PSILO storage (15 min)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#galaxy-65-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      Galaxy (65 min)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Galaxy (65 min)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-short-introduction-to-galaxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      A short introduction to Galaxy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#import-data-from-psilo-to-galaxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Import data from Psilo to Galaxy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#an-advanced-psilo-to-galaxy-transfer-use-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      An advanced Psilo to Galaxy Transfer Use-Case
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thank-you-for-your-attention-and-see-you-nextweek" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thank you for your attention and see you nextweek
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/ARTbio/startbio/edit/master/docs/bulk_RNAseq-IOC/01_IOC_RNAseq_week_00.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/ARTbio/startbio/raw/master/docs/bulk_RNAseq-IOC/01_IOC_RNAseq_week_00.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+    </a>
+  
+
+
+  <h1>Introduction - Week-0</h1>
+
+<p><strong>3-hours Zoom video-conference</strong></p>
+<h2 id="introduction-of-the-companions-and-instructors-10-min">Introduction of the Companions and Instructors (10 min)<a class="headerlink" href="#introduction-of-the-companions-and-instructors-10-min" title="Permanent link">&para;</a></h2>
+<h2 id="presentation-of-the-ioc-general-workflow-scheme-15-min">Presentation of the IOC general workflow (Scheme) (15 min)<a class="headerlink" href="#presentation-of-the-ioc-general-workflow-scheme-15-min" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="../images/IOC-workflow.png" /></p>
+<h2 id="presentation-of-the-ioc-tools-2-hours">Presentation of the IOC tools (2 hours)<a class="headerlink" href="#presentation-of-the-ioc-tools-2-hours" title="Permanent link">&para;</a></h2>
+<h3 id="zoom">Zoom<a class="headerlink" href="#zoom" title="Permanent link">&para;</a></h3>
+<p>We currently use the Zoom software for our video-conferences.
+They will be recorded and available off line in the psilo data server (see below)</p>
+<p>Please, follow these guides lines for Zoom usage</p>
+<ol>
+<li>Use a local, desktop Zoom application instead of the online web application. You can
+   download Zoom <a href="https://zoom.us/fr/download" target="_blank">here</a></li>
+<li>Test your Zoom application once if you never used it. We will be happy to arrange a quick
+  Zoom session a few days before the IOC if you feel that there may be an issue.</li>
+<li>Be sure that your internet connection is reasonably fast to allow <strong>the use of your camera</strong>.
+  We much value visual interactions !</li>
+<li>Arrange a quiet local place for your Zoom weekly session. People talking around you are
+  disturbing you as well as the other conference participants. If you cannot arrange to be
+  alone in your office, please warn you colleagues well ahead the session that you will
+  need peace.</li>
+<li><strong>Use a headset with a built-in microphone</strong>. It's not a gimmick! There are now cheap
+  headsets for video-conference that works well. Test your headset with your computer
+  and Zoom well ahead the first IOC session.</li>
+<li>Prefer a Desktop (generally more powerful) to a Laptop computer.</li>
+<li>Use the largest screen you have (another reason not using a laptop). If you have two
+  screens, even better, but then test zoom with your dual screen setup. We may have to
+  leave open several windows and applications during the Zoom session. </li>
+<li>Be on time at the session !</li>
+<li>You are welcome to use the chat panel of Zoom to exchange links, code issues etc, but
+  Slack (see below) is likely better suited to this (especially because the Zoom chat is
+  lost when the application is shutdown. Therefore, be sure to have you Slack board available
+  during the Zoom sessions.</li>
+</ol>
+<p>There are many other interesting functionalities with Zoom, which will be covered in the 
+presentation.</p>
+<h3 id="trello">Trello<a class="headerlink" href="#trello" title="Permanent link">&para;</a></h3>
+<p>One of our favorite tools is Trello.
+You will be invited to access to the <a href="https://trello.com/b/NtaNjZ6f" target="_blank">trello board</a>
+of the IOC. Not a lot to say about Trello. It is just a great tool to capture information,
+collaborate, and organize projects.</p>
+<p>We hope that you will still use Trello for your own projects and purposes when the IOC is
+finished !</p>
+<h3 id="startbio">STARTbio<a class="headerlink" href="#startbio" title="Permanent link">&para;</a></h3>
+<p>Our <a href="https://artbio.github.io/startbio/">STARTbio web site</a> is the hub where we connect
+all the training materials for IOCs.
+To access rapidly to your bulk-RNAseq-analysis IOC, use this
+<a href="https://artbio.github.io/startbio/bulk_RNAseq-IOC/IOC_RNAseq_program/">URL shortcut</a></p>
+<p>Here, you'll find all weekly lessons, exercises, instructions, etc...</p>
+<p><strong>Importantly</strong>, you, yes, you, are welcome to propose modifications or fixes to the STARTbio
+IOC web pages !
+Assuming that during this IOC you will become familiar with the use of GitHub, all you
+have to do is click on the pencil icon <img align="absbottom" alt="" src="../images/github_pencil.png" width="100" />
+at the top of each page and propose your modifications in a branch of our GitHub startbio
+repository.</p>
+<h3 id="slack">Slack<a class="headerlink" href="#slack" title="Permanent link">&para;</a></h3>
+<p>Slack is a workspace to exchange messages or files, follow conversations, communicate
+about issues and ideas.</p>
+<p>If you haven't already done so, you will first need to open a
+<a href="https://slack.com/get-started#/createnew" target="_blank">Slack account</a> by providing
+a username and password (you can also use authentication through Google or Apple).</p>
+<p>If you have already a Slack account, you can connect to this account using this
+<a href="https://slack.com/signin#/signin" target="_blank">URL</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Attention !</p>
+<p>If you have multiple login emails for your Slack account, it can become confusing if
+some of your workspaces are identified with one email and others with another email.</p>
+<p>This might happen, for example, if you were invited to a Slack workspace with a
+different email than the one you initially used to create your first Slack workspace.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Get Slack app on your local computer</p>
+<p>We really strongly recommend that you use a desktop version of the slack application
+on your computer(s).</p>
+<p>Once installed, this desktop Slack application will connect to
+your Slack account(s) and import locally your workspace, including the workspace
+dedicated to this IOC</p>
+<p><a href="https://apps.apple.com/us/app/slack-for-desktop/id803453959?mt=12" target="_blank">Apple Desktop Slack</a>
+| <a href="https://slack.com/intl/fr-fr/downloads/windows" target="_blank">Windows Desktop Slack</a></p>
+</div>
+<p>Last but not least, Slack is not an option: we will be extremely reluctant to communicate
+by email with you about this IOC.</p>
+<p>Indeed, emails capture information very poorly, because very often the subject headings
+are poorly chosen (or not chosen at all...), conversations by email deal with heterogeneous
+subjects, the recipients of a series of messages vary over time, and other joyful things -
+the imagination of Internet users is limitless (and exhausting)....</p>
+<p>Instead, use your <a href="https://iocbulkrnaseq.slack.com">IOC Slack</a></p>
+<h3 id="github">GitHub<a class="headerlink" href="#github" title="Permanent link">&para;</a></h3>
+<p>Git is a powerful versionning system.
+The software was implemented in web environments to create even more powerful system of
+continuous development and continuous integration.</p>
+<p>This is the case of <a href="https://github.com" target="_blank">GitHub</a> which we have chosen in ARTbio.
+<a href="https://about.gitlab.com/">GitLab</a> is another option, which will not use here.</p>
+<p>Good news ! there is a GitHub repository just for your IOC
+<a href="https://github.com/ARTbio/ARTbio_064_IOC_Bulk-RNAseq/tree/main" target="_blank"><strong>here</strong></a>.
+This repository is private. Therefore, to access it, you will need to create a personal
+GitHub account, and to communicate your GitHub identifier to be invited to contribute to
+(and benefit from) the repository.</p>
+<p>We are not going to use the repository intensively
+<a href="https://github.com/ARTbio/ARTbio_064_IOC_Bulk-RNAseq/tree/main" target="_blank">ARTbio_064_IOC_Bulk-RNAseq</a>.
+However, we will try to take advantage of it to introduce you to the notions
+of FAIR (Findability, Accessibility, interoperability and reproducibility) and familiarize
+you with the continuous integration and transparency of bioinformatics analyses.</p>
+<div class="admonition info">
+<p class="admonition-title">Disclosure</p>
+<p>The learning curve of git and github is not steep for a biologist... which
+unfortunately means that you will have to make a substantial effort before
+understanding the benefit of GitHub and being able to manipulate it without
+discomfort. But if you make the necessary effort, rest assured that you won't regret
+it.</p>
+<p>For a very good introductory journal to Git and GitHub, although a bit old, see this
+<a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004668">article</a></p>
+<p>GitHub is also very good at teaching how to use it... You can go from
+<a href="https://docs.github.com/en/get-started/quickstart">there</a>!</p>
+</div>
+<h3 id="psilo-storage-15-min">PSILO storage (15 min)<a class="headerlink" href="#psilo-storage-15-min" title="Permanent link">&para;</a></h3>
+<p><a href="https://psilo.sorbonne-universite.fr/" target="_blank">PSILO</a> is file storage server with a NextCloud web interface.
+If you are affiliated to Sorbonne-Université (and have a corresponding email address), you
+may have already an account on PSILO.
+In any case, as an IOC participant, whatever your affiliation. We will configure for you
+a PSILO account with the email of your choice and we will send you your credentials to
+access to this account.</p>
+<p>The NextCloud interface is rather easy and intuitive, and NextCloud documentation is extensive
+and easy to find with a web search engine.</p>
+<p>We will use PSILO to store large files, such as input datasets or important analysis results.
+Importantly, we will show you how to quickly transfer files from PSILO to your Galaxy account,
+your local computer, GitHub, etc...</p>
+<p>We may also use our ARTbio PSILO account to share files with you !</p>
+<p>You get it: stop exchanging research datasets (including excel tables) using your email client <img alt="😄" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f604.svg" title=":smile:" /></p>
+<h3 id="galaxy-65-min">Galaxy (65 min)<a class="headerlink" href="#galaxy-65-min" title="Permanent link">&para;</a></h3>
+<p>Galaxy is a web service which provides a very powerful analysis environment.</p>
+<p>Galaxy is particularly well suited to bulk RNAseq analysis because virtually all the
+bioinformatics tools necessary to perform it are available in its environment, have been
+proven and are continuously improved by a very large community of analysts and developers.</p>
+<p>But the main reasons why we use Galaxy at ARTbio is that Galaxy helps immensely in making
+your analysis:</p>
+<ul>
+<li>REPRODUCIBLE (by others, but believe us, by you too <img alt="😄" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f604.svg" title=":smile:" />)</li>
+<li>TRANSPARENT. Galaxy captures the smallest details of an analysis, allows you to build
+complete workflows, from input datasets to the most conclusive datasets of your analyses,
+including all the steps and tools you will have used. Finally, by having correctly
+constructed a Galaxy workflow, writing the “Materials and Methods” section of a manuscript
+is child’s play!</li>
+<li>ACCESSIBLE. Everything is done in the Galaxy framework to allow you to exchange your
+information with others and explicitly report any problems or bugs encountered. Generally,
+biologists are not very good at correctly describing problems and concerns encountered when
+analyzing with a computer. Galaxy helps tremendously in this important area. It also makes
+it possible to carry out an analysis in real collaboration.</li>
+</ul>
+<p>Each IOC participant will have a Galaxy account on the
+<a href="https://artbio.snv.jussieu.fr">artbio.snv.jussieu.fr</a> server. We will give you the login
+and password for your account, probably on Slack and perhaps on Trello.</p>
+<p>So we will immediately take advantage of an invaluable resource of the Galaxy community,
+the <a href="https://training.galaxyproject.org/training-material/" target="_blank">Galaxy Training Network</a>
+(GTN), in order to take together a short introductory tour of the Galaxy environment.</p>
+<h4 id="a-short-introduction-to-galaxy">A short introduction to Galaxy<a class="headerlink" href="#a-short-introduction-to-galaxy" title="Permanent link">&para;</a></h4>
+<p>Enough talking!</p>
+<p>You are going to follow the tutorial
+<a href="https://training.galaxyproject.org/training-material/topics/introduction/tutorials/galaxy-intro-short/tutorial.html" target="_blank">A short introduction to Galaxy</a>
+using your Galaxy account on the server <a href="https://artbio.snv.jussieu.fr">artbio.snv.jussieu.fr</a>.</p>
+<p>Open this training link in a new tab in your browser, and keep it next to your Galaxy
+window !</p>
+<p><img alt="" src="../images/toolbox-do-it-yourself.png" style="width:120px" /></p>
+<details class="bug">
+<summary>Possible confusion about the <code>sharing story with yourself</code> step!</summary>
+<p>The above tutorial says <code>Try and create a link for your history and share it
+with…yourself!</code>.</p>
+<p>It is indeed impossible to share an history with yourself <em>if you do it using your
+login email</em>. What is actually possible is to generate a share link for your story,
+and open this link in a new window in your browser.</p>
+<p>However, please note in this case that what you will see is not exactly what another
+user will see: that other user will have the option to import the shared story into
+their own account, for e.g. to re-run a tool on another data set.</p>
+</details>
+<hr />
+<h4 id="import-data-from-psilo-to-galaxy">Import data from Psilo to Galaxy<a class="headerlink" href="#import-data-from-psilo-to-galaxy" title="Permanent link">&para;</a></h4>
+<p><img alt="" src="../images/toolbox-do-it-yourself.png" style="width:75px" /> <strong>Do it yourself !</strong></p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Upload a file from your local computer: either a png, jpeg, or tiff image, or a pdf
+  file, or a tsv text file, or a small sequence file (fasta, fastq...)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Share your file on psilo, by clicking the sharing icon, then clinking the
+  <img alt="➕" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/2795.svg" title=":heavy_plus_sign:" /> icon in the left handside pop-up menu.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Copy and Paste the share link in a new browser window</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> At the top right corner of the new window, there are three dots, just to the right
+  of the <code>Télécharger</code> button. Click on these three dots, and copy the direct link as shown
+  on this small screenshot.</li>
+</ul>
+<p><img alt="" src="../images/direct_psilo_link.png" style="width:300px" /></p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Paste this link in a safe place (an open note, and open text file, whatever).
+  As We are writing this doc, we are using this
+  <a href="https://psilo.sorbonne-universite.fr/index.php/s/ZzgYFd2Gg78AASy/download/chr22_sample.fa">DIRECT test link</a>
+  that should still work today.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Go to <em>your</em> Galaxy account</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Create a new history and name it <code>PSILO file transfer</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Click on the <code>Upload Data</code> button</li>
+</ul>
+<p><img alt="" src="../images/galaxy_upload_button.png" style="width:300px" /></p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Click on the <code>Paste/Fetch Data</code> button and copy your PSILO direct link in the central
+  field as shown on this small screenshot.</li>
+</ul>
+<p><img alt="" src="../images/pastefetch.png" style="width:600px" /></p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Click on the Start button and then on the close button.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Your file transfer from PSILO to you Galaxy history should be soon completed !</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Check it out, by clicking on the <code>eye</code> icon.</li>
+</ul>
+<details class="bug">
+<summary>It did not work for you ?</summary>
+<p>This is most probably because you did not copy the <em>direct</em> psilo link but, instead,
+the indirect link that display an intermediate "download file" window.</p>
+</details>
+<h4 id="an-advanced-psilo-to-galaxy-transfer-use-case">An advanced Psilo to Galaxy Transfer Use-Case<a class="headerlink" href="#an-advanced-psilo-to-galaxy-transfer-use-case" title="Permanent link">&para;</a></h4>
+<p>Generally, you have a serie of files to transfer from Psilo to Galaxy.</p>
+<p>As we previously showed, using the url of a file shared in Psilo in the download Galaxy interface
+is a simple operation.</p>
+<p>However, this can become very tedious if you have more than 10 files !</p>
+<p>Here, we are going to show how to handle a case with 12 files to transfer from psilo
+to Galaxy. As you will see, this case can be easily scaled-up to &gt; 100 files, provided that
+you have the good tools and you are not reluctant to use <code>regular expressions</code>.</p>
+<p>And you know what ? The good tools and easy use of regular expression are just provided
+by Galaxy !...</p>
+<p>Let's start from Psilo and the 12 files stored in the PRJNA630433 folder.</p>
+<p><img alt="" src="../images/psilo_PRJNA630433_folder.png" width="300px" /></p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Somehow you must have a list of these files. Keep it handy!
+    <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>SRR11688222.fastqsanger.gz
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>SRR11688221.fastqsanger.gz
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>SRR11688228.fastqsanger.gz
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>SRR11688227.fastqsanger.gz
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>SRR11688218.fastqsanger.gz
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>SRR11688219.fastqsanger.gz
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>SRR11688220.fastqsanger.gz
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>SRR11688223.fastqsanger.gz
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>SRR11688224.fastqsanger.gz
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>SRR11688225.fastqsanger.gz
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>SRR11688226.fastqsanger.gz
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>SRR11688229.fastqsanger.gz
+</span></code></pre></div></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Share the folder by clicking the link icon on the figure above (white arrow)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Create a public link and copy it. This is something in the form of:
+    <code>https://psilo.sorbonne-universite.fr/index.php/s/gqE3fsgr7XKiJXq</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Paste this link in a <strong>new</strong> web browser window</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Click the upper white dots and copy the <code>direct link</code></p>
+<p><img alt="" src="../images/psilo_direct_link.png" width="300px" /></p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> In our use case, it is
+    <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>https://psilo.sorbonne-universite.fr/index.php/s/gqE3fsgr7XKiJXq/download
+</span></code></pre></div>
+    Note that it is the same link as the public link, plus the suffix <code>/download</code></p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Now, if you add the string <code>?path=%2F&amp;files=</code> and the name of the first file in the list
+    <code>SRR11688222.fastqsanger.gz</code>, you obtain the following direct link to this file
+    <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>https://psilo.sorbonne-universite.fr/index.php/s/gqE3fsgr7XKiJXq/download?path=%2F&amp;files=SRR11688218.fastqsanger.gz
+</span></code></pre></div>
+    You can test it in another browser window: it should trigger the download in your
+    local computer</p>
+<p>Thus the pattern of a working link in our use case is</p>
+<p><code>https://psilo.sorbonne-universite.fr/index.php/s/gqE3fsgr7XKiJXq/download?path=%2F&amp;files=</code> + <code>&lt;filename&gt;</code></p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Copy this list, 
+    <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>SRR11688222.fastqsanger.gz
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>SRR11688221.fastqsanger.gz
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>SRR11688228.fastqsanger.gz
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>SRR11688227.fastqsanger.gz
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>SRR11688218.fastqsanger.gz
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>SRR11688219.fastqsanger.gz
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>SRR11688220.fastqsanger.gz
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>SRR11688223.fastqsanger.gz
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>SRR11688224.fastqsanger.gz
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>SRR11688225.fastqsanger.gz
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>SRR11688226.fastqsanger.gz
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>SRR11688229.fastqsanger.gz
+</span></code></pre></div>
+    go to your Galaxy account, and paste it in the <code>Upload Data</code> &rarr; <code>Paste/Fetch data</code>
+    panel. After pressing start, you will have this list as a Galaxy dataset.</p>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Now you can use the Galaxy tool <code>Regex Find And Replace (Galaxy Version 1.0.3)</code><ul>
+<li>Select the file list dataset as an input of the tool form</li>
+<li>Click the <code>+ Insert Check</code> button</li>
+<li>In the <code>Find Regex</code> field, just enter <code>^</code> that in regex means "the beginning of a line"</li>
+<li>In the <code>Replacement</code> field, enter the string formed above
+  <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>https://psilo.sorbonne-universite.fr/index.php/s/gqE3fsgr7XKiJXq/download?path=%2F&amp;files=
+</span></code></pre></div></li>
+<li>And press the <code>Execute</code> button !</li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> This tool will return the following final list of working URLs for the files.
+    <div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>https://psilo.sorbonne-universite.fr/index.php/s/gqE3fsgr7XKiJXq/download?path=%2F&amp;files=SRR11688222.fastqsanger.gz
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>https://psilo.sorbonne-universite.fr/index.php/s/gqE3fsgr7XKiJXq/download?path=%2F&amp;files=SRR11688221.fastqsanger.gz
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>https://psilo.sorbonne-universite.fr/index.php/s/gqE3fsgr7XKiJXq/download?path=%2F&amp;files=SRR11688228.fastqsanger.gz
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>https://psilo.sorbonne-universite.fr/index.php/s/gqE3fsgr7XKiJXq/download?path=%2F&amp;files=SRR11688227.fastqsanger.gz
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>https://psilo.sorbonne-universite.fr/index.php/s/gqE3fsgr7XKiJXq/download?path=%2F&amp;files=SRR11688218.fastqsanger.gz
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>https://psilo.sorbonne-universite.fr/index.php/s/gqE3fsgr7XKiJXq/download?path=%2F&amp;files=SRR11688219.fastqsanger.gz
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>https://psilo.sorbonne-universite.fr/index.php/s/gqE3fsgr7XKiJXq/download?path=%2F&amp;files=SRR11688220.fastqsanger.gz
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>https://psilo.sorbonne-universite.fr/index.php/s/gqE3fsgr7XKiJXq/download?path=%2F&amp;files=SRR11688223.fastqsanger.gz
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>https://psilo.sorbonne-universite.fr/index.php/s/gqE3fsgr7XKiJXq/download?path=%2F&amp;files=SRR11688224.fastqsanger.gz
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>https://psilo.sorbonne-universite.fr/index.php/s/gqE3fsgr7XKiJXq/download?path=%2F&amp;files=SRR11688225.fastqsanger.gz
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>https://psilo.sorbonne-universite.fr/index.php/s/gqE3fsgr7XKiJXq/download?path=%2F&amp;files=SRR11688226.fastqsanger.gz
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>https://psilo.sorbonne-universite.fr/index.php/s/gqE3fsgr7XKiJXq/download?path=%2F&amp;files=SRR11688229.fastqsanger.gz
+</span></code></pre></div>
+    <em>Nota Bene</em>: If there were 100 or 1000 files, there would be no more work !</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> We are finally ready to upload this list of files to Galaxy:</p>
+<ul>
+<li>Click one more time <code>Upload Data</code> but this time click the tab <code>Rule-based</code></li>
+<li>Paste the above url list in the central field, keeping the other <code>Upload data as</code> and
+  <code>Load tabular data from</code> as <code>Collection(s)</code> and <code>Pasted Table</code>, respectively.</li>
+<li>Click the <code>Build</code> button</li>
+<li>On the next panel, start by adding a column (<code>+ Column</code> button), <code>Using a regular
+  Expression</code></li>
+</ul>
+<p><img alt="" src="../images/adding_column.png" width="300px" /></p>
+<ul>
+<li>Leave <code>From Column</code> <code>A</code> selected</li>
+<li>Check the radio button <code>Create columns matching expression groups</code></li>
+<li>in the field <code>Regular Expression ?</code> enter exactly the following string pattern
+  <div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>.+(SRR.+)\.fastqsanger\.gz
+</span></code></pre></div>
+  leave the <code>Number of groups</code> as <code>1</code></li>
+</ul>
+<p><center><img alt="" src="../images/form_regex.png" width="300px" /></center></p>
+<p>and press the button <code>Apply</code></p>
+<ul>
+<li>Now, Press the <code>+ Rules button</code> and select the item <code>Add / Modify Column Definitions</code>
+  in the pop up list.</li>
+<li>Click the <code>Add Definition</code> button</li>
+<li>Select <code>URL</code> in the drop-down menu</li>
+<li>Click one more time the <code>+ Add Definition</code> button</li>
+<li>Select <code>List Identifier(s)</code> item in the drop-down menu</li>
+<li>Click the <code>Select a column</code> menu and this time, select <code>B</code></li>
+<li>Click the <code>Apply</code> button</li>
+<li>Give a name to the new collection to be built, for instance <code>PRJNA630433 Input data</code></li>
+<li>And finally, press the <code>Upload</code> button <img alt="🎉" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f389.svg" title=":tada:" /></li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>This is it !</strong>
+      The download of all files as a dataset collection should start and take a certain
+      amount of time, depending on the size and number of your files.</p>
+</li>
+</ul>
+<h4 id="thank-you-for-your-attention-and-see-you-nextweek">Thank you for your attention and see you nextweek <img alt="👏" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f44f.svg" title=":clap:" /> <img alt="👏" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f44f.svg" title=":clap:" /> <img alt="👏" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f44f.svg" title=":clap:" /><a class="headerlink" href="#thank-you-for-your-attention-and-see-you-nextweek" title="Permanent link">&para;</a></h4>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../00_IOC_RNAseq_program/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Provisional Program / Schedule">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Provisional Program / Schedule
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../02_exercises_week_00/" class="md-footer__link md-footer__link--next" aria-label="Next: Week 0 exercises">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Week 0 exercises
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["header.autohide", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.prune", "navigation.footer", "content.tabs.link", "content.code.copy", "content.action.view", "content.action.edit"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../spoiler_files/spoiler.js"></script>
+      
+    
+  </body>
+</html>

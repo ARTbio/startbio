@@ -1,0 +1,1774 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://artbio.github.io/startbio/deepseq/command_lines/">
+      
+      
+        <link rel="prev" href="../mining/">
+      
+      
+        <link rel="next" href="../bowtie/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>Pratical part: Command lines - STARTbio</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bcfcd587.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+  
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M4.855.708c.5-.896 1.79-.896 2.29 0l4.675 8.351a1.312 1.312 0 0 1-1.146 1.954H1.33A1.313 1.313 0 0 1 .183 9.058ZM7 7V3H5v4Zm-1 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"/></svg>');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+Display:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans Display";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../spoiler_files/spoiler.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-ssh-connection-to-a-linux-terminal-in-the-analysis-server" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="STARTbio" class="md-header__button md-logo" aria-label="STARTbio" data-md-component="logo">
+      
+  <img src="../../assets/startbio_icon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            STARTbio
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Pratical part: Command lines
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ARTbio/startbio" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ARTbio/startbio
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../bulk_RNAseq-IOC/00_IOC_RNAseq_program/" class="md-tabs__link">
+          
+  
+  Interactive Online Companionship (IOC)
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ten2/Regex_01/" class="md-tabs__link">
+          
+  
+  1Omin2
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../AnalyseGenomes_2025/outline/" class="md-tabs__link">
+          
+  
+  Galaxy Trainings
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../bash_snippets/" class="md-tabs__link">
+          
+  
+  Code Snippets
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../links/" class="md-tabs__link">
+        
+  
+    
+  
+  Links
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="STARTbio" class="md-nav__button md-logo" aria-label="STARTbio" data-md-component="logo">
+      
+  <img src="../../assets/startbio_icon.png" alt="logo">
+
+    </a>
+    STARTbio
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ARTbio/startbio" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ARTbio/startbio
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Interactive Online Companionship (IOC)
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Interactive Online Companionship (IOC)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../bulk_RNAseq-IOC/00_IOC_RNAseq_program/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    IOC on bulk RNAseq analysis
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    
+  
+  
+    <a href="../../R-IOC/00_IOC_R_program/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    IOC on R
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    
+  
+  
+    <a href="../../scRNAseq_basics/program_sc/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    IOC on Single-cell RNAseq analysis using Seurat in R
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Introduction to Deep-seq Analysis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Introduction to Deep-seq Analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    INTRODUCTION
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../illumina/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Illumina sequencing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pacbio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pacific Biosciences SMRT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nanopore/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Oxford Nanopore MinION
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../seq_parameters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sequencing facts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../smRNA_lib_prep/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Small RNA library
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RNA_lib_prep/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RNA library
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chipseq_lib/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ChIP-seq library
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deepseq_applications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deep Sequencing Applications
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flowchart/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Analysis Flowchart:
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mining/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Various aspects of sequence data mining
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Pratical part: Command lines
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Pratical part: Command lines
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-ssh-connection-to-a-linux-terminal-in-the-analysis-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. SSH connection to a linux terminal in the analysis server
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-basic-navigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Basic "navigation"
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-what-is-this-fastq-file-containing" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. What is this fastq file containing ?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-how-many-sequence-reads-in-my-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. How many sequence reads in my file ?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-are-my-sequence-reads-containing-the-adapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Are my sequence reads containing the adapter ?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Are my sequence reads containing the adapter ?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-doing-it-simple-when-you-can-do-it-complicated" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why doing it simple when you can do it complicated ?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#we-need-a-negative-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      We need a negative control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conclusion-on-the-counting" class="md-nav__link">
+    <span class="md-ellipsis">
+      conclusion on the counting
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-advanced-combinations-of-bash-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Advanced combinations of bash commands.
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Advanced combinations of bash commands.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#toward-adapter-soft-clipping" class="md-nav__link">
+    <span class="md-ellipsis">
+      Toward adapter soft clipping
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bowtie/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Align reads with bowtie
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../galaxy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    To be continued... with Galaxy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bowtie_galaxy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BOWTIE ALIGNMENT USING galaxy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../ten2/Regex_01/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    1Omin2
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    
+  
+  
+    <a href="../../AnalyseGenomes_2025/outline/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Galaxy Trainings
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../bash_snippets/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Code Snippets
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../links/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Links
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-ssh-connection-to-a-linux-terminal-in-the-analysis-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. SSH connection to a linux terminal in the analysis server
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-basic-navigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Basic "navigation"
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-what-is-this-fastq-file-containing" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. What is this fastq file containing ?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-how-many-sequence-reads-in-my-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. How many sequence reads in my file ?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-are-my-sequence-reads-containing-the-adapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Are my sequence reads containing the adapter ?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Are my sequence reads containing the adapter ?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-doing-it-simple-when-you-can-do-it-complicated" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why doing it simple when you can do it complicated ?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#we-need-a-negative-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      We need a negative control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conclusion-on-the-counting" class="md-nav__link">
+    <span class="md-ellipsis">
+      conclusion on the counting
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-advanced-combinations-of-bash-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Advanced combinations of bash commands.
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Advanced combinations of bash commands.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#toward-adapter-soft-clipping" class="md-nav__link">
+    <span class="md-ellipsis">
+      Toward adapter soft clipping
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/ARTbio/startbio/edit/master/docs/deepseq/command_lines.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/ARTbio/startbio/raw/master/docs/deepseq/command_lines.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+    </a>
+  
+
+
+  <h1>Pratical part: Command lines</h1>
+
+<p><img alt="" src="../images/toolbox.jpg" width="150" /></p>
+<h2 id="1-ssh-connection-to-a-linux-terminal-in-the-analysis-server">1. SSH connection to a linux terminal in the analysis server<a class="headerlink" href="#1-ssh-connection-to-a-linux-terminal-in-the-analysis-server" title="Permanent link">&para;</a></h2>
+<p>We are going to use an Rstudio server. As its name indicates, the primary purpose of Rstudio
+is to provide an interactive R console for R coding.
+However, the Rstudio server also provides a graphical interface to a LINUX terminal and
+this is this interface we are going to take advantage of !</p>
+<p><img alt="⚠" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/26a0.svg" title=":warning:" /> The students are split in two groups. One group will use a serveur deployed in the Google
+cloud, whereas the other group will use a serveur deployed in the Jussieu campus.</p>
+<ul>
+<li>First of all, visit this <a href="https://docs.google.com/spreadsheets/d/14Urisfz_44Ax_BPccESKAfqGRiVlePUMsyQnE5P4U4c/edit?usp=sharing">Page</a>
+and reserve an account by putting you email adresse in the
+corresponding row.</li>
+</ul>
+<p><img alt="⚠" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/26a0.svg" title=":warning:" /> Please only one account by student.</p>
+<ul>
+<li>
+<p>Once this is done, copy the server address indicated for your account and paste it in your
+web browser (in a new tab).</p>
+</li>
+<li>
+<p>On the Rstudio login page, enter your login and your password</p>
+</li>
+<li>
+<p>just click the <code>Terminal</code> tab as shown below.</p>
+</li>
+</ul>
+<p><img alt="Terminal tab" src="../images/console_tab.png" /></p>
+<ul>
+<li>Pull the central separation toward the right handside of the screen to enlarge your terminal.</li>
+</ul>
+<p>Your are ready to work using command lines on your server !</p>
+<p>You are connected to your <code>home</code> directory, which is also symbolised by <code>~</code>.
+Your "prompt" - the text just before the command typing area - is constructed as follows:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>abeille@mississippi:~$
+</span></code></pre></div>
+where, for instance here, <code>abeille</code>is the login, <code>mississippi</code> is the name of the machine,
+and the path is <code>~</code>, ie your home directory.</p>
+<p><img alt="⚠" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/26a0.svg" title=":warning:" /> For the rest of the training, the commands will be always indicated in command
+fields (the grey box with a copy/paste icon in the upper right corner), <em>without</em> the <code>prompt</code>.</p>
+<h2 id="2-basic-navigation">2. Basic "navigation"<a class="headerlink" href="#2-basic-navigation" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Type (or copy and paste)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pwd
+</span></code></pre></div>
+in your terminal and press <span class="keys"><kbd class="key-enter">Enter</kbd></span>.</li>
+</ul>
+<details class="question">
+<summary>What do you read ?</summary>
+<p>you see the full path of your current position in your file system. <code>pwd</code> stands for
+<strong>print working directory</strong></p>
+<p>You should be in <code>/home/&lt;user name&gt;</code> !</p>
+</details>
+<ul>
+<li>Type (or copy and paste)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ls -la
+</span></code></pre></div>
+<span class="keys"><kbd class="key-enter">Enter</kbd></span></li>
+</ul>
+<details class="question">
+<summary>What do you read ?</summary>
+<p>the <code>ls</code> command print the elements in your current (working) directory.</p>
+<p>you expect something very close to:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>total 24
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>drwxr-xr-x  3 limace   limace   4096 Dec  7 23:58 .
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>drwxr-xr-x 45 limace   limace   4096 Dec  8 00:38 ..
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>-rw-r--r--  1 limace   limace    220 Feb 25  2020 .bash_logout
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>-rw-r--r--  1 limace   limace   3771 Feb 25  2020 .bashrc
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>drwx------  2 limace   limace   4096 Dec  7 23:58 .cache
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>-rw-r--r--  1 limace   limace    807 Feb 25  2020 .profile
+</span></code></pre></div>
+Here, the options -la are formatting the output of <code>ls</code> in a certain way.</p>
+<p>If you want to know the options available for a command, type:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>man ls
+</span></code></pre></div>
+You can also try:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>ls
+</span></code></pre></div>
+alone and see how it affects the output of the command.</p>
+</details>
+<ul>
+<li>Type (or Copy/Paste):
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>mkdir ~/bowtie_work &amp;&amp; cd ~/bowtie_work
+</span></code></pre></div></li>
+</ul>
+<details class="question">
+<summary>What have you done with this command ?</summary>
+<p>You have created a new directory <code>bowtie_work</code> in your home directory and, in the same
+command (because of the <code>&amp;&amp;</code>) you have changed you directory to <code>~/bowtie_work</code></p>
+<p>You can try the command <code>pwd</code> and confirm that you are in the <code>/home/&lt;yourlogin&gt;/bowtie_work</code>
+directory.</p>
+</details>
+<ul>
+<li>Type (or Copy/Paste):
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>wget https://ftp.flybase.net/genomes/dmel/dmel_r6.54_FB2023_05/fasta/dmel-all-chromosome-r6.54.fasta.gz \
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>     https://psilo.sorbonne-universite.fr/index.php/s/HYLtfo9d2eD3Q2A/download/GRH-103_R1.fastq.gz
+</span></code></pre></div></li>
+</ul>
+<details class="question">
+<summary>the <code>wget</code> command</summary>
+<p>wget downloads files whose URL is indicated as argument.</p>
+<p>After wget, just check the presence of two new files, <code>dmel-all-chromosome-r6.54.fasta.gz</code>
+and <code>GRH-103_R1.fastq.gz</code> in your working directory, using the <code>ll</code> command.</p>
+</details>
+<ul>
+<li>We need to uncompress the .gz files:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>gunzip *.gz
+</span></code></pre></div></li>
+</ul>
+<details class="question">
+<summary>What is it doing ?</summary>
+<p>the <code>GRH-103_R1.fastq.gz</code> and <code>dmel-all-chromosome-r6.54.fasta.gz</code> files are compressed files
+(format gzip), as indicated by their <code>.gz</code> extension.</p>
+<p>The gunzip command has uncompressed the files to <code>GRH-103_R1.fastq</code> and
+<code>dmel-all-chromosome-r6.54.fasta</code>, respectively.</p>
+<p>You can verify it by typing
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>ll
+</span></code></pre></div>
+which should show:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>total 1545908
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>drwxr-xr-x 2 limace limace       4096 Dec 13 21:51 ./
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>drwxr-xr-x 6 limace limace       4096 Dec 13 21:49 ../
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>-rw-r--r-- 1 limace limace 1437054065 Dec 13 21:49 GRH-103_R1.fastq
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>-rw-r--r-- 1 limace limace  145942238 Dec 13 21:49 dmel-all-chromosome-r6.54.fasta
+</span></code></pre></div>
+<img alt="⚠" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/26a0.svg" title=":warning:" /> as you may have deduced, the <code>ll</code> command is an <em>alias</em> to the <code>ls -laF</code>
+command.</p>
+</details>
+<h2 id="3-what-is-this-fastq-file-containing">3. What is this fastq file containing ?<a class="headerlink" href="#3-what-is-this-fastq-file-containing" title="Permanent link">&para;</a></h2>
+<p>Type (or Copy/Paste):
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>GRH-103_R1.fastq
+</span></code></pre></div></p>
+<details class="question">
+<summary>What is doing the <code>more</code> command ?</summary>
+<p>It reads the file by chunks of your screen size. Each time you type the <span class="keys"><kbd class="key-space">Space</kbd></span> bar,
+you print the next chunk.
+To exit from this read mode, just press the <span class="keys"><kbd class="key-q">Q</kbd></span> key.</p>
+</details>
+<details class="question">
+<summary>How is made a fastq file ?</summary>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>@HWI-D00104:246:C5N47ANXX:8:1101:6009:2000 1:N:0:CATTTT &lt;-- Header
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>NCTGATGTCGGTCACATGCTTGGTGGAATTCTCGGGTGCCAAGGAACTCC &lt;-- Sequence
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>+                                                  &lt;-- Quality header
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>#&lt;&lt;BBFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFBBFFFFFFFFFFFFF &lt;-- Sequence Quality (ASCII encoded)
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>@HWI-D00104:246:C5N47ANXX:8:1101:1557:2014 1:N:0:CATTTT
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>NGCAAGATGAATACTCTAATGACATGGAATTCTCGGGTGCCAAGGAACTC
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>+
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>#&lt;/&lt;&lt;/BBFB&lt;&lt;FFFFFFFFFFFF/BF//&lt;FF/FFFFFF&lt;FFFFFBFFFF
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>@HWI-D00104:246:C5N47ANXX:8:1101:1549:2052 1:N:0:CATTTT
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>NGCCGTGATCGTCTAGTGGTTAGGATGGAATTCTCGGGTGCCAAGGAACT
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>+
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>#&lt;&lt;/B/&lt;/FFFBFFFFFFFFFFFFFBFF/FFFFFFFFFFBFFFFFFFFFF
+</span></code></pre></div>
+One sequence read is encoded by a block of <mark><strong>4</strong></mark> lines, 1 for the header (the name
+of the read), 1 for the nucleotide sequence, 1 starting with a <code>+</code> which may contain or not
+a copy of the header, and the last line for the quality of the base calling at each position,
+encoded by an ASCII character.</p>
+</details>
+<h2 id="4-how-many-sequence-reads-in-my-file">4. How many sequence reads in my file ?<a class="headerlink" href="#4-how-many-sequence-reads-in-my-file" title="Permanent link">&para;</a></h2>
+<p>Type (or Copy/Paste):
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>wc -l GRH-103_R1.fastq
+</span></code></pre></div></p>
+<div class="admonition info">
+<p class="admonition-title">the <code>wc</code> command</p>
+<p>prints the number of newlines, words, and bytes for each file in argument (here,
+GRH-103_R1.fastq)</p>
+<p><img alt="⚠" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/26a0.svg" title=":warning:" /> As you used the <code>-l</code> option, you only print the number of <em>newlines</em> in the
+file.</p>
+</div>
+<details class="question">
+<summary>And then... How many <em><strong>sequences</strong></em> in GKG-13.fastq ?</summary>
+<p><strong>8 898 789</strong>, NOT 35 595 156, because each sequence read is encoded by 4 lines !</p>
+</details>
+<h2 id="5-are-my-sequence-reads-containing-the-adapter">5. Are my sequence reads containing the adapter ?<a class="headerlink" href="#5-are-my-sequence-reads-containing-the-adapter" title="Permanent link">&para;</a></h2>
+<p>This fastq file corresponds to the sequencing of a small RNA library, whose 3' adapter
+contains the sequence 5’-<strong>TGGAATT</strong>CTCGGGTGCCAAGTGGAAT-3’
+Type (or Copy/Paste):
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>cat GRH-103_R1.fastq | grep TGGAATT | wc -l
+</span></code></pre></div>
+This should return:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>8 829 013
+</span></code></pre></div></p>
+<details class="question">
+<summary>A lot of things to comment in the previous command !</summary>
+<ul>
+<li><code>cat</code> print the <em>total</em> content of the file in argument</li>
+<li>the sign <span class="keys"><kbd class="key-bar">|</kbd></span> is important, we call it the <code>pipe</code>. the <code>|</code> takes the <mark>output</mark> of
+the <em>upstream</em> command (here <code>cat GRH-103_R1.fastq</code>) and gives it as <mark>input</mark> to the
+downstream command (here <code>grep TGGAATT</code>).</li>
+<li><code>grep</code> prints the lines of the input (or of the argument if used without pipe) <em>only</em> if
+these lines contains the string <code>TGGAATT</code>.</li>
+<li>the second pipe <code>|</code> sign sends the output of the grep command and counts the number
+of lines in <em>this</em> output.</li>
+</ul>
+<p>Brillant isn't it ?</p>
+</details>
+<h3 id="why-doing-it-simple-when-you-can-do-it-complicated">Why doing it simple when you can do it complicated ?<a class="headerlink" href="#why-doing-it-simple-when-you-can-do-it-complicated" title="Permanent link">&para;</a></h3>
+<p>Yeah... As a matter of fact, you can obtain exactly the same information from <code>GRH-103_R1.fastq</code>
+by typing (or copying and pasting) the command:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>grep -c &quot;TGGAATT&quot; GRH-103_R1.fastq
+</span></code></pre></div></p>
+<p><img alt="⚠" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/26a0.svg" title=":warning:" /> Here, the option -c is passed to <code>grep</code> to ask for only counting and not <em>printing</em>
+the lines that contain the string pattern <code>TGGAATT</code></p>
+<p>Check it out !</p>
+<h3 id="we-need-a-negative-control">We need a negative control<a class="headerlink" href="#we-need-a-negative-control" title="Permanent link">&para;</a></h3>
+<p>The implicit hypothesis in the previous computing was that the number of reads with 7-nucleotide string
+of the adapter sequence is closely reflecting the number of reads with the "real" adapter.</p>
+<p>This seems reasonable since the probability to find by chance this 7-nucleotide string in
+a read that <em>does not</em> contain the adapter is approx. 1/ 4^7 = 6.103516e-05.</p>
+<p>However, it is preferable to experiment a negative control.</p>
+<p>To find the number of sequences containing the "random" 7-nucleotide sequence <code>ATCTCCT</code>, type:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>grep -c &quot;ATCTCGT&quot; GRH-103_R1.fastq
+</span></code></pre></div>
+<p>If everything goes well, you should find <code>7 853</code>.</p>
+<p>You see that 7 853 divided by 8 829 013 total reads in the fastq file is 8.89e-04, which is
+not too far from our <em>a priori</em> assertion.</p>
+<h3 id="conclusion-on-the-counting">conclusion on the counting<a class="headerlink" href="#conclusion-on-the-counting" title="Permanent link">&para;</a></h3>
+<p>We found 8 829 013 out of 8 898 789 with the adapter sequence, which corresponds to 99.2 %
+sequences with adapters. The library seems to be OK !</p>
+<h2 id="6-advanced-combinations-of-bash-commands">6. Advanced combinations of bash commands.<a class="headerlink" href="#6-advanced-combinations-of-bash-commands" title="Permanent link">&para;</a></h2>
+<p>In a first example we are going to compute the number of reads that :</p>
+<ul>
+<li>are 22 nucleotides long</li>
+<li><em>and</em> contain a 3' flanking adapter sequence <code>TGGAATT</code>.</li>
+</ul>
+<p>To do so, type:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>cat GRH-103_R1.fastq | perl -ne &#39;print if /^[ATGCN]{22}TGGAATT/&#39; | wc -l
+</span></code></pre></div></p>
+<p>You should obtain <strong>988 421</strong> as a result.</p>
+<details class="question">
+<summary>Why did we choose <strong>{22}</strong> in the previous example ?</summary>
+<p>22 nt is the major length of miRNAs...</p>
+</details>
+<p>And now, a figure to explain the complex above command (arguments have changed but the
+syntax is the same):</p>
+<p><img alt="" src="../images/pipe_command_1.png" width="800" /></p>
+<h3 id="toward-adapter-soft-clipping">Toward adapter soft clipping<a class="headerlink" href="#toward-adapter-soft-clipping" title="Permanent link">&para;</a></h3>
+<p>Before moving on in the analysis, we will have to remove the adapter sequences from the
+read sequences. Let's first execute this command:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>cat GRH-103_R1.fastq | perl -ne &#39;if (/^(.+TGGAATT)/) {print &quot;$1\n&quot;}&#39; | more
+</span></code></pre></div>
+<details class="question">
+<summary>What is showing the output of this command ?</summary>
+<p>The read sequences containing the adapter (in first approximation)</p>
+</details>
+<p>And now, in a single command, let's generate a file, in fasta format, with the sequences
+which did contain the adapter sequence <strong>but</strong> whose this sequence was <strong>removed</strong> from
+the reads:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>cat GRH-103_R1.fastq | perl -ne \
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>&#39;if (/^([GATC]{18,})TGGAATT/){$count++; print &quot;&gt;$count\n&quot;; print &quot;$1\n&quot;}&#39; \
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>&gt; clipped_GRH-103_R1.fasta
+</span></code></pre></div>
+<details class="question">
+<summary>What is the character <span class="keys"><kbd>\</kbd></span> in the command "block" ?</summary>
+<p>It is a continuation mark: The shell is waiting for the command to be continued on the
+next line.
+If you don't get it, try to type and <span class="keys"><kbd class="key-enter">Enter</kbd></span> the command:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>cat GKG-13.fastq | perl -ne \
+</span></code></pre></div>
+... and if you are stuck, try <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd>C</kbd></span> ;-)</p>
+</details>
+<p>To observe to result of the previous command, type and <span class="keys"><kbd class="key-enter">Enter</kbd></span>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>ll
+</span></code></pre></div></p>
+<details class="question">
+<summary>What are you going to use as a command to look at the generated clipped_GKG13.fasta file ?</summary>
+<p>Something like:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>cat clipped_GRH-103_R1.fasta | more
+</span></code></pre></div>
+or simply:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>less clipped_GRH-103_R1.fasta
+</span></code></pre></div>
+and type <span class="keys"><kbd class="key-q">Q</kbd></span> to exit from the read mode !</p>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../mining/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Various aspects of sequence data mining">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Various aspects of sequence data mining
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../bowtie/" class="md-footer__link md-footer__link--next" aria-label="Next: Align reads with bowtie">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Align reads with bowtie
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["header.autohide", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.prune", "navigation.footer", "content.tabs.link", "content.code.copy", "content.action.view", "content.action.edit"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../spoiler_files/spoiler.js"></script>
+      
+    
+  </body>
+</html>
