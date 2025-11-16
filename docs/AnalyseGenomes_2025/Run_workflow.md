@@ -2,7 +2,7 @@
 
 - [x] Upload a workflow description files in your Galaxy server instance
 - [x] Visualise this workflow and its tools
-- [x] Eventually run the workflow on input data obtained from a remote public repository.
+- [x] Run the workflow on input data obtained from a remote public repository.
 
 ### 1. Upload workflow description file (.ga)
 
@@ -34,7 +34,7 @@ This workflow performs a series of find-and-replace text manipulations, starting
 from input data that has been tagged `transposon_set_embl.txt` and producing a new text
 dataset that is renamed `Canonical_transposons.fa`.
 
-### 4. Retrieve the `transposon_set_embl.txt` dataset
+### 2. Retrieve the `transposon_set_embl.txt` dataset
 
 - [x] Create a new history and name it ==`workflow test`==
 - [x] import the dataset 
@@ -61,7 +61,7 @@ dataset that is renamed `Canonical_transposons.fa`.
 
 - [x] have a close look at the dataset
 
-### 5. Run the workflow
+### 3. Run the workflow
 
 - [x] Click on the workflow menu
 - [x] Click the Run option of the workflow (the :arrow_forward: to the right hand side)
@@ -69,23 +69,8 @@ dataset that is renamed `Canonical_transposons.fa`.
 - [x] And Click the `Run workflow`
 - [x] Look at datasets in the history turning from grey to yellow to green and eventually getting hidden.
 
-### 6. Check result
+### 4. Check result
 You may check that the generated dataset is identical to the one generated with the tool
 `embl2fa` using the tool `differences between two files`
 
-### 7. Goody for you: an exemple of workflow to treat complex data table
-
-As this is a goody, we put here the key steps to run the workflow
-
-- [ ] Workflow URL
-```
-https://raw.githubusercontent.com/ARTbio/AnalyseGenome/main/Exercises/Galaxy-Workflow-process_diffmod_table.ga
-```
-- [ ] 2 tools must be installed in your Galaxy instance to get the workflow running:
-  - `add_column_headers`
-  - `column_maker`
-- [ ] Input table to be parsed/transformed
-```
-https://github.com/ARTbio/AnalyseGenome/raw/main/Exercises/diffmod_table.tsv.zip
-```
-
+---
