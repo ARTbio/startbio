@@ -80,7 +80,7 @@ Therefore, we ask you to click the top `Admin` menu.
   (You'll see an an example from my own first connection)
 - Thank you ! :pray: You can now suspend (or stop) your VM (see below).
 
-## **:warning: Ends of Galaxy work sessions**
+## **Ends of Galaxy work sessions**
 
  Each time you have finished to work with Galaxy, save your Google coupon:
 
@@ -88,8 +88,11 @@ Therefore, we ask you to click the top `Admin` menu.
 - [x] Click the 3 vertical dots in the line of your VM and select `Suspendre` (or `Suspend` with
   the english interface)
 - [x] You may also stop it, but it will take more time the next time you start it.
-- [x] Please, make a last effort by reading the [next section](manage_VM.md) which summarize important
-      guidelines about the management of your Virtual Machines (VMs) during the rest of the course.
+
+  :warning: Please, make a last effort by reading the [next section](manage_VM.md) which summarize important
+  guidelines about the management of your Virtual Machines (VMs) during the rest of the course.
+
+  :warning: Pay a particular attention to [this part](manage_VM.md#3.-Stalled-jobs-in-your-Galaxy-histories) !
 
 
 
@@ -100,7 +103,7 @@ You can directly enter your account with your login (either `admin@galaxy.org` o
 Note that sometimes, you are directly logged in because a cooky remember your recent visit.
 
 ---
-!!! info "The Geek Corner: controlling your Galaxy server through an ssh session"
+??? info "The Geek Corner: controlling your Galaxy server through an ssh session"
     You can control you galaxy server by connecting to a ssh shell session in your VM.
     To do so :
         
