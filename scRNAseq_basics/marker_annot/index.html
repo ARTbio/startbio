@@ -1,0 +1,2000 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://artbio.github.io/startbio/scRNAseq_basics/marker_annot/">
+      
+      
+        <link rel="prev" href="../intro_markers/">
+      
+      
+        <link rel="next" href="../over/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>Presentation of annotation methods - STARTbio</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bcfcd587.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+  
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M4.855.708c.5-.896 1.79-.896 2.29 0l4.675 8.351a1.312 1.312 0 0 1-1.146 1.954H1.33A1.313 1.313 0 0 1 .183 9.058ZM7 7V3H5v4Zm-1 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"/></svg>');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+Display:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans Display";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../spoiler_files/spoiler.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#markers-annotation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="STARTbio" class="md-header__button md-logo" aria-label="STARTbio" data-md-component="logo">
+      
+  <img src="../../assets/startbio_icon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            STARTbio
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Presentation of annotation methods
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ARTbio/startbio" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ARTbio/startbio
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../bulk_RNAseq-IOC/00_IOC_RNAseq_program/" class="md-tabs__link">
+          
+  
+  Interactive Online Companionship (IOC)
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ten2/Regex_01/" class="md-tabs__link">
+          
+  
+  1Omin2
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../AnalyseGenomes_2025/outline/" class="md-tabs__link">
+          
+  
+  Galaxy Trainings
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../bash_snippets/" class="md-tabs__link">
+          
+  
+  Code Snippets
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../links/" class="md-tabs__link">
+        
+  
+    
+  
+  Links
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="STARTbio" class="md-nav__button md-logo" aria-label="STARTbio" data-md-component="logo">
+      
+  <img src="../../assets/startbio_icon.png" alt="logo">
+
+    </a>
+    STARTbio
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ARTbio/startbio" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ARTbio/startbio
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Interactive Online Companionship (IOC)
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Interactive Online Companionship (IOC)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../bulk_RNAseq-IOC/00_IOC_RNAseq_program/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    IOC on bulk RNAseq analysis
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    
+  
+  
+    <a href="../../R-IOC/00_IOC_R_program/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    IOC on R
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    IOC on Single-cell RNAseq analysis using Seurat in R
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            IOC on Single-cell RNAseq analysis using Seurat in R
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../program_sc/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Program / Schedule
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_2" id="__nav_2_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Reference Manual
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Reference Manual
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prerequisites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Prerequisites
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro_seurat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Initialization of R analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../import/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Import data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../preprocessing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Preprocessing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redim/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reduction of dimensionality
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../clustering/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Clustering
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2_8" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_2_8" id="__nav_2_3_2_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Cell population identification
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_3_2_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            Cell population identification
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro_markers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction and markers identification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2_8_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_2_8_2" id="__nav_2_3_2_8_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Markers Annotation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_2_3_2_8_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3_2_8_2">
+            <span class="md-nav__icon md-icon"></span>
+            Markers Annotation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Presentation of annotation methods
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Presentation of annotation methods
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#via-biomart" class="md-nav__link">
+    <span class="md-ellipsis">
+      Via Biomart
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#via-clusterprofiler" class="md-nav__link">
+    <span class="md-ellipsis">
+      Via ClusterProfiler
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../over/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Over-representation analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gsea/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gene Set Enrichment Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../clusannot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cluster annotation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Comparison between 2 populations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../visualization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Differents visualizations of Seurat
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../deepseq/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Introduction to Deep-seq Analysis
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../ten2/Regex_01/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    1Omin2
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    
+  
+  
+    <a href="../../AnalyseGenomes_2025/outline/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Galaxy Trainings
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../bash_snippets/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Code Snippets
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../links/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Links
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#via-biomart" class="md-nav__link">
+    <span class="md-ellipsis">
+      Via Biomart
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#via-clusterprofiler" class="md-nav__link">
+    <span class="md-ellipsis">
+      Via ClusterProfiler
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/ARTbio/startbio/edit/master/docs/scRNAseq_basics/marker_annot.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/ARTbio/startbio/raw/master/docs/scRNAseq_basics/marker_annot.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+    </a>
+  
+
+
+<h1 id="markers-annotation">Markers Annotation<a class="headerlink" href="#markers-annotation" title="Permanent link">&para;</a></h1>
+<p>Each cluster is associated with a list of marker genes that we now need to
+annotate in order to biologically identify the cell clusters. We will start
+by annotating the gene identifiers with Biomart and then use functional
+enrichment methods to find the functions shared by the marker genes.</p>
+<h2 id="via-biomart">Via Biomart<a class="headerlink" href="#via-biomart" title="Permanent link">&para;</a></h2>
+<p>We will use the dataframe we generated at the beginning of the analysis
+to allow us to add the gene name and a description for each gene ID set.</p>
+<div class="language-r highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">## Merge markers results with biomart annotation</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">pbmc_markers_annotated</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">merge</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pbmc_markers</span><span class="p">,</span><span class="w">         </span><span class="c1">#First df to merge</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">                                </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">annotated_hg19</span><span class="p">,</span><span class="w">       </span><span class="c1">#Second df to merge</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">                                </span><span class="n">by.x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;gene&quot;</span><span class="p">,</span><span class="w">            </span><span class="c1">#Column name of first df used for matching lines</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">                                </span><span class="n">by.y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ensembl_gene_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">#Column name of second df used for matching lines</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">                                </span><span class="n">all.x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span><span class="w">             </span><span class="c1">#Keep all lines from first df even if there is no match with second df</span>
+</span></code></pre></div>
+<p>We will now remove all markers where the adjusted p-value is greater than
+a 5% threshold and with the absolute value of the mean log(Fold Change)
+less than 0.25 in order to obtain the list of markers with a significant
+expression differential.</p>
+<div class="language-r highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">pbmc_markers_signif</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">subset</span><span class="p">(</span><span class="n">pbmc_markers_annotated</span><span class="p">,</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">                              </span><span class="n">p_val_adj</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">0.05</span><span class="w"> </span><span class="o">&amp;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">                                </span><span class="nf">abs</span><span class="p">(</span><span class="n">avg_log2FC</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="m">0.25</span><span class="p">)</span><span class="w">       </span><span class="c1">#Filter dataframe based on p_val_adj column</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1">## Number of significative DEG per cluster</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="nf">table</span><span class="p">(</span><span class="n">pbmc_markers_signif</span><span class="o">$</span><span class="n">cluster</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>## 
+##    0    1    2    3    4    5    6    7    8 
+##  688 1000  403  554  280  975  453  430  296
+</code></pre></div></td></tr></table></div>
+
+<div class="language-r highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">## Sorting results by cluster and by average log2(Fold Change)</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">pbmc_markers_signif</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">pbmc_markers_signif</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">                 </span><span class="c1">#Rearrange df with dplyr package</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nf">group_by</span><span class="p">(</span><span class="n">cluster</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">                                        </span><span class="c1">#Group df based on cluster column</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nf">arrange</span><span class="p">(</span><span class="nf">desc</span><span class="p">(</span><span class="n">pct.1</span><span class="p">),</span><span class="w"> </span><span class="n">.by_group</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span><span class="w">                  </span><span class="c1">#Sort lines by descending the column avg_log2FC and by group</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c1">## Filter to retrieve meaningful genes</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="n">markers_display</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">pbmc_markers_signif</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">  </span><span class="nf">filter</span><span class="p">((</span><span class="n">pct.1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">pct.2</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="p">(</span><span class="m">0.25</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pct.1</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">pct.1</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="m">0.5</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">  </span><span class="nf">slice_max</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">order_by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">avg_log2FC</span><span class="p">,</span><span class="w"> </span><span class="n">with_ties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">)</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="c1">## Most DE gene marker for each cluster</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="nf">paged_table</span><span class="p">(</span><span class="n">markers_display</span><span class="p">)</span>
+</span></code></pre></div>
+<details class="abstract">
+<summary>First annotated markers for each cluster</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">gene</th>
+<th style="text-align: right;">p_val</th>
+<th style="text-align: right;">avg_log2FC</th>
+<th style="text-align: right;">pct.1</th>
+<th style="text-align: right;">pct.2</th>
+<th style="text-align: right;">p_val_adj</th>
+<th style="text-align: left;">cluster</th>
+<th style="text-align: left;">external_gene_name</th>
+<th style="text-align: left;">description</th>
+<th style="text-align: left;">gene_biotype</th>
+<th style="text-align: left;">chromosome_name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">ENSG00000142546</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.261953</td>
+<td style="text-align: right;">0.663</td>
+<td style="text-align: right;">0.354</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">NOSIP</td>
+<td style="text-align: left;">nitric oxide synthase interacting protein [Source:HGNC Symbol;Acc:17946]</td>
+<td style="text-align: left;">protein_coding</td>
+<td style="text-align: left;">19</td>
+</tr>
+<tr>
+<td style="text-align: left;">ENSG00000111716</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.179308</td>
+<td style="text-align: right;">0.929</td>
+<td style="text-align: right;">0.592</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">LDHB</td>
+<td style="text-align: left;">lactate dehydrogenase B [Source:HGNC Symbol;Acc:6541]</td>
+<td style="text-align: left;">protein_coding</td>
+<td style="text-align: left;">12</td>
+</tr>
+<tr>
+<td style="text-align: left;">ENSG00000167286</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.061714</td>
+<td style="text-align: right;">0.853</td>
+<td style="text-align: right;">0.415</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">CD3D</td>
+<td style="text-align: left;">CD3d molecule, delta (CD3-TCR complex) [Source:HGNC Symbol;Acc:1673]</td>
+<td style="text-align: left;">protein_coding</td>
+<td style="text-align: left;">11</td>
+</tr>
+<tr>
+<td style="text-align: left;">ENSG00000143546</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6.683076</td>
+<td style="text-align: right;">0.971</td>
+<td style="text-align: right;">0.119</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">S100A8</td>
+<td style="text-align: left;">S100 calcium binding protein A8 [Source:HGNC Symbol;Acc:10498]</td>
+<td style="text-align: left;">protein_coding</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;">ENSG00000163220</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6.215798</td>
+<td style="text-align: right;">0.998</td>
+<td style="text-align: right;">0.212</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">S100A9</td>
+<td style="text-align: left;">S100 calcium binding protein A9 [Source:HGNC Symbol;Acc:10499]</td>
+<td style="text-align: left;">protein_coding</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;">ENSG00000170458</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5.984897</td>
+<td style="text-align: right;">0.666</td>
+<td style="text-align: right;">0.027</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">CD14</td>
+<td style="text-align: left;">CD14 molecule [Source:HGNC Symbol;Acc:1628]</td>
+<td style="text-align: left;">protein_coding</td>
+<td style="text-align: left;">5</td>
+</tr>
+<tr>
+<td style="text-align: left;">ENSG00000116824</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.563939</td>
+<td style="text-align: right;">0.635</td>
+<td style="text-align: right;">0.254</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">CD2</td>
+<td style="text-align: left;">CD2 molecule [Source:HGNC Symbol;Acc:1639]</td>
+<td style="text-align: left;">protein_coding</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;">ENSG00000168685</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.408361</td>
+<td style="text-align: right;">0.733</td>
+<td style="text-align: right;">0.336</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">IL7R</td>
+<td style="text-align: left;">interleukin 7 receptor [Source:HGNC Symbol;Acc:6024]</td>
+<td style="text-align: left;">protein_coding</td>
+<td style="text-align: left;">5</td>
+</tr>
+<tr>
+<td style="text-align: left;">ENSG00000008517</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.384736</td>
+<td style="text-align: right;">0.949</td>
+<td style="text-align: right;">0.473</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">IL32</td>
+<td style="text-align: left;">interleukin 32 [Source:HGNC Symbol;Acc:16830]</td>
+<td style="text-align: left;">protein_coding</td>
+<td style="text-align: left;">16</td>
+</tr>
+<tr>
+<td style="text-align: left;">ENSG00000247982</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7.168087</td>
+<td style="text-align: right;">0.561</td>
+<td style="text-align: right;">0.010</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">LINC00926</td>
+<td style="text-align: left;">long intergenic non-protein coding RNA 926 [Source:HGNC Symbol;Acc:27514]</td>
+<td style="text-align: left;">lincRNA</td>
+<td style="text-align: left;">15</td>
+</tr>
+<tr>
+<td style="text-align: left;">ENSG00000105369</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6.865916</td>
+<td style="text-align: right;">0.939</td>
+<td style="text-align: right;">0.041</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">CD79A</td>
+<td style="text-align: left;">CD79a molecule, immunoglobulin-associated alpha [Source:HGNC Symbol;Acc:1698]</td>
+<td style="text-align: left;">protein_coding</td>
+<td style="text-align: left;">19</td>
+</tr>
+<tr>
+<td style="text-align: left;">ENSG00000100721</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6.590071</td>
+<td style="text-align: right;">0.625</td>
+<td style="text-align: right;">0.022</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">TCL1A</td>
+<td style="text-align: left;">T-cell leukemia/lymphoma 1A [Source:HGNC Symbol;Acc:11648]</td>
+<td style="text-align: left;">protein_coding</td>
+<td style="text-align: left;">14</td>
+</tr>
+<tr>
+<td style="text-align: left;">ENSG00000113088</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4.668454</td>
+<td style="text-align: right;">0.582</td>
+<td style="text-align: right;">0.050</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">GZMK</td>
+<td style="text-align: left;">granzyme K (granzyme 3; tryptase II) [Source:HGNC Symbol;Acc:4711]</td>
+<td style="text-align: left;">protein_coding</td>
+<td style="text-align: left;">5</td>
+</tr>
+<tr>
+<td style="text-align: left;">ENSG00000161570</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3.478015</td>
+<td style="text-align: right;">0.968</td>
+<td style="text-align: right;">0.223</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">CCL5</td>
+<td style="text-align: left;">chemokine (C-C motif) ligand 5 [Source:HGNC Symbol;Acc:10632]</td>
+<td style="text-align: left;">protein_coding</td>
+<td style="text-align: left;">17</td>
+</tr>
+<tr>
+<td style="text-align: left;">ENSG00000145220</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2.608064</td>
+<td style="text-align: right;">0.576</td>
+<td style="text-align: right;">0.127</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">LYAR</td>
+<td style="text-align: left;">Ly1 antibody reactive [Source:HGNC Symbol;Acc:26021]</td>
+<td style="text-align: left;">protein_coding</td>
+<td style="text-align: left;">4</td>
+</tr>
+<tr>
+<td style="text-align: left;">ENSG00000129757</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5.643867</td>
+<td style="text-align: right;">0.519</td>
+<td style="text-align: right;">0.009</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">CDKN1C</td>
+<td style="text-align: left;">cyclin-dependent kinase inhibitor 1C (p57, Kip2) [Source:HGNC Symbol;Acc:1786]</td>
+<td style="text-align: left;">protein_coding</td>
+<td style="text-align: left;">11</td>
+</tr>
+<tr>
+<td style="text-align: left;">ENSG00000188290</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5.060087</td>
+<td style="text-align: right;">0.589</td>
+<td style="text-align: right;">0.020</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">HES4</td>
+<td style="text-align: left;">hes family bHLH transcription factor 4 [Source:HGNC Symbol;Acc:24149]</td>
+<td style="text-align: left;">protein_coding</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;">ENSG00000166927</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4.377772</td>
+<td style="text-align: right;">0.810</td>
+<td style="text-align: right;">0.074</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">MS4A7</td>
+<td style="text-align: left;">membrane-spanning 4-domains, subfamily A, member 7 [Source:HGNC Symbol;Acc:13378]</td>
+<td style="text-align: left;">protein_coding</td>
+<td style="text-align: left;">11</td>
+</tr>
+<tr>
+<td style="text-align: left;">ENSG00000115523</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6.159853</td>
+<td style="text-align: right;">0.968</td>
+<td style="text-align: right;">0.131</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">GNLY</td>
+<td style="text-align: left;">granulysin [Source:HGNC Symbol;Acc:4414]</td>
+<td style="text-align: left;">protein_coding</td>
+<td style="text-align: left;">2</td>
+</tr>
+<tr>
+<td style="text-align: left;">ENSG00000100453</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5.924214</td>
+<td style="text-align: right;">0.955</td>
+<td style="text-align: right;">0.068</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">GZMB</td>
+<td style="text-align: left;">granzyme B (granzyme 2, cytotoxic T-lymphocyte-associated serine esterase 1) [Source:HGNC Symbol;Acc:4709]</td>
+<td style="text-align: left;">protein_coding</td>
+<td style="text-align: left;">14</td>
+</tr>
+<tr>
+<td style="text-align: left;">ENSG00000143185</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5.605621</td>
+<td style="text-align: right;">0.551</td>
+<td style="text-align: right;">0.021</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">XCL2</td>
+<td style="text-align: left;">chemokine (C motif) ligand 2 [Source:HGNC Symbol;Acc:10646]</td>
+<td style="text-align: left;">protein_coding</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;">ENSG00000132386</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7.901006</td>
+<td style="text-align: right;">0.500</td>
+<td style="text-align: right;">0.002</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">SERPINF1</td>
+<td style="text-align: left;">serpin peptidase inhibitor, clade F (alpha-2 antiplasmin, pigment epithelium derived factor), member 1 [Source:HGNC Symbol;Acc:8824]</td>
+<td style="text-align: left;">protein_coding</td>
+<td style="text-align: left;">17</td>
+</tr>
+<tr>
+<td style="text-align: left;">ENSG00000179639</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7.630987</td>
+<td style="text-align: right;">0.812</td>
+<td style="text-align: right;">0.011</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">FCER1A</td>
+<td style="text-align: left;">Fc fragment of IgE, high affinity I, receptor for; alpha polypeptide [Source:HGNC Symbol;Acc:3609]</td>
+<td style="text-align: left;">protein_coding</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;">ENSG00000132514</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6.084949</td>
+<td style="text-align: right;">0.688</td>
+<td style="text-align: right;">0.015</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">CLEC10A</td>
+<td style="text-align: left;">C-type lectin domain family 10, member A [Source:HGNC Symbol;Acc:16916]</td>
+<td style="text-align: left;">protein_coding</td>
+<td style="text-align: left;">17</td>
+</tr>
+<tr>
+<td style="text-align: left;">ENSG00000204424</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">12.573630</td>
+<td style="text-align: right;">0.714</td>
+<td style="text-align: right;">0.000</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">LY6G6F</td>
+<td style="text-align: left;">lymphocyte antigen 6 complex, locus G6F [Source:HGNC Symbol;Acc:13933]</td>
+<td style="text-align: left;">protein_coding</td>
+<td style="text-align: left;">6</td>
+</tr>
+<tr>
+<td style="text-align: left;">ENSG00000005961</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">11.632991</td>
+<td style="text-align: right;">0.857</td>
+<td style="text-align: right;">0.002</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">ITGA2B</td>
+<td style="text-align: left;">integrin, alpha 2b (platelet glycoprotein IIb of IIb/IIIa complex, antigen CD41) [Source:HGNC Symbol;Acc:6138]</td>
+<td style="text-align: left;">protein_coding</td>
+<td style="text-align: left;">17</td>
+</tr>
+<tr>
+<td style="text-align: left;">ENSG00000127920</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">11.064293</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">0.010</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">GNG11</td>
+<td style="text-align: left;">guanine nucleotide binding protein (G protein), gamma 11 [Source:HGNC Symbol;Acc:4403]</td>
+<td style="text-align: left;">protein_coding</td>
+<td style="text-align: left;">7</td>
+</tr>
+</tbody>
+</table>
+</details>
+<div class="language-r highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">## Generate feature plots and stock them into variable</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">plots</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">FeaturePlot</span><span class="p">(</span><span class="n">pbmc_small</span><span class="p">,</span><span class="w">                                                                </span><span class="c1">#SeuratObject</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">                     </span><span class="n">features</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">top_n</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="w"> </span><span class="n">pbmc_markers_signif</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">wt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">avg_log2FC</span><span class="p">)</span><span class="o">$</span><span class="n">gene</span><span class="p">,</span><span class="w">     </span><span class="c1">#Vector of genes to plot</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">                     </span><span class="n">cols</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;yellow&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;red&quot;</span><span class="p">),</span><span class="w">                                                 </span><span class="c1">#Change color</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">                     </span><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w">                                                              </span><span class="c1">#Plot ident position</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">                     </span><span class="n">combine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w">                                                           </span><span class="c1">#Return list of plot objets instead of a combined plot (easier to process)</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">                     </span><span class="n">repel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span><span class="w">                                                              </span><span class="c1">#Avoid label overlap</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="c1">## Add gene name as title</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="n">plots</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">lapply</span><span class="p">(</span><span class="n">plots</span><span class="p">,</span><span class="w">                                                                          </span><span class="c1">#List of plots</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">                </span><span class="n">add_title_gene_name</span><span class="p">,</span><span class="w">                                                            </span><span class="c1">#Function to apply to the list</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">                </span><span class="n">gene_format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">annotated_hg19</span><span class="p">)</span><span class="w">                                                   </span><span class="c1">#Fill in the dataframe parameter</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="c1">## Plot list of plots</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="nf">grid.arrange</span><span class="p">(</span><span class="n">grobs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">plots</span><span class="p">)</span>
+</span></code></pre></div>
+<p><img src="../images/FilterMarkers-1.png" style="display: block; margin: auto;" /></p>
+<div class="language-r highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">## Generate violin plots and stock them into variable</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">vln_plots</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">VlnPlot</span><span class="p">(</span><span class="n">pbmc_small</span><span class="p">,</span><span class="w">                                                                </span><span class="c1">#SeuratObject</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">                     </span><span class="n">features</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">top_n</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="w"> </span><span class="n">pbmc_markers_signif</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">wt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">avg_log2FC</span><span class="p">)</span><span class="o">$</span><span class="n">gene</span><span class="p">,</span><span class="w">     </span><span class="c1">#Vector of genes to plot</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">                     </span><span class="n">combine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">)</span><span class="w">                                                           </span><span class="c1">#Return list of plot objets instead of a combined plot (easier to process)</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="c1">## Add gene name as title</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="n">vln_plots</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">lapply</span><span class="p">(</span><span class="n">vln_plots</span><span class="p">,</span><span class="w">                                                                  </span><span class="c1">#List of plots</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">                    </span><span class="n">add_title_gene_name</span><span class="p">,</span><span class="w">                                                        </span><span class="c1">#Function to apply to the list</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">                    </span><span class="n">gene_format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">annotated_hg19</span><span class="p">)</span><span class="w">                                               </span><span class="c1">#Fill in the dataframe parameter</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="c1">## Remove unecessary legend</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="n">vln_plots</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">lapply</span><span class="p">(</span><span class="n">vln_plots</span><span class="p">,</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">plot</span><span class="p">){</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">  </span><span class="n">plot</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">plot</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">theme</span><span class="p">(</span><span class="n">legend.position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;none&quot;</span><span class="p">)</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">  </span><span class="nf">return</span><span class="p">(</span><span class="n">plot</span><span class="p">)</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="p">})</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="c1">## Plot list of plots</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="nf">grid.arrange</span><span class="p">(</span><span class="n">grobs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vln_plots</span><span class="p">)</span>
+</span></code></pre></div>
+<p><img src="../images/FilterMarkers-2.png" style="display: block; margin: auto;" /></p>
+<p>We now have each Ensembl gene ID set associated with a gene name and
+a description to help us identify the gene lists. This is easy if you
+know the theory of the biology of your system but if you don't know
+enough about the genes identified as markers, the enrichment methods
+will help you.</p>
+<h2 id="via-clusterprofiler">Via ClusterProfiler<a class="headerlink" href="#via-clusterprofiler" title="Permanent link">&para;</a></h2>
+<p>To understand the relationship between genes specific to our clusters
+we can use functional enrichment methods. There are two types of
+functional enrichment methods:</p>
+<ul>
+<li>Over-Representation Analysis methods which are based on a ratio between
+  the number of marker genes present in a functional gene set
+  and the total number of genes present in this gene set.</li>
+<li>Gene Set Enrichment Analysis (GSEA) methods which calculate an enrichment
+  rate from a ranking of genes.</li>
+</ul>
+<p>An R package will allow us to perform these different analyses using several
+databases. It is quite complete and I advise you to take the time to look at
+the <a href="https://yulab-smu.top/biomedical-knowledge-mining-book/index.html">documentation</a> because here we will only see a small overview.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../intro_markers/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Introduction and markers identification">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Introduction and markers identification
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../over/" class="md-footer__link md-footer__link--next" aria-label="Next: Over-representation analysis">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Over-representation analysis
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["header.autohide", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.prune", "navigation.footer", "content.tabs.link", "content.code.copy", "content.action.view", "content.action.edit"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../spoiler_files/spoiler.js"></script>
+      
+    
+  </body>
+</html>
