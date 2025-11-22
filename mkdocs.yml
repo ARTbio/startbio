@@ -220,6 +220,7 @@ nav:
         - Format conversion using command lines in your Google VM: AnalyseGenomes_2025/file_parsing_cli.md
         - Format conversion using a galaxy tool: AnalyseGenomes_2025/file_parsing_galaxy.md
         - Running a galaxy workflow: AnalyseGenomes_2025/Run_workflow.md
+        - Grouping data using Galaxy: AnalyseGenomes_2025/groupe-data.md
         - Why administering galaxy ?: AnalyseGenomes_2025/whyadmin.md
         - SUP MATERIAL:
           - BOWTIE ALIGNMENT USING COMMAND LINES: AnalyseGenomes_2025/bowtie_cli.md

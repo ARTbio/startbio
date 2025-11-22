@@ -83,8 +83,8 @@ their color.
         ```
         scontrol update NodeName=<your-instance-name> State=Resume
         ```
-      - type `sinfo` again. If the previous command solve the problem, the `STATE` should be now `Idle` or `mix`
-      - ... and you "grey" dataset should soon turn to orange then green.
+      - type `sinfo` again. If the previous command solved the problem, the `STATE` should be now `Idle` or `mix`
+      - ... and your "grey" dataset should soon turn to orange then green.
 
 
 ---
