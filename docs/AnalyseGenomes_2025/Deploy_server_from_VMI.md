@@ -13,7 +13,18 @@ Once the API is activated, the page will automatically reload, and you will fina
 
 Using your fresh Compute Engine dashboard, you are going to start a Virtual Machine with 8 cpus, 32 MB of RAM and a 300 GB disk, pre-configured with a fully functional Galaxy server. To do so, you will use an Image, which is prepared for you, as a template (or "model") for your VM.
 
-This procedure can be performed in two ways:
+??? warning "**:trumpet: VM Image Access Authorization**"
+    To access and use the VM Image, you must first have the necessary permissions.
+
+    These permissions are granted automatically upon coupon activation via a script that runs every 15 minutes.
+
+    While unlikely, if you attempt to deploy your first VM immediately after activating your coupon, the image may not yet be visible to you.
+
+    **If this occurs, please wait a few minutes (up to a maximum of 15).** If you still cannot access the image after this time, please request assistance on the Slack board or by creating an issue on [GitHub](https://github.com/ARTbio/AnalyseGenome/issues).
+
+    This can also be caused by an authentication issue if you are using an email address that is different from the one we expect.
+
+Your VM deployment can be performed in two ways:
 
 - [x] Using a single command line which is hidden below in the "Geek Corner"
  
