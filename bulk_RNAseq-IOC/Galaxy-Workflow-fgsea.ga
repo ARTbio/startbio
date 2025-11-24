@@ -1,0 +1,1020 @@
+{
+    "a_galaxy_workflow": "true",
+    "annotation": "",
+    "format-version": "0.1",
+    "name": "fgsea",
+    "steps": {
+        "0": {
+            "annotation": "",
+            "content_id": null,
+            "errors": null,
+            "id": 0,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "Clean EnsemblID-GeneSymbol table"
+                }
+            ],
+            "label": "Clean EnsemblID-GeneSymbol table",
+            "name": "Input dataset",
+            "outputs": [],
+            "position": {
+                "left": 0.0,
+                "top": 0.0
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": false, \"tag\": null}",
+            "tool_version": null,
+            "type": "data_input",
+            "uuid": "aa3ee054-f34a-4df6-9a5c-a464e7219ec5",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "1": {
+            "annotation": "must be with the DESeq header\nGeneID, BaseMean, log2FC, StdErr, WaldStats, Pvalue,Padj",
+            "content_id": null,
+            "errors": null,
+            "id": 1,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "must be with the DESeq header\nGeneID, BaseMean, log2FC, StdErr, WaldStats, Pvalue,Padj",
+                    "name": "DESeq tables with their header"
+                }
+            ],
+            "label": "DESeq tables with their header",
+            "name": "Input dataset collection",
+            "outputs": [],
+            "position": {
+                "left": 11.266874982088023,
+                "top": 107.12658114461908
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": false, \"tag\": null, \"collection_type\": \"list\"}",
+            "tool_version": null,
+            "type": "data_collection_input",
+            "uuid": "8022e236-1444-4670-9643-13c1ed3560b3",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "2": {
+            "annotation": "",
+            "content_id": null,
+            "errors": null,
+            "id": 2,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "mouse_immune_AND_response.gmt"
+                }
+            ],
+            "label": "mouse_immune_AND_response.gmt",
+            "name": "Input dataset",
+            "outputs": [],
+            "position": {
+                "left": 11.303804857720054,
+                "top": 201.56814501225142
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": false, \"tag\": null}",
+            "tool_version": null,
+            "type": "data_input",
+            "uuid": "f268f951-90b0-4568-94e5-17c60d9584c3",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "3": {
+            "annotation": "",
+            "content_id": null,
+            "errors": null,
+            "id": 3,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "osteoclast.gmt"
+                }
+            ],
+            "label": "osteoclast.gmt",
+            "name": "Input dataset",
+            "outputs": [],
+            "position": {
+                "left": 17.954783987983046,
+                "top": 321.42831825715757
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": false, \"tag\": null}",
+            "tool_version": null,
+            "type": "data_input",
+            "uuid": "86cfcca5-d95b-4bcc-b168-0268711902cb",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "4": {
+            "annotation": "",
+            "content_id": null,
+            "errors": null,
+            "id": 4,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "monocyte_OR_macrophage.gmt"
+                }
+            ],
+            "label": "monocyte_OR_macrophage.gmt",
+            "name": "Input dataset",
+            "outputs": [],
+            "position": {
+                "left": 29.842867357720053,
+                "top": 395.6111137622514
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": false, \"tag\": null}",
+            "tool_version": null,
+            "type": "data_input",
+            "uuid": "5d4bb3ad-5107-457a-8aad-79896fbab09f",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "5": {
+            "annotation": "",
+            "content_id": null,
+            "errors": null,
+            "id": 5,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "dendritic.gmt"
+                }
+            ],
+            "label": "dendritic.gmt",
+            "name": "Input dataset",
+            "outputs": [],
+            "position": {
+                "left": 36.90146110772005,
+                "top": 510.5095512622514
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": false, \"tag\": null}",
+            "tool_version": null,
+            "type": "data_input",
+            "uuid": "7893e310-ca77-4834-bf24-9d8616f05fdf",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "6": {
+            "annotation": "",
+            "content_id": null,
+            "errors": null,
+            "id": 6,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "glycolysis.gmt"
+                }
+            ],
+            "label": "glycolysis.gmt",
+            "name": "Input dataset",
+            "outputs": [],
+            "position": {
+                "left": 41.67880485772005,
+                "top": 589.7283012622514
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": false, \"tag\": null}",
+            "tool_version": null,
+            "type": "data_input",
+            "uuid": "51479f19-799d-4018-802f-b652983cc573",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "7": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_easyjoin_tool/1.1.2",
+            "errors": null,
+            "id": 7,
+            "input_connections": {
+                "infile1": {
+                    "id": 0,
+                    "output_name": "output"
+                },
+                "infile2": {
+                    "id": 1,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Join",
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "input"
+                }
+            ],
+            "position": {
+                "left": 322.2742934644433,
+                "top": 127.20285968708254
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_easyjoin_tool/1.1.2",
+            "tool_shed_repository": {
+                "changeset_revision": "d698c222f354",
+                "name": "text_processing",
+                "owner": "bgruening",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"__input_ext\": \"tabular\", \"chromInfo\": \"/home/galaxy/galaxy/tool-data/GRCm38/len/GRCm38.len\", \"column1\": \"1\", \"column2\": \"1\", \"empty_string_filler\": \"0\", \"header\": true, \"ignore_case\": false, \"infile1\": {\"__class__\": \"ConnectedValue\"}, \"infile2\": {\"__class__\": \"ConnectedValue\"}, \"infile2|__identifier__\": \"Tissue_Mo_vs_Dc\", \"jointype\": \" \", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.1.2",
+            "type": "tool",
+            "uuid": "b2da6f78-b542-4e08-91a5-001d1758b1d3",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "8": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_cat/0.1.1",
+            "errors": null,
+            "id": 8,
+            "input_connections": {
+                "inputs": {
+                    "id": 2,
+                    "output_name": "output"
+                },
+                "queries_0|inputs2": {
+                    "id": 3,
+                    "output_name": "output"
+                },
+                "queries_1|inputs2": {
+                    "id": 4,
+                    "output_name": "output"
+                },
+                "queries_2|inputs2": {
+                    "id": 5,
+                    "output_name": "output"
+                },
+                "queries_3|inputs2": {
+                    "id": 6,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Concatenate datasets",
+            "outputs": [
+                {
+                    "name": "out_file1",
+                    "type": "input"
+                }
+            ],
+            "position": {
+                "left": 434.88680294863826,
+                "top": 727.85437261217
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_cat/0.1.1",
+            "tool_shed_repository": {
+                "changeset_revision": "d698c222f354",
+                "name": "text_processing",
+                "owner": "bgruening",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"inputs\": {\"__class__\": \"ConnectedValue\"}, \"queries\": [{\"__index__\": 0, \"inputs2\": {\"__class__\": \"ConnectedValue\"}}, {\"__index__\": 1, \"inputs2\": {\"__class__\": \"ConnectedValue\"}}, {\"__index__\": 2, \"inputs2\": {\"__class__\": \"ConnectedValue\"}}, {\"__index__\": 3, \"inputs2\": {\"__class__\": \"ConnectedValue\"}}], \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "0.1.1",
+            "type": "tool",
+            "uuid": "5481dc81-a2f9-43f8-ae24-9371b473ae09",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "9": {
+            "annotation": "",
+            "content_id": "Grep1",
+            "errors": null,
+            "id": 9,
+            "input_connections": {
+                "input": {
+                    "id": 7,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Select",
+            "outputs": [
+                {
+                    "name": "out_file1",
+                    "type": "input"
+                }
+            ],
+            "position": {
+                "left": 545.425358718321,
+                "top": 156.60073057044667
+            },
+            "post_job_actions": {},
+            "tool_id": "Grep1",
+            "tool_state": "{\"__input_ext\": \"input\", \"chromInfo\": \"/home/galaxy/galaxy/tool-data/GRCm38/len/GRCm38.len\", \"input\": {\"__class__\": \"ConnectedValue\"}, \"input|__identifier__\": \"Tissue_Mo_vs_Dc\", \"invert\": \"-v\", \"keep_header\": false, \"pattern\": \"\\\\tNA$\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.0.4",
+            "type": "tool",
+            "uuid": "ea7bb76c-529c-49de-9157-ccde24e9f5af",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "10": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_sorted_uniq/1.1.0",
+            "errors": null,
+            "id": 10,
+            "input_connections": {
+                "infile": {
+                    "id": 8,
+                    "output_name": "out_file1"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Unique",
+            "outputs": [
+                {
+                    "name": "outfile",
+                    "type": "input"
+                }
+            ],
+            "position": {
+                "left": 734.0520394550224,
+                "top": 830.0031361646671
+            },
+            "post_job_actions": {
+                "RenameDatasetActionoutfile": {
+                    "action_arguments": {
+                        "newname": "All genesets gathered and unique"
+                    },
+                    "action_type": "RenameDatasetAction",
+                    "output_name": "outfile"
+                }
+            },
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_sorted_uniq/1.1.0",
+            "tool_shed_repository": {
+                "changeset_revision": "d698c222f354",
+                "name": "text_processing",
+                "owner": "bgruening",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"__input_ext\": \"tabular\", \"adv_opts\": {\"adv_opts_selector\": \"advanced\", \"__current_case__\": 1, \"column_start\": \"1\", \"column_end\": \"1\"}, \"chromInfo\": \"/home/galaxy/galaxy/config/len/?.len\", \"ignore_case\": false, \"infile\": {\"__class__\": \"ConnectedValue\"}, \"is_numeric\": false, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.1.0",
+            "type": "tool",
+            "uuid": "d13b6eef-a75a-432a-bf23-84bbf6ae32b2",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "11": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/cut_columns/Cut1/1.0.2",
+            "errors": null,
+            "id": 11,
+            "input_connections": {
+                "input": {
+                    "id": 9,
+                    "output_name": "out_file1"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Cut",
+            "outputs": [
+                {
+                    "name": "out_file1",
+                    "type": "tabular"
+                }
+            ],
+            "position": {
+                "left": 764.3683807719135,
+                "top": 158.77599601700712
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/cut_columns/Cut1/1.0.2",
+            "tool_shed_repository": {
+                "changeset_revision": "cec635fab700",
+                "name": "cut_columns",
+                "owner": "devteam",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"__input_ext\": \"tabular\", \"chromInfo\": \"/home/galaxy/galaxy/tool-data/GRCm38/len/GRCm38.len\", \"columnList\": \"c2,c4\", \"delimiter\": \"T\", \"input\": {\"__class__\": \"ConnectedValue\"}, \"input|__identifier__\": \"Tissue_Mo_vs_Dc\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.0.2",
+            "type": "tool",
+            "uuid": "0a7b7150-12b4-4fdf-a58f-8bfe07adabcc",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "12": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_sort_header_tool/1.1.1",
+            "errors": null,
+            "id": 12,
+            "input_connections": {
+                "infile": {
+                    "id": 11,
+                    "output_name": "out_file1"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Sort",
+            "outputs": [
+                {
+                    "name": "outfile",
+                    "type": "input"
+                }
+            ],
+            "position": {
+                "left": 978.752040119434,
+                "top": 163.7492486467358
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_sort_header_tool/1.1.1",
+            "tool_shed_repository": {
+                "changeset_revision": "d698c222f354",
+                "name": "text_processing",
+                "owner": "bgruening",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"__input_ext\": \"tabular\", \"chromInfo\": \"/home/galaxy/galaxy/tool-data/GRCm38/len/GRCm38.len\", \"header\": \"1\", \"ignore_case\": false, \"infile\": {\"__class__\": \"ConnectedValue\"}, \"infile|__identifier__\": \"Tissue_Mo_vs_Dc\", \"sortkeys\": [{\"__index__\": 0, \"column\": \"2\", \"order\": \"r\", \"style\": \"g\"}], \"unique\": false, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.1.1",
+            "type": "tool",
+            "uuid": "4b1dfda9-6922-49cb-8110-af8f8e7a7fc0",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "13": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/fgsea/fgsea/1.8.0+galaxy1",
+            "errors": null,
+            "id": 13,
+            "input_connections": {
+                "rnk_file": {
+                    "id": 12,
+                    "output_name": "outfile"
+                },
+                "sets_file": {
+                    "id": 2,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "fgsea",
+            "outputs": [
+                {
+                    "name": "out_tab",
+                    "type": "tabular"
+                },
+                {
+                    "name": "out_pdf",
+                    "type": "pdf"
+                }
+            ],
+            "position": {
+                "left": 1255.0182079378496,
+                "top": 170.69599538524216
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/fgsea/fgsea/1.8.0+galaxy1",
+            "tool_shed_repository": {
+                "changeset_revision": "17eb1e0d711f",
+                "name": "fgsea",
+                "owner": "iuc",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"__input_ext\": \"tabular\", \"chromInfo\": \"/home/galaxy/galaxy/tool-data/GRCm38/len/GRCm38.len\", \"header\": true, \"max_size\": \"624\", \"min_size\": \"5\", \"n_perm\": \"1000\", \"plot_opt\": true, \"rda_opt\": false, \"rnk_file\": {\"__class__\": \"ConnectedValue\"}, \"rnk_file|__identifier__\": \"Tissue_Mo_vs_Dc\", \"sets_file\": {\"__class__\": \"ConnectedValue\"}, \"top_num\": \"10\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.8.0+galaxy1",
+            "type": "tool",
+            "uuid": "910d9a69-8956-42b4-98ae-96b036ae1e15",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "14": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/fgsea/fgsea/1.8.0+galaxy1",
+            "errors": null,
+            "id": 14,
+            "input_connections": {
+                "rnk_file": {
+                    "id": 12,
+                    "output_name": "outfile"
+                },
+                "sets_file": {
+                    "id": 3,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "fgsea",
+            "outputs": [
+                {
+                    "name": "out_tab",
+                    "type": "tabular"
+                },
+                {
+                    "name": "out_pdf",
+                    "type": "pdf"
+                }
+            ],
+            "position": {
+                "left": 1261.7282157266409,
+                "top": 328.354062545219
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/fgsea/fgsea/1.8.0+galaxy1",
+            "tool_shed_repository": {
+                "changeset_revision": "17eb1e0d711f",
+                "name": "fgsea",
+                "owner": "iuc",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"__input_ext\": \"tabular\", \"chromInfo\": \"/home/galaxy/galaxy/tool-data/GRCm38/len/GRCm38.len\", \"header\": true, \"max_size\": \"624\", \"min_size\": \"5\", \"n_perm\": \"1000\", \"plot_opt\": true, \"rda_opt\": false, \"rnk_file\": {\"__class__\": \"ConnectedValue\"}, \"rnk_file|__identifier__\": \"Tissue_Mo_vs_Dc\", \"sets_file\": {\"__class__\": \"ConnectedValue\"}, \"top_num\": \"10\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.8.0+galaxy1",
+            "type": "tool",
+            "uuid": "eeb13071-0913-4952-8bdf-6b8d4af10f33",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "15": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/fgsea/fgsea/1.8.0+galaxy1",
+            "errors": null,
+            "id": 15,
+            "input_connections": {
+                "rnk_file": {
+                    "id": 12,
+                    "output_name": "outfile"
+                },
+                "sets_file": {
+                    "id": 4,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "fgsea",
+            "outputs": [
+                {
+                    "name": "out_tab",
+                    "type": "tabular"
+                },
+                {
+                    "name": "out_pdf",
+                    "type": "pdf"
+                }
+            ],
+            "position": {
+                "left": 1259.763334180245,
+                "top": 487.82992816328033
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/fgsea/fgsea/1.8.0+galaxy1",
+            "tool_shed_repository": {
+                "changeset_revision": "17eb1e0d711f",
+                "name": "fgsea",
+                "owner": "iuc",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"__input_ext\": \"tabular\", \"chromInfo\": \"/home/galaxy/galaxy/tool-data/GRCm38/len/GRCm38.len\", \"header\": true, \"max_size\": \"624\", \"min_size\": \"5\", \"n_perm\": \"1000\", \"plot_opt\": true, \"rda_opt\": false, \"rnk_file\": {\"__class__\": \"ConnectedValue\"}, \"rnk_file|__identifier__\": \"Tissue_Mo_vs_Dc\", \"sets_file\": {\"__class__\": \"ConnectedValue\"}, \"top_num\": \"10\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.8.0+galaxy1",
+            "type": "tool",
+            "uuid": "e06142ee-fe4e-43f7-a46b-b09f875d671e",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "16": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/fgsea/fgsea/1.8.0+galaxy1",
+            "errors": null,
+            "id": 16,
+            "input_connections": {
+                "rnk_file": {
+                    "id": 12,
+                    "output_name": "outfile"
+                },
+                "sets_file": {
+                    "id": 5,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "fgsea",
+            "outputs": [
+                {
+                    "name": "out_tab",
+                    "type": "tabular"
+                },
+                {
+                    "name": "out_pdf",
+                    "type": "pdf"
+                }
+            ],
+            "position": {
+                "left": 1260.9589891302915,
+                "top": 647.6091507489159
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/fgsea/fgsea/1.8.0+galaxy1",
+            "tool_shed_repository": {
+                "changeset_revision": "17eb1e0d711f",
+                "name": "fgsea",
+                "owner": "iuc",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"__input_ext\": \"tabular\", \"chromInfo\": \"/home/galaxy/galaxy/tool-data/GRCm38/len/GRCm38.len\", \"header\": true, \"max_size\": \"624\", \"min_size\": \"5\", \"n_perm\": \"1000\", \"plot_opt\": true, \"rda_opt\": false, \"rnk_file\": {\"__class__\": \"ConnectedValue\"}, \"rnk_file|__identifier__\": \"Tissue_Mo_vs_Dc\", \"sets_file\": {\"__class__\": \"ConnectedValue\"}, \"top_num\": \"10\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.8.0+galaxy1",
+            "type": "tool",
+            "uuid": "e6b9d0ee-922b-4ba4-a610-5adf55306e23",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "17": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/fgsea/fgsea/1.8.0+galaxy1",
+            "errors": null,
+            "id": 17,
+            "input_connections": {
+                "rnk_file": {
+                    "id": 12,
+                    "output_name": "outfile"
+                },
+                "sets_file": {
+                    "id": 6,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "fgsea",
+            "outputs": [
+                {
+                    "name": "out_tab",
+                    "type": "tabular"
+                },
+                {
+                    "name": "out_pdf",
+                    "type": "pdf"
+                }
+            ],
+            "position": {
+                "left": 1260.7795556751532,
+                "top": 806.7633386836646
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/fgsea/fgsea/1.8.0+galaxy1",
+            "tool_shed_repository": {
+                "changeset_revision": "17eb1e0d711f",
+                "name": "fgsea",
+                "owner": "iuc",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"__input_ext\": \"tabular\", \"chromInfo\": \"/home/galaxy/galaxy/tool-data/GRCm38/len/GRCm38.len\", \"header\": true, \"max_size\": \"800\", \"min_size\": \"5\", \"n_perm\": \"10000\", \"plot_opt\": true, \"rda_opt\": false, \"rnk_file\": {\"__class__\": \"ConnectedValue\"}, \"rnk_file|__identifier__\": \"Tissue_Mo_vs_Dc\", \"sets_file\": {\"__class__\": \"ConnectedValue\"}, \"top_num\": \"10\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.8.0+galaxy1",
+            "type": "tool",
+            "uuid": "c32ebe6f-f799-4fe6-9ee8-25f49172acd9",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "18": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/fgsea/fgsea/1.8.0+galaxy1",
+            "errors": null,
+            "id": 18,
+            "input_connections": {
+                "rnk_file": {
+                    "id": 12,
+                    "output_name": "outfile"
+                },
+                "sets_file": {
+                    "id": 10,
+                    "output_name": "outfile"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "fgsea",
+            "outputs": [
+                {
+                    "name": "out_tab",
+                    "type": "tabular"
+                },
+                {
+                    "name": "out_pdf",
+                    "type": "pdf"
+                }
+            ],
+            "position": {
+                "left": 1262.1970069313475,
+                "top": 966.2410911528485
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/fgsea/fgsea/1.8.0+galaxy1",
+            "tool_shed_repository": {
+                "changeset_revision": "17eb1e0d711f",
+                "name": "fgsea",
+                "owner": "iuc",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"__input_ext\": \"tabular\", \"chromInfo\": \"/home/galaxy/galaxy/tool-data/GRCm38/len/GRCm38.len\", \"header\": true, \"max_size\": \"800\", \"min_size\": \"5\", \"n_perm\": \"5000\", \"plot_opt\": true, \"rda_opt\": false, \"rnk_file\": {\"__class__\": \"ConnectedValue\"}, \"rnk_file|__identifier__\": \"Tissue_Mo_vs_Dc\", \"sets_file\": {\"__class__\": \"ConnectedValue\"}, \"top_num\": \"10\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.8.0+galaxy1",
+            "type": "tool",
+            "uuid": "d819b8c6-34b5-4eef-a87e-3506483eaba6",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "19": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_cut_tool/1.1.0",
+            "errors": null,
+            "id": 19,
+            "input_connections": {
+                "input": {
+                    "id": 13,
+                    "output_name": "out_tab"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Advanced Cut",
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "tabular"
+                }
+            ],
+            "position": {
+                "left": 1501.212229494332,
+                "top": 215.2449764518837
+            },
+            "post_job_actions": {
+                "RenameDatasetActionoutput": {
+                    "action_arguments": {
+                        "newname": "immune response simple ranking"
+                    },
+                    "action_type": "RenameDatasetAction",
+                    "output_name": "output"
+                }
+            },
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_cut_tool/1.1.0",
+            "tool_shed_repository": {
+                "changeset_revision": "d698c222f354",
+                "name": "text_processing",
+                "owner": "bgruening",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"__input_ext\": \"tabular\", \"chromInfo\": \"/home/galaxy/galaxy/tool-data/GRCm38/len/GRCm38.len\", \"complement\": \"--complement\", \"cut_type_options\": {\"cut_element\": \"-f\", \"__current_case__\": 0, \"list\": [\"8\"]}, \"delimiter\": \"\", \"input\": {\"__class__\": \"ConnectedValue\"}, \"input|__identifier__\": \"Tissue_Mo_vs_Dc\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.1.0",
+            "type": "tool",
+            "uuid": "a78ed415-41d3-48c4-a10d-54ce76ecf5a4",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "20": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_cut_tool/1.1.0",
+            "errors": null,
+            "id": 20,
+            "input_connections": {
+                "input": {
+                    "id": 14,
+                    "output_name": "out_tab"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Advanced Cut",
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "tabular"
+                }
+            ],
+            "position": {
+                "left": 1501.0435084842766,
+                "top": 362.80178612727116
+            },
+            "post_job_actions": {
+                "RenameDatasetActionoutput": {
+                    "action_arguments": {
+                        "newname": "osteoclast simple ranking"
+                    },
+                    "action_type": "RenameDatasetAction",
+                    "output_name": "output"
+                }
+            },
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_cut_tool/1.1.0",
+            "tool_shed_repository": {
+                "changeset_revision": "d698c222f354",
+                "name": "text_processing",
+                "owner": "bgruening",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"__input_ext\": \"tabular\", \"chromInfo\": \"/home/galaxy/galaxy/tool-data/GRCm38/len/GRCm38.len\", \"complement\": \"--complement\", \"cut_type_options\": {\"cut_element\": \"-f\", \"__current_case__\": 0, \"list\": [\"8\"]}, \"delimiter\": \"\", \"input\": {\"__class__\": \"ConnectedValue\"}, \"input|__identifier__\": \"Tissue_Mo_vs_Dc\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.1.0",
+            "type": "tool",
+            "uuid": "ecf84e53-71ee-4b6b-89ea-ffdab7f286c0",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "21": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_cut_tool/1.1.0",
+            "errors": null,
+            "id": 21,
+            "input_connections": {
+                "input": {
+                    "id": 15,
+                    "output_name": "out_tab"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Advanced Cut",
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "tabular"
+                }
+            ],
+            "position": {
+                "left": 1499.1532488564694,
+                "top": 529.2471015634746
+            },
+            "post_job_actions": {
+                "RenameDatasetActionoutput": {
+                    "action_arguments": {
+                        "newname": "\"monocyte or macrophage\" simple ranking"
+                    },
+                    "action_type": "RenameDatasetAction",
+                    "output_name": "output"
+                }
+            },
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_cut_tool/1.1.0",
+            "tool_shed_repository": {
+                "changeset_revision": "d698c222f354",
+                "name": "text_processing",
+                "owner": "bgruening",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"__input_ext\": \"tabular\", \"chromInfo\": \"/home/galaxy/galaxy/tool-data/GRCm38/len/GRCm38.len\", \"complement\": \"--complement\", \"cut_type_options\": {\"cut_element\": \"-f\", \"__current_case__\": 0, \"list\": [\"8\"]}, \"delimiter\": \"\", \"input\": {\"__class__\": \"ConnectedValue\"}, \"input|__identifier__\": \"Tissue_Mo_vs_Dc\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.1.0",
+            "type": "tool",
+            "uuid": "c2db4ad0-29a1-4a76-a31b-50619456d344",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "22": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_cut_tool/1.1.0",
+            "errors": null,
+            "id": 22,
+            "input_connections": {
+                "input": {
+                    "id": 16,
+                    "output_name": "out_tab"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Advanced Cut",
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "tabular"
+                }
+            ],
+            "position": {
+                "left": 1500.8482498261749,
+                "top": 675.9953042336002
+            },
+            "post_job_actions": {
+                "RenameDatasetActionoutput": {
+                    "action_arguments": {
+                        "newname": "\"dendritic\" simple ranking"
+                    },
+                    "action_type": "RenameDatasetAction",
+                    "output_name": "output"
+                }
+            },
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_cut_tool/1.1.0",
+            "tool_shed_repository": {
+                "changeset_revision": "d698c222f354",
+                "name": "text_processing",
+                "owner": "bgruening",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"__input_ext\": \"tabular\", \"chromInfo\": \"/home/galaxy/galaxy/tool-data/GRCm38/len/GRCm38.len\", \"complement\": \"--complement\", \"cut_type_options\": {\"cut_element\": \"-f\", \"__current_case__\": 0, \"list\": [\"8\"]}, \"delimiter\": \"\", \"input\": {\"__class__\": \"ConnectedValue\"}, \"input|__identifier__\": \"Tissue_Mo_vs_Dc\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.1.0",
+            "type": "tool",
+            "uuid": "396b09b4-daca-4173-92b7-10d7108727a6",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "23": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_cut_tool/1.1.0",
+            "errors": null,
+            "id": 23,
+            "input_connections": {
+                "input": {
+                    "id": 17,
+                    "output_name": "out_tab"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Advanced Cut",
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "tabular"
+                }
+            ],
+            "position": {
+                "left": 1499.3280564830493,
+                "top": 855.9365049223624
+            },
+            "post_job_actions": {
+                "RenameDatasetActionoutput": {
+                    "action_arguments": {
+                        "newname": "\"glycolysis\" simple ranking"
+                    },
+                    "action_type": "RenameDatasetAction",
+                    "output_name": "output"
+                }
+            },
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_cut_tool/1.1.0",
+            "tool_shed_repository": {
+                "changeset_revision": "d698c222f354",
+                "name": "text_processing",
+                "owner": "bgruening",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"__input_ext\": \"tabular\", \"chromInfo\": \"/home/galaxy/galaxy/tool-data/GRCm38/len/GRCm38.len\", \"complement\": \"--complement\", \"cut_type_options\": {\"cut_element\": \"-f\", \"__current_case__\": 0, \"list\": [\"8\"]}, \"delimiter\": \"\", \"input\": {\"__class__\": \"ConnectedValue\"}, \"input|__identifier__\": \"Tissue_Mo_vs_Dc\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.1.0",
+            "type": "tool",
+            "uuid": "a06aaa48-464c-43c3-8c9d-9aeaa754a776",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "24": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_cut_tool/1.1.0",
+            "errors": null,
+            "id": 24,
+            "input_connections": {
+                "input": {
+                    "id": 18,
+                    "output_name": "out_tab"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Advanced Cut",
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "tabular"
+                }
+            ],
+            "position": {
+                "left": 1500.2342319511968,
+                "top": 1006.6648678701009
+            },
+            "post_job_actions": {
+                "RenameDatasetActionoutput": {
+                    "action_arguments": {
+                        "newname": "\"ALL genesets\" simple ranking"
+                    },
+                    "action_type": "RenameDatasetAction",
+                    "output_name": "output"
+                }
+            },
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_cut_tool/1.1.0",
+            "tool_shed_repository": {
+                "changeset_revision": "d698c222f354",
+                "name": "text_processing",
+                "owner": "bgruening",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"__input_ext\": \"tabular\", \"chromInfo\": \"/home/galaxy/galaxy/tool-data/GRCm38/len/GRCm38.len\", \"complement\": \"--complement\", \"cut_type_options\": {\"cut_element\": \"-f\", \"__current_case__\": 0, \"list\": [\"8\"]}, \"delimiter\": \"\", \"input\": {\"__class__\": \"ConnectedValue\"}, \"input|__identifier__\": \"Tissue_Mo_vs_Dc\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.1.0",
+            "type": "tool",
+            "uuid": "fbd76645-378c-4c4c-883e-3c9813639500",
+            "when": null,
+            "workflow_outputs": []
+        }
+    },
+    "tags": [],
+    "uuid": "36bf1f44-b32e-41f1-ab7c-b92211639b81",
+    "version": 7
+}

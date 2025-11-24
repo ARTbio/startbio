@@ -1,0 +1,1388 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://artbio.github.io/startbio/R-IOC/pick-up/">
+      
+      
+        <link rel="prev" href="../r09_viz_ggplot2/">
+      
+      
+        <link rel="next" href="../../scRNAseq_basics/program_sc/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>Storage room - STARTbio</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bcfcd587.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+  
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M4.855.708c.5-.896 1.79-.896 2.29 0l4.675 8.351a1.312 1.312 0 0 1-1.146 1.954H1.33A1.313 1.313 0 0 1 .183 9.058ZM7 7V3H5v4Zm-1 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"/></svg>');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+Display:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans Display";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../spoiler_files/spoiler.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#seance-5-advanced-manipulation-of-data-objects" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="STARTbio" class="md-header__button md-logo" aria-label="STARTbio" data-md-component="logo">
+      
+  <img src="../../assets/startbio_icon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            STARTbio
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Storage room
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ARTbio/startbio" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ARTbio/startbio
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../bulk_RNAseq-IOC/00_IOC_RNAseq_program/" class="md-tabs__link">
+          
+  
+  Interactive Online Companionship (IOC)
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ten2/Regex_01/" class="md-tabs__link">
+          
+  
+  1Omin2
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../AnalyseGenomes_2025/outline/" class="md-tabs__link">
+          
+  
+  Galaxy Trainings
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../bash_snippets/" class="md-tabs__link">
+          
+  
+  Code Snippets
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../links/" class="md-tabs__link">
+        
+  
+    
+  
+  Links
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="STARTbio" class="md-nav__button md-logo" aria-label="STARTbio" data-md-component="logo">
+      
+  <img src="../../assets/startbio_icon.png" alt="logo">
+
+    </a>
+    STARTbio
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ARTbio/startbio" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ARTbio/startbio
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Interactive Online Companionship (IOC)
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Interactive Online Companionship (IOC)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../bulk_RNAseq-IOC/00_IOC_RNAseq_program/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    IOC on bulk RNAseq analysis
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    IOC on R
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            IOC on R
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../00_IOC_R_program/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Provisional Program
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../r00_variables/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Reference Manual
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Storage room
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Storage room
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#seance-5-advanced-manipulation-of-data-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Séance 5 : Advanced manipulation of Data Objects
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Session 3
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Packages
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Packages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-install-an-r-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to install an R package
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    
+  
+  
+    <a href="../../scRNAseq_basics/program_sc/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    IOC on Single-cell RNAseq analysis using Seurat in R
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../deepseq/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Introduction to Deep-seq Analysis
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../ten2/Regex_01/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    1Omin2
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    
+  
+  
+    <a href="../../AnalyseGenomes_2025/outline/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Galaxy Trainings
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../bash_snippets/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Code Snippets
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../links/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Links
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#seance-5-advanced-manipulation-of-data-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Séance 5 : Advanced manipulation of Data Objects
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Session 3
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Packages
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Packages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-install-an-r-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to install an R package
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/ARTbio/startbio/edit/master/docs/R-IOC/pick-up.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/ARTbio/startbio/raw/master/docs/R-IOC/pick-up.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+    </a>
+  
+
+
+  <h1>Storage room</h1>
+
+<h2 id="seance-5-advanced-manipulation-of-data-objects">Séance 5 : <em>Advanced manipulation of Data Objects</em><a class="headerlink" href="#seance-5-advanced-manipulation-of-data-objects" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Filtration, sélection et structuration de données d’intérêt</li>
+<li><em>dplyr</em></li>
+<li>Tutorials : <ul>
+<li>Brendan R. E. Ansell : Introduction to R - tidyverse<ul>
+<li><a href="https://bookdown.org/ansellbr/WEHI_tidyR_course_book/manipulating-data-with-dplyr.html">https://bookdown.org/ansellbr/WEHI_tidyR_course_book/manipulating-data-with-dplyr.html</a> : chapter 5 manipulating data with dplyr</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Séance 5  : <em>Structures de contrôle</em></p>
+<ul>
+<li>Condition if/else<ul>
+<li><a href="https://www.w3schools.com/r/r_if_else.asp">https://www.w3schools.com/r/r_if_else.asp</a></li>
+</ul>
+</li>
+<li>Exercices</li>
+</ul>
+<p>Séance 6 et 7 : <em>Les fonctions</em></p>
+<ul>
+<li>Création de nouvelles fonctions</li>
+<li>Fonctions avancées : <em>apply</em> and co</li>
+<li>Tests et exceptions</li>
+<li>Exercices</li>
+<li>Tutorials<ul>
+<li>Notes de cours de R - Version 2, Ewen Gallic  : <ul>
+<li>Apply &amp; co : <a href="https://egallic.fr/Enseignement/R/Book/boucles.html#boucles-vectorisation-apply">https://egallic.fr/Enseignement/R/Book/boucles.html#boucles-vectorisation-apply</a></li>
+</ul>
+</li>
+<li>R for Data Science (O'Reilly Book tidyverse) 1er : <ul>
+<li>Custom function : <a href="https://r4ds.had.co.nz/functions.html">https://r4ds.had.co.nz/functions.html</a> chapter 19</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Séance 8 et 9 : <em>Les graphiques en R</em></p>
+<ul>
+<li>concepts de base et fonctions génériques</li>
+<li><em>ggplot2</em></li>
+<li>Tutorials : <ul>
+<li>Brendan R. E. Ansell : Introduction to R - tidyverse<ul>
+<li><a href="https://bookdown.org/ansellbr/WEHI_tidyR_course_book/making-beautiful-plots.html">https://bookdown.org/ansellbr/WEHI_tidyR_course_book/making-beautiful-plots.html</a> chapter 4.5</li>
+</ul>
+</li>
+<li>Notes de cours de R - Version 2, Ewen Gallic (français) : <ul>
+<li><a href="https://egallic.fr/Enseignement/R/Book/graphiques.html">https://egallic.fr/Enseignement/R/Book/graphiques.html</a> : chapter 5</li>
+</ul>
+</li>
+<li>Introduction to R - tidyverse Brendan R. E. Ansell <ul>
+<li><a href="https://bookdown.org/ansellbr/WEHI_tidyR_course_book/what-the-factor.html">https://bookdown.org/ansellbr/WEHI_tidyR_course_book/what-the-factor.html</a> : rappel factor + factor in plots  → section 8</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Exercices</li>
+</ul>
+<p>Séance 10 : Récapitulatif général du savoir faire pour application à l'analyse SingleCell RNA-Seq</p>
+<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="n">Data</span><span class="w"> </span><span class="n">structure</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Factor</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">r4ds</span><span class="o">.</span><span class="n">hadley</span><span class="o">.</span><span class="n">nz</span><span class="o">/</span><span class="n">factors</span><span class="o">.</span><span class="n">html</span><span class="p">](</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">r4ds</span><span class="o">.</span><span class="n">hadley</span><span class="o">.</span><span class="n">nz</span><span class="o">/</span><span class="n">factors</span><span class="o">.</span><span class="n">html</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Data</span><span class="w"> </span><span class="n">Science</span><span class="w"> </span><span class="p">(</span><span class="n">O</span><span class="s1">&#39;Reilly Book tidyverse) 2e : Chapter 17</span>
+
+
+
+<span class="o">*</span><span class="w"> </span><span class="n">Tutorials</span><span class="w"> </span><span class="p">:</span><span class="w"> </span>
+<span class="w">    </span><span class="o">*</span><span class="w"> </span><span class="n">O</span><span class="err">’</span><span class="n">Reilley</span><span class="w"> </span><span class="n">Book</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">Hands</span><span class="o">-</span><span class="n">On</span><span class="w"> </span><span class="n">Programming</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">R</span>
+<span class="w">        </span><span class="o">*</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">Very</span><span class="w"> </span><span class="n">Basics</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Hands</span><span class="o">-</span><span class="n">On</span><span class="w"> </span><span class="n">Programming</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">R</span><span class="p">](</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">rstudio</span><span class="o">-</span><span class="n">education</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">hopr</span><span class="o">/</span><span class="n">basics</span><span class="o">.</span><span class="n">html</span><span class="c1">#objects)</span>
+<span class="w">        </span><span class="o">*</span><span class="w"> </span><span class="p">[</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">rstudio</span><span class="o">-</span><span class="n">education</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">hopr</span><span class="o">/</span><span class="n">r</span><span class="o">-</span><span class="n">objects</span><span class="o">.</span><span class="n">html</span><span class="c1">#atomic-vectors](https://rstudio-education.github.io/hopr/r-objects.html#atomic-vectors)</span>
+<span class="w">    </span><span class="o">*</span><span class="w"> </span><span class="n">Introduction</span><span class="w"> </span><span class="err">à</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="p">(</span><span class="n">Français</span><span class="p">)</span>
+<span class="w">        </span><span class="o">*</span><span class="w"> </span><span class="p">[</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">egallic</span><span class="o">.</span><span class="n">fr</span><span class="o">/</span><span class="n">Enseignement</span><span class="o">/</span><span class="n">R</span><span class="o">/</span><span class="n">Book</span><span class="o">/</span><span class="n">introduction</span><span class="o">.</span><span class="n">html</span><span class="p">](</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">egallic</span><span class="o">.</span><span class="n">fr</span><span class="o">/</span><span class="n">Enseignement</span><span class="o">/</span><span class="n">R</span><span class="o">/</span><span class="n">Book</span><span class="o">/</span><span class="n">introduction</span><span class="o">.</span><span class="n">html</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">Chapter</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">        </span><span class="o">*</span><span class="w"> </span>
+<span class="w">    </span><span class="o">*</span><span class="w"> </span><span class="n">Brendan</span><span class="w"> </span><span class="n">R</span><span class="o">.</span><span class="w"> </span><span class="n">E</span><span class="o">.</span><span class="w"> </span><span class="n">Ansell</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Introduction</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">tidyverse</span>
+<span class="w">        </span><span class="o">*</span><span class="w"> </span><span class="p">[</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">bookdown</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">ansellbr</span><span class="o">/</span><span class="n">WEHI_tidyR_course_book</span><span class="o">/</span><span class="n">welcome</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">r</span><span class="o">.</span><span class="n">html</span><span class="c1">#variables](https://bookdown.org/ansellbr/WEHI_tidyR_course_book/welcome-to-r.html#variables)</span>
+<span class="w">        </span><span class="o">*</span><span class="w"> </span><span class="p">[</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">bookdown</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">ansellbr</span><span class="o">/</span><span class="n">WEHI_tidyR_course_book</span><span class="o">/</span><span class="n">welcome</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">r</span><span class="o">.</span><span class="n">html</span><span class="c1">#vectors](https://bookdown.org/ansellbr/WEHI_tidyR_course_book/welcome-to-r.html#vectors)</span>
+<span class="w">    </span><span class="o">*</span><span class="w"> </span><span class="n">Guide</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="n">Joseph</span><span class="w"> </span><span class="n">Larmarange</span><span class="w"> </span><span class="p">(</span><span class="n">Français</span><span class="p">)</span>
+<span class="w">        </span><span class="o">*</span><span class="w"> </span><span class="p">[</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">larmarange</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">guide</span><span class="o">-</span><span class="n">R</span><span class="o">/</span><span class="n">bases</span><span class="o">/</span><span class="n">vecteurs</span><span class="o">.</span><span class="n">html</span><span class="p">](</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">larmarange</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">guide</span><span class="o">-</span><span class="n">R</span><span class="o">/</span><span class="n">bases</span><span class="o">/</span><span class="n">vecteurs</span><span class="o">.</span><span class="n">html</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">utile</span><span class="w"> </span><span class="n">pour</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">fonctions</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">bases</span><span class="w"> </span><span class="n">aussi</span>
+<span class="w">        </span><span class="o">*</span>
+</code></pre></div></td></tr></table></div>
+
+<h2 id="session-3">Session 3<a class="headerlink" href="#session-3" title="Permanent link">&para;</a></h2>
+<p>Best practices : </p>
+<ul>
+<li><a href="https://www.r4epi.com/coding-best-practices.html">https://www.r4epi.com/coding-best-practices.html</a> R for epidemiology - Brad Cannell, chapter 10</li>
+<li>Advanced R by Hadley Wickham <a href="http://adv-r.had.co.nz/Style.html">http://adv-r.had.co.nz/Style.html</a></li>
+</ul>
+<p>Séances 2 et 3 : <em>Les objets R</em></p>
+<ul>
+<li>Conventions &amp; bonnes pratiques<ul>
+<li>Revenir sur le nommage des variables</li>
+<li>Syntaxe virgule, espaces…</li>
+<li>Pas de <code>?fonction</code> dans le script</li>
+<li>Les commentaires</li>
+</ul>
+</li>
+<li>Présentation et manipulation des différents types d’objets : vecteurs, matrices, data frames et listes</li>
+<li>Object R<ul>
+<li>Vecteur<ul>
+<li>Référencement des éléments</li>
+<li>names</li>
+<li>length</li>
+</ul>
+</li>
+<li>Factor<ul>
+<li>Levels</li>
+<li>str</li>
+</ul>
+</li>
+<li>Matrices <ul>
+<li>Dimensions [ , ]</li>
+</ul>
+</li>
+<li>Dataframes <ul>
+<li>Référencement des éléments de la dataframe</li>
+<li>colnames/rownames</li>
+<li>Dim</li>
+<li></li>
+</ul>
+</li>
+<li>List<ul>
+<li>[[ ]], $  </li>
+<li>Names</li>
+<li>unlist</li>
+</ul>
+</li>
+<li>Tutorials : <ul>
+<li>O’Reilly Book 1 Hands-On Programming with R : <ul>
+<li><a href="https://rstudio-education.github.io/hopr/r-objects.html">https://rstudio-education.github.io/hopr/r-objects.html</a> (Chapter 5)</li>
+<li><a href="https://rstudio-education.github.io/hopr/r-notation.html#selecting-values">https://rstudio-education.github.io/hopr/r-notation.html#selecting-values</a> chapter 6.1 manipulating vectors</li>
+<li><a href="https://rstudio-education.github.io/hopr/r-notation.html#dollar-signs-and-double-brackets">https://rstudio-education.github.io/hopr/r-notation.html#dollar-signs-and-double-brackets</a> chapter 6.4 : subsetting lists with brackets and $</li>
+</ul>
+</li>
+<li>Brendan R. E. Ansell : Introduction to R - tidyverse <ul>
+<li><a href="https://bookdown.org/ansellbr/WEHI_tidyR_course_book/welcome-to-r.html#data-frames">https://bookdown.org/ansellbr/WEHI_tidyR_course_book/welcome-to-r.html#data-frames</a> : dataframes</li>
+<li>Factors but it may be too early for these explanations : <a href="https://bookdown.org/ansellbr/WEHI_tidyR_course_book/what-the-factor.html">https://bookdown.org/ansellbr/WEHI_tidyR_course_book/what-the-factor.html</a></li>
+</ul>
+</li>
+<li>Notes de cours de R - Version 2, Ewen Gallic : <ul>
+<li><a href="https://egallic.fr/Enseignement/R/Book/donn%C3%A9es.html#structures-de-base">https://egallic.fr/Enseignement/R/Book/donn%C3%A9es.html#structures-de-base</a></li>
+<li><a href="https://egallic.fr/Enseignement/R/Book/donn%C3%A9es.html#manipulation-des-donn%C3%A9es">https://egallic.fr/Enseignement/R/Book/donn%C3%A9es.html#manipulation-des-donn%C3%A9es</a></li>
+</ul>
+</li>
+<li>R for Data Science (O'Reilly Book tidyverse) 2e : <ul>
+<li>Factors : <a href="https://r4ds.hadley.nz/factors.html">https://r4ds.hadley.nz/factors.html</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Exercices</li>
+</ul>
+<p>Data structure - Data-frames : <a href="https://bookdown.org/ansellbr/WEHI_tidyR_course_book/welcome-to-r.html#data-frames">https://bookdown.org/ansellbr/WEHI_tidyR_course_book/welcome-to-r.html#data-frames</a> : Brendan R. E. Ansell : Introduction to R - tidyverse - Chapter 1.14</p>
+<p><a href="https://rstudio-education.github.io/hopr/r-notation.html#dollar-signs-and-double-brackets">https://rstudio-education.github.io/hopr/r-notation.html#dollar-signs-and-double-brackets</a> </p>
+<ul>
+<li>Fonctions de bases<ul>
+<li>Son fonctionnement<ul>
+<li>Usage</li>
+<li>Paramètre</li>
+<li>Détails</li>
+<li>Exemple</li>
+</ul>
+</li>
+<li>?, help</li>
+<li>typeof()</li>
+<li>Vecteurs, c()</li>
+<li>Head, length, str, rep, seq, table</li>
+<li>Mean, min, max, paste, </li>
+<li>is.[...] </li>
+<li>Tutorials : <ul>
+<li>O’Reilley Book 1 Hands-On Programming with R<ul>
+<li><a href="https://rstudio-education.github.io/hopr/basics.html#functions">https://rstudio-education.github.io/hopr/basics.html#functions</a> : chapter 2.3 + 2.5 (chapter 2.4 seems too early, it’s about custom functions)</li>
+</ul>
+</li>
+<li>Brendan R. E. Ansell : Introduction to R - tidyverse : <a href="https://bookdown.org/ansellbr/WEHI_tidyR_course_book/welcome-to-r.html#help">https://bookdown.org/ansellbr/WEHI_tidyR_course_book/welcome-to-r.html#help</a> : How to use the help section (chapter 1.9) very short</li>
+<li>R for Data Science (O'Reilly Book tidyverse) 2e : <ul>
+<li><a href="https://r4ds.hadley.nz/workflow-basics.html">https://r4ds.hadley.nz/workflow-basics.html</a> (chapter 3.1-3.3 variable assignation and small intro &amp; chapter 3.4 small intro and examples about functions)</li>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Exercices</li>
+</ul>
+</li>
+<li>Quizz général sur les notions de la session 1</li>
+</ul>
+<p>idées questions</p>
+<ol>
+<li>Which variable names are incorrect : </li>
+</ol>
+<h2 id="packages">Packages<a class="headerlink" href="#packages" title="Permanent link">&para;</a></h2>
+<p>[<a href="https://hbctraining.github.io/Intro-to-R-flipped/lessons/04_introR_packages.html">https://hbctraining.github.io/Intro-to-R-flipped/lessons/04_introR_packages.html</a>]</p>
+<p>R works in a model of <strong>package</strong> <strong>“add-ons”</strong> where packages are collections of functions, data sets, and other resources that extend the functionality of the base R system.</p>
+<p>As R is used by many communities (biologists, economists, statisticians, meteorologists…), several <strong>R packages </strong>were designed to address specific tasks or provide specialized tools for the different domains or areas of interest. </p>
+<p>Therefore, many (most) of R packages are available in the official <strong><a href="https://cran.r-project.org/web/packages/available_packages_by_date.html">CRAN package repository</a></strong> but we will also use packages from<strong> <a href="https://bioconductor.org/">Bioconductor</a> </strong>(open source software for Bioinformatics). </p>
+<p>When you start an R session, default packages are automatically loaded allowing you to use R as a calculator and access basic mathematical functions. Some of the key default packages include:</p>
+<ul>
+<li><strong>base</strong>: It provides basic data structures (vectors, matrices, data frames, lists), operators for calculations (+, -, *, /), control structures (if-else, loops), and functions for mathematical operations, such as log(), sin(), cos(), and many more.</li>
+<li><strong>stats</strong>: This package contains functions for statistical analysis and modeling. It includes methods for probability distributions, hypothesis testing, regression, analysis of variance, and other statistical procedures. Some commonly used functions from this package are mean(), sd() or t.test().</li>
+<li><strong>graphics</strong>: The graphics package provides functions for creating plots and visualizations. It includes functions for basic plots (scatter plots, bar plots, histograms), customization options, and annotation features. The functions plot(), hist() or boxplot() are examples of functions available in this package.</li>
+<li><strong>utils</strong>: This package contains utility functions that assist in data manipulation, file handling, and other miscellaneous tasks. Functions like head(), tail(), str(), and install.packages() are part of this package._ _</li>
+</ul>
+<p>To be able to use the functionalities of a R package, you need to load the package in your current R environment. Here is a small video to show you how to install, load R packages.</p>
+<h3 id="how-to-install-an-r-package">How to install an R package<a class="headerlink" href="#how-to-install-an-r-package" title="Permanent link">&para;</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../r09_viz_ggplot2/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Visualization">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Visualization
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../scRNAseq_basics/program_sc/" class="md-footer__link md-footer__link--next" aria-label="Next: Schedule">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Schedule
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["header.autohide", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.prune", "navigation.footer", "content.tabs.link", "content.code.copy", "content.action.view", "content.action.edit"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../spoiler_files/spoiler.js"></script>
+      
+    
+  </body>
+</html>

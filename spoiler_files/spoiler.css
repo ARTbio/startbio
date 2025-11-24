@@ -1,0 +1,22 @@
+.spoiler {
+    background-color: #E5E4E2;
+    color: #E5E4E2;
+    cursor: pointer;
+  }
+  
+.spoiler .hidden-text {
+    display: none;
+  }
+  
+.spoiler.revealed .hidden-text {
+    display: inline;
+  }
+  
+.spoiler.revealed:hover {
+    color: #000;
+  }
+
+.spoiler code {
+    background-color: transparent;
+    color: inherit;
+  }
