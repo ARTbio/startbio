@@ -77,7 +77,7 @@ hide:
   Converts EMBL flat format to fasta format
   ```
 - [x] Click on the embl2fa, then on the `install` button.
-- [x] Choose `AG 2023` for the **Target Section:**, then click the `OK` button
+- [x] Choose `AG2025` for the **Target Section:**, then click the `OK` button
 - [x] The tool installation should only take a few seconds (the button `Install` turns to a red `Uninstall`)
 - [x] You can now go back to the analysis interface by clicking the `home` icon.
 - [x] in the Galaxy search toolbar box, search for `embl` and select the tool
