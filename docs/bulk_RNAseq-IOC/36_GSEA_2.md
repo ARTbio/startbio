@@ -11,7 +11,7 @@ collections from MSigDB, KEGG and GeneSetDB. ==Supported organisms are human, mo
 however MSigDB is only available for human and mouse==.
 
 An example
-[EGSEA workflow](https://www.bioconductor.org/help/workflows/EGSEA123/) is available at
+[EGSEA workflow](https://bioconductor.org/packages/release/workflows/vignettes/EGSEA123/inst/doc/EGSEAWorkflow.html) is available at
 the Bioconductor workflows website.
 
 Currently, only the egsea.cnt function is implemented in this tool. ==This function takes a

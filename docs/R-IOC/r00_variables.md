@@ -65,7 +65,7 @@ The main structures of variables in R are:
 
 These structures are detailed in the
 [HBC training], section
-["R Syntax and Data Structures"](https://hbctraining.github.io/Intro-to-R-flipped/lessons/02_introR-syntax-and-data-structures.html){:target="_blank"}.
+["R Syntax and Data Structures"](https://hbctraining.github.io/Intro-to-R-flipped/lessons/02_syntax-and-data-structures.html){:target="_blank"}.
 
 Note that we will come back extensively to the data frames and lists later on.
 

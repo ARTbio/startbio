@@ -202,7 +202,7 @@ As you see, the levels are "female" and "male", internally encoded by the value 
 ```
 
 
-To learn how to manipulate factors, go through sections [5.5.2](https://rstudio-education.github.io/hopr/r-objects.html#factors) of Garrett Grolemund’s guide and [R’s factor](https://www.geeksforgeeks.org/r-factors/) of GeeksforGeeks page: [https://hbctraining.github.io/Intro-to-R-flipped/lessons/02_introR-syntax-and-data-structures.html](https://hbctraining.github.io/Intro-to-R-flipped/lessons/02_introR-syntax-and-data-structures.html).
+To learn how to manipulate factors, go through sections [5.5.2](https://rstudio-education.github.io/hopr/r-objects.html#factors) of Garrett Grolemund’s guide and [R’s factor](https://www.geeksforgeeks.org/r-factors/) of GeeksforGeeks page: [https://hbctraining.github.io/Intro-to-R-flipped/lessons/02_syntax-and-data-structures.html](https://hbctraining.github.io/Intro-to-R-flipped/lessons/02_syntax-and-data-structures.html).
 
 Last, note that a factor is an object with two attributes, the attribute class and the attribute levels. Thus:
 

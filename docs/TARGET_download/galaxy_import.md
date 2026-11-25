@@ -4,7 +4,7 @@ Therefore, you should own a Galaxy account in a Galaxy server, for instance
 
 - [https://usegalaxy.org/](https://usegalaxy.org/)
 - [https://usegalaxy.eu/](https://usegalaxy.eu/)
-- [https://mississippi.snv.jussieu.fr/](https://mississippi.snv.jussieu.fr/)
+- [https://mississippi.sorbonne-universite.fr/](https://mississippi.sorbonne-universite.fr/)
 
 ### Import the metadata file in a Galaxy History
 

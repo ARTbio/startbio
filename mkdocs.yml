@@ -2,6 +2,13 @@ site_name: STARTbio
 site_url: https://artbio.github.io/startbio/
 repo_url: https://github.com/ARTbio/startbio
 repo_name: ARTbio/startbio
+
+# Make `mkdocs build --strict` fail on orphan pages and broken internal links/anchors
+validation:
+  omitted_files: warn
+  absolute_links: warn
+  unrecognized_links: warn
+  anchors: warn
 theme:
   name: 'material'
   logo: assets/startbio_icon.png
@@ -249,7 +256,6 @@ nav:
         - Introduction: translocations/index.md
         - Sequencing Protocol: translocations/seq.md
         - Lumpy approach: translocations/lumpy_approach.md
-        - Trainee connection: translocations/connection.md
         - Prepare the input data history: translocations/import.md
         - Align reads to the human genome: translocations/BWA.md
         - lumpy analysis: translocations/lumpy.md
@@ -327,8 +333,6 @@ markdown_extensions:
   - meta
   - attr_list
   - md_in_html
-  - codehilite:
-      linenums: true
   - admonition
   - footnotes
   - toc:
@@ -344,10 +348,8 @@ markdown_extensions:
       line_spans: __span
       pygments_lang_class: true
   - pymdownx.emoji:
-      emoji_generator: !!python/name:pymdownx.emoji.to_svg
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
-#  - pymdownx.inlinehilite # compete with codehilite
   - pymdownx.snippets
   - pymdownx.keys
   - pymdownx.magiclink:
@@ -372,9 +374,4 @@ markdown_extensions:
 
 extra_javascript:
   - javascripts/mathjax.js
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-  - spoiler_files/spoiler.js
-
-extra_css:
-  - spoiler_files/spoiler.css

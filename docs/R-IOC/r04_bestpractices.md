@@ -16,7 +16,7 @@ is necessary to comply with rules that are developed by a large community of dev
 and generally accepted by consensus.
 
 For a nice summary of good practices in R coding, please see the section
-[10 Coding Best Practices](https://www.r4epi.com/coding-best-practices.html) of "R for Epidemiology" by Brad Cannell.
+[10 Coding Best Practices](https://www.r4epi.com/chapters/best_practices/best_practices.html) of "R for Epidemiology" by Brad Cannell.
 
 You can also check the sections
 [2.4 Reading and writing Code](https://bookdown.org/ndphillips/YaRrr/reading-and-writing-code.html) and
