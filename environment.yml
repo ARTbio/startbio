@@ -1,0 +1,11 @@
+# Local build environment (Python 3.12 + pinned requirements.txt).
+#   micromamba create -f environment.yml
+#   micromamba activate startbio
+name: startbio
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pip
+  - pip:
+      - -r requirements.txt
