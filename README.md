@@ -16,13 +16,13 @@ The build environment is pinned: Python 3.12 and the exact package versions in `
 (top-level dependencies are listed in `requirements.in`).
 
 ```bash
-micromamba create -f environment.yml   # once
-micromamba activate startbio
+conda env create -f environment.yml    # once
+conda activate startbio
 mkdocs serve --strict                  # live preview at http://127.0.0.1:8000/startbio/
 mkdocs build --strict                  # the same check that CI runs on every pull request
 ```
 
-Without conda/micromamba: `python3.12 -m venv .venv && . .venv/bin/activate && pip install -r requirements.txt`.
+Without conda: `python3.12 -m venv .venv && . .venv/bin/activate && pip install -r requirements.txt`.
 
 ## Publication
 
