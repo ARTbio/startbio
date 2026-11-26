@@ -322,6 +322,9 @@ nav:
         - Edit files metadata: TARGET_download/metadata_manipulation.md
         - import files in Galaxy using the edited files metadata: TARGET_download/galaxy_import.md
 
+  - Guides:
+    - Transfer data to an OVH S3 bucket with rclone: guides/rclone_ovh_s3.md
+
   - Code Snippets:
     - Terminal Bash: bash_snippets.md
     - Buid your JupyterHub and user kernel: jupyterhub_and_kernels.md
@@ -375,3 +378,7 @@ markdown_extensions:
 extra_javascript:
   - javascripts/mathjax.js
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - javascripts/rclone-form.js
+
+extra_css:
+  - stylesheets/rclone-form.css
