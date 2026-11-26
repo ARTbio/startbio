@@ -100,7 +100,7 @@ relationship between the encoding character, its ASCII code, and the quality sco
 
 ### Assessing quality with FastQC
 
-The [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) tool provides a
+The [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) tool provides a
 simple way to examine quality metrics for raw sequence data coming from high throughput
 sequencing platforms. It provides a modular set of analyses which you can use to give a
 quick impression of whether your data has any problems of which you should be aware before
@@ -117,7 +117,7 @@ The main functions of FastQC are:
 
 For several online discussions about Fastq quality metrics, see
 
-- [hbctraining.github.io](https://hbctraining.github.io/Intro-to-rnaseq-hpc-salmon-flipped/lessons/07_qc_fastqc_assessment.html){:target="_blank"}
+- [hbctraining.github.io](https://hbctraining.github.io/Intro-to-bulk-RNAseq/lessons/07_qc_fastqc_assessment.html){:target="_blank"}
 - [ancient but still interesing discussion from the BIOINFO-CORE teal (2010)](http://bioinfo-core.org/index.php/9th_Discussion-28_October_2010){:target="_blank"}
 
 ??? info "Basic Statistics... are basic statitics"

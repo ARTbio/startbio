@@ -44,7 +44,7 @@ Hello, world!
 After the function is called.
 ```
 
-As you can see, we simply added the decorator @my_decorator before the definition of the print_hello() function.
+As you can see, we simply added the decorator `@my_decorator` before the definition of the print_hello() function.
 
 This is all that is needed to apply the decorator. When we call the print_hello() function, the code inside the wrapper function in the decorator is executed before and after the print_hello() function is called.
 

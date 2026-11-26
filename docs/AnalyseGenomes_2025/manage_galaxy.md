@@ -92,7 +92,7 @@ Therefore, we ask you to click the top `Admin` menu.
   :warning: Please, make a last effort by reading the [next section](manage_VM.md) which summarize important
   guidelines about the management of your Virtual Machines (VMs) during the rest of the course.
 
-  :warning: Pay a particular attention to [this part](manage_VM.md#3.-Stalled-jobs-in-your-Galaxy-histories) !
+  :warning: Pay a particular attention to [this part](manage_VM.md#3-stalled-jobs-in-your-galaxy-histories) !
 
 
 

@@ -73,7 +73,7 @@ Best practices :
 
 
 
-* [https://www.r4epi.com/coding-best-practices.html](https://www.r4epi.com/coding-best-practices.html) R for epidemiology - Brad Cannell, chapter 10
+* [https://www.r4epi.com/chapters/best_practices/best_practices.html](https://www.r4epi.com/chapters/best_practices/best_practices.html) R for epidemiology - Brad Cannell, chapter 10
 * Advanced R by Hadley Wickham [http://adv-r.had.co.nz/Style.html](http://adv-r.had.co.nz/Style.html)
 
 Séances 2 et 3 : _Les objets R_
@@ -157,7 +157,7 @@ idées questions
 
 ## Packages
 
-[[https://hbctraining.github.io/Intro-to-R-flipped/lessons/04_introR_packages.html](https://hbctraining.github.io/Intro-to-R-flipped/lessons/04_introR_packages.html)]
+[[https://hbctraining.github.io/Intro-to-R-flipped/schedule/links-to-lessons.html](https://hbctraining.github.io/Intro-to-R-flipped/schedule/links-to-lessons.html)]
 
 R works in a model of **package** **“add-ons”** where packages are collections of functions, data sets, and other resources that extend the functionality of the base R system.
 

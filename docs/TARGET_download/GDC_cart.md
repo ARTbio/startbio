@@ -5,7 +5,7 @@ that will be required later for downloading the data.
 
 
 1. Connect to the [GDC portal](https://portal.gdc.cancer.gov/)
-2. Click the `Project` [button](https://portal.gdc.cancer.gov/projects)
+2. Click the `Project` [button](https://portal.gdc.cancer.gov/analysis_page?app=Projects)
   
     ![](images/project_button.png){: style="width:300px"}
     
@@ -25,7 +25,7 @@ that will be required later for downloading the data.
     Here is a way:
     
     - In the section `Cases and File Counts by Experimental Strategy` click the link in the
-    column `Files` and the row `RNA-Seq` that is [778](https://portal.gdc.cancer.gov/repository?facetTab=files&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.project_id%22%2C%22value%22%3A%5B%22TARGET-AML%22%5D%7D%7D%2C%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22files.experimental_strategy%22%2C%22value%22%3A%5B%22RNA-Seq%22%5D%7D%7D%5D%7D&searchTableTab=files)
+    column `Files` and the row `RNA-Seq` that is 778
     at the date of `February 19, 2020`
     - In the file list that is displayed, you can now see that some files are accessible
     (`open`), whereas others are not (`controlled`)

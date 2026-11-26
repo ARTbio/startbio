@@ -31,5 +31,5 @@ and also have a closer look at
 
 Other aligners rather operate using a pseudo-alignment mode based on graphs of k-mers.
 
-These include [Kallisto](https://cyverse-leptin-rna-seq-lesson-dev.readthedocs-hosted.com/en/latest/section-8.html)
+These include [Kallisto](https://pachterlab.github.io/kallisto/)
 and [Salmon](https://salmon.readthedocs.io/en/latest/salmon.html)

@@ -1,0 +1,11 @@
+# Local build environment (Python 3.12 + pinned requirements.txt).
+#   conda env create -f environment.yml
+#   conda activate startbio
+name: startbio
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pip
+  - pip:
+      - -r requirements.txt

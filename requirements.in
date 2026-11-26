@@ -1,0 +1,5 @@
+# Top-level dependencies of the site (Python 3.12).
+# The fully pinned set that local builds and CI install is requirements.txt.
+mkdocs==1.6.1
+mkdocs-material==9.7.7
+pymdown-extensions==12.3

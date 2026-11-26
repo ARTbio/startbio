@@ -178,7 +178,7 @@ This is more convenient because you will be able to stop your instance and resta
 a next working session while **==keeping the same IP adress==**.
 
 If you do not do this, the IP address of your instance may change after each stop/restart,
-and you will have to reconnect to the Galaxy server with the new http://ip-address (which
+and you will have to reconnect to the Galaxy server with the new `http://ip-address` (which
 is not so nasty actually...)
 
 - Go back to the Google Cloud Platform management web page.

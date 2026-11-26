@@ -3,8 +3,7 @@
 # Introduction to Deep Seq Data Analysis
 </center>
 
-See the <a href="https://docs.google.com/presentation/d/1csCR1KwuJo1DXdGgWkNJKxBsEmY6PJ
--6l1OZmI_qldo/edit?usp=sharing" target="_blank">Google Slides version</a> of this
+See the <a href="https://docs.google.com/presentation/d/1csCR1KwuJo1DXdGgWkNJKxBsEmY6PJ-6l1OZmI_qldo/edit?usp=sharing" target="_blank">Google Slides version</a> of this
 presentation.
 
 !!! info "M2 "BMC" - UE Biotechnologie December 14, 2022, 14:00–17:00"
