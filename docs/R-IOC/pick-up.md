@@ -161,9 +161,9 @@ idées questions
 
 R works in a model of **package** **“add-ons”** where packages are collections of functions, data sets, and other resources that extend the functionality of the base R system.
 
-As R is used by many communities (biologists, economists, statisticians, meteorologists…), several **R packages **were designed to address specific tasks or provide specialized tools for the different domains or areas of interest. 
+As R is used by many communities (biologists, economists, statisticians, meteorologists…), several **R packages** were designed to address specific tasks or provide specialized tools for the different domains or areas of interest. 
 
-Therefore, many (most) of R packages are available in the official **[CRAN package repository](https://cran.r-project.org/web/packages/available_packages_by_date.html)** but we will also use packages from** [Bioconductor](https://bioconductor.org/) **(open source software for Bioinformatics). 
+Therefore, many (most) of R packages are available in the official **[CRAN package repository](https://cran.r-project.org/web/packages/available_packages_by_date.html)** but we will also use packages from **[Bioconductor](https://bioconductor.org/)** (open source software for Bioinformatics). 
 
 When you start an R session, default packages are automatically loaded allowing you to use R as a calculator and access basic mathematical functions. Some of the key default packages include:
 

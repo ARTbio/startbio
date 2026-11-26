@@ -1,5 +1,5 @@
 
-<center>
+<center markdown>
 ![](images/galaxy_project_logo.jpg){ width="350"}
 </center>
 

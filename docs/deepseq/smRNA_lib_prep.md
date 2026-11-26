@@ -4,7 +4,7 @@ hide:
   - toc
 ---
 
-<center>
+<center markdown>
 ![](images/small_RNA_library.svg)
 
 </center>

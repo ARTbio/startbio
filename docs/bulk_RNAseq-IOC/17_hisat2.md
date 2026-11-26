@@ -98,7 +98,9 @@ You can now navigate to the history `HISAT alignments` and verify that it is con
 We are ready to perform HISAT2 alignments of this three dataset collections !
 Your history should look like this:
 
-<center>![](images/HISAT_start_history.png){width="250"}</center>
+<center markdown>
+![](images/HISAT_start_history.png){width="250"}
+</center>
 
 ## ![](images/tool_small.png){width="30" align="absbottom"} HISAT2 alignments of the three collections Dc, Mo and Oc.
 
@@ -158,7 +160,9 @@ Let's do it first for the alignment of the `Mo` dataset collection:
 - [x] Click on any of the 4 datasets, which will result in the deployment of the dataset
   within the collection view.
   
-  <center>![](images/collection_dataset_deployment.png){width="250"}</center>
+<center markdown>
+![](images/collection_dataset_deployment.png){width="250"}
+</center>
 
 - [x] Now you can click on the re-run icon as indicated above. This will bring up the HISAT2
   form, with the same settings used to generate the dataset.

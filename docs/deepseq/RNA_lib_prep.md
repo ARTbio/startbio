@@ -4,7 +4,7 @@ hide:
   - toc
 ---
 
-<center>
+<center markdown>
 ![](images/RNA_library.png){ width="900"}
 
 </center>

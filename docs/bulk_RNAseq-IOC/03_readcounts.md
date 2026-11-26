@@ -1,4 +1,4 @@
-<center>
+<center markdown>
 ![](images/lamp.png)
 
 **==In Reference-based RNAseq analysis, the read counts are treated as proxies to RNA steady state levels==**

@@ -1,4 +1,4 @@
-<center>
+<center markdown>
 ![](images/checkpoint.png){width="80"}
 </center> 
 You should have now three distinct histories.
@@ -28,7 +28,7 @@ side-by-side, similarly to the following image.
 
 ![](images/AG_input_data_histories.png){width="600px"}
 
-<center>
+<center markdown>
 ![](images/thanks.jpg){width="300px"}
 </center>
 ---

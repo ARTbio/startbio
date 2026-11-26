@@ -12,7 +12,7 @@ Galaxy server. ==All you have to do is to click on it.==
 Galaxy server, its job manager and its web frontend. This may take 2-3 minutes, even after
 the instance turned green in the GCE control panel. Thus, if this error web page is returned
 when you click the external address for the first time,
-<center>
+<center markdown>
 **502 Bad Gateway**
 
 ---

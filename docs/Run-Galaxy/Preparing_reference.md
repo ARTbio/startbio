@@ -10,7 +10,7 @@ In Galaxy, these indexing tasks are preceeded by a "fetch and dbkey" task, whose
 purpose is to implement the Galaxy database and inform it of the existence of this genome
 and of possible derived indexes.
 
-<center>![](images/galaxy_indexing.svg){ width="600" }</center>
+<center markdown>![](images/galaxy_indexing.svg){ width="600" }</center>
 
 ## 1. :wrench: Prepare the _Drosophila_ genome dmel-all-chromosome-r6.18 for indexation.
 
@@ -231,10 +231,10 @@ You can now safely stop your instance.
     From this point, you will need to uncheck the box to destroy the instance and your are
     protected against unwanted manifestations of bad karma :imp:!
 
-<center>**Your are done for today !**</center>
+<center markdown>**Your are done for today !**</center>
 
 
-# <center>:coffee: :beer: :cocktail: :beers: :rainbow:</center>
+# <center markdown>:coffee: :beer: :cocktail: :beers: :rainbow:</center>
 
 
 

@@ -26,6 +26,6 @@ In this training, you will:
 By the end of this training, you should be familiar with the Galaxy analysis
 environment and ready to perform analyses of small RNA-seq and RNA-seq datasets,
 as described in :
-<center>
+<center markdown>
 [![](images/Stephane_doc_2025.png){width="400px"}](https://slecrom.github.io/AG2025/).
 </center>

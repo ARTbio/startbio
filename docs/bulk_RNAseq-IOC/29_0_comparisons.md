@@ -98,7 +98,7 @@ We are going to perform this analysis using the Galaxy tool `Venn diagram [JVenn
 
 The venn diagram return by the tool should look like this:
 
-<center>![](images/jVenn_chart.png){width="500"}</center>
+<center markdown>![](images/jVenn_chart.png){width="500"}</center>
 
 ## Discussion
 
