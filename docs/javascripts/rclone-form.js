@@ -1,23 +1,27 @@
 // "Your values" form of guides/rclone_ovh_s3.md.
-// Rewrites the code blocks marked .rclone-tpl and the [data-rclone] spans with the
-// values typed by the reader. Values are kept in localStorage, never sent anywhere.
-// Initialised through Material's document$ observable, so it also works with
-// navigation.instant (the page body is replaced without a full reload).
+// The reader picks a system (Linux, Mac, Windows); blocks marked data-only="..." are
+// shown for that system only, and code blocks marked .rclone-tpl and [data-rclone]
+// spans are rewritten with the reader's values. Values are kept in localStorage,
+// never sent anywhere. Initialised through Material's document$ observable, so it
+// also works with navigation.instant (the page body is replaced without a reload).
 (function () {
   "use strict";
 
-  const KEY = "startbio-rclone-ovh-v1";
+  const KEY = "startbio-rclone-ovh-v2";
+  const OSES = ["linux", "mac", "win"];
+  // os: systems that show the field; d: default (an object when it differs by system).
   const FIELDS = [
-    { k: "remote", l: "rclone remote name", d: "ovh", h: "Short name given to the configuration (step 2)." },
-    { k: "bucket", l: "Bucket name", d: "my-bucket", ex: true, h: "Provided with your keys." },
-    { k: "region", l: "Bucket region", d: "eu-west-par", h: "Paris 3-AZ: the only region with Cold Archive." },
-    { k: "disk", l: "Data disk for the exercise", d: "/data_disk", ex: true, h: "A directory you can write to, on a data disk." },
-    { k: "vol", l: "Exercise volume (GB)", d: "100", h: "100 by default; 500 for a more thorough exercise." },
-    { k: "src", l: "Directory of the real data", d: "/path/to/data", ex: true, h: "Full path on the server." },
-    { k: "dst", l: "Destination directory in the bucket", d: "my-dataset", ex: true, h: "Without a leading /." },
-    { k: "day", l: "Bandwidth on weekdays, 8 am – 8 pm", d: "50M", h: "In bytes per second: 50M = 50 MiB/s." },
-    { k: "night", l: "Bandwidth at night and at weekends", d: "80M", h: "Lower it if the site network suffers." },
-    { k: "logs", l: "Log directory", d: "$HOME/rclone-logs", h: "Created at step 4 b)." }
+    { k: "remote", l: "rclone configuration name", os: OSES, d: "ovh", h: "Short name used in all commands (step 2)." },
+    { k: "bucket", l: "Bucket name", os: OSES, d: "my-bucket", ex: true, h: "Provided with your keys." },
+    { k: "region", l: "Bucket region", os: OSES, d: "eu-west-par", h: "Paris 3-AZ: the only region with Cold Archive." },
+    { k: "disk", l: "Data disk for the exercise", os: ["linux"], d: "/data_disk", ex: true, h: "A directory you can write to, on a data disk of the server." },
+    { k: "folder", l: "Folder for the exercise data", os: ["mac", "win"], d: { mac: "$HOME", win: "$env:USERPROFILE" }, h: "A rclone-exercise folder is created inside." },
+    { k: "vol", l: "Exercise volume (GB)", os: OSES, d: { linux: "100", mac: "1", win: "1" }, h: "Default: 100 on a server, 1 on a computer." },
+    { k: "src", l: "Directory of the real data", os: OSES, d: { linux: "/path/to/data", mac: "/path/to/data", win: "D:\\path\\to\\data" }, ex: true, h: "Full path on this machine." },
+    { k: "dst", l: "Destination directory in the bucket", os: OSES, d: "my-dataset", ex: true, h: "Without a leading /." },
+    { k: "day", l: "Bandwidth on weekdays, 8 am – 8 pm", os: OSES, d: "50M", h: "In bytes per second: 50M = 50 MiB/s." },
+    { k: "night", l: "Bandwidth at night and at weekends", os: OSES, d: "80M", h: "Lower it if the network suffers." },
+    { k: "logs", l: "Log directory", os: OSES, d: { linux: "$HOME/rclone-logs", mac: "$HOME/rclone-logs", win: "$env:USERPROFILE\\rclone-logs" }, h: "Created at step 4 b)." }
   ];
   const RATE = /^\d+(\.\d+)?[KMG]?$/;
   const PLACEHOLDER = /\{\{(\w+)\}\}/g;
@@ -25,31 +29,43 @@
   function load() {
     let s = {};
     try { s = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { s = {}; }
-    FIELDS.forEach(f => { if (typeof s[f.k] !== "string") s[f.k] = f.d; });
+    if (!OSES.includes(s.os)) delete s.os;
     return s;
   }
   function save(s) { try { localStorage.setItem(KEY, JSON.stringify(s)); } catch (e) { /* storage unavailable */ } }
 
-  // ~ becomes $HOME (which still expands inside double quotes); no trailing slash.
-  const home = s => s.trim().replace(/^~(?=\/|$)/, "$HOME").replace(/\/+$/, "");
-  const NORM = {
-    logs: s => home(s) || "$HOME/rclone-logs",
-    disk: home,
-    src: home,
-    dst: s => s.trim().replace(/^\/+|\/+$/g, "")
-  };
+  const def = (f, os) => (typeof f.d === "string" ? f.d : f.d[os]);
+  // Fields whose default depends on the system are stored per system.
+  const skey = (f, os) => (typeof f.d === "string" ? f.k : os + "." + f.k);
+  const raw = (s, f, os) => (typeof s[skey(f, os)] === "string" ? s[skey(f, os)] : def(f, os));
+  const field = k => FIELDS.find(f => f.k === k);
 
-  function values(s) {
+  // ~ becomes $HOME (Windows: $env:USERPROFILE), which still expands inside double
+  // quotes; no trailing separator.
+  function path(os, s) {
+    s = s.trim();
+    if (os === "win") return s.replace(/^~(?=[\\/]|$)/, "$env:USERPROFILE").replace(/[\\/]+$/, "");
+    return s.replace(/^~(?=\/|$)/, "$HOME").replace(/\/+$/, "");
+  }
+
+  function values(s, os) {
     const v = {};
-    FIELDS.forEach(f => { v[f.k] = NORM[f.k] ? NORM[f.k](s[f.k]) : s[f.k].trim(); });
+    FIELDS.forEach(f => { if (f.os.includes(os)) v[f.k] = raw(s, f, os).trim(); });
+    ["disk", "folder", "src", "logs"].forEach(k => { if (k in v) v[k] = path(os, v[k]); });
+    v.dst = v.dst.replace(/^[\\/]+|[\\/]+$/g, "");
+    if (!v.logs) v.logs = def(field("logs"), os);
     const n = parseInt(v.vol, 10);
-    v.vol = n > 0 ? String(n) : "100";
-    v.need = String(Math.ceil((+v.vol < 10 ? 2 : +v.vol) * 11 / 10));
-    v.exo = (v.disk || "/data_disk") + "/rclone-exercise";
+    v.vol = n > 0 ? String(n) : def(field("vol"), os);
+    v.need = String(Math.floor((+v.vol < 10 ? 2 : +v.vol) * 11 / 10)); // same rule as the generation script
+    const sep = os === "win" ? "\\" : "/";
+    const base = os === "linux" ? (v.disk || "/data_disk") : (v.folder || def(field("folder"), os));
+    v.exo = base + sep + "rclone-exercise";
+    v.logcopy = v.logs + sep + "exercise_copy.log";
     v.day = RATE.test(v.day) ? v.day : "50M";
     v.night = RATE.test(v.night) ? v.night : "80M";
     v.bw = ["Mon", "Tue", "Wed", "Thu", "Fri"]
       .map(d => d + "-08:00," + v.day + " " + d + "-20:00," + v.night).join(" ");
+    v.endpointhost = "s3." + (v.region || "eu-west-par") + ".io.cloud.ovh.net";
     return v;
   }
 
@@ -80,38 +96,49 @@
     const box = form.querySelector(".rclone-fields");
     if (!box || box.dataset.ready) return;
     box.dataset.ready = "1";
+    // The attribute that drives which blocks are shown (see rclone-form.css).
+    const scope = form.closest("article") || document.body;
 
     const s = load();
     const codes = Array.from(document.querySelectorAll(".rclone-tpl code"));
     codes.forEach(c => { c.dataset.tpl = c.textContent; });
 
-    FIELDS.forEach(f => {
-      const w = document.createElement("div");
-      w.className = "rclone-field";
-      const lab = document.createElement("label");
-      const inp = document.createElement("input");
-      const hint = document.createElement("div");
-      inp.type = "text"; inp.spellcheck = false; inp.autocomplete = "off";
-      inp.id = "rclone-f-" + f.k; lab.htmlFor = inp.id;
-      lab.textContent = f.l; inp.value = s[f.k];
-      hint.className = "rclone-hint";
-      w.append(lab, inp, hint);
-      box.appendChild(w);
-      f.inp = inp; f.hint = hint;
-      inp.addEventListener("input", () => { s[f.k] = inp.value; save(s); update(); });
-    });
+    function build() {
+      box.textContent = "";
+      if (!s.os) return;
+      const os = s.os;
+      FIELDS.filter(f => f.os.includes(os)).forEach(f => {
+        const w = document.createElement("div");
+        w.className = "rclone-field";
+        const lab = document.createElement("label");
+        const inp = document.createElement("input");
+        const hint = document.createElement("div");
+        inp.type = "text"; inp.spellcheck = false; inp.autocomplete = "off";
+        inp.id = "rclone-f-" + f.k; lab.htmlFor = inp.id;
+        lab.textContent = f.l; inp.value = raw(s, f, os);
+        hint.className = "rclone-hint";
+        w.append(lab, inp, hint);
+        box.appendChild(w);
+        f.inp = inp; f.hint = hint;
+        inp.addEventListener("input", () => { s[skey(f, os)] = inp.value; save(s); update(); });
+      });
+    }
 
     function update() {
-      const v = values(s);
-      FIELDS.forEach(f => {
-        const raw = s[f.k].trim();
+      form.querySelectorAll("[data-os-pick]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.osPick === s.os)));
+      scope.dataset.rcloneOs = s.os || "none";
+      // Before a system is chosen, only the blocks common to all systems are visible;
+      // they use shared fields only, so the Linux defaults fill them correctly.
+      const os = s.os || "linux", v = values(s, os);
+      if (s.os) FIELDS.filter(f => f.os.includes(os) && f.inp).forEach(f => {
+        const r = raw(s, f, os).trim();
         let bad = false, msg = f.h;
-        if ((f.k === "day" || f.k === "night") && !RATE.test(raw)) { bad = true; msg = "Expected format: 50M, 80M, 500K…"; }
-        if (f.k === "vol" && !(parseInt(raw, 10) > 0)) { bad = true; msg = "A whole number of GB, for instance 100."; }
-        if (!raw && f.k !== "dst") { bad = true; msg = "This field must not be empty."; }
+        if ((f.k === "day" || f.k === "night") && !RATE.test(r)) { bad = true; msg = "Expected format: 50M, 80M, 500K…"; }
+        if (f.k === "vol" && !(parseInt(r, 10) > 0)) { bad = true; msg = "A whole number of GB, for instance " + def(f, os) + "."; }
+        if (!r) { bad = true; msg = "This field must not be empty."; }
         const homeDisk = f.k === "disk" && v.disk.startsWith("$HOME");
-        if (homeDisk) msg = "Your home directory is often on the system disk: avoid it.";
-        const ex = !!f.ex && raw === f.d;
+        if (homeDisk) msg = "Your home directory is often on the system disk of a server: avoid it.";
+        const ex = !!f.ex && r === def(f, os);
         f.inp.classList.toggle("rclone-bad", bad);
         f.inp.classList.toggle("rclone-ex", ex && !bad);
         f.hint.textContent = ex && !bad ? "Example value, to replace. " + msg : msg;
@@ -121,10 +148,15 @@
       document.querySelectorAll("[data-rclone]").forEach(e => { e.textContent = v[e.dataset.rclone] ?? ""; });
     }
 
+    form.querySelectorAll("[data-os-pick]").forEach(b => b.addEventListener("click", () => {
+      s.os = b.dataset.osPick; save(s); build(); update();
+    }));
     form.querySelector(".rclone-reset").addEventListener("click", () => {
-      FIELDS.forEach(f => { s[f.k] = f.d; f.inp.value = f.d; });
-      save(s); update();
+      if (!s.os) return;
+      FIELDS.filter(f => f.os.includes(s.os)).forEach(f => { delete s[skey(f, s.os)]; });
+      save(s); build(); update();
     });
+    build();
     update();
   }
 

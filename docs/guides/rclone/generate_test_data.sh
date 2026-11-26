@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 # Generates a tree of dummy data (random, incompressible) that mimics
-# raw sequencing data, to test an rclone transfer.
+# raw sequencing data, to test an rclone transfer. Runs on Linux and macOS.
 # Usage: ./generate_test_data.sh TARGET_DIR [VOLUME_IN_GB]
-#   VOLUME_IN_GB < 10  -> "quick test" set (~1 GB, a few minutes)
+#   VOLUME_IN_GB < 10  -> "quick test" set (~1 GB)
 #   VOLUME_IN_GB >= 10 -> ~VOLUME_IN_GB GB (70 % as 1 GiB files, 30 % as 10 GiB files)
 set -euo pipefail
 
 DEST="${1:?Usage: $0 TARGET_DIR [VOLUME_IN_GB]}"
 VOL="${2:-1}"
+MIB=1048576
 
 if [ -e "$DEST" ] && [ -n "$(ls -A "$DEST" 2>/dev/null)" ]; then
   echo "Error: $DEST exists and is not empty." >&2
@@ -25,11 +26,11 @@ if [ "$FREE_GB" -lt "$NEEDED_GB" ]; then
 fi
 
 if [ "$VOL" -lt 10 ]; then
-  N_MEDIUM=3;  S_MEDIUM=100M   # 3 x 100 MiB: below rclone's multipart threshold (200 MiB)
-  N_LARGE=1;   S_LARGE=600M    # 1 x 600 MiB: triggers a multipart upload
+  N_MEDIUM=3;  S_MEDIUM=$(( 100 * MIB ))   # 3 x 100 MiB
+  N_LARGE=1;   S_LARGE=$(( 600 * MIB ))    # 1 x 600 MiB: uploaded in several parts
 else
-  N_MEDIUM=$(( VOL * 70 / 100 )); S_MEDIUM=1G
-  N_LARGE=$(( VOL * 30 / 1000 )); S_LARGE=10G
+  N_MEDIUM=$(( VOL * 70 / 100 )); S_MEDIUM=$(( 1024 * MIB ))
+  N_LARGE=$(( VOL * 30 / 1000 )); S_LARGE=$(( 10240 * MIB ))
 fi
 
 mkdir -p "$DEST/run_01/small" "$DEST/run_01/medium" "$DEST/run_02/large" \
@@ -37,7 +38,7 @@ mkdir -p "$DEST/run_01/small" "$DEST/run_01/medium" "$DEST/run_02/large" \
 
 # 2000 small files of 100 KiB (many objects, little volume)
 for i in $(seq -w 1 2000); do
-  head -c 100K /dev/urandom > "$DEST/run_01/small/read_$i.bin"
+  head -c 102400 /dev/urandom > "$DEST/run_01/small/read_$i.bin"
 done
 
 for i in $(seq -w 1 "$N_MEDIUM"); do
