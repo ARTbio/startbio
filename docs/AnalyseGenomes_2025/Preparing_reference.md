@@ -13,7 +13,7 @@ In Galaxy, indexing tasks are preceeded by a "fetch and dbkey" task, whose
 purpose is to implement the Galaxy database and inform it of the existence of this genome
 and of possible derived indexes.
 
-<center>![](images/galaxy_indexing.svg){ width="600" }</center>
+<center markdown>![](images/galaxy_indexing.svg){ width="600" }</center>
 
 ## 1. :wrench: Prepare the _Drosophila_ genome dmel-all-chromosome-r6.65 for indexation.
 

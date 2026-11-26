@@ -55,7 +55,7 @@ a regular VM instance.
 Using this Image, you will benefit from already provisioned (and uncompressed) references,
 small RNA datasets and RNA datasets, as well as already buit dataset collections !
 
-# <center>:nail_care:</center>
+# <center markdown>:nail_care:</center>
 :warning: Do not forget to attach your static IP address to this VM (as described
 [here](Preparing_reference.md#a-reserve-a-static-ip-address)) if you wish to use it for
 your analyses.

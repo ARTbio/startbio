@@ -88,7 +88,9 @@ If you deploy the collection and its first dataset, you should notice that
 - the genome dbkey is now `mm10`
 - there is a small icon in the form of histogram at the bottom of the dataset.
 
-<center>![](images/collection_for_ucsc_visu.png){width="250"}</center>
+<center markdown>
+![](images/collection_for_ucsc_visu.png){width="250"}
+</center>
 
 - [x] Click on this icon !
 - [x] in the following menu, an option `1. display at UCSC (main , test )`is available (it
@@ -107,7 +109,10 @@ IGV from [their main site](https://igv.org/doc/desktop/#DownloadPage/).)
 - [x] Open locally IGV
 - [x] Click again on the "histogram icon"
   
-  <center>![](images/collection_for_ucsc_visu.png){width="200"}</center>
+<center markdown>
+![](images/collection_for_ucsc_visu.png){width="200"}
+</center>
+
   
 - [x] This time, instead of "display at UCSC (main , test )", click the
     `local` link in the line

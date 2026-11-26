@@ -4,7 +4,7 @@ hide:
   - toc
 ---
 
-<center>
+<center markdown>
 ## "Everything's connected"
 ![](images/Analysis_flowchart.png){ width="950" }
 

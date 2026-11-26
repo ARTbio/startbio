@@ -185,7 +185,7 @@ A regex usually comes within this form **<code>/abc/</code></strong>, where the 
 
 
 *   
-**g **(global) does not return after the first match, restarting the subsequent searches from the end of the previous match
+**g** (global) does not return after the first match, restarting the subsequent searches from the end of the previous match
 
 
 *   
@@ -298,7 +298,7 @@ Notice that a better solution should avoid the usage of `.` in favor of a more s
 </table>
 
 
-`\b` represents an **anchor like caret** (it is similar to `$` and `^`) matching positions where **one side is a word** **character **(like `\w`) and the **other side is not a word** **character **(for instance it may be the beginning of the string or a space character).
+`\b` represents an **anchor like caret** (it is similar to `$` and `^`) matching positions where **one side is a word** **character** (like `\w`) and the **other side is not a word** **character** (for instance it may be the beginning of the string or a space character).
 
 It comes with its **negation**, `\B`. This matches all positions where `\b` doesn’t match and could be if we want to find a search pattern fully surrounded by word characters.
 

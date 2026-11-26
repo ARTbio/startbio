@@ -108,7 +108,7 @@ and choose `Add/Modify Column Definitions`
 - And to finish the job, click on the dark-blue button `Upload`
 - After the upload is complete, rename the history "References"
 
-<center>:tada:	:confetti_ball:	:balloon:</center>
+<center markdown>:tada:	:confetti_ball:	:balloon:</center>
 
 #### 3. Upload of small RNA sequencing datasets :heavy_plus_sign: Programmatic dataset naming.
 
@@ -154,7 +154,7 @@ and choose `Add/Modify Column Definitions`
     ![](images/type_fastqsanger_gz.png){ width="200"}
 
 - And to finish the job, click on the dark-blue button `Upload`
-<center>:tada:	:confetti_ball:	:balloon: :tada:	:confetti_ball:	:balloon:</center>
+<center markdown>:tada:	:confetti_ball:	:balloon: :tada:	:confetti_ball:	:balloon:</center>
 
 #### 4. RNAseq datasets (for gene differential expression analysis)
 
@@ -207,7 +207,7 @@ and choose `Add/Modify Column Definitions`
 
 - And to finish the job, click on the dark-blue button `Upload`
 
-<center>:tada:	:confetti_ball:	:balloon: :tada:	:confetti_ball:	:balloon:
+<center markdown>:tada:	:confetti_ball:	:balloon: :tada:	:confetti_ball:	:balloon:
 :tada:	:confetti_ball:	:balloon: :tada:	:confetti_ball:	:balloon:</center>
 
 

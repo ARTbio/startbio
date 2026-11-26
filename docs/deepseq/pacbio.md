@@ -4,7 +4,7 @@ hide:
   - toc
 ---
 
-<center>
+<center markdown>
 ![](images/pacbio.png)
 </center>
 

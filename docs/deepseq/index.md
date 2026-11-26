@@ -1,4 +1,4 @@
-<center>
+<center markdown>
 ![](images/ARTbio_logo_transparent.png){ width="300"}
 # Introduction to Deep Seq Data Analysis
 </center>

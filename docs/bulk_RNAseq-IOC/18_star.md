@@ -11,7 +11,11 @@ and histories.
 - [x] Go, or stay, to the history `HISAT alignments`
 - [x] Click the upper right wheel icon at the top of the history stack and select `Copy
   datasets` or `Copier des jeux de données` if your interface is french.
-  <center>![](images/copy_datasets.png){width="250"}</center>
+
+<center markdown>
+![](images/copy_datasets.png){width="250"}
+</center>
+
 - [x] In the pop up panel, select the three dataset collection that we already built in the
   history. In the right part of the panel (`Destination History`), fill the empty field
   `New history named` with `STAR Alignments`, as shown bellow, and last, click the `Copy
@@ -26,7 +30,9 @@ and histories.
   now know how to do this !
 - [x] This makes our new history `STAR alignments` looking as follows:
   
-  <center>![](images/STAR_start_history.png){width="250"}</center>
+<center markdown>
+![](images/STAR_start_history.png){width="250"}
+</center>
 
 ----
 
