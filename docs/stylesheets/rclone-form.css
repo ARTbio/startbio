@@ -35,6 +35,45 @@
   margin-top: 0.15rem;
 }
 .rclone-hint.rclone-warn { color: #b8860b; }
+/* System switch (Linux / Mac / Windows) */
+.rclone-os {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr));
+  gap: 0.6rem;
+  margin: 1rem 0 0.4rem;
+}
+.rclone-os button {
+  text-align: left;
+  padding: 0.5rem 0.8rem;
+  font: inherit;
+  font-weight: 700;
+  color: var(--md-default-fg-color);
+  background: var(--md-code-bg-color);
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+.rclone-os button small {
+  display: block;
+  font-weight: 400;
+  font-size: 0.65rem;
+  color: var(--md-default-fg-color--light);
+}
+.rclone-os button[aria-pressed="true"] {
+  border: 2px solid var(--md-accent-fg-color);
+}
+/* Blocks for one system only. Without JavaScript every variant stays visible. */
+article[data-rclone-os] [data-only] { display: none; }
+article[data-rclone-os="linux"] [data-only~="linux"],
+article[data-rclone-os="mac"] [data-only~="mac"],
+article[data-rclone-os="win"] [data-only~="win"] { display: revert; }
+.rclone-choose { display: none; }
+article[data-rclone-os="none"] .rclone-choose {
+  display: block;
+  padding: 0.6rem 0.8rem;
+  border: 1px dashed var(--md-default-fg-color--lighter);
+  border-radius: 0.3rem;
+}
 /* Values substituted into the commands */
 .rclone-v {
   color: var(--md-accent-fg-color);
