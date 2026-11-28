@@ -14,14 +14,10 @@
     { k: "remote", l: "rclone configuration name", os: OSES, d: "ovh", h: "Short name used in all commands (step 2)." },
     { k: "bucket", l: "Bucket name", os: OSES, d: "my-bucket", ex: true, h: "Provided with your keys." },
     { k: "region", l: "Bucket region", os: OSES, d: "eu-west-par", h: "Paris 3-AZ: the only region with Cold Archive." },
-    { k: "disk", l: "Data disk for the exercise", os: ["linux"], d: "/data_disk", ex: true, h: "A directory you can write to, on a data disk of the server." },
-    { k: "folder", l: "Folder for the exercise data", os: ["mac", "win"], d: { mac: "$HOME", win: "$env:USERPROFILE" }, h: "A rclone-exercise folder is created inside." },
-    { k: "vol", l: "Exercise volume (GB)", os: OSES, d: { linux: "100", mac: "1", win: "1" }, h: "Default: 100 on a server, 1 on a computer." },
-    { k: "src", l: "Directory of the real data", os: OSES, d: { linux: "/path/to/data", mac: "/path/to/data", win: "D:\\path\\to\\data" }, ex: true, h: "Full path on this machine." },
-    { k: "dst", l: "Destination directory in the bucket", os: OSES, d: "my-dataset", ex: true, h: "Without a leading /." },
+    { k: "src", l: "Source directory (real data)", os: OSES, d: { linux: "/path/to/data", mac: "/path/to/data", win: "D:\\path\\to\\data" }, ex: true, h: "Full path on this machine (step 6)." },
+    { k: "dst", l: "Destination directory in the bucket (real data)", os: OSES, d: "my-dataset", ex: true, h: "Without a leading / (step 6)." },
     { k: "day", l: "Bandwidth on weekdays, 8 am – 8 pm", os: OSES, d: "50M", h: "In bytes per second: 50M = 50 MiB/s." },
-    { k: "night", l: "Bandwidth at night and at weekends", os: OSES, d: "80M", h: "Lower it if the network suffers." },
-    { k: "logs", l: "Log directory", os: OSES, d: { linux: "$HOME/rclone-logs", mac: "$HOME/rclone-logs", win: "$env:USERPROFILE\\rclone-logs" }, h: "Created at step 4 b)." }
+    { k: "night", l: "Bandwidth at night and at weekends", os: OSES, d: "80M", h: "Lower it if the network suffers." }
   ];
   const RATE = /^\d+(\.\d+)?[KMG]?$/;
   const PLACEHOLDER = /\{\{(\w+)\}\}/g;
@@ -38,7 +34,6 @@
   // Fields whose default depends on the system are stored per system.
   const skey = (f, os) => (typeof f.d === "string" ? f.k : os + "." + f.k);
   const raw = (s, f, os) => (typeof s[skey(f, os)] === "string" ? s[skey(f, os)] : def(f, os));
-  const field = k => FIELDS.find(f => f.k === k);
 
   // ~ becomes $HOME (Windows: $env:USERPROFILE), which still expands inside double
   // quotes; no trailing separator.
@@ -51,17 +46,14 @@
   function values(s, os) {
     const v = {};
     FIELDS.forEach(f => { if (f.os.includes(os)) v[f.k] = raw(s, f, os).trim(); });
-    ["disk", "folder", "src", "logs"].forEach(k => { if (k in v) v[k] = path(os, v[k]); });
+    v.src = path(os, v.src);
     v.dst = v.dst.replace(/^[\\/]+|[\\/]+$/g, "");
-    if (!v.logs) v.logs = def(field("logs"), os);
-    const n = parseInt(v.vol, 10);
-    v.vol = n > 0 ? String(n) : def(field("vol"), os);
-    v.need = String(Math.floor((+v.vol < 10 ? 2 : +v.vol) * 11 / 10)); // same rule as the generation script
+    // Exercise data and logs always go to the home folder: no field for them.
     const sep = os === "win" ? "\\" : "/";
-    const base = os === "linux" ? (v.disk || "/data_disk") : (v.folder || def(field("folder"), os));
-    v.exo = base + sep + "rclone-exercise";
-    v.logcopy = v.logs + sep + "exercise_copy.log";
     const home = os === "win" ? "$env:USERPROFILE" : "$HOME";
+    v.exo = home + sep + "rclone-exercise";
+    v.logs = home + sep + "rclone-logs";
+    v.logcopy = v.logs + sep + "exercise_copy.log";
     v.newfile = home + sep + "new_sample.bam"; // step 5
     v.newbatch = home + sep + "new_batch";
     v.day = RATE.test(v.day) ? v.day : "50M";
@@ -137,15 +129,12 @@
         const r = raw(s, f, os).trim();
         let bad = false, msg = f.h;
         if ((f.k === "day" || f.k === "night") && !RATE.test(r)) { bad = true; msg = "Expected format: 50M, 80M, 500K…"; }
-        if (f.k === "vol" && !(parseInt(r, 10) > 0)) { bad = true; msg = "A whole number of GB, for instance " + def(f, os) + "."; }
         if (!r) { bad = true; msg = "This field must not be empty."; }
-        const homeDisk = f.k === "disk" && v.disk.startsWith("$HOME");
-        if (homeDisk) msg = "Your home directory is often on the system disk of a server: avoid it.";
         const ex = !!f.ex && r === def(f, os);
         f.inp.classList.toggle("rclone-bad", bad);
         f.inp.classList.toggle("rclone-ex", ex && !bad);
         f.hint.textContent = ex && !bad ? "Example value, to replace. " + msg : msg;
-        f.hint.classList.toggle("rclone-warn", bad || ex || homeDisk);
+        f.hint.classList.toggle("rclone-warn", bad || ex);
       });
       codes.forEach(c => render(c, c.dataset.tpl, v));
       document.querySelectorAll("[data-rclone]").forEach(e => { e.textContent = v[e.dataset.rclone] ?? ""; });

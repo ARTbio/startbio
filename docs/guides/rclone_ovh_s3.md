@@ -18,6 +18,9 @@ on this page updates as you type, and you only have to copy it. Fields highlight
 yellow still hold an example value. Your values are kept in this browser for your next
 visit; nothing is sent anywhere.
 
+The exercise data and the logs always go to your home folder, in the folders
+`rclone-exercise` and `rclone-logs`: they need no field.
+
 <div class="rclone-os" role="group" aria-label="Where you run the commands">
 <button type="button" data-os-pick="linux">Linux server<small>in a terminal, often through SSH</small></button>
 <button type="button" data-os-pick="mac">Mac<small>Terminal app</small></button>
@@ -50,19 +53,15 @@ the commands for your system only.</p>
   the bucket name (<span data-rclone="bucket">my-bucket</span>), an access key and a
   secret key.
 - <span data-only="linux">An account on the Linux server that holds the data, with
-  Internet access, and at least <span data-rclone="need">110</span> GB of free space on
-  a data disk of the server for the exercise, not on the system disk.</span><span
-  data-only="mac">The Terminal app (Applications, then Utilities) and at least
-  <span data-rclone="need">2</span> GB of free space for the exercise.</span><span
-  data-only="win">Windows PowerShell (Start menu, type PowerShell) and at least
-  <span data-rclone="need">2</span> GB of free space for the exercise.</span>
+  Internet access, and at least 2 GB of free space in your home directory for the
+  exercise.</span><span data-only="mac">The Terminal app (Applications, then Utilities)
+  and at least 2 GB of free space in your home folder for the exercise.</span><span
+  data-only="win">Windows PowerShell (Start menu, type PowerShell) and at least 2 GB of
+  free space in your home folder for the exercise.</span><span data-only="mac win">
+  Keep the computer plugged in and awake during transfers.</span>
 - Administrator rights on your machine to install rclone (`sudo` on Linux and Mac).
   <span data-only="linux">On a shared server where you do not have them, use the
   variant without administrator rights given at step 1.</span>
-- <span data-only="linux">About one hour for the 100 GB exercise. Measured on a lab
-  server: 6 minutes to generate the data and 35 minutes to upload them, plus the time
-  to check, clean up and read the commands.</span><span data-only="mac win">Keep the
-  computer plugged in and awake during transfers.</span>
 
 ## Part 1 — Transfer the data
 
@@ -185,8 +184,7 @@ The second command must print `access_test.txt`. If a command prints
 ### Step 4 — Practise with dummy data (mandatory)
 
 This step is not optional. It checks that your machine, the network and the bucket
-work together, and it tells you how long the real transfer will take, without any risk
-for your real data.
+work together, without any risk for your real data.
 
 <div data-only="linux mac" markdown>
 
@@ -204,15 +202,12 @@ for your real data.
 
 You can also [download the script](rclone/generate_test_data.sh) and read it first.
 
-**b) Generate the data.** They go to <span data-rclone="exo">/data_disk/rclone-exercise</span>.
-<span data-only="linux">Never use your home directory on a server, which is often on
-the system disk: filling it up can freeze the server. If you get "Permission denied",
-ask the server's administrator for a directory in your name on a data disk.</span> The
-script refuses to start if the folder is not empty or if there is not enough space.
+**b) Generate the data.** They go to <span data-rclone="exo">$HOME/rclone-exercise</span>.
+The script refuses to start if the folder is not empty or if there is not enough space.
 
 ``` { .text .rclone-tpl }
 mkdir -p "{{logs}}"
-./generate_test_data.sh "{{exo}}" {{vol}}
+./generate_test_data.sh "{{exo}}" 1
 ```
 
 </div>
@@ -228,7 +223,7 @@ The block refuses to start if the folder is not empty or if there is not enough 
 
     ``` { .text .rclone-tpl }
     & {
-      $Dest = "{{exo}}"; $Vol = {{vol}}
+      $Dest = "{{exo}}"; $Vol = 1
       New-Item -ItemType Directory -Force -Path "{{logs}}" | Out-Null
       if ((Test-Path -LiteralPath $Dest) -and (Get-ChildItem -LiteralPath $Dest -Force | Select-Object -First 1)) {
         Write-Host "Error: $Dest exists and is not empty."; return
@@ -264,12 +259,8 @@ The block refuses to start if the folder is not empty or if there is not enough 
 
 </div>
 
-<p class="rclone-hint-line" data-only="linux">Generation takes about 6 minutes for
-100 GB on a typical lab server. For a more thorough exercise, set "Exercise volume" to
-500.</p>
-<p class="rclone-hint-line" data-only="mac win">1 GB by default: about 2000 small
-files, three medium ones and one large one, plus a file with spaces and accents in its
-name.</p>
+<p class="rclone-hint-line">1 GB: about 2000 small files, three medium ones and one
+large one, plus a file with spaces and accents in its name.</p>
 
 <div data-only="linux" markdown>
 
@@ -370,6 +361,18 @@ two commands print the same number of objects and the same total size.
 <span data-only="mac">`--exclude .DS_Store` leaves out the small files that Finder
 creates in every folder you open: they are useless in the bucket.</span>
 
+??? tip "Going further: measure the throughput"
+    With 1 GB, the exercise checks that everything works, but says little about how long
+    a large transfer will take. To find out, generate a bigger set: the last number of the
+    generation command is the volume in GB<span data-only="win"> (`$Vol` at the start of
+    the generation block)</span>. As a reference, 100 GB took 6 minutes to generate and 35
+    minutes to upload from a lab server.<span data-only="linux"> On a server, put such a
+    volume on a data disk, never in your home directory, which is often on the system
+    disk: filling it up can freeze the server.</span> Then adapt the path in the copy,
+    check and clean-up commands. The speed is displayed live by `-P`; for the average,
+    divide the volume transferred by the elapsed time, both given in the last lines of
+    the log.
+
 <div data-only="mac win" markdown>
 
 **e) Optional: the same upload with Cyberduck.** Cyberduck is a free graphical client
@@ -383,8 +386,8 @@ it sent is intact.
    port 443, then the Access Key ID and the Secret Access Key, typed in this window
    only.
 3. Open the bucket, create a folder named `CYBERDUCK-EXERCISE` (Action menu, then New
-   Folder) and open it. Select everything inside
-   <span data-rclone="exo">rclone-exercise</span> in your file manager and drag it into
+   Folder) and open it. Select everything inside the folder
+   `rclone-exercise` of your home folder, in your file manager, and drag it into
    the Cyberduck window. Note how long the transfer takes.
 4. Check with rclone. The `--download` option makes rclone compare the content byte by
    byte: for large files, which Cyberduck sends in several parts, the bucket keeps no
@@ -428,8 +431,7 @@ folder before copying a file into it, and a folder disappears by itself when its
 file is moved or deleted.
 
 **a) Prepare the new files**: a 5 MB file, `new_sample.bam`, and a folder of ten 1 MB
-files, `new_batch`, both in your home folder. They take 15 MB in all: the home folder
-is fine for them, even on a server.
+files, `new_batch`, both in your home folder.
 
 <div data-only="linux mac" markdown>
 
