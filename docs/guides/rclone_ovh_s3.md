@@ -579,9 +579,10 @@ rclone lsf {{remote}}:{{bucket}}/EXERCISE/run_02
     ```
 
     `run_02` must list `renamed.bam` next to `large/`, and `new_batch` its ten files.
-    With an OVHcloud bucket, Cyberduck can leave the original file in place after a
-    rename or a move: if `run_01` still lists `new_sample.bam` or `renamed.bam`, delete
-    them in Cyberduck. rclone does not have this problem (step d).
+    <span data-only="mac">With an OVHcloud bucket, Cyberduck on Mac can stop with a
+    connection error during a rename or a move, and leave the original file in place:
+    if `run_01` still lists `new_sample.bam` or `renamed.bam`, delete them in Cyberduck.
+    rclone does not have this problem (step d).</span>
 
 6. Delete `renamed.bam`: select it, then Delete ("Effacer" in French), and confirm.
 
