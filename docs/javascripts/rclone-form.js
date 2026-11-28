@@ -61,6 +61,9 @@
     const base = os === "linux" ? (v.disk || "/data_disk") : (v.folder || def(field("folder"), os));
     v.exo = base + sep + "rclone-exercise";
     v.logcopy = v.logs + sep + "exercise_copy.log";
+    const home = os === "win" ? "$env:USERPROFILE" : "$HOME";
+    v.newfile = home + sep + "new_sample.bam"; // step 5
+    v.newbatch = home + sep + "new_batch";
     v.day = RATE.test(v.day) ? v.day : "50M";
     v.night = RATE.test(v.night) ? v.night : "80M";
     v.bw = ["Mon", "Tue", "Wed", "Thu", "Fri"]
