@@ -35,6 +35,16 @@
   margin-top: 0.15rem;
 }
 .rclone-hint.rclone-warn { color: #b8860b; }
+/* Heading that separates the real-data fields from the others */
+.rclone-group {
+  grid-column: 1 / -1;
+  margin-top: 0.4rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--md-default-fg-color--lighter);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--md-accent-fg-color);
+}
 /* System switch (Linux / Mac / Windows) */
 .rclone-os {
   display: grid;

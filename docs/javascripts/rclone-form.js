@@ -9,15 +9,16 @@
 
   const KEY = "startbio-rclone-ovh-v2";
   const OSES = ["linux", "mac", "win"];
-  // os: systems that show the field; d: default (an object when it differs by system).
+  // os: systems that show the field; d: default (an object when it differs by system);
+  // group: heading shown above the field, which starts a new group.
   const FIELDS = [
     { k: "remote", l: "rclone configuration name", os: OSES, d: "ovh", h: "Short name used in all commands (step 2)." },
     { k: "bucket", l: "Bucket name", os: OSES, d: "my-bucket", ex: true, h: "Provided with your keys." },
     { k: "region", l: "Bucket region", os: OSES, d: "eu-west-par", h: "Paris 3-AZ: the only region with Cold Archive." },
-    { k: "src", l: "Source directory (real data)", os: OSES, d: { linux: "/path/to/data", mac: "/path/to/data", win: "D:\\path\\to\\data" }, ex: true, h: "Full path on this machine (step 6)." },
-    { k: "dst", l: "Destination directory in the bucket (real data)", os: OSES, d: "my-dataset", ex: true, h: "Without a leading / (step 6)." },
     { k: "day", l: "Bandwidth on weekdays, 8 am – 8 pm", os: OSES, d: "50M", h: "In bytes per second: 50M = 50 MiB/s." },
-    { k: "night", l: "Bandwidth at night and at weekends", os: OSES, d: "80M", h: "Lower it if the network suffers." }
+    { k: "night", l: "Bandwidth at night and at weekends", os: OSES, d: "80M", h: "Lower it if the network suffers." },
+    { k: "src", group: "Real data: used at step 6 only", l: "Source directory", os: OSES, d: { linux: "/path/to/data", mac: "/path/to/data", win: "D:\\path\\to\\data" }, ex: true, h: "Full path on this machine." },
+    { k: "dst", l: "Destination directory in the bucket", os: OSES, d: "my-dataset", ex: true, h: "Without a leading /." }
   ];
   const RATE = /^\d+(\.\d+)?[KMG]?$/;
   const PLACEHOLDER = /\{\{(\w+)\}\}/g;
@@ -103,6 +104,12 @@
       if (!s.os) return;
       const os = s.os;
       FIELDS.filter(f => f.os.includes(os)).forEach(f => {
+        if (f.group) {
+          const g = document.createElement("div");
+          g.className = "rclone-group";
+          g.textContent = f.group;
+          box.appendChild(g);
+        }
         const w = document.createElement("div");
         w.className = "rclone-field";
         const lab = document.createElement("label");
