@@ -1,0 +1,1990 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://artbio.github.io/startbio/guides/rclone_ovh_s3/">
+      
+      
+        <link rel="prev" href="../../TARGET_download/galaxy_import/">
+      
+      
+        <link rel="next" href="../../bash_snippets/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Transfer data to an OVH S3 bucket with rclone - STARTbio</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+  
+  
+    
+      
+      
+    
+  
+  
+  <style>:root{--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2012%2012%22%3E%3Cpath%20d%3D%22M4.855.708c.5-.896%201.79-.896%202.29%200l4.675%208.351a1.312%201.312%200%200%201-1.146%201.954H1.33A1.313%201.313%200%200%201%20.183%209.058ZM7%207V3H5v4Zm-1%203a1%201%200%201%200%200-2%201%201%200%200%200%200%202%22/%3E%3C/svg%3E');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+Display:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans Display";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/rclone-form.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#transfer-data-to-an-ovh-s3-bucket-with-rclone" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="STARTbio" class="md-header__button md-logo" aria-label="STARTbio" data-md-component="logo">
+      
+  <img src="../../assets/startbio_icon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            STARTbio
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Transfer data to an OVH S3 bucket with rclone
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ARTbio/startbio" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ARTbio/startbio
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../bulk_RNAseq-IOC/00_IOC_RNAseq_program/" class="md-tabs__link">
+          
+  
+  
+  Interactive Online Companionship (IOC)
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ten2/Regex_01/" class="md-tabs__link">
+          
+  
+  
+  1Omin2
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../AnalyseGenomes_2025/outline/" class="md-tabs__link">
+          
+  
+  
+  Galaxy Trainings
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Guides
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../bash_snippets/" class="md-tabs__link">
+          
+  
+  
+  Code Snippets
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../links/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Links
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="STARTbio" class="md-nav__button md-logo" aria-label="STARTbio" data-md-component="logo">
+      
+  <img src="../../assets/startbio_icon.png" alt="logo">
+
+    </a>
+    STARTbio
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ARTbio/startbio" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ARTbio/startbio
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    
+  
+  
+  
+    <a href="../../bulk_RNAseq-IOC/00_IOC_RNAseq_program/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interactive Online Companionship (IOC)
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../ten2/Regex_01/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1Omin2
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    
+  
+  
+  
+    <a href="../../AnalyseGenomes_2025/outline/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Galaxy Trainings
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guides
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transfer data to an OVH S3 bucket with rclone
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transfer data to an OVH S3 bucket with rclone
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-you-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What you need
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your values
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#before-you-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before you start
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-1-transfer-the-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 1 — Transfer the data
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 1 — Transfer the data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-install-rclone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 — Install rclone
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-configure-access-to-the-bucket" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2 — Configure access to the bucket
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-check-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3 — Check access
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-practise-with-dummy-data-mandatory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4 — Practise with dummy data (mandatory)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-practise-managing-files-in-the-bucket-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5 — Practise managing files in the bucket (recommended)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-transfer-the-real-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6 — Transfer the real data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-2-cold-archive-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 2 — Cold archive (optional)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appendix-the-generation-script-linux-and-mac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Appendix — The generation script (Linux and Mac)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../bash_snippets/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../links/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Links
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-you-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What you need
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your values
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#before-you-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before you start
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-1-transfer-the-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 1 — Transfer the data
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 1 — Transfer the data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-install-rclone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 — Install rclone
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-configure-access-to-the-bucket" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2 — Configure access to the bucket
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-check-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3 — Check access
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-practise-with-dummy-data-mandatory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4 — Practise with dummy data (mandatory)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-practise-managing-files-in-the-bucket-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5 — Practise managing files in the bucket (recommended)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-transfer-the-real-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6 — Transfer the real data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-2-cold-archive-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 2 — Cold archive (optional)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appendix-the-generation-script-linux-and-mac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Appendix — The generation script (Linux and Mac)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/ARTbio/startbio/edit/master/docs/guides/rclone_ovh_s3.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/ARTbio/startbio/raw/master/docs/guides/rclone_ovh_s3.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<h1 id="transfer-data-to-an-ovh-s3-bucket-with-rclone">Transfer data to an OVH S3 bucket with rclone<a class="headerlink" href="#transfer-data-to-an-ovh-s3-bucket-with-rclone" title="Permanent link">&para;</a></h1>
+<p>This guide shows how to copy data from a Linux server, a Mac or a Windows PC to an
+OVHcloud Object Storage bucket (S3) with <a href="https://rclone.org/">rclone</a>, and how to check
+that everything arrived intact. You always start with an exercise: you transfer dummy
+data, generated for the occasion, with exactly the same commands as for your real data.
+On a Mac or a PC, you can also try a graphical client, Cyberduck, on the same data.</p>
+<p>Moving the data to cold archive afterwards is optional and covered separately at
+the end of the page (<a href="#part-2-cold-archive-optional">Part 2</a>).</p>
+<h2 id="what-you-need">What you need<a class="headerlink" href="#what-you-need" title="Permanent link">&para;</a></h2>
+<p>Four things, whatever your system:</p>
+<ul>
+<li><strong>An OVHcloud account with a Public Cloud project.</strong> The storage is created and billed
+  in this project.</li>
+<li><strong>A bucket</strong> in the project's Object Storage, with the S3 API. You need its name and
+  its region (for instance <code>eu-west-par</code>, Paris).</li>
+<li><strong>Keys for this bucket</strong>: an access key and a secret key. They belong to an Object
+  Storage user who has the right to read and write in the bucket.</li>
+<li><strong>A machine to work from</strong>: the Linux server, the Mac or the Windows PC that holds the
+  data. The exercise of step 4 runs on this machine, with dummy data, before any real
+  transfer.</li>
+</ul>
+<p>In most cases, the account, the bucket and the keys are provided by whoever administers
+the OVHcloud account for your team: you only receive the bucket name, its region and the
+two keys. If you have your own OVHcloud account, OVHcloud's documentation explains how
+to <a href="https://docs.ovhcloud.com/en/guides/public-cloud/cross-functional/create-a-public-cloud-project">create a Public Cloud project</a>,
+<a href="https://docs.ovhcloud.com/en/guides/storage-and-backup/object-storage/s3-getting-started-with-object-storage">create a bucket</a>
+and <a href="https://docs.ovhcloud.com/en/guides/storage-and-backup/object-storage/s3-identity-and-access-management">create an Object Storage user with its keys</a>.</p>
+<h2 id="your-values">Your values<a class="headerlink" href="#your-values" title="Permanent link">&para;</a></h2>
+<div class="rclone-form" id="rclone-form">
+<p>First choose where you will type the commands, then fill in the fields: every command
+on this page updates as you type, and you only have to copy it. Fields highlighted in
+yellow still hold an example value. Your values are kept in this browser for your next
+visit; nothing is sent anywhere.</p>
+<p>The exercise data and the logs always go to your home folder, in the folders
+<code>rclone-exercise</code> and <code>rclone-logs</code>: they need no field.</p>
+<div aria-label="Where you run the commands" class="rclone-os" role="group">
+<button type="button" data-os-pick="linux">Linux server<small>in a terminal, often through SSH</small></button>
+<button type="button" data-os-pick="mac">Mac<small>Terminal app</small></button>
+<button type="button" data-os-pick="win">Windows<small>PowerShell, Windows 10 or 11</small></button>
+</div>
+<div class="rclone-fields"></div>
+<p><button type="button" class="md-button rclone-reset">Reset this system's fields to example values</button></p>
+<div class="admonition warning">
+<p class="admonition-title">Never type your access keys here</p>
+<p>Keys are typed only in the terminal, at step 2 (and in Cyberduck's own login window
+if you try it).</p>
+</div>
+<p>Example: your values in the command that lists the content of the bucket. It changes
+nothing, and works once steps 1 and 2 are done.</p>
+<div class="language-text rclone-tpl highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>rclone lsf {{remote}}:{{bucket}}
+</span></code></pre></div>
+</div>
+<p class="rclone-choose">Choose Linux server, Mac or Windows above: the steps below then show
+the commands for your system only.</p>
+
+<h2 id="before-you-start">Before you start<a class="headerlink" href="#before-you-start" title="Permanent link">&para;</a></h2>
+<ul>
+<li>The bucket name (<span data-rclone="bucket">my-bucket</span>), its region, the
+  access key and the secret key (<a href="#what-you-need">What you need</a>).</li>
+<li><span data-only="linux">An account on the Linux server that holds the data, with
+  Internet access, and at least 2 GB of free space in your home directory for the
+  exercise.</span><span data-only="mac">The Terminal app (Applications, then Utilities)
+  and at least 2 GB of free space in your home folder for the exercise.</span><span
+  data-only="win">Windows PowerShell (Start menu, type PowerShell) and at least 2 GB of
+  free space in your home folder for the exercise.</span><span data-only="mac win">
+  Keep the computer plugged in and awake during transfers.</span></li>
+<li>Administrator rights on your machine to install rclone (<code>sudo</code> on Linux and Mac).
+  <span data-only="linux">On a shared server where you do not have them, use the
+  variant without administrator rights given at step 1.</span></li>
+</ul>
+<h2 id="part-1-transfer-the-data">Part 1 — Transfer the data<a class="headerlink" href="#part-1-transfer-the-data" title="Permanent link">&para;</a></h2>
+<h3 id="step-1-install-rclone">Step 1 — Install rclone<a class="headerlink" href="#step-1-install-rclone" title="Permanent link">&para;</a></h3>
+<div data-only="linux mac">
+<p>With rclone's official installation script, which asks for your password (<code>sudo</code>) and
+installs the latest version:</p>
+<div class="language-text rclone-tpl highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo -v ; curl https://rclone.org/install.sh | sudo bash
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>rclone version
+</span></code></pre></div>
+<p>The last command must print a version number.</p>
+</div>
+<div data-only="linux">
+<details class="note">
+<summary>Without administrator rights (shared server)</summary>
+<p>This installs rclone in your own <code>~/bin</code> folder; it works on a standard x86-64
+server (<code>uname -m</code> prints <code>x86_64</code>).</p>
+<div class="language-text rclone-tpl highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>mkdir -p ~/bin &amp;&amp; cd /tmp
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>curl -O https://downloads.rclone.org/rclone-current-linux-amd64.zip
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>unzip -o rclone-current-linux-amd64.zip
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>cp rclone-*-linux-amd64/rclone ~/bin/
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>cd -
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>echo 'export PATH="$HOME/bin:$PATH"' &gt;&gt; ~/.bashrc &amp;&amp; source ~/.bashrc
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>hash -r &amp;&amp; which rclone &amp;&amp; rclone version
+</span></code></pre></div>
+<p>The output must show a path in your home directory ending in <code>/bin/rclone</code>, then a
+version number.</p>
+</details>
+</div>
+<div data-only="win">
+<p>With winget, which is part of recent Windows versions:</p>
+<div class="language-text rclone-tpl highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>winget install Rclone.Rclone
+</span></code></pre></div>
+<p>Then close PowerShell, open a new PowerShell window, and check:</p>
+<div class="language-text rclone-tpl highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>rclone version
+</span></code></pre></div>
+</div>
+<h3 id="step-2-configure-access-to-the-bucket">Step 2 — Configure access to the bucket<a class="headerlink" href="#step-2-configure-access-to-the-bucket" title="Permanent link">&para;</a></h3>
+<p>Paste this block. It asks for the access key, then for the secret key, which is not
+displayed while you type. If a configuration with the same name already exists, the
+block stops without changing anything: choose another name in "Your values" and copy
+the block again. Other rclone configurations are left untouched.</p>
+<div data-only="linux mac">
+<div class="language-text rclone-tpl highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>if rclone listremotes | grep -qx "{{remote}}:"; then
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>  echo "A configuration named {{remote}} already exists: choose another name in Your values."
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>  rclone listremotes
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>else
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>  printf "Paste the access key, then Enter: "; read -r AK
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>  printf "Paste the secret key (nothing is displayed, this is normal), then Enter: "
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>  stty -echo; read -r SK; stty echo; echo
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>  rclone config create {{remote}} s3 provider=Other env_auth=false \
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>    access_key_id="$AK" secret_access_key="$SK" \
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>    region={{region}} endpoint=https://{{endpointhost}} \
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>    acl=private no_check_bucket=true &gt; /dev/null
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>  unset AK SK
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>  chmod 600 "$(rclone config file | tail -1)"
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>  rclone listremotes
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>fi
+</span></code></pre></div>
+</div>
+<div data-only="win">
+<div class="language-text rclone-tpl highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>&amp; {
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  if ((rclone listremotes) -contains "{{remote}}:") {
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    Write-Host "A configuration named {{remote}} already exists: choose another name in Your values."
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>  } else {
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    $AK = Read-Host "Paste the access key, then Enter"
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    $SS = Read-Host "Paste the secret key (nothing is displayed, this is normal), then Enter" -AsSecureString
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>    $SK = [Runtime.InteropServices.Marshal]::PtrToStringBSTR([Runtime.InteropServices.Marshal]::SecureStringToBSTR($SS))
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    rclone config create {{remote}} s3 provider=Other env_auth=false access_key_id=$AK secret_access_key=$SK region={{region}} endpoint=https://{{endpointhost}} acl=private no_check_bucket=true | Out-Null
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>  }
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>  rclone listremotes
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>}
+</span></code></pre></div>
+</div>
+<p>The last command must print <code><span data-rclone="remote">ovh</span>:</code> (and
+your other rclone configurations, if any). The secret key is now stored in rclone's
+configuration file, readable by you only: do not copy it anywhere else.</p>
+<h3 id="step-3-check-access">Step 3 — Check access<a class="headerlink" href="#step-3-check-access" title="Permanent link">&para;</a></h3>
+<div class="language-text rclone-tpl highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>echo "test" | rclone rcat {{remote}}:{{bucket}}/access_test.txt
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>rclone lsf {{remote}}:{{bucket}}
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>rclone deletefile {{remote}}:{{bucket}}/access_test.txt
+</span></code></pre></div>
+<p>The second command must print <code>access_test.txt</code>. If a command prints
+<code>AccessDenied</code>, check the keys (step 2), then contact whoever gave them to you.</p>
+<h3 id="step-4-practise-with-dummy-data-mandatory">Step 4 — Practise with dummy data (mandatory)<a class="headerlink" href="#step-4-practise-with-dummy-data-mandatory" title="Permanent link">&para;</a></h3>
+<p>This step is not optional. It checks that your machine, the network and the bucket
+work together, without any risk for your real data.</p>
+<div data-only="linux mac">
+<p><strong>a) Create the generation script.</strong> Paste this block: it creates the file
+<code>generate_test_data.sh</code> in the current folder and makes it executable.</p>
+<details class="example">
+<summary>Show the block that creates the script (60 lines)</summary>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>generate_test_data.sh<span class="w"> </span><span class="s">&lt;&lt;'EOF'</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="s">#!/usr/bin/env bash</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="s"># Generates a tree of dummy data (random, incompressible) that mimics</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="s"># raw sequencing data, to test an rclone transfer. Runs on Linux and macOS.</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="s"># Usage: ./generate_test_data.sh TARGET_DIR [VOLUME_IN_GB]</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="s">#   VOLUME_IN_GB &lt; 10  -&gt; "quick test" set (~1 GB)</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="s">#   VOLUME_IN_GB &gt;= 10 -&gt; ~VOLUME_IN_GB GB (70 % as 1 GiB files, 30 % as 10 GiB files)</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="s">set -euo pipefail</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="s">DEST="${1:?Usage: $0 TARGET_DIR [VOLUME_IN_GB]}"</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="s">VOL="${2:-1}"</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="s">MIB=1048576</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="s">if [ -e "$DEST" ] &amp;&amp; [ -n "$(ls -A "$DEST" 2&gt;/dev/null)" ]; then</span>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="s">  echo "Error: $DEST exists and is not empty." &gt;&amp;2</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="s">  exit 1</span>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="s">fi</span>
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="s"># Check free space before starting (requested volume + 10 %)</span>
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="s">mkdir -p "$DEST"</span>
+</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="s">NEEDED_GB=$(( (VOL &lt; 10 ? 2 : VOL) * 11 / 10 ))</span>
+</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="s">FREE_GB=$(( $(df -Pk "$DEST" | awk 'NR==2 {print $4}') / 1024 / 1024 ))</span>
+</span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="s">if [ "$FREE_GB" -lt "$NEEDED_GB" ]; then</span>
+</span><span id="__span-8-24"><a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a><span class="s">  echo "Error: $NEEDED_GB GB of free space needed, only $FREE_GB GB available on this disk." &gt;&amp;2</span>
+</span><span id="__span-8-25"><a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a><span class="s">  rmdir "$DEST" 2&gt;/dev/null</span>
+</span><span id="__span-8-26"><a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a><span class="s">  exit 1</span>
+</span><span id="__span-8-27"><a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a><span class="s">fi</span>
+</span><span id="__span-8-28"><a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a>
+</span><span id="__span-8-29"><a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a><span class="s">if [ "$VOL" -lt 10 ]; then</span>
+</span><span id="__span-8-30"><a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a><span class="s">  N_MEDIUM=3;  S_MEDIUM=$(( 100 * MIB ))   # 3 x 100 MiB</span>
+</span><span id="__span-8-31"><a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a><span class="s">  N_LARGE=1;   S_LARGE=$(( 600 * MIB ))    # 1 x 600 MiB: uploaded in several parts</span>
+</span><span id="__span-8-32"><a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a><span class="s">else</span>
+</span><span id="__span-8-33"><a id="__codelineno-8-33" name="__codelineno-8-33" href="#__codelineno-8-33"></a><span class="s">  N_MEDIUM=$(( VOL * 70 / 100 )); S_MEDIUM=$(( 1024 * MIB ))</span>
+</span><span id="__span-8-34"><a id="__codelineno-8-34" name="__codelineno-8-34" href="#__codelineno-8-34"></a><span class="s">  N_LARGE=$(( VOL * 30 / 1000 )); S_LARGE=$(( 10240 * MIB ))</span>
+</span><span id="__span-8-35"><a id="__codelineno-8-35" name="__codelineno-8-35" href="#__codelineno-8-35"></a><span class="s">fi</span>
+</span><span id="__span-8-36"><a id="__codelineno-8-36" name="__codelineno-8-36" href="#__codelineno-8-36"></a>
+</span><span id="__span-8-37"><a id="__codelineno-8-37" name="__codelineno-8-37" href="#__codelineno-8-37"></a><span class="s">mkdir -p "$DEST/run_01/small" "$DEST/run_01/medium" "$DEST/run_02/large" \</span>
+</span><span id="__span-8-38"><a id="__codelineno-8-38" name="__codelineno-8-38" href="#__codelineno-8-38"></a><span class="s">         "$DEST/folder with spaces/données accentuées"</span>
+</span><span id="__span-8-39"><a id="__codelineno-8-39" name="__codelineno-8-39" href="#__codelineno-8-39"></a>
+</span><span id="__span-8-40"><a id="__codelineno-8-40" name="__codelineno-8-40" href="#__codelineno-8-40"></a><span class="s"># 2000 small files of 100 KiB (many objects, little volume)</span>
+</span><span id="__span-8-41"><a id="__codelineno-8-41" name="__codelineno-8-41" href="#__codelineno-8-41"></a><span class="s">for i in $(seq -w 1 2000); do</span>
+</span><span id="__span-8-42"><a id="__codelineno-8-42" name="__codelineno-8-42" href="#__codelineno-8-42"></a><span class="s">  head -c 102400 /dev/urandom &gt; "$DEST/run_01/small/read_$i.bin"</span>
+</span><span id="__span-8-43"><a id="__codelineno-8-43" name="__codelineno-8-43" href="#__codelineno-8-43"></a><span class="s">done</span>
+</span><span id="__span-8-44"><a id="__codelineno-8-44" name="__codelineno-8-44" href="#__codelineno-8-44"></a>
+</span><span id="__span-8-45"><a id="__codelineno-8-45" name="__codelineno-8-45" href="#__codelineno-8-45"></a><span class="s">for i in $(seq -w 1 "$N_MEDIUM"); do</span>
+</span><span id="__span-8-46"><a id="__codelineno-8-46" name="__codelineno-8-46" href="#__codelineno-8-46"></a><span class="s">  head -c "$S_MEDIUM" /dev/urandom &gt; "$DEST/run_01/medium/sample_$i.fastq.gz"</span>
+</span><span id="__span-8-47"><a id="__codelineno-8-47" name="__codelineno-8-47" href="#__codelineno-8-47"></a><span class="s">done</span>
+</span><span id="__span-8-48"><a id="__codelineno-8-48" name="__codelineno-8-48" href="#__codelineno-8-48"></a>
+</span><span id="__span-8-49"><a id="__codelineno-8-49" name="__codelineno-8-49" href="#__codelineno-8-49"></a><span class="s">for i in $(seq -w 1 "$N_LARGE"); do</span>
+</span><span id="__span-8-50"><a id="__codelineno-8-50" name="__codelineno-8-50" href="#__codelineno-8-50"></a><span class="s">  head -c "$S_LARGE" /dev/urandom &gt; "$DEST/run_02/large/alignment_$i.bam"</span>
+</span><span id="__span-8-51"><a id="__codelineno-8-51" name="__codelineno-8-51" href="#__codelineno-8-51"></a><span class="s">done</span>
+</span><span id="__span-8-52"><a id="__codelineno-8-52" name="__codelineno-8-52" href="#__codelineno-8-52"></a>
+</span><span id="__span-8-53"><a id="__codelineno-8-53" name="__codelineno-8-53" href="#__codelineno-8-53"></a><span class="s"># Tricky names: spaces, accents, parentheses</span>
+</span><span id="__span-8-54"><a id="__codelineno-8-54" name="__codelineno-8-54" href="#__codelineno-8-54"></a><span class="s">echo "witness file" &gt; "$DEST/folder with spaces/données accentuées/échantillon (copie) n°1.txt"</span>
+</span><span id="__span-8-55"><a id="__codelineno-8-55" name="__codelineno-8-55" href="#__codelineno-8-55"></a>
+</span><span id="__span-8-56"><a id="__codelineno-8-56" name="__codelineno-8-56" href="#__codelineno-8-56"></a><span class="s">echo "Done:"</span>
+</span><span id="__span-8-57"><a id="__codelineno-8-57" name="__codelineno-8-57" href="#__codelineno-8-57"></a><span class="s">du -sh "$DEST"</span>
+</span><span id="__span-8-58"><a id="__codelineno-8-58" name="__codelineno-8-58" href="#__codelineno-8-58"></a><span class="s">find "$DEST" -type f | wc -l | xargs echo "files:"</span>
+</span><span id="__span-8-59"><a id="__codelineno-8-59" name="__codelineno-8-59" href="#__codelineno-8-59"></a>
+</span><span id="__span-8-60"><a id="__codelineno-8-60" name="__codelineno-8-60" href="#__codelineno-8-60"></a><span class="s">EOF</span>
+</span><span id="__span-8-61"><a id="__codelineno-8-61" name="__codelineno-8-61" href="#__codelineno-8-61"></a>chmod<span class="w"> </span>+x<span class="w"> </span>generate_test_data.sh
+</span></code></pre></div>
+</details>
+<p>You can also <a href="../rclone/generate_test_data.sh">download the script</a> and read it first.</p>
+<p><strong>b) Generate the data.</strong> They go to <span data-rclone="exo">$HOME/rclone-exercise</span>.
+The script refuses to start if the folder is not empty or if there is not enough space.</p>
+<div class="language-text rclone-tpl highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>mkdir -p "{{logs}}"
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>./generate_test_data.sh "{{exo}}" 1
+</span></code></pre></div>
+</div>
+<div data-only="win">
+<p><strong>a)</strong> Nothing to create on Windows: generation is a single block, pasted at step b).</p>
+<p><strong>b) Generate the data.</strong> They go to <span data-rclone="exo">rclone-exercise</span>.
+The block refuses to start if the folder is not empty or if there is not enough space.</p>
+<details class="example">
+<summary>Show the generation block (33 lines)</summary>
+<div class="language-text rclone-tpl highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>&amp; {
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>  $Dest = "{{exo}}"; $Vol = 1
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>  New-Item -ItemType Directory -Force -Path "{{logs}}" | Out-Null
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>  if ((Test-Path -LiteralPath $Dest) -and (Get-ChildItem -LiteralPath $Dest -Force | Select-Object -First 1)) {
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>    Write-Host "Error: $Dest exists and is not empty."; return
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>  }
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>  New-Item -ItemType Directory -Force -Path $Dest | Out-Null
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>  $Base = if ($Vol -lt 10) { 2 } else { $Vol }
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>  $Need = [math]::Floor($Base * 11 / 10)
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>  $Free = [math]::Floor((Get-Item -LiteralPath $Dest).PSDrive.Free / 1GB)
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>  if ($Free -lt $Need) {
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>    Write-Host "Error: $Need GB of free space needed, only $Free GB available on this disk."
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>    Remove-Item -LiteralPath $Dest; return
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>  }
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>  if ($Vol -lt 10) { $NM = 3; $SM = 100MB; $NL = 1; $SL = 600MB }
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>  else { $NM = [math]::Floor($Vol * 70 / 100); $SM = 1GB; $NL = [math]::Floor($Vol * 30 / 1000); $SL = 10GB }
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>  $rng = [Security.Cryptography.RandomNumberGenerator]::Create()
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>  function Write-Random([string]$Path, [long]$Bytes) {
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>    $buf = New-Object byte[] ([math]::Min($Bytes, 1MB))
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>    $fs = [IO.File]::Create($Path)
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>    try { $left = $Bytes; while ($left -gt 0) { $n = [int][math]::Min($left, $buf.Length); $rng.GetBytes($buf); $fs.Write($buf, 0, $n); $left -= $n } }
+</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a>    finally { $fs.Dispose() }
+</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a>  }
+</span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a>  foreach ($d in "run_01/small", "run_01/medium", "run_02/large", "folder with spaces/données accentuées") {
+</span><span id="__span-10-25"><a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a>    New-Item -ItemType Directory -Force -Path (Join-Path $Dest $d) | Out-Null
+</span><span id="__span-10-26"><a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a>  }
+</span><span id="__span-10-27"><a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a>  for ($i = 1; $i -le 2000; $i++) { Write-Random (Join-Path $Dest ("run_01/small/read_{0:D4}.bin" -f $i)) 100KB }
+</span><span id="__span-10-28"><a id="__codelineno-10-28" name="__codelineno-10-28" href="#__codelineno-10-28"></a>  for ($i = 1; $i -le $NM; $i++) { Write-Random (Join-Path $Dest ("run_01/medium/sample_{0:D3}.fastq.gz" -f $i)) $SM }
+</span><span id="__span-10-29"><a id="__codelineno-10-29" name="__codelineno-10-29" href="#__codelineno-10-29"></a>  for ($i = 1; $i -le $NL; $i++) { Write-Random (Join-Path $Dest ("run_02/large/alignment_{0:D3}.bam" -f $i)) $SL }
+</span><span id="__span-10-30"><a id="__codelineno-10-30" name="__codelineno-10-30" href="#__codelineno-10-30"></a>  Set-Content -LiteralPath (Join-Path $Dest "folder with spaces/données accentuées/échantillon (copie) n°1.txt") -Value "witness file"
+</span><span id="__span-10-31"><a id="__codelineno-10-31" name="__codelineno-10-31" href="#__codelineno-10-31"></a>  $f = Get-ChildItem -LiteralPath $Dest -Recurse -File
+</span><span id="__span-10-32"><a id="__codelineno-10-32" name="__codelineno-10-32" href="#__codelineno-10-32"></a>  "Done: {0:N2} GB in {1} files" -f (($f | Measure-Object Length -Sum).Sum / 1GB), $f.Count
+</span><span id="__span-10-33"><a id="__codelineno-10-33" name="__codelineno-10-33" href="#__codelineno-10-33"></a>}
+</span></code></pre></div>
+</details>
+</div>
+<p class="rclone-hint-line">1 GB: about 2000 small files, three medium ones and one
+large one, plus a file with spaces and accents in its name.</p>
+
+<div data-only="linux">
+<p><strong>c) Upload the data.</strong> First open a <code>screen</code> session, which keeps running even if you
+log out:</p>
+<div class="language-text rclone-tpl highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>screen -S transfer
+</span></code></pre></div>
+<p>Then, inside this session:</p>
+<div class="language-text rclone-tpl highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>BW="{{bw}}"
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>rclone copy "{{exo}}" {{remote}}:{{bucket}}/EXERCISE \
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>  --fast-list --transfers 4 \
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>  --bwlimit "$BW" -P \
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>  --log-file "{{logs}}/exercise_copy.log" --log-level INFO || tail -n 5 "{{logs}}/exercise_copy.log"
+</span></code></pre></div>
+<p>To leave <code>screen</code> without stopping the transfer: <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-a">A</kbd></span> then <span class="keys"><kbd class="key-d">D</kbd></span>. To come back:
+<code>screen -r transfer</code>.</p>
+</div>
+<div data-only="mac">
+<p><strong>c) Upload the data.</strong> <code>caffeinate -i</code> keeps the Mac awake while rclone runs; keep the
+lid open.</p>
+<div class="language-text rclone-tpl highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>BW="{{bw}}"
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>caffeinate -i rclone copy "{{exo}}" {{remote}}:{{bucket}}/EXERCISE \
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>  --exclude .DS_Store --fast-list --transfers 4 \
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>  --bwlimit "$BW" -P \
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>  --log-file "{{logs}}/exercise_copy.log" --log-level INFO || tail -n 5 "{{logs}}/exercise_copy.log"
+</span></code></pre></div>
+</div>
+<div data-only="win">
+<p><strong>c) Upload the data.</strong> Keep the PowerShell window open until the end.</p>
+<div class="language-text rclone-tpl highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>$BW = "{{bw}}"
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>rclone copy "{{exo}}" "{{remote}}:{{bucket}}/EXERCISE" --fast-list --transfers 4 --bwlimit $BW -P --log-file "{{logs}}\exercise_copy.log" --log-level INFO
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>if ($LASTEXITCODE -ne 0) { Get-Content "{{logs}}\exercise_copy.log" -Tail 5 }
+</span></code></pre></div>
+</div>
+<ul>
+<li>Progress is displayed live (option <code>-P</code>); the detailed log is
+  <code><span data-rclone="logcopy">$HOME/rclone-logs/exercise_copy.log</span></code>.</li>
+<li>If rclone fails, the end of the command prints the last lines of this log, which say
+  why (see Troubleshooting).</li>
+<li>The <code>BW</code> line limits the bandwidth to <span data-rclone="day">50M</span>iB/s on
+  weekdays from 8 am to 8 pm, and to <span data-rclone="night">80M</span>iB/s at night
+  and at weekends, so as not to saturate the site network. Times are those of the
+  machine.</li>
+</ul>
+<p><strong>d) Check the copy</strong>, once the transfer is over:</p>
+<div data-only="linux">
+<div class="language-text rclone-tpl highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>rclone check "{{exo}}" {{remote}}:{{bucket}}/EXERCISE --one-way --fast-list \
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>  --combined "{{logs}}/exercise_check.txt"
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>rclone size "{{exo}}"
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>rclone size {{remote}}:{{bucket}}/EXERCISE
+</span></code></pre></div>
+</div>
+<div data-only="mac">
+<div class="language-text rclone-tpl highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>rclone check "{{exo}}" {{remote}}:{{bucket}}/EXERCISE --one-way --fast-list \
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>  --exclude .DS_Store --combined "{{logs}}/exercise_check.txt"
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>rclone size "{{exo}}" --exclude .DS_Store
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>rclone size {{remote}}:{{bucket}}/EXERCISE --exclude .DS_Store
+</span></code></pre></div>
+</div>
+<div data-only="win">
+<div class="language-text rclone-tpl highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>rclone check "{{exo}}" "{{remote}}:{{bucket}}/EXERCISE" --one-way --fast-list --combined "{{logs}}\exercise_check.txt"
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>rclone size "{{exo}}"
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>rclone size "{{remote}}:{{bucket}}/EXERCISE"
+</span></code></pre></div>
+</div>
+<p>The exercise succeeded if the check ends with <code>0 differences found</code> and if the last
+two commands print the same number of objects and the same total size.
+<span data-only="mac"><code>--exclude .DS_Store</code> leaves out the small files that Finder
+creates in every folder you open: they are useless in the bucket.</span></p>
+<details class="tip">
+<summary>Going further: measure the throughput</summary>
+<p>With 1 GB, the exercise checks that everything works, but says little about how long
+a large transfer will take. To find out, generate a bigger set: the last number of the
+generation command is the volume in GB<span data-only="win"> (<code>$Vol</code> at the start of
+the generation block)</span>. As a reference, 100 GB took 6 minutes to generate and 35
+minutes to upload from a lab server.<span data-only="linux"> On a server, put such a
+volume on a data disk, never in your home directory, which is often on the system
+disk: filling it up can freeze the server.</span> Then adapt the path in the copy,
+check and clean-up commands. The speed is displayed live by <code>-P</code>; for the average,
+divide the volume transferred by the elapsed time, both given in the last lines of
+the log.</p>
+</details>
+<div data-only="mac win">
+<p><strong>e) Optional: the same upload with Cyberduck.</strong> Cyberduck is a free graphical client
+for Mac and Windows. This tests it on the same data, then checks with rclone that what
+it sent is intact.</p>
+<ol>
+<li>Install Cyberduck from <a href="https://cyberduck.io/download/">cyberduck.io/download</a>.</li>
+<li>Click "Open Connection" and choose the protocol <strong>S3 (HTTPS)</strong> in the list at the top
+   (if it is not there, enable it in the preferences, under Profiles). Server:
+   <code><span data-rclone="endpointhost">s3.eu-west-par.io.cloud.ovh.net</span></code>,
+   port 443, then the Access Key ID and the Secret Access Key, typed in this window
+   only.</li>
+<li>Open the bucket, create a folder named <code>CYBERDUCK-EXERCISE</code> (Action menu, then New
+   Folder) and open it. Select everything inside the folder
+   <code>rclone-exercise</code> of your home folder, in your file manager, and drag it into
+   the Cyberduck window. Note how long the transfer takes.</li>
+<li>Check with rclone. The <code>--download</code> option makes rclone compare the content byte by
+   byte: for large files, which Cyberduck sends in several parts, the bucket keeps no
+   checksum that rclone can compare.</li>
+</ol>
+<div data-only="mac">
+<div class="language-text rclone-tpl highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>rclone check "{{exo}}" {{remote}}:{{bucket}}/CYBERDUCK-EXERCISE --one-way --download \
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>  --exclude .DS_Store --combined "{{logs}}/cyberduck_check.txt"
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>rclone size "{{exo}}" --exclude .DS_Store
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>rclone size {{remote}}:{{bucket}}/CYBERDUCK-EXERCISE --exclude .DS_Store
+</span></code></pre></div>
+</div>
+<div data-only="win">
+<div class="language-text rclone-tpl highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>rclone check "{{exo}}" "{{remote}}:{{bucket}}/CYBERDUCK-EXERCISE" --one-way --download --combined "{{logs}}\cyberduck_check.txt"
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>rclone size "{{exo}}"
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>rclone size "{{remote}}:{{bucket}}/CYBERDUCK-EXERCISE"
+</span></code></pre></div>
+</div>
+<p>The check must end with <code>0 differences found</code>, and the last two commands must print the
+same number of objects and the same total size. Keep the folder <code>CYBERDUCK-EXERCISE</code> for
+now: step 5 uses it.</p>
+</div>
+<h3 id="step-5-practise-managing-files-in-the-bucket-recommended">Step 5 — Practise managing files in the bucket (recommended)<a class="headerlink" href="#step-5-practise-managing-files-in-the-bucket-recommended" title="Permanent link">&para;</a></h3>
+<p>Day-to-day work is rarely one big transfer: a new file arrives, a batch of files must be
+stored, a file was put in the wrong place, another one must go. This step practises
+these operations on the exercise data, which are still in the bucket under <code>EXERCISE</code>.</p>
+<p>In a bucket, a folder is only a part of the files' paths. You never need to create a
+folder before copying a file into it, and a folder disappears by itself when its last
+file is moved or deleted.</p>
+<p><strong>a) Prepare the new files</strong>: a 5 MB file, <code>new_sample.bam</code>, and a folder of ten 1 MB
+files, <code>new_batch</code>, both in your home folder.</p>
+<div data-only="linux mac">
+<div class="language-text rclone-tpl highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>head -c 5242880 /dev/urandom &gt; "{{newfile}}"
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>mkdir -p "{{newbatch}}"
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>for i in $(seq -w 1 10); do head -c 1048576 /dev/urandom &gt; "{{newbatch}}/file_$i.bin"; done
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>ls -l "{{newfile}}" "{{newbatch}}"
+</span></code></pre></div>
+</div>
+<div data-only="win">
+<div class="language-text rclone-tpl highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>&amp; {
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>  $rng = [Security.Cryptography.RandomNumberGenerator]::Create()
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>  function Write-Random([string]$Path, [int]$Bytes) { $b = New-Object byte[] $Bytes; $rng.GetBytes($b); [IO.File]::WriteAllBytes($Path, $b) }
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>  Write-Random "{{newfile}}" 5MB
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>  New-Item -ItemType Directory -Force -Path "{{newbatch}}" | Out-Null
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>  for ($i = 1; $i -le 10; $i++) { Write-Random (Join-Path "{{newbatch}}" ("file_{0:D2}.bin" -f $i)) 1MB }
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>  Get-ChildItem -LiteralPath "{{newfile}}", "{{newbatch}}" | Select-Object Name, Length
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>}
+</span></code></pre></div>
+</div>
+<p><strong>b) Upload a new file</strong>, first into an existing folder:</p>
+<div class="language-text rclone-tpl highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>rclone copy "{{newfile}}" {{remote}}:{{bucket}}/EXERCISE/run_02/large
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>rclone lsf {{remote}}:{{bucket}}/EXERCISE/run_02/large
+</span></code></pre></div>
+<p><code>rclone copy</code> takes a destination folder. The <code>lsf</code> must list <code>new_sample.bam</code> next to
+the <code>alignment_…bam</code> files already there.</p>
+<p>Then into a folder that does not exist yet:</p>
+<div class="language-text rclone-tpl highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>rclone copyto "{{newfile}}" {{remote}}:{{bucket}}/EXERCISE/run_03/new_sample.bam
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>rclone lsf {{remote}}:{{bucket}}/EXERCISE/run_03
+</span></code></pre></div>
+<p><code>rclone copyto</code> takes the full name of the file at destination, which also lets you
+rename it on the way. The <code>lsf</code> must print <code>new_sample.bam</code>: the folder <code>run_03</code> did not
+exist, the copy created it.</p>
+<p><strong>c) Upload a new folder</strong>, then check it:</p>
+<div class="language-text rclone-tpl highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>rclone copy "{{newbatch}}" {{remote}}:{{bucket}}/EXERCISE/new_batch
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>rclone check "{{newbatch}}" {{remote}}:{{bucket}}/EXERCISE/new_batch --one-way
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Name the folder in the destination</p>
+<p><code>rclone copy</code> copies the <em>content</em> of a folder. Without <code>/new_batch</code> at the end of
+the destination, the ten files would land loose in <code>EXERCISE</code>, mixed with the rest.</p>
+</div>
+<p><strong>d) Move and rename.</strong> The files are moved inside the bucket, without being uploaded
+again:</p>
+<div class="language-text rclone-tpl highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>rclone moveto {{remote}}:{{bucket}}/EXERCISE/run_03/new_sample.bam {{remote}}:{{bucket}}/EXERCISE/run_01/sample_renamed.bam
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>rclone move {{remote}}:{{bucket}}/EXERCISE/new_batch {{remote}}:{{bucket}}/EXERCISE/run_02/new_batch
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>rclone lsf {{remote}}:{{bucket}}/EXERCISE
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>rclone lsf {{remote}}:{{bucket}}/EXERCISE/run_02
+</span></code></pre></div>
+<p><code>moveto</code> moves one file and can rename it; <code>move</code> moves the content of a folder, with
+the same rule as <code>copy</code>: name the folder in the destination. The first <code>lsf</code> no longer
+lists <code>run_03/</code> nor <code>new_batch/</code>: once empty, they are gone. The second lists
+<code>new_batch/</code> in its new place.</p>
+<p><strong>e) Delete.</strong> Always run the command with <code>--dry-run</code> first: it deletes nothing and
+only shows what would be deleted.</p>
+<div class="language-text rclone-tpl highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>rclone deletefile {{remote}}:{{bucket}}/EXERCISE/run_01/sample_renamed.bam --dry-run
+</span></code></pre></div>
+<p>The output must name <code>sample_renamed.bam</code> only, followed by
+<code>Skipped delete as --dry-run is set</code>. Then, and only then, delete it for real:</p>
+<div class="language-text rclone-tpl highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>rclone deletefile {{remote}}:{{bucket}}/EXERCISE/run_01/sample_renamed.bam
+</span></code></pre></div>
+<p><code>deletefile</code> deletes exactly one file and refuses a folder: it is the safest way to
+delete. To delete a whole folder, use <code>rclone purge</code>:</p>
+<div class="admonition danger">
+<p class="admonition-title"><code>rclone purge</code> permanently deletes everything under the given path, without confirmation and without a trash</p>
+<p>A mistake in the path can wipe out the whole bucket, with all the data it holds.
+Read the path three times before pressing Enter, and run the command with
+<code>--dry-run</code> first.</p>
+</div>
+<div class="language-text rclone-tpl highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>rclone purge {{remote}}:{{bucket}}/EXERCISE/run_02/new_batch --dry-run
+</span></code></pre></div>
+<p>The output must end with <code>EXERCISE/run_02/new_batch: Skipped purge directory as
+--dry-run is set</code>: check that this path is the folder to delete, and nothing above it.
+Then delete it for real, and check that only <code>large/</code> remains in <code>run_02</code>:</p>
+<div class="language-text rclone-tpl highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>rclone purge {{remote}}:{{bucket}}/EXERCISE/run_02/new_batch
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>rclone lsf {{remote}}:{{bucket}}/EXERCISE/run_02
+</span></code></pre></div>
+<div data-only="mac win">
+<p><strong>f) Optional: the same operations with Cyberduck</strong>, in the folder <code>CYBERDUCK-EXERCISE</code>:</p>
+<ol>
+<li>Drag <code>new_sample.bam</code> from your home folder into <code>run_01</code>.</li>
+<li>Rename it: select it, press Return, type <code>renamed.bam</code>, press Return again.</li>
+<li>Move it: Edit menu, Cut; open <code>run_02</code>; Edit menu, Paste ("Édition", "Couper",
+   "Coller" if Cyberduck is in French).</li>
+<li>Drag the folder <code>new_batch</code> from your home folder into <code>CYBERDUCK-EXERCISE</code>.</li>
+<li>
+<p>Look at the result with rclone:</p>
+<div class="language-text rclone-tpl highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>rclone lsf {{remote}}:{{bucket}}/CYBERDUCK-EXERCISE/run_01
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>rclone lsf {{remote}}:{{bucket}}/CYBERDUCK-EXERCISE/run_02
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>rclone lsf {{remote}}:{{bucket}}/CYBERDUCK-EXERCISE/new_batch
+</span></code></pre></div>
+<p><code>run_02</code> must list <code>renamed.bam</code> next to <code>large/</code>, and <code>new_batch</code> its ten files.
+<span data-only="mac">With an OVHcloud bucket, Cyberduck on Mac can stop with a
+connection error during a rename or a move, and leave the original file in place:
+if <code>run_01</code> still lists <code>new_sample.bam</code> or <code>renamed.bam</code>, delete them in Cyberduck.
+rclone does not have this problem (step d).</span></p>
+</li>
+<li>
+<p>Delete <code>renamed.bam</code>: select it, then Delete ("Effacer" in French), and confirm.</p>
+</li>
+</ol>
+</div>
+<p><strong>g) Clean up</strong> the bucket<span data-only="mac win"> (both exercise folders)</span>
+and your computer. Same care as above: the path must end with <code>/EXERCISE</code>.</p>
+<div class="language-text rclone-tpl highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>rclone purge {{remote}}:{{bucket}}/EXERCISE
+</span></code></pre></div>
+<div data-only="mac win">
+<p>In Cyberduck, select the folder <code>CYBERDUCK-EXERCISE</code> at the root of the bucket, choose
+Delete ("Effacer" in French) and confirm: Cyberduck removes the folder and everything
+in it. Do it in Cyberduck rather than with <code>rclone purge</code>, which would leave the empty
+folder created by Cyberduck behind.</p>
+</div>
+<div data-only="linux mac">
+<div class="language-text rclone-tpl highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>rm -rf "{{exo}}" "{{newfile}}" "{{newbatch}}"
+</span></code></pre></div>
+</div>
+<div data-only="win">
+<div class="language-text rclone-tpl highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>Remove-Item -LiteralPath "{{exo}}", "{{newfile}}", "{{newbatch}}" -Recurse -Force
+</span></code></pre></div>
+</div>
+<p>Then send the files of the
+<code><span data-rclone="logs">$HOME/rclone-logs</span></code> directory to whoever
+supports you.</p>
+<h3 id="step-6-transfer-the-real-data">Step 6 — Transfer the real data<a class="headerlink" href="#step-6-transfer-the-real-data" title="Permanent link">&para;</a></h3>
+<p>The same commands, with the directory of the real data
+(<span data-rclone="src">/path/to/data</span>) and the destination directory in the
+bucket (<span data-rclone="dst">my-dataset</span>). First look for symbolic links,
+which rclone ignores by default: if the following command prints anything, ask for
+advice before going further.</p>
+<div data-only="linux mac">
+<div class="language-text rclone-tpl highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>find "{{src}}" -type l | head
+</span></code></pre></div>
+</div>
+<div data-only="win">
+<div class="language-text rclone-tpl highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>Get-ChildItem -LiteralPath "{{src}}" -Recurse -Attributes ReparsePoint | Select-Object -First 10 -ExpandProperty FullName
+</span></code></pre></div>
+</div>
+<div data-only="linux">
+<p>Open a <code>screen</code> session, then start the transfer inside it:</p>
+<div class="language-text rclone-tpl highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>screen -S transfer
+</span></code></pre></div>
+<div class="language-text rclone-tpl highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>BW="{{bw}}"
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>rclone copy "{{src}}" "{{remote}}:{{bucket}}/{{dst}}" \
+</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>  --fast-list --transfers 4 \
+</span><span id="__span-37-4"><a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>  --bwlimit "$BW" -P \
+</span><span id="__span-37-5"><a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>  --log-file "{{logs}}/transfer_copy.log" --log-level INFO || tail -n 5 "{{logs}}/transfer_copy.log"
+</span></code></pre></div>
+</div>
+<div data-only="mac">
+<div class="language-text rclone-tpl highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>BW="{{bw}}"
+</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>caffeinate -i rclone copy "{{src}}" "{{remote}}:{{bucket}}/{{dst}}" \
+</span><span id="__span-38-3"><a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>  --exclude .DS_Store --fast-list --transfers 4 \
+</span><span id="__span-38-4"><a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a>  --bwlimit "$BW" -P \
+</span><span id="__span-38-5"><a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a>  --log-file "{{logs}}/transfer_copy.log" --log-level INFO || tail -n 5 "{{logs}}/transfer_copy.log"
+</span></code></pre></div>
+</div>
+<div data-only="win">
+<div class="language-text rclone-tpl highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>$BW = "{{bw}}"
+</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>rclone copy "{{src}}" "{{remote}}:{{bucket}}/{{dst}}" --fast-list --transfers 4 --bwlimit $BW -P --log-file "{{logs}}\transfer_copy.log" --log-level INFO
+</span><span id="__span-39-3"><a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>if ($LASTEXITCODE -ne 0) { Get-Content "{{logs}}\transfer_copy.log" -Tail 5 }
+</span></code></pre></div>
+</div>
+<p>Once the transfer is over, check:</p>
+<div data-only="linux">
+<div class="language-text rclone-tpl highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>rclone check "{{src}}" "{{remote}}:{{bucket}}/{{dst}}" --one-way --fast-list \
+</span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>  --combined "{{logs}}/transfer_check.txt"
+</span><span id="__span-40-3"><a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>rclone size "{{src}}"
+</span><span id="__span-40-4"><a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a>rclone size "{{remote}}:{{bucket}}/{{dst}}"
+</span></code></pre></div>
+</div>
+<div data-only="mac">
+<div class="language-text rclone-tpl highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>rclone check "{{src}}" "{{remote}}:{{bucket}}/{{dst}}" --one-way --fast-list \
+</span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>  --exclude .DS_Store --combined "{{logs}}/transfer_check.txt"
+</span><span id="__span-41-3"><a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a>rclone size "{{src}}" --exclude .DS_Store
+</span><span id="__span-41-4"><a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a>rclone size "{{remote}}:{{bucket}}/{{dst}}" --exclude .DS_Store
+</span></code></pre></div>
+</div>
+<div data-only="win">
+<div class="language-text rclone-tpl highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>rclone check "{{src}}" "{{remote}}:{{bucket}}/{{dst}}" --one-way --fast-list --combined "{{logs}}\transfer_check.txt"
+</span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>rclone size "{{src}}"
+</span><span id="__span-42-3"><a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>rclone size "{{remote}}:{{bucket}}/{{dst}}"
+</span></code></pre></div>
+</div>
+<p>If the transfer is interrupted, run exactly the same command again: rclone only sends
+what is missing.</p>
+<div class="admonition warning">
+<p class="admonition-title">Always <code>rclone copy</code>, never <code>rclone sync</code></p>
+<p><code>sync</code> deletes from the bucket whatever no longer exists on your machine.</p>
+</div>
+<h3 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>The copy command returns at once, or ends with <code>Errors: 1</code> or more</strong>: read the last
+  lines of the log, which the command prints in that case. <code>didn't find section in
+  config file</code> means that the rclone configuration name in "Your values" is not the one
+  created at step 2 (the command <code>rclone listremotes</code> lists the existing ones).
+  <code>directory not found</code> means that the source directory does not exist on this
+  machine: check its path in "Your values".</li>
+<li><strong><code>AccessDenied</code></strong>: the keys were mistyped at step 2. Delete the configuration with
+  <code>rclone config delete <span data-rclone="remote">ovh</span></code>, then paste
+  the step 2 block again.</li>
+<li><strong><code>rclone</code> is not found</strong> after installation: open a new terminal window and try
+  again.</li>
+<li>
+<p><strong>The site network or the machine slows down</strong>: stop rclone (<span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-c">C</kbd></span>), lower both
+  bandwidths in "Your values", copy the command again and restart it. Once all
+  transfers are over, this command deletes interrupted uploads older than 24 hours,
+  which would otherwise still be billed in the bucket:</p>
+<div class="language-text rclone-tpl highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>rclone backend cleanup {{remote}}:{{bucket}}
+</span></code></pre></div>
+</li>
+<li>
+<p><strong>The check finds differences</strong>: run the <code>rclone copy</code> command again with
+  <code>--checksum</code> added, then check again.</p>
+</li>
+</ul>
+<h2 id="part-2-cold-archive-optional">Part 2 — Cold archive (optional)<a class="headerlink" href="#part-2-cold-archive-optional" title="Permanent link">&para;</a></h2>
+<p>This part only concerns data that have already been transferred and checked, and that
+you decide to keep for a long time without reading them. The decision belongs to the
+people responsible for the data.</p>
+<p>OVHcloud offers its cheapest storage class, Cold Archive, only in the Paris 3-AZ region
+(<code>eu-west-par</code>): the bucket must have been created there. Three constraints to know
+before deciding:</p>
+<ul>
+<li><strong>180 days minimum</strong>: a file archived, then deleted or replaced before 180 days is
+  billed until the end of that period.</li>
+<li><strong>Delayed reading</strong>: an archived file must be restored before it can be read; the
+  restoration is billed and can take up to 48 hours.</li>
+<li><strong>File-by-file restoration</strong>: it is better to bundle small files into tar archives
+  (for instance one per sequencing run) before the transfer.</li>
+</ul>
+<p>Two ways to do it:</p>
+<ul>
+<li><strong>Lifecycle rule (recommended)</strong>: in the OVHcloud Control Panel, <em>Lifecycle</em> tab of
+  the bucket, create a rule that transitions objects to Cold Archive after N days.
+  Files move automatically; the transition itself is free.</li>
+<li><strong>Direct upload to the archive</strong>: add <code>--s3-storage-class DEEP_ARCHIVE</code> to the
+  <code>rclone copy</code> command. Simpler, but leaves no room for mistakes.</li>
+</ul>
+<p>To restore an archived directory and keep it readable for 7 days: the restoration does
+not touch the archived version, which stays in Cold Archive. It is not a swap. It
+creates a temporary readable copy alongside, billed for its lifetime, which disappears
+by itself after the 7 days.</p>
+<div class="language-text rclone-tpl highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>rclone backend restore "{{remote}}:{{bucket}}/{{dst}}" -o priority=Standard -o lifetime=7
+</span></code></pre></div>
+<p>See OVHcloud's <a href="https://docs.ovhcloud.com/en/guides/storage-and-backup/object-storage/cold-archive-faq">Cold Archive FAQ</a>
+for current conditions and prices.</p>
+<h2 id="appendix-the-generation-script-linux-and-mac">Appendix — The generation script (Linux and Mac)<a class="headerlink" href="#appendix-the-generation-script-linux-and-mac" title="Permanent link">&para;</a></h2>
+<p>The same script as in step 4 a), without the command that creates the file.</p>
+<details class="example">
+<summary>Show the script</summary>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="ch">#!/usr/bin/env bash</span>
+</span><span id="__span-45-2"><a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a><span class="c1"># Generates a tree of dummy data (random, incompressible) that mimics</span>
+</span><span id="__span-45-3"><a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a><span class="c1"># raw sequencing data, to test an rclone transfer. Runs on Linux and macOS.</span>
+</span><span id="__span-45-4"><a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a><span class="c1"># Usage: ./generate_test_data.sh TARGET_DIR [VOLUME_IN_GB]</span>
+</span><span id="__span-45-5"><a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a><span class="c1">#   VOLUME_IN_GB &lt; 10  -&gt; "quick test" set (~1 GB)</span>
+</span><span id="__span-45-6"><a id="__codelineno-45-6" name="__codelineno-45-6" href="#__codelineno-45-6"></a><span class="c1">#   VOLUME_IN_GB &gt;= 10 -&gt; ~VOLUME_IN_GB GB (70 % as 1 GiB files, 30 % as 10 GiB files)</span>
+</span><span id="__span-45-7"><a id="__codelineno-45-7" name="__codelineno-45-7" href="#__codelineno-45-7"></a><span class="nb">set</span><span class="w"> </span>-euo<span class="w"> </span>pipefail
+</span><span id="__span-45-8"><a id="__codelineno-45-8" name="__codelineno-45-8" href="#__codelineno-45-8"></a>
+</span><span id="__span-45-9"><a id="__codelineno-45-9" name="__codelineno-45-9" href="#__codelineno-45-9"></a><span class="nv">DEST</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">1</span><span class="p">:?Usage: </span><span class="nv">$0</span><span class="p"> TARGET_DIR [VOLUME_IN_GB]</span><span class="si">}</span><span class="s2">"</span>
+</span><span id="__span-45-10"><a id="__codelineno-45-10" name="__codelineno-45-10" href="#__codelineno-45-10"></a><span class="nv">VOL</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">2</span><span class="k">:-</span><span class="nv">1</span><span class="si">}</span><span class="s2">"</span>
+</span><span id="__span-45-11"><a id="__codelineno-45-11" name="__codelineno-45-11" href="#__codelineno-45-11"></a><span class="nv">MIB</span><span class="o">=</span><span class="m">1048576</span>
+</span><span id="__span-45-12"><a id="__codelineno-45-12" name="__codelineno-45-12" href="#__codelineno-45-12"></a>
+</span><span id="__span-45-13"><a id="__codelineno-45-13" name="__codelineno-45-13" href="#__codelineno-45-13"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">"</span><span class="nv">$DEST</span><span class="s2">"</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">"</span><span class="k">$(</span>ls<span class="w"> </span>-A<span class="w"> </span><span class="s2">"</span><span class="nv">$DEST</span><span class="s2">"</span><span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="k">)</span><span class="s2">"</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-45-14"><a id="__codelineno-45-14" name="__codelineno-45-14" href="#__codelineno-45-14"></a><span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Error: </span><span class="nv">$DEST</span><span class="s2"> exists and is not empty."</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+</span><span id="__span-45-15"><a id="__codelineno-45-15" name="__codelineno-45-15" href="#__codelineno-45-15"></a><span class="w">  </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+</span><span id="__span-45-16"><a id="__codelineno-45-16" name="__codelineno-45-16" href="#__codelineno-45-16"></a><span class="k">fi</span>
+</span><span id="__span-45-17"><a id="__codelineno-45-17" name="__codelineno-45-17" href="#__codelineno-45-17"></a>
+</span><span id="__span-45-18"><a id="__codelineno-45-18" name="__codelineno-45-18" href="#__codelineno-45-18"></a><span class="c1"># Check free space before starting (requested volume + 10 %)</span>
+</span><span id="__span-45-19"><a id="__codelineno-45-19" name="__codelineno-45-19" href="#__codelineno-45-19"></a>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="s2">"</span><span class="nv">$DEST</span><span class="s2">"</span>
+</span><span id="__span-45-20"><a id="__codelineno-45-20" name="__codelineno-45-20" href="#__codelineno-45-20"></a><span class="nv">NEEDED_GB</span><span class="o">=</span><span class="k">$((</span><span class="w"> </span><span class="o">(</span><span class="nv">VOL</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">10</span><span class="w"> </span>?<span class="w"> </span><span class="m">2</span><span class="w"> </span>:<span class="w"> </span><span class="nv">VOL</span><span class="o">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="k">))</span>
+</span><span id="__span-45-21"><a id="__codelineno-45-21" name="__codelineno-45-21" href="#__codelineno-45-21"></a><span class="nv">FREE_GB</span><span class="o">=</span><span class="k">$((</span><span class="w"> </span><span class="k">$(</span>df<span class="w"> </span>-Pk<span class="w"> </span><span class="s2">"</span><span class="nv">$DEST</span><span class="s2">"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">'NR==2 {print $4}'</span><span class="k">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">1024</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">1024</span><span class="w"> </span><span class="k">))</span>
+</span><span id="__span-45-22"><a id="__codelineno-45-22" name="__codelineno-45-22" href="#__codelineno-45-22"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">"</span><span class="nv">$FREE_GB</span><span class="s2">"</span><span class="w"> </span>-lt<span class="w"> </span><span class="s2">"</span><span class="nv">$NEEDED_GB</span><span class="s2">"</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-45-23"><a id="__codelineno-45-23" name="__codelineno-45-23" href="#__codelineno-45-23"></a><span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Error: </span><span class="nv">$NEEDED_GB</span><span class="s2"> GB of free space needed, only </span><span class="nv">$FREE_GB</span><span class="s2"> GB available on this disk."</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+</span><span id="__span-45-24"><a id="__codelineno-45-24" name="__codelineno-45-24" href="#__codelineno-45-24"></a><span class="w">  </span>rmdir<span class="w"> </span><span class="s2">"</span><span class="nv">$DEST</span><span class="s2">"</span><span class="w"> </span><span class="m">2</span>&gt;/dev/null
+</span><span id="__span-45-25"><a id="__codelineno-45-25" name="__codelineno-45-25" href="#__codelineno-45-25"></a><span class="w">  </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+</span><span id="__span-45-26"><a id="__codelineno-45-26" name="__codelineno-45-26" href="#__codelineno-45-26"></a><span class="k">fi</span>
+</span><span id="__span-45-27"><a id="__codelineno-45-27" name="__codelineno-45-27" href="#__codelineno-45-27"></a>
+</span><span id="__span-45-28"><a id="__codelineno-45-28" name="__codelineno-45-28" href="#__codelineno-45-28"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">"</span><span class="nv">$VOL</span><span class="s2">"</span><span class="w"> </span>-lt<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-45-29"><a id="__codelineno-45-29" name="__codelineno-45-29" href="#__codelineno-45-29"></a><span class="w">  </span><span class="nv">N_MEDIUM</span><span class="o">=</span><span class="m">3</span><span class="p">;</span><span class="w">  </span><span class="nv">S_MEDIUM</span><span class="o">=</span><span class="k">$((</span><span class="w"> </span><span class="m">100</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nv">MIB</span><span class="w"> </span><span class="k">))</span><span class="w">   </span><span class="c1"># 3 x 100 MiB</span>
+</span><span id="__span-45-30"><a id="__codelineno-45-30" name="__codelineno-45-30" href="#__codelineno-45-30"></a><span class="w">  </span><span class="nv">N_LARGE</span><span class="o">=</span><span class="m">1</span><span class="p">;</span><span class="w">   </span><span class="nv">S_LARGE</span><span class="o">=</span><span class="k">$((</span><span class="w"> </span><span class="m">600</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nv">MIB</span><span class="w"> </span><span class="k">))</span><span class="w">    </span><span class="c1"># 1 x 600 MiB: uploaded in several parts</span>
+</span><span id="__span-45-31"><a id="__codelineno-45-31" name="__codelineno-45-31" href="#__codelineno-45-31"></a><span class="k">else</span>
+</span><span id="__span-45-32"><a id="__codelineno-45-32" name="__codelineno-45-32" href="#__codelineno-45-32"></a><span class="w">  </span><span class="nv">N_MEDIUM</span><span class="o">=</span><span class="k">$((</span><span class="w"> </span><span class="nv">VOL</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">70</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">100</span><span class="w"> </span><span class="k">))</span><span class="p">;</span><span class="w"> </span><span class="nv">S_MEDIUM</span><span class="o">=</span><span class="k">$((</span><span class="w"> </span><span class="m">1024</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nv">MIB</span><span class="w"> </span><span class="k">))</span>
+</span><span id="__span-45-33"><a id="__codelineno-45-33" name="__codelineno-45-33" href="#__codelineno-45-33"></a><span class="w">  </span><span class="nv">N_LARGE</span><span class="o">=</span><span class="k">$((</span><span class="w"> </span><span class="nv">VOL</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">1000</span><span class="w"> </span><span class="k">))</span><span class="p">;</span><span class="w"> </span><span class="nv">S_LARGE</span><span class="o">=</span><span class="k">$((</span><span class="w"> </span><span class="m">10240</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nv">MIB</span><span class="w"> </span><span class="k">))</span>
+</span><span id="__span-45-34"><a id="__codelineno-45-34" name="__codelineno-45-34" href="#__codelineno-45-34"></a><span class="k">fi</span>
+</span><span id="__span-45-35"><a id="__codelineno-45-35" name="__codelineno-45-35" href="#__codelineno-45-35"></a>
+</span><span id="__span-45-36"><a id="__codelineno-45-36" name="__codelineno-45-36" href="#__codelineno-45-36"></a>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="s2">"</span><span class="nv">$DEST</span><span class="s2">/run_01/small"</span><span class="w"> </span><span class="s2">"</span><span class="nv">$DEST</span><span class="s2">/run_01/medium"</span><span class="w"> </span><span class="s2">"</span><span class="nv">$DEST</span><span class="s2">/run_02/large"</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-45-37"><a id="__codelineno-45-37" name="__codelineno-45-37" href="#__codelineno-45-37"></a><span class="w">         </span><span class="s2">"</span><span class="nv">$DEST</span><span class="s2">/folder with spaces/données accentuées"</span>
+</span><span id="__span-45-38"><a id="__codelineno-45-38" name="__codelineno-45-38" href="#__codelineno-45-38"></a>
+</span><span id="__span-45-39"><a id="__codelineno-45-39" name="__codelineno-45-39" href="#__codelineno-45-39"></a><span class="c1"># 2000 small files of 100 KiB (many objects, little volume)</span>
+</span><span id="__span-45-40"><a id="__codelineno-45-40" name="__codelineno-45-40" href="#__codelineno-45-40"></a><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">$(</span>seq<span class="w"> </span>-w<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2000</span><span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-45-41"><a id="__codelineno-45-41" name="__codelineno-45-41" href="#__codelineno-45-41"></a><span class="w">  </span>head<span class="w"> </span>-c<span class="w"> </span><span class="m">102400</span><span class="w"> </span>/dev/urandom<span class="w"> </span>&gt;<span class="w"> </span><span class="s2">"</span><span class="nv">$DEST</span><span class="s2">/run_01/small/read_</span><span class="nv">$i</span><span class="s2">.bin"</span>
+</span><span id="__span-45-42"><a id="__codelineno-45-42" name="__codelineno-45-42" href="#__codelineno-45-42"></a><span class="k">done</span>
+</span><span id="__span-45-43"><a id="__codelineno-45-43" name="__codelineno-45-43" href="#__codelineno-45-43"></a>
+</span><span id="__span-45-44"><a id="__codelineno-45-44" name="__codelineno-45-44" href="#__codelineno-45-44"></a><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">$(</span>seq<span class="w"> </span>-w<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="s2">"</span><span class="nv">$N_MEDIUM</span><span class="s2">"</span><span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-45-45"><a id="__codelineno-45-45" name="__codelineno-45-45" href="#__codelineno-45-45"></a><span class="w">  </span>head<span class="w"> </span>-c<span class="w"> </span><span class="s2">"</span><span class="nv">$S_MEDIUM</span><span class="s2">"</span><span class="w"> </span>/dev/urandom<span class="w"> </span>&gt;<span class="w"> </span><span class="s2">"</span><span class="nv">$DEST</span><span class="s2">/run_01/medium/sample_</span><span class="nv">$i</span><span class="s2">.fastq.gz"</span>
+</span><span id="__span-45-46"><a id="__codelineno-45-46" name="__codelineno-45-46" href="#__codelineno-45-46"></a><span class="k">done</span>
+</span><span id="__span-45-47"><a id="__codelineno-45-47" name="__codelineno-45-47" href="#__codelineno-45-47"></a>
+</span><span id="__span-45-48"><a id="__codelineno-45-48" name="__codelineno-45-48" href="#__codelineno-45-48"></a><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">$(</span>seq<span class="w"> </span>-w<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="s2">"</span><span class="nv">$N_LARGE</span><span class="s2">"</span><span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-45-49"><a id="__codelineno-45-49" name="__codelineno-45-49" href="#__codelineno-45-49"></a><span class="w">  </span>head<span class="w"> </span>-c<span class="w"> </span><span class="s2">"</span><span class="nv">$S_LARGE</span><span class="s2">"</span><span class="w"> </span>/dev/urandom<span class="w"> </span>&gt;<span class="w"> </span><span class="s2">"</span><span class="nv">$DEST</span><span class="s2">/run_02/large/alignment_</span><span class="nv">$i</span><span class="s2">.bam"</span>
+</span><span id="__span-45-50"><a id="__codelineno-45-50" name="__codelineno-45-50" href="#__codelineno-45-50"></a><span class="k">done</span>
+</span><span id="__span-45-51"><a id="__codelineno-45-51" name="__codelineno-45-51" href="#__codelineno-45-51"></a>
+</span><span id="__span-45-52"><a id="__codelineno-45-52" name="__codelineno-45-52" href="#__codelineno-45-52"></a><span class="c1"># Tricky names: spaces, accents, parentheses</span>
+</span><span id="__span-45-53"><a id="__codelineno-45-53" name="__codelineno-45-53" href="#__codelineno-45-53"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"witness file"</span><span class="w"> </span>&gt;<span class="w"> </span><span class="s2">"</span><span class="nv">$DEST</span><span class="s2">/folder with spaces/données accentuées/échantillon (copie) n°1.txt"</span>
+</span><span id="__span-45-54"><a id="__codelineno-45-54" name="__codelineno-45-54" href="#__codelineno-45-54"></a>
+</span><span id="__span-45-55"><a id="__codelineno-45-55" name="__codelineno-45-55" href="#__codelineno-45-55"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Done:"</span>
+</span><span id="__span-45-56"><a id="__codelineno-45-56" name="__codelineno-45-56" href="#__codelineno-45-56"></a>du<span class="w"> </span>-sh<span class="w"> </span><span class="s2">"</span><span class="nv">$DEST</span><span class="s2">"</span>
+</span><span id="__span-45-57"><a id="__codelineno-45-57" name="__codelineno-45-57" href="#__codelineno-45-57"></a>find<span class="w"> </span><span class="s2">"</span><span class="nv">$DEST</span><span class="s2">"</span><span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"files:"</span>
+</span></code></pre></div>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../TARGET_download/galaxy_import/" class="md-footer__link md-footer__link--prev" aria-label="Previous: import files in Galaxy using the edited files metadata">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                import files in Galaxy using the edited files metadata
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../bash_snippets/" class="md-footer__link md-footer__link--next" aria-label="Next: Terminal Bash">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Terminal Bash
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["header.autohide", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.prune", "navigation.footer", "content.tabs.link", "content.code.copy", "content.action.view", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../javascripts/rclone-form.js"></script>
+      
+    
+  </body>
+</html>
