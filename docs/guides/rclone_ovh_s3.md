@@ -9,6 +9,27 @@ On a Mac or a PC, you can also try a graphical client, Cyberduck, on the same da
 Moving the data to cold archive afterwards is optional and covered separately at
 the end of the page ([Part 2](#part-2-cold-archive-optional)).
 
+## What you need
+
+Four things, whatever your system:
+
+- **An OVHcloud account with a Public Cloud project.** The storage is created and billed
+  in this project.
+- **A bucket** in the project's Object Storage, with the S3 API. You need its name and
+  its region (for instance `eu-west-par`, Paris).
+- **Keys for this bucket**: an access key and a secret key. They belong to an Object
+  Storage user who has the right to read and write in the bucket.
+- **A machine to work from**: the Linux server, the Mac or the Windows PC that holds the
+  data. The exercise of step 4 runs on this machine, with dummy data, before any real
+  transfer.
+
+In most cases, the account, the bucket and the keys are provided by whoever administers
+the OVHcloud account for your team: you only receive the bucket name, its region and the
+two keys. If you have your own OVHcloud account, OVHcloud's documentation explains how
+to [create a Public Cloud project](https://docs.ovhcloud.com/en/guides/public-cloud/cross-functional/create-a-public-cloud-project),
+[create a bucket](https://docs.ovhcloud.com/en/guides/storage-and-backup/object-storage/s3-getting-started-with-object-storage)
+and [create an Object Storage user with its keys](https://docs.ovhcloud.com/en/guides/storage-and-backup/object-storage/s3-identity-and-access-management).
+
 ## Your values
 
 <div id="rclone-form" class="rclone-form" markdown>
@@ -17,6 +38,9 @@ First choose where you will type the commands, then fill in the fields: every co
 on this page updates as you type, and you only have to copy it. Fields highlighted in
 yellow still hold an example value. Your values are kept in this browser for your next
 visit; nothing is sent anywhere.
+
+The exercise data and the logs always go to your home folder, in the folders
+`rclone-exercise` and `rclone-logs`: they need no field.
 
 <div class="rclone-os" role="group" aria-label="Where you run the commands">
 <button type="button" data-os-pick="linux">Linux server<small>in a terminal, often through SSH</small></button>
@@ -32,44 +56,12 @@ visit; nothing is sent anywhere.
     Keys are typed only in the terminal, at step 2 (and in Cyberduck's own login window
     if you try it).
 
-<div data-only="linux" markdown>
-
-Preview: the real transfer command, with your values (step 5).
-
-``` { .text .rclone-tpl }
-BW="{{bw}}"
-rclone copy "{{src}}" "{{remote}}:{{bucket}}/{{dst}}" \
-  --fast-list --transfers 4 \
-  --bwlimit "$BW" -P \
-  --log-file "{{logs}}/transfer_copy.log" --log-level INFO
-```
-
-</div>
-
-<div data-only="mac" markdown>
-
-Preview: the real transfer command, with your values (step 5).
+Example: your values in the command that lists the content of the bucket. It changes
+nothing, and works once steps 1 and 2 are done.
 
 ``` { .text .rclone-tpl }
-BW="{{bw}}"
-caffeinate -i rclone copy "{{src}}" "{{remote}}:{{bucket}}/{{dst}}" \
-  --exclude .DS_Store --fast-list --transfers 4 \
-  --bwlimit "$BW" -P \
-  --log-file "{{logs}}/transfer_copy.log" --log-level INFO
+rclone lsf {{remote}}:{{bucket}}
 ```
-
-</div>
-
-<div data-only="win" markdown>
-
-Preview: the real transfer command, with your values (step 5).
-
-``` { .text .rclone-tpl }
-$BW = "{{bw}}"
-rclone copy "{{src}}" "{{remote}}:{{bucket}}/{{dst}}" --fast-list --transfers 4 --bwlimit $BW -P --log-file "{{logs}}\transfer_copy.log" --log-level INFO
-```
-
-</div>
 
 </div>
 
@@ -78,23 +70,18 @@ the commands for your system only.</p>
 
 ## Before you start
 
-- Three pieces of information from whoever manages your OVHcloud Public Cloud project:
-  the bucket name (<span data-rclone="bucket">my-bucket</span>), an access key and a
-  secret key.
+- The bucket name (<span data-rclone="bucket">my-bucket</span>), its region, the
+  access key and the secret key ([What you need](#what-you-need)).
 - <span data-only="linux">An account on the Linux server that holds the data, with
-  Internet access, and at least <span data-rclone="need">110</span> GB of free space on
-  a data disk of the server for the exercise, not on the system disk.</span><span
-  data-only="mac">The Terminal app (Applications, then Utilities) and at least
-  <span data-rclone="need">2</span> GB of free space for the exercise.</span><span
-  data-only="win">Windows PowerShell (Start menu, type PowerShell) and at least
-  <span data-rclone="need">2</span> GB of free space for the exercise.</span>
+  Internet access, and at least 2 GB of free space in your home directory for the
+  exercise.</span><span data-only="mac">The Terminal app (Applications, then Utilities)
+  and at least 2 GB of free space in your home folder for the exercise.</span><span
+  data-only="win">Windows PowerShell (Start menu, type PowerShell) and at least 2 GB of
+  free space in your home folder for the exercise.</span><span data-only="mac win">
+  Keep the computer plugged in and awake during transfers.</span>
 - Administrator rights on your machine to install rclone (`sudo` on Linux and Mac).
   <span data-only="linux">On a shared server where you do not have them, use the
   variant without administrator rights given at step 1.</span>
-- <span data-only="linux">About one hour for the 100 GB exercise. Measured on a lab
-  server: 6 minutes to generate the data and 35 minutes to upload them, plus the time
-  to check, clean up and read the commands.</span><span data-only="mac win">Keep the
-  computer plugged in and awake during transfers.</span>
 
 ## Part 1 — Transfer the data
 
@@ -217,8 +204,7 @@ The second command must print `access_test.txt`. If a command prints
 ### Step 4 — Practise with dummy data (mandatory)
 
 This step is not optional. It checks that your machine, the network and the bucket
-work together, and it tells you how long the real transfer will take, without any risk
-for your real data.
+work together, without any risk for your real data.
 
 <div data-only="linux mac" markdown>
 
@@ -236,15 +222,12 @@ for your real data.
 
 You can also [download the script](rclone/generate_test_data.sh) and read it first.
 
-**b) Generate the data.** They go to <span data-rclone="exo">/data_disk/rclone-exercise</span>.
-<span data-only="linux">Never use your home directory on a server, which is often on
-the system disk: filling it up can freeze the server. If you get "Permission denied",
-ask the server's administrator for a directory in your name on a data disk.</span> The
-script refuses to start if the folder is not empty or if there is not enough space.
+**b) Generate the data.** They go to <span data-rclone="exo">$HOME/rclone-exercise</span>.
+The script refuses to start if the folder is not empty or if there is not enough space.
 
 ``` { .text .rclone-tpl }
 mkdir -p "{{logs}}"
-./generate_test_data.sh "{{exo}}" {{vol}}
+./generate_test_data.sh "{{exo}}" 1
 ```
 
 </div>
@@ -260,7 +243,7 @@ The block refuses to start if the folder is not empty or if there is not enough 
 
     ``` { .text .rclone-tpl }
     & {
-      $Dest = "{{exo}}"; $Vol = {{vol}}
+      $Dest = "{{exo}}"; $Vol = 1
       New-Item -ItemType Directory -Force -Path "{{logs}}" | Out-Null
       if ((Test-Path -LiteralPath $Dest) -and (Get-ChildItem -LiteralPath $Dest -Force | Select-Object -First 1)) {
         Write-Host "Error: $Dest exists and is not empty."; return
@@ -296,12 +279,8 @@ The block refuses to start if the folder is not empty or if there is not enough 
 
 </div>
 
-<p class="rclone-hint-line" data-only="linux">Generation takes about 6 minutes for
-100 GB on a typical lab server. For a more thorough exercise, set "Exercise volume" to
-500.</p>
-<p class="rclone-hint-line" data-only="mac win">1 GB by default: about 2000 small
-files, three medium ones and one large one, plus a file with spaces and accents in its
-name.</p>
+<p class="rclone-hint-line">1 GB: about 2000 small files, three medium ones and one
+large one, plus a file with spaces and accents in its name.</p>
 
 <div data-only="linux" markdown>
 
@@ -319,7 +298,7 @@ BW="{{bw}}"
 rclone copy "{{exo}}" {{remote}}:{{bucket}}/EXERCISE \
   --fast-list --transfers 4 \
   --bwlimit "$BW" -P \
-  --log-file "{{logs}}/exercise_copy.log" --log-level INFO
+  --log-file "{{logs}}/exercise_copy.log" --log-level INFO || tail -n 5 "{{logs}}/exercise_copy.log"
 ```
 
 To leave `screen` without stopping the transfer: ++ctrl+a++ then ++d++. To come back:
@@ -337,7 +316,7 @@ BW="{{bw}}"
 caffeinate -i rclone copy "{{exo}}" {{remote}}:{{bucket}}/EXERCISE \
   --exclude .DS_Store --fast-list --transfers 4 \
   --bwlimit "$BW" -P \
-  --log-file "{{logs}}/exercise_copy.log" --log-level INFO
+  --log-file "{{logs}}/exercise_copy.log" --log-level INFO || tail -n 5 "{{logs}}/exercise_copy.log"
 ```
 
 </div>
@@ -349,12 +328,15 @@ caffeinate -i rclone copy "{{exo}}" {{remote}}:{{bucket}}/EXERCISE \
 ``` { .text .rclone-tpl }
 $BW = "{{bw}}"
 rclone copy "{{exo}}" "{{remote}}:{{bucket}}/EXERCISE" --fast-list --transfers 4 --bwlimit $BW -P --log-file "{{logs}}\exercise_copy.log" --log-level INFO
+if ($LASTEXITCODE -ne 0) { Get-Content "{{logs}}\exercise_copy.log" -Tail 5 }
 ```
 
 </div>
 
 - Progress is displayed live (option `-P`); the detailed log is
   <code><span data-rclone="logcopy">$HOME/rclone-logs/exercise_copy.log</span></code>.
+- If rclone fails, the end of the command prints the last lines of this log, which say
+  why (see Troubleshooting).
 - The `BW` line limits the bandwidth to <span data-rclone="day">50M</span>iB/s on
   weekdays from 8 am to 8 pm, and to <span data-rclone="night">80M</span>iB/s at night
   and at weekends, so as not to saturate the site network. Times are those of the
@@ -399,48 +381,21 @@ two commands print the same number of objects and the same total size.
 <span data-only="mac">`--exclude .DS_Store` leaves out the small files that Finder
 creates in every folder you open: they are useless in the bucket.</span>
 
-**e) Clean up.**
-
-!!! danger "`rclone purge` permanently deletes everything under the given path, without confirmation and without a trash"
-    Without the final `/EXERCISE`, the whole bucket disappears, with all the data it
-    holds. Read the path three times before pressing Enter. If in doubt, first run the
-    same command followed by `--dry-run`: it shows what would be deleted without
-    deleting anything.
-
-``` { .text .rclone-tpl }
-rclone purge {{remote}}:{{bucket}}/EXERCISE
-```
-
-<div data-only="mac win" markdown>
-
-If you want to try Cyberduck (f, below), keep the local folder
-<span data-rclone="exo">rclone-exercise</span> for now. Otherwise delete it:
-
-</div>
-
-<div data-only="linux mac" markdown>
-
-``` { .text .rclone-tpl }
-rm -rf "{{exo}}"
-```
-
-</div>
-
-<div data-only="win" markdown>
-
-``` { .text .rclone-tpl }
-Remove-Item -LiteralPath "{{exo}}" -Recurse -Force
-```
-
-</div>
-
-Then send the files of the
-<code><span data-rclone="logs">$HOME/rclone-logs</span></code> directory to whoever
-supports you.
+??? tip "Going further: measure the throughput"
+    With 1 GB, the exercise checks that everything works, but says little about how long
+    a large transfer will take. To find out, generate a bigger set: the last number of the
+    generation command is the volume in GB<span data-only="win"> (`$Vol` at the start of
+    the generation block)</span>. As a reference, 100 GB took 6 minutes to generate and 35
+    minutes to upload from a lab server.<span data-only="linux"> On a server, put such a
+    volume on a data disk, never in your home directory, which is often on the system
+    disk: filling it up can freeze the server.</span> Then adapt the path in the copy,
+    check and clean-up commands. The speed is displayed live by `-P`; for the average,
+    divide the volume transferred by the elapsed time, both given in the last lines of
+    the log.
 
 <div data-only="mac win" markdown>
 
-**f) Optional: the same exercise with Cyberduck.** Cyberduck is a free graphical client
+**e) Optional: the same upload with Cyberduck.** Cyberduck is a free graphical client
 for Mac and Windows. This tests it on the same data, then checks with rclone that what
 it sent is intact.
 
@@ -451,8 +406,8 @@ it sent is intact.
    port 443, then the Access Key ID and the Secret Access Key, typed in this window
    only.
 3. Open the bucket, create a folder named `CYBERDUCK-EXERCISE` (Action menu, then New
-   Folder) and open it. Select everything inside
-   <span data-rclone="exo">rclone-exercise</span> in your file manager and drag it into
+   Folder) and open it. Select everything inside the folder
+   `rclone-exercise` of your home folder, in your file manager, and drag it into
    the Cyberduck window. Note how long the transfer takes.
 4. Check with rclone. The `--download` option makes rclone compare the content byte by
    byte: for large files, which Cyberduck sends in several parts, the bucket keeps no
@@ -480,18 +435,31 @@ rclone size "{{remote}}:{{bucket}}/CYBERDUCK-EXERCISE"
 </div>
 
 The check must end with `0 differences found`, and the last two commands must print the
-same number of objects and the same total size.
+same number of objects and the same total size. Keep the folder `CYBERDUCK-EXERCISE` for
+now: step 5 uses it.
 
-**Clean up.** In Cyberduck, select the folder `CYBERDUCK-EXERCISE` at the root of the
-bucket, choose Delete ("Effacer" if Cyberduck is in French) and confirm: Cyberduck
-removes the folder and everything in it. Do it in Cyberduck rather than with
-`rclone purge`, which would leave the empty folder behind. Then delete the local
-folder:
+</div>
 
-<div data-only="mac" markdown>
+### Step 5 — Practise managing files in the bucket (recommended)
+
+Day-to-day work is rarely one big transfer: a new file arrives, a batch of files must be
+stored, a file was put in the wrong place, another one must go. This step practises
+these operations on the exercise data, which are still in the bucket under `EXERCISE`.
+
+In a bucket, a folder is only a part of the files' paths. You never need to create a
+folder before copying a file into it, and a folder disappears by itself when its last
+file is moved or deleted.
+
+**a) Prepare the new files**: a 5 MB file, `new_sample.bam`, and a folder of ten 1 MB
+files, `new_batch`, both in your home folder.
+
+<div data-only="linux mac" markdown>
 
 ``` { .text .rclone-tpl }
-rm -rf "{{exo}}"
+head -c 5242880 /dev/urandom > "{{newfile}}"
+mkdir -p "{{newbatch}}"
+for i in $(seq -w 1 10); do head -c 1048576 /dev/urandom > "{{newbatch}}/file_$i.bin"; done
+ls -l "{{newfile}}" "{{newbatch}}"
 ```
 
 </div>
@@ -499,14 +467,164 @@ rm -rf "{{exo}}"
 <div data-only="win" markdown>
 
 ``` { .text .rclone-tpl }
-Remove-Item -LiteralPath "{{exo}}" -Recurse -Force
+& {
+  $rng = [Security.Cryptography.RandomNumberGenerator]::Create()
+  function Write-Random([string]$Path, [int]$Bytes) { $b = New-Object byte[] $Bytes; $rng.GetBytes($b); [IO.File]::WriteAllBytes($Path, $b) }
+  Write-Random "{{newfile}}" 5MB
+  New-Item -ItemType Directory -Force -Path "{{newbatch}}" | Out-Null
+  for ($i = 1; $i -le 10; $i++) { Write-Random (Join-Path "{{newbatch}}" ("file_{0:D2}.bin" -f $i)) 1MB }
+  Get-ChildItem -LiteralPath "{{newfile}}", "{{newbatch}}" | Select-Object Name, Length
+}
 ```
 
 </div>
 
+**b) Upload a new file**, first into an existing folder:
+
+``` { .text .rclone-tpl }
+rclone copy "{{newfile}}" {{remote}}:{{bucket}}/EXERCISE/run_02/large
+rclone lsf {{remote}}:{{bucket}}/EXERCISE/run_02/large
+```
+
+`rclone copy` takes a destination folder. The `lsf` must list `new_sample.bam` next to
+the `alignment_…bam` files already there.
+
+Then into a folder that does not exist yet:
+
+``` { .text .rclone-tpl }
+rclone copyto "{{newfile}}" {{remote}}:{{bucket}}/EXERCISE/run_03/new_sample.bam
+rclone lsf {{remote}}:{{bucket}}/EXERCISE/run_03
+```
+
+`rclone copyto` takes the full name of the file at destination, which also lets you
+rename it on the way. The `lsf` must print `new_sample.bam`: the folder `run_03` did not
+exist, the copy created it.
+
+**c) Upload a new folder**, then check it:
+
+``` { .text .rclone-tpl }
+rclone copy "{{newbatch}}" {{remote}}:{{bucket}}/EXERCISE/new_batch
+rclone check "{{newbatch}}" {{remote}}:{{bucket}}/EXERCISE/new_batch --one-way
+```
+
+!!! warning "Name the folder in the destination"
+    `rclone copy` copies the *content* of a folder. Without `/new_batch` at the end of
+    the destination, the ten files would land loose in `EXERCISE`, mixed with the rest.
+
+**d) Move and rename.** The files are moved inside the bucket, without being uploaded
+again:
+
+``` { .text .rclone-tpl }
+rclone moveto {{remote}}:{{bucket}}/EXERCISE/run_03/new_sample.bam {{remote}}:{{bucket}}/EXERCISE/run_01/sample_renamed.bam
+rclone move {{remote}}:{{bucket}}/EXERCISE/new_batch {{remote}}:{{bucket}}/EXERCISE/run_02/new_batch
+rclone lsf {{remote}}:{{bucket}}/EXERCISE
+rclone lsf {{remote}}:{{bucket}}/EXERCISE/run_02
+```
+
+`moveto` moves one file and can rename it; `move` moves the content of a folder, with
+the same rule as `copy`: name the folder in the destination. The first `lsf` no longer
+lists `run_03/` nor `new_batch/`: once empty, they are gone. The second lists
+`new_batch/` in its new place.
+
+**e) Delete.** Always run the command with `--dry-run` first: it deletes nothing and
+only shows what would be deleted.
+
+``` { .text .rclone-tpl }
+rclone deletefile {{remote}}:{{bucket}}/EXERCISE/run_01/sample_renamed.bam --dry-run
+```
+
+The output must name `sample_renamed.bam` only, followed by
+`Skipped delete as --dry-run is set`. Then, and only then, delete it for real:
+
+``` { .text .rclone-tpl }
+rclone deletefile {{remote}}:{{bucket}}/EXERCISE/run_01/sample_renamed.bam
+```
+
+`deletefile` deletes exactly one file and refuses a folder: it is the safest way to
+delete. To delete a whole folder, use `rclone purge`:
+
+!!! danger "`rclone purge` permanently deletes everything under the given path, without confirmation and without a trash"
+    A mistake in the path can wipe out the whole bucket, with all the data it holds.
+    Read the path three times before pressing Enter, and run the command with
+    `--dry-run` first.
+
+``` { .text .rclone-tpl }
+rclone purge {{remote}}:{{bucket}}/EXERCISE/run_02/new_batch --dry-run
+```
+
+The output must end with `EXERCISE/run_02/new_batch: Skipped purge directory as
+--dry-run is set`: check that this path is the folder to delete, and nothing above it.
+Then delete it for real, and check that only `large/` remains in `run_02`:
+
+``` { .text .rclone-tpl }
+rclone purge {{remote}}:{{bucket}}/EXERCISE/run_02/new_batch
+rclone lsf {{remote}}:{{bucket}}/EXERCISE/run_02
+```
+
+<div data-only="mac win" markdown>
+
+**f) Optional: the same operations with Cyberduck**, in the folder `CYBERDUCK-EXERCISE`:
+
+1. Drag `new_sample.bam` from your home folder into `run_01`.
+2. Rename it: select it, press Return, type `renamed.bam`, press Return again.
+3. Move it: Edit menu, Cut; open `run_02`; Edit menu, Paste ("Édition", "Couper",
+   "Coller" if Cyberduck is in French).
+4. Drag the folder `new_batch` from your home folder into `CYBERDUCK-EXERCISE`.
+5. Look at the result with rclone:
+
+    ``` { .text .rclone-tpl }
+    rclone lsf {{remote}}:{{bucket}}/CYBERDUCK-EXERCISE/run_01
+    rclone lsf {{remote}}:{{bucket}}/CYBERDUCK-EXERCISE/run_02
+    rclone lsf {{remote}}:{{bucket}}/CYBERDUCK-EXERCISE/new_batch
+    ```
+
+    `run_02` must list `renamed.bam` next to `large/`, and `new_batch` its ten files.
+    <span data-only="mac">With an OVHcloud bucket, Cyberduck on Mac can stop with a
+    connection error during a rename or a move, and leave the original file in place:
+    if `run_01` still lists `new_sample.bam` or `renamed.bam`, delete them in Cyberduck.
+    rclone does not have this problem (step d).</span>
+
+6. Delete `renamed.bam`: select it, then Delete ("Effacer" in French), and confirm.
+
 </div>
 
-### Step 5 — Transfer the real data
+**g) Clean up** the bucket<span data-only="mac win"> (both exercise folders)</span>
+and your computer. Same care as above: the path must end with `/EXERCISE`.
+
+``` { .text .rclone-tpl }
+rclone purge {{remote}}:{{bucket}}/EXERCISE
+```
+
+<div data-only="mac win" markdown>
+
+In Cyberduck, select the folder `CYBERDUCK-EXERCISE` at the root of the bucket, choose
+Delete ("Effacer" in French) and confirm: Cyberduck removes the folder and everything
+in it. Do it in Cyberduck rather than with `rclone purge`, which would leave the empty
+folder created by Cyberduck behind.
+
+</div>
+
+<div data-only="linux mac" markdown>
+
+``` { .text .rclone-tpl }
+rm -rf "{{exo}}" "{{newfile}}" "{{newbatch}}"
+```
+
+</div>
+
+<div data-only="win" markdown>
+
+``` { .text .rclone-tpl }
+Remove-Item -LiteralPath "{{exo}}", "{{newfile}}", "{{newbatch}}" -Recurse -Force
+```
+
+</div>
+
+Then send the files of the
+<code><span data-rclone="logs">$HOME/rclone-logs</span></code> directory to whoever
+supports you.
+
+### Step 6 — Transfer the real data
 
 The same commands, with the directory of the real data
 (<span data-rclone="src">/path/to/data</span>) and the destination directory in the
@@ -543,7 +661,7 @@ BW="{{bw}}"
 rclone copy "{{src}}" "{{remote}}:{{bucket}}/{{dst}}" \
   --fast-list --transfers 4 \
   --bwlimit "$BW" -P \
-  --log-file "{{logs}}/transfer_copy.log" --log-level INFO
+  --log-file "{{logs}}/transfer_copy.log" --log-level INFO || tail -n 5 "{{logs}}/transfer_copy.log"
 ```
 
 </div>
@@ -555,7 +673,7 @@ BW="{{bw}}"
 caffeinate -i rclone copy "{{src}}" "{{remote}}:{{bucket}}/{{dst}}" \
   --exclude .DS_Store --fast-list --transfers 4 \
   --bwlimit "$BW" -P \
-  --log-file "{{logs}}/transfer_copy.log" --log-level INFO
+  --log-file "{{logs}}/transfer_copy.log" --log-level INFO || tail -n 5 "{{logs}}/transfer_copy.log"
 ```
 
 </div>
@@ -565,6 +683,7 @@ caffeinate -i rclone copy "{{src}}" "{{remote}}:{{bucket}}/{{dst}}" \
 ``` { .text .rclone-tpl }
 $BW = "{{bw}}"
 rclone copy "{{src}}" "{{remote}}:{{bucket}}/{{dst}}" --fast-list --transfers 4 --bwlimit $BW -P --log-file "{{logs}}\transfer_copy.log" --log-level INFO
+if ($LASTEXITCODE -ne 0) { Get-Content "{{logs}}\transfer_copy.log" -Tail 5 }
 ```
 
 </div>
@@ -611,6 +730,12 @@ what is missing.
 
 ### Troubleshooting
 
+- **The copy command returns at once, or ends with `Errors: 1` or more**: read the last
+  lines of the log, which the command prints in that case. `didn't find section in
+  config file` means that the rclone configuration name in "Your values" is not the one
+  created at step 2 (the command `rclone listremotes` lists the existing ones).
+  `directory not found` means that the source directory does not exist on this
+  machine: check its path in "Your values".
 - **`AccessDenied`**: the keys were mistyped at step 2. Delete the configuration with
   <code>rclone config delete <span data-rclone="remote">ovh</span></code>, then paste
   the step 2 block again.
