@@ -9,6 +9,27 @@ On a Mac or a PC, you can also try a graphical client, Cyberduck, on the same da
 Moving the data to cold archive afterwards is optional and covered separately at
 the end of the page ([Part 2](#part-2-cold-archive-optional)).
 
+## What you need
+
+Four things, whatever your system:
+
+- **An OVHcloud account with a Public Cloud project.** The storage is created and billed
+  in this project.
+- **A bucket** in the project's Object Storage, with the S3 API. You need its name and
+  its region (for instance `eu-west-par`, Paris).
+- **Keys for this bucket**: an access key and a secret key. They belong to an Object
+  Storage user who has the right to read and write in the bucket.
+- **A machine to work from**: the Linux server, the Mac or the Windows PC that holds the
+  data. The exercise of step 4 runs on this machine, with dummy data, before any real
+  transfer.
+
+In most cases, the account, the bucket and the keys are provided by whoever administers
+the OVHcloud account for your team: you only receive the bucket name, its region and the
+two keys. If you have your own OVHcloud account, OVHcloud's documentation explains how
+to [create a Public Cloud project](https://docs.ovhcloud.com/en/guides/public-cloud/cross-functional/create-a-public-cloud-project),
+[create a bucket](https://docs.ovhcloud.com/en/guides/storage-and-backup/object-storage/s3-getting-started-with-object-storage)
+and [create an Object Storage user with its keys](https://docs.ovhcloud.com/en/guides/storage-and-backup/object-storage/s3-identity-and-access-management).
+
 ## Your values
 
 <div id="rclone-form" class="rclone-form" markdown>
@@ -49,9 +70,8 @@ the commands for your system only.</p>
 
 ## Before you start
 
-- Three pieces of information from whoever manages your OVHcloud Public Cloud project:
-  the bucket name (<span data-rclone="bucket">my-bucket</span>), an access key and a
-  secret key.
+- The bucket name (<span data-rclone="bucket">my-bucket</span>), its region, the
+  access key and the secret key ([What you need](#what-you-need)).
 - <span data-only="linux">An account on the Linux server that holds the data, with
   Internet access, and at least 2 GB of free space in your home directory for the
   exercise.</span><span data-only="mac">The Terminal app (Applications, then Utilities)
